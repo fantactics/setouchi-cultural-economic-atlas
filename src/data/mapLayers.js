@@ -24,7 +24,11 @@ export const mapLayers = {
     }
   ],
   foodCulture: [
-    {name:'下津井',lat:34.435,lon:133.806,note:'タコ・瀬戸内魚介',status:'pending'},
+    {
+      name:'下津井',lat:34.435,lon:133.806,note:'タコ・瀬戸内魚介',
+      status:'verified',sourceId:'MAP-03',sourceLabel:'日本遺産デザインマンホール（倉敷市）',
+      sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html',verifiedAt:'2026-09-27'
+    },
     {
       name:'笠岡諸島',lat:34.43,lon:133.51,note:'真鯛・イイダコ・メバル等',
       status:'verified',sourceId:'X-01',sourceLabel:'そうだ、釣りに行こう（笠岡市観光協会）',
@@ -35,8 +39,16 @@ export const mapLayers = {
       status:'verified',sourceId:'MAP-02',sourceLabel:'備後フィッシュ（福山市）',
       sourceUrl:'https://www.city.fukuyama.hiroshima.jp/site/bingofish/121083.html',verifiedAt:'2026-09-27'
     },
-    {name:'尾道',lat:34.4089,lon:133.205,note:'魚介・柑橘',status:'pending'},
-    {name:'今治',lat:34.0661,lon:132.9978,note:'鯛・島嶼柑橘',status:'pending'}
+    {
+      name:'尾道',lat:34.4089,lon:133.205,note:'季節の魚介',
+      status:'verified',sourceId:'MAP-04',sourceLabel:'尾道季節の魚20選（尾道市）',
+      sourceUrl:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'今治',lat:34.0661,lon:132.9978,note:'来島鯛・鯛めし・島嶼柑橘',
+      status:'verified',sourceId:'MAP-05',sourceLabel:'観光課・今治郷土料理（今治市）',
+      sourceUrl:'https://www.city.imabari.ehime.jp/kankou/',verifiedAt:'2026-09-27'
+    }
   ],
   maritimeIndustry: [
     {
