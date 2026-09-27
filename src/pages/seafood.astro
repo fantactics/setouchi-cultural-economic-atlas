@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 import { seafoodSpecies } from '../data/seafood.js';
+import { seafoodResourceChanges, ecosystemDrivers } from '../data/seafoodResources.js';
 
 const placeById = Object.fromEntries(places.map((p)=>[p.id,p]));
 const placeSpecies = Object.fromEntries(places.map((p)=>[
@@ -87,6 +88,38 @@ const speciesBySeason = Object.fromEntries(seasonOrder.map((season)=>[
       <span>港町文化・観光</span>
     </div>
     <p class="lead">同じ「瀬戸内の魚」でも、鯛は強潮流、シャコは砂泥底、牡蠣は静穏な内湾、イリコは燧灘の漁場と加工技術というように、食文化の成立条件は異なります。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">RESOURCE CHANGE</div>
+    <h2>食文化を支える資源は、いまどう変わっているか</h2>
+    <div class="resource-change-grid">
+      {seafoodResourceChanges.map((item)=>{
+        const species = seafoodSpecies.find((s)=>s.id===item.speciesId);
+        return (
+          <article class="resource-change-card">
+            <div class={`resource-status ${item.status}`}>{item.label}</div>
+            <h3><a href={`/setouchi-cultural-economic-atlas/seafood/${item.speciesId}/`}>{species?.name || item.speciesId}</a></h3>
+            <ul>{item.observations.map((x)=><li>{x}</li>)}</ul>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">ECOSYSTEM DRIVERS</div>
+    <h2>背景にある海域環境</h2>
+    <div class="comparison-insight-grid">
+      {ecosystemDrivers.map((driver)=>(
+        <article class="insight-card">
+          <h3>{driver.name}</h3>
+          <p>{driver.summary}</p>
+          <a class="text-link" href={driver.source} target="_blank" rel="noreferrer">一次資料 →</a>
+        </article>
+      ))}
+    </div>
+    <p class="map-note">ここで示す海域環境要因は、各魚種の減少原因を単独で断定するものではありません。魚種・海域ごとに因果関係を分けて検証します。</p>
   </section>
 
   <section class="section">
