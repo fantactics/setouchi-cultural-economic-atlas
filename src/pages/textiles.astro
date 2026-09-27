@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { textileZones, textileMechanisms, textileRelations } from '../data/textileBelt.js';
+import { textileZones, textileMechanisms, textileRelations, textileProcessStages, textileProcessByZone, textileProcessLevelLabels } from '../data/textileBelt.js';
 
 const mechanismLabel=(id)=>textileMechanisms[id]?.label || id;
 ---
@@ -64,6 +64,39 @@ const mechanismLabel=(id)=>textileMechanisms[id]?.label || id;
           <tr><th>福山・備後</th><td>綿作＋藍染文化</td><td>紡績・染色・織布・加工・縫製・洗い</td><td>備後絣 → デニム</td><td>工程集積・高付加価値デニム</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">PROCESS SUPPLY CHAIN</div>
+    <h2>工程を分解すると、産地の違いがはっきりする</h2>
+    <p class="lead">同じ「繊維産地」でも競争力が宿る工程は異なります。ここでは原料から市場化までを7段階に分け、各産地の中核工程と非中核工程を分離します。</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table textile-process-table">
+        <thead>
+          <tr><th>産地</th>{textileProcessStages.map((stage)=><th title={stage.description}>{stage.label}</th>)}</tr>
+        </thead>
+        <tbody>
+          {textileZones.map((zone)=>(
+            <tr>
+              <th>{zone.name}</th>
+              {textileProcessStages.map((stage)=>{
+                const item=textileProcessByZone[zone.id]?.[stage.id];
+                return (
+                  <td>
+                    <span class:list={['process-level',item?.level || 'external']}>{textileProcessLevelLabels[item?.level || 'external']}</span>
+                    <p>{item?.note || '未整理'}</p>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="synthesis">
+      <strong>読み方：</strong>児島・倉敷と福山・備後はともに多工程型ですが、児島は縫製・洗い・製品ブランド、備後は紡績・染色・織布を含む素材側の工程集積が特に強い。
+      今治は染晒・織布・品質管理、東かがわは縫製・立体成形に強く、4産地は「何の工程を地域内に残したか」が異なります。
     </div>
   </section>
 
