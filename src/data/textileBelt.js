@@ -102,3 +102,60 @@ export const textileRelations = [
     description:'歴史的に一本の企業系譜という意味ではなく、現在の広域産地ブランドとして連携。'
   }
 ];
+
+
+export const textileProcessStages = [
+  {id:'raw',label:'原料',description:'綿・糸・皮革など、製造に入る前の素材'},
+  {id:'spinning',label:'紡績・糸',description:'原料を糸にする／糸を調達・準備する工程'},
+  {id:'dyeing',label:'染色・晒',description:'藍染、染晒、先染など色と風合いをつくる工程'},
+  {id:'weaving',label:'織布・編立',description:'糸から生地をつくる工程'},
+  {id:'sewing',label:'縫製・成形',description:'生地・素材を最終製品の形へ組み立てる工程'},
+  {id:'finishing',label:'洗い・仕上げ',description:'洗い加工、整理加工、形状仕上げなどの後工程'},
+  {id:'brand',label:'ブランド・販売',description:'品質保証、産地ブランド、直販・産業観光など市場化の工程'}
+];
+
+export const textileProcessByZone = {
+  'kojima-kurashiki': {
+    raw:{level:'historic',note:'干拓地の綿作が歴史的起点。現在のデニム原料は広域調達。'},
+    spinning:{level:'present',note:'紡績・撚糸を含む工程史を持つ。児島の強みはむしろ後工程の厚みにある。'},
+    dyeing:{level:'core',note:'インディゴ染色・染色加工が重要な地域技能。'},
+    weaving:{level:'core',note:'厚地織物・デニム生地の織布が産地工程に組み込まれる。'},
+    sewing:{level:'core',note:'足袋・学生服・作業服からジーンズへ続く中核技能。'},
+    finishing:{level:'core',note:'洗い加工・中古加工・レーザー等の後加工が高付加価値化を支える。'},
+    brand:{level:'core',note:'ジーンズストリート、直営店、産業観光まで展開。'}
+  },
+  'imabari': {
+    raw:{level:'present',note:'綿糸を基礎にするが、競争力の中心は原料産地性ではない。'},
+    spinning:{level:'present',note:'糸調達・糸加工を含むが、産地の差別化は後工程側が中心。'},
+    dyeing:{level:'core',note:'蒼社川の軟水を生かした晒・染色、先染が品質形成の中核。'},
+    weaving:{level:'core',note:'タオル織機と織布技術が中核工程。'},
+    sewing:{level:'present',note:'製品縫製も地域工程に含まれるが、主役は染晒・織布。'},
+    finishing:{level:'core',note:'整理・仕上げ・品質検査が吸水性や肌触りの品質差をつくる。'},
+    brand:{level:'core',note:'今治タオルの品質基準と産地ブランドが市場価値を形成。'}
+  },
+  'higashikagawa': {
+    raw:{level:'present',note:'糸・皮革など多様な素材を調達。原料産地性は弱い。'},
+    spinning:{level:'external',note:'紡績は主たる地域技能ではない。'},
+    dyeing:{level:'external',note:'染色は補助工程で、地域競争力の中心ではない。'},
+    weaving:{level:'present',note:'ニット等の素材工程はあるが、主軸は製品成形。'},
+    sewing:{level:'core',note:'細かな縫製・立体成形が手袋産地の中心技能。'},
+    finishing:{level:'core',note:'形を整える工程、検品、機能付与など製品仕上げが重要。'},
+    brand:{level:'core',note:'スポーツ・高機能・革製品などへの用途展開と地域ブランド化。'}
+  },
+  'bingo-fukuyama': {
+    raw:{level:'present',note:'綿を基礎素材とする。現在は世界の原綿を調達する企業もある。'},
+    spinning:{level:'core',note:'紡績を担う企業が地域内に存在し、上流工程から集積。'},
+    dyeing:{level:'core',note:'備後絣の藍染技術からロープ染色等へ発展。'},
+    weaving:{level:'core',note:'厚地織布の技能がデニム生地生産の中核。'},
+    sewing:{level:'core',note:'縫製企業も地域内に集積。'},
+    finishing:{level:'core',note:'整理加工・洗いなど後加工企業も集積。'},
+    brand:{level:'present',note:'素材産地として強く、近年は備中備後連携で発信力を強化。'}
+  }
+};
+
+export const textileProcessLevelLabels = {
+  core:'中核工程',
+  present:'地域内に存在',
+  historic:'歴史的起点',
+  external:'主に域外・非中核'
+};
