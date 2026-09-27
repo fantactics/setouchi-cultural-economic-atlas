@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
-import { industrySpatialNodes, industrySpatialRelations, industrySpatialCategories, industryRelationTypes } from '../data/industrySpatial.js';
+import { industrySpatialNodes, industrySpatialRelations, industrySpatialCategories, industryRelationTypes, industryEraPresets, industryNodeStartStage } from '../data/industrySpatial.js';
 
 const rows = places.map((place)=>({
   id:place.id,
@@ -36,6 +36,20 @@ const sourceMap = (row, index) => {
     <h2>{mappedPlaceCount}地域の産業遺伝子を、空間で追う</h2>
     <p class="lead">旧塩田・商家地区・歴史港と、現在の本社・工場・産業集積を重ねます。線は企業の直系系譜とは限らず、土地・物流・技能・資本など「何が継承されたか」を分けて表示します。</p>
 
+    <div class="industry-era-control">
+      <div class="industry-era-head">
+        <span class="filter-label">時代</span>
+        <strong id="industry-era-label">{industryEraPresets[3].label}</strong>
+        <small id="industry-era-period">{industryEraPresets[3].period}</small>
+      </div>
+      <input id="industry-era-range" type="range" min="0" max={industryEraPresets.length - 1} step="1" value="3" aria-label="産業形成の時代を切り替える" />
+      <div class="industry-era-labels">
+        {industryEraPresets.map((era)=><span>{era.label}</span>)}
+      </div>
+      <p id="industry-era-description" class="industry-era-description">{industryEraPresets[3].description}</p>
+      <p class="map-note">表示は「その時代までに形成された産業資産」の累積です。過去の港・塩田・商家なども、後世の産業を読む痕跡として残します。</p>
+    </div>
+
     <div class="industry-map-controls">
       <div class="industry-filter-group">
         <span class="filter-label">地点</span>
@@ -56,7 +70,9 @@ const sourceMap = (row, index) => {
       data-nodes={JSON.stringify(industrySpatialNodes)}
       data-relations={JSON.stringify(industrySpatialRelations)}
       data-categories={JSON.stringify(industrySpatialCategories)}
-      data-relation-types={JSON.stringify(industryRelationTypes)}></div>
+      data-relation-types={JSON.stringify(industryRelationTypes)}
+      data-eras={JSON.stringify(industryEraPresets)}
+      data-node-start-stage={JSON.stringify(industryNodeStartStage)}></div>
 
     <div class="industry-map-legend">
       {Object.entries(industryRelationTypes).map(([key,item])=>(
@@ -148,6 +164,8 @@ const sourceMap = (row, index) => {
       const relations=JSON.parse(el.dataset.relations || '[]');
       const categories=JSON.parse(el.dataset.categories || '{}');
       const relationTypes=JSON.parse(el.dataset.relationTypes || '{}');
+      const eras=JSON.parse(el.dataset.eras || '[]');
+      const nodeStartStage=JSON.parse(el.dataset.nodeStartStage || '{}');
 
       const map=L.map(el,{scrollWheelZoom:false}).setView([34.15,132.75],7);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -156,7 +174,13 @@ const sourceMap = (row, index) => {
 
       const nodeLayers={};
       const relationLayers={};
+      const nodeMarkers={};
+      const relationLines=[];
       const nodeById=Object.fromEntries(nodes.map((n)=>[n.id,n]));
+      const stageIndex=Object.fromEntries(eras.map((e,i)=>[e.id,i]));
+      let activeEraIndex=Math.max(0,eras.length-1);
+      const nodeCategoryEnabled={};
+      const relationTypeEnabled={};
 
       const categoryStyle={
         heritage:{color:'#8a623c',fillColor:'#c39a69'},
@@ -176,56 +200,105 @@ const sourceMap = (row, index) => {
       };
 
       nodes.forEach((n)=>{
-        if(!nodeLayers[n.category]) nodeLayers[n.category]=L.layerGroup().addTo(map);
+        if(!nodeLayers[n.category]) nodeLayers[n.category]=L.layerGroup();
+        nodeCategoryEnabled[n.category]=true;
         const style=categoryStyle[n.category] || {color:'#555',fillColor:'#999'};
-        L.circleMarker([n.lat,n.lon],{
+        const marker=L.circleMarker([n.lat,n.lon],{
           radius:8,weight:2.2,fillOpacity:.86,color:style.color,fillColor:style.fillColor
-        }).addTo(nodeLayers[n.category]).bindPopup(
+        }).bindPopup(
           '<strong>'+n.name+'</strong><br>'+
           (categories[n.category]?.label || n.category)+' / '+n.era+
           '<br>'+n.note+
-          '<br><small>位置精度: '+n.precision+'</small>'+
+          '<br><small>形成段階: '+(eras[stageIndex[nodeStartStage[n.id]]] ? eras[stageIndex[nodeStartStage[n.id]]].label : '未設定')+' / 位置精度: '+n.precision+'</small>'+
           '<br><a href="'+n.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
         );
+        nodeMarkers[n.id]=marker;
       });
 
       relations.forEach((rel)=>{
         const from=nodeById[rel.from], to=nodeById[rel.to];
         if(!from || !to) return;
-        if(!relationLayers[rel.type]) relationLayers[rel.type]=L.layerGroup().addTo(map);
+        relationTypeEnabled[rel.type]=true;
         const style=relationStyle[rel.type] || {color:'#777',weight:3,dashArray:'5 7'};
-        L.polyline([[from.lat,from.lon],[to.lat,to.lon]],{
+        const line=L.polyline([[from.lat,from.lon],[to.lat,to.lon]],{
           color:style.color,weight:style.weight,dashArray:style.dashArray,opacity:.78
-        }).addTo(relationLayers[rel.type]).bindPopup(
+        }).bindPopup(
           '<strong>'+(relationTypes[rel.type]?.label || rel.type)+'</strong><br>'+
           from.name+' → '+to.name+
           '<br>'+rel.note+
           '<br><small>確度: '+rel.confidence.toUpperCase()+'</small>'
         );
+        relationLines.push({rel,line});
       });
+
+      const isNodeAvailable=(id)=>{
+        const start=nodeStartStage[id] || 'contemporary';
+        return (stageIndex[start] ?? eras.length-1) <= activeEraIndex;
+      };
+
+      const refreshMap=()=>{
+        Object.values(nodeLayers).forEach((layer)=>layer.clearLayers());
+        nodes.forEach((n)=>{
+          if(nodeCategoryEnabled[n.category] && isNodeAvailable(n.id)){
+            nodeLayers[n.category].addLayer(nodeMarkers[n.id]);
+          }
+        });
+        Object.entries(nodeLayers).forEach(([key,layer])=>{
+          if(nodeCategoryEnabled[key] && !map.hasLayer(layer)) map.addLayer(layer);
+          if(!nodeCategoryEnabled[key] && map.hasLayer(layer)) map.removeLayer(layer);
+        });
+
+        Object.values(relationLayers).forEach((layer)=>layer.clearLayers());
+        relationLines.forEach(({rel,line})=>{
+          if(!relationLayers[rel.type]) relationLayers[rel.type]=L.layerGroup();
+          if(relationTypeEnabled[rel.type] && isNodeAvailable(rel.from) && isNodeAvailable(rel.to)){
+            relationLayers[rel.type].addLayer(line);
+          }
+        });
+        Object.entries(relationLayers).forEach(([key,layer])=>{
+          if(relationTypeEnabled[key] && !map.hasLayer(layer)) map.addLayer(layer);
+          if(!relationTypeEnabled[key] && map.hasLayer(layer)) map.removeLayer(layer);
+        });
+      };
 
       const allCoords=nodes.map((n)=>[n.lat,n.lon]);
       if(allCoords.length) map.fitBounds(L.latLngBounds(allCoords),{padding:[26,26]});
 
+      const eraRange=document.getElementById('industry-era-range');
+      const eraLabel=document.getElementById('industry-era-label');
+      const eraPeriod=document.getElementById('industry-era-period');
+      const eraDescription=document.getElementById('industry-era-description');
+      const applyEra=(index)=>{
+        activeEraIndex=index;
+        const era=eras[index];
+        if(eraLabel && era) eraLabel.textContent=era.label;
+        if(eraPeriod && era) eraPeriod.textContent=era.period;
+        if(eraDescription && era) eraDescription.textContent=era.description;
+        refreshMap();
+      };
+      if(eraRange){
+        eraRange.addEventListener('input',()=>applyEra(Number(eraRange.value)));
+      }
+
       document.querySelectorAll('.industry-map-filter').forEach((button)=>{
         button.addEventListener('click',()=>{
           const key=button.dataset.nodeCategory;
-          const layer=nodeLayers[key];
-          if(!layer) return;
-          if(map.hasLayer(layer)){ map.removeLayer(layer); button.classList.remove('active'); }
-          else { map.addLayer(layer); button.classList.add('active'); }
+          nodeCategoryEnabled[key]=!nodeCategoryEnabled[key];
+          button.classList.toggle('active',nodeCategoryEnabled[key]);
+          refreshMap();
         });
       });
 
       document.querySelectorAll('.industry-relation-filter').forEach((button)=>{
         button.addEventListener('click',()=>{
           const key=button.dataset.relationType;
-          const layer=relationLayers[key];
-          if(!layer) return;
-          if(map.hasLayer(layer)){ map.removeLayer(layer); button.classList.remove('active'); }
-          else { map.addLayer(layer); button.classList.add('active'); }
+          relationTypeEnabled[key]=!relationTypeEnabled[key];
+          button.classList.toggle('active',relationTypeEnabled[key]);
+          refreshMap();
         });
       });
+
+      applyEra(activeEraIndex);
     })();
   </script>
 </BaseLayout>
