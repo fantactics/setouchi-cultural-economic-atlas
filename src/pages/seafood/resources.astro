@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { mapLayers } from '../../data/mapLayers.js';
+import { seafoodSpecies } from '../../data/seafood.js';
+import { seafoodResourceChanges, ecosystemDrivers } from '../../data/seafoodResources.js';
+
+const points = mapLayers.resourceStatus || [];
+const speciesById = Object.fromEntries(seafoodSpecies.map((s)=>[s.id,s]));
+---
+<BaseLayout title="水産資源の変化 | 海の食文化 | 瀬戸内文化経済アトラス" description="瀬戸内の魚種資源の増減・回復・管理状況を地図と一次資料で読む。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <section class="place-hero">
+    <div class="kicker">SEAFOOD RESOURCE MAP</div>
+    <h1>水産資源の変化を地図で読む</h1>
+    <p class="subtitle">食文化を支える魚介資源が、どこで減り、どこで回復し、どこで管理されているかを一次資料ベースで重ねます。</p>
+  </section>
+
+  <section class="section">
+    <div class="resource-map-legend">
+      <span><i class="legend-dot declining"></i>減少傾向</span>
+      <span><i class="legend-dot increasing"></i>増加傾向</span>
+      <span><i class="legend-dot recovered"></i>回復・改善</span>
+      <span><i class="legend-dot managed"></i>管理対象</span>
+    </div>
+    <div id="resource-map" class="atlas-map" data-points={JSON.stringify(points)}></div>
+    <p class="map-note">系群・海域単位の評価は、代表点で表示しています。特定の港だけの資源状態を示すものではありません。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SPECIES STATUS</div>
+    <h2>魚種ごとの状況</h2>
+    <div class="resource-change-grid">
+      {seafoodResourceChanges.map((item)=>{
+        const species = speciesById[item.speciesId];
+        return (
+          <article class="resource-change-card">
+            <div class={`resource-status ${item.status}`}>{item.label}</div>
+            <h3><a href={`/setouchi-cultural-economic-atlas/seafood/${item.speciesId}/`}>{species?.name || item.speciesId}</a></h3>
+            <ul>{item.observations.map((x)=><li>{x}</li>)}</ul>
+            <div class="source-list compact-source-list">
+              {item.sources.map((source)=>(
+                <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+                  <span><b>{source.id}</b>　{source.label}<small>{source.publisher}</small></span><span>↗</span>
+                </a>
+              ))}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">ECOSYSTEM CONTEXT</div>
+    <h2>魚種の背後にある海域環境</h2>
+    <div class="comparison-insight-grid">
+      {ecosystemDrivers.map((driver)=>(
+        <article class="insight-card">
+          <h3>{driver.name}</h3>
+          <p>{driver.summary}</p>
+          <a class="text-link" href={driver.source} target="_blank" rel="noreferrer">一次資料 →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <a class="compare-button" href="/setouchi-cultural-economic-atlas/seafood/">← 海の食文化へ戻る</a>
+  </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el = document.getElementById('resource-map');
+      if (!el || !window.L) return;
+      const points = JSON.parse(el.dataset.points || '[]');
+      const map = L.map(el, { scrollWheelZoom: false }).setView([34.30,133.70], 8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom:18,
+        attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      const palette = {
+        declining:{color:'#8a3f32',fillColor:'#c96b5d'},
+        increasing:{color:'#2f6b3b',fillColor:'#73a979'},
+        recovered:{color:'#356a5f',fillColor:'#72a79a'},
+        managed:{color:'#675b7c',fillColor:'#9d91b0'}
+      };
+      points.forEach((item)=>{
+        const style = palette[item.resourceStatus] || palette.managed;
+        const detail = item.speciesId ? '/setouchi-cultural-economic-atlas/seafood/' + item.speciesId + '/' : '#';
+        L.circleMarker([item.lat,item.lon], {
+          radius:11,weight:2.2,fillOpacity:.8,...style
+        }).addTo(map).bindPopup(
+          '<strong>' + item.name + '</strong><br>' + item.note +
+          '<br><a href="' + detail + '">魚種詳細を見る →</a>' +
+          (item.sourceUrl ? '<br><a href="' + item.sourceUrl + '" target="_blank" rel="noreferrer">一次資料 ↗</a>' : '')
+        );
+      });
+    })();
+  </script>
+</BaseLayout>
