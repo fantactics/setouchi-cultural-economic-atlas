@@ -211,6 +211,24 @@ export const industrySpatialNodes = [
     era:'現代',note:'タコなどの漁業・水産食文化と港町観光が現在の地域価値を構成する。',
     sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html'
   },
+  {
+    id:'kojima-cotton-weaving',placeId:'shimotsui',name:'児島 綿作・織物産業圏',category:'heritage',
+    lat:34.470,lon:133.810,precision:'approximate',
+    era:'近世〜近代',note:'干拓地の綿作を基礎に、真田紐・小倉織・足袋などの加工技能が蓄積した児島の繊維産業基盤。',
+    sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1013347/1002267.html'
+  },
+  {
+    id:'kojima-shimomura-spinning',placeId:'shimotsui',name:'下村紡績所跡（児島下の町）',category:'heritage',
+    lat:34.468,lon:133.825,precision:'approximate',
+    era:'1882〜1986',note:'児島の近代紡績を先導した工場。後に琴浦紡績所として操業し、工場建物は現存しない。',
+    sourceUrl:'https://www.city.kurashiki.okayama.jp/cityinfo/about/1008255.html'
+  },
+  {
+    id:'kojima-textile-cluster',placeId:'shimotsui',name:'児島 繊維・アパレル産業圏',category:'cluster',
+    lat:34.462,lon:133.806,precision:'approximate',
+    era:'近代〜現代',note:'足袋・学生服・作業服から国産ジーンズ、染色・洗い加工へ展開した繊維産業集積。',
+    sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1001881/1011764/1008099/1011534.html'
+  },
 
   {
     id:'tadotsu-port',placeId:'tadotsu',name:'多度津旧港',category:'infrastructure',
@@ -320,6 +338,9 @@ export const industrySpatialRelations = [
   {from:'onomichi-port',to:'onomichi-shipbuilding',type:'capital_inheritance',confidence:'medium',note:'交易・廻船・修繕技能の蓄積が、近代海運・造船集積の背景となった。'},
   {from:'imabari-strait',to:'imabari-maritime',type:'skill_inheritance',confidence:'high',note:'海峡航海と海運技能が船主・造船・舶用の地域集積へ厚みを与えた。'},
   {from:'shimotsui-port',to:'shimotsui-fishery',type:'direct_continuity',confidence:'medium',note:'歴史港の海域利用が漁業・食文化・観光として現在まで残る。'},
+  {from:'shimotsui-port',to:'kojima-cotton-weaving',type:'logistics_inheritance',confidence:'high',note:'北前船が綿作肥料の干鰯・ニシン粕を運び込み、木綿・綿製品を積み出した港湾物流が児島の綿作・織物産業を支えた。'},
+  {from:'kojima-cotton-weaving',to:'kojima-shimomura-spinning',type:'parallel_modern_layer',confidence:'high',note:'地域の綿・織物産業基盤に、明治期の機械制紡績という新しい生産技術が加わった。'},
+  {from:'kojima-cotton-weaving',to:'kojima-textile-cluster',type:'skill_inheritance',confidence:'high',note:'織り・縫製などの技能が足袋から学生服・作業服へ、さらにジーンズ・加工技術へ適応しながら継承された。'},
   {from:'tadotsu-port',to:'tadotsu-railindustry',type:'logistics_inheritance',confidence:'high',note:'港の物資集散機能が鉄道・臨海物流へ置き換わりながら継承された。'},
   {from:'mitarai-port',to:'mitarai-tourism',type:'direct_continuity',confidence:'high',note:'滞留経済が形成した町並みそのものが現在の文化・観光資産になった。'},
   {from:'ushimado-port',to:'ushimado-coastal',type:'parallel_modern_layer',confidence:'medium',note:'歴史的海運・外交港の空間に、農漁業・観光など現在の沿岸産業が重なる。'},
@@ -390,6 +411,9 @@ export const industryNodeStartStage = {
 
   'shimotsui-port':'early-modern',
   'shimotsui-fishery':'contemporary',
+  'kojima-cotton-weaving':'early-modern',
+  'kojima-shimomura-spinning':'modern',
+  'kojima-textile-cluster':'modern',
 
   'tadotsu-port':'early-modern',
   'tadotsu-railindustry':'modern',
