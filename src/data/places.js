@@ -34,9 +34,16 @@ export const places = [
       {name:'塩田跡地・臨海工業遺伝子',type:'土地継承型＋物流型',chain:['塩田','塩田廃止','臨海工業用地','大型製造業立地']}
     ],
     sources:[
-      {label:'赤穂市 企業紹介チャンネル',url:'https://www.city.ako.lg.jp/kensetsu/shoukou/240301_kigyoushoukai_channel.html'},
-      {label:'赤穂市 工場見学バスツアー2026',url:'https://www.city.ako.lg.jp/kensetsu/shoukou/2023_bustour.html'}
-    ]
+      {id:'AKO-01',label:'赤穂市史 編さん・販売',publisher:'赤穂市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.ako.lg.jp/edu/shougai/shishitosyo.html'},
+      {id:'AKO-02',label:'赤穂市の日本遺産',publisher:'赤穂市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.ako.lg.jp/sangyoshinko/kankou/japan_heritage_ako.html'},
+      {id:'AKO-03',label:'赤穂市企業紹介チャンネル',publisher:'赤穂市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.ako.lg.jp/kensetsu/shoukou/240301_kigyoushoukai_channel.html'},
+      {id:'AKO-04',label:'赤穂市 都市計画資料（地形・水系）',publisher:'赤穂市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.ako.lg.jp/kensetsu/keikaku/documents/r6-2_tokeisin_giansyo2.pdf'}
+    ],
+    sectionSources:{
+      0:['AKO-04'],1:['AKO-04'],2:['AKO-02'],3:['AKO-01','AKO-02'],4:['AKO-01'],5:['AKO-02'],
+      6:['AKO-03'],7:['AKO-03'],8:['AKO-01','AKO-03'],9:['AKO-01'],10:['AKO-03'],13:['AKO-02'],
+      15:['AKO-03'],16:['AKO-01','AKO-02'],17:['AKO-01','AKO-02','AKO-03']
+    }
   },
   {
     id:'onomichi', name:'尾道', prefecture:'広島県', lat:34.4089, lon:133.2050,
@@ -67,9 +74,15 @@ export const places = [
       {name:'島嶼柑橘遺伝子',type:'資源型＋技能型',chain:['温暖少雨','島嶼農業','柑橘栽培','加工・地域ブランド','観光']}
     ],
     sources:[
-      {label:'海事都市尾道推進協議会',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/'},
-      {label:'尾道市 進水式情報',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/launching_ceremony/index.html'}
-    ]
+      {id:'ONO-01',label:'造船業をはじめ海事機能が集積する尾道市',publisher:'尾道市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/development/prologue.html'},
+      {id:'ONO-02',label:'海をめぐる歴史と文化',publisher:'尾道市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/history/index.html'},
+      {id:'ONO-03',label:'進水式情報',publisher:'尾道市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/launching_ceremony/index.html'}
+    ],
+    sectionSources:{
+      0:['ONO-01'],3:['ONO-01','ONO-02'],4:['ONO-01','ONO-02'],6:['ONO-01'],7:['ONO-03'],
+      8:['ONO-01','ONO-02'],9:['ONO-01','ONO-02'],10:['ONO-01'],13:['ONO-02'],15:['ONO-01'],
+      16:['ONO-02'],17:['ONO-01','ONO-02']
+    }
   },
   {
     id:'imabari', name:'今治', prefecture:'愛媛県', lat:34.0661, lon:132.9978,
@@ -100,9 +113,15 @@ export const places = [
       {name:'綿織物・タオル遺伝子',type:'技能型＋資源型＋ブランド適応型',chain:['綿織物','染晒','タオル','品質基準','産地ブランド']}
     ],
     sources:[
-      {label:'今治市 日本最大の海事都市今治とは',url:'https://www.city.imabari.ehime.jp/kaiji/about/'},
-      {label:'今治市 今治を支える産業',url:'https://www.city.imabari.ehime.jp/kaiji/sangyo/'},
-      {label:'今治市 海事都市今治推進課',url:'https://www.city.imabari.ehime.jp/kaiji/'}
-    ]
+      {id:'IMA-01',label:'日本最大の海事都市今治とは',publisher:'今治市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.imabari.ehime.jp/kaiji/about/'},
+      {id:'IMA-02',label:'今治の地場産業',publisher:'今治市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.imabari.ehime.jp/sangyou/jibasan/'},
+      {id:'IMA-03',label:'今治海事都市発展ビジョン概要',publisher:'今治市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.imabari.ehime.jp/kaiji/vision/vision_gaiyou.pdf'},
+      {id:'IMA-04',label:'今治 平年値（1991–2020）',publisher:'気象庁',kind:'official',verifiedAt:'2026-09-27',url:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=1077&prec_no=73'}
+    ],
+    sectionSources:{
+      1:['IMA-03'],2:['IMA-02','IMA-04'],3:['IMA-03'],4:['IMA-01','IMA-03'],6:['IMA-01','IMA-02'],
+      7:['IMA-01','IMA-02'],8:['IMA-02','IMA-03'],9:['IMA-03'],10:['IMA-01','IMA-03'],13:['IMA-01','IMA-02'],
+      15:['IMA-03'],16:['IMA-03'],17:['IMA-01','IMA-02','IMA-03']
+    }
   }
 ];
