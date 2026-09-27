@@ -327,3 +327,85 @@ export const industrySpatialRelations = [
   {from:'mihara-castleport',to:'mihara-industry',type:'logistics_inheritance',confidence:'high',note:'城下港の結節性が鉄道・道路・空港を含む広域交通機能へ更新された。'},
   {from:'takehara-salt',to:'takehara-townscape',type:'capital_inheritance',confidence:'high',note:'製塩利益が酒造・廻船・商家建築へ再投資され、その資産が町並みとして残った。'}
 ];
+
+
+export const industryEraPresets = [
+  {
+    id:'early-modern',label:'近世',period:'江戸期を中心',
+    description:'港・塩田・商家・醸造・潮待ち港など、近代以前に形成された基礎産業資産を見る。'
+  },
+  {
+    id:'modern',label:'近代',period:'明治〜戦前',
+    description:'鉄道・近代港湾・近代企業・工業化が、近世の港町構造へ新しい層として加わる。'
+  },
+  {
+    id:'postwar',label:'戦後',period:'1945〜1980年代',
+    description:'埋立・工業団地・大型工場・エネルギー・自動車など、戦後型の産業立地が拡大する。'
+  },
+  {
+    id:'contemporary',label:'現代',period:'1990年代〜現在',
+    description:'本社機能・観光・先端材料・広域物流などが加わり、歴史資産と現代産業が重層化する。'
+  }
+];
+
+export const industryNodeStartStage = {
+  'matsuyama-mitsuhama':'early-modern',
+  'matsuyama-iyotetsu':'modern',
+  'matsuyama-miura':'postwar',
+
+  'shimonoseki-port':'early-modern',
+  'shimonoseki-ymfg':'contemporary',
+  'shimonoseki-hayashikane':'modern',
+
+  'yanai-shirakabe':'early-modern',
+  'yanai-chemical':'modern',
+  'yanai-industrial':'postwar',
+
+  'hofu-salt':'early-modern',
+  'hofu-port':'early-modern',
+  'hofu-mazda':'postwar',
+
+  'hiketa-port':'early-modern',
+  'hiketa-kamebishi':'early-modern',
+  'higashikagawa-glove':'modern',
+
+  'sakaide-saltland':'early-modern',
+  'sakaide-bannosu':'postwar',
+  'sakaide-khi':'postwar',
+  'sakaide-power':'postwar',
+
+  'takamatsu-portcastle':'early-modern',
+  'takamatsu-114':'modern',
+  'takamatsu-yonden':'postwar',
+  'takamatsu-tadano':'postwar',
+
+  'ako-salt':'early-modern',
+  'ako-industrial':'postwar',
+
+  'onomichi-port':'early-modern',
+  'onomichi-shipbuilding':'modern',
+
+  'imabari-strait':'early-modern',
+  'imabari-maritime':'modern',
+
+  'shimotsui-port':'early-modern',
+  'shimotsui-fishery':'contemporary',
+
+  'tadotsu-port':'early-modern',
+  'tadotsu-railindustry':'modern',
+
+  'mitarai-port':'early-modern',
+  'mitarai-tourism':'contemporary',
+
+  'ushimado-port':'early-modern',
+  'ushimado-coastal':'contemporary',
+
+  'tomo-port':'early-modern',
+  'tomo-tourism':'contemporary',
+
+  'mihara-castleport':'early-modern',
+  'mihara-industry':'modern',
+
+  'takehara-salt':'early-modern',
+  'takehara-townscape':'contemporary'
+};
