@@ -131,7 +131,7 @@ const speciesBySeason = Object.fromEntries(seasonOrder.map((season)=>[
 
   <section class="section">
     <div class="kicker">BY PLACE</div>
-    <h2>10地域から見る</h2>
+    <h2>{places.length}地域から見る</h2>
     <div class="grid">
       {places.map((place)=>(
         <article class="card" id={`place-${place.id}`}>
