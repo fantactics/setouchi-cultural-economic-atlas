@@ -99,8 +99,15 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
         const group = L.layerGroup().addTo(map);
         overlayGroups[key] = group;
         items.forEach((item) => {
+          const status = item.status === 'verified'
+            ? '<span class="map-source-status verified">VERIFIED</span>'
+            : '<span class="map-source-status pending">要追加検証</span>';
+          const source = item.sourceUrl
+            ? '<br><a href="' + item.sourceUrl + '" target="_blank" rel="noreferrer">' + (item.sourceId || 'SOURCE') + ' ' + (item.sourceLabel || '根拠資料') + ' ↗</a>' +
+              (item.verifiedAt ? '<br><small>verified ' + item.verifiedAt + '</small>' : '')
+            : '';
           L.circleMarker([item.lat, item.lon], styles[key] || {radius:8})
-            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note)
+            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + '<br>' + status + source)
             .addTo(group);
         });
       });
