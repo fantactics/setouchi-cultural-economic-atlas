@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+
+const rows = places.map((place) => {
+  const counts = { fact:0, interpretation:0, hypothesis:0 };
+  place.sections.forEach((section) => {
+    const type = section[2];
+    if (counts[type] !== undefined) counts[type] += 1;
+  });
+  const sourcedSections = Object.keys(place.sectionSources || {}).length;
+  const sourceCount = (place.sources || []).length;
+  const coverage = Math.round((sourcedSections / place.sections.length) * 100);
+  return {
+    id: place.id,
+    name: place.name,
+    prefecture: place.prefecture,
+    fact: counts.fact,
+    interpretation: counts.interpretation,
+    hypothesis: counts.hypothesis,
+    sourceCount,
+    sourcedSections,
+    totalSections: place.sections.length,
+    coverage
+  };
+}).sort((a,b) => b.coverage - a.coverage || b.sourceCount - a.sourceCount);
+
+const totals = rows.reduce((acc,row) => {
+  acc.fact += row.fact;
+  acc.interpretation += row.interpretation;
+  acc.hypothesis += row.hypothesis;
+  acc.sources += row.sourceCount;
+  acc.sourced += row.sourcedSections;
+  acc.sections += row.totalSections;
+  return acc;
+},{fact:0,interpretation:0,hypothesis:0,sources:0,sourced:0,sections:0});
+
+const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
+---
+<BaseLayout title="データ品質 | 瀬戸内文化経済アトラス" description="各地域の出典充足率、FACT・INTERPRETATION・HYPOTHESIS構成を可視化する。">
+  <section class="place-hero">
+    <div class="kicker">DATA QUALITY</div>
+    <h1>データ品質・検証状況</h1>
+    <p class="subtitle">地域を増やすほど、情報量の差を隠さないことが重要になります。出典充足率と主張タイプを地域ごとに可視化します。</p>
+  </section>
+
+  <section class="section">
+    <div class="quality-summary-grid">
+      <article class="quality-stat"><strong>{places.length}</strong><span>地域</span></article>
+      <article class="quality-stat"><strong>{totals.sources}</strong><span>登録ソース</span></article>
+      <article class="quality-stat"><strong>{overallCoverage}%</strong><span>出典付与セクション率</span></article>
+      <article class="quality-stat"><strong>{totals.hypothesis}</strong><span>HYPOTHESIS</span></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">REGIONAL COVERAGE</div>
+    <h2>地域別の検証密度</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table quality-table">
+        <thead>
+          <tr>
+            <th>地域</th><th>出典数</th><th>出典付与</th><th>FACT</th><th>INTERPRETATION</th><th>HYPOTHESIS</th><th>充足率</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <th><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/`}>{row.name}</a><small>{row.prefecture}</small></th>
+              <td>{row.sourceCount}</td>
+              <td>{row.sourcedSections} / {row.totalSections}</td>
+              <td>{row.fact}</td>
+              <td>{row.interpretation}</td>
+              <td>{row.hypothesis}</td>
+              <td>
+                <div class="quality-meter" aria-label={`出典充足率 ${row.coverage}%`}>
+                  <span style={`width:${row.coverage}%`}></span>
+                </div>
+                <strong>{row.coverage}%</strong>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">READING THE SCORE</div>
+    <h2>この数字の意味</h2>
+    <div class="synthesis">
+      「充足率」は18セクションのうち、少なくとも1つの出典IDが紐づいているセクションの割合です。
+      高いほど内容が正しいと自動的に判定するものではなく、検証作業の進捗指標です。
+      INTERPRETATIONは一次資料に基づく編集上の因果解釈、HYPOTHESISは追加検証が必要な仮説として別管理します。
+    </div>
+  </section>
+</BaseLayout>
