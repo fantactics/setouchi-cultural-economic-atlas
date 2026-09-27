@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 import { climateProfiles } from '../data/climate.js';
+import { photoEvidence, photoEvidenceSlots, photoCoverageForPlace } from '../data/photoEvidence.js';
 
 const rows = places.map((place) => {
   const counts = { fact:0, interpretation:0, hypothesis:0 };
@@ -15,6 +16,7 @@ const rows = places.map((place) => {
   const climate = climateProfiles[place.id];
   const climateAnnual = !!(climate && Number.isFinite(climate.annualTemp) && Number.isFinite(climate.annualRain));
   const climateMonthly = !!(climate && Array.isArray(climate.monthly) && climate.monthly.length === 12);
+  const photoCoverage = photoCoverageForPlace(place.id);
   return {
     id: place.id,
     name: place.name,
@@ -27,7 +29,8 @@ const rows = places.map((place) => {
     totalSections: place.sections.length,
     coverage,
     climateAnnual,
-    climateMonthly
+    climateMonthly,
+    photoCoverage
   };
 }).sort((a,b) => b.coverage - a.coverage || b.sourceCount - a.sourceCount);
 
@@ -40,8 +43,11 @@ const totals = rows.reduce((acc,row) => {
   acc.sections += row.totalSections;
   acc.climateAnnual += row.climateAnnual ? 1 : 0;
   acc.climateMonthly += row.climateMonthly ? 1 : 0;
+  acc.photoPlaces += row.photoCoverage.coveredCount > 0 ? 1 : 0;
+  acc.photoComplete += row.photoCoverage.coveredCount === row.photoCoverage.total ? 1 : 0;
+  acc.photoSlots += row.photoCoverage.coveredCount;
   return acc;
-},{fact:0,interpretation:0,hypothesis:0,sources:0,sourced:0,sections:0,climateAnnual:0,climateMonthly:0});
+},{fact:0,interpretation:0,hypothesis:0,sources:0,sourced:0,sections:0,climateAnnual:0,climateMonthly:0,photoPlaces:0,photoComplete:0,photoSlots:0});
 
 const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
 ---
@@ -60,6 +66,9 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
       <article class="quality-stat"><strong>{totals.hypothesis}</strong><span>HYPOTHESIS</span></article>
       <article class="quality-stat"><strong>{totals.climateAnnual} / {places.length}</strong><span>気候年値</span></article>
       <article class="quality-stat"><strong>{totals.climateMonthly} / {places.length}</strong><span>気候月別値</span></article>
+      <article class="quality-stat"><strong>{photoEvidence.length}</strong><span>写真証拠</span></article>
+      <article class="quality-stat"><strong>{totals.photoPlaces} / {places.length}</strong><span>写真整備地域</span></article>
+      <article class="quality-stat"><strong>{totals.photoComplete} / {places.length}</strong><span>写真4枠完備</span></article>
     </div>
   </section>
 
@@ -96,6 +105,40 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
     </div>
   </section>
 
+
+  <section class="section">
+    <div class="kicker">PHOTO EVIDENCE COVERAGE</div>
+    <h2>写真証拠の4枠を地域別に確認する</h2>
+    <p class="lead">各地域について「地形・自然」「歴史形成」「交通・港湾」「現代産業」の4種類を基準にします。枚数ではなく、分析に必要な視覚証拠の種類が揃っているかを評価します。</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table photo-quality-table">
+        <thead>
+          <tr>
+            <th>地域</th>
+            {photoEvidenceSlots.map((slot)=><th title={slot.description}>{slot.label}</th>)}
+            <th>写真数</th><th>充足</th><th>次に必要</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[...rows].sort((a,b)=>b.photoCoverage.score-a.photoCoverage.score || a.name.localeCompare(b.name,'ja')).map((row)=>(
+            <tr>
+              <th><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/`}>{row.name}</a><small>{row.prefecture}</small></th>
+              {photoEvidenceSlots.map((slot)=>(
+                <td><span class:list={['photo-slot-status',row.photoCoverage.covered[slot.id] ? 'covered' : 'missing']}>{row.photoCoverage.covered[slot.id] ? '✓' : '—'}</span></td>
+              ))}
+              <td>{row.photoCoverage.items.length}</td>
+              <td>
+                <div class="quality-meter" aria-label={`写真証拠充足率 ${row.photoCoverage.score}%`}><span style={`width:${row.photoCoverage.score}%`}></span></div>
+                <strong>{row.photoCoverage.score}%</strong>
+              </td>
+              <td>{row.photoCoverage.missing.length ? row.photoCoverage.missing.map((slot)=>slot.label).join(' / ') : <strong>4枠完備</strong>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="section">
     <div class="kicker">READING THE SCORE</div>
     <h2>この数字の意味</h2>
@@ -104,6 +147,7 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
       高いほど内容が正しいと自動的に判定するものではなく、検証作業の進捗指標です。
       INTERPRETATIONは一次資料に基づく編集上の因果解釈、HYPOTHESISは追加検証が必要な仮説として別管理します。
       気候欄は代表観測点の年平年値と12か月平年値の整備状況を示します。
+      写真証拠の充足率は、地形・歴史形成・交通・現代産業の4枠のうち何種類が揃っているかを示し、写真枚数そのものの多寡とは分けて評価します。
     </div>
   </section>
 </BaseLayout>
