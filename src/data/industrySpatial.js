@@ -220,7 +220,7 @@ export const industrySpatialNodes = [
   {
     id:'kojima-shimomura-spinning',placeId:'shimotsui',name:'下村紡績所跡（児島下の町）',category:'heritage',
     lat:34.468,lon:133.825,precision:'approximate',
-    era:'1882〜1986',note:'児島の近代紡績を先導した工場。後に琴浦紡績所として操業し、工場建物は現存しない。',
+    era:'1881〜',note:'1881年開業の下村紡績。児島の近代機械制紡績を先導した初期拠点で、地域の織物技能に近代紡績技術が加わる転換点となった。',
     sourceUrl:'https://www.city.kurashiki.okayama.jp/cityinfo/about/1008255.html'
   },
   {
@@ -228,6 +228,12 @@ export const industrySpatialNodes = [
     lat:34.462,lon:133.806,precision:'approximate',
     era:'近代〜現代',note:'足袋・学生服・作業服から国産ジーンズ、染色・洗い加工へ展開した繊維産業集積。',
     sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1001881/1011764/1008099/1011534.html'
+  },
+  {
+    id:'kurashiki-spinning',placeId:'shimotsui',name:'倉敷紡績所・倉敷の紡績資本',category:'heritage',
+    lat:34.5964,lon:133.7716,precision:'district',
+    era:'1889〜',note:'1889年創設の倉敷紡績所（現クラボウ）。児島とは別拠点だが、倉敷地域全体で繊維産業を近代資本・機械工業へ拡張した重要ノード。',
+    sourceUrl:'https://www.kurabo.co.jp/kurabo-history/'
   },
 
   {
@@ -341,6 +347,7 @@ export const industrySpatialRelations = [
   {from:'shimotsui-port',to:'kojima-cotton-weaving',type:'logistics_inheritance',confidence:'high',note:'北前船が綿作肥料の干鰯・ニシン粕を運び込み、木綿・綿製品を積み出した港湾物流が児島の綿作・織物産業を支えた。'},
   {from:'kojima-cotton-weaving',to:'kojima-shimomura-spinning',type:'parallel_modern_layer',confidence:'high',note:'地域の綿・織物産業基盤に、明治期の機械制紡績という新しい生産技術が加わった。'},
   {from:'kojima-cotton-weaving',to:'kojima-textile-cluster',type:'skill_inheritance',confidence:'high',note:'織り・縫製などの技能が足袋から学生服・作業服へ、さらにジーンズ・加工技術へ適応しながら継承された。'},
+  {from:'kojima-cotton-weaving',to:'kurashiki-spinning',type:'parallel_modern_layer',confidence:'high',note:'児島の織物産地とは別系統の企業史だが、同じ倉敷地域で綿作・繊維を基盤に機械制紡績と近代企業資本が発達した。直接の企業承継ではない。'},
   {from:'tadotsu-port',to:'tadotsu-railindustry',type:'logistics_inheritance',confidence:'high',note:'港の物資集散機能が鉄道・臨海物流へ置き換わりながら継承された。'},
   {from:'mitarai-port',to:'mitarai-tourism',type:'direct_continuity',confidence:'high',note:'滞留経済が形成した町並みそのものが現在の文化・観光資産になった。'},
   {from:'ushimado-port',to:'ushimado-coastal',type:'parallel_modern_layer',confidence:'medium',note:'歴史的海運・外交港の空間に、農漁業・観光など現在の沿岸産業が重なる。'},
@@ -414,6 +421,7 @@ export const industryNodeStartStage = {
   'kojima-cotton-weaving':'early-modern',
   'kojima-shimomura-spinning':'modern',
   'kojima-textile-cluster':'modern',
+  'kurashiki-spinning':'modern',
 
   'tadotsu-port':'early-modern',
   'tadotsu-railindustry':'modern',
