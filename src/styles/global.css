@@ -182,3 +182,15 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .climate-metric span { font-size:.8rem; color:var(--muted); }
 .climate-metric strong { font-size:1.8rem; line-height:1.1; }
 @media (max-width:800px){ .climate-station-card{display:block;} .climate-metrics{grid-template-columns:1fr;} }
+
+.climate-chart-grid { display:grid; gap:1rem; margin:1rem 0 1.4rem; }
+.climate-chart-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem 1rem .8rem; overflow:hidden; }
+.climate-chart-card h3 { margin:.1rem 0 .7rem; font-size:1rem; }
+.climate-chart-card svg { width:100%; height:auto; display:block; border-bottom:1px solid var(--line); }
+.climate-line { fill:none; stroke:currentColor; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+.climate-temp-line { color:var(--ink); }
+.climate-sun-line { color:var(--sea); }
+.climate-point { fill:var(--card); stroke:var(--ink); stroke-width:3; }
+.climate-bar { fill:var(--sea); opacity:.72; }
+.climate-month-axis { display:grid; grid-template-columns:repeat(12,1fr); gap:0; margin-top:.35rem; font-size:.68rem; color:var(--muted); text-align:center; }
+@media (max-width:800px){ .climate-month-axis{font-size:.58rem;} }
