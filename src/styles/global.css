@@ -104,3 +104,14 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .claim-sources-label { font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700; margin-right:.15rem; }
 .claim-sources a { font-size:.72rem; font-weight:800; text-decoration:none; padding:.12rem .42rem; border:1px solid var(--line); border-radius:999px; background:#faf9f5; }
 .source-link small { display:block; margin-top:.18rem; color:var(--muted); font-size:.72rem; font-weight:400; }
+
+.methodology-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.method-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1.4rem; }
+.method-card h2 { margin:.65rem 0 .35rem; font-size:1.35rem; }
+.method-list-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.65rem; margin-top:1.4rem; }
+.method-list-grid.compact { grid-template-columns:repeat(4,1fr); }
+.method-list-item { display:flex; gap:.6rem; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:.75rem .9rem; }
+.method-list-item span { color:var(--muted); font-size:.72rem; font-weight:800; }
+@media (max-width:800px){
+  .methodology-grid,.method-list-grid,.method-list-grid.compact{grid-template-columns:1fr;}
+}
