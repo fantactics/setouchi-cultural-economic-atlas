@@ -41,6 +41,11 @@ export const mapLayers = {
       name:'来島海峡',lat:34.119,lon:132.976,note:'瀬戸内有数の強潮流海峡',
       status:'verified',sourceId:'X-08',sourceLabel:'海事関連施設・来島海峡（今治市）',
       sourceUrl:'https://www.city.imabari.ehime.jp/kaiji/sisetsu/',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'関門海峡・早鞆瀬戸',lat:33.959,lon:130.959,note:'東流・西流が交替する強潮流海峡。潮流信号所・船舶交通管制が重要。',
+      status:'verified',sourceId:'MAP-KANMON-01',sourceLabel:'関門海峡 潮流信号所（海上保安庁）',
+      sourceUrl:'https://www6.kaiho.mlit.go.jp/kanmon/info/others/tidal_station/tidal-station.htm',verifiedAt:'2026-09-27'
     }
   ],
   foodCulture: [
@@ -73,6 +78,26 @@ export const mapLayers = {
       name:'伊吹島',lat:34.126,lon:133.525,note:'カタクチイワシ・イリコ・出汁文化',
       status:'verified',sourceId:'SF-IRIKO-01',sourceLabel:'カタクチイワシの概要（香川県）',
       sourceUrl:'https://www.pref.kagawa.lg.jp/nouki/tisan/syokuikujugyou/syokuiku_sakaide.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'松山',lat:33.8392,lon:132.7657,note:'鯛めし・たこ飯など伊予の海産食文化',
+      status:'verified',sourceId:'SF-TAI-05',sourceLabel:'IMAごはん（松山市）',
+      sourceUrl:'https://www.city.matsuyama.ehime.jp/kurashi/iryo/eiyo/siryou/imagohan.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'下関',lat:33.9578,lon:130.9415,note:'ふく料理・専門市場・加工技術が結びつく水産都市文化',
+      status:'verified',sourceId:'SF-FUGU-01',sourceLabel:'下関市水産物5大ブランド「ふく」（下関市）',
+      sourceUrl:'https://www.city.shimonoseki.lg.jp/soshiki/60/1173.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'柳井',lat:33.9630,lon:132.1017,note:'鯛寿司など瀬戸内魚介と商都の食文化',
+      status:'verified',sourceId:'SF-TAI-06',sourceLabel:'柳井の郷土料理・鯛寿司（柳井市）',
+      sourceUrl:'https://www.city-yanai.jp/site/kanko/taizushi.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'引田・安戸池',lat:34.229,lon:134.416,note:'1928年に事業化へ成功したハマチ養殖発祥地',
+      status:'verified',sourceId:'SF-HAMACHI-01',sourceLabel:'ハマチ養殖80周年記念事業（香川県）',
+      sourceUrl:'https://www.pref.kagawa.lg.jp/suisan/sogo/event/hamachi.html',verifiedAt:'2026-09-27'
     }
   ],
   resourceStatus: [
