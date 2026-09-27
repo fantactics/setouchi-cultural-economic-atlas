@@ -90,6 +90,7 @@ const origin = {
                     <span class={`claim-badge ${section[2]}`}>{section[2].toUpperCase()}</span>
                     <p>{section[1]}</p>
                     {axis.key === 2 && <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>気候データを見る →</a>}
+                    {axis.key === 4 && <a class="text-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>交通ネットワークを見る →</a>}
                   </td>
                 );
               })}
