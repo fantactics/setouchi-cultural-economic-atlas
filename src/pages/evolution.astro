@@ -181,6 +181,21 @@ const renderGraph=(place,slot)=>{
       };
       bind('causal-select-a','causal-slot-a','a');
       bind('causal-select-b','causal-slot-b','b');
+
+      const hashId=location.hash.startsWith('#place-') ? location.hash.slice(7) : '';
+      if(hashId && byId[hashId]){
+        const selectA=document.getElementById('causal-select-a');
+        const slotA=document.getElementById('causal-slot-a');
+        if(selectA) selectA.value=hashId;
+        if(slotA) slotA.innerHTML=graphHtml(byId[hashId],'a');
+      }
+
+      const selectA=document.getElementById('causal-select-a');
+      if(selectA){
+        selectA.addEventListener('change',()=>{
+          history.replaceState(null,'','#place-'+selectA.value);
+        });
+      }
     })();
   </script>
 </BaseLayout>
