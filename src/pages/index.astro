@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 import { mapLayers, mapLayerLabels } from '../data/mapLayers.js';
 const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
+const placeTypes = {
+  ako:'resource', onomichi:'network', imabari:'capital',
+  shimotsui:'route', tadotsu:'transport', mitarai:'stay',
+  ushimado:'network', tomonoura:'stay', mihara:'multimodal', takehara:'resource-convert'
+};
+const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : 'other';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 ---
 <BaseLayout>
@@ -17,7 +23,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
   <section class="section map-section">
     <div class="kicker">MAP NAVIGATION</div>
     <h2>地図から読む</h2>
-    <p class="lead">赤穂・尾道・今治を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
+    <p class="lead">10地域を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
     <div class="map-toolbar">
       {Object.entries(mapLayerLabels).map(([key,label]) => (
         <button type="button" class="map-layer-toggle active" data-layer={key}>{label}</button>
@@ -30,9 +36,33 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
   <section class="section">
     <h2>10の地域から読む</h2>
     <p class="lead">同じ瀬戸内でも、地域を形成した産業遺伝子は大きく異なります。</p>
-    <div class="grid">
+    <div class="place-filter-bar" aria-label="地域絞り込み">
+      <div class="filter-group">
+        <span class="filter-label">県</span>
+        <button type="button" class="place-filter active" data-filter-kind="pref" data-filter-value="all">すべて</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="hyogo">兵庫</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="okayama">岡山</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="kagawa">香川</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="hiroshima">広島</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="ehime">愛媛</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">類型</span>
+        <button type="button" class="place-filter active" data-filter-kind="type" data-filter-value="all">すべて</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="resource">資源・土地</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="route">航路・漁場</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="transport">交通継承</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="network">交易・ネットワーク</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="stay">滞留経済</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="multimodal">複合交通</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="resource-convert">資源利益転換</button>
+        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="capital">資本循環</button>
+      </div>
+      <p class="filter-count"><span id="visible-place-count">{places.length}</span> / {places.length} 地域</p>
+    </div>
+    <div class="grid" id="place-grid">
       {places.map((place) => (
-        <a class="card" href={`${baseUrl}places/${place.id}/`}>
+        <a class="card place-card" data-pref={prefectureKey(place.prefecture)} data-type={placeTypes[place.id] || 'other'} href={`${baseUrl}places/${place.id}/`}>
           <div class="kicker">{place.prefecture}</div>
           <h3>{place.name}</h3>
           <p>{place.subtitle}</p>
@@ -116,6 +146,33 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
           L.circleMarker([item.lat, item.lon], styles[key] || {radius:8})
             .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + '<br>' + status + source)
             .addTo(group);
+        });
+      });
+
+      const filterState = { pref: 'all', type: 'all' };
+      const placeCards = Array.from(document.querySelectorAll('.place-card'));
+      const countEl = document.getElementById('visible-place-count');
+      const applyPlaceFilters = () => {
+        let visible = 0;
+        placeCards.forEach((card) => {
+          const matchPref = filterState.pref === 'all' || card.dataset.pref === filterState.pref;
+          const matchType = filterState.type === 'all' || card.dataset.type === filterState.type;
+          const show = matchPref && matchType;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        if (countEl) countEl.textContent = String(visible);
+      };
+      document.querySelectorAll('.place-filter').forEach((button) => {
+        button.addEventListener('click', () => {
+          const kind = button.dataset.filterKind;
+          const value = button.dataset.filterValue;
+          if (!kind || !value) return;
+          filterState[kind] = value;
+          document.querySelectorAll('.place-filter[data-filter-kind="' + kind + '"]').forEach((peer) => {
+            peer.classList.toggle('active', peer === button);
+          });
+          applyPlaceFilters();
         });
       });
 
