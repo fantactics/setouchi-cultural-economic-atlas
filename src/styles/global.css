@@ -471,3 +471,11 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .textile-note { font-size:.78rem; color:var(--muted); margin-top:.75rem; }
 .textile-table td { min-width:13rem; vertical-align:top; }
 @media (max-width:800px){ .textile-zone-grid{grid-template-columns:1fr;} .textile-map{min-height:440px;} }
+
+.process-level { display:inline-block; border-radius:999px; padding:.18rem .42rem; font-size:.62rem; font-weight:900; white-space:nowrap; }
+.process-level.core { background:#dfeee3; color:#245b32; }
+.process-level.present { background:#e7edf2; color:#355a73; }
+.process-level.historic { background:#f1e8d9; color:#72552b; }
+.process-level.external { background:#efefed; color:#777; }
+.textile-process-table td { min-width:14rem; vertical-align:top; }
+.textile-process-table td p { font-size:.74rem; line-height:1.5; margin:.45rem 0 0; }
