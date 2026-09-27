@@ -56,3 +56,24 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   .site-header { align-items: flex-start; flex-direction: column; gap: .5rem; }
   .hero { padding-top: 4rem; }
 }
+
+.atlas-map { height: 460px; width: 100%; margin-top: 1.5rem; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #dbe7e9; }
+.map-note { margin-top: .55rem; color: var(--muted); font-size: .78rem; }
+.legend-row { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem .75rem; margin-top: 1.5rem; color: var(--muted); }
+.claim-badge { display: inline-block; width: fit-content; border-radius: 999px; padding: .18rem .55rem; font-size: .68rem; font-weight: 800; letter-spacing: .08em; }
+.claim-badge.fact { background: #e7f1ea; color: #245638; }
+.claim-badge.interpretation { background: #e7eef4; color: #244e6a; }
+.claim-badge.hypothesis { background: #f5ead9; color: #785018; }
+.profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin-top: 2rem; }
+.profile-card { display: grid; grid-template-columns: 3.4rem 1fr; gap: 1rem; padding: 1.35rem; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+.profile-num { font-size: 1.7rem; line-height: 1; font-weight: 800; color: #a5afb5; }
+.profile-card h3 { margin: .55rem 0 .35rem; font-size: 1.18rem; }
+.profile-card p { margin: 0; color: #37444c; }
+.source-list { display: grid; gap: .65rem; max-width: 58rem; margin-top: 1.4rem; }
+.source-link { display: flex; justify-content: space-between; gap: 1rem; padding: .9rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; }
+.source-link:hover { border-color: #9caaa9; }
+.gene-section { background: #f0eee7; }
+@media (max-width: 800px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .atlas-map { height: 380px; }
+}
