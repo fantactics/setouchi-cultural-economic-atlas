@@ -310,3 +310,13 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .wind-causal-chain { margin-top:1rem; }
 @media (max-width:900px){ .current-zone-grid,.kitamae-calendar{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:700px){ .wind-station-grid,.current-zone-grid,.kitamae-calendar,.culture-wind-grid{grid-template-columns:1fr;} .wind-month-grid{grid-template-columns:repeat(3,1fr);} }
+
+.wind-vocabulary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.wind-word-card,.belief-card,.culture-flow-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem; }
+.wind-word-card h3,.belief-card h3,.culture-flow-card h3 { margin:.35rem 0 .5rem; }
+.wind-word-meta { color:var(--muted); font-size:.78rem; font-weight:700; }
+.belief-grid,.culture-flow-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.belief-marker-icon { background:transparent; border:none; }
+.belief-marker { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:#f6efe2; border:2px solid #8b6843; color:#6f4f2f; font-weight:900; box-shadow:0 1px 5px rgba(0,0,0,.2); }
+@media (max-width:900px){ .wind-vocabulary-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:700px){ .wind-vocabulary-grid,.belief-grid,.culture-flow-grid{grid-template-columns:1fr;} }
