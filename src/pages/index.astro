@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 import { mapLayers, mapLayerLabels } from '../data/mapLayers.js';
+import { photoEvidence } from '../data/photoEvidence.js';
 const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
 const placeTypes = {
   ako:'resource', onomichi:'network', imabari:'capital',
@@ -12,6 +13,14 @@ const placeTypes = {
 };
 const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : prefecture.startsWith('山口') ? 'yamaguchi' : 'other';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
+const photoMapLayer = photoEvidence.map((item)=>({
+  name:item.title,lat:item.lat,lon:item.lon,note:item.caption,
+  status:'verified',sourceId:'PHOTO',sourceLabel:item.author+' / '+item.license,
+  sourceUrl:item.sourcePage,verifiedAt:item.verifiedAt,
+  imageUrl:item.imageUrl,alt:item.alt,placeId:item.placeId
+}));
+const mapLayersAll = {...mapLayers, photoEvidence:photoMapLayer};
+const mapLayerLabelsAll = {...mapLayerLabels, photoEvidence:'写真証拠'};
 ---
 <BaseLayout>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
@@ -27,11 +36,11 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
     <h2>地図から読む</h2>
     <p class="lead">{places.length}地域を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
     <div class="map-toolbar">
-      {Object.entries(mapLayerLabels).map(([key,label]) => (
+      {Object.entries(mapLayerLabelsAll).map(([key,label]) => (
         <button type="button" class="map-layer-toggle active" data-layer={key}>{label}</button>
       ))}
     </div>
-    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)} data-layers={JSON.stringify(mapLayers)}></div>
+    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)} data-layers={JSON.stringify(mapLayersAll)}></div>
     <p class="map-note">地図データ © OpenStreetMap contributors</p>
   </section>
 
@@ -178,7 +187,8 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
         strongCurrents: { radius: 11, fillOpacity: .18, weight: 2.5 },
         foodCulture: { radius: 7, fillOpacity: .7, weight: 1.5 },
         maritimeIndustry: { radius: 9, fillOpacity: .45, weight: 2 },
-        resourceStatus: { radius: 10, fillOpacity: .72, weight: 2 }
+        resourceStatus: { radius: 10, fillOpacity: .72, weight: 2 },
+        photoEvidence: { radius: 8, fillOpacity: .9, weight: 2.5 }
       };
       const overlayGroups = {};
       Object.entries(layers).forEach(([key, items]) => {
@@ -207,11 +217,14 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
                   : '#9d91b0'
               }
             : null;
+          const photo = item.imageUrl
+            ? '<br><img class="map-photo-thumb" src="' + item.imageUrl + '" alt="' + (item.alt || item.name) + '" loading="lazy">'
+            : '';
           const detail = item.speciesId
             ? '<br><a href="' + base + 'seafood/' + item.speciesId + '/">魚種詳細を見る →</a>'
             : '';
           L.circleMarker([item.lat, item.lon], resourceStyle || styles[key] || {radius:8})
-            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + '<br>' + status + source + detail)
+            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + photo + '<br>' + status + source + detail)
             .addTo(group);
         });
       });
