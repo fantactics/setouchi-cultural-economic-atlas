@@ -376,11 +376,11 @@ export const places = [
       ['歴史・都市形成','河野氏の湯築城、近世の松山城下町、道後温泉、三津浜港という複数の都市核が統合されて現在の松山を形成した。','fact'],
       ['港・交通・物流','三津浜・高浜の海上交通に加え、1888年の松山―三津浜間の伊予鉄道開通など海陸交通が早くから結びついた。','fact'],
       ['食文化','瀬戸内魚介、鯛めし、じゃこ天など伊予の海産食文化と、城下・温泉地の飲食文化が重なる。','interpretation'],
-      ['地域産業','行政・商業・観光・交通・サービス業の集積が大きく、港湾・水産・製造も市域内に持つ。','interpretation'],
-      ['代表企業','伊予鉄グループや石崎汽船など、地域交通を長期に担う企業の存在が都市構造を説明する。','fact'],
+      ['地域産業','県都型の行政・商業・観光・交通・サービスに加え、ボイラ・水処理・舶用機器などの機械製造も厚い。三浦工業のように松山発で全国・海外へ展開する製造企業も育った。','fact'],
+      ['代表企業','伊予鉄グループは1887年創立以来、鉄道・バス・観光・不動産等へ事業を広げ、三浦工業は松山本社からボイラ・水処理・舶用・環境機器へ展開する。交通と機械製造の二系統が地域経済を代表する。','fact'],
       ['産業遺伝子','城下町の行政商業機能、道後の観光、三津浜の港湾物流、早期の私鉄交通が重なった複合都市型の遺伝子。','interpretation'],
-      ['資本形成','城下町商業と港湾交易、観光消費、交通事業の蓄積が県都機能の厚みにつながったと考えられる。','interpretation'],
-      ['産業生態系','行政、大学、観光、鉄道・軌道、海運、商業、医療が比較的コンパクトな都市圏に集積する。','interpretation'],
+      ['資本形成','城下町商業・三津浜の港湾交易に加え、明治期の地域資本による私鉄創設、戦後の機械メーカー成長が重なった。歴史資本と近代企業資本の複線型として読むのが適切。','interpretation'],
+      ['産業生態系','行政・大学・観光・鉄道軌道・海運・商業・医療に、ボイラ、水処理、舶用、環境装置などの機械系企業が重なる。県都サービスと製造業が近接する複合生態系。','interpretation'],
       ['人口・地域経済','四国有数の都市規模を持ち、愛媛県の行政・商業・教育・観光機能が集中する。','fact'],
       ['暮らし','路面電車・私鉄と中心市街地、道後、郊外住宅地、港が近接し、多様な生活圏を選べる。','interpretation'],
       ['観光・文化','松山城、道後温泉、俳句・文学、近代建築など、城下・温泉・近代文化が重なる。','fact'],
@@ -396,9 +396,12 @@ export const places = [
     sources:[
       {id:'MAT-01',label:'松山市の歴史とあゆみ',publisher:'松山市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.matsuyama.ehime.jp/kids/outline/rekishi.html'},
       {id:'MAT-02',label:'明治時代 松山の歴史',publisher:'松山市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.matsuyama.ehime.jp/kanko/kankoguide/rekishibunka/rekishi/meijijidai.html'},
-      {id:'MAT-03',label:'文化財めぐり',publisher:'松山市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.matsuyama.ehime.jp/kanko/kankoguide/rekishibunka/bunkazaimeguri.html'}
+      {id:'MAT-03',label:'文化財めぐり',publisher:'松山市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.matsuyama.ehime.jp/kanko/kankoguide/rekishibunka/bunkazaimeguri.html'},
+      {id:'MAT-04',label:'企業立地ガイド',publisher:'松山市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.matsuyama.ehime.jp/kurashi/sangyo/shien/kigyoricchiguide.html'},
+      {id:'MAT-05',label:'会社概要',publisher:'三浦工業',kind:'company',verifiedAt:'2026-09-27',url:'https://www.miuraz.co.jp/en/company/profile.html'},
+      {id:'MAT-06',label:'会社概要',publisher:'伊予鉄グループ',kind:'company',verifiedAt:'2026-09-27',url:'https://www.iyotetsu.co.jp/sp/company/outline/'}
     ],
-    sectionSources:{0:['MAT-01'],3:['MAT-01'],4:['MAT-02'],7:['MAT-02'],13:['MAT-01','MAT-03'],17:['MAT-01','MAT-02']}
+    sectionSources:{0:['MAT-01'],3:['MAT-01'],4:['MAT-02','MAT-06'],6:['MAT-04','MAT-05'],7:['MAT-05','MAT-06'],9:['MAT-02','MAT-05','MAT-06'],10:['MAT-04','MAT-05','MAT-06'],13:['MAT-01','MAT-03'],17:['MAT-01','MAT-02','MAT-05','MAT-06']}
   },
   {
     id:'shimonoseki', name:'下関', prefecture:'山口県', lat:33.9578, lon:130.9415,
@@ -411,11 +414,11 @@ export const places = [
       ['歴史・都市形成','江戸期の赤間関は全国航路が交わる大港として栄え、明治以降は大陸航路・国際港として近代化した。','fact'],
       ['港・交通・物流','北前船寄港、関門海峡通航、鉄道・国際航路・港湾が重なる西日本有数の海陸交通ゲート。','fact'],
       ['食文化','ふくを中心に、唐戸市場・南風泊市場など水産物流通と食文化が都市ブランドを形成する。','fact'],
-      ['地域産業','港湾物流、水産、食品加工、観光、国際交通、製造業など海峡立地を活かす産業が重なる。','interpretation'],
-      ['代表企業','海運・港湾・水産関連企業と市場群が、海峡都市としての産業構造を支える。','interpretation'],
+      ['地域産業','国際港湾物流、水産・食品加工に加え、長府・彦島などの製造業集積、南風泊水産加工団地、長州出島など複数の産業拠点を持つ。海峡立地を使う物流・加工・製造が重なる。','fact'],
+      ['代表企業','山口フィナンシャルグループが下関に本社を置き、林兼産業は下関で水産・食品・飼料事業を長期展開する。金融と水産加工が港湾都市の資本・産業両面を象徴する。','fact'],
       ['産業遺伝子','海峡→航路集中→商人・港湾→国際交通→市場・物流というゲートウェイ型遺伝子。','interpretation'],
-      ['資本形成','江戸期の港湾商業と近代の金融・商社・工業投資が、関門沿岸に都市資本を蓄積した。','fact'],
-      ['産業生態系','港、国際物流、市場、水産加工、観光、鉄道・道路が海峡沿いに連鎖する。','interpretation'],
+      ['資本形成','江戸期の港湾商業を基礎に、近代以降は金融、工業、水産加工、国際港湾への投資が重なった。現在も本社金融と港湾産業が同居する点に都市資本の厚みが表れる。','interpretation'],
+      ['産業生態系','下関港・関門航路、南風泊などの水産加工、市場、金融本社、工業団地、鉄道・高速道路が連鎖する。海峡を中心に物流・加工・金融・観光が多層化した生態系。','interpretation'],
       ['人口・地域経済','山口県西部の中核都市で、北九州市と関門都市圏を形成する。','interpretation'],
       ['暮らし','海峡景観と都市機能が近接する一方、市域が広く地区ごとの生活利便性差が大きい。','interpretation'],
       ['観光・文化','関門海峡、唐戸、赤間神宮、近代建築、壇ノ浦など海上交通と歴史が観光資源化している。','fact'],
@@ -431,9 +434,12 @@ export const places = [
     sources:[
       {id:'SHI-01Y',label:'西国一の大港を支えた商人たち',publisher:'下関市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.shimonoseki.lg.jp/site/kisya/128320.html'},
       {id:'SHI-02Y',label:'関門海峡都市の近代化',publisher:'下関市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.shimonoseki.lg.jp/site/kouhou/5374.html'},
-      {id:'SHI-03Y',label:'下関市地方卸売市場',publisher:'下関市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.shimonoseki.lg.jp/soshiki/62/2493.html'}
+      {id:'SHI-03Y',label:'下関市地方卸売市場',publisher:'下関市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.shimonoseki.lg.jp/soshiki/62/2493.html'},
+      {id:'SHI-04Y',label:'企業立地・産業拠点',publisher:'下関市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.shimonoseki.lg.jp/soshiki/58/6525.html'},
+      {id:'SHI-05Y',label:'Company Overview',publisher:'山口フィナンシャルグループ',kind:'company',verifiedAt:'2026-09-27',url:'https://www.ymfg.co.jp/en/about/profile/'},
+      {id:'SHI-06Y',label:'About Us',publisher:'林兼産業',kind:'company',verifiedAt:'2026-09-27',url:'https://www.hayashikane.co.jp/english/about/'}
     ],
-    sectionSources:{1:['SHI-01Y'],3:['SHI-01Y','SHI-02Y'],4:['SHI-01Y','SHI-02Y'],5:['SHI-03Y'],9:['SHI-02Y'],13:['SHI-02Y','SHI-03Y'],15:['SHI-02Y'],17:['SHI-01Y','SHI-02Y','SHI-03Y']}
+    sectionSources:{1:['SHI-01Y'],3:['SHI-01Y','SHI-02Y'],4:['SHI-01Y','SHI-02Y','SHI-04Y'],5:['SHI-03Y'],6:['SHI-03Y','SHI-04Y','SHI-06Y'],7:['SHI-05Y','SHI-06Y'],9:['SHI-02Y','SHI-05Y','SHI-06Y'],10:['SHI-03Y','SHI-04Y','SHI-05Y','SHI-06Y'],13:['SHI-02Y','SHI-03Y'],15:['SHI-02Y','SHI-04Y'],17:['SHI-01Y','SHI-02Y','SHI-03Y','SHI-05Y','SHI-06Y']}
   },
   {
     id:'yanai', name:'柳井', prefecture:'山口県', lat:33.9630, lon:132.1017,
@@ -446,11 +452,11 @@ export const places = [
       ['歴史・都市形成','中世から柳井津として発展し、近世には瀬戸内屈指の商都として商家町が形成された。','fact'],
       ['港・交通・物流','瀬戸内海交易の要衝として九州から大阪まで広い商圏を持った。','fact'],
       ['食文化','醤油・海産物など、商業流通と地域生産が重なる食文化を持つ。','interpretation'],
-      ['地域産業','歴史的には木綿、油、和ろうそく、金物、醤油、塩など多様な商品流通で栄えた。','fact'],
-      ['代表企業','単一大企業よりも、商家・問屋・醸造など地域商業主体の蓄積で捉えるのが適切。','interpretation'],
+      ['地域産業','歴史的な商業・醸造に加え、現在は化学・機能材料・計測機器などの製造投資も進む。商都のサービス機能と工業団地型の製造業が併存する。','fact'],
+      ['代表企業','柳井化学工業は柳井本社工場で医薬原料・農薬・電材・機能化学品などの受託生産を行う。トクヤマも高放熱材料・窒化物系材料の新規投資を柳井で進めている。','fact'],
       ['産業遺伝子','港→広域交易→商人資本→商家・蔵→町並みという交易商都型。','interpretation'],
-      ['資本形成','瀬戸内広域商圏から得た利益が商家・蔵・町割として都市空間に固定化された。','interpretation'],
-      ['産業生態系','商業、物流、醸造、農漁業、町並み観光が重なる小規模複合型。','interpretation'],
+      ['資本形成','近世の広域交易利益は商家・蔵・町割に固定化された。現代は工業用地と企業誘致を通じて外部資本・技術投資を受け入れており、商人資本から産業投資へ資本形成の形が変化している。','interpretation'],
+      ['産業生態系','商業・物流・醸造・農漁業・町並み観光に、化学・先端材料・計測などの製造拠点が加わる。小都市ながら伝統商業と技術産業が重なる複合型。','interpretation'],
       ['人口・地域経済','山口県東南部の生活・商業拠点として周辺地域を支える。','interpretation'],
       ['暮らし','中心市街地と歴史地区が近接し、比較的コンパクトな生活圏を形成する。','interpretation'],
       ['観光・文化','古市・金屋の白壁の町並みは、近世商人の活動を現在に伝える重伝建地区。','fact'],
@@ -462,9 +468,12 @@ export const places = [
     genes:[{name:'柳井津・商人資本遺伝子',type:'ネットワーク型＋資本循環型',chain:['港','瀬戸内交易','広域商圏','商人資本','白壁商家町']}],
     sources:[
       {id:'YAN-01',label:'柳井市古市・金屋伝統的建造物群保存地区',publisher:'柳井市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city-yanai.jp/site/bunkazai/denkenchiku.html'},
-      {id:'YAN-02',label:'白壁の町並み',publisher:'柳井市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city-yanai.jp/site/kanko/denkenchiku.html'}
+      {id:'YAN-02',label:'白壁の町並み',publisher:'柳井市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city-yanai.jp/site/kanko/denkenchiku.html'},
+      {id:'YAN-03',label:'企業立地の動向',publisher:'柳井市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city-yanai.jp/life/2/18/145/'},
+      {id:'YAN-04',label:'柳井化学工業の想い・会社概要',publisher:'柳井化学工業',kind:'company',verifiedAt:'2026-09-27',url:'https://www.yanai.co.jp/about/'},
+      {id:'YAN-05',label:'トクヤマ進出協定',publisher:'柳井市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city-yanai.jp/soshiki/67/20260924.html'}
     ],
-    sectionSources:{3:['YAN-01'],4:['YAN-01','YAN-02'],6:['YAN-01'],9:['YAN-01'],13:['YAN-01','YAN-02'],16:['YAN-02'],17:['YAN-01','YAN-02']}
+    sectionSources:{3:['YAN-01'],4:['YAN-01','YAN-02'],6:['YAN-01','YAN-03','YAN-04','YAN-05'],7:['YAN-04','YAN-05'],9:['YAN-01','YAN-03'],10:['YAN-03','YAN-04','YAN-05'],13:['YAN-01','YAN-02'],16:['YAN-02'],17:['YAN-01','YAN-02','YAN-03','YAN-04']}
   },
   {
     id:'hofu', name:'防府（三田尻）', prefecture:'山口県', lat:34.0438, lon:131.5686,
@@ -477,11 +486,11 @@ export const places = [
       ['歴史・都市形成','1699年以降に三田尻六ヶ所浜が整備され、近世から近代まで製塩拠点として発展した。','fact'],
       ['港・交通・物流','三田尻塩は北前船で山陰・北陸・東北へ運ばれ、1800年には北海道まで販路を広げた。','fact'],
       ['食文化','塩という基礎調味料の生産地であり、食文化そのものより広域流通を支えた素材供給地として重要。','interpretation'],
-      ['地域産業','歴史的には製塩が圧倒的で、近代には専売制度・試験場・直轄工場まで集積した。','fact'],
-      ['代表企業','企業よりも藩営・塩業者・専売制度を含む製塩産業システムとして捉えるべき地域。','interpretation'],
+      ['地域産業','現在はマツダ防府工場を核とする自動車産業が最大の柱で、ブリヂストン、東海カーボン、化学・素材・物流企業が臨海部と工業団地に集積する。','fact'],
+      ['代表企業','マツダ防府工場を中心に、ブリヂストン防府工場、東海カーボン防府工場などが主要な製造拠点を構える。自動車組立と部品・素材・物流の集積が現在の防府を代表する。','fact'],
       ['産業遺伝子','遠浅海岸→干拓・塩田→大量製塩→北前船物流→広域市場という資源交易型。','interpretation'],
-      ['資本形成','塩業と広域販売が地域に生産・流通資本を蓄積した。','interpretation'],
-      ['産業生態系','塩田、釜屋、港、廻船、問屋、行政・専売制度が一体化した製塩生態系。','interpretation'],
+      ['資本形成','近世の塩業・港湾資産の上に、戦後は中関港、工業団地、道路・物流基盤への投資と大規模製造業の進出が重なった。歴史産業から自動車・素材産業への再編は土地・港湾インフラを媒介している。','interpretation'],
+      ['産業生態系','完成車工場、自動車部品、タイヤ、カーボン・化学素材、港湾物流、工業団地が連結する製造業生態系。三田尻中関港は輸出入と部材物流を支える。','interpretation'],
       ['人口・地域経済','現在の防府市全体は製造業都市の性格も強く、三田尻塩業史との連続性を追加検証する必要がある。','hypothesis'],
       ['暮らし','沿岸低地と市街地、工業地帯が近接し、歴史産業景観と現代生活圏が重なる。','interpretation'],
       ['観光・文化','三田尻塩田記念産業公園などを通じ、製塩技術と地域史が継承されている。','fact'],
@@ -492,9 +501,12 @@ export const places = [
     ],
     genes:[{name:'三田尻製塩・北前船遺伝子',type:'資源型＋物流型',chain:['遠浅海岸','干拓・塩田','大量製塩','北前船','全国市場']}],
     sources:[
-      {id:'HOF-01',label:'三田尻塩田の歴史',publisher:'防府市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html'}
+      {id:'HOF-01',label:'三田尻塩田の歴史',publisher:'防府市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html'},
+      {id:'HOF-02',label:'市内企業紹介・マツダ防府工場',publisher:'防府市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.hofu.yamaguchi.jp/soshiki/24/kigyoushoukai.html'},
+      {id:'HOF-03',label:'環境関連施策・市内事業所一覧',publisher:'防府市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.hofu.yamaguchi.jp/soshiki/15/kankyosesaku.html'},
+      {id:'HOF-04',label:'令和7年版製造業',publisher:'防府市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.hofu.yamaguchi.jp/soshiki/3/seizougyour7.html'}
     ],
-    sectionSources:{0:['HOF-01'],1:['HOF-01'],3:['HOF-01'],4:['HOF-01'],6:['HOF-01'],13:['HOF-01'],17:['HOF-01']}
+    sectionSources:{0:['HOF-01'],1:['HOF-01'],3:['HOF-01'],4:['HOF-01','HOF-02'],6:['HOF-02','HOF-03','HOF-04'],7:['HOF-02','HOF-03'],9:['HOF-01','HOF-02'],10:['HOF-02','HOF-03','HOF-04'],13:['HOF-01'],17:['HOF-01','HOF-02','HOF-03']}
   },
   {
     id:'hiketa', name:'引田', prefecture:'香川県東かがわ市', lat:34.2248, lon:134.4047,
@@ -507,11 +519,11 @@ export const places = [
       ['歴史・都市形成','風待ち・潮待ちの交通要地だった港を囲む城山に引田城が築かれ、その城下町として商家町が形成された。','fact'],
       ['港・交通・物流','古くから風待ち港として機能し、東讃と瀬戸内航路をつないだ。','fact'],
       ['食文化','地魚に加え、醤油・和三盆など伝統的な食品産業が残る。','fact'],
-      ['地域産業','漁業、醤油、和三盆など海と農産加工を組み合わせた伝統産業が特徴。','fact'],
-      ['代表企業','大企業集積より、醤油醸造・地域商業・漁業など歴史産業主体の継続が重要。','interpretation'],
+      ['地域産業','引田では漁業・ハマチ養殖・醤油・和三盆などが重要で、東かがわ市全体では国産手袋の約9割を占める縫製技能集積がある。港町産業と広域技能産業が重なる。','fact'],
+      ['代表企業','引田では1753年創業のかめびしが伝統的な「むしろ麹」による醤油醸造を続ける。東かがわ市全体では多数の手袋企業が技能集積を形成している。','fact'],
       ['産業遺伝子','風待ち・潮待ち港→城下・商家→漁業・醤油・和三盆という滞留・加工型。','interpretation'],
-      ['資本形成','寄港・商業と食品加工による地域商人の蓄積が町並み形成を支えたと考えられる。','hypothesis'],
-      ['産業生態系','港、漁業、醸造、商家町、観光が小規模に近接する。','interpretation'],
+      ['資本形成','港湾商業と醸造・漁業の地域資本に加え、明治以降は手袋縫製技能が市域全体へ蓄積した。引田単独の商人資本と市域の手袋資本は区別しつつ、技能継承という共通軸で読む。','interpretation'],
+      ['産業生態系','引田港・漁業・養殖・醤油醸造・和三盆・商家町観光に、東かがわ市全域の手袋縫製・デザイン・スポーツ用品加工が重なる。伝統食品と技能産業の二層構造。','interpretation'],
       ['人口・地域経済','東かがわ市内の歴史地区で、地域産業・観光資源としての役割が大きい。','interpretation'],
       ['暮らし','海・港・古い町並みが近く、東讃の小規模港町としてコンパクトな生活景観を持つ。','interpretation'],
       ['観光・文化','国史跡引田城跡と古い商家町、港景観が一体的な文化資源。','fact'],
@@ -526,9 +538,12 @@ export const places = [
     ],
     sources:[
       {id:'HIK-01',label:'引田エリア情報',publisher:'東かがわ市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.higashikagawa.jp/soshikikarasagasu/chiikisoseika/gyomuannai/2/area_information/index.html'},
-      {id:'HIK-02',label:'国指定史跡 引田城跡',publisher:'東かがわ市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html'}
+      {id:'HIK-02',label:'国指定史跡 引田城跡',publisher:'東かがわ市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html'},
+      {id:'HIK-03',label:'東かがわ市と手袋',publisher:'東かがわ市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/EXPO2025/6350.html'},
+      {id:'HIK-04',label:'市の名称・地勢・特産品',publisher:'東かがわ市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/824/5487.html'},
+      {id:'HIK-05',label:'かめびし',publisher:'株式会社かめびし',kind:'company',verifiedAt:'2026-09-27',url:'https://kamebishi.co.jp/'}
     ],
-    sectionSources:{0:['HIK-01'],1:['HIK-02'],2:['HIK-02'],3:['HIK-02'],4:['HIK-01','HIK-02'],5:['HIK-01'],6:['HIK-01'],13:['HIK-02'],17:['HIK-01','HIK-02']}
+    sectionSources:{0:['HIK-01'],1:['HIK-02'],2:['HIK-02'],3:['HIK-02'],4:['HIK-01','HIK-02'],5:['HIK-01','HIK-04','HIK-05'],6:['HIK-01','HIK-03','HIK-04','HIK-05'],7:['HIK-03','HIK-05'],9:['HIK-03','HIK-05'],10:['HIK-03','HIK-04','HIK-05'],13:['HIK-02'],17:['HIK-01','HIK-02','HIK-03','HIK-05']}
   },
   {
     id:'sakaide', name:'坂出', prefecture:'香川県', lat:34.3163, lon:133.8606,
@@ -541,11 +556,11 @@ export const places = [
       ['歴史・都市形成','近世の塩田開発と塩積出港を基礎に、近代商港、戦後の番の州工業地帯へ発展した。','fact'],
       ['港・交通・物流','坂出港は塩積出港から重要港湾・流通拠点へ転換し、1988年の瀬戸大橋で本州と直結した。','fact'],
       ['食文化','塩業史は讃岐の食文化を支えた基礎素材産業として重要だが、坂出固有の料理文化は追加検証が必要。','hypothesis'],
-      ['地域産業','石油、化学、造船、電力など番の州の大型臨海産業と港湾物流が中心。','fact'],
-      ['代表企業','川崎重工など大型企業の臨海立地が、番の州工業地帯の性格を代表する。','fact'],
+      ['地域産業','番の州を中心に造船、石油・化学、エネルギー、物流など大型臨海産業が集積する。坂出港取扱貨物の約9割を番の州地区が担い、港湾と工業が一体化している。','fact'],
+      ['代表企業','川崎重工坂出工場は1967年完成の大型造船所で、現在も液化ガス運搬船などを担う。ライオンケミカルなど生活関連化学企業も立地し、重厚長大型と化学系が共存する。','fact'],
       ['産業遺伝子','塩田→塩積出港→塩田跡地・浅瀬埋立→臨海工業→瀬戸大橋物流という土地継承型。','interpretation'],
-      ['資本形成','製塩・港湾から公共投資・大規模埋立・企業誘致へ資本形成の主体が転換した。','interpretation'],
-      ['産業生態系','港湾、エネルギー、化学、造船、物流、本四交通が大規模臨海空間に集積する。','fact'],
+      ['資本形成','製塩・港湾の土地利用から、戦後の大規模埋立・公共港湾投資・企業誘致へ資本形成の主体が転換した。番の州は外部大企業資本を受け止める産業基盤として造成された。','interpretation'],
+      ['産業生態系','大型バース、原油・石油製品等の貨物、造船所、化学・エネルギー施設、物流網、瀬戸大橋が同一臨海圏で結びつく。港湾インフラを共有する典型的コンビナート型生態系。','interpretation'],
       ['人口・地域経済','人口規模に比して港湾貨物・製造業の比重が大きい工業都市。','interpretation'],
       ['暮らし','市街地と大規模臨海工業地帯、本州連絡交通が近接する。','interpretation'],
       ['観光・文化','塩田史、沙弥島、瀬戸大橋など産業・交通景観そのものが文化資源となる。','interpretation'],
@@ -561,9 +576,12 @@ export const places = [
     sources:[
       {id:'SAK-01',label:'坂出港の概要・各地区の姿',publisher:'坂出市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'},
       {id:'SAK-02',label:'坂出港の歴史年表',publisher:'坂出市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/chronology.html'},
-      {id:'SAK-03',label:'坂出市のあゆみ',publisher:'坂出市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.sakaide.lg.jp/soshiki/seisaku/ayumi.html'}
+      {id:'SAK-03',label:'坂出市のあゆみ',publisher:'坂出市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.sakaide.lg.jp/soshiki/seisaku/ayumi.html'},
+      {id:'SAK-04',label:'坂出工場・事業拠点',publisher:'川崎重工業',kind:'company',verifiedAt:'2026-09-27',url:'https://www.khi.co.jp/corporate/network/'},
+      {id:'SAK-05',label:'船舶海洋ディビジョン沿革',publisher:'川崎重工業',kind:'company',verifiedAt:'2026-09-27',url:'https://www.khi.co.jp/corporate/division/ship/history/'},
+      {id:'SAK-06',label:'キレイキレイのまち坂出',publisher:'坂出市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.sakaide.lg.jp/soshiki/seisaku/kirei-kirei.html'}
     ],
-    sectionSources:{0:['SAK-01'],1:['SAK-01'],3:['SAK-01','SAK-02'],4:['SAK-01','SAK-03'],6:['SAK-01'],7:['SAK-03'],13:['SAK-03'],17:['SAK-01','SAK-02','SAK-03']}
+    sectionSources:{0:['SAK-01'],1:['SAK-01'],3:['SAK-01','SAK-02'],4:['SAK-01','SAK-03'],6:['SAK-01','SAK-04'],7:['SAK-04','SAK-05','SAK-06'],9:['SAK-01','SAK-02','SAK-04'],10:['SAK-01','SAK-04','SAK-06'],13:['SAK-03'],17:['SAK-01','SAK-02','SAK-03','SAK-04']}
   },
   {
     id:'takamatsu', name:'高松', prefecture:'香川県', lat:34.3428, lon:134.0466,
@@ -576,11 +594,11 @@ export const places = [
       ['歴史・都市形成','中世の港町「野原」を基盤に1588年から高松城が築かれ、海に開く城下町として再編された。','fact'],
       ['港・交通・物流','高松港と鉄道、島しょ航路、本州連絡交通が集まり、長く四国の玄関口として機能した。','interpretation'],
       ['食文化','讃岐うどん、瀬戸内魚介、島しょ部の農水産物など県都として県内食文化が集積する。','interpretation'],
-      ['地域産業','行政、商業、サービス、観光、港湾物流が中心で、県都機能そのものが最大の産業基盤。','interpretation'],
-      ['代表企業','地域金融、交通、小売、サービスなど広域都市機能を担う企業群の集積で捉えるべき都市。','interpretation'],
+      ['地域産業','県都として行政・商業・金融・サービス・観光が集積し、加えてクレーンなど機械製造、電力など四国広域を支える本社機能を持つ。','fact'],
+      ['代表企業','四国電力、百十四銀行、タダノはいずれも高松に本店・本社を置く。エネルギー、金融、世界展開するクレーン製造という異なる本社機能が県都の厚みを示す。','fact'],
       ['産業遺伝子','港町→海城・城下町→県都→港・鉄道・本州連絡という広域玄関口型。','interpretation'],
-      ['資本形成','城下町商業と県都機能、近代交通投資が都市中心性を継続的に高めた。','interpretation'],
-      ['産業生態系','行政、金融、商業、港湾、鉄道、観光、島しょ航路が相互補完する都市型生態系。','interpretation'],
+      ['資本形成','城下町商業・港湾に加え、1878年創業の百十四銀行など地域金融、戦後の電力・機械企業の本社機能、行政・交通投資が都市中心性を強化した。','interpretation'],
+      ['産業生態系','行政、金融、電力、機械製造、商業、港湾、鉄道、観光、島しょ航路が相互補完する。四国内の支店経済だけでなく、地場本社企業を持つ点が特徴。','interpretation'],
       ['人口・地域経済','香川県最大の都市として行政・商業・サービスの広域中心性を持つ。','fact'],
       ['暮らし','中心市街地、港、鉄道駅、商業地区が近接し、コンパクトな県都としての性格が強い。','interpretation'],
       ['観光・文化','海城である高松城、栗林公園、屋島、島しょ部への玄関口など多層的な文化資源を持つ。','fact'],
@@ -596,8 +614,12 @@ export const places = [
     sources:[
       {id:'TAKAM-01',label:'高松城略年表',publisher:'高松市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/nenpyo.html'},
       {id:'TAKAM-02',label:'史跡高松城跡の歴史',publisher:'高松市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/bunzai201806051.html'},
-      {id:'TAKAM-03',label:'西ノ丸・中世港町野原',publisher:'高松市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/nishinomaru.html'}
+      {id:'TAKAM-03',label:'西ノ丸・中世港町野原',publisher:'高松市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/nishinomaru.html'},
+      {id:'TAKAM-04',label:'高松市の事業所・企業',publisher:'高松市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.takamatsu.kagawa.jp/kurashi/shinotorikumi/tokei/jigyosho/index.html'},
+      {id:'TAKAM-05',label:'会社概要',publisher:'四国電力',kind:'company',verifiedAt:'2026-09-27',url:'https://www.yonden.co.jp/corporate/yonden/summary.html'},
+      {id:'TAKAM-06',label:'会社概要',publisher:'タダノ',kind:'company',verifiedAt:'2026-09-27',url:'https://www.tadano.co.jp/ja/company/overview/'},
+      {id:'TAKAM-07',label:'会社概要',publisher:'百十四銀行',kind:'company',verifiedAt:'2026-09-27',url:'https://www.114bank.co.jp/company/about_114bank/'}
     ],
-    sectionSources:{0:['TAKAM-01'],3:['TAKAM-01','TAKAM-02','TAKAM-03'],4:['TAKAM-01'],11:['TAKAM-01'],13:['TAKAM-02'],17:['TAKAM-01','TAKAM-02','TAKAM-03']}
+    sectionSources:{0:['TAKAM-01'],3:['TAKAM-01','TAKAM-02','TAKAM-03'],4:['TAKAM-01'],6:['TAKAM-04','TAKAM-05','TAKAM-06','TAKAM-07'],7:['TAKAM-05','TAKAM-06','TAKAM-07'],9:['TAKAM-01','TAKAM-05','TAKAM-07'],10:['TAKAM-04','TAKAM-05','TAKAM-06','TAKAM-07'],11:['TAKAM-01','TAKAM-04'],13:['TAKAM-02'],17:['TAKAM-01','TAKAM-02','TAKAM-03','TAKAM-05','TAKAM-06','TAKAM-07']}
   }
 ];
