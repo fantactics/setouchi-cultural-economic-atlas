@@ -335,3 +335,29 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .industry-compare-table th:first-child { min-width:8rem; }
 .industry-source-pills { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.55rem; }
 .industry-source-pills a { display:inline-block; padding:.18rem .38rem; border:1px solid var(--line); border-radius:999px; color:var(--muted); text-decoration:none; font-size:.65rem; font-weight:800; }
+
+.industry-map-controls { display:grid; gap:.7rem; margin:1rem 0; }
+.industry-filter-group { display:flex; flex-wrap:wrap; gap:.42rem; align-items:center; }
+.industry-map-filter,.industry-relation-filter { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.38rem .68rem; font:inherit; font-size:.72rem; font-weight:800; cursor:pointer; }
+.industry-map-filter.active,.industry-relation-filter.active { background:var(--ink); color:white; border-color:var(--ink); }
+.industry-map-legend { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.55rem 1rem; margin:.85rem 0 0; }
+.industry-map-legend div { display:grid; grid-template-columns:2.2rem auto; column-gap:.5rem; align-items:center; }
+.industry-map-legend small { grid-column:2; color:var(--muted); font-size:.68rem; }
+.line-swatch { display:block; width:2rem; height:0; border-top:4px solid #666; }
+.line-swatch.direct_continuity { border-top-style:solid; }
+.line-swatch.land_inheritance { border-top-style:dashed; }
+.line-swatch.logistics_inheritance { border-top:4px double #666; }
+.line-swatch.skill_inheritance { border-top-style:dotted; }
+.line-swatch.capital_inheritance { border-top-style:solid; opacity:.65; }
+.line-swatch.parallel_modern_layer { border-top:3px dashed #888; opacity:.65; }
+.industry-lineage-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.industry-lineage-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem; }
+.industry-lineage-card h3 { margin:.45rem 0 .45rem; font-size:1rem; }
+.industry-lineage-meta { display:flex; gap:.4rem; flex-wrap:wrap; }
+.relation-badge,.confidence-badge { display:inline-block; border-radius:999px; padding:.18rem .45rem; font-size:.64rem; font-weight:900; }
+.relation-badge { background:#eef0ed; color:var(--ink); border:1px solid var(--line); }
+.confidence-badge.high { background:#e5f1e8; color:#245b32; }
+.confidence-badge.medium { background:#f4eedb; color:#6d5920; }
+.confidence-badge.low { background:#f4e6e3; color:#7b3429; }
+@media (max-width:900px){ .industry-map-legend{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:700px){ .industry-map-legend,.industry-lineage-list{grid-template-columns:1fr;} }
