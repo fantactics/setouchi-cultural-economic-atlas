@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+import { photoEvidence, photoThemeLabels } from '../data/photoEvidence.js';
+
+const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
+const photoPlaces=[...new Set(photoEvidence.map((p)=>p.placeId))].map((id)=>placeById[id]).filter(Boolean);
+const nodeLabels={
+  nature:'自然条件',
+  formation:'歴史・都市形成',
+  transport:'港・交通・物流',
+  gene:'産業遺伝子',
+  capital:'資本形成・産業生態系',
+  culture:'食・文化への波及',
+  today:'現在の変化',
+  why:'総合因果'
+};
+---
+<BaseLayout title="写真証拠 | 瀬戸内文化経済アトラス" description="瀬戸内の地形・港・町並み・産業を、出典と解釈を付けた写真証拠として横断比較する。">
+  <section class="place-hero">
+    <div class="kicker">PHOTO EVIDENCE</div>
+    <h1>写真を「地域形成の証拠」として読む</h1>
+    <p class="subtitle">景観を眺めるだけでなく、地形・港・町並み・産業立地が何を示すのかを、出典・ライセンス・解釈と一緒に比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="photo-index-controls">
+      <div class="photo-filter-group">
+        <span class="filter-label">地域</span>
+        <button class="photo-filter active" type="button" data-filter-kind="place" data-filter-value="all">すべて</button>
+        {photoPlaces.map((place)=><button class="photo-filter" type="button" data-filter-kind="place" data-filter-value={place.id}>{place.name}</button>)}
+      </div>
+      <div class="photo-filter-group">
+        <span class="filter-label">テーマ</span>
+        <button class="photo-filter active" type="button" data-filter-kind="theme" data-filter-value="all">すべて</button>
+        {Object.entries(photoThemeLabels).map(([key,label])=><button class="photo-filter" type="button" data-filter-kind="theme" data-filter-value={key}>{label}</button>)}
+      </div>
+      <p class="filter-count"><span id="photo-visible-count">{photoEvidence.length}</span> / {photoEvidence.length} 枚</p>
+    </div>
+
+    <div class="photo-index-grid" id="photo-index-grid">
+      {photoEvidence.map((item)=>{
+        const place=placeById[item.placeId];
+        return (
+          <article class="photo-index-card" data-place={item.placeId} data-theme={item.theme}>
+            <a href={item.sourcePage} target="_blank" rel="noreferrer" class="photo-index-image">
+              <img src={item.imageUrl} alt={item.alt} loading="lazy" decoding="async" />
+            </a>
+            <div class="photo-index-body">
+              <div class="photo-index-meta">
+                <span class="kicker">{place?.name || item.placeId}</span>
+                <span>{photoThemeLabels[item.theme] || item.theme}</span>
+              </div>
+              <h2>{item.title}</h2>
+              <p class="photo-caption">{item.caption}</p>
+              <div class="photo-insight"><strong>この写真から読む：</strong>{item.insight}</div>
+              <div class="photo-node-link">
+                <span>{nodeLabels[item.nodeKey] || item.nodeKey}</span>
+                {place && <a href={`/setouchi-cultural-economic-atlas/evolution/#place-${place.id}`}>因果グラフ →</a>}
+              </div>
+              <div class="photo-credit">
+                Photo: {item.author} / {item.sourceType} /
+                <a href={item.licenseUrl} target="_blank" rel="noreferrer">{item.license}</a>
+                {' · '}<a href={item.sourcePage} target="_blank" rel="noreferrer">原典 ↗</a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">EVIDENCE RULE</div>
+    <h2>写真と因果を混同しない</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>写真が示すもの</h3><p>地形、建築、港湾施設、工場立地など、視覚的に確認できる空間情報。</p></article>
+      <article class="insight-card"><h3>写真だけでは示せないもの</h3><p>「この港がこの企業を生んだ」といった因果関係。文献・統計・企業史と照合して初めて説明できます。</p></article>
+      <article class="insight-card"><h3>ライセンス</h3><p>著作者、原典、利用条件を写真ごとに保持し、再利用条件を追跡可能にします。</p></article>
+      <article class="insight-card"><h3>今後</h3><p>ユーザー撮影写真を追加すると、現在の土地利用や街路・港の実地観察を一次資料として蓄積できます。</p></article>
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const state={place:'all',theme:'all'};
+      const cards=[...document.querySelectorAll('.photo-index-card')];
+      const count=document.getElementById('photo-visible-count');
+      const refresh=()=>{
+        let n=0;
+        cards.forEach((card)=>{
+          const show=(state.place==='all'||card.dataset.place===state.place) &&
+            (state.theme==='all'||card.dataset.theme===state.theme);
+          card.hidden=!show;
+          if(show) n+=1;
+        });
+        if(count) count.textContent=String(n);
+      };
+      document.querySelectorAll('.photo-filter').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const kind=button.dataset.filterKind;
+          const value=button.dataset.filterValue;
+          if(!kind||!value) return;
+          state[kind]=value;
+          document.querySelectorAll('.photo-filter[data-filter-kind="'+kind+'"]').forEach((peer)=>peer.classList.toggle('active',peer===button));
+          refresh();
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
