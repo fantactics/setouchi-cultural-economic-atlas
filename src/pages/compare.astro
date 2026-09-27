@@ -21,20 +21,26 @@ const axes = [
 const geneSummary = {
   ako: '資源型＋土地継承型',
   onomichi: 'ネットワーク型',
-  imabari: '資本循環型＋技能型'
+  imabari: '資本循環型＋技能型',
+  shimotsui: 'ネットワーク型＋資源型',
+  tadotsu: '物流型＋土地継承型',
+  mitarai: 'ネットワーク型＋物流型'
 };
 
 const origin = {
   ako: '海水・塩田',
   onomichi: '天然港・交易',
-  imabari: '海峡・海運'
+  imabari: '海峡・海運',
+  shimotsui: '備讃瀬戸・渡海場',
+  tadotsu: '天然港・金毘羅参詣',
+  mitarai: '潮待ち・風待ち'
 };
 ---
-<BaseLayout title="3都市比較 | 瀬戸内文化経済アトラス" description="赤穂・尾道・今治を同じ軸で比較する地域インテリジェンスページ。">
+<BaseLayout title="6地域比較 | 瀬戸内文化経済アトラス" description="赤穂・尾道・今治・下津井・多度津・御手洗を同じ軸で比較する地域インテリジェンスページ。">
   <section class="place-hero compare-hero">
     <div class="kicker">CROSS-CITY COMPARISON</div>
-    <h1>赤穂・尾道・今治を比べる</h1>
-    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。3都市を同じ13軸で横並びにし、差分そのものを読むページです。</p>
+    <h1>6地域を比べる</h1>
+    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。6地域を同じ13軸で横並びにし、差分そのものを読むページです。</p>
   </section>
 
   <section class="section">
@@ -82,7 +88,7 @@ const origin = {
 
   <section class="section">
     <div class="kicker">STRUCTURAL READING</div>
-    <h2>3都市の違いを一言で表すと</h2>
+    <h2>6地域の違いを一言で表すと</h2>
     <div class="comparison-insight-grid">
       <article class="insight-card">
         <h3>赤穂</h3>
@@ -95,6 +101,18 @@ const origin = {
       <article class="insight-card">
         <h3>今治</h3>
         <p><strong>資本と技能が循環する都市。</strong> 船主資本が海事産業を厚くし、繊維技能はタオル産地へ進化した。</p>
+      </article>
+      <article class="insight-card">
+        <h3>下津井</h3>
+        <p><strong>航路と漁場が重なった港町。</strong> 北前船・金毘羅参詣と漁業文化が同じ海域条件の上に成立した。</p>
+      </article>
+      <article class="insight-card">
+        <h3>多度津</h3>
+        <p><strong>港から鉄道・工業へ転換した交通都市。</strong> 海上交通の結節機能が近代インフラへ継承された。</p>
+      </article>
+      <article class="insight-card">
+        <h3>御手洗</h3>
+        <p><strong>航海制約そのものが富を生んだ港町。</strong> 潮待ち・風待ちによる滞留が商業・宿泊・景観を蓄積した。</p>
       </article>
     </div>
   </section>
