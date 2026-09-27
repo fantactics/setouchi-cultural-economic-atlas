@@ -2,6 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
+const mapLayers = {
+  tidePorts: [
+    {name:'鞆の浦',lat:34.3834,lon:133.3818,note:'潮待ち港'},
+    {name:'波止浜',lat:34.1276,lon:132.9566,note:'潮待ち・修繕港'}
+  ],
+  strongCurrents: [
+    {name:'備讃瀬戸',lat:34.42,lon:133.82,note:'潮流の強い海域'},
+    {name:'来島海峡',lat:34.119,lon:132.976,note:'瀬戸内有数の強潮流海峡'}
+  ],
+  foodCulture: [
+    {name:'下津井',lat:34.435,lon:133.806,note:'タコ・瀬戸内魚介'},
+    {name:'笠岡諸島',lat:34.43,lon:133.51,note:'真鯛・イイダコ・メバル等'},
+    {name:'鞆の浦',lat:34.3834,lon:133.3818,note:'鯛・サワラ'},
+    {name:'尾道',lat:34.4089,lon:133.205,note:'魚介・柑橘'},
+    {name:'今治',lat:34.0661,lon:132.9978,note:'鯛・島嶼柑橘'}
+  ],
+  maritimeIndustry: [
+    {name:'尾道',lat:34.4089,lon:133.205,note:'海運・造船・修繕'},
+    {name:'今治',lat:34.0661,lon:132.9978,note:'船主・海運・造船・舶用'}
+  ]
+};
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 ---
 <BaseLayout>
@@ -17,7 +38,13 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
     <div class="kicker">MAP NAVIGATION</div>
     <h2>地図から読む</h2>
     <p class="lead">赤穂・尾道・今治を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
-    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)}></div>
+    <div class="map-toolbar">
+      <button type="button" class="map-layer-toggle active" data-layer="tidePorts">潮待ち港</button>
+      <button type="button" class="map-layer-toggle active" data-layer="strongCurrents">強潮流</button>
+      <button type="button" class="map-layer-toggle active" data-layer="foodCulture">食文化</button>
+      <button type="button" class="map-layer-toggle active" data-layer="maritimeIndustry">海事産業</button>
+    </div>
+    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)} data-layers={JSON.stringify(mapLayers)}></div>
     <p class="map-note">地図データ © OpenStreetMap contributors</p>
   </section>
 
@@ -67,16 +94,51 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
       const el = document.getElementById('atlas-map');
       if (!el || !window.L) return;
       const places = JSON.parse(el.dataset.places || '[]');
+      const layers = JSON.parse(el.dataset.layers || '{}');
       const base = el.dataset.base || '/';
       const map = L.map(el, { scrollWheelZoom: false }).setView([34.38, 133.65], 8);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(map);
+
+      const cityLayer = L.layerGroup().addTo(map);
       places.forEach((p) => {
         const url = location.origin + base + 'places/' + p.id + '/';
-        L.marker([p.lat, p.lon]).addTo(map)
+        L.marker([p.lat, p.lon]).addTo(cityLayer)
           .bindPopup('<strong>' + p.name + '</strong><br>' + p.prefecture + '<br><a href="' + url + '">地域ページを読む →</a>');
+      });
+
+      const styles = {
+        tidePorts: { radius: 8, fillOpacity: .75, weight: 1.5 },
+        strongCurrents: { radius: 11, fillOpacity: .18, weight: 2.5 },
+        foodCulture: { radius: 7, fillOpacity: .7, weight: 1.5 },
+        maritimeIndustry: { radius: 9, fillOpacity: .45, weight: 2 }
+      };
+      const overlayGroups = {};
+      Object.entries(layers).forEach(([key, items]) => {
+        const group = L.layerGroup().addTo(map);
+        overlayGroups[key] = group;
+        items.forEach((item) => {
+          L.circleMarker([item.lat, item.lon], styles[key] || {radius:8})
+            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note)
+            .addTo(group);
+        });
+      });
+
+      document.querySelectorAll('.map-layer-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+          const key = button.dataset.layer;
+          const group = overlayGroups[key];
+          if (!group) return;
+          if (map.hasLayer(group)) {
+            map.removeLayer(group);
+            button.classList.remove('active');
+          } else {
+            map.addLayer(group);
+            button.classList.add('active');
+          }
+        });
       });
     })();
   </script>
