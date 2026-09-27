@@ -145,3 +145,12 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .map-source-status.verified { background:#e7f3ea; color:#245b32; }
 .map-source-status.pending { background:#f6eadf; color:#8a4f22; }
 .leaflet-popup-content small { color:#6f777b; }
+
+.typology-cta { background:#edf0e8; }
+.typology-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.4rem; }
+.typology-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1.4rem; }
+.typology-card h3 { margin:.25rem 0 .6rem; font-size:1.35rem; }
+.compact-chain { margin:.9rem 0; }
+.compact-chain span { font-size:.78rem; padding:.35rem .55rem; }
+.typology-question { margin:.9rem 0 0; padding-top:.8rem; border-top:1px dashed var(--line); }
+@media (max-width:800px){ .typology-grid{grid-template-columns:1fr;} }
