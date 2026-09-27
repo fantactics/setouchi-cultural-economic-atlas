@@ -68,8 +68,7 @@ export const mapLayers = {
       name:'今治',lat:34.0661,lon:132.9978,note:'来島鯛・鯛めし・鯛ざんき',
       status:'verified',sourceId:'MAP-05',sourceLabel:'観光課・今治郷土料理（今治市）',
       sourceUrl:'https://www.city.imabari.ehime.jp/kankou/',verifiedAt:'2026-09-27'
-    }
-  ],
+    },
     {
       name:'伊吹島',lat:34.126,lon:133.525,note:'カタクチイワシ・イリコ・出汁文化',
       status:'verified',sourceId:'SF-IRIKO-01',sourceLabel:'カタクチイワシの概要（香川県）',
