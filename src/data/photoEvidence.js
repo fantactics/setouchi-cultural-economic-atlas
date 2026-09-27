@@ -352,3 +352,37 @@ export const photoThemeLabels = {
 };
 
 export const photosForPlace = (placeId) => photoEvidence.filter((item)=>item.placeId===placeId);
+
+
+export const photoEvidenceSlots = [
+  {id:'geography',label:'地形・自然',description:'海峡・水道・島・平地・沿岸地形など、地域形成の自然条件を示す。'},
+  {id:'formation',label:'歴史形成',description:'港町・商家・塩田・城下など、歴史的な地域形成を示す。'},
+  {id:'transport',label:'交通・港湾',description:'港・渡船・鉄道・橋など、人と物の移動を支える構造を示す。'},
+  {id:'modernIndustry',label:'現代産業',description:'造船・工業地・企業拠点など、現在の産業構造を示す。'}
+];
+
+export const photoSlotForItem = (item) => {
+  if (item.nodeKey === 'nature' || item.theme === 'geography') return 'geography';
+  if (item.nodeKey === 'formation' || item.theme === 'townscape') return 'formation';
+  if (item.nodeKey === 'transport' || item.theme === 'port' || item.theme === 'transport') return 'transport';
+  if ((['gene','capital','today'].includes(item.nodeKey)) && item.theme === 'industry') return 'modernIndustry';
+  return null;
+};
+
+export const photoCoverageForPlace = (placeId) => {
+  const items = photosForPlace(placeId);
+  const covered = Object.fromEntries(photoEvidenceSlots.map((slot)=>[slot.id,false]));
+  items.forEach((item)=>{
+    const slot=photoSlotForItem(item);
+    if(slot) covered[slot]=true;
+  });
+  const coveredCount=Object.values(covered).filter(Boolean).length;
+  return {
+    items,
+    covered,
+    coveredCount,
+    total:photoEvidenceSlots.length,
+    score:Math.round((coveredCount/photoEvidenceSlots.length)*100),
+    missing:photoEvidenceSlots.filter((slot)=>!covered[slot.id])
+  };
+};
