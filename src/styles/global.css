@@ -154,3 +154,11 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .compact-chain span { font-size:.78rem; padding:.35rem .55rem; }
 .typology-question { margin:.9rem 0 0; padding-top:.8rem; border-top:1px dashed var(--line); }
 @media (max-width:800px){ .typology-grid{grid-template-columns:1fr;} }
+
+.place-filter-bar { margin:1rem 0 1.2rem; display:grid; gap:.7rem; }
+.filter-group { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem; }
+.filter-label { min-width:2.2rem; font-size:.78rem; font-weight:800; color:var(--muted); }
+.place-filter { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.38rem .68rem; font:inherit; font-size:.78rem; font-weight:700; cursor:pointer; }
+.place-filter.active { background:var(--sea); color:white; border-color:var(--sea); }
+.filter-count { margin:0; font-size:.8rem; color:var(--muted); }
+.place-card[hidden] { display:none !important; }
