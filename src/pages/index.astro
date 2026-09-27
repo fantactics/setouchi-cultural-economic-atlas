@@ -98,7 +98,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
 
   <section class="section climate-cta">
     <div class="kicker">CLIMATE COMPARISON</div>
-    <h2>10地域の気候を横並びで読む</h2>
+    <h2>{places.length}地域の気候を横並びで読む</h2>
     <p class="lead">年平均気温・年間降水量・年間日照時間を比較し、各地域の月別気候詳細へ移動できます。</p>
     <a class="compare-button" href="/setouchi-cultural-economic-atlas/climate/">気候比較を開く →</a>
   </section>
@@ -112,14 +112,14 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
 
   <section class="section typology-cta">
     <div class="kicker">PORT CITY TYPOLOGY</div>
-    <h2>10地域を「富の生まれ方」で分類する</h2>
+    <h2>{places.length}地域を「富の生まれ方」で分類する</h2>
     <p class="lead">資源、航路、交通、商業資本、滞留、資本循環。港町ごとに異なる形成メカニズムを比較します。</p>
     <a class="compare-button" href="/setouchi-cultural-economic-atlas/typology/">港町類型を見る →</a>
   </section>
 
   <section class="section compare-cta">
     <div class="kicker">COMPARE</div>
-    <h2>10地域を横並びで読む</h2>
+    <h2>{places.length}地域を横並びで読む</h2>
     <p class="lead">瀬戸内の{places.length}地域を、地理・気候・産業・資本形成・暮らしなど同じ軸で比較できます。</p>
     <a class="compare-button" href="/setouchi-cultural-economic-atlas/compare/">比較ページを開く →</a>
   </section>
@@ -155,6 +155,9 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
         L.marker([p.lat, p.lon]).addTo(cityLayer)
           .bindPopup('<strong>' + p.name + '</strong><br>' + p.prefecture + '<br><a href="' + url + '">地域ページを読む →</a>');
       });
+      if (places.length) {
+        map.fitBounds(L.latLngBounds(places.map((p) => [p.lat, p.lon])), { padding:[24,24] });
+      }
 
       const styles = {
         tidePorts: { radius: 8, fillOpacity: .75, weight: 1.5 },
