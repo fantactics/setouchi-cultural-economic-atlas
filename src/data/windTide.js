@@ -110,3 +110,105 @@ export const cultureFromWind = [
     sources:['https://www.kitamae-bune.com/about/main/']
   }
 ];
+
+
+export const windVocabulary = [
+  {
+    term:'アナジ / アナシ',direction:'北西風',season:'冬季',
+    region:'瀬戸内・西日本',
+    meaning:'冬の北西季節風。瀬戸内では「あなじの八日吹き」という表現もあり、長く吹き続け海が荒れる風として警戒された。',
+    claimType:'fact',
+    sourceUrl:'https://kotobank.jp/word/%E3%81%82%E3%81%AA%E3%81%98-426105'
+  },
+  {
+    term:'マジ',direction:'南風',season:'暖候期',
+    region:'伊予・西日本',
+    meaning:'愛媛県の海上生活者の風名では南風をマジと呼ぶ。海上生活に密接な地域語彙として残る。',
+    claimType:'fact',
+    sourceUrl:'https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/49/view/6455'
+  },
+  {
+    term:'ヤマジ / ヤマゼ',direction:'南寄りの強風',season:'2〜10月に多い',
+    region:'愛媛県東部・瀬戸内沿岸',
+    meaning:'背後の山から海へ吹き下ろすフェーンを伴う強風。宇摩地方などで知られ、生活・農業・海上活動に強い影響を与える。',
+    claimType:'fact',
+    sourceUrl:'https://crd.ndl.go.jp/reference/entry/index.php?id=1000101865&page=ref_view'
+  },
+  {
+    term:'コチ',direction:'東風',season:'春を中心',
+    region:'伊予ほか',
+    meaning:'東風をコチと呼ぶ。方位と風の性質を細かく区別する海上生活者の風語彙の一つ。',
+    claimType:'fact',
+    sourceUrl:'https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/49/view/6455'
+  },
+  {
+    term:'夕凪',direction:'無風',season:'夏に顕著',
+    region:'瀬戸内沿岸',
+    meaning:'海風と陸風が交替する夕方に風が弱まる現象。愛媛では「伊予の夕凪」と呼ばれ、蒸し暑さを伴う生活感覚としても語られる。',
+    claimType:'fact',
+    sourceUrl:'https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/49/view/6455'
+  }
+];
+
+export const maritimeBeliefs = [
+  {
+    id:'konpira',name:'金刀比羅宮・金毘羅信仰',place:'琴平・多度津との海陸接続',
+    type:'航海安全信仰',
+    description:'金刀比羅宮では現在も「海上安全」を祈願事項として掲げ、船名を読み上げる。歴史的にも奉納船・船絵馬が集積し、海上交通と信仰が結びついた。',
+    coordinates:[34.1843,133.8090],
+    sourceUrls:[
+      'https://www.konpira.or.jp/?stageID=hp',
+      'https://www.konpira.or.jp/konpira-certification-examination/elementary_03/article.html',
+      'https://www.library.pref.kagawa.lg.jp/know/local/local_2010'
+    ]
+  },
+  {
+    id:'abuto',name:'阿伏兎観音',place:'福山市・鞆の浦近傍',
+    type:'航海安全祈願',
+    description:'沼隈半島南端の断崖に建つ観音堂で、古くから航海安全の祈願所として知られる。鞆の浦周辺の海上交通文化を信仰面から補完する。',
+    coordinates:[34.3359,133.3162],
+    sourceUrls:['https://www.city.fukuyama.hiroshima.jp/site/miryoku2023/288942.html']
+  },
+  {
+    id:'kitamae-ema',name:'船絵馬・船模型',place:'北前船寄港地全般',
+    type:'奉納文化',
+    description:'船主・船員は航海安全祈願や海難救助への感謝として船絵馬や模型を社寺へ奉納した。港町の宗教景観に海上交通が刻まれた。',
+    sourceUrls:['https://www.japan-heritage.bunka.go.jp/ja/stories/story039/']
+  },
+  {
+    id:'hiyoriyama',name:'日和山・方角石',place:'北前船港の一般的装置',
+    type:'航海判断',
+    description:'港近くの小高い場所から風向き・潮・天候を確認して出港可否を判断した。日本遺産には日和山や方角石が構成文化財として残る。',
+    sourceUrls:[
+      'https://www.japan-heritage.bunka.go.jp/ja/stories/story039/',
+      'https://www.japan-heritage.bunka.go.jp/ja/culturalproperties/result/2664/'
+    ]
+  }
+];
+
+export const maritimeCulturalFlows = [
+  {
+    id:'folk-song',name:'民謡の伝播',kind:'芸能',
+    description:'風待ち・天候待ちの滞留と船乗りの移動を通じ、ハイヤ節系の民謡などが寄港地間へ広がった。',
+    claimType:'fact',
+    sourceUrl:'https://www.japan-heritage.bunka.go.jp/ja/stories/story039/'
+  },
+  {
+    id:'festival',name:'祭礼の伝播',kind:'祭礼',
+    description:'北前船の船乗りや商人の移動によって、遠方起源の祭礼や神輿などが寄港地へ持ち込まれた例がある。',
+    claimType:'fact',
+    sourceUrl:'https://www.japan-heritage.bunka.go.jp/ja/stories/story039/'
+  },
+  {
+    id:'food',name:'食文化の伝播',kind:'食',
+    description:'昆布などの積荷が上方へ運ばれ、出汁文化へ組み込まれるなど、海上交通は食文化の地域間交流も媒介した。',
+    claimType:'fact',
+    sourceUrl:'https://www.japan-heritage.bunka.go.jp/ja/stories/story039/'
+  },
+  {
+    id:'life-calendar',name:'季節労働と家族生活',kind:'生活暦',
+    description:'春に出帆し秋までに戻る航海サイクルは、船員・船主集落の年間労働暦や家族生活を規定したと考えられる。',
+    claimType:'interpretation',
+    sourceUrl:'https://www.kitamae-bune.com/about/main/'
+  }
+];
