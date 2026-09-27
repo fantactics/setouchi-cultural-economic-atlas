@@ -37,7 +37,7 @@ const hasClimate = !!climateProfiles[place.id];
               <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>{title} →</a></h3>
             ) : i === 5 ? (
               <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`}>{title} →</a></h3>
-            ) : i >= 6 && i <= 10 ? (
+            ) : [6,7,8,9,10].includes(i) ? (
               <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/industry/#place-${place.id}`}>{title} →</a></h3>
             ) : (
               <h3>{title}</h3>
