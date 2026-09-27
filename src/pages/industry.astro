@@ -47,6 +47,7 @@ const sourceMap = (row, index) => {
         {industryEraPresets.map((era)=><span>{era.label}</span>)}
       </div>
       <p id="industry-era-description" class="industry-era-description">{industryEraPresets[3].description}</p>
+      <div id="industry-era-count" class="industry-era-count"></div>
       <p class="map-note">表示は「その時代までに形成された産業資産」の累積です。過去の港・塩田・商家なども、後世の産業を読む痕跡として残します。</p>
     </div>
 
@@ -268,12 +269,18 @@ const sourceMap = (row, index) => {
       const eraLabel=document.getElementById('industry-era-label');
       const eraPeriod=document.getElementById('industry-era-period');
       const eraDescription=document.getElementById('industry-era-description');
+      const eraCount=document.getElementById('industry-era-count');
       const applyEra=(index)=>{
         activeEraIndex=index;
         const era=eras[index];
         if(eraLabel && era) eraLabel.textContent=era.label;
         if(eraPeriod && era) eraPeriod.textContent=era.period;
         if(eraDescription && era) eraDescription.textContent=era.description;
+        if(eraCount){
+          const visibleNodes=nodes.filter((n)=>isNodeAvailable(n.id)).length;
+          const visibleRelations=relations.filter((r)=>isNodeAvailable(r.from) && isNodeAvailable(r.to)).length;
+          eraCount.textContent='形成済み拠点 '+visibleNodes+' / '+nodes.length+'　・　表示可能な継承関係 '+visibleRelations+' / '+relations.length;
+        }
         refreshMap();
       };
       if(eraRange){
