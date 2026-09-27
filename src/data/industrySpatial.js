@@ -289,16 +289,7 @@ export const industrySpatialNodes = [
     era:'現代',note:'商人資本が残した町並みと醸造文化が観光・地域ブランドとして活用される。',
     sourceUrl:'https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html'
   },
-  {from:'ako-salt',to:'ako-industrial',type:'land_inheritance',confidence:'high',note:'塩田跡地・臨海用地が素材・化学・重工業立地へ転換。'},
-  {from:'onomichi-port',to:'onomichi-shipbuilding',type:'capital_inheritance',confidence:'medium',note:'交易・廻船・修繕技能の蓄積が、近代海運・造船集積の背景となった。'},
-  {from:'imabari-strait',to:'imabari-maritime',type:'skill_inheritance',confidence:'high',note:'海峡航海と海運技能が船主・造船・舶用の地域集積へ厚みを与えた。'},
-  {from:'shimotsui-port',to:'shimotsui-fishery',type:'direct_continuity',confidence:'medium',note:'歴史港の海域利用が漁業・食文化・観光として現在まで残る。'},
-  {from:'tadotsu-port',to:'tadotsu-railindustry',type:'logistics_inheritance',confidence:'high',note:'港の物資集散機能が鉄道・臨海物流へ置き換わりながら継承された。'},
-  {from:'mitarai-port',to:'mitarai-tourism',type:'direct_continuity',confidence:'high',note:'滞留経済が形成した町並みそのものが現在の文化・観光資産になった。'},
-  {from:'ushimado-port',to:'ushimado-coastal',type:'parallel_modern_layer',confidence:'medium',note:'歴史的海運・外交港の空間に、農漁業・観光など現在の沿岸産業が重なる。'},
-  {from:'tomo-port',to:'tomo-tourism',type:'direct_continuity',confidence:'high',note:'潮待ち港が残した港湾施設・町並み・商業文化が現在の観光資産へ転換。'},
-  {from:'mihara-castleport',to:'mihara-industry',type:'logistics_inheritance',confidence:'high',note:'城下港の結節性が鉄道・道路・空港を含む広域交通機能へ更新された。'},
-  {from:'takehara-salt',to:'takehara-townscape',type:'capital_inheritance',confidence:'high',note:'製塩利益が酒造・廻船・商家建築へ再投資され、その資産が町並みとして残った。'}
+
 ];
 
 export const industrySpatialRelations = [
@@ -324,5 +315,15 @@ export const industrySpatialRelations = [
 
   {from:'takamatsu-portcastle',to:'takamatsu-114',type:'capital_inheritance',confidence:'medium',note:'城下・港町の都市中心性に地域金融本店が加わった。直接承継ではない。'},
   {from:'takamatsu-portcastle',to:'takamatsu-yonden',type:'capital_inheritance',confidence:'medium',note:'県都・交通結節性が広域本社機能の立地を支える。'},
-  {from:'takamatsu-portcastle',to:'takamatsu-tadano',type:'parallel_modern_layer',confidence:'medium',note:'港町の直系企業ではなく、県都圏に成立した世界展開型製造業。'}
+  {from:'takamatsu-portcastle',to:'takamatsu-tadano',type:'parallel_modern_layer',confidence:'medium',note:'港町の直系企業ではなく、県都圏に成立した世界展開型製造業。'},
+  {from:'ako-salt',to:'ako-industrial',type:'land_inheritance',confidence:'high',note:'塩田跡地・臨海用地が素材・化学・重工業立地へ転換。'},
+  {from:'onomichi-port',to:'onomichi-shipbuilding',type:'capital_inheritance',confidence:'medium',note:'交易・廻船・修繕技能の蓄積が、近代海運・造船集積の背景となった。'},
+  {from:'imabari-strait',to:'imabari-maritime',type:'skill_inheritance',confidence:'high',note:'海峡航海と海運技能が船主・造船・舶用の地域集積へ厚みを与えた。'},
+  {from:'shimotsui-port',to:'shimotsui-fishery',type:'direct_continuity',confidence:'medium',note:'歴史港の海域利用が漁業・食文化・観光として現在まで残る。'},
+  {from:'tadotsu-port',to:'tadotsu-railindustry',type:'logistics_inheritance',confidence:'high',note:'港の物資集散機能が鉄道・臨海物流へ置き換わりながら継承された。'},
+  {from:'mitarai-port',to:'mitarai-tourism',type:'direct_continuity',confidence:'high',note:'滞留経済が形成した町並みそのものが現在の文化・観光資産になった。'},
+  {from:'ushimado-port',to:'ushimado-coastal',type:'parallel_modern_layer',confidence:'medium',note:'歴史的海運・外交港の空間に、農漁業・観光など現在の沿岸産業が重なる。'},
+  {from:'tomo-port',to:'tomo-tourism',type:'direct_continuity',confidence:'high',note:'潮待ち港が残した港湾施設・町並み・商業文化が現在の観光資産へ転換。'},
+  {from:'mihara-castleport',to:'mihara-industry',type:'logistics_inheritance',confidence:'high',note:'城下港の結節性が鉄道・道路・空港を含む広域交通機能へ更新された。'},
+  {from:'takehara-salt',to:'takehara-townscape',type:'capital_inheritance',confidence:'high',note:'製塩利益が酒造・廻船・商家建築へ再投資され、その資産が町並みとして残った。'}
 ];
