@@ -85,7 +85,13 @@ const origin = {
               <th>{axis.label}</th>
               {places.map((place) => {
                 const section = place.sections[axis.key];
-                return <td><span class={`claim-badge ${section[2]}`}>{section[2].toUpperCase()}</span><p>{section[1]}</p></td>;
+                return (
+                  <td>
+                    <span class={`claim-badge ${section[2]}`}>{section[2].toUpperCase()}</span>
+                    <p>{section[1]}</p>
+                    {axis.key === 2 && <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>気候データを見る →</a>}
+                  </td>
+                );
               })}
             </tr>
           ))}
