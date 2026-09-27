@@ -1,0 +1,125 @@
+export const seafoodSpecies = [
+  {
+    id:'tai', name:'鯛（マダイ）', latin:'Pagrus major', seasons:'春・秋を中心',
+    thesis:'強い潮流と祝いの文化が結びついた、瀬戸内を代表する白身魚。',
+    places:['imabari','tomonoura','onomichi'],
+    regions:['今治・来島海峡','鞆の浦・備後','尾道','香川県'],
+    dishes:['鯛めし','塩焼き','刺身・松皮造り','鯛そうめん・鯛めん','あら炊き・潮汁'],
+    ecology:'海峡・瀬戸など潮流のある海域との結びつきが強く、地域ごとに一本釣り・網漁など多様な漁法がある。',
+    culture:'祝い魚としての意味と、港町の日常食の両方を持つ。今治では来島鯛を炊き込む鯛めし、福山周辺では鯛めんなど地域差が表れる。',
+    sources:[
+      {id:'SF-TAI-01',label:'今治郷土料理',publisher:'今治市',url:'https://www.city.imabari.ehime.jp/kankou/'},
+      {id:'SF-TAI-02',label:'備後フィッシュ',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/site/bingofish/'},
+      {id:'SF-TAI-03',label:'尾道季節の魚20選',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html'},
+      {id:'SF-TAI-04',label:'瀬戸内さかな日和',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/site/setouchi-jizakana-biyori/sakana.html'}
+    ]
+  },
+  {
+    id:'tako', name:'タコ（マダコ）', latin:'Octopus sinensis', seasons:'夏〜秋を中心',
+    thesis:'岩礁・砂礫・潮流と、壺・蛸壺などの漁撈技術が育てた瀬戸内の代表食材。',
+    places:['shimotsui','onomichi'],
+    regions:['下津井','尾道','笠岡・備後','香川県沿岸'],
+    dishes:['たこ飯','刺身','煮だこ','天ぷら・唐揚げ','酢の物'],
+    ecology:'多島海や潮流のある沿岸域に生息し、地域によって蛸壺や底びきなどの漁法が用いられる。',
+    culture:'下津井では地域を象徴する水産物。香川県でもたこ飯が郷土料理として紹介され、瀬戸内沿岸に広い食文化圏をつくる。',
+    sources:[
+      {id:'SF-TAKO-01',label:'日本遺産デザインマンホール・下津井のタコ',publisher:'倉敷市',url:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html'},
+      {id:'SF-TAKO-02',label:'尾道季節の魚20選',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html'},
+      {id:'SF-TAKO-03',label:'ふだんごはんと、ハレの日ごぜん',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/nosonseibi/green/takarabako/15.html'}
+    ]
+  },
+  {
+    id:'shako', name:'シャコ', latin:'Oratosquilla oratoria', seasons:'春・冬',
+    thesis:'浅い砂泥底と底びき漁の文化を映す、笠岡・備後を代表する小型甲殻類。',
+    places:['onomichi'],
+    regions:['笠岡','尾道','備後沿岸'],
+    dishes:['シャコ丼','茹でシャコ','寿司','揚げ物'],
+    ecology:'内湾の砂泥底に生息し、小型底びき網などで漁獲される。',
+    culture:'笠岡市の魚に指定され、シャコ丼が地域料理として知られる。尾道でも季節の魚20選に含まれる。',
+    sources:[
+      {id:'SF-SHAKO-01',label:'シャコ（笠岡市の魚・シャコ丼）',publisher:'岡山県',url:'https://www.pref.okayama.jp/page/965425.html'},
+      {id:'SF-SHAKO-02',label:'尾道季節の魚20選',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html'}
+    ]
+  },
+  {
+    id:'sawara', name:'サワラ', latin:'Scomberomorus niphonius', seasons:'春',
+    thesis:'春を告げる回遊魚。岡山・香川から備後へつながる瀬戸内横断型の魚食文化。',
+    places:['tomonoura','onomichi'],
+    regions:['岡山県','香川県','備後沿岸'],
+    dishes:['刺身','焼き霜造り','塩焼き','味噌漬け'],
+    ecology:'瀬戸内海を季節回遊し、春の重要魚種として各地で利用される。',
+    culture:'岡山・香川では春の海産物として象徴性が高く、備後フィッシュにも選定されている。',
+    sources:[
+      {id:'SF-SAWARA-01',label:'瀬戸内の海の幸',publisher:'中国四国農政局',url:'https://www.maff.go.jp/chushi/heya/attach/pdf/tenji6-90.pdf'},
+      {id:'SF-SAWARA-02',label:'魚料理の基本',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/suisan/sogo/arekore/kihon.html'},
+      {id:'SF-SAWARA-03',label:'備後フィッシュ',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/site/bingofish/'}
+    ]
+  },
+  {
+    id:'anago', name:'アナゴ', latin:'Conger myriaster', seasons:'冬を中心',
+    thesis:'砂泥底と港町の寿司・焼き物文化をつなぐ瀬戸内の底魚。',
+    places:['onomichi'],
+    regions:['尾道','備後','広島湾・宮島周辺'],
+    dishes:['焼き穴子','煮穴子','寿司','穴子飯','雑煮'],
+    ecology:'沿岸の砂泥底などに生息し、夜行性の底魚として漁獲される。',
+    culture:'尾道季節の魚20選では冬の魚。漁師料理では穴子の雑煮や串焼きも紹介される。',
+    sources:[
+      {id:'SF-ANAGO-01',label:'尾道季節の魚20選レシピ',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/11/19412.html'},
+      {id:'SF-ANAGO-02',label:'瀬戸内さかな',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/lab/info/setouchi-sakana/'}
+    ]
+  },
+  {
+    id:'nebuto', name:'ネブト（テンジクダイ）', latin:'Jaydia lineata', seasons:'夏',
+    thesis:'小魚を丸ごと食べる備後の前浜文化を象徴する魚。',
+    places:['mihara','onomichi','tomonoura'],
+    regions:['三原','尾道','福山','笠岡'],
+    dishes:['唐揚げ','南蛮漬け'],
+    ecology:'瀬戸内海で獲れる小型魚で、備後沿岸では身近な地魚として利用される。',
+    culture:'備後地域を代表する魚として備後フィッシュに選ばれ、唐揚げや南蛮漬けで食べられる。',
+    sources:[
+      {id:'SF-NEBUTO-01',label:'ねぶとの唐揚げ',publisher:'中国四国農政局',url:'https://www.maff.go.jp/chushi/syokuiku/syokuikunet/meru51.html'},
+      {id:'SF-NEBUTO-02',label:'備後フィッシュ',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/site/bingofish/'}
+    ]
+  },
+  {
+    id:'gazami', name:'ガザミ（ワタリガニ）', latin:'Portunus trituberculatus', seasons:'秋',
+    thesis:'内湾・砂泥底の豊かさを食卓に映す瀬戸内の甲殻類。',
+    places:['onomichi'],
+    regions:['尾道','笠岡・備後'],
+    dishes:['酒蒸し','塩茹で','汁物'],
+    ecology:'浅い内湾や砂泥底に生息し、底びき網などで漁獲される。',
+    culture:'尾道季節の魚20選では秋の魚として選ばれ、酒蒸しなどの漁師料理が伝わる。',
+    sources:[
+      {id:'SF-GAZAMI-01',label:'尾道季節の魚20選レシピ',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/11/19412.html'},
+      {id:'SF-GAZAMI-02',label:'備後フィッシュ',publisher:'笠岡市',url:'https://www.city.kasaoka.okayama.jp/soshiki/29/39127.html'}
+    ]
+  },
+  {
+    id:'kaki', name:'牡蠣', latin:'Crassostrea gigas', seasons:'冬',
+    thesis:'河川・干潟・静穏な内湾と養殖技術が結びついた瀬戸内の代表的養殖文化。',
+    places:[],
+    regions:['広島湾','岡山県沿岸'],
+    dishes:['生牡蠣','焼き牡蠣','土手鍋','牡蠣飯'],
+    ecology:'栄養塩が供給される静穏な内湾と筏養殖に適した海域条件が重要。',
+    culture:'広島県を象徴する水産物で、冬の瀬戸内食文化の代表格。',
+    sources:[
+      {id:'SF-KAKI-01',label:'瀬戸内の海の幸',publisher:'中国四国農政局',url:'https://www.maff.go.jp/chushi/heya/attach/pdf/tenji6-90.pdf'},
+      {id:'SF-KAKI-02',label:'ひろしまの食',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/dayori/202510/sp1.html'}
+    ]
+  },
+  {
+    id:'iriko', name:'イリコ（カタクチイワシ）', latin:'Engraulis japonicus', seasons:'夏',
+    thesis:'「魚そのもの」から「出汁文化」へ変換された、西讃を代表する海産加工文化。',
+    places:['tadotsu'],
+    regions:['西讃','燧灘','伊吹島'],
+    dishes:['出汁','いりこ飯','天ぷら'],
+    ecology:'燧灘が主要漁場で、カタクチイワシを漁獲後すぐに煮干し加工する。',
+    culture:'讃岐うどんの出汁に不可欠な食材で、漁業・加工業・麺文化を結ぶ産業食文化。',
+    sources:[
+      {id:'SF-IRIKO-01',label:'カタクチイワシの概要',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/nouki/tisan/syokuikujugyou/syokuiku_sakaide.html'},
+      {id:'SF-IRIKO-02',label:'水産分野の食育',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/suisan/sogo/shokuiku/shokuiku.html'}
+    ]
+  }
+];
+
+export const seafoodById = Object.fromEntries(seafoodSpecies.map((item) => [item.id,item]));
