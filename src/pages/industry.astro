@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
+import { industrySpatialNodes, industrySpatialRelations, industrySpatialCategories, industryRelationTypes } from '../data/industrySpatial.js';
 
 const rows = places.map((place)=>({
   id:place.id,
@@ -25,6 +26,64 @@ const sourceMap = (row, index) => {
     <div class="kicker">INDUSTRY & CAPITAL</div>
     <h1>現在の産業は、どこから来たのか</h1>
     <p class="subtitle">歴史産業の「直系子孫」だけを探すのではなく、土地・港湾・技能・商人資本・交通・制度が、現在の企業と産業集積へどう受け渡されたかを17地域で比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SPATIAL LINEAGE MAP</div>
+    <h2>産業遺伝子を、空間で追う</h2>
+    <p class="lead">旧塩田・商家地区・歴史港と、現在の本社・工場・産業集積を重ねます。線は企業の直系系譜とは限らず、土地・物流・技能・資本など「何が継承されたか」を分けて表示します。</p>
+
+    <div class="industry-map-controls">
+      <div class="industry-filter-group">
+        <span class="filter-label">地点</span>
+        {Object.entries(industrySpatialCategories).map(([key,item])=>(
+          <button type="button" class="industry-map-filter active" data-node-category={key}>{item.label}</button>
+        ))}
+      </div>
+      <div class="industry-filter-group relation-filter-group">
+        <span class="filter-label">関係線</span>
+        {Object.entries(industryRelationTypes).map(([key,item])=>(
+          <button type="button" class="industry-relation-filter active" data-relation-type={key}>{item.label}</button>
+        ))}
+      </div>
+    </div>
+
+    <div id="industry-lineage-map"
+      class="atlas-map industry-lineage-map"
+      data-nodes={JSON.stringify(industrySpatialNodes)}
+      data-relations={JSON.stringify(industrySpatialRelations)}
+      data-categories={JSON.stringify(industrySpatialCategories)}
+      data-relation-types={JSON.stringify(industryRelationTypes)}></div>
+
+    <div class="industry-map-legend">
+      {Object.entries(industryRelationTypes).map(([key,item])=>(
+        <div><span class={`line-swatch ${key}`}></span><strong>{item.label}</strong><small>{item.description}</small></div>
+      ))}
+    </div>
+
+    <p class="map-note">位置精度は地点ごとに site / address / district / approximate を保持しています。範囲型の産業地区・旧塩田などは代表点表示であり、境界を示すものではありません。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">LINEAGE CASES</div>
+    <h2>同じ「つながり」ではない</h2>
+    <div class="industry-lineage-list">
+      {industrySpatialRelations.map((rel)=>{
+        const from=industrySpatialNodes.find((n)=>n.id===rel.from);
+        const to=industrySpatialNodes.find((n)=>n.id===rel.to);
+        const type=industryRelationTypes[rel.type];
+        return (
+          <article class="industry-lineage-card">
+            <div class="industry-lineage-meta">
+              <span class={`relation-badge ${rel.type}`}>{type.label}</span>
+              <span class={`confidence-badge ${rel.confidence}`}>{rel.confidence.toUpperCase()}</span>
+            </div>
+            <h3>{from?.name} → {to?.name}</h3>
+            <p>{rel.note}</p>
+          </article>
+        );
+      })}
+    </div>
   </section>
 
   <section class="section">
@@ -77,4 +136,93 @@ const sourceMap = (row, index) => {
       本ページではFACT / INTERPRETATION / HYPOTHESISを分け、連続性の強さを検証可能な形で残します。
     </div>
   </section>
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el=document.getElementById('industry-lineage-map');
+      if(!el || !window.L) return;
+      const nodes=JSON.parse(el.dataset.nodes || '[]');
+      const relations=JSON.parse(el.dataset.relations || '[]');
+      const categories=JSON.parse(el.dataset.categories || '{}');
+      const relationTypes=JSON.parse(el.dataset.relationTypes || '{}');
+
+      const map=L.map(el,{scrollWheelZoom:false}).setView([34.15,132.75],7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      const nodeLayers={};
+      const relationLayers={};
+      const nodeById=Object.fromEntries(nodes.map((n)=>[n.id,n]));
+
+      const categoryStyle={
+        heritage:{color:'#8a623c',fillColor:'#c39a69'},
+        infrastructure:{color:'#315f84',fillColor:'#6f9db9'},
+        headquarters:{color:'#6a4e8b',fillColor:'#9e82b8'},
+        factory:{color:'#7f493f',fillColor:'#b87a6d'},
+        cluster:{color:'#50714f',fillColor:'#7ca37a'}
+      };
+
+      const relationStyle={
+        direct_continuity:{color:'#5c3e2e',weight:5,dashArray:null},
+        land_inheritance:{color:'#8a6a36',weight:4,dashArray:'10 6'},
+        logistics_inheritance:{color:'#315f84',weight:4,dashArray:'14 5 2 5'},
+        skill_inheritance:{color:'#50714f',weight:4,dashArray:'2 6'},
+        capital_inheritance:{color:'#6a4e8b',weight:4,dashArray:null},
+        parallel_modern_layer:{color:'#777',weight:3,dashArray:'5 7'}
+      };
+
+      nodes.forEach((n)=>{
+        if(!nodeLayers[n.category]) nodeLayers[n.category]=L.layerGroup().addTo(map);
+        const style=categoryStyle[n.category] || {color:'#555',fillColor:'#999'};
+        L.circleMarker([n.lat,n.lon],{
+          radius:8,weight:2.2,fillOpacity:.86,color:style.color,fillColor:style.fillColor
+        }).addTo(nodeLayers[n.category]).bindPopup(
+          '<strong>'+n.name+'</strong><br>'+
+          (categories[n.category]?.label || n.category)+' / '+n.era+
+          '<br>'+n.note+
+          '<br><small>位置精度: '+n.precision+'</small>'+
+          '<br><a href="'+n.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
+        );
+      });
+
+      relations.forEach((rel)=>{
+        const from=nodeById[rel.from], to=nodeById[rel.to];
+        if(!from || !to) return;
+        if(!relationLayers[rel.type]) relationLayers[rel.type]=L.layerGroup().addTo(map);
+        const style=relationStyle[rel.type] || {color:'#777',weight:3,dashArray:'5 7'};
+        L.polyline([[from.lat,from.lon],[to.lat,to.lon]],{
+          color:style.color,weight:style.weight,dashArray:style.dashArray,opacity:.78
+        }).addTo(relationLayers[rel.type]).bindPopup(
+          '<strong>'+(relationTypes[rel.type]?.label || rel.type)+'</strong><br>'+
+          from.name+' → '+to.name+
+          '<br>'+rel.note+
+          '<br><small>確度: '+rel.confidence.toUpperCase()+'</small>'
+        );
+      });
+
+      const allCoords=nodes.map((n)=>[n.lat,n.lon]);
+      if(allCoords.length) map.fitBounds(L.latLngBounds(allCoords),{padding:[26,26]});
+
+      document.querySelectorAll('.industry-map-filter').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const key=button.dataset.nodeCategory;
+          const layer=nodeLayers[key];
+          if(!layer) return;
+          if(map.hasLayer(layer)){ map.removeLayer(layer); button.classList.remove('active'); }
+          else { map.addLayer(layer); button.classList.add('active'); }
+        });
+      });
+
+      document.querySelectorAll('.industry-relation-filter').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const key=button.dataset.relationType;
+          const layer=relationLayers[key];
+          if(!layer) return;
+          if(map.hasLayer(layer)){ map.removeLayer(layer); button.classList.remove('active'); }
+          else { map.addLayer(layer); button.classList.add('active'); }
+        });
+      });
+    })();
+  </script>
 </BaseLayout>
