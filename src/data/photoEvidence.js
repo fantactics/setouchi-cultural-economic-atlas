@@ -418,6 +418,26 @@ export const photoEvidence = [
     takenAt:'2021-08',
     lat:34.464,lon:133.803,
     verifiedAt:'2026-09-28'
+  },
+  {
+    id:'photo-shimotsui-kojima-jeans',
+    placeId:'shimotsui',
+    nodeKey:'gene',
+    theme:'industry',
+    title:'児島ジーンズストリート',
+    caption:'児島の繊維技能が現代のデニム産業・地域ブランドへ転換した街路空間。',
+    insight:'足袋・学生服・作業服で蓄積した縫製・染色・加工技能が、1960年代以降のジーンズ生産と現在の産業観光へ適応した「技能継承＋ブランド適応」を視覚化する。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Kojima%20Jeans%20Street%202021-08%20ac%20%285%29.jpg?width=1200',
+    alt:'岡山県倉敷市児島味野の児島ジーンズストリート',
+    author:'Asturio Cantabrio',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Kojima_Jeans_Street_2021-08_ac_(5).jpg',
+    license:'CC BY-SA 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2021-08',
+    lat:34.462,lon:133.805,
+    verifiedAt:'2026-09-28'
   }
 ];
 
