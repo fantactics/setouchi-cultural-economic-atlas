@@ -361,3 +361,14 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .confidence-badge.low { background:#f4e6e3; color:#7b3429; }
 @media (max-width:900px){ .industry-map-legend{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:700px){ .industry-map-legend,.industry-lineage-list{grid-template-columns:1fr;} }
+
+.industry-era-control { margin:1rem 0; padding:1rem; background:var(--card); border:1px solid var(--line); border-radius:16px; }
+.industry-era-head { display:flex; align-items:baseline; gap:.65rem; margin-bottom:.55rem; }
+.industry-era-head strong { font-size:1.08rem; }
+.industry-era-head small { color:var(--muted); }
+#industry-era-range { width:100%; }
+.industry-era-labels { display:grid; grid-template-columns:repeat(4,1fr); margin:.25rem 0 0; font-size:.7rem; color:var(--muted); }
+.industry-era-labels span:nth-child(2),.industry-era-labels span:nth-child(3){ text-align:center; }
+.industry-era-labels span:last-child { text-align:right; }
+.industry-era-description { margin:.65rem 0 .2rem; font-size:.86rem; color:var(--muted); }
+.industry-era-count { margin-top:.5rem; font-size:.74rem; font-weight:800; color:var(--ink); }
