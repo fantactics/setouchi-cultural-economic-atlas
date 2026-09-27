@@ -29,7 +29,11 @@ const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, 
           <div class="profile-num">{String(i + 1).padStart(2,'0')}</div>
           <div>
             <div class={`claim-badge ${type}`}>{claimLabels[type]}</div>
-            <h3>{title}</h3>
+            {i === 2 ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>{title} →</a></h3>
+            ) : (
+              <h3>{title}</h3>
+            )}
             <p>{body}</p>
             {place.sectionSources?.[i]?.length > 0 && (
               <div class="claim-sources">
