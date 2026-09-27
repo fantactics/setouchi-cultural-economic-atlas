@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Methodology | 瀬戸内文化経済アトラス" description="地域データの収集・検証・解釈ルール。">
+  <section class="place-hero">
+    <div class="kicker">METHODOLOGY</div>
+    <h1>このアトラスの読み方</h1>
+    <p class="subtitle">「何があるか」ではなく、「なぜこの町はこの町になったのか」を説明するための編集・検証ルールです。</p>
+  </section>
+
+  <section class="section methodology-grid">
+    <article class="method-card">
+      <div class="claim-badge fact">FACT</div>
+      <h2>事実</h2>
+      <p>統計、自治体資料、企業公式情報、一次史料など、外部から確認可能な記述。出典IDを付け、確認日を記録します。</p>
+    </article>
+    <article class="method-card">
+      <div class="claim-badge interpretation">INTERPRETATION</div>
+      <h2>解釈</h2>
+      <p>複数の事実を因果的につないだ編集上の説明。出典が支えるのは基礎事実であり、因果関係そのものは本アトラスの分析です。</p>
+    </article>
+    <article class="method-card">
+      <div class="claim-badge hypothesis">HYPOTHESIS</div>
+      <h2>仮説</h2>
+      <p>説明力はあるが、追加検証が必要な推論。仮説を自動的に事実へ昇格させません。</p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="kicker">18 LAYERS</div>
+    <h2>地域データ標準</h2>
+    <div class="method-list-grid">
+      {[
+        '基本情報','地理・地形','気候・水・自然条件','歴史・都市形成','港・交通・物流','食文化',
+        '地域産業','代表企業','産業遺伝子','資本形成','産業生態系','人口・地域経済',
+        '暮らし','観光・文化','災害・環境','現在の変化','文化への経済的波及','なぜこの町はこの町になったのか'
+      ].map((x,i)=><div class="method-list-item"><span>{String(i+1).padStart(2,'0')}</span>{x}</div>)}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">UPDATE POLICY</div>
+    <h2>更新速度を3層に分ける</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>STATIC</h3><p>地形、歴史、港の成立など。変更頻度が低く、基礎構造として扱います。</p></article>
+      <article class="insight-card"><h3>SLOW</h3><p>人口、産業統計、地価、気候平年値など。年次・数年単位で更新します。</p></article>
+      <article class="insight-card"><h3>DYNAMIC</h3><p>企業動向、航路、災害、再開発、生活情報など。変化を継続監視する対象です。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">INDUSTRIAL GENE</div>
+    <h2>産業遺伝子</h2>
+    <p class="lead">その地域の現在の産業構造を生み出した、地理・資源・技能・交易・制度・企業蓄積の連鎖を指します。</p>
+    <div class="method-list-grid compact">
+      {['資源型','ネットワーク型','技能型','資本循環型','土地継承型','物流型','ブランド適応型'].map((x)=><div class="method-list-item">{x}</div>)}
+    </div>
+  </section>
+</BaseLayout>
