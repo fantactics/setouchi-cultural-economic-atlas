@@ -52,6 +52,36 @@ const metrics = [
     <p class="map-note">観測点の値は地域全体を完全に代表するものではありません。沿岸・島嶼・内陸、標高、海風などによって実際の体感・局地気候は変わります。</p>
   </section>
 
+  {climate.monthly && (
+    <section class="section">
+      <div class="kicker">MONTHLY NORMALS</div>
+      <h2>月別の平年値</h2>
+      <div class="compare-table-wrap">
+        <table class="compare-table climate-table">
+          <thead><tr><th>月</th><th>平均気温</th><th>降水量</th><th>日照時間</th></tr></thead>
+          <tbody>
+            {climate.monthly.map(([month,temp,rain,sun]) => (
+              <tr>
+                <th>{month}月</th>
+                <td>{temp.toFixed(1)} ℃</td>
+                <td>{rain.toFixed(1)} mm</td>
+                <td>{sun == null ? '—' : `${sun.toFixed(1)} 時間`}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  {!climate.monthly && (
+    <section class="section">
+      <div class="kicker">MONTHLY NORMALS</div>
+      <h2>月別の平年値</h2>
+      <p class="lead">月別データは一次資料確認後に追加します。年平均値のみ先行掲載しています。</p>
+    </section>
+  )}
+
   <section class="section">
     <div class="kicker">REGIONAL READING</div>
     <h2>地域形成とのつながり</h2>
