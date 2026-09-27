@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+import { historicalPorts, ferryRoutes, cyclingRoutes } from '../data/transport.js';
+
+const placeById = Object.fromEntries(places.map((p)=>[p.id,p]));
+const currentFerries = ferryRoutes.filter((r)=>r.status==='current');
+const suspendedFerries = ferryRoutes.filter((r)=>r.status==='suspended');
+const placeTransport = Object.fromEntries(places.map((place)=>[
+  place.id,
+  {
+    historical: historicalPorts.filter((p)=>p.id===place.id),
+    ferries: ferryRoutes.filter((r)=>r.stops.some((stop)=>stop.includes(place.name) || (place.id==='mitarai' && stop.includes('御手洗')) || (place.id==='takehara' && stop.includes('竹原')) || (place.id==='onomichi' && stop.includes('尾道')) || (place.id==='mihara' && stop.includes('三原')) || (place.id==='imabari' && stop.includes('今治')))),
+    cycling: cyclingRoutes.filter((r)=>r.places.some((stop)=>stop.includes(place.name) || (place.id==='mitarai' && stop.includes('御手洗')) || (place.id==='takehara' && stop.includes('竹原')) || (place.id==='onomichi' && stop.includes('尾道')) || (place.id==='mihara' && stop.includes('三原')) || (place.id==='imabari' && stop.includes('今治'))))
+  }
+]));
+---
+<BaseLayout title="交通ネットワーク | 瀬戸内文化経済アトラス" description="北前船などの歴史港、現行フェリー航路、サイクリングルートを重ねて瀬戸内の交通構造を読む。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <section class="place-hero">
+    <div class="kicker">TRANSPORT NETWORKS</div>
+    <h1>瀬戸内の交通を、時代を重ねて読む</h1>
+    <p class="subtitle">北前船・潮待ち港から、生活航路、橋、サイクリングへ。交通手段は変わっても「どこが結節点になるか」は地域形成に残り続けます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">INTERACTIVE MAP</div>
+    <h2>歴史港・航路・サイクリングを重ねる</h2>
+    <div class="transport-toolbar">
+      <button class="transport-toggle active" type="button" data-layer="historical">歴史港・寄港地</button>
+      <button class="transport-toggle active" type="button" data-layer="ferry">現行フェリー・旅客船</button>
+      <button class="transport-toggle active" type="button" data-layer="suspended">休止航路</button>
+      <button class="transport-toggle active" type="button" data-layer="cycling">サイクリング</button>
+    </div>
+    <div id="transport-map"
+      class="atlas-map transport-map"
+      data-historical={JSON.stringify(historicalPorts)}
+      data-ferries={JSON.stringify(ferryRoutes)}
+      data-cycling={JSON.stringify(cyclingRoutes)}></div>
+    <p class="map-note">航路・サイクリングの線形は構造把握用の概略表示です。実際の航行・走行経路や運航状況は各公式情報を確認してください。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">HISTORICAL PORTS</div>
+    <h2>かつての海上ネットワーク</h2>
+    <div class="transport-card-grid">
+      {historicalPorts.map((port)=>(
+        <article class="transport-card" id={`port-${port.id}`}>
+          <div class="kicker">{port.era}</div>
+          <h3>{port.name}</h3>
+          <p>{port.role}</p>
+          <a class="text-link" href={port.sourceUrl} target="_blank" rel="noreferrer">{port.sourceLabel} ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CURRENT SEA ROUTES</div>
+    <h2>現在のフェリー・旅客船</h2>
+    <div class="route-list">
+      {currentFerries.map((route)=>(
+        <article class="route-card">
+          <div class="route-heading">
+            <div><span class="route-mode">{route.mode}</span><h3>{route.name}</h3></div>
+            <span class="route-status current">運航中</span>
+          </div>
+          <p>{route.stops.join(' → ')}</p>
+          <p class="map-note">{route.bicycle}</p>
+          <a class="text-link" href={route.sourceUrl} target="_blank" rel="noreferrer">公式情報 ↗</a>
+        </article>
+      ))}
+    </div>
+
+    {suspendedFerries.length > 0 && (
+      <div class="suspended-routes">
+        <h3>休止航路</h3>
+        {suspendedFerries.map((route)=>(
+          <article class="route-card suspended">
+            <div class="route-heading">
+              <div><span class="route-mode">{route.mode}</span><h3>{route.name}</h3></div>
+              <span class="route-status suspended">休止</span>
+            </div>
+            <p>{route.note}</p>
+            <a class="text-link" href={route.sourceUrl} target="_blank" rel="noreferrer">公式情報 ↗</a>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="section">
+    <div class="kicker">CYCLING NETWORK</div>
+    <h2>海と橋を走るサイクリングルート</h2>
+    <div class="route-list">
+      {cyclingRoutes.map((route)=>(
+        <article class="route-card">
+          <div class="route-heading">
+            <div><span class="route-mode">CYCLING</span><h3>{route.name}</h3></div>
+            <strong>約 {route.distanceKm} km</strong>
+          </div>
+          <p>{route.description}</p>
+          <p class="map-note">{route.places.join(' → ')}</p>
+          <a class="text-link" href={route.sourceUrl} target="_blank" rel="noreferrer">公式情報 ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">STRUCTURAL SHIFT</div>
+    <h2>交通手段が変わると、港町の役割も変わる</h2>
+    <div class="transport-era-grid">
+      <article><span>近世</span><strong>風・潮を読む交通</strong><p>北前船・廻船は潮待ち・風待ち港を必要とし、寄港と滞留が商業を生んだ。</p></article>
+      <article><span>近代</span><strong>蒸気船・鉄道</strong><p>航海技術と鉄道の発達で「待つ港」の優位性が低下し、尾道・多度津・三原などは別の交通機能へ転換した。</p></article>
+      <article><span>現代</span><strong>橋＋生活航路</strong><p>本四架橋後も、島の生活交通としてフェリー・旅客船が重要な役割を持つ。</p></article>
+      <article><span>観光</span><strong>自転車＋船</strong><p>しまなみ・とびしま・さざなみでは、橋と航路を組み合わせることで新しい回遊型交通が成立している。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">BY PLACE</div>
+    <h2>10地域との接続</h2>
+    <div class="grid">
+      {places.map((place)=>{
+        const t = placeTransport[place.id];
+        const items = [
+          ...t.historical.map((x)=>`歴史港：${x.role}`),
+          ...t.ferries.map((x)=>`${x.status==='suspended'?'休止':'航路'}：${x.name}`),
+          ...t.cycling.map((x)=>`自転車：${x.name}`)
+        ];
+        return (
+          <article class="card" id={`place-${place.id}`}>
+            <div class="kicker">{place.prefecture}</div>
+            <h3><a class="card-title-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>{place.name}</a></h3>
+            {items.length ? <ul class="transport-place-list">{items.map((x)=><li>{x}</li>)}</ul> : <p class="map-note">交通テーマの追加検証対象。</p>}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el = document.getElementById('transport-map');
+      if (!el || !window.L) return;
+      const historical = JSON.parse(el.dataset.historical || '[]');
+      const ferries = JSON.parse(el.dataset.ferries || '[]');
+      const cycling = JSON.parse(el.dataset.cycling || '[]');
+      const map = L.map(el,{scrollWheelZoom:false}).setView([34.30,133.45],8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      const layers = {
+        historical:L.layerGroup().addTo(map),
+        ferry:L.layerGroup().addTo(map),
+        suspended:L.layerGroup().addTo(map),
+        cycling:L.layerGroup().addTo(map)
+      };
+
+      historical.forEach((p)=>{
+        L.circleMarker([p.lat,p.lon],{
+          radius:7,weight:2,fillOpacity:.8,color:'#5f4b32',fillColor:'#b89969'
+        }).addTo(layers.historical).bindPopup(
+          '<strong>'+p.name+'</strong><br>'+p.role+
+          '<br><a href="'+p.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
+        );
+      });
+
+      ferries.forEach((route)=>{
+        const target = route.status==='suspended' ? layers.suspended : layers.ferry;
+        L.polyline(route.coords,{
+          weight: route.status==='suspended' ? 3 : 4,
+          opacity:.85,
+          dashArray: route.status==='suspended' ? '8 8' : null,
+          color: route.status==='suspended' ? '#8a6c6c' : '#346b8a'
+        }).addTo(target).bindPopup(
+          '<strong>'+route.name+'</strong><br>'+route.mode+
+          '<br>'+route.stops.join(' → ')+
+          '<br><small>'+route.bicycle+'</small>'+
+          '<br><a href="'+route.sourceUrl+'" target="_blank" rel="noreferrer">運航情報 ↗</a>'
+        );
+      });
+
+      cycling.forEach((route)=>{
+        L.polyline(route.coords,{
+          weight:4,opacity:.8,color:'#2f7b68',dashArray:'2 7'
+        }).addTo(layers.cycling).bindPopup(
+          '<strong>'+route.name+'</strong><br>約 '+route.distanceKm+' km'+
+          '<br>'+route.description+
+          '<br><a href="'+route.sourceUrl+'" target="_blank" rel="noreferrer">公式情報 ↗</a>'
+        );
+      });
+
+      document.querySelectorAll('.transport-toggle').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const key=button.dataset.layer;
+          const layer=layers[key];
+          if(!layer) return;
+          if(map.hasLayer(layer)){
+            map.removeLayer(layer);
+            button.classList.remove('active');
+          }else{
+            map.addLayer(layer);
+            button.classList.add('active');
+          }
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
