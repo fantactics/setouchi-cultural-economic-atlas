@@ -24,7 +24,11 @@ const geneSummary = {
   imabari: '資本循環型＋技能型',
   shimotsui: 'ネットワーク型＋資源型',
   tadotsu: '物流型＋土地継承型',
-  mitarai: 'ネットワーク型＋物流型'
+  mitarai: 'ネットワーク型＋物流型',
+  ushimado: 'ネットワーク型＋物流型',
+  tomonoura: 'ネットワーク型＋物流型',
+  mihara: 'ネットワーク型＋物流型＋土地継承型',
+  takehara: '資源型＋資本循環型＋ネットワーク型'
 };
 
 const origin = {
@@ -33,14 +37,18 @@ const origin = {
   imabari: '海峡・海運',
   shimotsui: '備讃瀬戸・渡海場',
   tadotsu: '天然港・金毘羅参詣',
-  mitarai: '潮待ち・風待ち'
+  mitarai: '潮待ち・風待ち',
+  ushimado: '良港・外交航路',
+  tomonoura: '潮流転換点',
+  mihara: '良港・城下港',
+  takehara: '干拓・塩田'
 };
 ---
-<BaseLayout title="6地域比較 | 瀬戸内文化経済アトラス" description="赤穂・尾道・今治・下津井・多度津・御手洗を同じ軸で比較する地域インテリジェンスページ。">
+<BaseLayout title="10地域比較 | 瀬戸内文化経済アトラス" description="赤穂・尾道・今治・下津井・多度津・御手洗・牛窓・鞆の浦・三原・竹原を同じ軸で比較する地域インテリジェンスページ。">
   <section class="place-hero compare-hero">
     <div class="kicker">CROSS-CITY COMPARISON</div>
-    <h1>6地域を比べる</h1>
-    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。6地域を同じ13軸で横並びにし、差分そのものを読むページです。</p>
+    <h1>10地域を比べる</h1>
+    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。10地域を同じ13軸で横並びにし、差分そのものを読むページです。</p>
   </section>
 
   <section class="section">
@@ -88,7 +96,7 @@ const origin = {
 
   <section class="section">
     <div class="kicker">STRUCTURAL READING</div>
-    <h2>6地域の違いを一言で表すと</h2>
+    <h2>10地域の違いを一言で表すと</h2>
     <div class="comparison-insight-grid">
       <article class="insight-card">
         <h3>赤穂</h3>
@@ -114,6 +122,10 @@ const origin = {
         <h3>御手洗</h3>
         <p><strong>航海制約そのものが富を生んだ港町。</strong> 潮待ち・風待ちによる滞留が商業・宿泊・景観を蓄積した。</p>
       </article>
+      <article class="insight-card"><h3>牛窓</h3><p><strong>外交と海運が文化を運んだ港町。</strong> 良港と寄港ネットワークが海運・交流文化へ展開した。</p></article>
+      <article class="insight-card"><h3>鞆の浦</h3><p><strong>潮の転換点が滞留経済を生んだ港町。</strong> 潮待ちが商業・酒造・鍛冶・宿泊を育てた。</p></article>
+      <article class="insight-card"><h3>三原</h3><p><strong>交通手段を乗り換え続けた都市。</strong> 城下港から工業港、鉄道、新幹線、空港へ結節機能を更新した。</p></article>
+      <article class="insight-card"><h3>竹原</h3><p><strong>製塩利益を別産業と町並みに転換した町。</strong> 塩田の富が酒造・廻船・問屋・建築へ再投資された。</p></article>
     </div>
   </section>
 </BaseLayout>
