@@ -1,5 +1,12 @@
 export const historicalPorts = [
   {
+    id:'kaminoseki',name:'上関',lat:33.833,lon:132.110,
+    role:'瀬戸内海上交通の要地。北前船海運の発達に対応して越荷会所が置かれ、朝鮮通信使の寄港地でもあった。',
+    era:'近世',category:'coastaltrade',
+    sourceUrl:'https://www.town.kaminoseki.lg.jp/%E6%96%87%E5%8C%96%E8%B2%A1%E3%83%BB%E5%8F%B2%E8%B7%A1.html',
+    sourceLabel:'文化財・史跡（上関町）'
+  },
+  {
     id:'shimotsui',name:'下津井',lat:34.435,lon:133.806,
     role:'北前船寄港地・金毘羅参詣の渡海港',
     era:'近世',category:'kitamaebune',
