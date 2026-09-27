@@ -15,6 +15,7 @@ const { place } = Astro.props;
 const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, source]));
 const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
+const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
 ---
 <BaseLayout title={`${place.name} | 瀬戸内文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
@@ -66,6 +67,17 @@ const placePhotos = photosForPlace(place.id);
   </section>
 
   <PhotoEvidenceGallery items={placePhotos} title={`${place.name}の写真証拠`} />
+
+  {textileRelated && (
+    <section class="section place-textile-link">
+      <div class="kicker">TEXTILE INDUSTRY NETWORK</div>
+      <h2>瀬戸内の繊維・縫製産業帯の中で見る</h2>
+      <p class="lead">{place.id === 'tomonoura'
+        ? '福山市北部の備後絣・デニム産地との市域内比較です。鞆の浦の港町形成から直接デニム産業が生まれたという意味ではありません。'
+        : 'この地域の繊維・縫製産業を、児島・今治・東かがわ・福山の技能継承と横断比較します。'}</p>
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/textiles/">繊維・縫製産業帯を見る →</a>
+    </section>
+  )}
 
   <section class="section gene-section">
     <div class="kicker">INDUSTRIAL GENES</div>
