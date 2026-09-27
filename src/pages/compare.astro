@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
+import { climateProfiles } from '../data/climate.js';
 
 const axes = [
   { key: 1, label: '地理・地形' },
@@ -28,7 +29,14 @@ const geneSummary = {
   ushimado: 'ネットワーク型＋物流型',
   tomonoura: 'ネットワーク型＋物流型',
   mihara: 'ネットワーク型＋物流型＋土地継承型',
-  takehara: '資源型＋資本循環型＋ネットワーク型'
+  takehara: '資源型＋資本循環型＋ネットワーク型',
+  matsuyama: 'ネットワーク型＋ブランド適応型',
+  shimonoseki: 'ネットワーク型＋物流型',
+  yanai: 'ネットワーク型＋資本循環型',
+  hofu: '資源型＋物流型',
+  hiketa: 'ネットワーク型＋物流型',
+  sakaide: '資源型＋土地継承型＋物流型',
+  takamatsu: 'ネットワーク型＋物流型'
 };
 
 const origin = {
@@ -41,14 +49,21 @@ const origin = {
   ushimado: '良港・外交航路',
   tomonoura: '潮流転換点',
   mihara: '良港・城下港',
-  takehara: '干拓・塩田'
+  takehara: '干拓・塩田',
+  matsuyama: '城下・温泉・三津浜港',
+  shimonoseki: '関門海峡',
+  yanai: '柳井津・瀬戸内交易',
+  hofu: '周防灘・塩田',
+  hiketa: '風待ち・潮待ち港',
+  sakaide: '塩田・港湾用地',
+  takamatsu: '中世港町・海城'
 };
 ---
-<BaseLayout title="10地域比較 | 瀬戸内文化経済アトラス" description="赤穂・尾道・今治・下津井・多度津・御手洗・牛窓・鞆の浦・三原・竹原を同じ軸で比較する地域インテリジェンスページ。">
+<BaseLayout title="17地域比較 | 瀬戸内文化経済アトラス" description="瀬戸内17地域を同じ軸で比較する地域インテリジェンスページ。">
   <section class="place-hero compare-hero">
     <div class="kicker">CROSS-CITY COMPARISON</div>
-    <h1>10地域を比べる</h1>
-    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。10地域を同じ13軸で横並びにし、差分そのものを読むページです。</p>
+    <h1>{places.length}地域を比べる</h1>
+    <p class="subtitle">同じ瀬戸内でも、都市をつくった「起点」と「産業遺伝子」は異なります。{places.length}地域を同じ13軸で横並びにし、差分そのものを読むページです。</p>
   </section>
 
   <section class="section">
@@ -89,7 +104,7 @@ const origin = {
                   <td>
                     <span class={`claim-badge ${section[2]}`}>{section[2].toUpperCase()}</span>
                     <p>{section[1]}</p>
-                    {axis.key === 2 && <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>気候データを見る →</a>}
+                    {axis.key === 2 && climateProfiles[place.id] && <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>気候データを見る →</a>}
                     {axis.key === 4 && <a class="text-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>交通ネットワークを見る →</a>}
                   </td>
                 );
@@ -103,7 +118,7 @@ const origin = {
 
   <section class="section">
     <div class="kicker">STRUCTURAL READING</div>
-    <h2>10地域の違いを一言で表すと</h2>
+    <h2>{places.length}地域の違いを一言で表すと</h2>
     <div class="comparison-insight-grid">
       <article class="insight-card">
         <h3>赤穂</h3>
@@ -133,6 +148,13 @@ const origin = {
       <article class="insight-card"><h3>鞆の浦</h3><p><strong>潮の転換点が滞留経済を生んだ港町。</strong> 潮待ちが商業・酒造・鍛冶・宿泊を育てた。</p></article>
       <article class="insight-card"><h3>三原</h3><p><strong>交通手段を乗り換え続けた都市。</strong> 城下港から工業港、鉄道、新幹線、空港へ結節機能を更新した。</p></article>
       <article class="insight-card"><h3>竹原</h3><p><strong>製塩利益を別産業と町並みに転換した町。</strong> 塩田の富が酒造・廻船・問屋・建築へ再投資された。</p></article>
+      <article class="insight-card"><h3>松山</h3><p><strong>城下・温泉・港が統合された都市。</strong> 道後、松山城下、三津浜と近代交通が複合都市をつくった。</p></article>
+      <article class="insight-card"><h3>下関</h3><p><strong>海峡そのものが都市資産になったゲートウェイ。</strong> 北前船から国際港・水産市場まで機能を更新した。</p></article>
+      <article class="insight-card"><h3>柳井</h3><p><strong>交易の富が白壁の商家町に固定化した商都。</strong> 広い商圏が商人資本を育てた。</p></article>
+      <article class="insight-card"><h3>防府（三田尻）</h3><p><strong>塩を全国へ売った資源・交易都市。</strong> 塩田と北前船が一体化した。</p></article>
+      <article class="insight-card"><h3>引田</h3><p><strong>風待ち・潮待ちが城下と加工文化を育てた港町。</strong> 港・城・商家・醸造が重なる。</p></article>
+      <article class="insight-card"><h3>坂出</h3><p><strong>塩田の土地を臨海工業へ継承した都市。</strong> 港湾と埋立が産業転換を可能にした。</p></article>
+      <article class="insight-card"><h3>高松</h3><p><strong>港町を海城と県都へ更新した広域拠点。</strong> 海陸交通の結節性が都市中心性を支えた。</p></article>
     </div>
   </section>
 </BaseLayout>
