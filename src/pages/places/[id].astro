@@ -31,6 +31,8 @@ const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, 
             <div class={`claim-badge ${type}`}>{claimLabels[type]}</div>
             {i === 2 ? (
               <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>{title} →</a></h3>
+            ) : i === 4 ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>{title} →</a></h3>
             ) : i === 5 ? (
               <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`}>{title} →</a></h3>
             ) : (
