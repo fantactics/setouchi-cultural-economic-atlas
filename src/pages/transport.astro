@@ -265,6 +265,15 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
         );
       });
 
+      const allCoords = [
+        ...historical.map((p)=>[p.lat,p.lon]),
+        ...modernization.map((p)=>[p.lat,p.lon]),
+        ...bridges.flatMap((r)=>r.coords || []),
+        ...ferries.flatMap((r)=>r.coords || []),
+        ...cycling.flatMap((r)=>r.coords || [])
+      ];
+      if (allCoords.length) map.fitBounds(L.latLngBounds(allCoords), {padding:[24,24]});
+
       const setLayerVisibility = (key, visible) => {
         const layer = layers[key];
         if (!layer) return;
