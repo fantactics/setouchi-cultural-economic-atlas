@@ -287,6 +287,13 @@ const seasonPresets = [
         marker.bindPopup('<strong>'+zone.name+'</strong><br>'+zone.summary+'<br>'+zone.navigation);
       });
 
+      const allMapCoords = [
+        ...winds.map((p)=>[p.lat,p.lon]),
+        ...currents.map((p)=>[p.lat,p.lon]),
+        ...faith.filter((p)=>Number.isFinite(p.lat) && Number.isFinite(p.lon)).map((p)=>[p.lat,p.lon])
+      ];
+      if (allMapCoords.length) map.fitBounds(L.latLngBounds(allMapCoords), {padding:[24,24]});
+
       const note=document.getElementById('wind-season-note');
       const applySeason=(id)=>{
         const season=seasons.find((s)=>s.id===id);
