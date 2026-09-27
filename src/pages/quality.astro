@@ -82,7 +82,7 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
               <td>{row.fact}</td>
               <td>{row.interpretation}</td>
               <td>{row.hypothesis}</td>
-              <td><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>{row.climateMonthly ? '年＋月別' : row.climateAnnual ? '年値のみ' : '未整備'}</a></td>
+              <td>{row.climateAnnual ? <a href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>{row.climateMonthly ? '年＋月別' : '年値のみ'}</a> : <span class="map-note">未整備</span>}</td>
               <td>
                 <div class="quality-meter" aria-label={`出典充足率 ${row.coverage}%`}>
                   <span style={`width:${row.coverage}%`}></span>
