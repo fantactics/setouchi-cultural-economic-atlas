@@ -159,7 +159,146 @@ export const industrySpatialNodes = [
     lat:34.33572,lon:134.10071,precision:'site',
     era:'1948〜',note:'建設用クレーン・高所作業車などを世界展開する高松本社の機械メーカー。',
     sourceUrl:'https://www.tadano.co.jp/ja/company/overview/'
-  }
+  },
+  {
+    id:'ako-salt',placeId:'ako',name:'赤穂旧塩田・塩業地区',category:'heritage',
+    lat:34.744,lon:134.390,precision:'approximate',
+    era:'近世〜20世紀',note:'海水・遠浅海岸を利用した製塩が、赤穂の産業形成の起点となった。',
+    sourceUrl:'https://www.city.ako.lg.jp/edu/bunka/ako-salt.html'
+  },
+  {
+    id:'ako-industrial',placeId:'ako',name:'赤穂臨海工業地区',category:'cluster',
+    lat:34.735,lon:134.375,precision:'approximate',
+    era:'近代〜現代',note:'塩田跡地・臨海用地に素材・化学・重工系の事業所が集積する。',
+    sourceUrl:'https://www.city.ako.lg.jp/sangyo/kigyo/ritchi.html'
+  },
+
+  {
+    id:'onomichi-port',placeId:'onomichi',name:'尾道水道・旧商港',category:'infrastructure',
+    lat:34.405,lon:133.195,precision:'district',
+    era:'中世〜近代',note:'天然港と交易が商人・金融・廻船資本を蓄積した。',
+    sourceUrl:'https://www.city.onomichi.hiroshima.jp/soshiki/38/59103.html'
+  },
+  {
+    id:'onomichi-shipbuilding',placeId:'onomichi',name:'尾道・向島造船集積',category:'cluster',
+    lat:34.390,lon:133.200,precision:'approximate',
+    era:'近代〜現代',note:'港湾・修繕技能・海運需要を背景に造船・海事産業が集積。',
+    sourceUrl:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/'
+  },
+
+  {
+    id:'imabari-strait',placeId:'imabari',name:'来島海峡・波止浜',category:'infrastructure',
+    lat:34.112,lon:132.970,precision:'approximate',
+    era:'近世〜現代',note:'急潮流海峡と港湾が船主・航海技能の蓄積を促した。',
+    sourceUrl:'https://www.city.imabari.ehime.jp/kaiji/rekisi/'
+  },
+  {
+    id:'imabari-maritime',placeId:'imabari',name:'今治海事産業集積',category:'cluster',
+    lat:34.066,lon:132.998,precision:'approximate',
+    era:'近代〜現代',note:'船主、造船、舶用、金融・保険等が地域内で需要と資本を循環させる。',
+    sourceUrl:'https://www.city.imabari.ehime.jp/kaiji/'
+  },
+
+  {
+    id:'shimotsui-port',placeId:'shimotsui',name:'下津井歴史港',category:'infrastructure',
+    lat:34.432,lon:133.805,precision:'district',
+    era:'近世',note:'北前船・金毘羅参詣・渡海交通と漁業が重なった備讃瀬戸の港。',
+    sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007890/1011524.html'
+  },
+  {
+    id:'shimotsui-fishery',placeId:'shimotsui',name:'下津井漁港・食文化圏',category:'cluster',
+    lat:34.430,lon:133.807,precision:'district',
+    era:'現代',note:'タコなどの漁業・水産食文化と港町観光が現在の地域価値を構成する。',
+    sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html'
+  },
+
+  {
+    id:'tadotsu-port',placeId:'tadotsu',name:'多度津旧港',category:'infrastructure',
+    lat:34.280,lon:133.748,precision:'approximate',
+    era:'近世',note:'北前船・金毘羅参詣の物資集散港として発達した。',
+    sourceUrl:'https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html'
+  },
+  {
+    id:'tadotsu-railindustry',placeId:'tadotsu',name:'多度津鉄道・臨海産業地区',category:'cluster',
+    lat:34.272,lon:133.753,precision:'district',
+    era:'1889〜現代',note:'港の結節機能が四国最初の鉄道と臨海工業・物流へ継承された。',
+    sourceUrl:'https://www.town.tadotsu.kagawa.jp/tadoritsukutadotsu/about_tadotsu/about_tadotsu.html'
+  },
+
+  {
+    id:'mitarai-port',placeId:'mitarai',name:'御手洗・風待ち潮待ち港',category:'heritage',
+    lat:34.183,lon:132.866,precision:'district',
+    era:'近世',note:'航海待機による滞留経済が商家・船宿・茶屋の町並みを形成。',
+    sourceUrl:'https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html'
+  },
+  {
+    id:'mitarai-tourism',placeId:'mitarai',name:'御手洗重伝建・観光地区',category:'cluster',
+    lat:34.181,lon:132.867,precision:'district',
+    era:'現代',note:'港町の建築・景観資産が保存活用され、観光・文化産業の基盤となる。',
+    sourceUrl:'https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html'
+  },
+
+  {
+    id:'ushimado-port',placeId:'ushimado',name:'牛窓歴史港',category:'infrastructure',
+    lat:34.614,lon:134.156,precision:'district',
+    era:'古代〜近世',note:'外交航路・海運・文化交流が重なった良港。',
+    sourceUrl:'https://www.city.setouchi.lg.jp/site/kankoubutsu/117401.html'
+  },
+  {
+    id:'ushimado-coastal',placeId:'ushimado',name:'牛窓海辺産業・観光圏',category:'cluster',
+    lat:34.616,lon:134.160,precision:'approximate',
+    era:'現代',note:'海運・造船の記憶と農漁業・観光が重なる沿岸産業圏。',
+    sourceUrl:'https://www.city.setouchi.lg.jp/soshiki/23/3406.html'
+  },
+
+  {
+    id:'tomo-port',placeId:'tomonoura',name:'鞆の浦・潮待ち港',category:'heritage',
+    lat:34.383,lon:133.383,precision:'district',
+    era:'近世',note:'潮流転換を待つ滞留が商業・宿泊・鍛冶・酒造を集積させた。',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html'
+  },
+  {
+    id:'tomo-tourism',placeId:'tomonoura',name:'鞆港町文化・観光圏',category:'cluster',
+    lat:34.384,lon:133.386,precision:'district',
+    era:'現代',note:'歴史港湾施設、町並み、食・酒文化が観光・地域ブランドへ転換されている。',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179954.html'
+  },
+
+  {
+    id:'mihara-castleport',placeId:'mihara',name:'三原城下港・交通結節',category:'infrastructure',
+    lat:34.4006,lon:133.0787,precision:'district',
+    era:'近世〜近代',note:'海上交通支配の城下港から鉄道・港湾交通へ更新された。',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/30/rekisi.html'
+  },
+  {
+    id:'mihara-industry',placeId:'mihara',name:'三原工業・広域交通圏',category:'cluster',
+    lat:34.401,lon:133.090,precision:'approximate',
+    era:'近代〜現代',note:'港・鉄道・新幹線・高速道路・空港アクセスを背景に製造・物流立地が進む。',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/24/kigyouritti.html'
+  },
+
+  {
+    id:'takehara-salt',placeId:'takehara',name:'竹原塩田・商人町',category:'heritage',
+    lat:34.345,lon:132.912,precision:'district',
+    era:'近世',note:'製塩利益が酒造・廻船・問屋・建築へ再投資された。',
+    sourceUrl:'https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html'
+  },
+  {
+    id:'takehara-townscape',placeId:'takehara',name:'竹原町並み・醸造文化圏',category:'cluster',
+    lat:34.347,lon:132.910,precision:'district',
+    era:'現代',note:'商人資本が残した町並みと醸造文化が観光・地域ブランドとして活用される。',
+    sourceUrl:'https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html'
+  },
+  {from:'ako-salt',to:'ako-industrial',type:'land_inheritance',confidence:'high',note:'塩田跡地・臨海用地が素材・化学・重工業立地へ転換。'},
+  {from:'onomichi-port',to:'onomichi-shipbuilding',type:'capital_inheritance',confidence:'medium',note:'交易・廻船・修繕技能の蓄積が、近代海運・造船集積の背景となった。'},
+  {from:'imabari-strait',to:'imabari-maritime',type:'skill_inheritance',confidence:'high',note:'海峡航海と海運技能が船主・造船・舶用の地域集積へ厚みを与えた。'},
+  {from:'shimotsui-port',to:'shimotsui-fishery',type:'direct_continuity',confidence:'medium',note:'歴史港の海域利用が漁業・食文化・観光として現在まで残る。'},
+  {from:'tadotsu-port',to:'tadotsu-railindustry',type:'logistics_inheritance',confidence:'high',note:'港の物資集散機能が鉄道・臨海物流へ置き換わりながら継承された。'},
+  {from:'mitarai-port',to:'mitarai-tourism',type:'direct_continuity',confidence:'high',note:'滞留経済が形成した町並みそのものが現在の文化・観光資産になった。'},
+  {from:'ushimado-port',to:'ushimado-coastal',type:'parallel_modern_layer',confidence:'medium',note:'歴史的海運・外交港の空間に、農漁業・観光など現在の沿岸産業が重なる。'},
+  {from:'tomo-port',to:'tomo-tourism',type:'direct_continuity',confidence:'high',note:'潮待ち港が残した港湾施設・町並み・商業文化が現在の観光資産へ転換。'},
+  {from:'mihara-castleport',to:'mihara-industry',type:'logistics_inheritance',confidence:'high',note:'城下港の結節性が鉄道・道路・空港を含む広域交通機能へ更新された。'},
+  {from:'takehara-salt',to:'takehara-townscape',type:'capital_inheritance',confidence:'high',note:'製塩利益が酒造・廻船・商家建築へ再投資され、その資産が町並みとして残った。'}
 ];
 
 export const industrySpatialRelations = [
