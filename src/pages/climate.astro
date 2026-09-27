@@ -23,6 +23,9 @@ const rows = places
 const tempSorted = [...rows].sort((a,b) => b.annualTemp - a.annualTemp);
 const rainSorted = [...rows].sort((a,b) => a.annualRain - b.annualRain);
 const sunSorted = [...rows].filter(r => r.annualSun != null).sort((a,b) => b.annualSun - a.annualSun);
+const tempMax = Math.max(...rows.map(r => r.annualTemp));
+const rainMax = Math.max(...rows.map(r => r.annualRain));
+const sunMax = Math.max(...rows.filter(r => r.annualSun != null).map(r => r.annualSun));
 ---
 <BaseLayout title="気候比較 | 瀬戸内文化経済アトラス" description="瀬戸内10地域の年平均気温・年間降水量・年間日照時間を比較する。">
   <section class="place-hero">
@@ -57,6 +60,43 @@ const sunSorted = [...rows].filter(r => r.annualSun != null).sort((a,b) => b.ann
   </section>
 
   <section class="section">
+    <div class="kicker">VISUAL COMPARISON</div>
+    <h2>3指標をランキングで見る</h2>
+    <div class="climate-ranking-grid">
+      <article class="ranking-card">
+        <h3>年平均気温</h3>
+        {tempSorted.map((row) => (
+          <a class="ranking-row" href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>
+            <span>{row.name}</span>
+            <div class="ranking-track"><i style={`width:${(row.annualTemp / tempMax) * 100}%`}></i></div>
+            <strong>{row.annualTemp.toFixed(1)}℃</strong>
+          </a>
+        ))}
+      </article>
+      <article class="ranking-card">
+        <h3>年間降水量</h3>
+        {[...rows].sort((a,b) => b.annualRain - a.annualRain).map((row) => (
+          <a class="ranking-row" href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>
+            <span>{row.name}</span>
+            <div class="ranking-track"><i style={`width:${(row.annualRain / rainMax) * 100}%`}></i></div>
+            <strong>{Math.round(row.annualRain)}mm</strong>
+          </a>
+        ))}
+      </article>
+      <article class="ranking-card">
+        <h3>年間日照時間</h3>
+        {sunSorted.map((row) => (
+          <a class="ranking-row" href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>
+            <span>{row.name}</span>
+            <div class="ranking-track"><i style={`width:${(row.annualSun / sunMax) * 100}%`}></i></div>
+            <strong>{Math.round(row.annualSun)}h</strong>
+          </a>
+        ))}
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="kicker">QUICK READING</div>
     <h2>比較の見どころ</h2>
     <div class="comparison-insight-grid">
@@ -81,7 +121,7 @@ const sunSorted = [...rows].filter(r => r.annualSun != null).sort((a,b) => b.ann
     <div class="synthesis">
       この比較は各地域の「代表観測点」の平年値です。地域中心部そのものの値ではない場合があります。
       特に赤穂・下津井・牛窓・鞆の浦・御手洗・三原は、近隣観測点または地域内の別地点を使っています。
-      また御手洗と三原は統計期間が1991–2020年と異なるため、絶対順位よりも地域傾向を見るためのデータとして扱います。
+      また御手洗は2009–2020年、三原は2003–2020年で、他地域の1991–2020年とは統計期間が異なります。絶対順位よりも地域傾向を見るためのデータとして扱います。
     </div>
   </section>
 </BaseLayout>
