@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { places } from '../../data/places.js';
+import { places, claimLabels } from '../../data/places.js';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -19,15 +19,25 @@ const { place } = Astro.props;
   </section>
 
   <section class="section">
-    <div class="two-col">
-      <div class="panel"><h2>地理・地形</h2><p>{place.geography}</p></div>
-      <div class="panel"><h2>気候・水・自然条件</h2><p>{place.climate}</p></div>
-      <div class="panel"><h2>地域産業</h2><ul>{place.industries.map((x) => <li>{x}</li>)}</ul></div>
-      <div class="panel"><h2>代表企業・企業群</h2><ul>{place.companies.map((x) => <li>{x}</li>)}</ul></div>
+    <div class="kicker">18-LAYER CITY PROFILE</div>
+    <h2>地域を18の層で読む</h2>
+    <p class="lead">事実と解釈を分けながら、自然・歴史・産業・暮らしを一つの因果構造として読みます。</p>
+    <div class="profile-grid">
+      {place.sections.map(([title, body, type], i) => (
+        <article class="profile-card">
+          <div class="profile-num">{String(i + 1).padStart(2,'0')}</div>
+          <div>
+            <div class={`claim-badge ${type}`}>{claimLabels[type]}</div>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section class="section">
+  <section class="section gene-section">
+    <div class="kicker">INDUSTRIAL GENES</div>
     <h2>産業遺伝子</h2>
     <p class="lead">現在の産業を、その成立経路まで遡って表示します。</p>
     <div class="grid">
@@ -49,7 +59,21 @@ const { place } = Astro.props;
   </section>
 
   <section class="section">
+    <div class="kicker">SYNTHESIS</div>
     <h2>なぜこの町はこの町になったのか</h2>
-    <div class="synthesis">{place.synthesis}</div>
+    <div class="synthesis">{place.sections[17][1]}</div>
+  </section>
+
+  <section class="section sources-section">
+    <div class="kicker">PRIMARY SOURCES</div>
+    <h2>主な出典</h2>
+    <p class="lead">この試作段階では自治体等の一次情報を優先しています。今後、各記述単位に出典IDと確認日を付与します。</p>
+    <div class="source-list">
+      {place.sources.map((source) => (
+        <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+          <span>{source.label}</span><span>↗</span>
+        </a>
+      ))}
+    </div>
   </section>
 </BaseLayout>
