@@ -38,6 +38,66 @@ export const windStations = [
       [9,1.6,'東北東'],[10,1.8,'東北東'],[11,1.7,'南南西'],[12,1.9,'西']
     ],
     sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=1077&prec_no=73&view=a3'
+  },
+  {
+    id:'matsuyama',name:'松山',lat:33.843,lon:132.777,period:'1991–2020',
+    context:'松山地方気象台。冬〜春は西北西が多く、夏〜秋に東〜東南東へ切り替わる。',
+    monthly:[
+      [1,2.3,'西北西'],[2,2.5,'西北西'],[3,2.4,'西北西'],[4,2.4,'西北西'],
+      [5,2.3,'東'],[6,2.1,'西北西'],[7,2.0,'東'],[8,2.3,'東'],
+      [9,2.0,'東'],[10,1.9,'東南東'],[11,2.0,'東南東'],[12,2.1,'西北西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47887&prec_no=73&view=a3'
+  },
+  {
+    id:'shimonoseki',name:'下関',lat:33.949,lon:130.925,period:'1991–2020',
+    context:'下関地方気象台。最多風向は年間を通じ東寄りが卓越し、関門海峡の局地風・潮流とは分けて読む。',
+    monthly:[
+      [1,4.0,'東'],[2,3.6,'東'],[3,3.4,'東'],[4,3.2,'東'],
+      [5,3.0,'東'],[6,2.6,'東'],[7,2.7,'東'],[8,2.7,'東南東'],
+      [9,2.6,'東'],[10,2.7,'東'],[11,3.0,'東'],[12,3.8,'東']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47762&prec_no=81&view=a3'
+  },
+  {
+    id:'yanai',name:'柳井',lat:33.963,lon:132.102,period:'1991–2020',
+    context:'柳井の地上観測。冬〜春・秋は西寄り、梅雨〜盛夏は南南東が最多風向となる。',
+    monthly:[
+      [1,2.2,'西北西'],[2,2.2,'西'],[3,2.3,'西'],[4,2.3,'西'],
+      [5,2.1,'西'],[6,1.9,'南南東'],[7,1.9,'南南東'],[8,2.0,'南南東'],
+      [9,2.1,'西'],[10,2.1,'西'],[11,2.0,'西'],[12,2.1,'西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0942&prec_no=81&view=a3'
+  },
+  {
+    id:'hofu',name:'防府',lat:34.053,lon:131.550,period:'1991–2020',
+    context:'防府の地上観測。冬は北西、春〜夏は北東から東南東、秋は北東へ移る。',
+    monthly:[
+      [1,1.8,'北西'],[2,1.9,'北西'],[3,2.1,'北東'],[4,2.2,'東南東'],
+      [5,2.2,'東南東'],[6,2.0,'東南東'],[7,2.1,'東南東'],[8,2.1,'東南東'],
+      [9,1.9,'北東'],[10,1.7,'北東'],[11,1.6,'北東'],[12,1.8,'北西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0775&prec_no=81&view=a3'
+  },
+  {
+    id:'hiketa',name:'引田',lat:34.222,lon:134.406,period:'1991–2020',
+    context:'引田の地上観測。冬は西北西、4〜11月は南南西が最多風向で、東讃沿岸の季節交替が明瞭。',
+    monthly:[
+      [1,2.7,'西北西'],[2,2.7,'西北西'],[3,2.6,'西北西'],[4,2.6,'南南西'],
+      [5,2.5,'南南西'],[6,2.2,'南南西'],[7,2.2,'南南西'],[8,2.4,'南南西'],
+      [9,2.5,'南南西'],[10,2.4,'南南西'],[11,2.5,'南南西'],[12,2.7,'西北西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0730&prec_no=72&view=a3'
+  },
+  {
+    id:'takamatsu',name:'高松',lat:34.316,lon:134.054,period:'1991–2020',
+    context:'高松地方気象台。冬は西、春〜秋は西南西主体で、6月のみ東北東が最多となる。',
+    monthly:[
+      [1,2.9,'西'],[2,2.7,'西'],[3,2.6,'西南西'],[4,2.5,'西南西'],
+      [5,2.4,'西南西'],[6,2.2,'東北東'],[7,2.3,'西南西'],[8,2.5,'西南西'],
+      [9,2.3,'西南西'],[10,2.2,'南西'],[11,2.2,'南西'],[12,2.7,'西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47891&prec_no=72&view=a3'
   }
 ];
 
@@ -67,6 +127,14 @@ export const currentZones = [
     culture:'難所の操船経験は海運技能の蓄積と結びつき、今治の海事産業を読む重要な自然条件。',
     sourceUrl:'https://www1.kaiho.mlit.go.jp/KAN6/2_kaisyo_new/tidal-current/tidalc_forecast.html',
     lawUrl:'https://laws.e-gov.go.jp/law/348M50000800009'
+  },
+  {
+    id:'kanmon',name:'関門海峡・早鞆瀬戸',lat:33.959,lon:130.959,
+    geometry:'east-west',
+    summary:'日本でも特に潮流が速い海域の一つで、東流・西流が交替する。早鞆瀬戸では潮流信号所が実況を表示する。',
+    navigation:'狭くS字状に曲がる海峡で行会い船の視認も難しく、潮流情報と船舶交通管制が航行安全の重要インフラとなる。',
+    culture:'1909年から潮流信号所が設けられた歴史は、海峡の自然条件が航海技術・交通制度そのものを発達させたことを示す。',
+    sourceUrl:'https://www6.kaiho.mlit.go.jp/kanmon/info/others/tidal_station/tidal-station.htm'
   }
 ];
 
