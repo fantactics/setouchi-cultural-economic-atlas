@@ -90,7 +90,7 @@ const matrix = [
           <h3>{type.name}</h3>
           <p>{type.mechanism}</p>
           <div class="causal-chain compact-chain">
-            {type.chain.map((x,i)=><><span>{x}</span>{i<type.chain.length-1 && <b>→</b>}</>)}
+            <span>{type.chain.join(' → ')}</span>
           </div>
           <p class="typology-question"><strong>問い：</strong>{type.question}</p>
         </article>
@@ -105,7 +105,15 @@ const matrix = [
       <table class="compare-table">
         <thead><tr><th>地域</th><th>地理的起点</th><th>歴史的機能</th><th>蓄積した資産</th><th>現在への継承</th></tr></thead>
         <tbody>
-          {matrix.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}
+          {matrix.map((row) => (
+            <tr>
+              <th>{row[0]}</th>
+              <td>{row[1]}</td>
+              <td>{row[2]}</td>
+              <td>{row[3]}</td>
+              <td>{row[4]}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
