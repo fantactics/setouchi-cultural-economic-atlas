@@ -1,0 +1,27 @@
+---
+const { title = '瀬戸内文化経済アトラス', description = '地理・気候・歴史・産業・企業・文化・暮らしを重ねて町を読む。' } = Astro.props;
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={import.meta.env.BASE_URL}>SETOUCHI CULTURE & ECONOMY ATLAS</a>
+      <nav>
+        <a href={import.meta.env.BASE_URL}>Places</a>
+        <a href="#genes">Industrial genes</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer id="about">
+      <p>地域を「何があるか」ではなく、「なぜこの町はこの町になったのか」から読むアトラス。</p>
+    </footer>
+  </body>
+</html>
