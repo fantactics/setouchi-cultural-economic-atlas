@@ -140,3 +140,8 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .map-toolbar { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0 .8rem; }
 .map-layer-toggle { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.45rem .8rem; font:inherit; font-size:.82rem; font-weight:700; cursor:pointer; }
 .map-layer-toggle.active { background:var(--ink); color:white; border-color:var(--ink); }
+
+.map-source-status { display:inline-block; margin-top:.35rem; padding:.12rem .38rem; border-radius:999px; font-size:.66rem; font-weight:800; letter-spacing:.04em; }
+.map-source-status.verified { background:#e7f3ea; color:#245b32; }
+.map-source-status.pending { background:#f6eadf; color:#8a4f22; }
+.leaflet-popup-content small { color:#6f777b; }
