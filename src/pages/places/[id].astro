@@ -9,6 +9,7 @@ export function getStaticPaths() {
   }));
 }
 const { place } = Astro.props;
+const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, source]));
 ---
 <BaseLayout title={`${place.name} | 瀬戸内文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
@@ -30,6 +31,17 @@ const { place } = Astro.props;
             <div class={`claim-badge ${type}`}>{claimLabels[type]}</div>
             <h3>{title}</h3>
             <p>{body}</p>
+            {place.sectionSources?.[i]?.length > 0 && (
+              <div class="claim-sources">
+                <span class="claim-sources-label">Sources</span>
+                {place.sectionSources[i].map((sourceId) => {
+                  const source = sourceById[sourceId];
+                  return source ? (
+                    <a href={source.url} target="_blank" rel="noreferrer" title={source.label}>{source.id}</a>
+                  ) : null;
+                })}
+              </div>
+            )}
           </div>
         </article>
       ))}
@@ -67,11 +79,15 @@ const { place } = Astro.props;
   <section class="section sources-section">
     <div class="kicker">PRIMARY SOURCES</div>
     <h2>主な出典</h2>
-    <p class="lead">この試作段階では自治体等の一次情報を優先しています。今後、各記述単位に出典IDと確認日を付与します。</p>
+    <p class="lead">自治体・気象庁等の一次情報を優先し、各記述カードから出典IDを追えるようにしています。解釈・仮説は、出典が示す事実を基礎に編集上の推論を加えたものです。</p>
     <div class="source-list">
       {place.sources.map((source) => (
         <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
-          <span>{source.label}</span><span>↗</span>
+          <span>
+            <b>{source.id}</b>　{source.label}
+            <small>{source.publisher} / verified {source.verifiedAt}</small>
+          </span>
+          <span>↗</span>
         </a>
       ))}
     </div>
