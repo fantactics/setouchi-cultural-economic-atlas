@@ -1,0 +1,112 @@
+export const windStations = [
+  {
+    id:'ikuchijima',name:'生口島',lat:34.304,lon:133.087,period:'1991–2020',
+    context:'尾道市島嶼部。沿岸・島嶼の地上観測であり、沖合の風を直接代表するものではない。',
+    monthly:[
+      [1,1.7,'西北西'],[2,1.6,'西北西'],[3,1.6,'西'],[4,1.5,'西'],
+      [5,1.4,'北西'],[6,1.2,'南南西'],[7,1.3,'南南西'],[8,1.4,'北'],
+      [9,1.5,'北'],[10,1.5,'北北東'],[11,1.4,'北西'],[12,1.7,'西北西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0687&prec_no=67&view=a3'
+  },
+  {
+    id:'takehara',name:'竹原',lat:34.341,lon:132.907,period:'1991–2020',
+    context:'竹原市の地上観測。冬〜春・秋に北北東が卓越し、初夏〜盛夏の一部で西北西が現れる。',
+    monthly:[
+      [1,3.5,'北北東'],[2,3.2,'北北東'],[3,2.9,'北北東'],[4,2.5,'北北東'],
+      [5,2.1,'北北東'],[6,1.9,'西北西'],[7,2.0,'西北西'],[8,2.1,'北北東'],
+      [9,2.6,'北北東'],[10,3.0,'北北東'],[11,3.2,'北北東'],[12,3.5,'北北東']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0686&prec_no=67&view=a3'
+  },
+  {
+    id:'fukuyama',name:'福山',lat:34.486,lon:133.362,period:'1991–2020',
+    context:'鞆の浦より内陸側の観測点。年間を通じ北北東が最多風向で、局地地形の影響が大きい。',
+    monthly:[
+      [1,1.7,'北北東'],[2,1.7,'北北東'],[3,1.8,'北北東'],[4,1.8,'北北東'],
+      [5,1.7,'北北東'],[6,1.6,'北北東'],[7,1.7,'北北東'],[8,1.8,'北北東'],
+      [9,1.6,'北北東'],[10,1.5,'北北東'],[11,1.5,'北北東'],[12,1.6,'北北東']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47767&prec_no=67&view=a3'
+  },
+  {
+    id:'imabari',name:'今治',lat:34.066,lon:132.998,period:'1991–2020',
+    context:'来島海峡に近い今治市の地上観測。冬の西寄りと春〜秋の東北東系が交替する。',
+    monthly:[
+      [1,1.9,'西南西'],[2,1.9,'西南西'],[3,1.9,'東北東'],[4,1.8,'東北東'],
+      [5,1.6,'東北東'],[6,1.5,'東北東'],[7,1.6,'西北西'],[8,1.6,'東北東'],
+      [9,1.6,'東北東'],[10,1.8,'東北東'],[11,1.7,'南南西'],[12,1.9,'西']
+    ],
+    sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=1077&prec_no=73&view=a3'
+  }
+];
+
+export const currentZones = [
+  {
+    id:'bisan',name:'備讃瀬戸',lat:34.40,lon:133.80,
+    geometry:'east-west',
+    summary:'東流・西流が交替する強い潮流域。下津井瀬戸・沙弥島などでは最強流と転流の時刻が日々変化する。',
+    navigation:'帆船・小型船では潮の向きと転流時刻が航海計画そのものになる。',
+    culture:'潮流を利用する漁法も発達し、こませ網は転流後に投網し次の転流前まで操業する。',
+    sourceUrl:'https://www6.kaiho.mlit.go.jp/bisan/currenttide.html',
+    fisheriesUrl:'https://www.kaiho.mlit.go.jp/06kanku/takamatsu/d_safety_navigation/d_04anzen/d_4_01anzen/d_4_1_09/d_4_1_09.html'
+  },
+  {
+    id:'tomo',name:'鞆の浦沖',lat:34.36,lon:133.39,
+    geometry:'convergence',
+    summary:'満ち潮は紀伊水道側と豊後水道側から鞆沖へ集まり、引き潮では東西へ分かれる「潮の分かれ目」。',
+    navigation:'地乗り航海では潮向きが変わるまで待つ必要があり、鞆が潮待ち港として栄える直接条件となった。',
+    culture:'潮待ちの滞留が商業・酒造・鍛冶・宿泊・港湾文化の集積につながった。',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179016.html'
+  },
+  {
+    id:'kurushima',name:'来島海峡',lat:34.118,lon:132.976,
+    geometry:'north-south',
+    summary:'可航幅が狭く複雑で、潮流が南北に反転する国内有数の急潮流海域。',
+    navigation:'中水道では南流・北流が交替し、潮流速度に応じた航法が法令でも定められている。',
+    culture:'難所の操船経験は海運技能の蓄積と結びつき、今治の海事産業を読む重要な自然条件。',
+    sourceUrl:'https://www1.kaiho.mlit.go.jp/KAN6/2_kaisyo_new/tidal-current/tidalc_forecast.html',
+    lawUrl:'https://laws.e-gov.go.jp/law/348M50000800009'
+  }
+];
+
+export const kitamaeSeason = [
+  {month:'旧暦2月 / 3月頃',phase:'上方から出帆',detail:'多くの北前船が大阪を出て北へ向かう。'},
+  {month:'4月末〜5月',phase:'北海道到着',detail:'寄港地で売買を重ねながら北海道へ到達。'},
+  {month:'8月頃',phase:'南航開始',detail:'北海道産物を積み込み、大阪方面へ戻る。'},
+  {month:'台風期前',phase:'瀬戸内へ',detail:'下関から瀬戸内海に入り、冬季航海を避ける形で航海を終える。'}
+];
+
+export const cultureFromWind = [
+  {
+    title:'風待ち港',
+    places:['御手洗','鞆の浦'],
+    mechanism:'帆船は好風を待つ必要があり、港での滞留時間が船宿・茶屋・商業需要を生んだ。',
+    claimType:'fact',
+    sources:[
+      'https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html',
+      'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html'
+    ]
+  },
+  {
+    title:'民謡・芸能の伝播',
+    places:['北前船寄港地全般'],
+    mechanism:'天候待ちの滞留と寄港地間交流を通じ、節回しの似た民謡や祭礼などが各地へ伝わった。',
+    claimType:'fact',
+    sources:['https://japan-heritage.bunka.go.jp/ja/stories/story039/']
+  },
+  {
+    title:'航海安全の信仰',
+    places:['北前船寄港地全般'],
+    mechanism:'天候・海象に大きく左右される航海は、船絵馬や神社仏閣への寄進など航海安全祈願を強めた。',
+    claimType:'fact',
+    sources:['https://japan-heritage.bunka.go.jp/ja/stories/story039/']
+  },
+  {
+    title:'季節労働と生活暦',
+    places:['北前船船主・船員集落'],
+    mechanism:'春に出帆し秋に戻る航海サイクルが、船員の一年の労働・家族生活・地域行事の時間構造をつくった。',
+    claimType:'interpretation',
+    sources:['https://www.kitamae-bune.com/about/main/']
+  }
+];
