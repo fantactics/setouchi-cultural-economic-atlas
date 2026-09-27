@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+
+const rows = places.map((place)=>({
+  id:place.id,
+  name:place.name,
+  prefecture:place.prefecture,
+  industry:place.sections[6],
+  companies:place.sections[7],
+  gene:place.sections[8],
+  capital:place.sections[9],
+  ecosystem:place.sections[10],
+  sources:place.sources,
+  sectionSources:place.sectionSources || {}
+}));
+
+const sourceMap = (row, index) => {
+  const ids = row.sectionSources[index] || [];
+  return ids.map((id)=>row.sources.find((s)=>s.id===id)).filter(Boolean);
+};
+---
+<BaseLayout title="産業・資本比較 | 瀬戸内文化経済アトラス" description="瀬戸内17地域の地域産業・代表企業・資本形成・産業生態系を比較する。">
+  <section class="place-hero">
+    <div class="kicker">INDUSTRY & CAPITAL</div>
+    <h1>現在の産業は、どこから来たのか</h1>
+    <p class="subtitle">歴史産業の「直系子孫」だけを探すのではなく、土地・港湾・技能・商人資本・交通・制度が、現在の企業と産業集積へどう受け渡されたかを17地域で比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">COMPARATIVE MATRIX</div>
+    <h2>17地域を5つの層で比べる</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table industry-compare-table">
+        <thead>
+          <tr><th>地域</th><th>地域産業</th><th>代表企業・主体</th><th>産業遺伝子</th><th>資本形成</th><th>産業生態系</th></tr>
+        </thead>
+        <tbody>
+          {rows.map((row)=>(
+            <tr>
+              <th><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/`}>{row.name}</a><small>{row.prefecture}</small></th>
+              {[6,7,8,9,10].map((index)=>{
+                const section = row[index===6?'industry':index===7?'companies':index===8?'gene':index===9?'capital':'ecosystem'];
+                const refs = sourceMap(row,index);
+                return (
+                  <td>
+                    <span class={`claim-badge ${section[2]}`}>{section[2].toUpperCase()}</span>
+                    <p>{section[1]}</p>
+                    {refs.length>0 && <div class="industry-source-pills">{refs.slice(0,3).map((s)=><a href={s.url} target="_blank" rel="noreferrer">{s.id}</a>)}</div>}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CAPITAL PATHS</div>
+    <h2>資本形成には少なくとも4つの経路がある</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>商人資本の蓄積</h3><p>尾道・柳井・竹原など。交易利益が商家、金融、廻船、醸造、町並みへ再投資される。</p></article>
+      <article class="insight-card"><h3>土地・港湾の継承</h3><p>赤穂・坂出・防府など。塩田や沿岸造成地が、後の工業・港湾用地へ転換される。</p></article>
+      <article class="insight-card"><h3>技能・企業の自己強化</h3><p>今治・引田周辺など。造船・舶用、手袋縫製、醸造といった技能の蓄積が企業群を形成する。</p></article>
+      <article class="insight-card"><h3>県都・ゲートウェイ集積</h3><p>松山・高松・下関など。交通結節、行政、本社、金融、物流が複合して都市中心性を再生産する。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">READING RULE</div>
+    <h2>「昔から続いている」と言い過ぎない</h2>
+    <div class="synthesis">
+      産業遺伝子は企業の直接的な系譜を意味しません。製塩から化学、港から工業、交易から金融へ移る場合、
+      直接継承されるのは企業ではなく、土地・物流・技能・市場・資本・制度であることがあります。
+      本ページではFACT / INTERPRETATION / HYPOTHESISを分け、連続性の強さを検証可能な形で残します。
+    </div>
+  </section>
+</BaseLayout>
