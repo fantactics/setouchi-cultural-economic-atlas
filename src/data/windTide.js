@@ -212,3 +212,80 @@ export const maritimeCulturalFlows = [
     sourceUrl:'https://www.kitamae-bune.com/about/main/'
   }
 ];
+
+
+export const maritimeFaithSites = [
+  {
+    id:'nishinomiya-ebisu',name:'西宮神社',category:'ebisu',label:'えびす',
+    lat:34.7358,lon:135.3372,place:'兵庫県西宮市',
+    role:'えびす信仰の総本社。漁業・海上交通・商売・招福の神徳が重なる。',
+    spatialType:'港湾都市・市場',
+    interpretation:'漁撈の神から商業神へ展開したえびす信仰は、海産物流通と都市商業の接点を示す。',
+    sourceUrl:'https://nishinomiya-ebisu.com/about/'
+  },
+  {
+    id:'nishinomiya-sumiyoshi',name:'住吉神社（西宮港）',category:'sumiyoshi',label:'住吉',
+    lat:34.7286,lon:135.3370,place:'兵庫県西宮市西波止町',
+    role:'1805年の西宮港修築に際して航海安全を願い建立。海上運漕者・漁業者の信仰を集めた。',
+    spatialType:'港・波止',
+    interpretation:'港湾築造そのものと航海守護信仰が直接結びつく。',
+    sourceUrl:'https://nishinomiya-ebisu.com/guide/sumiyoshi/'
+  },
+  {
+    id:'sumiyoshi-taisha',name:'住吉大社',category:'sumiyoshi',label:'住吉',
+    lat:34.6124,lon:135.4935,place:'大阪府大阪市',
+    role:'全国の住吉神社の総本社。遣隋使・遣唐使以来、航海守護・貿易・外交と深く結びつく。',
+    spatialType:'古代港湾圏・海上交通起点',
+    interpretation:'瀬戸内航路東端の大阪湾における、古代からの海上交通信仰の中核。',
+    sourceUrl:'https://www.sumiyoshitaisha.net/about/origin.html'
+  },
+  {
+    id:'onomichi-sumiyoshi',name:'住吉神社（尾道）',category:'sumiyoshi',label:'住吉',
+    lat:34.4066,lon:133.1970,place:'広島県尾道市土堂',
+    role:'1741年、住吉浜築造時に移され港の守護神となった。北前船寄港地の港湾労働文化とも結びつく。',
+    spatialType:'商港・埋立地',
+    interpretation:'港湾造成・荷役・海上物流の発展と住吉信仰が同じ空間に重なる。',
+    sourceUrl:'https://www.ononavi.jp/spots/detail.html?detail_id=336'
+  },
+  {
+    id:'itsukushima',name:'厳島神社',category:'itsukushima',label:'厳島',
+    lat:34.2959,lon:132.3198,place:'広島県廿日市市宮島町',
+    role:'古来、海上鎮護の神として崇敬。海上に展開する社殿群そのものが海と信仰の結合を示す。',
+    spatialType:'島・入り江',
+    interpretation:'島・海・社殿を一体化した海上鎮護信仰の象徴的拠点。',
+    sourceUrl:'https://kunishitei.bunka.go.jp/heritage/detail/102/3165'
+  },
+  {
+    id:'tomo-benten',name:'鞆の浦 弁天島',category:'benten',label:'弁天',
+    lat:34.3844,lon:133.3912,place:'広島県福山市鞆町',
+    role:'鞆港沖の小島に弁財天を祀る。福山市は弁財天を「漁師たちの守り神」と説明する。',
+    spatialType:'港口・小島',
+    interpretation:'港口の小島に守護神を置く立地は、漁撈・航海・港景観を一体化する。',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html'
+  },
+  {
+    id:'kotohiragu',name:'金刀比羅宮',category:'konpira',label:'金毘羅',
+    lat:34.1843,lon:133.8090,place:'香川県仲多度郡琴平町',
+    role:'海上守護・大漁満足を祈願する全国的信仰拠点。海辺ではなく象頭山中腹に鎮座する。',
+    spatialType:'内陸山地・参詣終点',
+    interpretation:'多度津などの港から陸路で向かう「港＋参詣道＋山上信仰」のネットワークを形成した。',
+    sourceUrl:'https://www.konpira.or.jp/?stageID=hp'
+  },
+  {
+    id:'abuto-kannon',name:'阿伏兎観音',category:'kannon',label:'観音',
+    lat:34.3359,lon:133.3162,place:'広島県福山市沼隈町',
+    role:'海へ張り出す断崖上に位置し、古くから航海安全の祈願所として知られる。',
+    spatialType:'岬・断崖',
+    interpretation:'危険海域を望む岬に航海安全信仰が立地する典型例。',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/site/miryoku2023/288942.html'
+  }
+];
+
+export const maritimeFaithCategories = {
+  ebisu:{label:'えびす',theme:'漁業・海上交通・市場・商売'},
+  sumiyoshi:{label:'住吉',theme:'航海安全・港湾・海上運送・外交'},
+  itsukushima:{label:'厳島',theme:'海上鎮護・島・海上景観'},
+  benten:{label:'弁天',theme:'漁撈守護・水辺・港口・小島'},
+  konpira:{label:'金毘羅',theme:'海上安全・大漁・参詣ネットワーク'},
+  kannon:{label:'観音',theme:'航海安全・岬・海難回避'}
+};
