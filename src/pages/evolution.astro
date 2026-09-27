@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
+import { photoEvidence } from '../data/photoEvidence.js';
 
 const compactPlaces = places.map((place)=>({
+  photos:photoEvidence.filter((item)=>item.placeId===place.id),
   id:place.id,
   name:place.name,
   prefecture:place.prefecture,
@@ -110,6 +112,7 @@ const compactPlaces = places.map((place)=>({
 
       const graphHtml=(p,slot)=>{
         const nodes=p.nodes.map((node,i)=>{
+          const photo=(p.photos || []).find((item)=>item.nodeKey===node.key);
           const refs=refsFor(p,node).slice(0,4).map((s)=>
             '<a href="'+escapeHtml(s.url)+'" target="_blank" rel="noreferrer">'+escapeHtml(s.id)+'</a>'
           ).join('');
@@ -117,6 +120,7 @@ const compactPlaces = places.map((place)=>({
             '<div class="causal-node-top"><span class="causal-step">'+(i+1)+'</span>'+
             '<span class="claim-badge '+escapeHtml(node.claim)+'">'+escapeHtml(node.claim.toUpperCase())+'</span></div>'+
             '<h3>'+escapeHtml(node.title)+'</h3><p>'+escapeHtml(node.text)+'</p>'+
+            (photo ? '<figure class="causal-photo"><a href="'+escapeHtml(photo.sourcePage)+'" target="_blank" rel="noreferrer"><img src="'+escapeHtml(photo.imageUrl)+'" alt="'+escapeHtml(photo.alt)+'" loading="lazy"></a><figcaption><strong>PHOTO EVIDENCE</strong><span>'+escapeHtml(photo.caption)+'</span><small>'+escapeHtml(photo.author)+' / '+escapeHtml(photo.license)+'</small></figcaption></figure>' : '')+
             (refs ? '<div class="causal-source-row">'+refs+'</div>' : '')+
             '</section>'+(i<p.nodes.length-1?'<div class="causal-arrow" aria-hidden="true">↓</div>':'');
         }).join('');
