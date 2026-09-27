@@ -36,6 +36,11 @@ export const climateProfiles = {
     sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0670&prec_no=66'
   },
   tadotsu: {
+    monthly:[
+      [1,6.2,38.3,141.9],[2,6.4,46.3,150.7],[3,9.3,81.2,180.8],[4,14.2,79.5,198.6],
+      [5,19.1,105.8,213.8],[6,22.6,160.5,162.9],[7,26.8,161.1,204.5],[8,28.3,88.9,233.5],
+      [9,24.6,149.0,166.3],[10,19.0,106.2,171.8],[11,13.4,53.7,149.8],[12,8.5,46.4,139.4]
+    ],
     station:'多度津', stationContext:'町内の特別地域気象観測所。',
     period:'1991–2020', annualTemp:16.5, annualRain:1116.8, annualSun:2113.9,
     sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47890&prec_no=72'
@@ -59,6 +64,11 @@ export const climateProfiles = {
     sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?block_no=0668&prec_no=66'
   },
   tomonoura: {
+    monthly:[
+      [1,4.6,38.5,139.8],[2,5.2,47.0,138.6],[3,8.5,83.7,174.8],[4,13.7,91.6,191.4],
+      [5,18.7,117.7,211.5],[6,22.5,174.5,162.4],[7,26.6,198.0,193.5],[8,27.9,95.2,221.8],
+      [9,24.0,136.0,165.6],[10,18.0,91.1,174.3],[11,12.0,55.1,150.7],[12,6.8,43.3,145.6]
+    ],
     station:'福山', stationContext:'福山市の代表観測点。鞆の浦の海岸部とは地形・海風条件が異なる。',
     period:'1991–2020', annualTemp:15.7, annualRain:1171.7, annualSun:2069.8,
     sourceUrl:'https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47767&prec_no=67'
