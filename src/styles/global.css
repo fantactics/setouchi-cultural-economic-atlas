@@ -286,3 +286,27 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .transport-era-labels span:nth-child(2), .transport-era-labels span:nth-child(3) { text-align:center; }
 .transport-era-labels span:last-child { text-align:right; }
 .transport-era-description { margin:.65rem 0 0; font-size:.86rem; color:var(--muted); }
+
+.wind-tide-cta { background:#edf3f0; }
+.wind-season-control { display:flex; gap:.5rem; flex-wrap:wrap; margin:.8rem 0; }
+.wind-season-button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.45rem .8rem; font:inherit; font-weight:700; cursor:pointer; }
+.wind-season-button.active { background:var(--sea); color:white; border-color:var(--sea); }
+.wind-station-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.wind-station-card,.current-zone-card,.culture-wind-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1.1rem; }
+.wind-month-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.4rem; margin:1rem 0; }
+.wind-month-grid div { border-top:1px solid var(--line); padding-top:.35rem; display:grid; gap:.15rem; }
+.wind-month-grid span,.wind-month-grid small { color:var(--muted); font-size:.68rem; }
+.wind-month-grid strong { font-size:.83rem; }
+.current-zone-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.current-zone-card h3 { font-size:1rem; line-height:1.45; }
+.kitamae-calendar { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin:1rem 0; }
+.kitamae-calendar article { display:flex; gap:.7rem; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem; }
+.calendar-step { width:1.8rem; height:1.8rem; border-radius:50%; display:grid; place-items:center; background:var(--ink); color:white; font-weight:800; flex:0 0 auto; }
+.kitamae-calendar h3 { margin:.15rem 0 .35rem; font-size:1rem; }
+.kitamae-calendar p { margin:0; }
+.culture-wind-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.wind-arrow-icon { background:transparent; border:none; }
+.wind-arrow { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:rgba(255,255,255,.92); border:2px solid var(--sea); color:var(--sea); font-size:24px; font-weight:900; transform-origin:center; box-shadow:0 1px 5px rgba(0,0,0,.18); }
+.wind-causal-chain { margin-top:1rem; }
+@media (max-width:900px){ .current-zone-grid,.kitamae-calendar{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:700px){ .wind-station-grid,.current-zone-grid,.kitamae-calendar,.culture-wind-grid{grid-template-columns:1fr;} .wind-month-grid{grid-template-columns:repeat(3,1fr);} }
