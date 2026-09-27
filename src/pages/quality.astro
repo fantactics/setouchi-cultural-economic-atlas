@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
+import { climateProfiles } from '../data/climate.js';
 
 const rows = places.map((place) => {
   const counts = { fact:0, interpretation:0, hypothesis:0 };
@@ -11,6 +12,9 @@ const rows = places.map((place) => {
   const sourcedSections = Object.keys(place.sectionSources || {}).length;
   const sourceCount = (place.sources || []).length;
   const coverage = Math.round((sourcedSections / place.sections.length) * 100);
+  const climate = climateProfiles[place.id];
+  const climateAnnual = !!(climate && Number.isFinite(climate.annualTemp) && Number.isFinite(climate.annualRain));
+  const climateMonthly = !!(climate && Array.isArray(climate.monthly) && climate.monthly.length === 12);
   return {
     id: place.id,
     name: place.name,
@@ -21,7 +25,9 @@ const rows = places.map((place) => {
     sourceCount,
     sourcedSections,
     totalSections: place.sections.length,
-    coverage
+    coverage,
+    climateAnnual,
+    climateMonthly
   };
 }).sort((a,b) => b.coverage - a.coverage || b.sourceCount - a.sourceCount);
 
@@ -32,8 +38,10 @@ const totals = rows.reduce((acc,row) => {
   acc.sources += row.sourceCount;
   acc.sourced += row.sourcedSections;
   acc.sections += row.totalSections;
+  acc.climateAnnual += row.climateAnnual ? 1 : 0;
+  acc.climateMonthly += row.climateMonthly ? 1 : 0;
   return acc;
-},{fact:0,interpretation:0,hypothesis:0,sources:0,sourced:0,sections:0});
+},{fact:0,interpretation:0,hypothesis:0,sources:0,sourced:0,sections:0,climateAnnual:0,climateMonthly:0});
 
 const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
 ---
@@ -50,6 +58,8 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
       <article class="quality-stat"><strong>{totals.sources}</strong><span>登録ソース</span></article>
       <article class="quality-stat"><strong>{overallCoverage}%</strong><span>出典付与セクション率</span></article>
       <article class="quality-stat"><strong>{totals.hypothesis}</strong><span>HYPOTHESIS</span></article>
+      <article class="quality-stat"><strong>{totals.climateAnnual} / {places.length}</strong><span>気候年値</span></article>
+      <article class="quality-stat"><strong>{totals.climateMonthly} / {places.length}</strong><span>気候月別値</span></article>
     </div>
   </section>
 
@@ -60,7 +70,7 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
       <table class="compare-table quality-table">
         <thead>
           <tr>
-            <th>地域</th><th>出典数</th><th>出典付与</th><th>FACT</th><th>INTERPRETATION</th><th>HYPOTHESIS</th><th>充足率</th>
+            <th>地域</th><th>出典数</th><th>出典付与</th><th>FACT</th><th>INTERPRETATION</th><th>HYPOTHESIS</th><th>気候</th><th>充足率</th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +82,7 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
               <td>{row.fact}</td>
               <td>{row.interpretation}</td>
               <td>{row.hypothesis}</td>
+              <td><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>{row.climateMonthly ? '年＋月別' : row.climateAnnual ? '年値のみ' : '未整備'}</a></td>
               <td>
                 <div class="quality-meter" aria-label={`出典充足率 ${row.coverage}%`}>
                   <span style={`width:${row.coverage}%`}></span>
@@ -92,6 +103,7 @@ const overallCoverage = Math.round((totals.sourced / totals.sections) * 100);
       「充足率」は18セクションのうち、少なくとも1つの出典IDが紐づいているセクションの割合です。
       高いほど内容が正しいと自動的に判定するものではなく、検証作業の進捗指標です。
       INTERPRETATIONは一次資料に基づく編集上の因果解釈、HYPOTHESISは追加検証が必要な仮説として別管理します。
+      気候欄は代表観測点の年平年値と12か月平年値の整備状況を示します。
     </div>
   </section>
 </BaseLayout>
