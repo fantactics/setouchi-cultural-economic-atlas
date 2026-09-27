@@ -18,6 +18,27 @@ const metrics = [
   {label:'年間降水量', value:`${climate.annualRain.toLocaleString('ja-JP')} mm`},
   {label:'年間日照時間', value: climate.annualSun == null ? 'データなし' : `${climate.annualSun.toLocaleString('ja-JP')} 時間`}
 ];
+
+const buildLinePath = (values, width=720, height=220, pad=28) => {
+  const nums = values.filter((v) => v != null);
+  if (!nums.length) return '';
+  const min = Math.min(...nums);
+  const max = Math.max(...nums);
+  const range = max - min || 1;
+  return values.map((v,i) => {
+    if (v == null) return null;
+    const x = pad + (i * (width - pad * 2) / (values.length - 1));
+    const y = height - pad - ((v - min) / range) * (height - pad * 2);
+    return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).filter(Boolean).join(' ');
+};
+
+const tempValues = climate.monthly?.map((row) => row[1]) || [];
+const rainValues = climate.monthly?.map((row) => row[2]) || [];
+const sunValues = climate.monthly?.map((row) => row[3]) || [];
+const tempPath = buildLinePath(tempValues);
+const sunPath = buildLinePath(sunValues);
+const rainMax = rainValues.length ? Math.max(...rainValues) : 0;
 ---
 <BaseLayout title={`${place.name}の気候 | 瀬戸内文化経済アトラス`} description={`${place.name}の気温・降水量・日照時間などの気候平年値。`}>
   <section class="place-hero">
@@ -56,6 +77,49 @@ const metrics = [
     <section class="section">
       <div class="kicker">MONTHLY NORMALS</div>
       <h2>月別の平年値</h2>
+      <div class="climate-chart-grid">
+        <article class="climate-chart-card">
+          <h3>平均気温</h3>
+          <svg viewBox="0 0 720 220" role="img" aria-label="月別平均気温">
+            <path class="climate-line climate-temp-line" d={tempPath}></path>
+            {tempValues.map((v,i) => {
+              const min = Math.min(...tempValues);
+              const max = Math.max(...tempValues);
+              const range = max - min || 1;
+              const x = 28 + (i * (720 - 56) / 11);
+              const y = 220 - 28 - ((v - min) / range) * (220 - 56);
+              return <circle class="climate-point" cx={x} cy={y} r="3.5"></circle>;
+            })}
+          </svg>
+          <div class="climate-month-axis">{climate.monthly.map(([m]) => <span>{m}月</span>)}</div>
+        </article>
+
+        <article class="climate-chart-card">
+          <h3>降水量</h3>
+          <svg viewBox="0 0 720 220" role="img" aria-label="月別降水量">
+            {rainValues.map((v,i) => {
+              const barW = 38;
+              const gap = (720 - 56 - barW * 12) / 11;
+              const x = 28 + i * (barW + gap);
+              const h = rainMax ? (v / rainMax) * 160 : 0;
+              const y = 192 - h;
+              return <rect class="climate-bar" x={x} y={y} width={barW} height={h} rx="3"></rect>;
+            })}
+          </svg>
+          <div class="climate-month-axis">{climate.monthly.map(([m]) => <span>{m}月</span>)}</div>
+        </article>
+
+        {sunValues.some((v) => v != null) && (
+          <article class="climate-chart-card">
+            <h3>日照時間</h3>
+            <svg viewBox="0 0 720 220" role="img" aria-label="月別日照時間">
+              <path class="climate-line climate-sun-line" d={sunPath}></path>
+            </svg>
+            <div class="climate-month-axis">{climate.monthly.map(([m]) => <span>{m}月</span>)}</div>
+          </article>
+        )}
+      </div>
+
       <div class="compare-table-wrap">
         <table class="compare-table climate-table">
           <thead><tr><th>月</th><th>平均気温</th><th>降水量</th><th>日照時間</th></tr></thead>
