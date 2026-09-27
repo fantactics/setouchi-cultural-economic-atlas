@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places, claimLabels } from '../../data/places.js';
 import { climateProfiles } from '../../data/climate.js';
+import { photosForPlace } from '../../data/photoEvidence.js';
+import PhotoEvidenceGallery from '../../components/PhotoEvidenceGallery.astro';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -12,6 +14,7 @@ export function getStaticPaths() {
 const { place } = Astro.props;
 const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, source]));
 const hasClimate = !!climateProfiles[place.id];
+const placePhotos = photosForPlace(place.id);
 ---
 <BaseLayout title={`${place.name} | 瀬戸内文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
@@ -61,6 +64,8 @@ const hasClimate = !!climateProfiles[place.id];
       ))}
     </div>
   </section>
+
+  <PhotoEvidenceGallery items={placePhotos} title={`${place.name}の写真証拠`} />
 
   <section class="section gene-section">
     <div class="kicker">INDUSTRIAL GENES</div>
