@@ -8,6 +8,11 @@ const placeSpecies = Object.fromEntries(places.map((p)=>[
   p.id,
   seafoodSpecies.filter((s)=>s.places.includes(p.id))
 ]));
+const seasonOrder = ['春','夏','秋','冬'];
+const speciesBySeason = Object.fromEntries(seasonOrder.map((season)=>[
+  season,
+  seafoodSpecies.filter((s)=>s.seasons.includes(season))
+]));
 ---
 <BaseLayout title="海の食文化 | 瀬戸内文化経済アトラス" description="鯛・タコ・シャコなど、瀬戸内の海域条件と魚食文化を横断的に読む。">
   <section class="place-hero">
@@ -29,6 +34,45 @@ const placeSpecies = Object.fromEntries(places.map((p)=>[
         </a>
       ))}
     </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SEASONAL CALENDAR</div>
+    <h2>旬で読む</h2>
+    <div class="season-grid">
+      {seasonOrder.map((season)=>(
+        <article class="season-card">
+          <h3>{season}</h3>
+          <div class="season-species-list">
+            {speciesBySeason[season].map((s)=><a href={`/setouchi-cultural-economic-atlas/seafood/${s.id}/`}>{s.name}</a>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SPECIES × PLACE</div>
+    <h2>魚種と地域の関係</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table seafood-matrix">
+        <thead>
+          <tr>
+            <th>魚種</th>
+            {places.map((p)=><th>{p.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {seafoodSpecies.map((s)=>(
+            <tr>
+              <th><a href={`/setouchi-cultural-economic-atlas/seafood/${s.id}/`}>{s.name}</a></th>
+              {places.map((p)=><td class={s.places.includes(p.id) ? 'seafood-hit' : ''}>{s.places.includes(p.id) ? '●' : '—'}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="map-note">●は現在の一次資料で地域との結びつきを確認しているもの。空欄は「存在しない」ではなく、未検証を含みます。</p>
   </section>
 
   <section class="section">
