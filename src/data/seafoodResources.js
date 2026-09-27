@@ -1,0 +1,103 @@
+export const seafoodResourceChanges = [
+  {
+    speciesId:'tako',
+    status:'declining',
+    label:'減少傾向が確認される海域あり',
+    observations:[
+      '香川県では平成20年以降、マダコ漁獲量が減少傾向とされ、資源回復研究が実施されている。',
+      '愛媛県伊予灘では過去資料で漁獲量・CPUE低下が報告され、資源量減少が推察されている。'
+    ],
+    drivers:[
+      {type:'fact',text:'資源管理・種苗生産・産卵促進など回復策が研究されている。'},
+      {type:'hypothesis',text:'高水温、餌環境、産卵・成育場、漁獲圧など複数要因を海域別に検証する必要がある。'}
+    ],
+    sources:[
+      {id:'RC-TAKO-01',label:'香川県水産試験場 マダコ資源回復研究',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/documents/19778/2-madako.pdf'},
+      {id:'RC-TAKO-02',label:'マダコ産卵・ふ化技術',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/documents/19778/tp085madako.pdf'}
+    ]
+  },
+  {
+    speciesId:'shako',
+    status:'declining',
+    label:'長期的な減少・小型化の報告',
+    observations:[
+      '岡山県水産研究所はシャコの資源生態変化を継続調査テーマとして扱っている。',
+      '広島県の生物資料でも、1970年代と比べ2000年頃にはシャコ類が著しく減少し、小型化していたとの記録がある。'
+    ],
+    drivers:[
+      {type:'hypothesis',text:'底質環境、餌環境、水温、底びき漁など複数要因を切り分ける必要がある。'}
+    ],
+    sources:[
+      {id:'RC-SHAKO-01',label:'水産研究所 最新トピックス（シャコの資源生態の変化）',publisher:'岡山県',url:'https://www.pref.okayama.jp/site/22/detail-94504.html'}
+    ]
+  },
+  {
+    speciesId:'tai',
+    status:'stable-to-increasing',
+    label:'東部系群では資源量増加傾向',
+    observations:[
+      '水産庁の2025年資源評価では、マダイ瀬戸内海東部系群の資源量は1977年以降増加傾向で、2024年は141百トン。',
+      '天然由来加入量・親魚量も長期的には増加傾向とされる。'
+    ],
+    drivers:[
+      {type:'fact',text:'種苗放流・資源管理の影響も含め、長期的な資源回復が確認されている。'}
+    ],
+    sources:[
+      {id:'RC-TAI-01',label:'マダイ（瀬戸内海東部系群）資源評価',publisher:'水産庁',url:'https://www.jfa.maff.go.jp/j/press/sigen/attach/pdf/20250926-11.pdf'}
+    ]
+  },
+  {
+    speciesId:'sawara',
+    status:'recovered',
+    label:'資源回復計画後に増加傾向',
+    observations:[
+      '水産庁はサワラ瀬戸内海系群を広域資源管理対象としてきた。',
+      '過去の資源回復計画後、資源量の増加傾向が確認された時期がある。'
+    ],
+    drivers:[
+      {type:'fact',text:'漁獲制限、種苗放流、広域管理などの資源管理が継続されている。'}
+    ],
+    sources:[
+      {id:'RC-SAWARA-01',label:'瀬戸内海の資源回復計画',publisher:'水産庁',url:'https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html'}
+    ]
+  },
+  {
+    speciesId:'iriko',
+    status:'managed',
+    label:'瀬戸内海系群として資源管理対象',
+    observations:[
+      'カタクチイワシ瀬戸内海系群は資源管理対象で、燧灘では過去に資源回復計画が実施された。',
+      '現在も関係府県で資源管理措置が継続されている。'
+    ],
+    drivers:[
+      {type:'fact',text:'漁獲量だけでなく加工産業・出汁文化まで含むため、資源変動が地域産業へ波及する。'}
+    ],
+    sources:[
+      {id:'RC-IRIKO-01',label:'瀬戸内海の資源回復計画',publisher:'水産庁',url:'https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html'},
+      {id:'RC-IRIKO-02',label:'広島県が管理する特定水産資源',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/soshiki/88/tokuteisuisansigen-hiroshima.html'}
+    ]
+  }
+];
+
+export const ecosystemDrivers = [
+  {
+    id:'nutrients',name:'栄養塩類',
+    status:'complex',
+    summary:'瀬戸内海では栄養塩類の減少が基礎生産力を低下させ、ノリの色落ちや魚介類減少の要因となっている可能性が示唆されている。一方、過剰な栄養塩は赤潮等のリスクにも関係する。',
+    source:'https://www.jfa.maff.go.jp/j/sigen/230614_23.html'
+  },
+  {
+    id:'seagrass',name:'藻場・干潟',
+    status:'declining',
+    summary:'藻場・干潟は産卵・成育場として重要。瀬戸内海では長期的にアマモ場が大幅に減少したとされ、現在は造成・保全が進められている。',
+    source:'https://www.jfa.maff.go.jp/j/kikaku/tamenteki/kaisetu/moba/moba_genjou/'
+  },
+  {
+    id:'temperature',name:'高水温',
+    status:'watch',
+    summary:'高水温は藻場・養殖・魚種分布などへ影響し得るため、資源変動を読む際の重要な背景要因。魚種ごとの因果関係は個別検証が必要。',
+    source:'https://www.jfa.maff.go.jp/j/kikaku/wpaper/r04_h/trend/2/t2_03_5.html'
+  }
+];
+
+export const resourceBySpecies = Object.fromEntries(seafoodResourceChanges.map((r)=>[r.speciesId,r]));
