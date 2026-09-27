@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { windStations, currentZones, kitamaeSeason, cultureFromWind } from '../data/windTide.js';
+
+const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const seasonPresets = [
+  {id:'winter',label:'冬',months:[12,1,2],note:'冬季。西寄り・北寄りの風が卓越する地点が多いが、局地地形の影響が大きい。'},
+  {id:'spring',label:'春',months:[3,4,5],note:'北前船が上方から北航を始める時期。瀬戸内では地点ごとに最多風向が大きく異なる。'},
+  {id:'summer',label:'夏',months:[6,7,8],note:'南寄り・東寄り・西寄りが地点ごとに交替し、海陸風・地形効果も強く現れる。'},
+  {id:'autumn',label:'秋',months:[9,10,11],note:'北前船の南航・帰着期と重なる。台風期を避けることも航海暦の重要条件だった。'}
+];
+---
+<BaseLayout title="潮と風 | 瀬戸内文化経済アトラス" description="瀬戸内の潮流・季節風・北前船の航海季節と港町文化を重ねて読む。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <section class="place-hero">
+    <div class="kicker">WIND & TIDE</div>
+    <h1>潮と風が、港町の時間をつくった</h1>
+    <p class="subtitle">帆船時代の航海は、距離よりも「いつ潮が変わるか」「いつ風が吹くか」に支配されました。現代観測・歴史資料・文化形成を分けて重ねます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SEASONAL WIND MAP</div>
+    <h2>季節で変わる風向を見る</h2>
+    <div class="wind-season-control">
+      {seasonPresets.map((season,i)=>(
+        <button type="button" class:list={['wind-season-button', i===1 && 'active']} data-season={season.id}>{season.label}</button>
+      ))}
+    </div>
+    <p id="wind-season-note" class="lead">{seasonPresets[1].note}</p>
+    <div id="wind-tide-map"
+      class="atlas-map"
+      data-winds={JSON.stringify(windStations)}
+      data-currents={JSON.stringify(currentZones)}
+      data-seasons={JSON.stringify(seasonPresets)}></div>
+    <p class="map-note">最多風向は気象庁の地上観測点の平年値です。沖合の航海風・歴史時代の風を直接再現するものではありません。局地地形・海陸風の影響も含みます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">MONTHLY WIND NORMALS</div>
+    <h2>月別最多風向</h2>
+    <div class="wind-station-grid">
+      {windStations.map((station)=>(
+        <article class="wind-station-card">
+          <div class="kicker">{station.period}</div>
+          <h3>{station.name}</h3>
+          <p>{station.context}</p>
+          <div class="wind-month-grid">
+            {station.monthly.map(([m,speed,dir])=>(
+              <div><span>{m}月</span><strong>{dir}</strong><small>{speed.toFixed(1)} m/s</small></div>
+            ))}
+          </div>
+          <a class="text-link" href={station.sourceUrl} target="_blank" rel="noreferrer">気象庁 平年値 ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">TIDAL CURRENT</div>
+    <h2>潮流が航海を止め、港を育てた</h2>
+    <div class="current-zone-grid">
+      {currentZones.map((zone)=>(
+        <article class="current-zone-card">
+          <div class="kicker">{zone.name}</div>
+          <h3>{zone.summary}</h3>
+          <p><strong>航海：</strong>{zone.navigation}</p>
+          <p><strong>文化・産業：</strong>{zone.culture}</p>
+          <div class="source-list compact-source-list">
+            <a class="source-link" href={zone.sourceUrl} target="_blank" rel="noreferrer"><span>一次資料</span><span>↗</span></a>
+            {zone.fisheriesUrl && <a class="source-link" href={zone.fisheriesUrl} target="_blank" rel="noreferrer"><span>漁法資料</span><span>↗</span></a>}
+            {zone.lawUrl && <a class="source-link" href={zone.lawUrl} target="_blank" rel="noreferrer"><span>航法規則</span><span>↗</span></a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">KITAMAE CALENDAR</div>
+    <h2>北前船の一年</h2>
+    <div class="kitamae-calendar">
+      {kitamaeSeason.map((item,i)=>(
+        <article>
+          <span class="calendar-step">{i+1}</span>
+          <div><strong>{item.month}</strong><h3>{item.phase}</h3><p>{item.detail}</p></div>
+        </article>
+      ))}
+    </div>
+    <div class="synthesis">
+      この航海暦を「季節風だけで決まった」と単純化するのは適切ではありません。風向、潮流、波浪、台風、寄港地での商取引、船体性能を組み合わせて航海時期が決まりました。一方、春出帆・夏の北海道発・秋までの瀬戸内帰着という強い季節性は確認できます。
+    </div>
+    <a class="text-link" href="https://www.kitamae-bune.com/about/main/" target="_blank" rel="noreferrer">北前船の一年（北前船公式） ↗</a>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CULTURAL EFFECT</div>
+    <h2>「風を待つ」ことが文化になった</h2>
+    <div class="culture-wind-grid">
+      {cultureFromWind.map((item)=>(
+        <article class="culture-wind-card">
+          <span class={`claim-badge ${item.claimType}`}>{item.claimType.toUpperCase()}</span>
+          <h3>{item.title}</h3>
+          <p>{item.mechanism}</p>
+          <p class="map-note">{item.places.join(' / ')}</p>
+          <div class="source-list compact-source-list">
+            {item.sources.map((source)=><a class="source-link" href={source} target="_blank" rel="noreferrer"><span>根拠資料</span><span>↗</span></a>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CAUSAL CHAIN</div>
+    <h2>潮と風から港町文化へ</h2>
+    <div class="causal-chain wind-causal-chain">
+      <span>季節風・局地風</span><b>＋</b><span>潮汐・潮流</span><b>→</b>
+      <span>航海可能時間の制約</span><b>→</b><span>潮待ち・風待ち</span><b>→</b>
+      <span>船員・商人の滞留</span><b>→</b><span>宿・茶屋・商業</span><b>→</b>
+      <span>信仰・祭礼・民謡・食文化の交流</span>
+    </div>
+  </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el = document.getElementById('wind-tide-map');
+      if (!el || !window.L) return;
+      const winds = JSON.parse(el.dataset.winds || '[]');
+      const currents = JSON.parse(el.dataset.currents || '[]');
+      const seasons = JSON.parse(el.dataset.seasons || '[]');
+      const map = L.map(el,{scrollWheelZoom:false}).setView([34.30,133.45],8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      const windLayer = L.layerGroup().addTo(map);
+      const currentLayer = L.layerGroup().addTo(map);
+
+      const dirAngle = {
+        '北':0,'北北東':22.5,'北東':45,'東北東':67.5,'東':90,'東南東':112.5,'南東':135,'南南東':157.5,
+        '南':180,'南南西':202.5,'南西':225,'西南西':247.5,'西':270,'西北西':292.5,'北西':315,'北北西':337.5
+      };
+
+      const renderWind = (seasonId) => {
+        windLayer.clearLayers();
+        const season = seasons.find((s)=>s.id===seasonId) || seasons[1];
+        const months = season.months || [];
+        winds.forEach((station)=>{
+          const rows = station.monthly.filter((row)=>months.includes(row[0]));
+          const label = rows.map((r)=>r[0]+'月 '+r[2]).join(' / ');
+          const dominant = rows[0]?.[2] || '';
+          const angle = dirAngle[dominant] ?? 0;
+          const icon = L.divIcon({
+            className:'wind-arrow-icon',
+            html:'<div class="wind-arrow" style="transform:rotate('+angle+'deg)">↑</div>',
+            iconSize:[34,34],iconAnchor:[17,17]
+          });
+          L.marker([station.lat,station.lon],{icon}).addTo(windLayer).bindPopup(
+            '<strong>'+station.name+'</strong><br>'+season.label+'：'+label+
+            '<br><small>'+station.context+'</small>'+
+            '<br><a href="'+station.sourceUrl+'" target="_blank" rel="noreferrer">気象庁 ↗</a>'
+          );
+        });
+      };
+
+      currents.forEach((zone)=>{
+        const marker=L.circleMarker([zone.lat,zone.lon],{
+          radius:12,weight:2.5,fillOpacity:.24,color:'#345d78',fillColor:'#6fa5bd'
+        }).addTo(currentLayer);
+        marker.bindPopup('<strong>'+zone.name+'</strong><br>'+zone.summary+'<br>'+zone.navigation);
+      });
+
+      const note=document.getElementById('wind-season-note');
+      const applySeason=(id)=>{
+        const season=seasons.find((s)=>s.id===id);
+        renderWind(id);
+        if(note && season) note.textContent=season.note;
+        document.querySelectorAll('.wind-season-button').forEach((b)=>b.classList.toggle('active',b.dataset.season===id));
+      };
+      document.querySelectorAll('.wind-season-button').forEach((button)=>{
+        button.addEventListener('click',()=>applySeason(button.dataset.season));
+      });
+      applySeason('spring');
+    })();
+  </script>
+</BaseLayout>
