@@ -16,6 +16,11 @@ export const mapLayers = {
       sourceUrl:'https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html',verifiedAt:'2026-09-27'
     },
     {
+      name:'牛窓',lat:34.615,lon:134.162,note:'外交・海運ネットワークの港',
+      status:'verified',sourceId:'USH-01',sourceLabel:'牛窓町史（瀬戸内市）',
+      sourceUrl:'https://www.city.setouchi.lg.jp/site/kankoubutsu/117401.html',verifiedAt:'2026-09-27'
+    },
+    {
       name:'鞆の浦',lat:34.3834,lon:133.3818,note:'潮待ち港',
       status:'verified',sourceId:'X-03',sourceLabel:'鞆の浦について（福山市）',
       sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html',verifiedAt:'2026-09-27'
@@ -66,6 +71,11 @@ export const mapLayers = {
     }
   ],
   maritimeIndustry: [
+    {
+      name:'三原',lat:34.4006,lon:133.0787,note:'港湾・工業・広域交通',
+      status:'verified',sourceId:'MIH-01',sourceLabel:'歴史と沿革（三原市）',
+      sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/30/rekisi.html',verifiedAt:'2026-09-27'
+    },
     {
       name:'尾道',lat:34.4089,lon:133.205,note:'海運・造船・修繕',
       status:'verified',sourceId:'X-05',sourceLabel:'海とともに歩む 海事都市尾道（尾道市）',
