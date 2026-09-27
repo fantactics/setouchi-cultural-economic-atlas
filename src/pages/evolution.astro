@@ -53,45 +53,6 @@ const compactPlaces = places.map((place)=>({
   ]
 }));
 
-const nodeSources=(place,node)=>{
-  const ids=[...new Set(node.sourceIndexes.flatMap((i)=>place.sectionSources[i] || []))];
-  return ids.map((id)=>place.sources.find((s)=>s.id===id)).filter(Boolean);
-};
-
-const renderGraph=(place,slot)=>{
-  return (
-    <article class="causal-place-card" data-causal-card={slot} data-place-id={place.id}>
-      <div class="causal-place-head">
-        <div><div class="kicker">{place.prefecture}</div><h2>{place.name}</h2></div>
-        <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>地域ページ →</a>
-      </div>
-      <p class="lead causal-subtitle">{place.subtitle}</p>
-      <div class="causal-graph">
-        {place.nodes.map((node,i)=>{
-          const refs=nodeSources(place,node);
-          return (
-            <>
-              <section class:list={['causal-node',`node-${node.key}`]}>
-                <div class="causal-node-top">
-                  <span class="causal-step">{i+1}</span>
-                  <span class={`claim-badge ${node.claim}`}>{node.claim.toUpperCase()}</span>
-                </div>
-                <h3>{node.title}</h3>
-                <p>{node.text}</p>
-                {refs.length>0 && (
-                  <div class="causal-source-row">
-                    {refs.slice(0,4).map((s)=><a href={s.url} target="_blank" rel="noreferrer">{s.id}</a>)}
-                  </div>
-                )}
-              </section>
-              {i<place.nodes.length-1 && <div class="causal-arrow" aria-hidden="true">↓</div>}
-            </>
-          );
-        })}
-      </div>
-    </article>
-  );
-};
 ---
 <BaseLayout title="地域因果グラフ | 瀬戸内文化経済アトラス" description="瀬戸内17地域の自然条件・交通・産業・資本・文化・現在を因果グラフで比較する。">
   <section class="place-hero">
@@ -116,12 +77,8 @@ const renderGraph=(place,slot)=>{
       </label>
     </div>
     <div class="causal-compare-grid">
-      <div id="causal-slot-a">
-        {renderGraph(compactPlaces[0],'a')}
-      </div>
-      <div id="causal-slot-b">
-        {renderGraph(compactPlaces[1] || compactPlaces[0],'b')}
-      </div>
+      <div id="causal-slot-a"></div>
+      <div id="causal-slot-b"></div>
     </div>
   </section>
 
@@ -182,15 +139,23 @@ const renderGraph=(place,slot)=>{
       bind('causal-select-a','causal-slot-a','a');
       bind('causal-select-b','causal-slot-b','b');
 
+      const selectA=document.getElementById('causal-select-a');
+      const selectB=document.getElementById('causal-select-b');
+      const slotA=document.getElementById('causal-slot-a');
+      const slotB=document.getElementById('causal-slot-b');
+
       const hashId=location.hash.startsWith('#place-') ? location.hash.slice(7) : '';
-      if(hashId && byId[hashId]){
-        const selectA=document.getElementById('causal-select-a');
-        const slotA=document.getElementById('causal-slot-a');
-        if(selectA) selectA.value=hashId;
-        if(slotA) slotA.innerHTML=graphHtml(byId[hashId],'a');
+      const initialA=(hashId && byId[hashId]) ? byId[hashId] : places[0];
+      const initialB=places.find((p)=>p.id!==initialA?.id) || places[0];
+      if(initialA && selectA && slotA){
+        selectA.value=initialA.id;
+        slotA.innerHTML=graphHtml(initialA,'a');
+      }
+      if(initialB && selectB && slotB){
+        selectB.value=initialB.id;
+        slotB.innerHTML=graphHtml(initialB,'b');
       }
 
-      const selectA=document.getElementById('causal-select-a');
       if(selectA){
         selectA.addEventListener('change',()=>{
           history.replaceState(null,'','#place-'+selectA.value);
