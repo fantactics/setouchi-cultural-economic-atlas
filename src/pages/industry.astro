@@ -16,12 +16,15 @@ const rows = places.map((place)=>({
   sectionSources:place.sectionSources || {}
 }));
 
+const mappedPlaceCount = new Set(industrySpatialNodes.map((n)=>n.placeId)).size;
+
 const sourceMap = (row, index) => {
   const ids = row.sectionSources[index] || [];
   return ids.map((id)=>row.sources.find((s)=>s.id===id)).filter(Boolean);
 };
 ---
 <BaseLayout title="産業・資本比較 | 瀬戸内文化経済アトラス" description="瀬戸内17地域の地域産業・代表企業・資本形成・産業生態系を比較する。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <section class="place-hero">
     <div class="kicker">INDUSTRY & CAPITAL</div>
     <h1>現在の産業は、どこから来たのか</h1>
@@ -30,7 +33,7 @@ const sourceMap = (row, index) => {
 
   <section class="section">
     <div class="kicker">SPATIAL LINEAGE MAP</div>
-    <h2>産業遺伝子を、空間で追う</h2>
+    <h2>{mappedPlaceCount}地域の産業遺伝子を、空間で追う</h2>
     <p class="lead">旧塩田・商家地区・歴史港と、現在の本社・工場・産業集積を重ねます。線は企業の直系系譜とは限らず、土地・物流・技能・資本など「何が継承されたか」を分けて表示します。</p>
 
     <div class="industry-map-controls">
