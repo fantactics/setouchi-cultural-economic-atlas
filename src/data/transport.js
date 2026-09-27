@@ -1,0 +1,157 @@
+export const historicalPorts = [
+  {
+    id:'shimotsui',name:'下津井',lat:34.435,lon:133.806,
+    role:'北前船寄港地・金毘羅参詣の渡海港',
+    era:'近世',category:'kitamaebune',
+    sourceUrl:'https://www2.city.kurashiki.okayama.jp/kurashikitrip/',
+    sourceLabel:'くらしき日本遺産トリップ（倉敷市）'
+  },
+  {
+    id:'tadotsu',name:'多度津',lat:34.272,lon:133.753,
+    role:'北前船寄港地・金毘羅参詣の港',
+    era:'近世',category:'kitamaebune',
+    sourceUrl:'https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html',
+    sourceLabel:'日本遺産 北前船寄港地（多度津町）'
+  },
+  {
+    id:'mitarai',name:'御手洗',lat:34.177,lon:132.867,
+    role:'北前船・西廻り航路の潮待ち・風待ち港',
+    era:'近世',category:'kitamaebune',
+    sourceUrl:'https://www.city.kure.lg.jp/site/kitamae1/',
+    sourceLabel:'日本遺産 北前船・御手洗（呉市）'
+  },
+  {
+    id:'onomichi',name:'尾道',lat:34.4089,lon:133.205,
+    role:'北前船・内海航行船の寄港地、商業港',
+    era:'中世〜近世',category:'kitamaebune',
+    sourceUrl:'https://www.city.onomichi.hiroshima.jp/soshiki/2/2977.html',
+    sourceLabel:'尾道市の概要（尾道市）'
+  },
+  {
+    id:'tomonoura',name:'鞆の浦',lat:34.3834,lon:133.3818,
+    role:'潮待ち港・近世交易港',
+    era:'古代〜近世',category:'tidewait',
+    sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html',
+    sourceLabel:'鞆の浦について（福山市）'
+  },
+  {
+    id:'ushimado',name:'牛窓',lat:34.615,lon:134.162,
+    role:'古代以来の海上交通・外交寄港地',
+    era:'古代〜近世',category:'diplomatic',
+    sourceUrl:'https://www.city.setouchi.lg.jp/soshiki/23/3059.html',
+    sourceLabel:'朝鮮通信使遺跡 牛窓本蓮寺境内（瀬戸内市）'
+  },
+  {
+    id:'takehara',name:'竹原',lat:34.341,lon:132.907,
+    role:'製塩・廻船・問屋を結ぶ港湾商業',
+    era:'近世',category:'coastaltrade',
+    sourceUrl:'https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html',
+    sourceLabel:'竹原地区伝統的建造物群保存地区（竹原市）'
+  }
+];
+
+export const ferryRoutes = [
+  {
+    id:'onomichi-setoda',name:'尾道駅前〜瀬戸田',mode:'旅客船',status:'current',
+    stops:['尾道駅前','新浜','重井東','須ノ上','沢','瀬戸田'],
+    coords:[[34.404,133.193],[34.407,133.183],[34.333,133.179],[34.326,133.112],[34.308,133.089],[34.304,133.087]],
+    bicycle:'持込可否は便・事業者条件を確認',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/30/onomichi-setoda.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'mihara-setoda',name:'三原〜瀬戸田',mode:'旅客船',status:'current',
+    stops:['三原','鷺/佐木島','沢','瀬戸田'],
+    coords:[[34.397,133.078],[34.337,133.087],[34.308,133.089],[34.304,133.087]],
+    bicycle:'自転車運賃設定あり',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/30/116401.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'sunami-sawa',name:'須波〜向田〜沢',mode:'フェリー',status:'current',
+    stops:['須波','向田','沢'],
+    coords:[[34.350,133.088],[34.323,133.080],[34.308,133.089]],
+    bicycle:'フェリー',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/30/line.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'takehara-osakikamijima',name:'竹原〜垂水・白水',mode:'フェリー',status:'current',
+    stops:['竹原','垂水','白水'],
+    coords:[[34.329,132.917],[34.252,132.905],[34.238,132.923]],
+    bicycle:'自転車航送あり',
+    sourceUrl:'https://kisland.town.osakikamijima.hiroshima.jp/access/',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'imabari-okamura',name:'今治〜大下〜小大下〜岡村',mode:'フェリー',status:'current',
+    stops:['今治','大下','小大下','岡村'],
+    coords:[[34.066,132.998],[34.188,132.923],[34.185,132.877],[34.184,132.837]],
+    bicycle:'自転車持込可',
+    sourceUrl:'https://www.city.imabari.ehime.jp/kouwan/imabari/imabari.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'imabari-kinoe',name:'今治〜宗方〜木江',mode:'フェリー',status:'current',
+    stops:['今治','宗方','木江'],
+    coords:[[34.066,132.998],[34.203,133.012],[34.242,132.916]],
+    bicycle:'自転車持込可',
+    sourceUrl:'https://www.city.imabari.ehime.jp/kanko/access/imabari.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'imabari-habu',name:'今治〜島しょ部〜土生（因島）',mode:'高速船',status:'current',
+    stops:['今治','友浦','木浦','岩城','佐島','弓削','生名','土生'],
+    coords:[[34.066,132.998],[34.173,133.092],[34.213,133.087],[34.250,133.151],[34.257,133.190],[34.258,133.205],[34.284,133.181],[34.289,133.173]],
+    bicycle:'自転車持込可（追加料金）',
+    sourceUrl:'https://www.city.imabari.ehime.jp/kanko/access/imabari.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'takehara-ocho-suspended',name:'竹原〜御手洗〜大長',mode:'高速船',status:'suspended',
+    stops:['竹原','大崎上島各港','御手洗','大長'],
+    coords:[[34.329,132.917],[34.242,132.916],[34.177,132.867],[34.172,132.850]],
+    bicycle:'運航休止',
+    sourceUrl:'https://www.city.kure.lg.jp/soshiki/28/koutu.html',
+    verifiedAt:'2026-09-27',
+    note:'2025年3月31日をもって運航休止。歴史・交通変化を読むため表示。'
+  }
+];
+
+export const cyclingRoutes = [
+  {
+    id:'shimanami',name:'しまなみ海道サイクリングロード',status:'current',distanceKm:70,
+    places:['尾道','向島','因島','生口島','大三島','伯方島','大島','今治'],
+    coords:[[34.404,133.193],[34.392,133.200],[34.318,133.170],[34.304,133.087],[34.226,133.055],[34.206,133.114],[34.151,133.028],[34.066,132.998]],
+    sourceUrl:'https://shimanami-cycle.or.jp/cycling/',
+    description:'尾道〜今治を島と橋で結ぶ約70kmのナショナルサイクルルート。'
+  },
+  {
+    id:'tobishima',name:'安芸灘とびしま海道サイクリングロード',status:'current',distanceKm:31,
+    places:['川尻','下蒲刈島','上蒲刈島','豊島','大崎下島・御手洗','平羅島','中ノ島','岡村島'],
+    coords:[[34.230,132.690],[34.195,132.680],[34.190,132.730],[34.190,132.810],[34.177,132.867],[34.179,132.894],[34.181,132.915],[34.184,132.837]],
+    sourceUrl:'https://www.pref.hiroshima.lg.jp/soshiki/98/tobishima-cycling.html',
+    description:'呉市川尻町〜今治市関前岡村を結ぶ約31kmの推奨ルート。'
+  },
+  {
+    id:'sazanami',name:'さざなみ海道サイクリングロード',status:'current',distanceKm:82,
+    places:['呉','川尻','安芸津','竹原','忠海','三原','尾道'],
+    coords:[[34.248,132.565],[34.230,132.690],[34.319,132.817],[34.341,132.907],[34.337,133.000],[34.4006,133.0787],[34.4089,133.205]],
+    sourceUrl:'https://www.pref.hiroshima.lg.jp/soshiki/98/sazanami-cycling.html',
+    description:'JR呉駅〜JR尾道駅を瀬戸内沿岸で結ぶ約82kmのシーサイドルート。'
+  },
+  {
+    id:'yumesima',name:'ゆめしま海道周遊ルート',status:'current',distanceKm:50,
+    places:['弓削島','佐島','生名島','岩城島'],
+    coords:[[34.258,133.205],[34.257,133.190],[34.284,133.181],[34.250,133.151]],
+    sourceUrl:'https://shimanami-cycle.or.jp/rental/course',
+    description:'弓削島・佐島・生名島・岩城島を結ぶ約50kmの離島周遊ルート。'
+  }
+];
+
+export const transportLegend = {
+  historical:'歴史港・寄港地',
+  ferry:'現行フェリー・旅客船',
+  suspended:'休止航路',
+  cycling:'サイクリングルート'
+};
