@@ -1,5 +1,54 @@
 export const historicalPorts = [
   {
+    id:'matsuyama',name:'松山・三津浜',lat:33.861,lon:132.714,
+    role:'松山城下の海の玄関口・物流港。港町三津浜が汽船・問屋・商業を支えた。',
+    era:'近世〜近代',category:'coastaltrade',
+    sourceUrl:'https://www.city.matsuyama.ehime.jp/shisei/keikaku/mitsukasseika/',
+    sourceLabel:'三津浜地区活性化（松山市）'
+  },
+  {
+    id:'shimonoseki',name:'下関・赤間関',lat:33.9578,lon:130.9415,
+    role:'関門海峡の通航点に成立した大港。北前船など全国航路が交わり、近代には国際港へ転換。',
+    era:'近世〜近代',category:'kitamaebune',
+    sourceUrl:'https://www.city.shimonoseki.lg.jp/site/kisya/128320.html',
+    sourceLabel:'西国一の大港を支えた商人たち（下関市）'
+  },
+  {
+    id:'yanai',name:'柳井津',lat:33.963,lon:132.102,
+    role:'瀬戸内海交易の要衝として広域商圏を形成した商業港。',
+    era:'中世〜近世',category:'coastaltrade',
+    sourceUrl:'https://www.city-yanai.jp/site/bunkazai/denkenchiku.html',
+    sourceLabel:'古市・金屋伝建地区（柳井市）'
+  },
+  {
+    id:'hofu',name:'三田尻',lat:34.0438,lon:131.5686,
+    role:'塩の積出港として北前船物流に接続し、三田尻塩を全国市場へ運んだ。',
+    era:'近世〜近代',category:'kitamaebune',
+    sourceUrl:'https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html',
+    sourceLabel:'三田尻塩田の歴史（防府市）'
+  },
+  {
+    id:'hiketa',name:'引田',lat:34.2248,lon:134.4047,
+    role:'東讃の風待ち・潮待ち港。港を囲む城山に引田城が築かれた。',
+    era:'中世〜近世',category:'tidewait',
+    sourceUrl:'https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html',
+    sourceLabel:'国史跡 引田城跡（東かがわ市）'
+  },
+  {
+    id:'sakaide',name:'坂出',lat:34.3163,lon:133.8606,
+    role:'塩の積出港から近代商港・臨海工業港へ機能転換した。',
+    era:'近世〜現代',category:'coastaltrade',
+    sourceUrl:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html',
+    sourceLabel:'坂出港の概要（坂出市）'
+  },
+  {
+    id:'takamatsu',name:'高松',lat:34.3428,lon:134.0466,
+    role:'中世港町「野原」を基盤に海城・城下町の港へ再編され、近代以降は四国の玄関口となった。',
+    era:'中世〜現代',category:'coastaltrade',
+    sourceUrl:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/nishinomaru.html',
+    sourceLabel:'西ノ丸・中世港町野原（高松市）'
+  },
+  {
     id:'kaminoseki',name:'上関',lat:33.833,lon:132.110,
     role:'瀬戸内海上交通の要地。北前船海運の発達に対応して越荷会所が置かれ、朝鮮通信使の寄港地でもあった。',
     era:'近世',category:'coastaltrade',
@@ -58,6 +107,30 @@ export const historicalPorts = [
 ];
 
 export const ferryRoutes = [
+  {
+    id:'yanai-mitsuhama',name:'柳井〜松山・三津浜',mode:'フェリー',status:'current',
+    stops:['柳井','伊保田','松山・三津浜'],
+    coords:[[33.956,132.118],[33.947,132.250],[33.861,132.714]],
+    bicycle:'自転車利用は事業者条件を確認。せとうちサイクルーズPASS案内あり。',
+    sourceUrl:'https://www.city-yanai.jp/soshiki/3/access-yanaicity.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'kanmon-kisen',name:'下関・唐戸〜門司港',mode:'旅客船',status:'current',
+    stops:['下関・唐戸','門司港'],
+    coords:[[33.956,130.943],[33.945,130.962]],
+    bicycle:'自転車持込条件は運航事業者に確認。',
+    sourceUrl:'https://www.kanmon-kisen.co.jp/route/kanmon.html',
+    verifiedAt:'2026-09-27'
+  },
+  {
+    id:'takamatsu-megi-ogi',name:'高松〜女木島〜男木島',mode:'フェリー',status:'current',
+    stops:['高松','女木島','男木島'],
+    coords:[[34.350,134.047],[34.393,134.052],[34.418,134.055]],
+    bicycle:'自転車航送設定あり。',
+    sourceUrl:'https://www.city.takamatsu.kagawa.jp/kurashi/shinotorikumi/machidukuri/sogotoshikoutu/kakuho_iji/rito/r5ritoukouro.html',
+    verifiedAt:'2026-09-27'
+  },
   {
     id:'onomichi-setoda',name:'尾道駅前〜瀬戸田',mode:'旅客船',status:'current',
     stops:['尾道駅前','新浜','重井東','須ノ上','沢','瀬戸田'],
@@ -165,6 +238,11 @@ export const transportLegend = {
 
 
 export const modernizationNodes = [
+  {
+    id:'matsuyama-rail',name:'松山〜三津浜',lat:33.8392,lon:132.7657,year:1888,
+    role:'松山と三津浜を結ぶ伊予鉄道が開通し、城下町と港を近代交通で結んだ。',
+    sourceUrl:'https://www.city.matsuyama.ehime.jp/kanko/kankoguide/rekishibunka/rekishi/meijijidai.html'
+  },
   {
     id:'tadotsu-rail',name:'多度津',lat:34.272,lon:133.753,year:1889,
     role:'四国最初の鉄道が開通し、港＋鉄道の結節点へ転換。',
