@@ -168,7 +168,7 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
 
   <section class="section">
     <div class="kicker">BY PLACE</div>
-    <h2>10地域との接続</h2>
+    <h2>{places.length}地域との接続</h2>
     <div class="grid">
       {places.map((place)=>{
         const t = placeTransport[place.id];
