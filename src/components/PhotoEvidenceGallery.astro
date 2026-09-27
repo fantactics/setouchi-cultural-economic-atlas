@@ -1,0 +1,35 @@
+---
+import { photoThemeLabels } from '../data/photoEvidence.js';
+const { items = [], title = '写真証拠' } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="section photo-evidence-section">
+    <div class="kicker">PHOTO EVIDENCE</div>
+    <h2>{title}</h2>
+    <p class="lead">写真を装飾ではなく、地形・港・町並み・産業形成を検証する視覚資料として読みます。</p>
+    <div class="photo-evidence-grid">
+      {items.map((item)=>(
+        <figure class="photo-evidence-card" id={item.id}>
+          <a class="photo-image-link" href={item.sourcePage} target="_blank" rel="noreferrer">
+            <img src={item.imageUrl} alt={item.alt} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>
+            <div class="photo-evidence-meta">
+              <span class={`claim-badge ${item.claimType}`}>{item.claimType.toUpperCase()}</span>
+              <span class="photo-theme">{photoThemeLabels[item.theme] || item.theme}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p class="photo-caption">{item.caption}</p>
+            <div class="photo-insight"><strong>この写真から読む：</strong>{item.insight}</div>
+            <div class="photo-credit">
+              Photo: {item.author} / {item.sourceType} /
+              <a href={item.licenseUrl} target="_blank" rel="noreferrer">{item.license}</a>
+              {' · '}
+              <a href={item.sourcePage} target="_blank" rel="noreferrer">原典 ↗</a>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}
