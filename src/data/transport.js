@@ -155,3 +155,60 @@ export const transportLegend = {
   suspended:'休止航路',
   cycling:'サイクリングルート'
 };
+
+
+export const modernizationNodes = [
+  {
+    id:'tadotsu-rail',name:'多度津',lat:34.272,lon:133.753,year:1889,
+    role:'四国最初の鉄道が開通し、港＋鉄道の結節点へ転換。',
+    sourceUrl:'https://www.town.tadotsu.kagawa.jp/choseijoho/tadotsuchonitsuite/1793.html'
+  },
+  {
+    id:'onomichi-rail',name:'尾道',lat:34.404,lon:133.193,year:1891,
+    role:'山陽鉄道福山〜尾道間開通。海路に鉄道が加わり海陸結節点へ。',
+    sourceUrl:'https://www.city.onomichi.hiroshima.jp/uploaded/life/59723_154106_misc.pdf'
+  },
+  {
+    id:'mihara-rail',name:'三原',lat:34.4006,lon:133.0787,year:1894,
+    role:'山陽鉄道が三原城本丸跡を貫通し、近代陸上交通が都市構造を書き換えた。',
+    sourceUrl:'https://www.city.mihara.hiroshima.jp/soshiki/4/kosyashin.html'
+  }
+];
+
+export const bridgeRoutes = [
+  {
+    id:'seto-ohashi',name:'瀬戸大橋',year:1988,
+    coords:[[34.436,133.806],[34.390,133.805],[34.335,133.800],[34.312,133.810]],
+    role:'児島〜坂出を道路・鉄道で直結し、本州・四国間の移動を大きく陸路へ転換。',
+    sourceUrl:'https://www.mlit.go.jp/hakusyo/transport/shouwa63/ind000202/001.html'
+  },
+  {
+    id:'shimanami-bridges',name:'しまなみ海道',year:1999,
+    coords:[[34.404,133.193],[34.392,133.200],[34.318,133.170],[34.304,133.087],[34.226,133.055],[34.206,133.114],[34.151,133.028],[34.066,132.998]],
+    role:'尾道〜今治を島々と橋で結び、生活道路・広域交通・サイクリング基盤を兼ねる。',
+    sourceUrl:'https://www.jb-honshi.co.jp/shimanami/about/'
+  }
+];
+
+export const eraPresets = [
+  {
+    id:'early-modern',label:'近世',period:'17〜19世紀',
+    description:'風・潮を読む帆船交通。潮待ち・風待ちと寄港が港町経済を生む。',
+    layers:['historical']
+  },
+  {
+    id:'modern',label:'近代',period:'明治〜昭和前期',
+    description:'蒸気船と鉄道が海路に加わり、港町は海陸交通の結節点へ変化する。',
+    layers:['historical','modernization']
+  },
+  {
+    id:'contemporary',label:'現代',period:'1988年〜',
+    description:'本四架橋が海峡横断を陸路化。一方、島の生活交通として船は残る。',
+    layers:['modernization','bridges','ferry','suspended']
+  },
+  {
+    id:'tourism',label:'観光・回遊',period:'現在',
+    description:'橋・船・自転車を組み合わせる回遊型交通が新しい地域価値を生む。',
+    layers:['bridges','ferry','cycling']
+  }
+];
