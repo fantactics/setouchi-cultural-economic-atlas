@@ -6,9 +6,11 @@ const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,nam
 const placeTypes = {
   ako:'resource', onomichi:'network', imabari:'capital',
   shimotsui:'route', tadotsu:'transport', mitarai:'stay',
-  ushimado:'network', tomonoura:'stay', mihara:'multimodal', takehara:'resource-convert'
+  ushimado:'network', tomonoura:'stay', mihara:'multimodal', takehara:'resource-convert',
+  matsuyama:'multimodal', shimonoseki:'network', yanai:'network', hofu:'resource',
+  hiketa:'stay', sakaide:'resource', takamatsu:'multimodal'
 };
-const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : 'other';
+const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : prefecture.startsWith('山口') ? 'yamaguchi' : 'other';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 ---
 <BaseLayout>
@@ -23,7 +25,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
   <section class="section map-section">
     <div class="kicker">MAP NAVIGATION</div>
     <h2>地図から読む</h2>
-    <p class="lead">10地域を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
+    <p class="lead">{places.length}地域を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
     <div class="map-toolbar">
       {Object.entries(mapLayerLabels).map(([key,label]) => (
         <button type="button" class="map-layer-toggle active" data-layer={key}>{label}</button>
@@ -34,7 +36,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
   </section>
 
   <section class="section">
-    <h2>10の地域から読む</h2>
+    <h2>{places.length}の地域から読む</h2>
     <p class="lead">同じ瀬戸内でも、地域を形成した産業遺伝子は大きく異なります。</p>
     <div class="place-filter-bar" aria-label="地域絞り込み">
       <div class="filter-group">
@@ -45,6 +47,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
         <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="kagawa">香川</button>
         <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="hiroshima">広島</button>
         <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="ehime">愛媛</button>
+        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="yamaguchi">山口</button>
       </div>
       <div class="filter-group">
         <span class="filter-label">類型</span>
@@ -117,7 +120,7 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
   <section class="section compare-cta">
     <div class="kicker">COMPARE</div>
     <h2>10地域を横並びで読む</h2>
-    <p class="lead">赤穂・尾道・今治・下津井・多度津・御手洗・牛窓・鞆の浦・三原・竹原を、地理・気候・産業・資本形成・暮らしなど同じ軸で比較できます。</p>
+    <p class="lead">瀬戸内の{places.length}地域を、地理・気候・産業・資本形成・暮らしなど同じ軸で比較できます。</p>
     <a class="compare-button" href="/setouchi-cultural-economic-atlas/compare/">比較ページを開く →</a>
   </section>
 
