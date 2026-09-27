@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="eyebrow">Regional intelligence / Setouchi prototype</div>
+    <h1>町を、立体的に読む。</h1>
+    <p>地理・気候・歴史・港・食・産業・企業・暮らしを重ね、「なぜこの町はこの町になったのか」を可視化する文化経済アトラス。</p>
+  </section>
+
+  <section class="section">
+    <h2>3つの町から始める</h2>
+    <p class="lead">赤穂・尾道・今治。同じ瀬戸内でも、町を形成した産業遺伝子は大きく異なります。</p>
+    <div class="grid">
+      {places.map((place) => (
+        <a class="card" href={`${import.meta.env.BASE_URL}places/${place.id}/`}>
+          <div class="kicker">{place.prefecture}</div>
+          <h3>{place.name}</h3>
+          <p>{place.subtitle}</p>
+          <ul class="tags">{place.tags.map((tag) => <li>{tag}</li>)}</ul>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="genes">
+    <h2>産業遺伝子とは</h2>
+    <p class="lead">その地域の現在の産業構造を生み出した、地理・資源・技能・交易・制度・企業蓄積の連鎖。「主要産業」ではなく、産業がなぜそこに存在するのかを追います。</p>
+  </section>
+</BaseLayout>
