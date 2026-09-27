@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { places } from '../../../data/places.js';
+import { climateProfiles } from '../../../data/climate.js';
+
+export function getStaticPaths() {
+  return places
+    .filter((place) => climateProfiles[place.id])
+    .map((place) => ({
+      params: { id: place.id },
+      props: { place, climate: climateProfiles[place.id] }
+    }));
+}
+
+const { place, climate } = Astro.props;
+const metrics = [
+  {label:'年平均気温', value:`${climate.annualTemp.toFixed(1)} ℃`},
+  {label:'年間降水量', value:`${climate.annualRain.toLocaleString('ja-JP')} mm`},
+  {label:'年間日照時間', value: climate.annualSun == null ? 'データなし' : `${climate.annualSun.toLocaleString('ja-JP')} 時間`}
+];
+---
+<BaseLayout title={`${place.name}の気候 | 瀬戸内文化経済アトラス`} description={`${place.name}の気温・降水量・日照時間などの気候平年値。`}>
+  <section class="place-hero">
+    <div class="kicker">CLIMATE / WATER / NATURAL CONDITIONS</div>
+    <h1>{place.name}の気候</h1>
+    <p class="subtitle">気象庁の平年値を使い、地域の自然条件を定量的に確認します。</p>
+  </section>
+
+  <section class="section">
+    <div class="climate-station-card">
+      <div>
+        <div class="kicker">REPRESENTATIVE STATION</div>
+        <h2>{climate.station}</h2>
+        <p>{climate.stationContext}</p>
+      </div>
+      <div>
+        <span class="claim-badge fact">FACT</span>
+        <p class="climate-period">統計期間 {climate.period}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="climate-metrics">
+      {metrics.map((metric) => (
+        <article class="climate-metric">
+          <span>{metric.label}</span>
+          <strong>{metric.value}</strong>
+        </article>
+      ))}
+    </div>
+    <p class="map-note">観測点の値は地域全体を完全に代表するものではありません。沿岸・島嶼・内陸、標高、海風などによって実際の体感・局地気候は変わります。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">REGIONAL READING</div>
+    <h2>地域形成とのつながり</h2>
+    <div class="synthesis">{place.sections[2][1]}</div>
+  </section>
+
+  <section class="section sources-section">
+    <div class="kicker">PRIMARY SOURCE</div>
+    <h2>気象データ出典</h2>
+    <a class="source-link" href={climate.sourceUrl} target="_blank" rel="noreferrer">
+      <span><b>気象庁</b>　平年値（年・月ごとの値）<small>{climate.station} / {climate.period}</small></span>
+      <span>↗</span>
+    </a>
+  </section>
+
+  <section class="section">
+    <a class="compare-button" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>← {place.name}の地域ページへ戻る</a>
+  </section>
+</BaseLayout>
