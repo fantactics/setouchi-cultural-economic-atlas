@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
-import { historicalPorts, ferryRoutes, cyclingRoutes } from '../data/transport.js';
+import { historicalPorts, ferryRoutes, cyclingRoutes, modernizationNodes, bridgeRoutes, eraPresets } from '../data/transport.js';
 
 const placeById = Object.fromEntries(places.map((p)=>[p.id,p]));
 const currentFerries = ferryRoutes.filter((r)=>r.status==='current');
@@ -27,8 +27,23 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
   <section class="section">
     <div class="kicker">INTERACTIVE MAP</div>
     <h2>歴史港・航路・サイクリングを重ねる</h2>
+    <div class="transport-era-control">
+      <div class="transport-era-head">
+        <span class="filter-label">時代</span>
+        <strong id="transport-era-label">{eraPresets[2].label}</strong>
+        <small id="transport-era-period">{eraPresets[2].period}</small>
+      </div>
+      <input id="transport-era-range" type="range" min="0" max={eraPresets.length - 1} step="1" value="2" aria-label="交通の時代を切り替える" />
+      <div class="transport-era-labels">
+        {eraPresets.map((era)=><span>{era.label}</span>)}
+      </div>
+      <p id="transport-era-description" class="transport-era-description">{eraPresets[2].description}</p>
+    </div>
+
     <div class="transport-toolbar">
       <button class="transport-toggle active" type="button" data-layer="historical">歴史港・寄港地</button>
+      <button class="transport-toggle" type="button" data-layer="modernization">近代鉄道結節</button>
+      <button class="transport-toggle" type="button" data-layer="bridges">本四架橋</button>
       <button class="transport-toggle active" type="button" data-layer="ferry">現行フェリー・旅客船</button>
       <button class="transport-toggle active" type="button" data-layer="suspended">休止航路</button>
       <button class="transport-toggle active" type="button" data-layer="cycling">サイクリング</button>
@@ -36,8 +51,11 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
     <div id="transport-map"
       class="atlas-map transport-map"
       data-historical={JSON.stringify(historicalPorts)}
+      data-modernization={JSON.stringify(modernizationNodes)}
+      data-bridges={JSON.stringify(bridgeRoutes)}
       data-ferries={JSON.stringify(ferryRoutes)}
-      data-cycling={JSON.stringify(cyclingRoutes)}></div>
+      data-cycling={JSON.stringify(cyclingRoutes)}
+      data-eras={JSON.stringify(eraPresets)}></div>
     <p class="map-note">航路・サイクリングの線形は構造把握用の概略表示です。実際の航行・走行経路や運航状況は各公式情報を確認してください。</p>
   </section>
 
@@ -169,8 +187,11 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
       const el = document.getElementById('transport-map');
       if (!el || !window.L) return;
       const historical = JSON.parse(el.dataset.historical || '[]');
+      const modernization = JSON.parse(el.dataset.modernization || '[]');
+      const bridges = JSON.parse(el.dataset.bridges || '[]');
       const ferries = JSON.parse(el.dataset.ferries || '[]');
       const cycling = JSON.parse(el.dataset.cycling || '[]');
+      const eras = JSON.parse(el.dataset.eras || '[]');
       const map = L.map(el,{scrollWheelZoom:false}).setView([34.30,133.45],8);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         maxZoom:18,attribution:'&copy; OpenStreetMap contributors'
@@ -178,6 +199,8 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
 
       const layers = {
         historical:L.layerGroup().addTo(map),
+        modernization:L.layerGroup().addTo(map),
+        bridges:L.layerGroup().addTo(map),
         ferry:L.layerGroup().addTo(map),
         suspended:L.layerGroup().addTo(map),
         cycling:L.layerGroup().addTo(map)
@@ -189,6 +212,24 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
         }).addTo(layers.historical).bindPopup(
           '<strong>'+p.name+'</strong><br>'+p.role+
           '<br><a href="'+p.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
+        );
+      });
+
+      modernization.forEach((p)=>{
+        L.circleMarker([p.lat,p.lon],{
+          radius:8,weight:2,fillOpacity:.82,color:'#8a5b2d',fillColor:'#d8a65f'
+        }).addTo(layers.modernization).bindPopup(
+          '<strong>'+p.name+' '+p.year+'</strong><br>'+p.role+
+          '<br><a href="'+p.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
+        );
+      });
+
+      bridges.forEach((route)=>{
+        L.polyline(route.coords,{
+          weight:5,opacity:.78,color:'#6d5f95'
+        }).addTo(layers.bridges).bindPopup(
+          '<strong>'+route.name+' '+route.year+'</strong><br>'+route.role+
+          '<br><a href="'+route.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
         );
       });
 
@@ -217,6 +258,31 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
         );
       });
 
+      const setLayerVisibility = (key, visible) => {
+        const layer = layers[key];
+        if (!layer) return;
+        if (visible && !map.hasLayer(layer)) map.addLayer(layer);
+        if (!visible && map.hasLayer(layer)) map.removeLayer(layer);
+        const button = document.querySelector('.transport-toggle[data-layer="' + key + '"]');
+        if (button) button.classList.toggle('active', visible);
+      };
+
+      const eraRange = document.getElementById('transport-era-range');
+      const eraLabel = document.getElementById('transport-era-label');
+      const eraPeriod = document.getElementById('transport-era-period');
+      const eraDescription = document.getElementById('transport-era-description');
+      const applyEra = (index) => {
+        const era = eras[index];
+        if (!era) return;
+        Object.keys(layers).forEach((key)=>setLayerVisibility(key, era.layers.includes(key)));
+        if (eraLabel) eraLabel.textContent = era.label;
+        if (eraPeriod) eraPeriod.textContent = era.period;
+        if (eraDescription) eraDescription.textContent = era.description;
+      };
+      if (eraRange) {
+        eraRange.addEventListener('input',()=>applyEra(Number(eraRange.value)));
+      }
+
       document.querySelectorAll('.transport-toggle').forEach((button)=>{
         button.addEventListener('click',()=>{
           const key=button.dataset.layer;
@@ -231,6 +297,7 @@ const placeTransport = Object.fromEntries(places.map((place)=>[
           }
         });
       });
+      applyEra(2);
     })();
   </script>
 </BaseLayout>
