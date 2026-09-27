@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { places } from '../../data/places.js';
+
+export function getStaticPaths() {
+  return places.map((place) => ({
+    params: { id: place.id },
+    props: { place }
+  }));
+}
+const { place } = Astro.props;
+---
+<BaseLayout title={`${place.name} | 瀬戸内文化経済アトラス`} description={place.subtitle}>
+  <section class="place-hero">
+    <div class="kicker">{place.prefecture}</div>
+    <h1>{place.name}</h1>
+    <p class="subtitle">{place.subtitle}</p>
+    <ul class="tags">{place.tags.map((tag) => <li>{tag}</li>)}</ul>
+  </section>
+
+  <section class="section">
+    <div class="two-col">
+      <div class="panel"><h2>地理・地形</h2><p>{place.geography}</p></div>
+      <div class="panel"><h2>気候・水・自然条件</h2><p>{place.climate}</p></div>
+      <div class="panel"><h2>地域産業</h2><ul>{place.industries.map((x) => <li>{x}</li>)}</ul></div>
+      <div class="panel"><h2>代表企業・企業群</h2><ul>{place.companies.map((x) => <li>{x}</li>)}</ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>産業遺伝子</h2>
+    <p class="lead">現在の産業を、その成立経路まで遡って表示します。</p>
+    <div class="grid">
+      {place.genes.map((gene) => (
+        <article class="card">
+          <div class="kicker">{gene.type}</div>
+          <h3>{gene.name}</h3>
+          <div class="chain">
+            {gene.chain.map((step, i) => (
+              <>
+                <span>{step}</span>
+                {i < gene.chain.length - 1 && <b class="arrow">→</b>}
+              </>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>なぜこの町はこの町になったのか</h2>
+    <div class="synthesis">{place.synthesis}</div>
+  </section>
+</BaseLayout>
