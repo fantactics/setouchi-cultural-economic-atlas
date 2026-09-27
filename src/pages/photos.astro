@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
-import { photoEvidence, photoThemeLabels } from '../data/photoEvidence.js';
+import { photoEvidence, photoThemeLabels, photoEvidenceSlots, photoCoverageForPlace } from '../data/photoEvidence.js';
 
 const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
 const photoPlaces=[...new Set(photoEvidence.map((p)=>p.placeId))].map((id)=>placeById[id]).filter(Boolean);
+const coverageRows=places.map((place)=>({place,coverage:photoCoverageForPlace(place.id)}))
+  .sort((a,b)=>b.coverage.score-a.coverage.score || a.place.name.localeCompare(b.place.name,'ja'));
 const nodeLabels={
   nature:'自然条件',
   formation:'歴史・都市形成',
@@ -67,6 +69,30 @@ const nodeLabels={
           </article>
         );
       })}
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="kicker">EVIDENCE GAPS</div>
+    <h2>次に必要な写真を可視化する</h2>
+    <p class="lead">17地域それぞれについて、地形・歴史形成・交通・現代産業の4枠を基準に不足証拠を表示します。</p>
+    <div class="photo-gap-grid">
+      {coverageRows.map(({place,coverage})=>(
+        <article class:list={['photo-gap-card',coverage.score===100 && 'complete']}>
+          <div class="photo-gap-head">
+            <div><div class="kicker">{place.prefecture}</div><h3>{place.name}</h3></div>
+            <strong>{coverage.score}%</strong>
+          </div>
+          <div class="photo-slot-row">
+            {photoEvidenceSlots.map((slot)=>(
+              <span class:list={['photo-slot-chip',coverage.covered[slot.id] ? 'covered' : 'missing']}>{slot.label}</span>
+            ))}
+          </div>
+          <p>{coverage.missing.length ? '不足：'+coverage.missing.map((slot)=>slot.label).join('・') : '4種類の視覚証拠が揃っています。'}</p>
+          <a class="text-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>地域ページ →</a>
+        </article>
+      ))}
     </div>
   </section>
 
