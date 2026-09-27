@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { windStations, currentZones, kitamaeSeason, cultureFromWind, windVocabulary, maritimeBeliefs, maritimeCulturalFlows } from '../data/windTide.js';
+import { windStations, currentZones, kitamaeSeason, cultureFromWind, windVocabulary, maritimeBeliefs, maritimeCulturalFlows, maritimeFaithSites, maritimeFaithCategories } from '../data/windTide.js';
 
 const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 const seasonPresets = [
@@ -22,6 +22,13 @@ const seasonPresets = [
   <section class="section">
     <div class="kicker">SEASONAL WIND MAP</div>
     <h2>季節で変わる風向を見る</h2>
+    <div class="faith-filter-bar">
+      <span class="filter-label">信仰</span>
+      {Object.entries(maritimeFaithCategories).map(([key,item])=>(
+        <button type="button" class="faith-filter active" data-faith={key}>{item.label}</button>
+      ))}
+    </div>
+
     <div class="wind-season-control">
       {seasonPresets.map((season,i)=>(
         <button type="button" class:list={['wind-season-button', i===1 && 'active']} data-season={season.id}>{season.label}</button>
@@ -33,6 +40,7 @@ const seasonPresets = [
       data-winds={JSON.stringify(windStations)}
       data-currents={JSON.stringify(currentZones)}
       data-beliefs={JSON.stringify(maritimeBeliefs.filter((item)=>item.coordinates))}
+      data-faith={JSON.stringify(maritimeFaithSites)}
       data-seasons={JSON.stringify(seasonPresets)}></div>
     <p class="map-note">最多風向は気象庁の地上観測点の平年値です。沖合の航海風・歴史時代の風を直接再現するものではありません。局地地形・海陸風の影響も含みます。</p>
   </section>
@@ -111,6 +119,23 @@ const seasonPresets = [
   </section>
 
   <section class="section">
+    <div class="kicker">MARITIME FAITH MAP</div>
+    <h2>海の神は、どこに祀られたか</h2>
+    <div class="faith-pattern-grid">
+      {Object.entries(maritimeFaithCategories).map(([key,item])=>(
+        <article class="faith-pattern-card">
+          <div class="kicker">{item.label}</div>
+          <h3>{item.theme}</h3>
+          <p>{maritimeFaithSites.filter((site)=>site.category===key).map((site)=>site.name).join(' / ') || '追加調査中'}</p>
+        </article>
+      ))}
+    </div>
+    <div class="synthesis">
+      現時点の分布を見ると、住吉は港湾・運送拠点、えびすは漁業と市場・商業、弁天は港口の小島、厳島は島と海そのもの、金毘羅は港から離れた山上の参詣終点、観音は岬・断崖という異なる立地パターンが見える。これは信仰内容だけでなく、航海上の「どこで守護を必要としたか」を反映している可能性がある。
+    </div>
+  </section>
+
+  <section class="section">
     <div class="kicker">MARITIME BELIEF</div>
     <h2>風と潮の不確実性が、信仰を強くした</h2>
     <div class="belief-grid">
@@ -181,6 +206,7 @@ const seasonPresets = [
       const winds = JSON.parse(el.dataset.winds || '[]');
       const currents = JSON.parse(el.dataset.currents || '[]');
       const beliefs = JSON.parse(el.dataset.beliefs || '[]');
+      const faith = JSON.parse(el.dataset.faith || '[]');
       const seasons = JSON.parse(el.dataset.seasons || '[]');
       const map = L.map(el,{scrollWheelZoom:false}).setView([34.30,133.45],8);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -190,6 +216,7 @@ const seasonPresets = [
       const windLayer = L.layerGroup().addTo(map);
       const currentLayer = L.layerGroup().addTo(map);
       const beliefLayer = L.layerGroup().addTo(map);
+      const faithLayers = {};
 
       const dirAngle = {
         '北':0,'北北東':22.5,'北東':45,'東北東':67.5,'東':90,'東南東':112.5,'南東':135,'南南東':157.5,
@@ -217,6 +244,29 @@ const seasonPresets = [
           );
         });
       };
+
+      const faithColors = {
+        ebisu:'#a56b2b',
+        sumiyoshi:'#315f84',
+        itsukushima:'#8d3d57',
+        benten:'#7b4e9e',
+        konpira:'#6b7b34',
+        kannon:'#8c6a4d'
+      };
+      faith.forEach((item)=>{
+        if(!faithLayers[item.category]){
+          faithLayers[item.category]=L.layerGroup().addTo(map);
+        }
+        const color=faithColors[item.category] || '#666';
+        L.circleMarker([item.lat,item.lon],{
+          radius:8,weight:2.2,fillOpacity:.82,color,fillColor:color
+        }).addTo(faithLayers[item.category]).bindPopup(
+          '<strong>'+item.name+'</strong><br>'+item.label+' / '+item.spatialType+
+          '<br>'+item.role+
+          '<br><small>'+item.interpretation+'</small>'+
+          '<br><a href="'+item.sourceUrl+'" target="_blank" rel="noreferrer">根拠資料 ↗</a>'
+        );
+      });
 
       beliefs.forEach((item)=>{
         const icon=L.divIcon({
@@ -247,6 +297,22 @@ const seasonPresets = [
       document.querySelectorAll('.wind-season-button').forEach((button)=>{
         button.addEventListener('click',()=>applySeason(button.dataset.season));
       });
+
+      document.querySelectorAll('.faith-filter').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const key=button.dataset.faith;
+          const layer=faithLayers[key];
+          if(!layer) return;
+          if(map.hasLayer(layer)){
+            map.removeLayer(layer);
+            button.classList.remove('active');
+          }else{
+            map.addLayer(layer);
+            button.classList.add('active');
+          }
+        });
+      });
+
       applySeason('spring');
     })();
   </script>
