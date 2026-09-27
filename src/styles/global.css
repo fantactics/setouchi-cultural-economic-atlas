@@ -194,3 +194,5 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .climate-bar { fill:var(--sea); opacity:.72; }
 .climate-month-axis { display:grid; grid-template-columns:repeat(12,1fr); gap:0; margin-top:.35rem; font-size:.68rem; color:var(--muted); text-align:center; }
 @media (max-width:800px){ .climate-month-axis{font-size:.58rem;} }
+
+.climate-cta { background:#eef4f5; }
