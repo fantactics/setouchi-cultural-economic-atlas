@@ -27,11 +27,11 @@ const tempMax = Math.max(...rows.map(r => r.annualTemp));
 const rainMax = Math.max(...rows.map(r => r.annualRain));
 const sunMax = Math.max(...rows.filter(r => r.annualSun != null).map(r => r.annualSun));
 ---
-<BaseLayout title="気候比較 | 瀬戸内文化経済アトラス" description="瀬戸内10地域の年平均気温・年間降水量・年間日照時間を比較する。">
+<BaseLayout title="気候比較 | 瀬戸内文化経済アトラス" description="気候データ整備済み地域の年平均気温・年間降水量・年間日照時間を比較する。">
   <section class="place-hero">
     <div class="kicker">CLIMATE COMPARISON</div>
-    <h1>10地域の気候を比べる</h1>
-    <p class="subtitle">同じ瀬戸内でも、沿岸・島嶼・内陸、観測点の標高や海風条件によって気候は異なります。代表観測点の平年値を横並びで比較します。</p>
+    <h1>{rows.length}地域の気候を比べる</h1>
+    <p class="subtitle">気候データ整備済みの{rows.length}地域を比較します。沿岸・島嶼・内陸、観測点の標高や海風条件によって気候は異なります。代表観測点の平年値を横並びで比較します。</p>
   </section>
 
   <section class="section">
