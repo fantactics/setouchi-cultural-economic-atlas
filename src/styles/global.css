@@ -276,3 +276,13 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .card-title-link { color:inherit; text-decoration:none; }
 @media (max-width:950px){ .transport-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.transport-era-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:700px){ .transport-card-grid,.route-list,.transport-era-grid{grid-template-columns:1fr;} }
+
+.transport-era-control { margin:0 0 1rem; padding:1rem; background:var(--card); border:1px solid var(--line); border-radius:16px; }
+.transport-era-head { display:flex; align-items:baseline; gap:.65rem; margin-bottom:.6rem; }
+.transport-era-head strong { font-size:1.05rem; }
+.transport-era-head small { color:var(--muted); }
+#transport-era-range { width:100%; }
+.transport-era-labels { display:grid; grid-template-columns:repeat(4,1fr); margin-top:.25rem; font-size:.7rem; color:var(--muted); }
+.transport-era-labels span:nth-child(2), .transport-era-labels span:nth-child(3) { text-align:center; }
+.transport-era-labels span:last-child { text-align:right; }
+.transport-era-description { margin:.65rem 0 0; font-size:.86rem; color:var(--muted); }
