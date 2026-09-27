@@ -1,6 +1,21 @@
 export const mapLayers = {
   tidePorts: [
     {
+      name:'下津井',lat:34.435,lon:133.806,note:'北前船・金毘羅参詣の港',
+      status:'verified',sourceId:'SHI-01',sourceLabel:'下津井保存地区について（倉敷市）',
+      sourceUrl:'https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007890/1011524.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'多度津',lat:34.272,lon:133.753,note:'北前船・金毘羅船の寄港地',
+      status:'verified',sourceId:'TAD-02',sourceLabel:'日本遺産 北前船寄港地（多度津町）',
+      sourceUrl:'https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'御手洗',lat:34.177,lon:132.867,note:'潮待ち・風待ちの中継港',
+      status:'verified',sourceId:'MIT-01',sourceLabel:'御手洗伝統的建造物群保存地区（呉市）',
+      sourceUrl:'https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html',verifiedAt:'2026-09-27'
+    },
+    {
       name:'鞆の浦',lat:34.3834,lon:133.3818,note:'潮待ち港',
       status:'verified',sourceId:'X-03',sourceLabel:'鞆の浦について（福山市）',
       sourceUrl:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html',verifiedAt:'2026-09-27'
