@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
+const baseUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 <BaseLayout>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
@@ -16,7 +17,7 @@ const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,nam
     <div class="kicker">MAP NAVIGATION</div>
     <h2>地図から読む</h2>
     <p class="lead">赤穂・尾道・今治を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
-    <div id="atlas-map" class="atlas-map" data-base={import.meta.env.BASE_URL} data-places={JSON.stringify(mapPlaces)}></div>
+    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)}></div>
     <p class="map-note">地図データ © OpenStreetMap contributors</p>
   </section>
 
@@ -25,7 +26,7 @@ const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,nam
     <p class="lead">同じ瀬戸内でも、町を形成した産業遺伝子は大きく異なります。</p>
     <div class="grid">
       {places.map((place) => (
-        <a class="card" href={`${import.meta.env.BASE_URL}places/${place.id}/`}>
+        <a class="card" href={`${baseUrl}places/${place.id}/`}>
           <div class="kicker">{place.prefecture}</div>
           <h3>{place.name}</h3>
           <p>{place.subtitle}</p>
