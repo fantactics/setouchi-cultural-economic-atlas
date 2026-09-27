@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stops = [
+  {
+    id:'shimotsui', name:'下津井', prefecture:'岡山県倉敷市',
+    role:'潮流・漁業の町',
+    sea:'備讃瀬戸の潮流',
+    port:'瀬戸大橋直下の港町',
+    food:'タコ・瀬戸内魚介',
+    economy:'漁業・港町商業',
+    reading:'強い潮流と狭い海域が、漁場と港の双方を成立させた。'
+  },
+  {
+    id:'kasaoka', name:'笠岡諸島', prefecture:'岡山県笠岡市',
+    role:'島嶼漁業の海域',
+    sea:'多島海・島間水道',
+    port:'島ごとの小港',
+    food:'真鯛・イイダコ・メバル・カサゴ等',
+    economy:'漁業・島嶼生活',
+    reading:'単一港ではなく、島ごとの生活圏と漁場が重なる分散型の海域文化。'
+  },
+  {
+    id:'tomo', name:'鞆の浦', prefecture:'広島県福山市',
+    role:'潮待ち・交易の港',
+    sea:'瀬戸内中央部の潮流転換点',
+    port:'潮待ち港・近世港湾施設',
+    food:'鯛・サワラなど備後の魚介',
+    economy:'交易・商業・鍛冶・酒造・漁業',
+    reading:'潮を待つ必要そのものが、人・物・情報を滞留させ、商業都市を育てた。'
+  },
+  {
+    id:'onomichi', name:'尾道', prefecture:'広島県尾道市',
+    role:'交易・商業資本の港町',
+    sea:'尾道水道・島嶼航路',
+    port:'中世以来の積出港・商港',
+    food:'瀬戸内魚介・柑橘',
+    economy:'交易・海運・造船・修繕',
+    reading:'港のネットワークが商業資本を形成し、近代には海運・造船へ接続した。'
+  },
+  {
+    id:'imabari', name:'今治', prefecture:'愛媛県今治市',
+    role:'海運・船主・造船の都市',
+    sea:'来島海峡の強潮流',
+    port:'波止浜など潮待ち・修繕港',
+    food:'鯛・島嶼柑橘',
+    economy:'船主・海運・造船・舶用',
+    reading:'海峡航行の難しさが操船技能を蓄積し、潮待ち修繕から造船・海運の集積へ発展した。'
+  }
+];
+
+const sources = [
+  {id:'X-01',label:'笠岡観光WEB「そうだ、釣りに行こう」',publisher:'笠岡市観光協会',url:'https://www.kasaoka-kankou.jp/feature/feature05'},
+  {id:'X-02',label:'笠岡観光WEB「グルメ・お土産」',publisher:'笠岡市観光協会',url:'https://www.kasaoka-kankou.jp/gourmet'},
+  {id:'X-03',label:'鞆の浦について',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html'},
+  {id:'X-04',label:'日本遺産 福山 鞆の浦について',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179954.html'},
+  {id:'X-05',label:'海とともに歩む 海事都市尾道',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/uploaded/attachment/59103.pdf'},
+  {id:'X-06',label:'尾道海事史年表',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/kaijitoshi/history/h06.pdf'},
+  {id:'X-07',label:'今治の歴史 海事編',publisher:'今治市',url:'https://www.city.imabari.ehime.jp/kaiji/rekisi/'},
+  {id:'X-08',label:'海事関連施設・来島海峡',publisher:'今治市',url:'https://www.city.imabari.ehime.jp/kaiji/sisetsu/'}
+];
+---
+<BaseLayout title="瀬戸内文化断面図 | 瀬戸内文化経済アトラス" description="下津井から今治まで、港・潮流・漁業・食文化・海事産業の変化を横断的に読む。">
+  <section class="place-hero transect-hero">
+    <div class="kicker">CULTURAL TRANSECT</div>
+    <h1>瀬戸内文化断面図</h1>
+    <p class="subtitle">下津井 → 笠岡諸島 → 鞆の浦 → 尾道 → 今治。西へ移動しながら、潮流・港・漁業・食文化・海事産業がどう変化するかを読む。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">THESIS</div>
+    <h2>海は境界ではなく、都市をつくるインフラだった</h2>
+    <div class="synthesis">
+      この区間では、強潮流や潮汐は単なる自然条件ではない。漁場を生み、航海を制約し、潮待ち港を成立させ、人と物を滞留させ、商業資本・修繕技術・造船・海運へと展開した。
+      東から西へ進むにつれ、主役は「漁場」から「交易港」、さらに「海事産業集積」へと重心を移す。
+    </div>
+  </section>
+
+  <section class="section transect-section">
+    <div class="kicker">5 STOPS</div>
+    <h2>5つの海域・港を連続して読む</h2>
+    <div class="transect-line">
+      {stops.map((stop, i) => (
+        <article class="transect-stop">
+          <div class="transect-index">{String(i+1).padStart(2,'0')}</div>
+          <div class="transect-dot"></div>
+          <div class="transect-body">
+            <div class="kicker">{stop.prefecture}</div>
+            <h3>{stop.name}</h3>
+            <p class="transect-role">{stop.role}</p>
+            <dl class="transect-facts">
+              <div><dt>海</dt><dd>{stop.sea}</dd></div>
+              <div><dt>港</dt><dd>{stop.port}</dd></div>
+              <div><dt>食</dt><dd>{stop.food}</dd></div>
+              <div><dt>経済</dt><dd>{stop.economy}</dd></div>
+            </dl>
+            <p class="transect-reading">{stop.reading}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">STRUCTURAL SHIFT</div>
+    <h2>西へ行くほど何が変わるのか</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>比較軸</th>{stops.map((s)=><th>{s.name}</th>)}</tr>
+        </thead>
+        <tbody>
+          <tr><th>自然条件</th>{stops.map((s)=><td>{s.sea}</td>)}</tr>
+          <tr><th>港の機能</th>{stops.map((s)=><td>{s.port}</td>)}</tr>
+          <tr><th>食文化</th>{stops.map((s)=><td>{s.food}</td>)}</tr>
+          <tr><th>経済機能</th>{stops.map((s)=><td>{s.economy}</td>)}</tr>
+          <tr><th>構造的な読み</th>{stops.map((s)=><td>{s.reading}</td>)}</tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CAUSAL CHAIN</div>
+    <h2>一つの因果連鎖として見る</h2>
+    <div class="causal-chain">
+      {['潮流・多島海','漁場形成','航海制約','潮待ち・寄港','交易・滞留','商業資本','修繕技能','造船・海運集積'].map((x,i)=>(
+        <>
+          <span>{x}</span>{i<7 && <b>→</b>}
+        </>
+      ))}
+    </div>
+    <p class="lead">すべての港が同じ順序で発展したわけではありませんが、この横断軸は瀬戸内の都市形成を比較するための有力な仮説モデルになります。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">EVIDENCE</div>
+    <h2>主な出典</h2>
+    <div class="source-list">
+      {sources.map((source)=>(
+        <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+          <span><b>{source.id}</b>　{source.label}<small>{source.publisher} / verified 2026-09-27</small></span><span>↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
