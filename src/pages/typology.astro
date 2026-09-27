@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const types = [
+  {
+    name:'資源・土地継承型',
+    places:['赤穂'],
+    mechanism:'自然資源を加工し、その技術または土地利用が次の産業へ継承される。',
+    chain:['海水','製塩','技術・土地資産','化学・臨海工業'],
+    question:'資源利用の痕跡が、現代産業にどう残っているか'
+  },
+  {
+    name:'航路・漁場複合型',
+    places:['下津井'],
+    mechanism:'同じ海域条件が、漁場と航路の双方を成立させ、港町経済をつくる。',
+    chain:['潮流海域','漁場＋航路','寄港・渡海','漁業・商業'],
+    question:'海上交通と漁業が同じ場所に重なると何が起きるか'
+  },
+  {
+    name:'交通インフラ継承型',
+    places:['多度津'],
+    mechanism:'港で蓄積された結節機能が、鉄道・物流・臨海工業へ別のインフラとして継承される。',
+    chain:['天然港','北前船・参詣','鉄道','港湾物流・臨海工業'],
+    question:'交通拠点は、交通手段が変わっても残り続けるか'
+  },
+  {
+    name:'交易・商業資本型',
+    places:['尾道'],
+    mechanism:'交易ネットワークが商業資本を生み、その資本が海運・造船・文化へ再投資される。',
+    chain:['天然港','交易','商人資本','海運・造船＋文化'],
+    question:'港で生まれた富は、何に再投資されたか'
+  },
+  {
+    name:'滞留経済型',
+    places:['御手洗'],
+    mechanism:'航海上の制約が人と船を滞留させ、その時間そのものが商業・宿泊需要を生む。',
+    chain:['潮・風','待機','人・物の滞留','商家・船宿・茶屋'],
+    question:'「待つこと」は、どう経済価値に変わったか'
+  },
+  {
+    name:'資本循環・技能型',
+    places:['今治'],
+    mechanism:'船主資本と造船・舶用産業、技能蓄積が相互に需要を生み、自己強化する。',
+    chain:['海運','船主資本','造船・舶用','再投資・技能蓄積'],
+    question:'地域内の資本循環が、産業集積をどこまで厚くするか'
+  }
+];
+
+const matrix = [
+  ['赤穂','自然資源','製塩','技術・土地','素材・化学・重工'],
+  ['下津井','潮流海域','寄港・漁場','航路＋漁業','観光・漁港文化'],
+  ['多度津','良港・立地','北前船・参詣','港＋鉄道','物流・臨海工業'],
+  ['尾道','天然港','交易','商業資本','海運・造船・文化'],
+  ['御手洗','潮・風の制約','潮待ち・風待ち','滞留需要','歴史景観・観光'],
+  ['今治','海峡・海運','船主・航海技能','資本循環＋技能','造船・舶用・タオル']
+];
+---
+<BaseLayout title="港町類型 | 瀬戸内文化経済アトラス" description="瀬戸内6地域を、富の生成メカニズムと産業遺伝子で類型化する。">
+  <section class="place-hero">
+    <div class="kicker">PORT CITY TYPOLOGY</div>
+    <h1>瀬戸内の港町を、類型で読む</h1>
+    <p class="subtitle">港町はすべて同じではありません。資源、航路、滞留、商業資本、交通インフラ、資本循環という「富の生まれ方」の違いで比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">6 TYPES</div>
+    <h2>6地域・6つの形成メカニズム</h2>
+    <div class="typology-grid">
+      {types.map((type) => (
+        <article class="typology-card">
+          <div class="kicker">{type.places.join(' / ')}</div>
+          <h3>{type.name}</h3>
+          <p>{type.mechanism}</p>
+          <div class="causal-chain compact-chain">
+            {type.chain.map((x,i)=><><span>{x}</span>{i<type.chain.length-1 && <b>→</b>}</>)}
+          </div>
+          <p class="typology-question"><strong>問い：</strong>{type.question}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">COMPARATIVE MATRIX</div>
+    <h2>どこで価値が生まれ、何が残ったか</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>地域</th><th>地理的起点</th><th>歴史的機能</th><th>蓄積した資産</th><th>現在への継承</th></tr></thead>
+        <tbody>
+          {matrix.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">KEY INSIGHT</div>
+    <h2>「港がある」では説明できない</h2>
+    <div class="synthesis">
+      瀬戸内の港町を理解する鍵は、港の存在そのものではなく、そこで何が滞留し、何が蓄積し、次の時代に何が継承されたかにある。
+      赤穂では資源と土地、下津井では航路と漁場、多度津では結節機能、尾道では商業資本、御手洗では滞留需要、今治では資本循環と技能が、それぞれ異なる産業遺伝子を残した。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">NEXT USE</div>
+    <h2>この類型は他地域にも展開できる</h2>
+    <p class="lead">今後、牛窓・鞆の浦・三原・竹原・松山・坂越などを追加すると、同じ類型に入る町と、既存分類では説明できない町が見えてきます。類型そのものも検証対象です。</p>
+  </section>
+</BaseLayout>
