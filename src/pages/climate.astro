@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { places } from '../data/places.js';
+import { climateProfiles } from '../data/climate.js';
+
+const rows = places
+  .filter((place) => climateProfiles[place.id])
+  .map((place) => {
+    const c = climateProfiles[place.id];
+    return {
+      id: place.id,
+      name: place.name,
+      prefecture: place.prefecture,
+      station: c.station,
+      period: c.period,
+      annualTemp: c.annualTemp,
+      annualRain: c.annualRain,
+      annualSun: c.annualSun,
+      monthlyComplete: Array.isArray(c.monthly) && c.monthly.length === 12
+    };
+  });
+
+const tempSorted = [...rows].sort((a,b) => b.annualTemp - a.annualTemp);
+const rainSorted = [...rows].sort((a,b) => a.annualRain - b.annualRain);
+const sunSorted = [...rows].filter(r => r.annualSun != null).sort((a,b) => b.annualSun - a.annualSun);
+---
+<BaseLayout title="気候比較 | 瀬戸内文化経済アトラス" description="瀬戸内10地域の年平均気温・年間降水量・年間日照時間を比較する。">
+  <section class="place-hero">
+    <div class="kicker">CLIMATE COMPARISON</div>
+    <h1>10地域の気候を比べる</h1>
+    <p class="subtitle">同じ瀬戸内でも、沿岸・島嶼・内陸、観測点の標高や海風条件によって気候は異なります。代表観測点の平年値を横並びで比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">ANNUAL NORMALS</div>
+    <h2>年平均値の比較</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table climate-compare-table">
+        <thead>
+          <tr><th>地域</th><th>代表観測点</th><th>統計期間</th><th>年平均気温</th><th>年間降水量</th><th>年間日照時間</th><th>月別データ</th></tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <th><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/climate/`}>{row.name}</a><small>{row.prefecture}</small></th>
+              <td>{row.station}</td>
+              <td>{row.period}</td>
+              <td>{row.annualTemp.toFixed(1)} ℃</td>
+              <td>{row.annualRain.toLocaleString('ja-JP')} mm</td>
+              <td>{row.annualSun == null ? '—' : `${row.annualSun.toLocaleString('ja-JP')} 時間`}</td>
+              <td>{row.monthlyComplete ? '12か月' : '未完'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">QUICK READING</div>
+    <h2>比較の見どころ</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card">
+        <h3>気温</h3>
+        <p><strong>{tempSorted[0].name}</strong>の代表観測点が年平均 {tempSorted[0].annualTemp.toFixed(1)}℃で最も高く、<strong>{tempSorted[tempSorted.length-1].name}</strong>は {tempSorted[tempSorted.length-1].annualTemp.toFixed(1)}℃。ただし観測点の内陸性・標高差を含みます。</p>
+      </article>
+      <article class="insight-card">
+        <h3>降水量</h3>
+        <p><strong>{rainSorted[0].name}</strong>の代表観測点が年間 {rainSorted[0].annualRain.toLocaleString('ja-JP')}mmで少なく、<strong>{rainSorted[rainSorted.length-1].name}</strong>は {rainSorted[rainSorted.length-1].annualRain.toLocaleString('ja-JP')}mmです。</p>
+      </article>
+      <article class="insight-card">
+        <h3>日照</h3>
+        <p>日照時間が取得できる観測点では、<strong>{sunSorted[0].name}</strong>が年間 {sunSorted[0].annualSun.toLocaleString('ja-JP')}時間。三原は代表観測点の平年日照値が掲載されていないため比較対象外です。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CAUTION</div>
+    <h2>比較時の注意</h2>
+    <div class="synthesis">
+      この比較は各地域の「代表観測点」の平年値です。地域中心部そのものの値ではない場合があります。
+      特に赤穂・下津井・牛窓・鞆の浦・御手洗・三原は、近隣観測点または地域内の別地点を使っています。
+      また御手洗と三原は統計期間が1991–2020年と異なるため、絶対順位よりも地域傾向を見るためのデータとして扱います。
+    </div>
+  </section>
+</BaseLayout>
