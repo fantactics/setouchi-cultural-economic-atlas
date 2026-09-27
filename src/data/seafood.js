@@ -2,8 +2,8 @@ export const seafoodSpecies = [
   {
     id:'tai', name:'鯛（マダイ）', latin:'Pagrus major', seasons:'春・秋を中心',
     thesis:'強い潮流と祝いの文化が結びついた、瀬戸内を代表する白身魚。',
-    places:['imabari','tomonoura','onomichi'],
-    regions:['今治・来島海峡','鞆の浦・備後','尾道','香川県'],
+    places:['imabari','tomonoura','onomichi','matsuyama','yanai'],
+    regions:['今治・来島海峡','松山','鞆の浦・備後','尾道','柳井','香川県'],
     dishes:['鯛めし','塩焼き','刺身・松皮造り','鯛そうめん・鯛めん','あら炊き・潮汁'],
     ecology:'海峡・瀬戸など潮流のある海域との結びつきが強く、地域ごとに一本釣り・網漁など多様な漁法がある。',
     culture:'祝い魚としての意味と、港町の日常食の両方を持つ。今治では来島鯛を炊き込む鯛めし、福山周辺では鯛めんなど地域差が表れる。',
@@ -11,13 +11,15 @@ export const seafoodSpecies = [
       {id:'SF-TAI-01',label:'今治郷土料理',publisher:'今治市',url:'https://www.city.imabari.ehime.jp/kankou/'},
       {id:'SF-TAI-02',label:'備後フィッシュ',publisher:'福山市',url:'https://www.city.fukuyama.hiroshima.jp/site/bingofish/'},
       {id:'SF-TAI-03',label:'尾道季節の魚20選',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html'},
-      {id:'SF-TAI-04',label:'瀬戸内さかな日和',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/site/setouchi-jizakana-biyori/sakana.html'}
+      {id:'SF-TAI-04',label:'瀬戸内さかな日和',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/site/setouchi-jizakana-biyori/sakana.html'},
+      {id:'SF-TAI-05',label:'IMAごはん・鯛めし',publisher:'松山市',url:'https://www.city.matsuyama.ehime.jp/kurashi/iryo/eiyo/siryou/imagohan.html'},
+      {id:'SF-TAI-06',label:'柳井の郷土料理・鯛寿司',publisher:'柳井市',url:'https://www.city-yanai.jp/site/kanko/taizushi.html'}
     ]
   },
   {
     id:'tako', name:'タコ（マダコ）', latin:'Octopus sinensis', seasons:'夏〜秋を中心',
     thesis:'岩礁・砂礫・潮流と、壺・蛸壺などの漁撈技術が育てた瀬戸内の代表食材。',
-    places:['shimotsui','onomichi'],
+    places:['shimotsui','onomichi','matsuyama'],
     regions:['下津井','尾道','笠岡・備後','香川県沿岸'],
     dishes:['たこ飯','刺身','煮だこ','天ぷら・唐揚げ','酢の物'],
     ecology:'多島海や潮流のある沿岸域に生息し、地域によって蛸壺や底びきなどの漁法が用いられる。',
@@ -25,7 +27,8 @@ export const seafoodSpecies = [
     sources:[
       {id:'SF-TAKO-01',label:'日本遺産デザインマンホール・下津井のタコ',publisher:'倉敷市',url:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html'},
       {id:'SF-TAKO-02',label:'尾道季節の魚20選',publisher:'尾道市',url:'https://www.city.onomichi.hiroshima.jp/soshiki/25/3396.html'},
-      {id:'SF-TAKO-03',label:'ふだんごはんと、ハレの日ごぜん',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/nosonseibi/green/takarabako/15.html'}
+      {id:'SF-TAKO-03',label:'ふだんごはんと、ハレの日ごぜん',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/nosonseibi/green/takarabako/15.html'},
+      {id:'SF-TAKO-04',label:'IMAごはん・たこ飯',publisher:'松山市',url:'https://www.city.matsuyama.ehime.jp/kurashi/iryo/eiyo/siryou/imagohan.html'}
     ]
   },
   {
@@ -105,6 +108,32 @@ export const seafoodSpecies = [
     sources:[
       {id:'SF-KAKI-01',label:'瀬戸内の海の幸',publisher:'中国四国農政局',url:'https://www.maff.go.jp/chushi/heya/attach/pdf/tenji6-90.pdf'},
       {id:'SF-KAKI-02',label:'ひろしまの食',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/dayori/202510/sp1.html'}
+    ]
+  },
+  {
+    id:'fugu', name:'ふく（フグ類）', latin:'Takifugu spp.', seasons:'冬を中心',
+    thesis:'漁場・集荷・除毒技術・専門市場が結びついた、下関を象徴する高度な水産食文化。',
+    places:['shimonoseki'],
+    regions:['下関','関門海峡','玄界灘・瀬戸内海'],
+    dishes:['ふく刺し','ふくちり','唐揚げ','白子料理'],
+    ecology:'下関は玄界灘・瀬戸内海・関門海峡に面し、広域からフグが集荷される流通拠点でもある。',
+    culture:'有毒部位を除去する加工技術、専門市場、料理店、年中行事まで含めて「ふくのまち」という都市文化を形成する。',
+    sources:[
+      {id:'SF-FUGU-01',label:'下関市水産物5大ブランド「ふく」',publisher:'下関市',url:'https://www.city.shimonoseki.lg.jp/soshiki/60/1173.html'},
+      {id:'SF-FUGU-02',label:'下関市水産物5大ブランド',publisher:'下関市',url:'https://www.city.shimonoseki.lg.jp/soshiki/60/106135.html'}
+    ]
+  },
+  {
+    id:'hamachi', name:'ハマチ・ブリ（養殖）', latin:'Seriola quinqueradiata', seasons:'秋〜冬',
+    thesis:'引田の安戸池から全国へ広がった、瀬戸内発の養殖技術とブランド魚文化。',
+    places:['hiketa'],
+    regions:['引田・安戸池','香川県沿岸'],
+    dishes:['刺身','照り焼き','漁師鍋','ぶりしゃぶ'],
+    ecology:'1928年に引田の安戸池で海水魚養殖の事業化に成功し、香川県の基幹養殖魚へ発展した。',
+    culture:'天然魚の郷土食というより、養殖技術・漁業経営・ブランド化そのものが地域文化を形成した例。',
+    sources:[
+      {id:'SF-HAMACHI-01',label:'ハマチ養殖80周年記念事業',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/suisan/sogo/event/hamachi.html'},
+      {id:'SF-HAMACHI-02',label:'県魚ハマチ',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/kocho/shokai/profile/symbol.html'}
     ]
   },
   {
