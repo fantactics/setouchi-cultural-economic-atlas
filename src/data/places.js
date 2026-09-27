@@ -136,7 +136,7 @@ export const places = [
       ['港・交通・物流','本州と四国を結ぶ渡海場として機能し、北前船などの寄港で物流・旅客が集中した。児島後背地の綿作に必要な干鰯・ニシン粕の受入れと、木綿・綿製品の積出しも担った。','fact'],
       ['食文化','下津井のタコをはじめ、瀬戸内の魚介を使う漁港食文化が地域イメージを形成している。','fact'],
       ['地域産業','下津井では海運・交易・漁業が重要で、後背地の児島では綿作を基礎に真田紐・小倉織・足袋、近代紡績、学生服、作業服、ジーンズへ展開する繊維産業が発達した。','fact'],
-      ['代表企業','歴史的には1882年創業の下村紡績所が児島の近代紡績を先導した。現代は学生服・ユニフォーム・ジーンズ・染色加工など児島の繊維事業者群を産業主体として捉える。','fact'],
+      ['代表企業','歴史的には1881年開業の下村紡績が児島の近代紡績を先導した。現代は学生服・ユニフォーム・ジーンズ・染色加工など児島の繊維事業者群を産業主体として捉える。','fact'],
       ['産業遺伝子','潮流海域→漁業に加え、干拓地の綿作→北前船による肥料・製品物流→織物・足袋→近代紡績→学生服→ジーンズという繊維技能の長期連鎖が児島・下津井圏を特徴づける。','interpretation'],
       ['資本形成','寄港・交易・参詣客の滞留に加え、綿・肥料・塩などの商品流通が港町商業を支え、児島側では綿作・織物・紡績・縫製への事業展開を可能にする地域経済の厚みを生んだと考えられる。','interpretation'],
       ['産業生態系','下津井港の物流・漁業と、児島の紡績・撚糸・織布・染色・縫製・加工が近接する海港＋繊維産地型の生態系。現在はジーンズ・学生服などのブランド・観光も重なる。','interpretation'],
@@ -158,9 +158,10 @@ export const places = [
       {id:'SHI-02',label:'日本遺産デザインマンホール',publisher:'倉敷市',kind:'official',verifiedAt:'2026-09-27',url:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1002246.html'},
       {id:'SHI-03',label:'一輪の綿花から始まる倉敷物語',publisher:'倉敷市',kind:'official',verifiedAt:'2026-09-28',url:'https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1013347/1002267.html'},
       {id:'SHI-04',label:'児島の日本遺産について',publisher:'倉敷市 児島支所産業課',kind:'official',verifiedAt:'2026-09-28',url:'https://www.city.kurashiki.okayama.jp/culture/tourism/1001881/1011764/1008099/1011534.html'},
-      {id:'SHI-05',label:'倉敷市の沿革',publisher:'倉敷市',kind:'official',verifiedAt:'2026-09-28',url:'https://www.city.kurashiki.okayama.jp/cityinfo/about/1008255.html'}
+      {id:'SHI-05',label:'倉敷市の沿革',publisher:'倉敷市',kind:'official',verifiedAt:'2026-09-28',url:'https://www.city.kurashiki.okayama.jp/cityinfo/about/1008255.html'},
+      {id:'SHI-06',label:'クラボウヒストリー',publisher:'クラボウ',kind:'company',verifiedAt:'2026-09-28',url:'https://www.kurabo.co.jp/kurabo-history/'}
     ],
-    sectionSources:{0:['SHI-01'],1:['SHI-01'],3:['SHI-01','SHI-03','SHI-04'],4:['SHI-01','SHI-03','SHI-04'],5:['SHI-02'],6:['SHI-03','SHI-04'],7:['SHI-03','SHI-05'],8:['SHI-03','SHI-04'],9:['SHI-03','SHI-04'],10:['SHI-03','SHI-04'],13:['SHI-01','SHI-04'],16:['SHI-03','SHI-04'],17:['SHI-01','SHI-03','SHI-04']}
+    sectionSources:{0:['SHI-01'],1:['SHI-01'],3:['SHI-01','SHI-03','SHI-04'],4:['SHI-01','SHI-03','SHI-04'],5:['SHI-02'],6:['SHI-03','SHI-04'],7:['SHI-03','SHI-05','SHI-06'],8:['SHI-03','SHI-04','SHI-06'],9:['SHI-03','SHI-04','SHI-06'],10:['SHI-03','SHI-04'],13:['SHI-01','SHI-04'],16:['SHI-03','SHI-04'],17:['SHI-01','SHI-03','SHI-04','SHI-06']}
   },
   {
     id:'tadotsu', name:'多度津', prefecture:'香川県', lat:34.272, lon:133.753,
