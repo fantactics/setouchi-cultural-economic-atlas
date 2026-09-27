@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
 const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
-const baseUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const baseUrl = '/setouchi-cultural-economic-atlas/';
 ---
 <BaseLayout>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
