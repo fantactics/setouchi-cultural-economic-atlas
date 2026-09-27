@@ -37,7 +37,7 @@ const sourceMap = (row, index) => {
         </thead>
         <tbody>
           {rows.map((row)=>(
-            <tr>
+            <tr id={`place-${row.id}`}>
               <th><a href={`/setouchi-cultural-economic-atlas/places/${row.id}/`}>{row.name}</a><small>{row.prefecture}</small></th>
               {[6,7,8,9,10].map((index)=>{
                 const section = row[index===6?'industry':index===7?'companies':index===8?'gene':index===9?'capital':'ecosystem'];
