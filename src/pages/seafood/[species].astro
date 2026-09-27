@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
 import { seafoodSpecies } from '../../data/seafood.js';
+import { resourceBySpecies } from '../../data/seafoodResources.js';
 
 export function getStaticPaths() {
   return seafoodSpecies.map((species)=>({
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 const { species } = Astro.props;
 const placeById = Object.fromEntries(places.map((p)=>[p.id,p]));
 const linkedPlaces = species.places.map((id)=>placeById[id]).filter(Boolean);
+const resource = resourceBySpecies[species.id];
 ---
 <BaseLayout title={`${species.name} | 海の食文化 | 瀬戸内文化経済アトラス`} description={species.thesis}>
   <section class="place-hero">
@@ -32,6 +34,33 @@ const linkedPlaces = species.places.map((id)=>placeById[id]).filter(Boolean);
       <span>海域条件</span><b>→</b><span>{species.name}</span><b>→</b><span>漁獲・流通</span><b>→</b><span>{species.dishes.slice(0,3).join('・')}</span>
     </div>
   </section>
+
+  {resource && (
+    <section class="section">
+      <div class="kicker">RESOURCE STATUS</div>
+      <h2>資源変化と持続性</h2>
+      <div class={`resource-status ${resource.status}`}>{resource.label}</div>
+      <div class="resource-detail-grid">
+        <article class="seafood-detail-card">
+          <span>観測された変化</span>
+          <ul>{resource.observations.map((x)=><li>{x}</li>)}</ul>
+        </article>
+        <article class="seafood-detail-card">
+          <span>要因・管理</span>
+          <ul>
+            {resource.drivers.map((item)=><li><b>{item.type.toUpperCase()}</b> {item.text}</li>)}
+          </ul>
+        </article>
+      </div>
+      <div class="source-list resource-source-list">
+        {resource.sources.map((source)=>(
+          <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+            <span><b>{source.id}</b>　{source.label}<small>{source.publisher}</small></span><span>↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="section">
     <div class="kicker">DISHES</div>
