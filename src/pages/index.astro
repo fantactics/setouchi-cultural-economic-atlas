@@ -143,7 +143,8 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
         tidePorts: { radius: 8, fillOpacity: .75, weight: 1.5 },
         strongCurrents: { radius: 11, fillOpacity: .18, weight: 2.5 },
         foodCulture: { radius: 7, fillOpacity: .7, weight: 1.5 },
-        maritimeIndustry: { radius: 9, fillOpacity: .45, weight: 2 }
+        maritimeIndustry: { radius: 9, fillOpacity: .45, weight: 2 },
+        resourceStatus: { radius: 10, fillOpacity: .72, weight: 2 }
       };
       const overlayGroups = {};
       Object.entries(layers).forEach(([key, items]) => {
@@ -157,8 +158,26 @@ const baseUrl = '/setouchi-cultural-economic-atlas/';
             ? '<br><a href="' + item.sourceUrl + '" target="_blank" rel="noreferrer">' + (item.sourceId || 'SOURCE') + ' ' + (item.sourceLabel || '根拠資料') + ' ↗</a>' +
               (item.verifiedAt ? '<br><small>verified ' + item.verifiedAt + '</small>' : '')
             : '';
-          L.circleMarker([item.lat, item.lon], styles[key] || {radius:8})
-            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + '<br>' + status + source)
+          const resourceStyle = item.resourceStatus
+            ? {
+                radius: 10,
+                fillOpacity: .78,
+                weight: 2.2,
+                color: item.resourceStatus === 'declining' ? '#8a3f32'
+                  : item.resourceStatus === 'increasing' ? '#2f6b3b'
+                  : item.resourceStatus === 'recovered' ? '#356a5f'
+                  : '#675b7c',
+                fillColor: item.resourceStatus === 'declining' ? '#c96b5d'
+                  : item.resourceStatus === 'increasing' ? '#73a979'
+                  : item.resourceStatus === 'recovered' ? '#72a79a'
+                  : '#9d91b0'
+              }
+            : null;
+          const detail = item.speciesId
+            ? '<br><a href="' + base + 'seafood/' + item.speciesId + '/">魚種詳細を見る →</a>'
+            : '';
+          L.circleMarker([item.lat, item.lon], resourceStyle || styles[key] || {radius:8})
+            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + '<br>' + status + source + detail)
             .addTo(group);
         });
       });
