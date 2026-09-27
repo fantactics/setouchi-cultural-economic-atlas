@@ -230,3 +230,16 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .seafood-matrix td { text-align:center; }
 .seafood-matrix .seafood-hit { font-weight:900; color:var(--sea); }
 @media (max-width:800px){ .season-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+
+.resource-change-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.resource-change-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem; }
+.resource-change-card h3 { margin:.45rem 0 .65rem; }
+.resource-change-card h3 a { color:inherit; text-decoration:none; }
+.resource-status { display:inline-block; border-radius:999px; padding:.25rem .55rem; font-size:.7rem; font-weight:800; background:#eceff1; }
+.resource-status.declining { background:#f7e4df; color:#7b3429; }
+.resource-status.recovered,.resource-status.stable-to-increasing { background:#e5f1e8; color:#245b32; }
+.resource-status.managed,.resource-status.complex,.resource-status.watch { background:#ece8f5; color:#4d416f; }
+.resource-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1rem 0; }
+.resource-source-list { margin-top:1rem; }
+@media (max-width:900px){ .resource-change-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:650px){ .resource-change-grid,.resource-detail-grid{grid-template-columns:1fr;} }
