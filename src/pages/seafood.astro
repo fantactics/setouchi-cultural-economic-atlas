@@ -24,7 +24,7 @@ const speciesBySeason = Object.fromEntries(seasonOrder.map((season)=>[
 
   <section class="section">
     <div class="kicker">SPECIES LAYERS</div>
-    <h2>まず9つの魚介から読む</h2>
+    <h2>まず{seafoodSpecies.length}の魚介から読む</h2>
     <div class="seafood-grid">
       {seafoodSpecies.map((item)=>(
         <a class="seafood-card" href={`/setouchi-cultural-economic-atlas/seafood/${item.id}/`}>
