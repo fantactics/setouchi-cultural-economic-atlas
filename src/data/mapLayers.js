@@ -75,6 +75,38 @@ export const mapLayers = {
       sourceUrl:'https://www.pref.kagawa.lg.jp/nouki/tisan/syokuikujugyou/syokuiku_sakaide.html',verifiedAt:'2026-09-27'
     }
   ],
+  resourceStatus: [
+    {
+      name:'香川県海域・マダコ',lat:34.25,lon:134.02,note:'減少傾向。資源回復研究・産卵促進研究が進む。',
+      status:'verified',resourceStatus:'declining',speciesId:'tako',
+      sourceId:'RC-TAKO-01',sourceLabel:'マダコ資源回復研究（香川県）',
+      sourceUrl:'https://www.pref.kagawa.lg.jp/documents/19778/2-madako.pdf',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'笠岡・シャコ',lat:34.50,lon:133.50,note:'長期的な減少・小型化が報告される。',
+      status:'verified',resourceStatus:'declining',speciesId:'shako',
+      sourceId:'RC-SHAKO-01',sourceLabel:'シャコの資源生態の変化（岡山県）',
+      sourceUrl:'https://www.pref.okayama.jp/site/22/detail-94504.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'瀬戸内海東部系群・マダイ',lat:34.38,lon:134.18,note:'長期的には資源量増加傾向。海域代表点。',
+      status:'verified',resourceStatus:'increasing',speciesId:'tai',
+      sourceId:'RC-TAI-01',sourceLabel:'マダイ瀬戸内海東部系群 資源評価（水産庁）',
+      sourceUrl:'https://www.jfa.maff.go.jp/j/press/sigen/attach/pdf/20250926-11.pdf',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'瀬戸内海系群・サワラ',lat:34.28,lon:133.65,note:'資源回復計画・広域管理の対象。海域代表点。',
+      status:'verified',resourceStatus:'recovered',speciesId:'sawara',
+      sourceId:'RC-SAWARA-01',sourceLabel:'瀬戸内海の資源回復計画（水産庁）',
+      sourceUrl:'https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html',verifiedAt:'2026-09-27'
+    },
+    {
+      name:'燧灘・カタクチイワシ',lat:34.02,lon:133.48,note:'資源管理対象。イリコ加工・出汁文化と直結する海域。',
+      status:'verified',resourceStatus:'managed',speciesId:'iriko',
+      sourceId:'RC-IRIKO-01',sourceLabel:'瀬戸内海の資源回復計画（水産庁）',
+      sourceUrl:'https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html',verifiedAt:'2026-09-27'
+    }
+  ],
   maritimeIndustry: [
     {
       name:'三原',lat:34.4006,lon:133.0787,note:'港湾・工業・広域交通',
@@ -98,5 +130,6 @@ export const mapLayerLabels = {
   tidePorts:'潮待ち港',
   strongCurrents:'強潮流',
   foodCulture:'海の食文化',
+  resourceStatus:'水産資源の変化',
   maritimeIndustry:'海事産業'
 };
