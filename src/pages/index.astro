@@ -1,17 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
+const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
 ---
 <BaseLayout>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
   <section class="hero">
     <div class="eyebrow">Regional intelligence / Setouchi prototype</div>
     <h1>町を、立体的に読む。</h1>
     <p>地理・気候・歴史・港・食・産業・企業・暮らしを重ね、「なぜこの町はこの町になったのか」を可視化する文化経済アトラス。</p>
   </section>
 
+  <section class="section map-section">
+    <div class="kicker">MAP NAVIGATION</div>
+    <h2>地図から読む</h2>
+    <p class="lead">赤穂・尾道・今治を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
+    <div id="atlas-map" class="atlas-map" data-base={import.meta.env.BASE_URL} data-places={JSON.stringify(mapPlaces)}></div>
+    <p class="map-note">地図データ © OpenStreetMap contributors</p>
+  </section>
+
   <section class="section">
     <h2>3つの町から始める</h2>
-    <p class="lead">赤穂・尾道・今治。同じ瀬戸内でも、町を形成した産業遺伝子は大きく異なります。</p>
+    <p class="lead">同じ瀬戸内でも、町を形成した産業遺伝子は大きく異なります。</p>
     <div class="grid">
       {places.map((place) => (
         <a class="card" href={`${import.meta.env.BASE_URL}places/${place.id}/`}>
@@ -25,7 +36,33 @@ import { places } from '../data/places.js';
   </section>
 
   <section class="section" id="genes">
+    <div class="kicker">CORE CONCEPT</div>
     <h2>産業遺伝子とは</h2>
     <p class="lead">その地域の現在の産業構造を生み出した、地理・資源・技能・交易・制度・企業蓄積の連鎖。「主要産業」ではなく、産業がなぜそこに存在するのかを追います。</p>
+    <div class="legend-row">
+      <span class="claim-badge fact">FACT</span><span>確認可能な事実</span>
+      <span class="claim-badge interpretation">INTERPRETATION</span><span>事実をつないだ編集上の解釈</span>
+      <span class="claim-badge hypothesis">HYPOTHESIS</span><span>追加検証が必要な仮説</span>
+    </div>
   </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el = document.getElementById('atlas-map');
+      if (!el || !window.L) return;
+      const places = JSON.parse(el.dataset.places || '[]');
+      const base = el.dataset.base || '/';
+      const map = L.map(el, { scrollWheelZoom: false }).setView([34.38, 133.65], 8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      places.forEach((p) => {
+        const url = location.origin + base + 'places/' + p.id + '/';
+        L.marker([p.lat, p.lon]).addTo(map)
+          .bindPopup('<strong>' + p.name + '</strong><br>' + p.prefecture + '<br><a href="' + url + '">地域ページを読む →</a>');
+      });
+    })();
+  </script>
 </BaseLayout>
