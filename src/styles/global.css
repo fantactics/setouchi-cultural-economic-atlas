@@ -320,3 +320,12 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .belief-marker { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:#f6efe2; border:2px solid #8b6843; color:#6f4f2f; font-weight:900; box-shadow:0 1px 5px rgba(0,0,0,.2); }
 @media (max-width:900px){ .wind-vocabulary-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:700px){ .wind-vocabulary-grid,.belief-grid,.culture-flow-grid{grid-template-columns:1fr;} }
+
+.faith-filter-bar { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem; margin:.7rem 0 .9rem; }
+.faith-filter { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.4rem .7rem; font:inherit; font-size:.76rem; font-weight:700; cursor:pointer; }
+.faith-filter.active { background:var(--ink); color:white; border-color:var(--ink); }
+.faith-pattern-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:1rem 0; }
+.faith-pattern-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1rem; }
+.faith-pattern-card h3 { margin:.25rem 0 .5rem; font-size:1rem; }
+@media (max-width:900px){ .faith-pattern-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:650px){ .faith-pattern-grid{grid-template-columns:1fr;} }
