@@ -7,7 +7,7 @@ export const bookArticles = [
     subtitle:'赤穂・竹原・坂出・三田尻――同じ「塩の町」は、なぜ別々の都市になったのか',
     cities:['赤穂','竹原','坂出','防府（三田尻）'],
     keywords:['塩田','製塩','入浜式塩田','流下式塩田','干拓','商人資本','酒造','港湾','臨海工業','北前船','都市形成','地域能力資本'],
-    heroPhotoId:'photo-sakaide-salt-1955-official',
+    heroPhotoId:'photo-ako-salt-terrace-commons',
     lead:'1955年の坂出の写真を見ると、市街地のすぐ先まで塩田が広がっている。現在の工業港からは想像しにくい。同じ頃、赤穂にも、竹原にも、三田尻にも塩田があった。ところが数十年後、四つの町はまるで別々の道を歩く。なぜだろう。塩を作る条件から始め、塩が消えた後まで追ってみる。',
     sections:[
       {
@@ -17,7 +17,7 @@ export const bookArticles = [
           {text:'この写真を起点にすると、塩田史が急に都市史へ見えてくる。塩田とは「昔ここで塩を作っていました」という過去の産業ではなく、現在の海岸線と市街地の前身でもあるからだ。では、同じように大きな塩田をもった赤穂、竹原、三田尻では、その土地と産業はどうなったのか。',refs:[]},
           {text:'最初は四地域の共通点を探す。だが、この記事で本当に知りたいのは共通点の先にある分岐である。同じ自然条件を利用し、似た製塩技術を使ったのに、なぜ「塩の後」が違ったのか。',refs:[]}
         ],
-        photoIds:['photo-sakaide-salt-1955-official','photo-sakaide-bannosu-aerial']
+        photoIds:['photo-sakaide-city-commons','photo-sakaide-bannosu-aerial']
       },
       {
         heading:'そもそも、塩田は何をしていたのか',
@@ -26,7 +26,7 @@ export const bookArticles = [
           {text:'防府市が説明する入浜式塩田は、塩田面を潮位の中間ほどに置き、満潮時には海水を浜へ導き、干潮時には雨水などを排水する。つまり潮の上下運動そのものを生産設備の一部として利用していた。',refs:[1]},
           {text:'ここから必要条件を並べると、海水だけでは足りないことが分かる。遠浅の海岸、干満、日照、風、平坦地、燃料、労働力。そして製品を市場へ運ぶ船と港である。塩田は自然条件と土木・熱・物流を一体化した沿岸工場だった。',refs:[]}
         ],
-        photoIds:['photo-hofu-salt-official','photo-ako-shionokuni-official','photo-hofu-salt-chimney']
+        photoIds:['photo-hofu-salt-commons','photo-ako-salt-terrace-commons','photo-hofu-salt-chimney']
       },
       {
         heading:'四つの町は、本当に同じ「塩の町」だったのか',
@@ -37,7 +37,7 @@ export const bookArticles = [
           {text:'竹原では賀茂川河口の竹原湾を干拓し、入浜式塩田を導入して全国有数の製塩地へ発展した。竹原市は、製塩を基盤に酒造・廻船などの多角経営で財を成した富裕層が町家を建て、現在の歴史的町並みを形成したと説明する。',refs:[5]},
           {text:'ここまでは、四つを「瀬戸内製塩都市」という一つの箱に入れられる。ところが、20世紀後半まで時間を進めると、この箱が急に役に立たなくなる。',refs:[]}
         ],
-        photoIds:['photo-ako-shionokuni-official','photo-takehara-town-official','photo-hofu-mitajiri-salt']
+        photoIds:['photo-ako-salt-terrace-commons','photo-takehara-taketsuru-commons','photo-hofu-salt-commons']
       },
       {
         heading:'赤穂――塩田がなくなっても、「塩を作る会社」は残った',
@@ -47,7 +47,7 @@ export const bookArticles = [
           {text:'ここで安易に「江戸時代の職人技がそのままイオン交換膜へ継承された」とは言えない。技術体系は別物である。だが、製塩事業者の組織、設備投資を続ける意思、専売制度への対応、製塩産地としての認知が近代技術への転換を支える条件になった可能性は検討できる。',refs:[]},
           {text:'赤穂市は現在、復元施設「塩の国」で製塩体験を行い、鹹水からつくる塩の商品活用も進めている。ここでは「現役産業」と「文化遺産」が重なっている。',refs:[13]}
         ],
-        photoIds:['photo-ako-branch-rack-official','photo-ako-salt-terrace','photo-ako-power-plant']
+        photoIds:['photo-ako-salt-terrace-commons','photo-ako-salt-terrace','photo-ako-power-plant']
       },
       {
         heading:'竹原――塩は消えたが、塩でできた町家が残った',
@@ -57,7 +57,7 @@ export const bookArticles = [
           {text:'しかも竹原では、塩田跡そのものも別の町を作った。都市計画資料によれば、現在の竹原駅や市庁舎周辺にはかつて塩田が広がり、1932年の鉄道開業前後から埋立が進んだ。1960年に約300年続いた塩田が全面廃止されると、国道185号などが整備され、市庁舎、市民館、福祉会館などの都市機能が旧本町側から塩田跡側へ移っていった。',refs:[7]},
           {text:'竹原では塩田が二つの遺産を残したことになる。一つは、塩で稼いだ富が固定された歴史的町並み。もう一つは、塩田が消えたことで生まれた広い市街地用地である。同じ産業の遺産が、旧市街と新市街の双方に残った。',refs:[]}
         ],
-        photoIds:['photo-takehara-town-official','photo-takehara-historic-district','photo-takehara-view']
+        photoIds:['photo-takehara-taketsuru-commons','photo-takehara-historic-district','photo-takehara-view']
       },
       {
         heading:'坂出――「塩田の広さ」が、そのまま次の時代の武器になる',
@@ -67,7 +67,7 @@ export const bookArticles = [
           {text:'さらに現在の林田・阿河浜埠頭について、坂出市は「塩田跡地とその地先海面を埋立して造成した」と明記する。そこには穀物サイロ、自動車のモータープール、セメント、LPG、化学・製粉などの施設が立地する。',refs:[9]},
           {text:'ここで継承されたのは、赤穂のような製塩事業そのものでも、竹原のような商家群でもない。まず目に入るのは、海岸に人工的につくられた広い平坦面と港湾接続である。塩田は「海を産業用の陸地へ変える」土地改変でもあった。その空間的資産が、戦後にはさらに大規模な埋立と臨海工業へ接続した、と読むことができる。',refs:[]}
         ],
-        photoIds:['photo-sakaide-salt-1955-official','photo-sakaide-reclamation-1964-official','photo-sakaide-industry-1960s-official','photo-sakaide-bannosu']
+        photoIds:['photo-sakaide-city-commons','photo-sakaide-bannosu-aerial','photo-sakaide-bannosu']
       },
       {
         heading:'三田尻――塩田だけを見ると、半分しか見えない',
@@ -77,7 +77,7 @@ export const bookArticles = [
           {text:'1960年に防府の塩田が全面廃止された後、その広大な跡地と埋立地には東海カーボン、ブリヂストン、マツダなど大規模工場が立地し、臨海工業地帯が形成されたと防府市の都市計画資料は説明する。',refs:[12]},
           {text:'三田尻にも坂出と同じ「塩田跡→工業用地」という連続がある。ただし、三田尻では近世以来の広域販路と外港性が強く見える。土地だけでなく、「外部世界へつなぐ場所」という都市機能まで含めて考えた方がよさそうだ。',refs:[]}
         ],
-        photoIds:['photo-hofu-salt-official','photo-hofu-mitajiri-port','photo-hofu-salt-chimney']
+        photoIds:['photo-hofu-salt-commons','photo-hofu-mitajiri-port','photo-hofu-salt-chimney']
       },
       {
         heading:'四つを並べると、「塩」が比較軸ではなくなる',
@@ -87,7 +87,7 @@ export const bookArticles = [
           {text:'すると「塩田の遺産」という言葉も一つでは足りない。製造能力、資本、土地、港湾ネットワーク。産業は市場へ出す商品だけでなく、地域内部にも何かを生産している、と考えたくなる。帳簿には載りにくいが、それが産業終了後の選択肢を決める。',refs:[]},
           {text:'この段階でようやく、「地域能力資本」という考え方が必要になる。産業が長年動くことで、技能、企業、設備、土地、信用、商流、制度が蓄積する。資源や商品が消えても、それらは別用途へ組み替えられる場合がある。',refs:[]}
         ],
-        photoIds:['photo-ako-shionokuni-official','photo-takehara-town-official','photo-sakaide-salt-1955-official','photo-hofu-salt-official']
+        photoIds:['photo-ako-salt-terrace-commons','photo-takehara-taketsuru-commons','photo-sakaide-city-commons','photo-hofu-salt-commons']
       },
       {
         heading:'塩田はなくなった。しかし塩田史は終わっていない',
@@ -96,7 +96,7 @@ export const bookArticles = [
           {text:'竹原の町家は塩田から遠く見えるが、塩の利益が固定されたものとして読める。坂出の工業港は塩と無関係に見えるが、塩田・埋立という長い海岸改変史の上にある。赤穂の現代製塩は、入浜式塩田とは技術が違っても、製塩事業を地域に残した。三田尻の臨海部には、塩と船の集散地だった履歴が重なっている。',refs:[]},
           {text:'四つの町を比べて得たのは、大きな結論というより次の問いである。ある産業がなくなったとき、町に何が置き去りにされるのか。それは次の時代に使えるのか。次の記事では、その問いを児島へ持っていく。綿が地元から消えても、なぜ足袋、学生服、ジーンズへ産業がつながったのか。',refs:[]}
         ],
-        photoIds:['photo-takehara-historic-district','photo-sakaide-bannosu-aerial','photo-hofu-mitajiri-port','photo-ako-branch-rack-official']
+        photoIds:['photo-takehara-historic-district','photo-sakaide-bannosu-aerial','photo-hofu-mitajiri-port','photo-ako-salt-terrace-commons']
       }
     ],
     provisionalConclusion:'四つの製塩地が別々の未来へ進んだ理由を考えるなら、「塩を作っていた」という共通点より、製塩の過程で何が地域内部に蓄積され、そのうち何が次の時代に再利用されたかを見る方が説明力が高そうである。',
