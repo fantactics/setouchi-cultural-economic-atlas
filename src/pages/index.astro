@@ -1,303 +1,133 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { places } from '../data/places.js';
-import { mapLayers, mapLayerLabels } from '../data/mapLayers.js';
-import { photoEvidence } from '../data/photoEvidence.js';
-const mapPlaces = places.map(({id,name,prefecture,lat,lon,subtitle}) => ({id,name,prefecture,lat,lon,subtitle}));
-const placeTypes = {
-  ako:'resource', onomichi:'network', imabari:'capital',
-  shimotsui:'route', tadotsu:'transport', mitarai:'stay',
-  ushimado:'network', tomonoura:'stay', mihara:'multimodal', takehara:'resource-convert',
-  matsuyama:'multimodal', shimonoseki:'network', yanai:'network', hofu:'resource',
-  hiketa:'stay', sakaide:'resource', takamatsu:'multimodal',
-  niihama:'resource-convert', shodoshima:'resource-convert', iwakuni:'network'
-};
-const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : prefecture.startsWith('山口') ? 'yamaguchi' : 'other';
-const baseUrl = '/setouchi-cultural-economic-atlas/';
-const photoMapLayer = photoEvidence.map((item)=>({
-  name:item.title,lat:item.lat,lon:item.lon,note:item.caption,
-  status:'verified',sourceId:'PHOTO',sourceLabel:item.author+' / '+item.license,
-  sourceUrl:item.sourcePage,verifiedAt:item.verifiedAt,
-  imageUrl:item.imageUrl,alt:item.alt,placeId:item.placeId
-}));
-const mapLayersAll = {...mapLayers, photoEvidence:photoMapLayer};
-const mapLayerLabelsAll = {...mapLayerLabels, photoEvidence:'写真証拠'};
+import { researchChapters } from '../data/researchChapters.js';
+import { concepts } from '../data/concepts.js';
+
+const featuredConceptIds=[
+  'regional-capability-capital','traffic-friction','economy-of-waiting',
+  'nodal-capital','urban-stratigraphy','remote-ecosystem-connection',
+  'ecosystem-on-a-plate','landscape-of-practice','invisible-supply-source'
+];
+const featuredConcepts=featuredConceptIds.map((id)=>concepts.find((x)=>x.id===id)).filter(Boolean);
+const featuredPlaceIds=['onomichi','mitarai','tadotsu','kojima','imabari','niihama','shodoshima','matsuyama','yanai','iwakuni'];
+const featuredPlaces=featuredPlaceIds.map((id)=>places.find((x)=>x.id===id)).filter(Boolean);
 ---
-<BaseLayout>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-
-  <section class="hero">
-    <div class="eyebrow">Regional intelligence / Setouchi cultural-economic atlas</div>
-    <h1>自然から、町と文化ができるまで。</h1>
-    <p>地形・水・海の生態系から、生業、港・交易、加工技術、都市、食・信仰・景観までを因果でつなぎ、「なぜこの町はこの町になったのか」を読む文化経済アトラス。</p>
-  </section>
-
-  <section class="section research-spine">
-    <div class="kicker">RESEARCH SPINE</div>
-    <h2>地域を「項目」ではなく「因果」で読む</h2>
-    <p class="lead">自然条件は産業を決定しません。地形・気候・水・海況が与える制約と可能性に、人間が技術・制度・交易・投資で応答し、その反復が地域能力、都市、食文化、信仰、景観として残ります。</p>
-    <div class="grid">
-      <div class="card"><div class="kicker">01</div><h3>自然基盤</h3><p>地形・地質・気候・水・海況・生態系。</p></div>
-      <div class="card"><div class="kicker">02</div><h3>生業と変換技術</h3><p>漁・農・塩・石・鉱山を、加工可能な資源へ変える。</p></div>
-      <div class="card"><div class="kicker">03</div><h3>港・交通・交易</h3><p>交通摩擦と外部接続が、人・物・資本・信仰を動かす。</p></div>
-      <div class="card"><div class="kicker">04</div><h3>地域能力</h3><p>技能・企業・工程・金融・教育が、資源依存を能力依存へ変える。</p></div>
-      <div class="card"><div class="kicker">05</div><h3>文化と都市</h3><p>食・祭礼・景観・町割りに、地域システムが固定される。</p></div>
+<BaseLayout title="瀬戸内文化経済アトラス" description="自然・生業・交易・産業・文化・都市の因果から、瀬戸内を読む文化経済アトラス。">
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <div class="eyebrow">SETOUCHI CULTURE & ECONOMY ATLAS</div>
+      <h1>自然から、<br />町と文化ができるまで。</h1>
+      <p>瀬戸内を「名物」「観光地」「主要産業」の一覧ではなく、地形・水・海の生態系から、生業、港・交易、加工技術、都市、食・信仰・景観へ続く因果の連鎖として読むアトラス。</p>
+      <div class="home-hero-actions">
+        <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/">研究本文を読む →</a>
+        <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域から読む →</a>
+      </div>
+    </div>
+    <div class="home-hero-model">
+      <div class="model-node"><span>01</span><b>自然基盤</b><small>地形・地質・気候・水・海況</small></div>
+      <div class="model-arrow">↓</div>
+      <div class="model-node"><span>02</span><b>生業と技術</b><small>漁・塩・農・石・鉱山・発酵</small></div>
+      <div class="model-arrow">↓</div>
+      <div class="model-node"><span>03</span><b>交易と地域能力</b><small>港・船・技能・企業・金融</small></div>
+      <div class="model-arrow">↓</div>
+      <div class="model-node"><span>04</span><b>文化と都市</b><small>食・信仰・景観・町割り</small></div>
     </div>
   </section>
 
-  <section class="section map-section">
-    <div class="kicker">MAP NAVIGATION</div>
-    <h2>地図から読む</h2>
-    <p class="lead">{places.length}地域を同じ海域の中に置くと、東西で異なる地理条件と産業形成が見えてきます。ピンを選ぶと地域ページへ移動できます。</p>
-    <div class="map-toolbar">
-      {Object.entries(mapLayerLabelsAll).map(([key,label]) => (
-        <button type="button" class="map-layer-toggle active" data-layer={key}>{label}</button>
-      ))}
+  <section class="section home-manifesto">
+    <div class="kicker">CORE QUESTION</div>
+    <h2>「自然環境が何を可能にし、人間がそれを何に変えた地域なのか」</h2>
+    <p class="lead">自然は産業を決定しません。自然が与える制約と可能性に、人間が技術・制度・交易・投資で応答します。その反復が、地域能力、都市、料理、祭礼、景観として残ります。</p>
+    <div class="evidence-legend">
+      <span><i class="legend-line solid"></i><b>実線</b> 検証できる因果</span>
+      <span><i class="legend-line dashed"></i><b>破線</b> 強いが複合要因</span>
+      <span><i class="legend-line dotted"></i><b>点線</b> 検証中の仮説</span>
     </div>
-    <div id="atlas-map" class="atlas-map" data-base={baseUrl} data-places={JSON.stringify(mapPlaces)} data-layers={JSON.stringify(mapLayersAll)}></div>
-    <p class="map-note">地図データ © OpenStreetMap contributors</p>
   </section>
 
   <section class="section">
-    <h2>{places.length}の地域から読む</h2>
-    <p class="lead">同じ瀬戸内でも、地域を形成した産業遺伝子は大きく異なります。</p>
-    <div class="place-filter-bar" aria-label="地域絞り込み">
-      <div class="filter-group">
-        <span class="filter-label">県</span>
-        <button type="button" class="place-filter active" data-filter-kind="pref" data-filter-value="all">すべて</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="hyogo">兵庫</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="okayama">岡山</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="kagawa">香川</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="hiroshima">広島</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="ehime">愛媛</button>
-        <button type="button" class="place-filter" data-filter-kind="pref" data-filter-value="yamaguchi">山口</button>
+    <div class="section-heading-row">
+      <div>
+        <div class="kicker">RESEARCH CHAPTERS</div>
+        <h2>02〜10章：瀬戸内ができるまで</h2>
       </div>
-      <div class="filter-group">
-        <span class="filter-label">類型</span>
-        <button type="button" class="place-filter active" data-filter-kind="type" data-filter-value="all">すべて</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="resource">資源・土地</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="route">航路・漁場</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="transport">交通継承</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="network">交易・ネットワーク</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="stay">滞留経済</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="multimodal">複合交通</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="resource-convert">資源利益転換</button>
-        <button type="button" class="place-filter" data-filter-kind="type" data-filter-value="capital">資本循環</button>
-      </div>
-      <p class="filter-count"><span id="visible-place-count">{places.length}</span> / {places.length} 地域</p>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/chapters/">全章を見る →</a>
     </div>
-    <div class="grid" id="place-grid">
-      {places.map((place) => (
-        <a class="card place-card" data-pref={prefectureKey(place.prefecture)} data-type={placeTypes[place.id] || 'other'} href={`${baseUrl}places/${place.id}/`}>
-          <div class="kicker">{place.prefecture}</div>
-          <h3>{place.name}</h3>
-          <p>{place.subtitle}</p>
-          <ul class="tags">{place.tags.map((tag) => <li>{tag}</li>)}</ul>
+    <div class="chapter-card-grid">
+      {researchChapters.map((chapter)=>(
+        <a class="chapter-card" href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
+          <span class="chapter-no">{chapter.number}</span>
+          <h3>{chapter.title}</h3>
+          <p>{chapter.subtitle}</p>
+          <small>{chapter.sections.length} sections</small>
         </a>
       ))}
     </div>
   </section>
 
-  <section class="section photo-evidence-cta">
-    <div class="kicker">PHOTO EVIDENCE</div>
-    <h2>地形・港・町並み・産業を写真で検証する</h2>
-    <p class="lead">写真を観光イメージではなく、地域形成を読む視覚資料として、出典・ライセンス・分析とともに横断比較します。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/photos/">写真証拠を開く →</a>
-  </section>
-
-  <section class="section evolution-cta">
-    <div class="kicker">REGIONAL CAUSAL GRAPH</div>
-    <h2>「なぜこの町はこの町になったのか」を一枚で比較する</h2>
-    <p class="lead">自然条件、港・交通、産業遺伝子、資本、食・文化、現在の変化までを8ノードで結び、2地域を横並びで比較します。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/evolution/">地域因果グラフを開く →</a>
-  </section>
-
-  <section class="section textile-cta">
-    <div class="kicker">SETOUCHI TEXTILE BELT</div>
-    <h2>児島・今治・東かがわ・福山を、技能の継承で比較する</h2>
-    <p class="lead">綿作、港湾物流、軟水、縫製、藍染、織布、ブランド化。瀬戸内の主要繊維産地が「何を残して製品を変えたか」を横断比較します。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/textiles/">繊維・縫製産業帯を開く →</a>
-  </section>
-
-  <section class="section industry-cta">
-    <div class="kicker">INDUSTRY & CAPITAL</div>
-    <h2>港町の歴史を、現在の企業と産業まで追う</h2>
-    <p class="lead">地域産業、代表企業、資本形成、産業生態系を地域横断で比較し、産業遺伝子の連続と断絶を読みます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/industry/">産業・資本比較を開く →</a>
-  </section>
-
-  <section class="section wind-tide-cta">
-    <div class="kicker">WIND & TIDE</div>
-    <h2>潮と風がつくった航海の時間</h2>
-    <p class="lead">季節風、転流、潮待ち・風待ち、北前船の航海暦を重ね、自然条件が港町文化へ変換される過程を読みます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/wind-tide/">潮と風を開く →</a>
-  </section>
-
-  <section class="section transport-cta">
-    <div class="kicker">TRANSPORT NETWORKS</div>
-    <h2>北前船からフェリー、サイクリングへ</h2>
-    <p class="lead">歴史港、現在の海上交通、橋と自転車ルートを重ね、瀬戸内の交通結節点がどう変化したかを読みます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/transport/">交通ネットワークを開く →</a>
-  </section>
-
-  <section class="section seafood-cta">
-    <div class="kicker">SEAFOOD CULTURE</div>
-    <h2>鯛・タコ・シャコから瀬戸内を読む</h2>
-    <p class="lead">魚種、海域、漁法、料理、港町文化を横断して、瀬戸内の「海の食文化」を比較します。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/seafood/">海の食文化を開く →</a>
-  </section>
-
-  <section class="section climate-cta">
-    <div class="kicker">CLIMATE COMPARISON</div>
-    <h2>{places.length}地域の気候を横並びで読む</h2>
-    <p class="lead">年平均気温・年間降水量・年間日照時間を比較し、各地域の月別気候詳細へ移動できます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/climate/">気候比較を開く →</a>
-  </section>
-
-  <section class="section transect-cta">
-    <div class="kicker">CULTURAL TRANSECT</div>
-    <h2>下津井から今治まで、海の構造変化を追う</h2>
-    <p class="lead">漁場、潮待ち港、交易、商業資本、造船・海運へ。瀬戸内の都市形成を一本の文化断面として読みます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/transect/">文化断面図を開く →</a>
-  </section>
-
-  <section class="section typology-cta">
-    <div class="kicker">PORT CITY TYPOLOGY</div>
-    <h2>{places.length}地域を「富の生まれ方」で分類する</h2>
-    <p class="lead">資源、航路、交通、商業資本、滞留、資本循環。港町ごとに異なる形成メカニズムを比較します。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/typology/">港町類型を見る →</a>
-  </section>
-
-  <section class="section compare-cta">
-    <div class="kicker">COMPARE</div>
-    <h2>{places.length}地域を横並びで読む</h2>
-    <p class="lead">瀬戸内の{places.length}地域を、地理・気候・産業・資本形成・暮らしなど同じ軸で比較できます。</p>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/compare/">比較ページを開く →</a>
-  </section>
-
-  <section class="section" id="genes">
-    <div class="kicker">CORE CONCEPT</div>
-    <h2>地域能力は、どこから来たのか</h2>
-    <p class="lead">このアトラスでは、現在の主要産業だけを並べません。自然・資源・技能・交易・制度・企業蓄積の連鎖を追い、地域性が「地元原料」から「加工能力・企業集積・制度」へ移っていく過程も読みます。</p>
-    <div class="legend-row">
-      <span class="claim-badge fact">FACT</span><span>確認可能な事実</span>
-      <span class="claim-badge interpretation">INTERPRETATION</span><span>事実をつないだ編集上の解釈</span>
-      <span class="claim-badge hypothesis">HYPOTHESIS</span><span>追加検証が必要な仮説</span>
+  <section class="section gene-section">
+    <div class="section-heading-row">
+      <div>
+        <div class="kicker">ATLAS CONCEPTS</div>
+        <h2>議論から生まれた分析概念</h2>
+      </div>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典を見る →</a>
+    </div>
+    <div class="concept-preview-grid">
+      {featuredConcepts.map((item)=>(
+        <a class="concept-preview" href={`/setouchi-cultural-economic-atlas/concepts/#${item.id}`}>
+          <span>{item.category}</span>
+          <h3>{item.title}</h3>
+          <p>{item.definition}</p>
+        </a>
+      ))}
     </div>
   </section>
 
-  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script is:inline>
-    (() => {
-      const el = document.getElementById('atlas-map');
-      if (!el || !window.L) return;
-      const places = JSON.parse(el.dataset.places || '[]');
-      const layers = JSON.parse(el.dataset.layers || '{}');
-      const base = el.dataset.base || '/';
-      const map = L.map(el, { scrollWheelZoom: false }).setView([34.38, 133.65], 8);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
+  <section class="section">
+    <div class="section-heading-row">
+      <div>
+        <div class="kicker">CASE STUDIES</div>
+        <h2>地域ごとに、同じ問いを当てる</h2>
+      </div>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">全{places.length}地域を見る →</a>
+    </div>
+    <div class="home-place-grid">
+      {featuredPlaces.map((place)=>(
+        <a class="home-place-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+          <span>{place.prefecture}</span>
+          <h3>{place.name}</h3>
+          <p>{place.subtitle}</p>
+          <div class="mini-tags">{place.tags.slice(0,3).map((tag)=><small>{tag}</small>)}</div>
+        </a>
+      ))}
+    </div>
+  </section>
 
-      const cityLayer = L.layerGroup().addTo(map);
-      places.forEach((p) => {
-        const url = location.origin + base + 'places/' + p.id + '/';
-        L.marker([p.lat, p.lon]).addTo(cityLayer)
-          .bindPopup('<strong>' + p.name + '</strong><br>' + p.prefecture + '<br><a href="' + url + '">地域ページを読む →</a>');
-      });
-      if (places.length) {
-        map.fitBounds(L.latLngBounds(places.map((p) => [p.lat, p.lon])), { padding:[24,24] });
-      }
+  <section class="section">
+    <div class="kicker">MAPS & EVIDENCE</div>
+    <h2>本文を、地図・比較・写真で検証する</h2>
+    <div class="tool-grid">
+      <a href="/setouchi-cultural-economic-atlas/transect/"><span>断面</span><h3>Transect</h3><p>山から海までの地形断面。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/climate/"><span>気候</span><h3>Climate</h3><p>光・雨・気温・水条件。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/wind-tide/"><span>海況</span><h3>Wind & Tide</h3><p>潮と風という見えないインフラ。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/seafood/"><span>生態</span><h3>Seafood</h3><p>魚介・漁場・料理の地域差。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/transport/"><span>交通</span><h3>Transport</h3><p>歴史港から現代交通まで。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/industry/"><span>産業</span><h3>Industry</h3><p>土地・技能・企業の時間変化。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/textiles/"><span>産業帯</span><h3>Textiles</h3><p>児島・福山・今治・東かがわを工程で比較。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/typology/"><span>類型</span><h3>Typology</h3><p>地域形成メカニズムを横断比較。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/evolution/"><span>因果</span><h3>Evolution</h3><p>各地域の因果グラフを比較。</p></a>
+      <a href="/setouchi-cultural-economic-atlas/photos/"><span>写真</span><h3>Photo Evidence</h3><p>装飾ではなく、因果を示す写真。</p></a>
+    </div>
+  </section>
 
-      const styles = {
-        tidePorts: { radius: 8, fillOpacity: .75, weight: 1.5 },
-        strongCurrents: { radius: 11, fillOpacity: .18, weight: 2.5 },
-        foodCulture: { radius: 7, fillOpacity: .7, weight: 1.5 },
-        maritimeIndustry: { radius: 9, fillOpacity: .45, weight: 2 },
-        resourceStatus: { radius: 10, fillOpacity: .72, weight: 2 },
-        photoEvidence: { radius: 8, fillOpacity: .9, weight: 2.5 }
-      };
-      const overlayGroups = {};
-      Object.entries(layers).forEach(([key, items]) => {
-        const group = L.layerGroup().addTo(map);
-        overlayGroups[key] = group;
-        items.forEach((item) => {
-          const status = item.status === 'verified'
-            ? '<span class="map-source-status verified">VERIFIED</span>'
-            : '<span class="map-source-status pending">要追加検証</span>';
-          const source = item.sourceUrl
-            ? '<br><a href="' + item.sourceUrl + '" target="_blank" rel="noreferrer">' + (item.sourceId || 'SOURCE') + ' ' + (item.sourceLabel || '根拠資料') + ' ↗</a>' +
-              (item.verifiedAt ? '<br><small>verified ' + item.verifiedAt + '</small>' : '')
-            : '';
-          const resourceStyle = item.resourceStatus
-            ? {
-                radius: 10,
-                fillOpacity: .78,
-                weight: 2.2,
-                color: item.resourceStatus === 'declining' ? '#8a3f32'
-                  : item.resourceStatus === 'increasing' ? '#2f6b3b'
-                  : item.resourceStatus === 'recovered' ? '#356a5f'
-                  : '#675b7c',
-                fillColor: item.resourceStatus === 'declining' ? '#c96b5d'
-                  : item.resourceStatus === 'increasing' ? '#73a979'
-                  : item.resourceStatus === 'recovered' ? '#72a79a'
-                  : '#9d91b0'
-              }
-            : null;
-          const photo = item.imageUrl
-            ? '<br><img class="map-photo-thumb" src="' + item.imageUrl + '" alt="' + (item.alt || item.name) + '" loading="lazy">'
-            : '';
-          const detail = item.speciesId
-            ? '<br><a href="' + base + 'seafood/' + item.speciesId + '/">魚種詳細を見る →</a>'
-            : '';
-          L.circleMarker([item.lat, item.lon], resourceStyle || styles[key] || {radius:8})
-            .bindPopup('<strong>' + item.name + '</strong><br>' + item.note + photo + '<br>' + status + source + detail)
-            .addTo(group);
-        });
-      });
-
-      const filterState = { pref: 'all', type: 'all' };
-      const placeCards = Array.from(document.querySelectorAll('.place-card'));
-      const countEl = document.getElementById('visible-place-count');
-      const applyPlaceFilters = () => {
-        let visible = 0;
-        placeCards.forEach((card) => {
-          const matchPref = filterState.pref === 'all' || card.dataset.pref === filterState.pref;
-          const matchType = filterState.type === 'all' || card.dataset.type === filterState.type;
-          const show = matchPref && matchType;
-          card.hidden = !show;
-          if (show) visible += 1;
-        });
-        if (countEl) countEl.textContent = String(visible);
-      };
-      document.querySelectorAll('.place-filter').forEach((button) => {
-        button.addEventListener('click', () => {
-          const kind = button.dataset.filterKind;
-          const value = button.dataset.filterValue;
-          if (!kind || !value) return;
-          filterState[kind] = value;
-          document.querySelectorAll('.place-filter[data-filter-kind="' + kind + '"]').forEach((peer) => {
-            peer.classList.toggle('active', peer === button);
-          });
-          applyPlaceFilters();
-        });
-      });
-
-      document.querySelectorAll('.map-layer-toggle').forEach((button) => {
-        button.addEventListener('click', () => {
-          const key = button.dataset.layer;
-          const group = overlayGroups[key];
-          if (!group) return;
-          if (map.hasLayer(group)) {
-            map.removeLayer(group);
-            button.classList.remove('active');
-          } else {
-            map.addLayer(group);
-            button.classList.add('active');
-          }
-        });
-      });
-    })();
-  </script>
+  <section class="section home-method-link">
+    <div>
+      <div class="kicker">METHODOLOGY</div>
+      <h2>事実・解釈・仮説を分ける</h2>
+      <p class="lead">因果を作り過ぎないため、一次資料・公的資料で確認できる事実と、本アトラスの解釈、追加検証が必要な仮説を分けています。</p>
+    </div>
+    <a class="compare-button" href="/setouchi-cultural-economic-atlas/methodology/">編集・検証ルール →</a>
+  </section>
 </BaseLayout>
