@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const industryRows=[
+  ['児島','干拓・綿','織る・縫う・加工する','技能転用型','足袋→学生服→ジーンズ','商品より技能が長生きする'],
+  ['今治','海運・船','操船・修船・造船','集積自己増殖型','船主→造船→舶用→金融・教育','企業同士が互いの市場になる'],
+  ['新居浜','銅鉱床','採鉱・製錬・機械','企業内分岐型','銅山→機械／化学／非鉄','本業の補助能力が独立する'],
+  ['小豆島','塩・海運＋外部原料','発酵・食品加工','地域内連鎖型','塩→醤油→佃煮／素麺→ごま油','多数の事業者が横につながる']
+];
+
+const cityRows=[
+  ['尾道','線状高密度・積層型','港商業・商人資本','水道沿いの狭い平地','中世港→商人→鉄道→金融→観光'],
+  ['御手洗','圧縮混在・低上書き型','潮待ち・風待ち','小さな島の限られた平地','雁木・問屋・船宿・茶屋・神社が近接'],
+  ['多度津','交通結節更新型','参詣・海運→鉄道→工業','平野・港','中心が港→駅→臨海部へ移動'],
+  ['新居浜','企業インフラ・重心移動型','鉱山→工業','山地から臨海部','旧別子→東平→端出場→平野→海'],
+  ['松山','機能分離・多核統合型','城下＋温泉＋外港','松山平野','道後・城下・三津浜を鉄道が統合'],
+  ['柳井','商人資本固定型','広域交易','柳井川・旧湾岸','流れる富を町家・土地・銀行へ固定'],
+  ['岩国','対岸二極統合型','城下＋流域経済','錦川両岸','政治・武家地と商業地を橋で接続']
+];
+
+const localityRows=[
+  ['物質的地域性','地元原料・地元自然が不可欠','綿・銅・塩・石'],
+  ['能力的地域性','技能・設備・工程・企業集積が地域にある','児島縫製、今治造船'],
+  ['制度的地域性','教育・研究・金融・ブランドが能力を再生産する','共同研修、発酵研究、地域金融']
+];
+---
+<BaseLayout title="比較読解 | 瀬戸内文化経済アトラス" description="産業進化、都市形成、地域性の移動を地域横断で比較する。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">COMPARATIVE READING</div>
+    <h1>地域差を、同じ物差しで読む</h1>
+    <p class="subtitle">ランキングではなく、異なる進化経路を比較する。何が同じで、どこから分岐したのかを見るための比較ページです。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">INDUSTRIAL EVOLUTION</div>
+    <h2>4つの産業進化モデル</h2>
+    <p class="lead">4地域とも「地域資源→地域能力」へ進みますが、その経路は異なります。</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>地域</th><th>起点</th><th>最初の能力</th><th>進化方式</th><th>代表的な連鎖</th><th>読み取り</th></tr></thead>
+        <tbody>{industryRows.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <div class="comparison-callout">
+      <strong>共通命題</strong>
+      <p>地域産業の持続性を決めるのは、同じ商品を守れるかではなく、蓄積した能力を別の商品・原料・市場へ再構成できるか。</p>
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">LOCALITY SHIFT</div>
+    <h2>地域性は「原料」から「能力・制度」へ移動する</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>層</th><th>何に依存するか</th><th>例</th></tr></thead>
+        <tbody>{localityRows.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <p class="lead">原料が地域外へ移っても、加工能力・企業関係・教育・ブランドが地域に残れば、地域性が消えるとは限りません。「脱地域化」ではなく「地域性の層が変わる」と読みます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">URBAN FORMATION</div>
+    <h2>7つの都市形成モデル</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>地域</th><th>都市型</th><th>経済エンジン</th><th>地形条件</th><th>空間の特徴</th></tr></thead>
+        <tbody>{cityRows.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">THREE QUESTIONS</div>
+    <h2>都市を比較するときの共通質問</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>何が人を集めたか</h3><p>港、鉱山、城、温泉、参詣、工場など、都市を維持した経済エンジンを特定する。</p></article>
+      <article class="insight-card"><h3>誰が町を作ったか</h3><p>藩、豪商、企業、鉄道会社、中小企業ネットワークなど、投資・公共機能の主体を見る。</p></article>
+      <article class="insight-card"><h3>富はどこへ固定されたか</h3><p>町家、寺社、土地、銀行、工場、社宅、港湾など、流動的利益が都市資産へ変わる先を見る。</p></article>
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">CULTURE AS SYSTEM OUTPUT</div>
+    <h2>料理・祭礼・景観も比較できる</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>料理</h3><p>「何が名物か」ではなく、どの生態系・加工・保存・交易が一皿へ統合されたかを見る。</p></article>
+      <article class="insight-card"><h3>祭礼</h3><p>祭神だけでなく、祭礼日、経路、奉納者、講、港との位置関係を追い、旧航路・共同体を読む。</p></article>
+      <article class="insight-card"><h3>景観</h3><p>美しさではなく、石垣・雁木・蔵・路地がどの生活技術・生業を固定したものかを読む。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">NEXT</div>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/capabilities/">07 地域能力を読む →</a>
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/cities/">09 都市形成を読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
+    </div>
+  </section>
+</BaseLayout>
