@@ -62,16 +62,16 @@ export const bookArticles = [
     provisionalConclusion:'四地域の分岐を説明する鍵は「塩」そのものではなく、塩業の過程で地域に蓄積されたものの違いにある――というのが、いまのところの仮説である。',
     openQuestions:['塩業利益が次産業へ再投資された経路を家・企業単位で追えるか','塩田跡地の用途転換を旧版地形図で時系列比較できるか','塩商人・廻船・金融の人的ネットワークを四地域で比較できるか'],
     sources:[
-      {id:1,title:'塩づくりの歴史・技術',publisher:'赤穂市／赤穂市立海洋科学館関連資料',url:'https://www.city.ako.lg.jp/'},
+      {id:1,title:'「日本第一」の塩を産したまち 播州赤穂（日本遺産ストーリーブック）',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/sangyoshinko/kanko/documents/storybook.pdf'},
       {id:2,title:'赤穂西浜関係資料',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/koushitsu/hishokouhou/documents/r5_news_report_427.pdf'},
       {id:3,title:'三田尻塩田の歴史',publisher:'防府市',url:'https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html'},
       {id:4,title:'坂出塩田の父「久米通賢」',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html'},
-      {id:5,title:'竹原の歴史的景観・製塩',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/'},
+      {id:5,title:'竹原市竹原地区伝統的建造物群保存地区',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html'},
       {id:6,title:'赤穂西浜関係資料（近代製塩）',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/koushitsu/hishokouhou/documents/r5_news_report_427.pdf'},
       {id:7,title:'竹原市都市計画マスタープラン 第1章',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/material/files/group/19/03_dai1shouR4.pdf'},
       {id:8,title:'坂出港の概要',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'},
       {id:9,title:'林田・阿河浜埠頭',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html'},
-      {id:10,title:'竹原の歴史的町並み形成資料',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/'}
+      {id:10,title:'竹原市歴史的風致維持向上計画',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html'}
     ]
   },
   {
@@ -360,7 +360,7 @@ export const bookArticles = [
       {id:3,title:'数字でみるSHI',publisher:'住友重機械工業',url:'https://www.shi.co.jp/saiyo/future/data.html'},
       {id:4,title:'住友化学 トップメッセージ（創業の背景）',publisher:'住友化学',url:'https://www.sumitomo-chem.co.jp/company/topmessage/'},
       {id:5,title:'よくわかる住友化学ストーリー',publisher:'住友化学',url:'https://www.sumitomo-chem.co.jp/ir/individual/story/'},
-      {id:6,title:'新居浜の歴史・「山から浜へ」関連資料',publisher:'新居浜市',url:'https://www.city.niihama.lg.jp/'},
+      {id:6,title:'別子銅山と新居浜の産業・都市形成資料',publisher:'新居浜市',url:'https://www.city.niihama.lg.jp/'},
       {id:7,title:'地方後栄策に関する市議会・市史資料',publisher:'新居浜市',url:'https://www.city.niihama.lg.jp/'}
     ]
   },
