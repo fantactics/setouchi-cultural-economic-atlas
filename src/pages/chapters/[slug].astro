@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { researchChapters } from '../../data/researchChapters.js';
+
+export function getStaticPaths() {
+  return researchChapters.map((chapter)=>({
+    params:{slug:chapter.slug},
+    props:{chapter}
+  }));
+}
+const { chapter } = Astro.props;
+const labels={fact:'FACT',interpretation:'INTERPRETATION',hypothesis:'HYPOTHESIS'};
+---
+<BaseLayout title={`${chapter.number} ${chapter.title} | 瀬戸内文化経済アトラス`} description={chapter.subtitle}>
+  <section class="place-hero chapter-hero">
+    <div class="kicker">CHAPTER {chapter.number}</div>
+    <h1>{chapter.title}</h1>
+    <p class="subtitle">{chapter.subtitle}</p>
+    <div class="chapter-thesis">{chapter.thesis}</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <div class="kicker">WHY IT MATTERS</div>
+    {chapter.intro.map((p)=><p class="lead">{p}</p>)}
+  </section>
+
+  <section class="section chapter-toc">
+    <div class="kicker">CONTENTS</div>
+    <div class="chapter-toc-grid">
+      {chapter.sections.map((section,i)=>(
+        <a href={`#section-${i+1}`}><span>{String(i+1).padStart(2,'0')}</span>{section.title}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section chapter-body">
+    {chapter.sections.map((section,i)=>(
+      <article class="research-section" id={`section-${i+1}`}>
+        <div class="research-section-head">
+          <span class="research-section-num">{chapter.number}-{String(i+1).padStart(2,'0')}</span>
+          <div class={`claim-badge ${section.claim}`}>{labels[section.claim] || section.claim}</div>
+        </div>
+        <h2>{section.title}</h2>
+        <div class="research-copy">
+          {section.paragraphs.map((p)=><p>{p}</p>)}
+        </div>
+        {section.chain?.length > 0 && (
+          <div class="research-chain">
+            {section.chain.map((step,idx)=>(
+              <>
+                <span>{step}</span>
+                {idx<section.chain.length-1 && <b>→</b>}
+              </>
+            ))}
+          </div>
+        )}
+      </article>
+    ))}
+  </section>
+
+  <section class="section chapter-related">
+    <div class="kicker">EXPLORE THE EVIDENCE</div>
+    <h2>地図・データ・地域ページへ</h2>
+    <div class="chapter-related-grid">
+      {chapter.related.map((item)=><a class="compare-button" href={item.href}>{item.label} →</a>)}
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">全章一覧 →</a>
+    </div>
+  </section>
+</BaseLayout>
