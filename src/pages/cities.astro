@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bookArticles, bookCities } from '../data/bookArticles.js';
+import { places } from '../data/places.js';
+const placeAliases={
+  '児島':'shimotsui','下津井':'shimotsui','今治':'imabari','新居浜':'niihama','小豆島':'shodoshima',
+  '御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','鞆の浦':'tomonoura','赤穂':'ako',
+  '竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','牛窓':'ushimado'
+};
+const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
+---
+<BaseLayout title="都市から読む | 瀬戸内文化経済アトラス" description="都市名・地域名から連載記事を逆引きする索引。">
+  <section class="index-hero">
+    <div class="kicker">CITY INDEX</div>
+    <h1>都市から読む</h1>
+    <p>町の名前から、関連する連載へ戻れます。同じ都市が塩、港、信仰、産業と別の文脈で何度も登場します。</p>
+  </section>
+  <section class="section alpha-index">
+    {bookCities.map((city)=>{
+      const related=bookArticles.filter((a)=>a.cities.includes(city));
+      const place=placeById[placeAliases[city]];
+      return (
+        <article class="reverse-index-entry" id={encodeURIComponent(city)}>
+          <div class="reverse-index-title">
+            <h2>{city}</h2>
+            {place && <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>地域データ →</a>}
+          </div>
+          <div class="reverse-index-links">
+            {related.map((a)=><a href={`/setouchi-cultural-economic-atlas/book/${a.slug}/`}><span>第{a.number}回</span><strong>{a.title}</strong><small>{a.subtitle}</small></a>)}
+          </div>
+        </article>
+      )
+    })}
+  </section>
+</BaseLayout>
