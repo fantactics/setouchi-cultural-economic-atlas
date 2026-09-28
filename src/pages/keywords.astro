@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bookArticles, bookKeywords } from '../data/bookArticles.js';
+---
+<BaseLayout title="キーワードから読む | 瀬戸内文化経済アトラス" description="潮待ち、造船、住吉神社、塩田などのキーワードから連載記事を逆引きする索引。">
+  <section class="index-hero">
+    <div class="kicker">KEYWORD INDEX</div>
+    <h1>キーワードから読む</h1>
+    <p>「潮待ち」「造船」「住吉神社」のような小さな入口から、地域を横断して読み進められます。</p>
+    <input id="keyword-search" class="keyword-search" type="search" placeholder="キーワードを絞り込む…" />
+  </section>
+  <section class="section keyword-index" id="keyword-index">
+    {bookKeywords.map((keyword)=>{
+      const related=bookArticles.filter((a)=>a.keywords.includes(keyword));
+      return (
+        <article class="keyword-entry" id={encodeURIComponent(keyword)} data-keyword={keyword}>
+          <h2>{keyword}</h2>
+          <div>
+            {related.map((a)=><a href={`/setouchi-cultural-economic-atlas/book/${a.slug}/`}><span>第{a.number}回</span>{a.title}</a>)}
+          </div>
+        </article>
+      )
+    })}
+  </section>
+  <script is:inline>
+    (() => {
+      const input=document.getElementById('keyword-search');
+      const entries=[...document.querySelectorAll('.keyword-entry')];
+      input?.addEventListener('input',()=>{
+        const q=input.value.trim().toLowerCase();
+        entries.forEach((el)=>{el.hidden=q && !el.dataset.keyword.toLowerCase().includes(q);});
+      });
+    })();
+  </script>
+</BaseLayout>
