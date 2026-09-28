@@ -40,6 +40,23 @@ const { essay } = Astro.props;
     ))}
   </section>
 
+  {essay.comparison && (
+    <section class="section">
+      <div class="kicker">COMPARISON AFTER THE REASONING</div>
+      <h2>ここまで考えた上で、横に並べる</h2>
+      <div class="compare-table-wrap">
+        <table class="compare-table reasoning-table">
+          <thead><tr>{essay.comparison.headers.map((h)=><th>{h}</th>)}</tr></thead>
+          <tbody>
+            {essay.comparison.rows.map((row)=>(
+              <tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
   <section class="section reasoning-provisional">
     <div class="kicker">PROVISIONAL CONCLUSION</div>
     <h2>いまのところ、こう考える</h2>
