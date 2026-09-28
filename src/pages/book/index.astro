@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { bookArticles } from '../../data/bookArticles.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const parts=[...new Set(bookArticles.map((a)=>a.part))];
+---
+<BaseLayout title="読む瀬戸内 | 瀬戸内文化経済アトラス" description="史実と風景から考えを組み立てる、連載型の瀬戸内文化経済アトラス。">
+  <section class="book-cover">
+    <div class="book-cover-inner">
+      <div class="kicker">A SERIAL BOOK OF SETOUCHI</div>
+      <h1>読む瀬戸内</h1>
+      <p>土地を見て、史料を読み、別の町と比べる。結論へ急がず、事実と事実のあいだを歩きながら、地域がどうできたのかを考える連載です。</p>
+      <div class="book-cover-links">
+        <a href="/setouchi-cultural-economic-atlas/cities/">都市から逆引き →</a>
+        <a href="/setouchi-cultural-economic-atlas/keywords/">キーワードから逆引き →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section book-intro">
+    <div class="kicker">HOW TO READ</div>
+    <h2>第1回から順に読んでも、途中の町から入ってもいい</h2>
+    <p class="lead">各記事は、風景や物証から始まり、確認できる史実を積み上げ、別地域との比較で説明の弱点を探し、そこから仮説を組み立てます。「答え」は最後に数行だけ置きます。</p>
+  </section>
+
+  {parts.map((part)=>(
+    <section class="section book-part">
+      <div class="book-part-title">{part}</div>
+      <div class="book-toc-list">
+        {bookArticles.filter((a)=>a.part===part).map((article)=>{
+          const photo=photoById[article.heroPhotoId];
+          return (
+            <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+              <div class="book-toc-number">{article.number}</div>
+              <div class="book-toc-copy">
+                <h2>{article.title}</h2>
+                <p>{article.subtitle}</p>
+                <div class="book-toc-tags">{article.cities.map((x)=><span>{x}</span>)}</div>
+              </div>
+              {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
+            </a>
+          )
+        })}
+      </div>
+    </section>
+  ))}
+</BaseLayout>

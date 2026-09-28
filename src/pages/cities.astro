@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bookArticles, bookCities } from '../data/bookArticles.js';
+import { places } from '../data/places.js';
+
+const aliases={
+  '児島':['shimotsui'],'下津井':['shimotsui'],'倉敷':['shimotsui'],'井原':[],
+  '今治':['imabari'],'波止浜':['imabari'],'来島海峡':['imabari'],
+  '新居浜':['niihama'],'別子':['niihama'],'東平':['niihama'],
+  '小豆島':['shodoshima'],'御手洗':['mitarai'],'多度津':['tadotsu'],'尾道':['onomichi'],
+  '鞆の浦':['tomonoura'],'赤穂':['ako'],'竹原':['takehara'],'坂出':['sakaide'],
+  '防府（三田尻）':['hofu'],'牛窓':['ushimado']
+};
+const allCities=[...new Set([...places.map((p)=>p.name),...bookCities])].sort((a,b)=>a.localeCompare(b,'ja'));
+const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
+const placeFor=(city)=>{
+  const exact=places.find((p)=>p.name===city);
+  if(exact) return exact;
+  const ids=aliases[city]||[];
+  return ids.length?placeById[ids[0]]:null;
+};
+---
+<BaseLayout title="都市から読む | 瀬戸内文化経済アトラス" description="都市名・地域名から連載記事と地域資料を逆引きする索引。">
+  <section class="index-hero">
+    <div class="kicker">CITY INDEX</div>
+    <h1>都市から読む</h1>
+    <p>町の名前から、関連する連載と地域資料へ戻れます。同じ都市が塩、港、信仰、産業と別の文脈で何度も登場します。</p>
+  </section>
+  <section class="section alpha-index">
+    {allCities.map((city)=>{
+      const related=bookArticles.filter((a)=>a.cities.includes(city));
+      const place=placeFor(city);
+      return (
+        <article class="reverse-index-entry" id={city}>
+          <div class="reverse-index-title">
+            <h2>{city}</h2>
+            {place && <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>地域データ →</a>}
+          </div>
+          {related.length>0 ? (
+            <div class="reverse-index-links">
+              {related.map((a)=><a href={`/setouchi-cultural-economic-atlas/book/${a.slug}/`}><span>第{a.number}回</span><strong>{a.title}</strong><small>{a.subtitle}</small></a>)}
+            </div>
+          ) : (
+            <p class="index-coming">この地域を主題にした連載は準備中です。地域データ・写真・地図から先に辿れます。</p>
+          )}
+        </article>
+      )
+    })}
+  </section>
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bookArticles, bookKeywords } from '../data/bookArticles.js';
+import { places } from '../data/places.js';
+import { concepts } from '../data/concepts.js';
+
+const extras=[
+  {keyword:'自転車',links:[
+    {label:'尾道（しまなみ海道の本州側）',href:'/setouchi-cultural-economic-atlas/places/onomichi/'},
+    {label:'今治（しまなみ海道の四国側）',href:'/setouchi-cultural-economic-atlas/places/imabari/'}
+  ]},
+  {keyword:'鯛料理',links:[
+    {label:'瀬戸内の魚介・料理',href:'/setouchi-cultural-economic-atlas/seafood/'},
+    {label:'今治',href:'/setouchi-cultural-economic-atlas/places/imabari/'}
+  ]},
+  {keyword:'住吉神社',links:[{label:'第07回 神社を追うと、消えた航路が見えてくる',href:'/setouchi-cultural-economic-atlas/book/faith-as-transport-map/'}]},
+  {keyword:'潮待ち',links:[{label:'第03回 船は、なぜそこで止まったのか',href:'/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/'}]}
+];
+const tagKeywords=[...new Set(places.flatMap((p)=>p.tags||[]))];
+const conceptKeywords=concepts.map((c)=>c.title);
+const allKeywords=[...new Set([...bookKeywords,...tagKeywords,...conceptKeywords,...extras.map((x)=>x.keyword)])].sort((a,b)=>a.localeCompare(b,'ja'));
+
+const linksFor=(keyword)=>{
+  const links=[];
+  bookArticles.filter((a)=>a.keywords.includes(keyword)).forEach((a)=>links.push({label:`第${a.number}回 ${a.title}`,href:`/setouchi-cultural-economic-atlas/book/${a.slug}/`}));
+  places.filter((p)=>(p.tags||[]).includes(keyword)).forEach((p)=>links.push({label:`${p.name}・地域データ`,href:`/setouchi-cultural-economic-atlas/places/${p.id}/`}));
+  concepts.filter((c)=>c.title===keyword).forEach((c)=>links.push({label:`概念辞典：${c.title}`,href:`/setouchi-cultural-economic-atlas/concepts/#${c.id}`}));
+  (extras.find((x)=>x.keyword===keyword)?.links||[]).forEach((x)=>links.push(x));
+  return [...new Map(links.map((x)=>[x.href,x])).values()];
+};
+---
+<BaseLayout title="キーワードから読む | 瀬戸内文化経済アトラス" description="潮待ち、造船、住吉神社、鯛料理、自転車などのキーワードから記事・地域・資料を逆引きする索引。">
+  <section class="index-hero">
+    <div class="kicker">KEYWORD INDEX</div>
+    <h1>キーワードから読む</h1>
+    <p>「潮待ち」「鯛料理」「造船」「自転車」「住吉神社」のような小さな入口から、連載・都市・資料を横断して辿れます。</p>
+    <input id="keyword-search" class="keyword-search" type="search" placeholder="キーワードを絞り込む…" />
+  </section>
+  <section class="section keyword-index" id="keyword-index">
+    {allKeywords.map((keyword)=>{
+      const links=linksFor(keyword);
+      return (
+        <article class="keyword-entry" id={keyword} data-keyword={keyword}>
+          <h2>{keyword}</h2>
+          <div>{links.length?links.map((link)=><a href={link.href}>{link.label}</a>):<span class="index-coming">関連記事を準備中</span>}</div>
+        </article>
+      )
+    })}
+  </section>
+  <script is:inline>
+    (() => {
+      const input=document.getElementById('keyword-search');
+      const entries=[...document.querySelectorAll('.keyword-entry')];
+      input?.addEventListener('input',()=>{
+        const q=input.value.trim().toLowerCase();
+        entries.forEach((el)=>{el.hidden=q && !el.dataset.keyword.toLowerCase().includes(q);});
+      });
+    })();
+  </script>
+</BaseLayout>

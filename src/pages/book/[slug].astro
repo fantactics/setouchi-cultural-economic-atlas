@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { bookArticles } from '../../data/bookArticles.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+
+export function getStaticPaths(){
+  return bookArticles.map((article,index)=>({
+    params:{slug:article.slug},
+    props:{
+      article,
+      prev:index>0?bookArticles[index-1]:null,
+      next:index<bookArticles.length-1?bookArticles[index+1]:null
+    }
+  }));
+}
+const { article, prev, next }=Astro.props;
+const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const hero=photoById[article.heroPhotoId];
+const sourceById=Object.fromEntries(article.sources.map((s)=>[s.id,s]));
+---
+<BaseLayout title={`${article.title} | 読む瀬戸内`} description={article.subtitle}>
+  <article class="book-article">
+    <header class="book-article-header">
+      <div class="book-article-series">{article.part}　｜　第{article.number}回</div>
+      <h1>{article.title}</h1>
+      <p class="book-article-subtitle">{article.subtitle}</p>
+      <p class="book-article-dek">{article.lead}</p>
+      <div class="book-meta-row">
+        <div>{article.cities.map((x)=><a href={`/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(x)}`}>{x}</a>)}</div>
+        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+      </div>
+    </header>
+
+    {hero && (
+      <figure class="book-hero-photo">
+        <img src={hero.imageUrl} alt={hero.alt} />
+        <figcaption>
+          <strong>{hero.title}</strong>　{hero.caption}
+          <span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>
+        </figcaption>
+      </figure>
+    )}
+
+    <div class="book-reading-column">
+      {article.sections.map((section,sectionIndex)=>(
+        <section class="book-prose-section">
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <h2>{section.heading}</h2>
+          {section.paragraphs.map((p)=>(
+            <p>
+              {p.text}
+              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+            </p>
+          ))}
+          {section.photoIds?.length>0 && (
+            <div class:list={['book-inline-photos',section.photoIds.length===1&&'single']}>
+              {section.photoIds.map((id)=>{
+                const photo=photoById[id];
+                if(!photo) return null;
+                return (
+                  <figure>
+                    <a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a>
+                    <figcaption>
+                      <strong>{photo.title}</strong>
+                      <span>{photo.caption}</span>
+                      <em>この写真から読む：{photo.insight}</em>
+                      <small>Photo: {photo.author} / <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a></small>
+                    </figcaption>
+                  </figure>
+                )
+              })}
+            </div>
+          )}
+        </section>
+      ))}
+
+      <section class="book-small-conclusion">
+        <div class="kicker">暫定的なまとめ</div>
+        <p>{article.provisionalConclusion}</p>
+      </section>
+
+      <section class="book-open-questions">
+        <div class="kicker">まだ分からないこと</div>
+        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
+      </section>
+
+      <section class="book-sources">
+        <div class="kicker">出典・参照資料</div>
+        <ol>
+          {article.sources.map((source)=>(
+            <li id={`source-${source.id}`}>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+              <span>{source.publisher}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </div>
+
+    <nav class="book-pager">
+      {prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前回</small><strong>{prev.title}</strong></a> : <span></span>}
+      {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次回 →</small><strong>{next.title}</strong></a> : <span></span>}
+    </nav>
+  </article>
+</BaseLayout>
