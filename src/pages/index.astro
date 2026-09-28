@@ -1,156 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { places } from '../data/places.js';
-import { researchChapters } from '../data/researchChapters.js';
-import { concepts } from '../data/concepts.js';
-import { reasoningEssays } from '../data/reasoningEssays.js';
-
-const featuredConceptIds=[
-  'regional-capability-capital','traffic-friction','economy-of-waiting',
-  'nodal-capital','urban-stratigraphy','remote-ecosystem-connection',
-  'ecosystem-on-a-plate','landscape-of-practice','invisible-supply-source'
-];
-const featuredConcepts=featuredConceptIds.map((id)=>concepts.find((x)=>x.id===id)).filter(Boolean);
-const featuredReasoning=reasoningEssays.slice(0,6);
-const featuredPlaceIds=['onomichi','mitarai','tadotsu','shimotsui','imabari','niihama','shodoshima','matsuyama','yanai','iwakuni'];
-const featuredPlaces=featuredPlaceIds.map((id)=>places.find((x)=>x.id===id)).filter(Boolean);
+import { bookArticles } from '../data/bookArticles.js';
+import { photoEvidence } from '../data/photoEvidence.js';
+const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const first=bookArticles[0];
+const hero=photoById[first.heroPhotoId];
 ---
-<BaseLayout title="瀬戸内文化経済アトラス" description="自然・生業・交易・産業・文化・都市の因果から、瀬戸内を読む文化経済アトラス。">
-  <section class="home-hero">
-    <div class="home-hero-copy">
+<BaseLayout title="瀬戸内文化経済アトラス | 読む瀬戸内" description="風景と史実から、瀬戸内の地域形成を考える連載型文化経済アトラス。">
+  <section class="new-home-cover">
+    {hero && <img src={hero.imageUrl} alt={hero.alt} class="new-home-cover-image" />}
+    <div class="new-home-cover-shade"></div>
+    <div class="new-home-cover-copy">
       <div class="eyebrow">SETOUCHI CULTURE & ECONOMY ATLAS</div>
-      <h1>自然から、<br />町と文化ができるまで。</h1>
-      <p>瀬戸内を「名物」「観光地」「主要産業」の一覧ではなく、地形・水・海の生態系から、生業、港・交易、加工技術、都市、食・信仰・景観へ続く因果の連鎖として読むアトラス。</p>
-      <div class="home-hero-actions">
-        <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/">研究本文を読む →</a>
-        <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域から読む →</a>
-      </div>
-    </div>
-    <div class="home-hero-model">
-      <div class="model-node"><span>01</span><b>自然基盤</b><small>地形・地質・気候・水・海況</small></div>
-      <div class="model-arrow">↓</div>
-      <div class="model-node"><span>02</span><b>生業と技術</b><small>漁・塩・農・石・鉱山・発酵</small></div>
-      <div class="model-arrow">↓</div>
-      <div class="model-node"><span>03</span><b>交易と地域能力</b><small>港・船・技能・企業・金融</small></div>
-      <div class="model-arrow">↓</div>
-      <div class="model-node"><span>04</span><b>文化と都市</b><small>食・信仰・景観・町割り</small></div>
+      <h1>読む瀬戸内</h1>
+      <p>土地を眺め、史料を読み、町と町を比べる。<br/>結論へ急がず、「なぜこの町はこの町になったのか」を歩くように考える。</p>
+      <a class="book-primary-link" href={`/setouchi-cultural-economic-atlas/book/${first.slug}/`}>第1回から読む　→</a>
     </div>
   </section>
 
-  <section class="section home-manifesto">
-    <div class="kicker">CORE QUESTION</div>
-    <h2>「自然環境が何を可能にし、人間がそれを何に変えた地域なのか」</h2>
-    <p class="lead">自然は産業を決定しません。自然が与える制約と可能性に、人間が技術・制度・交易・投資で応答します。その反復が、地域能力、都市、料理、祭礼、景観として残ります。</p>
-    <div class="evidence-legend">
-      <span><i class="legend-line solid"></i><b>実線</b> 検証できる因果</span>
-      <span><i class="legend-line dashed"></i><b>破線</b> 強いが複合要因</span>
-      <span><i class="legend-line dotted"></i><b>点線</b> 検証中の仮説</span>
-    </div>
+  <section class="section editorial-statement">
+    <div class="kicker">EDITORIAL IDEA</div>
+    <h2>答えより、答えへ向かう途中を読む。</h2>
+    <p>このサイトでは、最初から結論を掲げません。塩田跡の写真を見る。市史の年代を確かめる。別の港町と並べる。すると説明できない違いが出てくる。そこで仮説を作り直す。その過程自体を本文にします。</p>
+    <p>各記事は、確認できる史実に出典を付け、その事実同士をどう突き合わせたかを文章で追います。結論は最後に数行だけ。まだ分からないことも、そのまま残します。</p>
   </section>
 
-  <section class="section reasoning-home-section">
+  <section class="section latest-serial">
     <div class="section-heading-row">
       <div>
-        <div class="kicker">HOW THE ANALYSIS EMERGED</div>
-        <h2>結論より、その結論へ至る道筋を読む</h2>
+        <div class="kicker">SERIAL</div>
+        <h2>連載を順に読む</h2>
       </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/reasoning/">思考の道筋をすべて読む →</a>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">目次を開く →</a>
     </div>
-    <p class="lead">最初の仮説、うまく説明できない反例、別地域との比較、説明変数の組み替え。研究の「途中」を消さず、読み物として残します。</p>
-    <div class="reasoning-home-grid">
-      {featuredReasoning.map((essay,i)=>(
-        <a class="reasoning-home-card" href={`/setouchi-cultural-economic-atlas/reasoning/${essay.slug}/`}>
-          <span>{String(i+1).padStart(2,'0')} / CH. {essay.chapter}</span>
-          <h3>{essay.title}</h3>
-          <p>{essay.subtitle}</p>
-          <small>{essay.question}</small>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading-row">
-      <div>
-        <div class="kicker">RESEARCH CHAPTERS</div>
-        <h2>02〜10章：瀬戸内ができるまで</h2>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/chapters/">全章を見る →</a>
-    </div>
-    <div class="chapter-card-grid">
-      {researchChapters.map((chapter)=>(
-        <a class="chapter-card" href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
-          <span class="chapter-no">{chapter.number}</span>
-          <h3>{chapter.title}</h3>
-          <p>{chapter.subtitle}</p>
-          <small>{chapter.sections.length} sections</small>
-        </a>
-      ))}
+    <div class="serial-stack">
+      {bookArticles.map((article)=>{
+        const photo=photoById[article.heroPhotoId];
+        return (
+          <a class="serial-row" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+            <div class="serial-number">{article.number}</div>
+            <div class="serial-copy">
+              <small>{article.part}</small>
+              <h3>{article.title}</h3>
+              <p>{article.subtitle}</p>
+            </div>
+            {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
+          </a>
+        )
+      })}
     </div>
   </section>
 
-  <section class="section gene-section">
-    <div class="section-heading-row">
-      <div>
-        <div class="kicker">ATLAS CONCEPTS</div>
-        <h2>議論から生まれた分析概念</h2>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典を見る →</a>
+  <section class="section reverse-entry-section">
+    <div class="reverse-entry-card">
+      <div class="kicker">CITY INDEX</div>
+      <h2>都市名から逆引きする</h2>
+      <p>今治、尾道、小豆島、赤穂。ひとつの町が別の記事で何度も顔を出します。</p>
+      <a href="/setouchi-cultural-economic-atlas/cities/">都市索引 →</a>
     </div>
-    <div class="concept-preview-grid">
-      {featuredConcepts.map((item)=>(
-        <a class="concept-preview" href={`/setouchi-cultural-economic-atlas/concepts/#${item.id}`}>
-          <span>{item.category}</span>
-          <h3>{item.title}</h3>
-          <p>{item.definition}</p>
-        </a>
-      ))}
+    <div class="reverse-entry-card">
+      <div class="kicker">KEYWORD INDEX</div>
+      <h2>小さな言葉から入る</h2>
+      <p>潮待ち、造船、塩田、住吉神社、ジーンズ。興味のある言葉から記事を横断できます。</p>
+      <a href="/setouchi-cultural-economic-atlas/keywords/">キーワード索引 →</a>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-heading-row">
-      <div>
-        <div class="kicker">CASE STUDIES</div>
-        <h2>地域ごとに、同じ問いを当てる</h2>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">全{places.length}地域を見る →</a>
-    </div>
-    <div class="home-place-grid">
-      {featuredPlaces.map((place)=>(
-        <a class="home-place-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-          <span>{place.prefecture}</span>
-          <h3>{place.name}</h3>
-          <p>{place.subtitle}</p>
-          <div class="mini-tags">{place.tags.slice(0,3).map((tag)=><small>{tag}</small>)}</div>
-        </a>
-      ))}
+  <section class="section evidence-library">
+    <div class="kicker">ATLAS / EVIDENCE</div>
+    <h2>読み物の裏側にある、地図と資料</h2>
+    <p class="lead">連載で気になった事実を、地域データ、地形断面、気候、潮流、産業、写真証拠で掘り下げられます。</p>
+    <div class="evidence-link-grid">
+      <a href="/setouchi-cultural-economic-atlas/places/"><b>地域データ</b><span>20地域の18レイヤー</span></a>
+      <a href="/setouchi-cultural-economic-atlas/photos/"><b>写真証拠</b><span>景観・港・産業を読む</span></a>
+      <a href="/setouchi-cultural-economic-atlas/transect/"><b>地形断面</b><span>山から海まで</span></a>
+      <a href="/setouchi-cultural-economic-atlas/wind-tide/"><b>風と潮</b><span>見えない交通条件</span></a>
+      <a href="/setouchi-cultural-economic-atlas/industry/"><b>産業地図</b><span>土地・技能・企業</span></a>
+      <a href="/setouchi-cultural-economic-atlas/chapters/"><b>研究ノート</b><span>02〜10章の横断整理</span></a>
     </div>
   </section>
 
-  <section class="section">
-    <div class="kicker">MAPS & EVIDENCE</div>
-    <h2>本文を、地図・比較・写真で検証する</h2>
-    <div class="tool-grid">
-      <a href="/setouchi-cultural-economic-atlas/transect/"><span>断面</span><h3>Transect</h3><p>山から海までの地形断面。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/climate/"><span>気候</span><h3>Climate</h3><p>光・雨・気温・水条件。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/wind-tide/"><span>海況</span><h3>Wind & Tide</h3><p>潮と風という見えないインフラ。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/seafood/"><span>生態</span><h3>Seafood</h3><p>魚介・漁場・料理の地域差。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/transport/"><span>交通</span><h3>Transport</h3><p>歴史港から現代交通まで。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/industry/"><span>産業</span><h3>Industry</h3><p>土地・技能・企業の時間変化。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/textiles/"><span>産業帯</span><h3>Textiles</h3><p>児島・福山・今治・東かがわを工程で比較。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/typology/"><span>類型</span><h3>Typology</h3><p>地域形成メカニズムを横断比較。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/evolution/"><span>因果</span><h3>Evolution</h3><p>各地域の因果グラフを比較。</p></a>
-      <a href="/setouchi-cultural-economic-atlas/photos/"><span>写真</span><h3>Photo Evidence</h3><p>装飾ではなく、因果を示す写真。</p></a>
+  <section class="section notebook-note">
+    <div class="kicker">RESEARCH NOTEBOOK</div>
+    <h2>「思考の道筋」と概念辞典も残しています</h2>
+    <p>連載本文より圧縮した研究ノート、比較表、概念整理は別レイヤーに残します。本文を読んだ後に、構造を確認するための索引です。</p>
+    <div class="chapter-related-grid">
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/reasoning/">思考の道筋（要約版） →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/comparative-reading/">比較読解 →</a>
     </div>
-  </section>
-
-  <section class="section home-method-link">
-    <div>
-      <div class="kicker">METHODOLOGY</div>
-      <h2>事実・解釈・仮説を分ける</h2>
-      <p class="lead">因果を作り過ぎないため、一次資料・公的資料で確認できる事実と、本アトラスの解釈、追加検証が必要な仮説を分けています。</p>
-    </div>
-    <a class="compare-button" href="/setouchi-cultural-economic-atlas/methodology/">編集・検証ルール →</a>
   </section>
 </BaseLayout>
