@@ -9,7 +9,8 @@ const placeTypes = {
   shimotsui:'route', tadotsu:'transport', mitarai:'stay',
   ushimado:'network', tomonoura:'stay', mihara:'multimodal', takehara:'resource-convert',
   matsuyama:'multimodal', shimonoseki:'network', yanai:'network', hofu:'resource',
-  hiketa:'stay', sakaide:'resource', takamatsu:'multimodal'
+  hiketa:'stay', sakaide:'resource', takamatsu:'multimodal',
+  niihama:'resource-convert', shodoshima:'resource-convert', iwakuni:'network'
 };
 const prefectureKey = (prefecture) => prefecture.startsWith('岡山') ? 'okayama' : prefecture.startsWith('香川') ? 'kagawa' : prefecture.startsWith('広島') ? 'hiroshima' : prefecture.startsWith('愛媛') ? 'ehime' : prefecture.startsWith('兵庫') ? 'hyogo' : prefecture.startsWith('山口') ? 'yamaguchi' : 'other';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
@@ -26,9 +27,22 @@ const mapLayerLabelsAll = {...mapLayerLabels, photoEvidence:'写真証拠'};
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
   <section class="hero">
-    <div class="eyebrow">Regional intelligence / Setouchi prototype</div>
-    <h1>町を、立体的に読む。</h1>
-    <p>地理・気候・歴史・港・食・産業・企業・暮らしを重ね、「なぜこの町はこの町になったのか」を可視化する文化経済アトラス。</p>
+    <div class="eyebrow">Regional intelligence / Setouchi cultural-economic atlas</div>
+    <h1>自然から、町と文化ができるまで。</h1>
+    <p>地形・水・海の生態系から、生業、港・交易、加工技術、都市、食・信仰・景観までを因果でつなぎ、「なぜこの町はこの町になったのか」を読む文化経済アトラス。</p>
+  </section>
+
+  <section class="section research-spine">
+    <div class="kicker">RESEARCH SPINE</div>
+    <h2>地域を「項目」ではなく「因果」で読む</h2>
+    <p class="lead">自然条件は産業を決定しません。地形・気候・水・海況が与える制約と可能性に、人間が技術・制度・交易・投資で応答し、その反復が地域能力、都市、食文化、信仰、景観として残ります。</p>
+    <div class="grid">
+      <div class="card"><div class="kicker">01</div><h3>自然基盤</h3><p>地形・地質・気候・水・海況・生態系。</p></div>
+      <div class="card"><div class="kicker">02</div><h3>生業と変換技術</h3><p>漁・農・塩・石・鉱山を、加工可能な資源へ変える。</p></div>
+      <div class="card"><div class="kicker">03</div><h3>港・交通・交易</h3><p>交通摩擦と外部接続が、人・物・資本・信仰を動かす。</p></div>
+      <div class="card"><div class="kicker">04</div><h3>地域能力</h3><p>技能・企業・工程・金融・教育が、資源依存を能力依存へ変える。</p></div>
+      <div class="card"><div class="kicker">05</div><h3>文化と都市</h3><p>食・祭礼・景観・町割りに、地域システムが固定される。</p></div>
+    </div>
   </section>
 
   <section class="section map-section">
@@ -108,7 +122,7 @@ const mapLayerLabelsAll = {...mapLayerLabels, photoEvidence:'写真証拠'};
   <section class="section industry-cta">
     <div class="kicker">INDUSTRY & CAPITAL</div>
     <h2>港町の歴史を、現在の企業と産業まで追う</h2>
-    <p class="lead">地域産業、代表企業、資本形成、産業生態系を17地域で横断比較し、産業遺伝子の連続と断絶を読みます。</p>
+    <p class="lead">地域産業、代表企業、資本形成、産業生態系を地域横断で比較し、産業遺伝子の連続と断絶を読みます。</p>
     <a class="compare-button" href="/setouchi-cultural-economic-atlas/industry/">産業・資本比較を開く →</a>
   </section>
 
@@ -163,8 +177,8 @@ const mapLayerLabelsAll = {...mapLayerLabels, photoEvidence:'写真証拠'};
 
   <section class="section" id="genes">
     <div class="kicker">CORE CONCEPT</div>
-    <h2>産業遺伝子とは</h2>
-    <p class="lead">その地域の現在の産業構造を生み出した、地理・資源・技能・交易・制度・企業蓄積の連鎖。「主要産業」ではなく、産業がなぜそこに存在するのかを追います。</p>
+    <h2>地域能力は、どこから来たのか</h2>
+    <p class="lead">このアトラスでは、現在の主要産業だけを並べません。自然・資源・技能・交易・制度・企業蓄積の連鎖を追い、地域性が「地元原料」から「加工能力・企業集積・制度」へ移っていく過程も読みます。</p>
     <div class="legend-row">
       <span class="claim-badge fact">FACT</span><span>確認可能な事実</span>
       <span class="claim-badge interpretation">INTERPRETATION</span><span>事実をつないだ編集上の解釈</span>
