@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { reasoningEssays } from '../../data/reasoningEssays.js';
+
+export function getStaticPaths() {
+  return reasoningEssays.map((essay)=>({
+    params:{slug:essay.slug},
+    props:{essay}
+  }));
+}
+const { essay } = Astro.props;
+---
+<BaseLayout title={`${essay.title} | 思考の道筋 | 瀬戸内文化経済アトラス`} description={essay.subtitle}>
+  <section class="place-hero reasoning-detail-hero">
+    <div class="kicker">REASONING NOTE / CH. {essay.chapter}</div>
+    <h1>{essay.title}</h1>
+    <p class="subtitle">{essay.subtitle}</p>
+    <div class="reasoning-main-question">
+      <span>QUESTION</span>
+      <strong>{essay.question}</strong>
+    </div>
+  </section>
+
+  <section class="section reasoning-opening">
+    <div class="kicker">WHERE WE STARTED</div>
+    {essay.opening.map((p)=><p class="reasoning-lead">{p}</p>)}
+  </section>
+
+  <section class="section reasoning-flow">
+    <div class="kicker">HOW THE EXPLANATION CHANGED</div>
+    {essay.steps.map((step,i)=>(
+      <article class="reasoning-step">
+        <div class="reasoning-step-index">{String(i+1).padStart(2,'0')}</div>
+        <div class="reasoning-step-content">
+          <div class="reasoning-step-label">{step.label}</div>
+          <h2>{step.title}</h2>
+          {step.body.map((p)=><p>{p}</p>)}
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="section reasoning-provisional">
+    <div class="kicker">PROVISIONAL CONCLUSION</div>
+    <h2>いまのところ、こう考える</h2>
+    <p>{essay.provisional}</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">WHAT IS STILL OPEN</div>
+    <h2>まだ結論にしていないこと</h2>
+    <div class="open-question-list">
+      {essay.openQuestions.map((q,i)=><div><span>{String(i+1).padStart(2,'0')}</span><p>{q}</p></div>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="two-col reasoning-meta">
+      <div>
+        <div class="kicker">PLACES</div>
+        <div class="concept-examples">{essay.places.map((x)=><span>{x}</span>)}</div>
+      </div>
+      <div>
+        <div class="kicker">CONCEPTS</div>
+        <div class="concept-examples">{essay.concepts.map((x)=><span>{x}</span>)}</div>
+      </div>
+    </div>
+    <div class="chapter-related-grid reasoning-nav">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/reasoning/">思考の道筋一覧 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究本文 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/comparative-reading/">比較読解 →</a>
+    </div>
+  </section>
+</BaseLayout>
