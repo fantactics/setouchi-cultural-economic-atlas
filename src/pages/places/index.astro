@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { places } from '../../data/places.js';
+const prefectures=[...new Set(places.map((p)=>p.prefecture))];
+---
+<BaseLayout title="地域一覧 | 瀬戸内文化経済アトラス" description="瀬戸内の地域ケースを、自然・交通・産業・文化の18層で読む。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">PLACE CASE STUDIES</div>
+    <h1>{places.length}地域を、同じ問いで比較する</h1>
+    <p class="subtitle">各地域を18の層で記述し、「なぜこの町はこの町になったのか」を自然・歴史・交通・産業・文化まで一続きで読みます。</p>
+  </section>
+
+  <section class="section">
+    <div class="place-filter-row">
+      <button class="place-filter-btn active" data-pref="all">すべて</button>
+      {prefectures.map((pref)=><button class="place-filter-btn" data-pref={pref}>{pref}</button>)}
+    </div>
+    <div class="place-index-grid">
+      {places.map((place)=>(
+        <a class="place-index-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`} data-pref={place.prefecture}>
+          <div class="kicker">{place.prefecture}</div>
+          <h2>{place.name}</h2>
+          <p>{place.subtitle}</p>
+          <div class="mini-tags">{place.tags.slice(0,5).map((tag)=><small>{tag}</small>)}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const buttons=[...document.querySelectorAll('.place-filter-btn')];
+      const cards=[...document.querySelectorAll('.place-index-card')];
+      buttons.forEach((btn)=>btn.addEventListener('click',()=>{
+        buttons.forEach((b)=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const pref=btn.dataset.pref;
+        cards.forEach((card)=>card.hidden=pref!=='all' && card.dataset.pref!==pref);
+      }));
+    })();
+  </script>
+</BaseLayout>

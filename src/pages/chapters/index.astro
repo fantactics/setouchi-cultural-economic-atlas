@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { researchChapters } from '../../data/researchChapters.js';
+---
+<BaseLayout title="研究本文 | 瀬戸内文化経済アトラス" description="地形から石油文明まで、瀬戸内の地域形成を因果で読む研究本文。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">RESEARCH CHAPTERS 02–10</div>
+    <h1>瀬戸内を、因果の連鎖として読む</h1>
+    <p class="subtitle">地形・水・生態系から、生業、港、産業、食・信仰、都市、近代化まで。地域紹介ではなく「なぜそうなったか」を章ごとに追います。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">THE SPINE</div>
+    <h2>自然から文化・都市へ</h2>
+    <div class="chapter-spine">
+      {researchChapters.map((chapter)=>(
+        <a class="chapter-spine-card" href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
+          <span>{chapter.number}</span>
+          <strong>{chapter.title}</strong>
+          <small>{chapter.subtitle}</small>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">EDITORIAL RULE</div>
+    <h2>章は「項目一覧」ではなく、因果の説明</h2>
+    <p class="lead">自然条件は産業を決定しません。自然が与える制約と可能性に、人間が技術・制度・交易・投資で応答し、その結果が地域能力・都市・文化として蓄積します。各章では事実・解釈・仮説を分けながら、その連鎖を追います。</p>
+  </section>
+</BaseLayout>

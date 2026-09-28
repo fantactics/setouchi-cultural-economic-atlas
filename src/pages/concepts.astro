@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { concepts, conceptCategories } from '../data/concepts.js';
+---
+<BaseLayout title="概念辞典 | 瀬戸内文化経済アトラス" description="地域能力資本、交通摩擦、都市層序など、本アトラスで育ててきた分析概念。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">ATLAS CONCEPTS</div>
+    <h1>概念辞典</h1>
+    <p class="subtitle">地域を説明するために、議論の中から生まれた分析概念。既存学術用語と本アトラス独自の編集概念を区別しながら使います。</p>
+  </section>
+
+  <section class="section">
+    <div class="concept-filter" aria-label="概念カテゴリ">
+      <button class="concept-filter-btn active" data-category="all">すべて</button>
+      {conceptCategories.map((category)=><button class="concept-filter-btn" data-category={category}>{category}</button>)}
+    </div>
+    <div class="concept-grid" id="concept-grid">
+      {concepts.map((item)=>(
+        <article class="concept-card" id={item.id} data-category={item.category}>
+          <div class="concept-card-head">
+            <span class="kicker">{item.category}</span>
+            <span class="concept-chapter">CH. {item.chapter}</span>
+          </div>
+          <h2>{item.title}</h2>
+          <p>{item.definition}</p>
+          <div class="concept-examples">
+            {item.examples.map((example)=><span>{example}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const buttons=[...document.querySelectorAll('.concept-filter-btn')];
+      const cards=[...document.querySelectorAll('.concept-card')];
+      buttons.forEach((btn)=>btn.addEventListener('click',()=>{
+        buttons.forEach((b)=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const category=btn.dataset.category;
+        cards.forEach((card)=>{
+          card.hidden=category!=='all' && card.dataset.category!==category;
+        });
+      }));
+    })();
+  </script>
+</BaseLayout>
