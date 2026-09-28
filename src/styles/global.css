@@ -573,3 +573,53 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   .section-heading-row,.home-method-link{align-items:flex-start;flex-direction:column;}
   .research-copy p{font-size:.98rem;line-height:1.9;}
 }
+
+
+/* Reasoning narratives */
+.reasoning-hero{background:linear-gradient(180deg,rgba(36,91,106,.06),transparent);}
+.reasoning-intro{display:grid;grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr);gap:40px;align-items:start;}
+.reasoning-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.reasoning-card{display:block;padding:26px;border:1px solid var(--line);background:var(--card);text-decoration:none;transition:.18s ease;}
+.reasoning-card:hover,.reasoning-home-card:hover,.reasoning-chapter-card:hover{transform:translateY(-2px);border-color:var(--sea);}
+.reasoning-card-top{display:flex;justify-content:space-between;gap:12px;color:var(--sea);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.75rem;letter-spacing:.08em;}
+.reasoning-card h2{font-size:1.45rem;line-height:1.45;margin:.7rem 0 .5rem;}
+.reasoning-card>p{color:var(--muted);line-height:1.75;}
+.reasoning-question{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.91rem;line-height:1.75;}
+.reasoning-main-question{margin-top:28px;max-width:920px;padding:20px 22px;border-left:4px solid var(--sea);background:var(--card);}
+.reasoning-main-question span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.12em;color:var(--sea);margin-bottom:8px;}
+.reasoning-main-question strong{font-size:1.15rem;line-height:1.8;}
+.reasoning-opening{max-width:980px;}
+.reasoning-lead{font-size:1.12rem;line-height:2.05;margin:0 0 1.1em;}
+.reasoning-flow{max-width:1040px;}
+.reasoning-step{display:grid;grid-template-columns:70px minmax(0,1fr);gap:24px;padding:42px 0;border-top:1px solid var(--line);}
+.reasoning-step:first-of-type{margin-top:18px;}
+.reasoning-step-index{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.5rem;color:#9aa7ad;padding-top:5px;}
+.reasoning-step-label{display:inline-block;font-size:.72rem;letter-spacing:.1em;color:var(--sea);font-weight:800;margin-bottom:6px;}
+.reasoning-step-content h2{margin:.15rem 0 1rem;font-size:clamp(1.55rem,2.8vw,2.35rem);letter-spacing:-.025em;}
+.reasoning-step-content p{font-size:1.02rem;line-height:2;margin:0 0 1em;}
+.reasoning-provisional{background:#e7efee;}
+.reasoning-provisional p{max-width:980px;font-size:1.25rem;line-height:1.95;margin-top:18px;}
+.open-question-list{display:grid;gap:10px;max-width:980px;margin-top:18px;}
+.open-question-list>div{display:grid;grid-template-columns:46px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);}
+.open-question-list span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--sea);font-size:.75rem;}
+.open-question-list p{margin:0;line-height:1.75;}
+.reasoning-nav{margin-top:30px;}
+.reasoning-home-section{background:#f0eee7;}
+.reasoning-home-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px;}
+.reasoning-home-card{display:block;padding:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:.18s ease;}
+.reasoning-home-card>span{font-size:.7rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--sea);letter-spacing:.08em;}
+.reasoning-home-card h3{font-size:1.2rem;line-height:1.5;margin:.55rem 0 .45rem;}
+.reasoning-home-card p{font-size:.91rem;line-height:1.65;color:var(--muted);}
+.reasoning-home-card small{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);line-height:1.6;color:var(--ink);}
+.chapter-reasoning{background:#f0eee7;}
+.reasoning-chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px;}
+.reasoning-chapter-card{display:block;padding:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:.18s ease;}
+.reasoning-chapter-card small{color:var(--sea);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+.reasoning-chapter-card h3{margin:.45rem 0 .5rem;font-size:1.18rem;line-height:1.5;}
+.reasoning-chapter-card p{color:var(--muted);line-height:1.7;font-size:.9rem;}
+@media(max-width:800px){
+  .reasoning-intro,.reasoning-grid,.reasoning-home-grid,.reasoning-chapter-grid{grid-template-columns:1fr;}
+  .reasoning-step{grid-template-columns:42px minmax(0,1fr);gap:14px;}
+  .reasoning-step-index{font-size:1.05rem;}
+  .reasoning-lead{font-size:1.03rem;}
+}
