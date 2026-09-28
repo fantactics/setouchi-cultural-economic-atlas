@@ -1,34 +1,88 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Methodology | 瀬戸内文化経済アトラス" description="地域データの収集・検証・解釈ルール。">
-  <section class="place-hero">
+<BaseLayout title="Methodology | 瀬戸内文化経済アトラス" description="瀬戸内を因果で読むための検証・編集・写真ルール。">
+  <section class="place-hero chapter-hero">
     <div class="kicker">METHODOLOGY</div>
-    <h1>このアトラスの読み方</h1>
-    <p class="subtitle">「何があるか」ではなく、「なぜこの町はこの町になったのか」を説明するための編集・検証ルールです。</p>
+    <h1>「何があるか」ではなく、「なぜそうなったか」を読む</h1>
+    <p class="subtitle">自然条件から生業・産業・交易・文化・都市へ。因果を作り過ぎず、地域差を説明するための研究・編集ルールです。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CORE MODEL</div>
+    <h2>自然環境＝下部構造、文化・都市＝上部構造。ただし一方向ではない</h2>
+    <div class="research-chain">
+      <span>地質</span><b>→</b><span>地形</span><b>→</b><span>水・土壌・海底</span><b>→</b><span>生態系</span><b>→</b><span>資源と制約</span><b>→</b><span>適応技術</span><b>→</b><span>生業・産業</span><b>→</b><span>文化・都市</span>
+    </div>
+    <p class="lead">ただし自然は産業を決定しません。自然は「選択可能性の集合」を与え、人間が技術・制度・市場・交易・投資によって一つの経路を実現します。さらに干拓・採石・鉱山・植林・海砂採取などの人間活動が自然側を書き換え、次の人間活動の条件になります。</p>
   </section>
 
   <section class="section methodology-grid">
     <article class="method-card">
       <div class="claim-badge fact">FACT</div>
       <h2>事実</h2>
-      <p>統計、自治体資料、企業公式情報、一次史料など、外部から確認可能な記述。出典IDを付け、確認日を記録します。</p>
+      <p>統計、自治体資料、企業公式情報、文化財資料、一次史料など、外部から確認できる記述。地域ページでは出典IDを付けます。</p>
     </article>
     <article class="method-card">
       <div class="claim-badge interpretation">INTERPRETATION</div>
       <h2>解釈</h2>
-      <p>複数の事実を因果的につないだ編集上の説明。出典が支えるのは基礎事実であり、因果関係そのものは本アトラスの分析です。</p>
+      <p>複数の事実をつないだ編集上の説明。「土地依存性が技能依存へ移った」など、事実から導く本アトラスの分析です。</p>
     </article>
     <article class="method-card">
       <div class="claim-badge hypothesis">HYPOTHESIS</div>
       <h2>仮説</h2>
-      <p>説明力はあるが、追加検証が必要な推論。仮説を自動的に事実へ昇格させません。</p>
+      <p>説明力はあるが追加検証が必要な推論。魅力的な因果でも、自動的に事実へ昇格させません。</p>
     </article>
   </section>
 
+  <section class="section gene-section">
+    <div class="kicker">CAUSAL CONFIDENCE</div>
+    <h2>矢印にも確度を持たせる</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>実線</h3><p>史料・統計・公式資料等で、因果関係まで比較的明瞭に確認できる。</p></article>
+      <article class="insight-card"><h3>破線</h3><p>関係は強いが、多数の要因が介在し単一原因とは言えない。</p></article>
+      <article class="insight-card"><h3>点線</h3><p>分布・時系列から有力だが、追加史料やデータで検証すべき作業仮説。</p></article>
+    </div>
+  </section>
+
   <section class="section">
-    <div class="kicker">18 LAYERS</div>
-    <h2>地域データ標準</h2>
+    <div class="kicker">SPATIAL UNIT</div>
+    <h2>市町村境界だけで地域を切らない</h2>
+    <p class="lead">水・土砂・魚・物流・信仰・商圏は行政境界を越えます。必要に応じて「流域＋沿岸海域」「港＋後背地」「島＋対岸」「都市核＋外港」を分析単位にします。</p>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>流域＋沿岸海域</h3><p>中国山地→河川→平野→沿岸漁場のように、物質循環を一体で見る。</p></article>
+      <article class="insight-card"><h3>港＋後背地</h3><p>下津井と児島綿作のように、港湾物流が内陸生産を支える関係を追う。</p></article>
+      <article class="insight-card"><h3>都市核＋外港</h3><p>松山城下と三津浜のように、機能的に一都市でも空間的に分離する場合がある。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">PHOTO EVIDENCE</div>
+    <h2>写真は装飾ではなく「因果写真列」</h2>
+    <p class="lead">各写真は「この写真は何の因果を示すのか」に答えるものを選びます。風景写真だけでなく、作業・工程・インフラの写真を重ねます。</p>
+    <div class="method-list-grid">
+      {[
+        '自然基盤：地形・海峡・河川・地質',
+        'エコシステム：干潟・藻場・森林・農地',
+        '生業：漁・農・採石・採鉱',
+        '技術・加工：塩田・蔵・工場・修船',
+        '集落・港・都市：雁木・路地・町割り・社宅',
+        '文化：料理・祭礼・信仰・奉納',
+        '近代産業：臨海工業・大型インフラ',
+        '現在景観：継続・転用・化石化'
+      ].map((x,i)=><div class="method-list-item"><span>{String(i+1).padStart(2,'0')}</span>{x}</div>)}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">NO DETERMINISM</div>
+    <h2>「自然がこうだから、産業はこうなった」と決めつけない</h2>
+    <p class="lead">同じ浅海は塩田にも干拓地にもなり、同じ花崗岩は石材にもマサ土にもなります。自然条件の後に、技術・政策・資本・市場・交易・歴史的選択を必ず挟みます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">18-LAYER PLACE PROFILE</div>
+    <h2>地域ページの標準レイヤー</h2>
     <div class="method-list-grid">
       {[
         '基本情報','地理・地形','気候・水・自然条件','歴史・都市形成','港・交通・物流','食文化',
@@ -38,36 +92,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="section gene-section">
+  <section class="section">
     <div class="kicker">UPDATE POLICY</div>
-    <h2>更新速度を3層に分ける</h2>
+    <h2>情報の時間軸を分ける</h2>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>STATIC</h3><p>地形、歴史、港の成立など。変更頻度が低く、基礎構造として扱います。</p></article>
-      <article class="insight-card"><h3>SLOW</h3><p>人口、産業統計、地価、気候平年値など。年次・数年単位で更新します。</p></article>
-      <article class="insight-card"><h3>DYNAMIC</h3><p>企業動向、航路、災害、再開発、生活情報など。変化を継続監視する対象です。</p></article>
+      <article class="insight-card"><h3>STATIC</h3><p>地形、地質、近世港の成立など。変化が遅く、地域構造の基層。</p></article>
+      <article class="insight-card"><h3>SLOW</h3><p>人口、産業統計、気候平年値、土地利用など。年次・数年単位で更新。</p></article>
+      <article class="insight-card"><h3>DYNAMIC</h3><p>企業、航路、再開発、災害、店舗など。変化を継続的に追う対象。</p></article>
     </div>
   </section>
 
   <section class="section">
-    <div class="kicker">SPATIAL LINEAGE</div>
-    <h2>産業の「つながり」は種類を分ける</h2>
-    <p class="lead">企業の直系承継だけでなく、土地・物流・技能・資本が別の産業へ受け渡される場合があります。Industry地図では、因果を作り過ぎないため関係線を分けて表示します。</p>
-    <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>直系・長期継続</h3><p>同一主体・技能・事業が長期に継続する関係。</p></article>
-      <article class="insight-card"><h3>土地継承</h3><p>旧塩田・造成地などの土地資産が次の工業・港湾利用へ転換する関係。</p></article>
-      <article class="insight-card"><h3>物流継承</h3><p>港・航路・交通結節の機能が次世代産業の立地条件として残る関係。</p></article>
-      <article class="insight-card"><h3>技能継承</h3><p>加工技術・労働技能・地域知識が企業群や新製品へ蓄積する関係。</p></article>
-      <article class="insight-card"><h3>資本・中枢機能</h3><p>商業・金融・本社機能の蓄積が都市中心性として継承される関係。</p></article>
-      <article class="insight-card"><h3>近代以降の新層</h3><p>歴史産業の直系ではなく、既存地域に後から加わった産業。連続性を断定しないため独立表示します。</p></article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="kicker">INDUSTRIAL GENE</div>
-    <h2>産業遺伝子</h2>
-    <p class="lead">その地域の現在の産業構造を生み出した、地理・資源・技能・交易・制度・企業蓄積の連鎖を指します。</p>
-    <div class="method-list-grid compact">
-      {['資源型','ネットワーク型','技能型','資本循環型','土地継承型','物流型','ブランド適応型'].map((x)=><div class="method-list-item">{x}</div>)}
+    <div class="kicker">RESEARCH STRUCTURE</div>
+    <h2>研究本文と地域ケースを往復する</h2>
+    <p class="lead">02〜10章は横断的な因果を説明し、地域ページは同じ問いを個別地域に当てます。地図・写真・比較ページは、その間を検証するための道具です。</p>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/">研究本文 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域ケース →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
     </div>
   </section>
 </BaseLayout>
