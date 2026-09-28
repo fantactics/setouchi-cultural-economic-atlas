@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchChapters } from '../../data/researchChapters.js';
+import { reasoningEssays } from '../../data/reasoningEssays.js';
 
 export function getStaticPaths() {
   return researchChapters.map((chapter)=>({
@@ -10,6 +11,7 @@ export function getStaticPaths() {
 }
 const { chapter } = Astro.props;
 const labels={fact:'FACT',interpretation:'INTERPRETATION',hypothesis:'HYPOTHESIS'};
+const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').includes(chapter.number));
 ---
 <BaseLayout title={`${chapter.number} ${chapter.title} | 瀬戸内文化経済アトラス`} description={chapter.subtitle}>
   <section class="place-hero chapter-hero">
@@ -52,6 +54,23 @@ const labels={fact:'FACT',interpretation:'INTERPRETATION',hypothesis:'HYPOTHESIS
       </article>
     ))}
   </section>
+
+  {relatedReasoning.length > 0 && (
+    <section class="section chapter-reasoning">
+      <div class="kicker">HOW THE ANALYSIS EMERGED</div>
+      <h2>この章の「思考の道筋」</h2>
+      <p class="lead">結論だけでなく、どこで疑い、どの比較から説明を組み替えたかを読みます。</p>
+      <div class="reasoning-chapter-grid">
+        {relatedReasoning.map((essay)=>(
+          <a class="reasoning-chapter-card" href={`/setouchi-cultural-economic-atlas/reasoning/${essay.slug}/`}>
+            <small>CH. {essay.chapter}</small>
+            <h3>{essay.title}</h3>
+            <p>{essay.question}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="section chapter-related">
     <div class="kicker">EXPLORE THE EVIDENCE</div>
