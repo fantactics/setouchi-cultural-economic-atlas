@@ -1,5 +1,5 @@
 ---
-const { title = '瀬戸内文化経済アトラス', description = '地理・気候・歴史・産業・企業・文化・暮らしを重ねて町を読む。' } = Astro.props;
+const { title = '瀬戸内文化経済アトラス', description = '自然・生業・交易・産業・文化・都市の因果から瀬戸内を読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 import '../styles/global.css';
 ---
@@ -15,27 +15,20 @@ import '../styles/global.css';
     <header class="site-header">
       <a class="brand" href={baseUrl}>SETOUCHI CULTURE & ECONOMY ATLAS</a>
       <nav>
-        <a href={baseUrl}>Places</a>
-        <a href="/setouchi-cultural-economic-atlas/compare/">Compare</a>
-        <a href="/setouchi-cultural-economic-atlas/transect/">Transect</a>
-        <a href="/setouchi-cultural-economic-atlas/typology/">Typology</a>
-        <a href="/setouchi-cultural-economic-atlas/quality/">Quality</a>
-        <a href="/setouchi-cultural-economic-atlas/climate/">Climate</a>
-        <a href="/setouchi-cultural-economic-atlas/seafood/">Seafood</a>
+        <a href="/setouchi-cultural-economic-atlas/chapters/">Research</a>
+        <a href="/setouchi-cultural-economic-atlas/places/">Places</a>
+        <a href="/setouchi-cultural-economic-atlas/comparative-reading/">Compare</a>
+        <a href="/setouchi-cultural-economic-atlas/concepts/">Concepts</a>
         <a href="/setouchi-cultural-economic-atlas/transport/">Transport</a>
         <a href="/setouchi-cultural-economic-atlas/industry/">Industry</a>
-        <a href="/setouchi-cultural-economic-atlas/textiles/">Textiles</a>
-        <a href="/setouchi-cultural-economic-atlas/evolution/">Evolution</a>
         <a href="/setouchi-cultural-economic-atlas/photos/">Photos</a>
-        <a href="/setouchi-cultural-economic-atlas/wind-tide/">Wind & Tide</a>
         <a href="/setouchi-cultural-economic-atlas/methodology/">Methodology</a>
-        <a href="#genes">Industrial genes</a>
-        <a href="#about">About</a>
       </nav>
     </header>
     <main><slot /></main>
     <footer id="about">
-      <p>地域を「何があるか」ではなく、「なぜこの町はこの町になったのか」から読むアトラス。</p>
+      <strong>瀬戸内文化経済アトラス</strong>
+      <p>自然環境が何を可能にし、人間がそれを何に変えた地域なのか。事実・解釈・仮説を分けながら、地形から文化・都市までを因果で読む。</p>
     </footer>
   </body>
 </html>
