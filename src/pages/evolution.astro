@@ -56,7 +56,7 @@ const compactPlaces = places.map((place)=>({
 }));
 
 ---
-<BaseLayout title="地域因果グラフ | 瀬戸内文化経済アトラス" description="瀬戸内17地域の自然条件・交通・産業・資本・文化・現在を因果グラフで比較する。">
+<BaseLayout title="地域因果グラフ | 瀬戸内文化経済アトラス" description={`瀬戸内${places.length}地域の自然条件・交通・産業・資本・文化・現在を因果グラフで比較する。`}>
   <section class="place-hero">
     <div class="kicker">REGIONAL CAUSAL GRAPH</div>
     <h1>「なぜこの町はこの町になったのか」を、一枚で読む</h1>
