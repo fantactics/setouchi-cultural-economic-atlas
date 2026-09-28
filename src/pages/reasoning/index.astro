@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { reasoningEssays } from '../../data/reasoningEssays.js';
+---
+<BaseLayout title="思考の道筋 | 瀬戸内文化経済アトラス" description="結論だけでなく、問い・違和感・比較・仮説の組み替えまで読む研究ノート。">
+  <section class="place-hero chapter-hero reasoning-hero">
+    <div class="kicker">HOW THE ANALYSIS EMERGED</div>
+    <h1>思考の道筋</h1>
+    <p class="subtitle">このアトラスで一番面白いのは、結論そのものより「なぜその結論へ行ったのか」です。最初の見立て、違和感、反例、比較、組み替えを読み物として残します。</p>
+  </section>
+
+  <section class="section">
+    <div class="reasoning-intro">
+      <div>
+        <div class="kicker">READING RULE</div>
+        <h2>結論を、途中から読まない</h2>
+      </div>
+      <p class="lead">各記事は、最初から正解が分かっていたようには書きません。魅力的だが単純すぎる説明、うまく説明できない反例、別地域との比較を経て、どの変数を残し、どの説明を捨てたかを示します。暫定結論と未解決の問いも分けて残します。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="reasoning-grid">
+      {reasoningEssays.map((essay,i)=>(
+        <a class="reasoning-card" href={`/setouchi-cultural-economic-atlas/reasoning/${essay.slug}/`}>
+          <div class="reasoning-card-top"><span>{String(i+1).padStart(2,'0')}</span><small>CH. {essay.chapter}</small></div>
+          <h2>{essay.title}</h2>
+          <p>{essay.subtitle}</p>
+          <div class="reasoning-question">{essay.question}</div>
+          <div class="mini-tags">{essay.concepts.slice(0,3).map((x)=><small>{x}</small>)}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
