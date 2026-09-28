@@ -924,7 +924,7 @@ export const photoEvidence = [
     takenAt:'2003-06-22',
     lat:33.950,lon:132.126,
     verifiedAt:'2026-09-28'
-  }
+  },
   {
     id:'photo-niihama-tonaru',
     placeId:'niihama',
