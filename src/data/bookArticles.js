@@ -446,7 +446,7 @@ export const bookArticles = [
   },
   {
     slug:'shodoshima-open-island',
-    part:'産業は、紡がれる',
+    part:'食は、土地を語る',
     title:'島の外から来たものが、なぜ小豆島の名産になるのか',
     subtitle:'醤油、素麺、ごま油、佃煮、オリーブ――原料ではなく、「持ち込み、加工し、島の味に変える力」が産業をつないだ',
     cities:['小豆島'],
@@ -986,7 +986,7 @@ export const bookArticles = [
   },
   {
     slug:'shimonoseki-resource-made-by-market',
-    part:'なぜ、船はここで止まったのか',
+    part:'食は、土地を語る',
     title:'下関で獲れない魚が、なぜ「下関のふく」になるのか',
     subtitle:'漁場ではなく、海峡・市場・除毒技術・加工・料理が、外から来た魚に「下関」という価値を与えた',
     cities:['下関'],
@@ -1474,10 +1474,147 @@ export const bookArticles = [
       {id:7,title:'高松港の紹介',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/takamatsukokanri/port_takamatsu/kfvn.html'},
       {id:8,title:'高松港頭地区地区計画',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/jigyosha/toshikeikaku/kenchiku_kakunin/chiku/takamatsuko.html'}
     ]
+  },,
+  {
+    slug:'tai-meshi-two-seas',
+    part:'食は、土地を語る',
+    title:'同じ鯛なのに、なぜ愛媛の鯛めしは二つに分かれたのか',
+    subtitle:'東予・中予は「炊く」、南予は「生でかける」。魚種ではなく、海・漁・食べる場面の違いから郷土料理を読む',
+    cities:['松山','今治','宇和島'],
+    keywords:['鯛めし','真鯛','愛媛','瀬戸内海','宇和海','漁師料理','郷土料理','ガストロノミー'],
+    lead:'愛媛で「鯛めし」を頼むと、二つのまったく違う料理が出てくる。今治や松山では、鯛を一尾ごと米と炊く。宇和島では、生の鯛を卵入りのたれにからめ、ご飯へかける。同じ県、同じ鯛、同じ米なのに、なぜ料理法がここまで分かれたのか。自然環境だけで説明することはできない。海の違い、漁の現場、鮮度、食べる場面、地域の習慣を重ねると、「同じ食材から別の料理が生まれる」仕組みが見えてくる。',
+    sections:[
+      {
+        heading:'まず、本当に「二つの鯛めし」がある',
+        paragraphs:[
+          {text:'愛媛県は、鯛を米と一緒に炊き込む料理が主に今治や松山市北条などで食べられ、「松山鯛めし」などと呼ばれる一方、宇和島では刺身の鯛を卵入りのたれとともにご飯へかける「宇和島鯛めし」が食べられていると紹介している。',refs:[1,2]},
+          {text:'つまり違いは味付けの程度ではない。片方は加熱調理、もう片方は生食であり、料理の構造そのものが違う。では、同じ鯛がなぜ二つの料理体系へ分かれたのか。',refs:[]}
+        ],
+        photoIds:['photo-matsuyama-mitsuhama']
+      },
+      {
+        heading:'「鯛がよく獲れるから」では、説明にならない',
+        paragraphs:[
+          {text:'愛媛は瀬戸内海と宇和海という性格の異なる海域を抱える。農林水産省も、県内では地形や海況が地域ごとに異なり、東予・中予と南予では食文化にも違いがあると整理している。',refs:[3]},
+          {text:'しかし、海が違うから料理が自動的に分かれた、と考えるのは環境決定論になってしまう。重要なのは、その海でどんな漁をし、どの状態の魚を、誰がどこで食べたのかである。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'東予・中予では、鯛を米と一緒に炊く',
+        paragraphs:[
+          {text:'東予・中予の鯛めしは、鯛を丸ごと、あるいは大きな身のまま米にのせ、昆布や調味料とともに炊き上げ、身をほぐしてご飯へ混ぜる。農林水産省も愛媛の郷土料理としてこの型を紹介している。',refs:[2]},
+          {text:'一尾の鯛から出る旨味を米全体へ移す調理法であり、複数人で取り分けやすい。鯛を「刺身として食べる」のではなく、「米を味付けする素材」として使う料理でもある。',refs:[]},
+          {text:'なぜこの型が東予・中予に定着したのか、その歴史的因果を一つに断定するのは難しい。ただ、瀬戸内側の鯛利用と米食文化が、炊飯という調理工程の中で結びついたことは確かである。',refs:[2,3]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'南予では、鯛を生のまま飯へかける',
+        paragraphs:[
+          {text:'宇和島鯛めしは、鯛の刺身を、醤油、みりん、卵、ごま、だしなどを合わせたたれにからめ、ご飯へかける。公式観光情報や農林水産省は、この型を南予の漁師料理として紹介している。',refs:[3,4]},
+          {text:'ここでは、鯛を炊飯へ溶け込ませるのではなく、刺身の食感と鮮度をそのまま飯に重ねる。調理時間が短く、一人分ずつ食べやすい点も、炊き込み型とは対照的である。',refs:[]},
+          {text:'「漁師料理」という伝承を手掛かりにすると、船上や漁の現場に近い食事形態との関係が見えてくる。ただし、現在の料理形態がいつどのように固定されたかは、さらに史料で追う必要がある。',refs:[3,4]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'料理を分けたのは、魚ではなく「食べるシステム」だったのか',
+        paragraphs:[
+          {text:'二つの鯛めしは、同じ魚を使うのに、加熱／生食、共同炊飯／個別盛り、旨味を米へ移す／刺身の食感を残す、という違いがある。',refs:[]},
+          {text:'ここから見えるのは、郷土料理が食材の直接的な反映ではないということだ。同じ鯛でも、漁、鮮度、調理設備、食事人数、祝い事や日常食といった生活条件によって、料理の形は分岐する。',refs:[]},
+          {text:'自然環境は「鯛が得られる」という可能性を与える。しかし、その鯛をどう料理へ変えるかは、人間側の選択である。ガストロノミーは、その両者の接点を読む分野なのである。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'そして今、第三の鯛めしまで生まれている',
+        paragraphs:[
+          {text:'2026年、愛媛県は東予地域で、焼いた県産真鯛と米を使う「洋風焼き鯛めし」を新たなご当地グルメとして紹介している。伝統料理の二分類に、現代の創作料理が加わり始めた。',refs:[5]},
+          {text:'これは食文化が固定された遺産ではないことを示す。海の資源、既存の地域イメージ、飲食店の創意、市場づくりが組み合わされば、地域料理は現在進行形で増える。',refs:[]},
+          {text:'「本物の鯛めしはどれか」ではなく、なぜ同じ鯛から複数の料理が生まれ続けるのか。その問いの方が、地域の自然と社会の関係をよく映している。',refs:[]}
+        ],
+        photoIds:[]
+      }
+    ],
+    provisionalConclusion:'愛媛の二つの鯛めしは、魚種の違いでは説明できない。同じ鯛という自然資源が、瀬戸内側と宇和海側の異なる生活・漁労・調理の文脈に置かれ、炊き込み型と生食型へ分岐した。自然は素材を与えるが、料理をつくるのは地域社会の選択である。',
+    openQuestions:['炊き込み型と宇和島型が文献上いつから区別できるか','漁法・船上食・祝い食との関係を地域史料で追えるか','現代の養殖真鯛の普及が鯛めしの提供地域と価格をどう変えたか'],
+    sources:[
+      {id:1,title:'2種類あるって知ってた？愛媛の鯛めし',publisher:'愛媛県',url:'https://www.pref.ehime.jp/site/mican/16868.html'},
+      {id:2,title:'鯛めし 愛媛県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/taimeshi_ehime.html'},
+      {id:3,title:'愛媛県の伝統食を知る',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/ehime.html'},
+      {id:4,title:'愛媛の鯛めし 3つの鯛めしを徹底解説',publisher:'愛媛県公式観光サイト いよ観ネット',url:'https://www.iyokannet.jp/feature/tai/taimeshi'},
+      {id:5,title:'愛顔のえひめ 令和8年9月号「東予・洋風焼き鯛めし」',publisher:'愛媛県',url:'https://www.pref.ehime.jp/page/156309.html'}
+    ]
   },
+  {
+    slug:'shimotsui-tako-meshi',
+    part:'食は、土地を語る',
+    title:'潮の速い下津井で、なぜタコが「ご飯」になったのか',
+    subtitle:'備讃瀬戸の潮流、マダコ漁、船上の食事、炊き込み――海の条件が料理になるまでを追う',
+    cities:['下津井','児島','倉敷'],
+    keywords:['下津井','マダコ','たこめし','備讃瀬戸','潮流','漁師料理','岡山','ガストロノミー'],
+    heroPhotoId:'photo-shimotsui-port',
+    lead:'下津井といえばタコである。だが「潮の速い海でタコが獲れる」ことと、「たこめしが郷土料理になる」ことの間には、いくつもの段階がある。漁師が獲り、扱い、食べ、家庭へ伝え、店が出す。自然環境が食材を用意し、人の仕事がそれを料理へ変える。下津井のたこめしは、その過程をとても分かりやすく見せてくれる。',
+    sections:[
+      {
+        heading:'なぜ下津井は「タコの町」なのか',
+        paragraphs:[
+          {text:'農林水産省は、倉敷市下津井付近を瀬戸内海でも特に潮流の速い海域として紹介し、そこで育つタコは身がしっかりし、地域の名物になっていると説明している。',refs:[1]},
+          {text:'下津井は備讃瀬戸に面し、本州と四国の間で潮が複雑に動く場所にある。港町の歴史だけでなく、食文化の側から見ても「流れの速い海」が基層にある。',refs:[]},
+          {text:'ただし、潮流が速ければ自動的にたこめしが生まれるわけではない。海の条件から料理までの間には、漁業と暮らしがある。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'獲ったタコは、まず漁師の食事になった',
+        paragraphs:[
+          {text:'農林水産省の郷土料理資料では、倉敷のたこめしは、漁師が獲ったタコを船の上で食べていたことが発祥と伝えられている。現在は児島を中心に家庭や飲食店で親しまれている。',refs:[1]},
+          {text:'この伝承が示すのは、郷土料理が最初から観光客向けの名物として生まれたのではないことだ。まず仕事の現場で手に入る食材を、日常の食事へ組み込むところから始まった。',refs:[]},
+          {text:'漁場と食卓の距離が短いほど、獲れた魚介をどう食べるかという試行錯誤が起きやすい。料理は、生態系だけでなく労働の現場からも生まれる。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'なぜ刺身ではなく、米と炊いたのか',
+        paragraphs:[
+          {text:'たこめしは、タコを小さく切り、しょうがや調味料とともに米へ入れて炊き込む。タコの風味と煮汁が米全体へ移る料理である。',refs:[1]},
+          {text:'新鮮なタコは刺身や煮付けにもできる。実際、下津井周辺ではイイダコの煮付けも伝承されている。つまり一つの海産物から複数の調理法が生まれている。',refs:[2]},
+          {text:'米と一緒に炊けば、少量のタコでも家族や船員で分けやすく、主食と副食を一つの鍋で調理できる。こうした生活上の合理性が地域料理として定着した可能性は高いが、具体的な成立過程はさらに史料が必要である。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'「名物」になった後も、海は同じではない',
+        paragraphs:[
+          {text:'岡山県の水産研究では、近年マダコの漁獲量減少を背景に、種苗生産や資源回復に向けた研究が進められている。下津井ダコも地域ブランドである一方、資源は無限ではない。',refs:[3]},
+          {text:'さらに岡山県は、瀬戸内海で過去の富栄養化、藻場・干潟の減少、その後の水質改善と栄養塩不足など、海域環境が長期的に変化してきたことを整理している。',refs:[4]},
+          {text:'郷土料理を守るとは、レシピだけを保存することではない。食材を支える海の環境、漁業者、資源管理まで含めて持続させなければ、料理の基盤そのものが弱くなる。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'たこめしは、備讃瀬戸を食べる料理である',
+        paragraphs:[
+          {text:'一杯のたこめしには、潮流のある海、そこに暮らすマダコ、漁師の仕事、米、調味、炊飯、地域の食卓が重なっている。',refs:[]},
+          {text:'だから「下津井はタコが有名」という結論だけでは惜しい。なぜその海にタコがいて、なぜ人がそれを獲り、なぜ米と炊き、なぜ今も地域料理として残るのか。順に追うことで、料理が自然と社会の接点であることが見えてくる。',refs:[]},
+          {text:'そして現在は、資源減少という新しい条件が加わっている。下津井のガストロノミーは、過去の文化ではなく、変化する海と向き合う現在の課題でもある。',refs:[3,4]}
+        ],
+        photoIds:[]
+      }
+    ],
+    provisionalConclusion:'下津井のたこめしは、潮流の速い備讃瀬戸という自然条件だけで生まれたのではない。マダコを獲る漁業、仕事場での食事、米と炊く生活技術が重なって地域料理になった。さらに現在は、マダコ資源と海域環境の変化が、その食文化の持続可能性を左右している。',
+    openQuestions:['たこめしの成立時期を地域史料でどこまで遡れるか','下津井ダコの漁獲量を長期時系列で復元できるか','水温・栄養塩・底質変化とマダコ資源の関係をどこまで説明できるか'],
+    sources:[
+      {id:1,title:'たこめし 岡山県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_10_okayama.html'},
+      {id:2,title:'いいだこの煮つけ 岡山県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_18_okayama.html'},
+      {id:3,title:'マダコ種苗生産の効率化と中間育成技術の開発',publisher:'岡山県農林水産総合センター水産研究所',url:'https://www.pref.okayama.jp/uploaded/life/1008262_9727589_misc.pdf'},
+      {id:4,title:'豊かな岡山の海を目指して',publisher:'岡山県',url:'https://www.pref.okayama.jp/page/820487.html'}
+    ]
+  }
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","shimonoseki-resource-made-by-market","faith-as-transport-map","imabari-why-shipbuilding","niihama-after-copper","shodoshima-open-island","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
