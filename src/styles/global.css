@@ -1907,3 +1907,27 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
     font-size:clamp(2.5rem,11vw,4.4rem);
   }
 }
+
+
+/* Homepage masthead removed — restore full-bleed cover */
+.magazine-cover{
+  --magazine-masthead-h:0px;
+  padding-top:0;
+  min-height:82vh;
+  background:#17252b;
+}
+.magazine-cover-image,
+.magazine-cover-scrim{
+  top:0;
+  height:100%;
+}
+.magazine-masthead,
+.magazine-issue{
+  display:none !important;
+}
+@media(max-width:900px){
+  .magazine-cover{
+    --magazine-masthead-h:0px;
+    min-height:78vh;
+  }
+}
