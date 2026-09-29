@@ -1507,6 +1507,45 @@ export const photoEvidence = [
     sourceType:'Wikimedia Commons',
     takenAt:'2008-02-08',
     verifiedAt:'2026-09-30'
+  },
+
+  {
+    id:'photo-kinkai-solar',
+    placeId:'ushimado',
+    nodeKey:'today',
+    theme:'industry',
+    title:'牛窓から見る錦海塩田跡のメガソーラー',
+    caption:'牛窓オリーブ園から望む瀬戸内Kirei太陽光発電所。かつて錦海湾を干拓してつくられた塩田跡地に、広大な太陽光パネル群が広がる。',
+    insight:'同じ土地が、海→塩田→遊休地→太陽光発電所と機能を変えてきた。塩田も太陽光も、広く平坦で日射を受けやすい土地を「太陽から価値を得る装置」に変える点では連続している。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Setouchi%20Kirei%20Mega%20Solar%20Power%20Plant%20from%20Ushimado%20Olive%20Garden.jpg?width=1800',
+    alt:'牛窓オリーブ園から見た錦海塩田跡の瀬戸内Kirei太陽光発電所',
+    author:'Saigen Jiro',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Setouchi_Kirei_Mega_Solar_Power_Plant_from_Ushimado_Olive_Garden.jpg',
+    license:'CC0 1.0',
+    licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2018-03-06',
+    verifiedAt:'2026-09-30'
+  },
+  {
+    id:'photo-solar-sharing-comparative',
+    placeId:'',
+    nodeKey:'today',
+    theme:'industry',
+    title:'営農型太陽光発電（比較資料）',
+    caption:'農地の上部空間に太陽光パネルを設置し、下部で営農を続けるソーラーシェアリング。写真は千葉市の事例。',
+    insight:'農地を発電所へ完全転用するのではなく、農業と発電を同じ土地で重ねるという土地利用の選択肢。土地を一用途に固定しない点が重要である。',
+    claimType:'fact',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/%E5%8D%83%E8%91%89%E5%B8%82%E5%A4%A7%E6%9C%A8%E6%88%B8%E3%82%A2%E3%82%B0%E3%83%AA%E3%83%BB%E3%82%A8%E3%83%8A%E3%82%B8%E3%83%BC1%E5%8F%B7%E6%A9%9F%20%E7%B7%91%E8%82%A5%20201806-min.jpg?width=1600',
+    alt:'農地上部に太陽光パネルを設置した営農型太陽光発電',
+    author:'千葉エコ・エネルギー',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:%E5%8D%83%E8%91%89%E5%B8%82%E5%A4%A7%E6%9C%A8%E6%88%B8%E3%82%A2%E3%82%B0%E3%83%AA%E3%83%BB%E3%82%A8%E3%83%8A%E3%82%B8%E3%83%BC1%E5%8F%B7%E6%A9%9F_%E7%B7%91%E8%82%A5_201806-min.jpg',
+    license:'CC BY-SA 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'',
+    verifiedAt:'2026-09-30'
   }
 ];
 
