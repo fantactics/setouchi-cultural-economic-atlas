@@ -1257,7 +1257,7 @@ export const bookArticles = [
       {id:4,title:'塩事業',publisher:'株式会社日本海水',url:'https://www.nihonkaisui.co.jp/business/salt_business'},
       {id:5,title:'塩商品',publisher:'株式会社日本海水',url:'https://www.nihonkaisui.co.jp/products/salt_product'}
     ]
-  }
+  },
   {
     slug:'takamatsu-sea-castle-to-gateway',
     number:'19',
