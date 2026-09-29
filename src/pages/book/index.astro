@@ -30,7 +30,6 @@ const parts=[...new Set(bookArticles.map((a)=>a.part))];
           const photo=photoById[article.heroPhotoId];
           return (
             <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-              <div class="book-toc-number">{article.number}</div>
               <div class="book-toc-copy">
                 <h2>{article.title}</h2>
                 <p>{article.subtitle}</p>
