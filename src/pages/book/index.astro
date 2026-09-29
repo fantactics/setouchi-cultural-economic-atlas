@@ -1,9 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { bookArticles } from '../../data/bookArticles.js';
+import { orderedBookArticles } from '../../data/bookArticles.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
-const parts=[...new Set(bookArticles.map((a)=>a.part))];
+const parts=[...new Set(orderedBookArticles.map((a)=>a.part))];
+const chapterDescriptions={
+  '海と陸は、人がつくった':'雨を貯める。海を干す。川を渡る。自然に適応しながら、人は土地そのものをつくり変えてきた。',
+  'なぜ、船はここで止まったのか':'潮、風、海峡、港。移動の不便さが、交易と町を生んだ。',
+  '産業は、紡がれる':'鉱山が機械を生み、塩田が化学を残し、織物がジーンズへ変わる。前の産業が残した技能・資本・設備が、次の産業へ渡っていく。',
+  '富は、町に何を残したのか':'交易や産業で生まれた利益は、寺、町家、白壁、文化へ姿を変えて残っていく。',
+  '町は、何度でもつくり直される':'港から鉄道へ、鉄道から道路へ。交通が変わるたびに、都市の中心も組み替えられる。'
+};
 ---
 <BaseLayout title="地域の物語 | 瀬戸内自然文化経済アトラス" description="瀬戸内の地域が、自然・交通・産業・文化の積み重なりからどう形成されたかを読む。">
   <section class="book-cover">
@@ -24,9 +31,9 @@ const parts=[...new Set(bookArticles.map((a)=>a.part))];
 
   {parts.map((part)=>(
     <section class="section book-part">
-      <div class="book-part-title">{part}</div>
+      <div class="book-part-title">{part}</div>\n      <p class="book-part-dek">{chapterDescriptions[part]}</p>
       <div class="book-toc-list">
-        {bookArticles.filter((a)=>a.part===part).map((article)=>{
+        {orderedBookArticles.filter((a)=>a.part===part).map((article)=>{
           const photo=photoById[article.heroPhotoId];
           return (
             <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
