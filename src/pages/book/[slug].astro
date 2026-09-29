@@ -17,8 +17,34 @@ const { article, prev, next }=Astro.props;
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
 const sourceById=Object.fromEntries(article.sources.map((s)=>[s.id,s]));
+const placeLinkByName = {
+  '赤穂':'ako',
+  '竹原':'takehara',
+  '坂出':'sakaide',
+  '防府（三田尻）':'hofu',
+  '三田尻':'hofu',
+  '児島':'shimotsui',
+  '下津井':'shimotsui',
+  '倉敷':'shimotsui',
+  '鞆の浦':'tomonoura',
+  '鞆':'tomonoura',
+  '御手洗':'mitarai',
+  '多度津':'tadotsu',
+  '尾道':'onomichi',
+  '今治':'imabari',
+  '波止浜':'imabari',
+  '来島海峡':'imabari',
+  '新居浜':'niihama',
+  '別子':'niihama',
+  '東平':'niihama',
+  '小豆島':'shodoshima',
+  '牛窓':'ushimado',
+  '高松':'takamatsu',
+  '丸亀':'marugame',
+  '岩国':'iwakuni'
+};
 ---
-<BaseLayout title={`${article.title} | 読む瀬戸内`} description={article.subtitle}>
+<BaseLayout title={`${article.title} | 地域の物語`} description={article.subtitle}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}　｜　第{article.number}回</div>
@@ -26,7 +52,10 @@ const sourceById=Object.fromEntries(article.sources.map((s)=>[s.id,s]));
       <p class="book-article-subtitle">{article.subtitle}</p>
       <p class="book-article-dek">{article.lead}</p>
       <div class="book-meta-row">
-        <div>{article.cities.map((x)=><a href={`/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(x)}`}>{x}</a>)}</div>
+        <div>{article.cities.map((x)=>{
+          const placeId=placeLinkByName[x];
+          return <a href={placeId ? `/setouchi-cultural-economic-atlas/places/${placeId}/` : `/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(x)}`}>{x}</a>;
+        })}</div>
         <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
       </div>
     </header>
