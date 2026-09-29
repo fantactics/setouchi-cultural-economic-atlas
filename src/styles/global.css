@@ -877,3 +877,47 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   .home-pilot-grid{grid-template-columns:1fr;}
   .home-pilot-card{min-height:210px;}
 }
+
+
+/* Emphasize the story section */
+.home-reading{
+  background:#fff;
+  padding-top:5.6rem;
+  padding-bottom:5.8rem;
+  border-top:4px solid var(--ink);
+  border-bottom:1px solid var(--line);
+}
+.home-reading .section-heading-row{
+  align-items:flex-end;
+  margin-bottom:1.4rem;
+}
+.home-reading .kicker{
+  color:var(--sea);
+  font-size:.78rem;
+  letter-spacing:.14em;
+}
+.home-reading h2{
+  font-family:var(--book-serif);
+  font-size:clamp(2.8rem,6vw,5.2rem);
+  font-weight:500;
+  line-height:1.05;
+  letter-spacing:-.045em;
+  margin:.25rem 0 0;
+}
+.home-reading .text-link{
+  font-size:.92rem;
+  padding-bottom:.2rem;
+  border-bottom:1px solid currentColor;
+}
+.home-reading .serial-row{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.home-reading .serial-copy h3{
+  font-size:1.75rem;
+}
+@media(max-width:800px){
+  .home-reading{padding-top:4rem;padding-bottom:4rem;}
+  .home-reading .section-heading-row{align-items:flex-start;}
+  .home-reading h2{font-size:clamp(2.5rem,12vw,4rem);}
+}
