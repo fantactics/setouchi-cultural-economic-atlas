@@ -1095,3 +1095,75 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   line-height:1.8;
   color:var(--muted);
 }
+
+
+/* Story-oriented regional index */
+.place-index-story{
+  padding-top:3.5rem;
+}
+.place-index-intro{
+  max-width:860px;
+  margin-bottom:1.7rem;
+}
+.place-index-intro h2{
+  font-family:var(--book-serif);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:500;
+  letter-spacing:-.03em;
+  margin:0 0 .8rem;
+}
+.place-index-intro p{
+  font-family:var(--book-serif);
+  font-size:1.05rem;
+  line-height:1.9;
+  color:var(--muted);
+  margin:0;
+}
+.place-index-direction{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  margin:0 0 1.2rem;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--muted);
+}
+.place-index-direction b{
+  font-weight:400;
+  color:var(--accent);
+}
+.place-index-story-card{
+  min-height:270px;
+  display:flex;
+  flex-direction:column;
+}
+.place-index-prefecture{
+  font-size:.72rem;
+  color:var(--muted);
+}
+.place-index-story-card h2{
+  font-family:var(--book-serif);
+  font-size:1.7rem;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+.place-index-subtitle{
+  font-weight:600;
+  color:var(--text) !important;
+}
+.place-index-causal{
+  margin-top:.75rem;
+  padding-top:.85rem;
+  border-top:1px solid var(--line);
+  font-size:.9rem;
+}
+.place-index-read{
+  margin-top:auto;
+  padding-top:1rem;
+  font-size:.8rem;
+  font-weight:700;
+}
+@media(max-width:700px){
+  .place-index-grid{grid-template-columns:1fr;}
+  .place-index-story-card{min-height:auto;}
+}
