@@ -1468,6 +1468,45 @@ export const photoEvidence = [
     sourceType:'Wikimedia Commons',
     takenAt:'1889',
     verifiedAt:'2026-09-30'
+  },
+
+  {
+    id:'photo-ibuki-island',
+    placeId:'',
+    nodeKey:'nature',
+    theme:'geography',
+    title:'燧灘に浮かぶ伊吹島',
+    caption:'観音寺側から見た伊吹島。いりこ漁場と加工場が近接する島の地理を示す。',
+    insight:'伊吹いりこの価値は魚だけでなく、漁場から加工場までの短い距離に支えられている。島という小さな空間が、鮮度と加工の一体化を可能にしている。',
+    claimType:'fact',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Ibuki%20Island.jpg?width=1400',
+    alt:'香川県観音寺市沖の伊吹島',
+    author:'kwakkun',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Ibuki_Island.jpg',
+    license:'Public domain',
+    licenseUrl:'https://commons.wikimedia.org/wiki/File:Ibuki_Island.jpg',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2009-01-04',
+    verifiedAt:'2026-09-30'
+  },
+  {
+    id:'photo-niboshi-comparative',
+    placeId:'',
+    nodeKey:'culture',
+    theme:'food',
+    title:'煮干し（比較資料）',
+    caption:'一般的な煮干し。伊吹島産そのものではない比較資料。',
+    insight:'出汁用の煮干しでは、乾燥後に脂が酸化しにくいことが商品価値になる。脂が多すぎる魚が「不適格」になるのは、魚そのものの品質ではなく、用途との不一致である。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Niboshipackage.JPG?width=1400',
+    alt:'日本の煮干し',
+    author:'Franzeska',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Niboshipackage.JPG',
+    license:'CC BY-SA 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2008-02-08',
+    verifiedAt:'2026-09-30'
   }
 ];
 
