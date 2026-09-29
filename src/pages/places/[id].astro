@@ -252,6 +252,31 @@ const storyParagraphs = storyParagraphsById[place.id] || [
   `${place.sections[3][1]} ${place.sections[4][1]}`,
   `${place.sections[6][1]} ${place.sections[16][1]}`
 ];
+const regionCoverPhotoIds={
+  ako:'photo-ako-salt-terrace',
+  ushimado:'photo-ushimado-islands',
+  shimotsui:'photo-shimotsui-geography',
+  tomonoura:'photo-tomonoura-port',
+  onomichi:'photo-onomichi-panorama',
+  mihara:'photo-mihara-castle-station',
+  takehara:'photo-takehara-view',
+  mitarai:'photo-mitarai-panorama',
+  iwakuni:'photo-iwakuni-kintai',
+  yanai:'photo-yanai-whitewall',
+  hofu:'photo-hofu-salt-official',
+  shimonoseki:'photo-shimonoseki-kanmon',
+  hiketa:'photo-hiketa-townscape',
+  shodoshima:'photo-shodoshima-olive-sea',
+  takamatsu:'photo-takamatsu-seawater-moat',
+  sakaide:'photo-sakaide-bannosu-aerial',
+  tadotsu:'photo-tadotsu-station',
+  niihama:'photo-niihama-tonaru',
+  imabari:'photo-imabari-kurushima',
+  matsuyama:'photo-matsuyama-city-view'
+};
+const coverPhoto=placePhotos.find((photo)=>photo.id===regionCoverPhotoIds[place.id]) || placePhotos[0] || null;
+const coverSupportingPhotos=placePhotos.filter((photo)=>photo.id!==coverPhoto?.id).slice(0,3);
+
 const researchBySlug=Object.fromEntries(researchChapters.map((chapter)=>[chapter.slug,chapter]));
 const researchSlugsByPlace={
   ako:['geography','livelihoods','gastronomy','capabilities','standardization'],
@@ -305,33 +330,75 @@ const regionMapPoints=[
 ---
 <BaseLayout title={`${place.name} | 地域から見る | SETOUCHI ATLAS`} description={place.subtitle}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <section class="place-hero region-hub-hero">
-    <div class="region-hero-meta">
-      <span class="region-page-label">地域ページ</span>
+  <section class="region-cover">
+    {coverPhoto && (
+      <img class="region-cover-image" src={coverPhoto.imageUrl} alt={coverPhoto.alt} fetchpriority="high" />
+    )}
+    <div class="region-cover-scrim"></div>
+
+    <div class="region-cover-meta">
+      <span class="region-cover-label">地域特集</span>
       <span>{place.prefecture}</span>
     </div>
-    <h1>{place.name}</h1>
-    <p class="subtitle">{place.subtitle}</p>
-    <ul class="tags">{place.tags.map((tag) => <li>{tag}</li>)}</ul>
 
-    <nav class="region-layer-nav" aria-label={`${place.name}のページ構成`}>
+    <div class="region-cover-copy">
+      <h1>{place.name}</h1>
+      <p class="region-cover-subtitle">{place.subtitle}</p>
+
+      <div class="region-cover-question">
+        <span>この町を読む問い</span>
+        <h2>{story.title}</h2>
+      </div>
+
+      <a class="region-cover-read" href="#region-environment">この地域を読み始める ↓</a>
+    </div>
+
+    <div class="region-cover-lines" aria-label={place.name + 'のキーワード'}>
+      {place.tags.slice(0,4).map((tag)=><span>{tag}</span>)}
+    </div>
+
+    {coverPhoto && (
+      <div class="region-cover-credit">
+        <strong>{coverPhoto.title}</strong>
+        <span>Photo: {coverPhoto.author} / <a href={coverPhoto.sourcePage} target="_blank" rel="noreferrer">{coverPhoto.license}</a></span>
+      </div>
+    )}
+  </section>
+
+  <section class="region-cover-guide">
+    <nav class="region-layer-nav region-cover-nav" aria-label={place.name + 'のページ構成'}>
       <a href="#region-environment">
+        <small>01</small>
         <strong>自然環境</strong>
         <span>地図・地形・気候・水・生態系から地域の基層を見る</span>
       </a>
       <a href="#region-story">
+        <small>02</small>
         <strong>エッセイ</strong>
         <span>この町は、なぜこの町になったのか</span>
       </a>
       <a href="#region-research">
+        <small>03</small>
         <strong>研究ノート</strong>
         <span>瀬戸内全体のテーマから、この町を考える</span>
       </a>
       <a href="#region-data">
-        <strong>データ</strong>
-        <span>写真・18項目・出典から根拠を確かめる</span>
+        <small>04</small>
+        <strong>写真・データ</strong>
+        <span>景観、産業、基礎データと出典から根拠を確かめる</span>
       </a>
     </nav>
+
+    {coverSupportingPhotos.length > 0 && (
+      <div class="region-cover-photo-strip" aria-label={place.name + 'の写真'}>
+        {coverSupportingPhotos.map((photo)=>(
+          <a href={'#' + photo.id} title={photo.title}>
+            <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+            <span>{photo.title}</span>
+          </a>
+        ))}
+      </div>
+    )}
   </section>
 
   <section class="section region-natural-context" id="region-environment">
