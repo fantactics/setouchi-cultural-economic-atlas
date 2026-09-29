@@ -4,9 +4,7 @@ const { items = [], title = '写真証拠' } = Astro.props;
 ---
 {items.length > 0 && (
   <section class="section photo-evidence-section">
-    <div class="kicker">PHOTO EVIDENCE</div>
     <h2>{title}</h2>
-    <p class="lead">写真を装飾ではなく、地形・港・町並み・産業形成を検証する視覚資料として読みます。</p>
     <div class="photo-evidence-grid">
       {items.map((item)=>(
         <figure class="photo-evidence-card" id={item.id}>
