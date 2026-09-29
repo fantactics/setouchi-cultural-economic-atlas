@@ -4,6 +4,7 @@ import { places } from '../../data/places.js';
 import { climateProfiles } from '../../data/climate.js';
 import { photosForPlace } from '../../data/photoEvidence.js';
 import PhotoEvidenceGallery from '../../components/PhotoEvidenceGallery.astro';
+import { bookArticles } from '../../data/bookArticles.js';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -16,6 +17,26 @@ const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, 
 const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
 const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
+const storyAliases = {
+  ako:['赤穂'],
+  onomichi:['尾道'],
+  imabari:['今治','波止浜','来島海峡'],
+  shimotsui:['下津井','児島','倉敷'],
+  tadotsu:['多度津'],
+  mitarai:['御手洗'],
+  ushimado:['牛窓'],
+  tomonoura:['鞆の浦'],
+  takehara:['竹原'],
+  sakaide:['坂出'],
+  hofu:['防府（三田尻）','三田尻'],
+  niihama:['新居浜','別子','東平'],
+  shodoshima:['小豆島'],
+  iwakuni:['岩国'],
+  takamatsu:['高松'],
+  marugame:['丸亀']
+};
+const relatedNames = storyAliases[place.id] || [place.name];
+const relatedStories = bookArticles.filter((article)=>article.cities.some((city)=>relatedNames.includes(city)));
 const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮説' };
 const storyById = {
   ako:{
@@ -151,6 +172,20 @@ const storyParagraphs = [
       ))}
     </div>
   </section>
+
+  {relatedStories.length > 0 && (
+    <section class="section place-related-stories">
+      <h2>{place.name}の物語を読む</h2>
+      <div class="place-related-story-list">
+        {relatedStories.map((article)=>(
+          <a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+            <strong>{article.title}</strong>
+            <span>{article.subtitle}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <PhotoEvidenceGallery items={placePhotos} title={`${place.name}を写真で見る`} />
 
