@@ -5,11 +5,11 @@ import { photoEvidence } from '../../data/photoEvidence.js';
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const parts=[...new Set(bookArticles.map((a)=>a.part))];
 ---
-<BaseLayout title="読む瀬戸内 | 瀬戸内文化経済アトラス" description="史実と風景から考えを組み立てる、連載型の瀬戸内文化経済アトラス。">
+<BaseLayout title="地域の物語 | 瀬戸内自然文化経済アトラス" description="瀬戸内の地域が、自然・交通・産業・文化の積み重なりからどう形成されたかを読む。">
   <section class="book-cover">
     <div class="book-cover-inner">
-      <h1>読む瀬戸内</h1>
-      <p>土地を見て、史料を読み、別の町と比べる。結論へ急がず、事実と事実のあいだを歩きながら、地域がどうできたのかを考える連載です。</p>
+      <h1>地域の物語</h1>
+      <p>一つの名物や産業だけで町を説明せず、地形、海、交通、生業、技術、資本をたどりながら、その地域がなぜ今の姿になったのかを読み解きます。</p>
       <div class="book-cover-links">
         <a href="/setouchi-cultural-economic-atlas/cities/">都市から逆引き →</a>
         <a href="/setouchi-cultural-economic-atlas/keywords/">キーワードから逆引き →</a>
@@ -18,8 +18,8 @@ const parts=[...new Set(bookArticles.map((a)=>a.part))];
   </section>
 
   <section class="section book-intro">
-    <h2>順番に読んでも、気になる地域から入ってもいい</h2>
-    <p class="lead">各記事は、風景や物証から始まり、確認できる史実を積み上げ、別地域との比較で説明の弱点を探し、そこから仮説を組み立てます。「答え」は最後に数行だけ置きます。</p>
+    <h2>気になる地域や問いから読む</h2>
+    <p class="lead">塩田が消えたあと町に何が残ったのか。なぜ今治に造船が集まったのか。なぜ船は鞆や御手洗で止まったのか。地域の風景から問いを立て、地図・写真・史料をたどります。</p>
   </section>
 
   {parts.map((part)=>(
