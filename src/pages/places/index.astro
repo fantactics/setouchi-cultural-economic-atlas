@@ -9,18 +9,18 @@ const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(B
 ---
 <BaseLayout
   title="地域から見る | SETOUCHI ATLAS"
-  description="都市名を入口に、地域の物語、関連する研究ノート、写真・基礎データ・出典を一つの地域ページからたどる。"
+  description="都市名を入口に、地域エッセイ、関連する研究ノート、写真・基礎データ・出典を一つの地域ページからたどる。"
 >
   <section class="place-hero chapter-hero region-index-hero">
     <h1>地域から見る</h1>
-    <p class="subtitle">都市名を入口に、その土地の「物語」「研究ノート」「データ」を一つのページからたどります。</p>
+    <p class="subtitle">都市名を入口に、その土地の「エッセイ」「研究ノート」「データ」を一つのページからたどります。</p>
     <p class="region-index-lead">まず町の成り立ちを読み、次に瀬戸内全体の研究テーマへ視野を広げ、最後に写真・基礎データ・出典で確かめる。地域ページは、この三つを結ぶ入口です。</p>
   </section>
 
   <section class="section region-layer-guide">
     <div class="region-layer-guide-grid">
       <article>
-        <span>物語</span>
+        <span>エッセイ</span>
         <strong>この町は、なぜこの町になったのか</strong>
         <p>その地域固有の地形・交通・生業・産業のつながりを、因果の流れとして読みます。</p>
       </article>
@@ -55,7 +55,7 @@ const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(B
             <h2>{place.name}</h2>
             <p class="place-index-subtitle">{place.subtitle}</p>
             <div class="region-layer-chips" aria-label="この地域ページの内容">
-              <span>物語</span><span>研究ノート</span><span>データ</span>
+              <span>エッセイ</span><span>研究ノート</span><span>データ</span>
             </div>
             <p class="place-index-causal">{place.sections[17][1]}</p>
             <span class="place-index-read">地域ページを開く →</span>
@@ -76,7 +76,7 @@ const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(B
             <h2>{place.name}</h2>
             <p class="place-index-subtitle">{place.subtitle}</p>
             <div class="region-layer-chips" aria-label="この地域ページの内容">
-              <span>物語</span><span>研究ノート</span><span>データ</span>
+              <span>エッセイ</span><span>研究ノート</span><span>データ</span>
             </div>
             <p class="place-index-causal">{place.sections[17][1]}</p>
             <span class="place-index-read">地域ページを開く →</span>
