@@ -1,42 +1,40 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
-const prefectures=[...new Set(places.map((p)=>p.prefecture))];
+
+const eastToWestPlaces=[...places].sort((a,b)=>b.lon-a.lon);
 ---
-<BaseLayout title="地域一覧 | 瀬戸内文化経済アトラス" description="瀬戸内の地域ケースを、自然・交通・産業・文化の18層で読む。">
+<BaseLayout
+  title="地域から見る | SETOUCHI ATLAS"
+  description="瀬戸内のまちを東から西へ。自然環境と人々の営みが、地域の現在をどう形づくったのかをたどる。"
+>
   <section class="place-hero chapter-hero">
-    <div class="kicker">PLACE CASE STUDIES</div>
-    <h1>{places.length}地域を、同じ問いで比較する</h1>
-    <p class="subtitle">各地域を18の層で記述し、「なぜこの町はこの町になったのか」を自然・歴史・交通・産業・文化まで一続きで読みます。</p>
+    <h1>地域から見る</h1>
+    <p class="subtitle">瀬戸内のまちを東から西へ。地形、海、水、交通、生業、産業、文化がどう重なり、現在の姿になったのかを地域ごとにたどります。</p>
   </section>
 
-  <section class="section">
-    <div class="place-filter-row">
-      <button class="place-filter-btn active" data-pref="all">すべて</button>
-      {prefectures.map((pref)=><button class="place-filter-btn" data-pref={pref}>{pref}</button>)}
+  <section class="section place-index-story">
+    <div class="place-index-intro">
+      <h2>まちの成り立ちから読む</h2>
+      <p>地域名を選ぶと、まず「なぜこの町はこの町になったのか」を読みます。その後に写真、関連する物語、産業の系譜が続き、ページの最後に自然・歴史・産業・暮らしなど18項目の地域データをまとめています。</p>
     </div>
+
+    <div class="place-index-direction">
+      <span>東</span>
+      <b>→</b>
+      <span>西</span>
+    </div>
+
     <div class="place-index-grid">
-      {places.map((place)=>(
-        <a class="place-index-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`} data-pref={place.prefecture}>
-          <div class="kicker">{place.prefecture}</div>
+      {eastToWestPlaces.map((place)=>(
+        <a class="place-index-card place-index-story-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+          <div class="place-index-prefecture">{place.prefecture}</div>
           <h2>{place.name}</h2>
-          <p>{place.subtitle}</p>
-          <div class="mini-tags">{place.tags.slice(0,5).map((tag)=><small>{tag}</small>)}</div>
+          <p class="place-index-subtitle">{place.subtitle}</p>
+          <p class="place-index-causal">{place.sections[17][1]}</p>
+          <span class="place-index-read">この地域を読む →</span>
         </a>
       ))}
     </div>
   </section>
-
-  <script is:inline>
-    (() => {
-      const buttons=[...document.querySelectorAll('.place-filter-btn')];
-      const cards=[...document.querySelectorAll('.place-index-card')];
-      buttons.forEach((btn)=>btn.addEventListener('click',()=>{
-        buttons.forEach((b)=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const pref=btn.dataset.pref;
-        cards.forEach((card)=>card.hidden=pref!=='all' && card.dataset.pref!==pref);
-      }));
-    })();
-  </script>
 </BaseLayout>
