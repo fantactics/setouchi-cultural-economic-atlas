@@ -59,6 +59,7 @@ const initialCoverPhoto=coverPhotoById[initialFeature?.heroPhotoId] || initialFe
     data-articles={JSON.stringify(coverArticles)}
     data-photos={JSON.stringify(coverPhotos)}
   >
+    <!-- Cover photos are constrained to the featured essay's photo set. -->
     <img class="magazine-cover-image" data-cover-image src={initialCoverPhoto?.imageUrl} alt={initialCoverPhoto?.alt || ''} />
     <div class="magazine-cover-scrim"></div>
 
