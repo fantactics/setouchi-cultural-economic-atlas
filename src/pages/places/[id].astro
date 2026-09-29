@@ -19,26 +19,26 @@ const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
 const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
 const storyAliases = {
-  ako:['赤穂'],
-  onomichi:['尾道'],
-  imabari:['今治','波止浜','来島海峡'],
-  shimotsui:['下津井','児島','倉敷'],
-  tadotsu:['多度津'],
-  mitarai:['御手洗'],
-  ushimado:['牛窓'],
-  tomonoura:['鞆の浦'],
+  ako:['赤穂','gastronomy'],
+  onomichi:['尾道','gastronomy'],
+  imabari:['今治','波止浜','来島海峡','gastronomy'],
+  shimotsui:['下津井','児島','倉敷','gastronomy'],
+  tadotsu:['多度津','gastronomy'],
+  mitarai:['御手洗','gastronomy'],
+  ushimado:['牛窓','gastronomy'],
+  tomonoura:['鞆の浦','gastronomy'],
   mihara:['三原'],
-  takehara:['竹原'],
-  sakaide:['坂出'],
+  takehara:['竹原','gastronomy'],
+  sakaide:['坂出','gastronomy'],
   hofu:['防府（三田尻）','三田尻'],
   niihama:['新居浜','別子','東平'],
-  shodoshima:['小豆島'],
+  shodoshima:['小豆島','gastronomy'],
   iwakuni:['岩国'],
-  takamatsu:['高松'],
-  matsuyama:['松山'],
-  shimonoseki:['下関'],
+  takamatsu:['高松','gastronomy'],
+  matsuyama:['松山','gastronomy'],
+  shimonoseki:['下関','gastronomy'],
   yanai:['柳井'],
-  hiketa:['引田'],
+  hiketa:['引田','gastronomy'],
   marugame:['丸亀']
 };
 const relatedNames = storyAliases[place.id] || [place.name];
@@ -279,8 +279,32 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
   .map((slug)=>researchBySlug[slug])
   .filter(Boolean);
 
+const naturalEnvironment=[
+  {title:'地理・地形',body:place.sections?.[1]?.[1],claim:place.sections?.[1]?.[2],href:'/setouchi-cultural-economic-atlas/transect/'},
+  {title:'気候・水',body:place.sections?.[2]?.[1],claim:place.sections?.[2]?.[2],href:hasClimate ? `/setouchi-cultural-economic-atlas/places/${place.id}/climate/` : '/setouchi-cultural-economic-atlas/climate/'},
+  {title:'生態系・食資源',body:place.sections?.[5]?.[1],claim:place.sections?.[5]?.[2],href:`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`},
+  {title:'自然制約・災害',body:place.sections?.[14]?.[1],claim:place.sections?.[14]?.[2],href:null}
+].filter((item)=>item.body);
+
+const nearbyPlaces=places
+  .filter((candidate)=>candidate.id!==place.id)
+  .map((candidate)=>({
+    ...candidate,
+    distance:(candidate.lat-place.lat)**2 + (candidate.lon-place.lon)**2
+  }))
+  .sort((a,b)=>a.distance-b.distance)
+  .slice(0,5);
+
+const regionMapPoints=[
+  {id:place.id,name:place.name,prefecture:place.prefecture,lat:place.lat,lon:place.lon,current:true},
+  ...nearbyPlaces.map((candidate)=>({
+    id:candidate.id,name:candidate.name,prefecture:candidate.prefecture,lat:candidate.lat,lon:candidate.lon,current:false
+  }))
+];
+
 ---
 <BaseLayout title={`${place.name} | 地域から見る | SETOUCHI ATLAS`} description={place.subtitle}>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <section class="place-hero region-hub-hero">
     <div class="region-hero-meta">
       <span class="region-page-label">地域ページ</span>
@@ -304,6 +328,41 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
         <span>写真・18項目・出典から根拠を確かめる</span>
       </a>
     </nav>
+  </section>
+
+  <section class="section region-natural-context" id="region-environment">
+    <div class="region-context-heading">
+      <div>
+        <div class="region-context-label">地域の基層</div>
+        <h2>{place.name}の自然環境の構造</h2>
+        <p class="lead">自然環境が産業や文化を自動的に決めるわけではありません。ただし、地形・水・海・生態系は、人が選べる生業や技術に強い制約と可能性を与えます。まず「人が何をしたか」の前に、何に対して働きかけたのかを確認します。</p>
+      </div>
+    </div>
+
+    <div class="region-natural-layout">
+      <div
+        id="region-context-map"
+        class="region-context-map"
+        data-points={JSON.stringify(regionMapPoints)}
+        aria-label={`${place.name}と周辺地域の地図`}>
+      </div>
+
+      <div class="region-natural-grid">
+        {naturalEnvironment.map((item)=>(
+          <article class="region-natural-card">
+            <div class={`claim-badge ${item.claim}`}>{claimLabelsJa[item.claim]}</div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            {item.href && <a href={item.href}>関連データを見る →</a>}
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="region-natural-principle">
+      <strong>読み方</strong>
+      <span>自然条件 → 生態系・資源 → 人の選択 → 技術・制度・交易 → 産業・食・文化</span>
+    </div>
   </section>
 
   <section class="section place-story-intro region-layer-section" id="region-story">
@@ -458,4 +517,38 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
       ))}
     </div>
   </section>
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const el=document.getElementById('region-context-map');
+      if(!el || !window.L) return;
+      const points=JSON.parse(el.dataset.points || '[]');
+      const current=points.find((point)=>point.current);
+      const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true})
+        .setView(current ? [current.lat,current.lon] : [34.25,133.45],9);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18,
+        attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      points.forEach((point)=>{
+        const marker=L.circleMarker([point.lat,point.lon],{
+          radius:point.current ? 9 : 5,
+          weight:point.current ? 3 : 1.5,
+          fillOpacity:point.current ? .9 : .6,
+          color:'#ffffff',
+          fillColor:point.current ? '#245b6a' : '#7b9298'
+        }).addTo(map);
+        const link=point.current
+          ? '<strong>'+point.name+'</strong><br><small>'+point.prefecture+'</small>'
+          : '<a href="/setouchi-cultural-economic-atlas/places/'+point.id+'/"><strong>'+point.name+'</strong></a><br><small>'+point.prefecture+'</small>';
+        marker.bindPopup(link);
+        if(point.current) marker.bindTooltip(point.name,{permanent:false,direction:'top'});
+      });
+
+      const coords=points.map((point)=>[point.lat,point.lon]);
+      if(coords.length>1) map.fitBounds(L.latLngBounds(coords),{padding:[32,32],maxZoom:10});
+    })();
+  </script>
 </BaseLayout>
