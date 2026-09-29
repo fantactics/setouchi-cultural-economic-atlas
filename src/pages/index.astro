@@ -5,8 +5,10 @@ import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
 
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
-const eastToWestOrder=['hiketa','ako','shodoshima','ushimado','takamatsu','sakaide','shimotsui','tadotsu','tomonoura','niihama','onomichi','mihara','imabari','takehara','mitarai','matsuyama','iwakuni','yanai','hofu','shimonoseki'];
-const eastToWestPlaces=eastToWestOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
+const mainlandOrder=['ako','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
+const shikokuOrder=['hiketa','shodoshima','takamatsu','sakaide','tadotsu','niihama','imabari','matsuyama'];
+const mainlandPlaces=mainlandOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
+const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 const mapPlaces=places.map((p)=>({
   id:p.id,
   name:p.name,
@@ -73,17 +75,33 @@ const mapPlaces=places.map((p)=>({
   <section class="section home-region-index">
     <div class="section-heading-row">
       <div>
-        <h2>地域から見る</h2>\n        <p class="home-region-direction">東から西へ</p>
+        <h2>地域から見る</h2>
       </div>
       <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">地域一覧 →</a>
     </div>
-    <div class="home-region-grid">
-      {eastToWestPlaces.map((place)=>(
-        <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-          <strong>{place.name}</strong>
-          <span>{place.prefecture}</span>
-        </a>
-      ))}
+
+    <div class="home-region-group">
+      <h3>近畿・中国地方</h3>
+      <div class="home-region-grid">
+        {mainlandPlaces.map((place)=>(
+          <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+            <strong>{place.name}</strong>
+            <span>{place.prefecture}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="home-region-group">
+      <h3>四国地方</h3>
+      <div class="home-region-grid">
+        {shikokuPlaces.map((place)=>(
+          <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+            <strong>{place.name}</strong>
+            <span>{place.prefecture}</span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
