@@ -1201,7 +1201,7 @@ export const bookArticles = [
           {text:'現在はすべて「松山市」の中にあるため一つの都市に見える。だが近代以前の姿を考えるなら、三つの独立した地域システムが近接していた、と考える方が分かりやすい。',refs:[]},
           {text:'問題は、どうやってそれらが一つの都市圏になったのかである。',refs:[]}
         ],
-        photoIds:['photo-matsuyama-mitsuhama']
+        photoIds:[]
       },
       {
         heading:'なぜ最初の鉄道は、城下町と港を結んだのか',
@@ -1474,7 +1474,7 @@ export const bookArticles = [
       {id:7,title:'高松港の紹介',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/takamatsukokanri/port_takamatsu/kfvn.html'},
       {id:8,title:'高松港頭地区地区計画',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/jigyosha/toshikeikaku/kenchiku_kakunin/chiku/takamatsuko.html'}
     ]
-  },,
+  },
   {
     slug:'tai-meshi-two-seas',
     part:'食は、土地を語る',
