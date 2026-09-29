@@ -17,6 +17,37 @@ const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
 const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
 const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮説' };
+const storyById = {
+  imabari: {
+    title:'潮の速い海峡と港から、海事産業へ',
+    body:'来島海峡の強い潮流は航海の制約である一方、波止浜などの待避・潮待ち需要を生みました。船が滞在することで修繕や船大工の技能が蓄積し、海運・船主資本・造船・舶用産業へと厚みを増していきます。別系統では、蒼社川の水と繊維技能がタオル産地を育てました。',
+    chains:[
+      ['急潮','潮待ち','修繕','造船・海運'],
+      ['水資源','染晒','タオル','産地ブランド']
+    ]
+  },
+  shimotsui: {
+    title:'海だった土地から、綿とデニムの産地へ',
+    body:'児島の浅海・干拓地では綿作が育ち、下津井などの港は肥料を受け入れ、木綿や塩を外へ出す物流を担いました。織布・縫製・染色の技能は、足袋、学生服、作業服、ジーンズへと製品を変えながら継承されました。',
+    chains:[
+      ['浅海・干拓','綿','織布・縫製','学生服','デニム'],
+      ['北前船','肥料搬入','綿・木綿移出','港町商業']
+    ]
+  },
+  niihama: {
+    title:'山の銅山から、海辺の工業都市へ',
+    body:'別子銅山の採鉱から始まった産業は、運搬、製錬、機械修理、発電、化学へと機能を広げました。鉱山が閉じた後も、そこで蓄積した技術、企業、港湾、電力、取引関係が残り、非鉄・機械・化学を核とする工業都市へ引き継がれています。',
+    chains:[
+      ['銅鉱床','採鉱・製錬','非鉄素材'],
+      ['鉱山需要','機械・電力・化学','工業都市']
+    ]
+  }
+};
+const story = storyById[place.id] || {
+  title:'この地域は、どうできたか',
+  body:place.sections[17][1],
+  chains:place.genes.map((gene)=>gene.chain)
+};
 ---
 <BaseLayout title={`${place.name} | 瀬戸内自然文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
@@ -27,21 +58,20 @@ const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮�
   </section>
 
   <section class="section place-story-intro">
-    <h2>この地域は、どうできたか</h2>
-    <p class="place-story-lead">{place.sections[17][1]}</p>
+    <h2>{story.title}</h2>
+    <p class="place-story-lead">{story.body}</p>
     <div class="place-story-chains">
-      {place.genes.map((gene) => (
-        <article class="place-story-chain">
-          <h3>{gene.name}</h3>
+      {story.chains.map((chain) => (
+        <div class="place-story-chain">
           <div class="chain">
-            {gene.chain.map((step, i) => (
+            {chain.map((step, i) => (
               <>
                 <span>{step}</span>
-                {i < gene.chain.length - 1 && <b class="arrow">→</b>}
+                {i < chain.length - 1 && <b class="arrow">→</b>}
               </>
             ))}
           </div>
-        </article>
+        </div>
       ))}
     </div>
   </section>
