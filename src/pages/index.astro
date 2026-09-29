@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
+import { researchChapters } from '../data/researchChapters.js';
 
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const mainlandOrder=['ako','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
@@ -104,6 +105,24 @@ const mapPlaces=places.map((p)=>({
     </div>
   </section>
 
+  <section class="section home-research-notes">
+    <div class="section-heading-row">
+      <div>
+        <h2>研究ノート</h2>
+        <p class="home-reading-intro">地域を越えて、瀬戸内の仕組みを考える。</p>
+      </div>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
+    </div>
+    <div class="home-research-grid">
+      {researchChapters.map((chapter)=>(
+        <a href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
+          <strong>{chapter.title}</strong>
+          <span>{chapter.subtitle}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="section home-evidence">
     <h2>データ集</h2>
     <p class="lead">地域を詳しく確認するときに使う基礎データと地図です。</p>
@@ -114,7 +133,6 @@ const mapPlaces=places.map((p)=>({
       <a href="/setouchi-cultural-economic-atlas/transport/"><b>交通</b><span>港・鉄道・橋</span></a>
       <a href="/setouchi-cultural-economic-atlas/transect/"><b>地形断面</b><span>山から海まで</span></a>
       <a href="/setouchi-cultural-economic-atlas/photos/"><b>写真資料</b><span>景観・港・産業</span></a>
-      <a href="/setouchi-cultural-economic-atlas/chapters/"><b>研究ノート</b><span>検証中のテーマ</span></a>
     </div>
   </section>
 
