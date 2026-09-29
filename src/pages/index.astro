@@ -23,7 +23,12 @@ const coverArticles=orderedBookArticles.map((article)=>({
   slug:article.slug,
   part:article.part,
   title:article.title,
-  subtitle:article.subtitle
+  subtitle:article.subtitle,
+  heroPhotoId:article.heroPhotoId,
+  photoIds:[...new Set([
+    article.heroPhotoId,
+    ...article.sections.flatMap((section)=>section.photoIds || [])
+  ].filter(Boolean))]
 }));
 const coverPhotos=photoEvidence
   .filter((photo)=>photo.imageUrl && photo.sourcePage)
@@ -38,6 +43,11 @@ const coverPhotos=photoEvidence
     license:photo.license,
     sourcePage:photo.sourcePage
   }));
+const coverPhotoById=Object.fromEntries(coverPhotos.map((photo)=>[photo.id,photo]));
+const featureArticles=coverArticles.filter((article)=>article.photoIds.some((id)=>coverPhotoById[id]));
+const initialFeature=featureArticles[0] || coverArticles[0];
+const initialFeaturePhotos=(initialFeature?.photoIds || []).map((id)=>coverPhotoById[id]).filter(Boolean);
+const initialCoverPhoto=coverPhotoById[initialFeature?.heroPhotoId] || initialFeaturePhotos[0] || coverPhotos[0];
 
 ---
 <BaseLayout title="SETOUCHI ATLAS" description="瀬戸内のまちの過去・現在・未来を、自然環境と人々の営みとの関係性からたどる。">
@@ -49,23 +59,23 @@ const coverPhotos=photoEvidence
     data-articles={JSON.stringify(coverArticles)}
     data-photos={JSON.stringify(coverPhotos)}
   >
-    <img class="magazine-cover-image" data-cover-image src={coverPhotos[0]?.imageUrl} alt={coverPhotos[0]?.alt || ''} />
+    <img class="magazine-cover-image" data-cover-image src={initialCoverPhoto?.imageUrl} alt={initialCoverPhoto?.alt || ''} />
     <div class="magazine-cover-scrim"></div>
 
     <div class="magazine-feature">
       <div class="magazine-feature-label">FEATURED ESSAY</div>
-      <small data-cover-part>{coverArticles[0]?.part}</small>
-      <h1 data-cover-title>{coverArticles[0]?.title}</h1>
-      <p data-cover-subtitle>{coverArticles[0]?.subtitle}</p>
+      <small data-cover-part>{initialFeature?.part}</small>
+      <h1 data-cover-title>{initialFeature?.title}</h1>
+      <p data-cover-subtitle>{initialFeature?.subtitle}</p>
       <div class="magazine-feature-actions">
-        <a data-cover-link href={`/setouchi-cultural-economic-atlas/book/${coverArticles[0]?.slug}/`}>このエッセイを読む →</a>
+        <a data-cover-link href={`/setouchi-cultural-economic-atlas/book/${initialFeature?.slug}/`}>このエッセイを読む →</a>
         <button type="button" data-reshuffle>別の表紙を見る</button>
       </div>
     </div>
 
     <div class="magazine-photo-credit">
-      <span data-cover-photo-title>{coverPhotos[0]?.title}</span>
-      <small>Photo: <span data-cover-photo-author>{coverPhotos[0]?.author}</span> / <a data-cover-photo-source href={coverPhotos[0]?.sourcePage} target="_blank" rel="noreferrer">{coverPhotos[0]?.license}</a></small>
+      <span data-cover-photo-title>{initialCoverPhoto?.title}</span>
+      <small>Photo: <span data-cover-photo-author>{initialCoverPhoto?.author}</span> / <a data-cover-photo-source href={initialCoverPhoto?.sourcePage} target="_blank" rel="noreferrer">{initialCoverPhoto?.license}</a></small>
     </div>
   </section>
 
@@ -233,10 +243,14 @@ const coverPhotos=photoEvidence
 
       const render=()=>{
         if(!articles.length || !photos.length) return;
-        const storyPool=shuffle(articles);
+        const photoById=Object.fromEntries(photos.map((photo)=>[photo.id,photo]));
+        const eligibleArticles=articles.filter((article)=>(article.photoIds || []).some((id)=>photoById[id]));
+        const storyPool=shuffle(eligibleArticles.length ? eligibleArticles : articles);
         const photoPool=shuffle(photos);
         const feature=storyPool[0];
-        const coverPhoto=photoPool[0];
+        const featurePhotos=(feature?.photoIds || []).map((id)=>photoById[id]).filter(Boolean);
+        const heroPhoto=feature?.heroPhotoId ? photoById[feature.heroPhotoId] : null;
+        const coverPhoto=heroPhoto || shuffle(featurePhotos)[0] || photoPool[0];
 
         const coverImage=cover.querySelector('[data-cover-image]');
         if(coverImage){
