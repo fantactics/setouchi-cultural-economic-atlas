@@ -48,6 +48,11 @@ const story = storyById[place.id] || {
   body:place.sections[17][1],
   chains:place.genes.map((gene)=>gene.chain)
 };
+const storyParagraphs = [
+  `${place.sections[1][1]} ${place.sections[2][1]}`,
+  `${place.sections[3][1]} ${place.sections[4][1]}`,
+  `${place.sections[6][1]} ${place.sections[16][1]}`
+];
 ---
 <BaseLayout title={`${place.name} | 瀬戸内自然文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
@@ -60,6 +65,9 @@ const story = storyById[place.id] || {
   <section class="section place-story-intro">
     <h2>{story.title}</h2>
     <p class="place-story-lead">{story.body}</p>
+    <div class="place-story-prose">
+      {storyParagraphs.map((paragraph)=><p>{paragraph}</p>)}
+    </div>
     <div class="place-story-chains">
       {story.chains.map((chain) => (
         <div class="place-story-chain">
