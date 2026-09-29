@@ -1030,3 +1030,17 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   .home-region-grid a{display:block;}
   .home-region-grid span{display:block;margin-top:2px;}
 }
+
+
+/* Richer regional introduction */
+.place-story-prose{
+  max-width:820px;
+  margin-top:1.6rem;
+}
+.place-story-prose p{
+  font-family:var(--book-serif);
+  font-size:1.02rem;
+  line-height:2;
+  margin:0 0 1.15rem;
+  color:#354149;
+}
