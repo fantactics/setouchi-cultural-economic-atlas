@@ -50,8 +50,8 @@ const compactCases=landUseCases.map((item)=>({
     </div>
 
     <div class="land-use-era-control" role="group" aria-label="土地利用の時代">
-      {landUseEras.map((era,i)=>(
-        <button class={'land-use-era-button ' + (i===3?'active':'')} type="button" data-era={era.id}>
+      {landUseEras.map((era)=>(
+        <button class={'land-use-era-button ' + (era.id==='current'?'active':'')} type="button" data-era={era.id}>
           <strong>{era.label}</strong>
           <small>{era.note}</small>
         </button>
@@ -94,11 +94,8 @@ const compactCases=landUseCases.map((item)=>({
               <p class="land-use-thesis">{item.thesis}</p>
 
               <div class="land-use-sequence">
-                {item.chain.map((step,i)=>(
-                  <span class="land-use-sequence-step">
-                    <em>{step}</em>
-                    {i<item.chain.length-1 && <b>→</b>}
-                  </span>
+                {item.chain.map((step)=>(
+                  <em>{step}</em>
                 ))}
               </div>
 
