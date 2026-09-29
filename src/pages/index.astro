@@ -5,7 +5,8 @@ import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
 
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
-const eastToWestPlaces=[...places].sort((a,b)=>b.lon-a.lon);
+const eastToWestOrder=['hiketa','ako','shodoshima','ushimado','takamatsu','sakaide','shimotsui','tadotsu','tomonoura','niihama','onomichi','mihara','imabari','takehara','mitarai','matsuyama','iwakuni','yanai','hofu','shimonoseki'];
+const eastToWestPlaces=eastToWestOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 const mapPlaces=places.map((p)=>({
   id:p.id,
   name:p.name,
@@ -72,7 +73,7 @@ const mapPlaces=places.map((p)=>({
   <section class="section home-region-index">
     <div class="section-heading-row">
       <div>
-        <h2>地域から見る</h2>
+        <h2>地域から見る</h2>\n        <p class="home-region-direction">東から西へ</p>
       </div>
       <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">地域一覧 →</a>
     </div>
