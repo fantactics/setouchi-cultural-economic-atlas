@@ -1,0 +1,96 @@
+export const landUseEras = [
+  {id:'before',label:'塩田以前',note:'海・干潟・沿岸低地など、産業化以前の基層'},
+  {id:'salt',label:'塩田期',note:'海を区画し、日射と風を生産力へ変える'},
+  {id:'transition',label:'転換期',note:'製塩技術の転換後、旧土地利用が解体される'},
+  {id:'current',label:'現在',note:'工業・市街地・発電など次の用途へ再編'},
+  {id:'next',label:'次',note:'設備更新・撤去後の再利用可能性まで考える'}
+];
+
+export const landUseCases = [
+  {
+    id:'kinkai',
+    placeId:'ushimado',
+    name:'牛窓・錦海',
+    prefecture:'岡山県',
+    lat:34.615,
+    lon:134.162,
+    coordinateNote:'牛窓側の代表点。錦海塩田跡地は邑久町尻海側に広がる。',
+    articleSlug:'kinkai-salt-field-to-solar',
+    photoId:'photo-kinkai-solar',
+    thesis:'海を干して塩をつくった土地が、太陽を受けて電気をつくる土地へ変わった。',
+    chain:['海・干潟','錦海塩田','遊休地・湿地／産廃処分','太陽光発電','2038年以降の再利用'],
+    stages:{
+      before:{label:'錦海湾',kind:'sea',text:'遠浅の湾。現在の広大な平地は、もともと海だった。'},
+      salt:{label:'約500haの錦海塩田',kind:'salt',text:'1950年代から堤防・排水によって干拓され、1962年に製塩開始。'},
+      transition:{label:'塩田廃止後の遊休地',kind:'idle',text:'1971年の塩業整理後、産廃処分などを経ながら土地維持が課題になった。'},
+      current:{label:'瀬戸内Kirei太陽光発電所',kind:'solar',text:'2018年商業運転開始。約235MW。土地貸付と防災・排水整備を組み合わせた。'},
+      next:{label:'太陽光の次',kind:'future',text:'土地貸付は2038年10月までが基本。更新・撤去・次用途が再び土地利用問題になる。'}
+    },
+    sources:[
+      {label:'瀬戸内市 錦海塩田跡地について',url:'https://www.city.setouchi.lg.jp/soshiki/21/3995.html'},
+      {label:'瀬戸内市 錦海塩田跡地の活用について',url:'https://www.city.setouchi.lg.jp/soshiki/21/3996.html'},
+      {label:'清水建設 瀬戸内Kirei太陽光発電所',url:'https://www.shimz.co.jp/works/jp_ene_201812_setouchiKirei.html'}
+    ]
+  },
+  {
+    id:'sakaide',
+    placeId:'sakaide',
+    name:'坂出',
+    prefecture:'香川県',
+    lat:34.3163,
+    lon:133.8606,
+    coordinateNote:'坂出市中心部の代表点。旧塩田・番の州の土地利用は沿岸部に広がる。',
+    articleSlug:'sakaide-salt-fields-to-industry',
+    photoId:'photo-sakaide-bannosu-aerial',
+    thesis:'塩田の消滅と新規埋立を同時に進め、沿岸部を港湾・工業・市街地へ再編集した。',
+    chain:['海岸低地','塩田','塩田廃止＋番の州埋立','臨海工業・港湾・市街地','工業地の更新・再編'],
+    stages:{
+      before:{label:'沿岸低地・浅海',kind:'sea',text:'塩田や港湾造成以前の海辺。'},
+      salt:{label:'坂出塩田',kind:'salt',text:'長期にわたり製塩を支えた沿岸土地利用。1972年に塩田製塩が終わる。'},
+      transition:{label:'塩田廃止＋番の州埋立',kind:'reclamation',text:'1960年代から新規埋立も進み、旧塩田と造成地が巨大な土地ストックになった。'},
+      current:{label:'港湾・臨海工業・住宅・緑地',kind:'industry',text:'大区画、港、道路を組み合わせ、工業都市として沿岸部を再編した。'},
+      next:{label:'既存工業地の再編',kind:'future',text:'脱炭素化や設備更新の中で、臨海工業地の用途・エネルギー構成が次の論点になる。'}
+    },
+    sources:[
+      {label:'坂出市のあゆみ',url:'https://www.city.sakaide.lg.jp/soshiki/seisaku/ayumi.html'},
+      {label:'坂出港の概要・各地区の姿',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'},
+      {label:'坂出緩衝緑地再整備基本計画',url:'https://www.city.sakaide.lg.jp/uploaded/attachment/32920.pdf'}
+    ]
+  },
+  {
+    id:'ako',
+    placeId:'ako',
+    name:'赤穂',
+    prefecture:'兵庫県',
+    lat:34.7549,
+    lon:134.3903,
+    coordinateNote:'赤穂市の代表点。旧東浜・西浜塩田は沿岸部に分布した。',
+    articleSlug:'ako-salt-fields-to-city',
+    photoId:'photo-ako-salt-terrace',
+    thesis:'同じ塩田跡が、工業地、市街地、公園・記憶の場所へ複数の方向に分かれた。',
+    chain:['沿岸・干潟','東浜・西浜塩田','1972年塩田製塩終了','工業地／住宅地／公園','土地履歴を踏まえた防災・更新'],
+    stages:{
+      before:{label:'沿岸・干潟',kind:'sea',text:'塩田化以前の海辺の環境。'},
+      salt:{label:'東浜・西浜の塩田',kind:'salt',text:'赤穂を代表する製塩景観。入浜式から流下式へ技術転換した。'},
+      transition:{label:'塩田製塩の終了',kind:'idle',text:'1972年に広大な塩田用地が次用途を待つ土地へ変わった。'},
+      current:{label:'工業地・市街地・公園',kind:'mixed',text:'西浜は工業地へ、別の旧塩田は区画整理市街地へ、一部は塩業文化を残す公園へ。'},
+      next:{label:'土地履歴を読む都市更新',kind:'future',text:'地盤・防災・文化景観を含め、旧塩田という土地履歴を現在の都市計画へどう織り込むかが課題。'}
+    },
+    sources:[
+      {label:'赤穂市都市計画マスタープラン',url:'https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf'},
+      {label:'赤穂西浜塩田資料',url:'https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf'},
+      {label:'赤穂市都市計画審議会議事録',url:'https://www.city.ako.lg.jp/chiiki/keikaku/documents/r6-1_kentikusinsakai_gijiroku.pdf'}
+    ]
+  }
+];
+
+export const landUseKinds = {
+  sea:'海・干潟',
+  salt:'塩田',
+  idle:'遊休・転換',
+  reclamation:'造成・埋立',
+  solar:'太陽光',
+  industry:'工業・港湾',
+  mixed:'複合利用',
+  future:'次の用途'
+};
