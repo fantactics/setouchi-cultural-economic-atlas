@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { bookArticles } from '../data/bookArticles.js';
+import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
 
@@ -31,7 +31,7 @@ const mapPlaces=places.map((p)=>({
       <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">目次を開く →</a>
     </div>
     <div class="serial-stack">
-      {bookArticles.map((article)=>{
+      {orderedBookArticles.map((article)=>{
         const photo=photoById[article.heroPhotoId];
         return (
           <a class="serial-row" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
