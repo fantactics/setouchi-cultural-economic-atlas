@@ -1349,8 +1349,7 @@ export const photoEvidence = [
     sourceType:'Wikimedia Commons',
     takenAt:'2008-09-26',
     verifiedAt:'2026-09-30'
-  },,
-
+  },
   {
     id:'photo-takamatsu-seawater-moat',
     placeId:'takamatsu',
