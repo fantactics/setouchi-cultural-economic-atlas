@@ -1064,8 +1064,7 @@ export const photoEvidence = [
     takenAt:'2010-07',
     lat:34.434,lon:133.800,
     verifiedAt:'2026-09-28'
-  },,
-
+  },
   {
     id:'photo-hinase-oysters',
     placeId:'hinase',
