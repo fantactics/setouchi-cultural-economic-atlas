@@ -1,15 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { bookArticles } from '../../data/bookArticles.js';
+import { orderedBookArticles } from '../../data/bookArticles.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 
 export function getStaticPaths(){
-  return bookArticles.map((article,index)=>({
+  return orderedBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
       article,
-      prev:index>0?bookArticles[index-1]:null,
-      next:index<bookArticles.length-1?bookArticles[index+1]:null
+      prev:index>0?orderedBookArticles[index-1]:null,
+      next:index<orderedBookArticles.length-1?orderedBookArticles[index+1]:null
     }
   }));
 }
