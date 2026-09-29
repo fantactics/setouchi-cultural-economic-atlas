@@ -93,6 +93,9 @@ const chapterDescriptions={
   {parts.map((part)=>(
     <section class="section book-part">
       <div class="book-part-title">{part}</div>\n      <p class="book-part-dek">{chapterDescriptions[part]}</p>
+      {part==='土地は、何度でも使い直される' && (
+        <a class="book-part-map-link" href="/setouchi-cultural-economic-atlas/land-use/">土地利用変遷マップで比較する →</a>
+      )}
       <div class="book-toc-list">
         {orderedBookArticles.filter((a)=>a.part===part).map((article)=>{
           const photo=articlePhoto(article);
