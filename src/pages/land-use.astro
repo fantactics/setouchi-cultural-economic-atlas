@@ -95,10 +95,10 @@ const compactCases=landUseCases.map((item)=>({
 
               <div class="land-use-sequence">
                 {item.chain.map((step,i)=>(
-                  <>
+                  <span class="land-use-sequence-step">
                     <em>{step}</em>
                     {i<item.chain.length-1 && <b>→</b>}
-                  </>
+                  </span>
                 ))}
               </div>
 
