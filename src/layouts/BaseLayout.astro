@@ -1,5 +1,5 @@
 ---
-const { title = '瀬戸内自然文化経済アトラス', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
+const { title = 'SETOUCHI ATLAS', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 import '../styles/global.css';
 ---
@@ -13,7 +13,7 @@ import '../styles/global.css';
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={baseUrl}>SETOUCHI NATURAL / CULTURAL / ECONOMIC ATLAS</a>
+      <a class="brand" href={baseUrl}>SETOUCHI ATLAS</a>
       <nav>
         <a href="/setouchi-cultural-economic-atlas/#atlas-entrances">Atlas</a>
         <a href="/setouchi-cultural-economic-atlas/book/">Stories</a>
@@ -24,7 +24,7 @@ import '../styles/global.css';
     </header>
     <main><slot /></main>
     <footer id="about">
-      <strong>瀬戸内自然文化経済アトラス</strong>
+      <strong>SETOUCHI ATLAS</strong>
       <p>自然環境が何を可能にし、人間がそれを何に変え、地域間の流れと時間がどう組み替えたのか。事実・解釈・仮説を分けながら、瀬戸内の地域形成を因果で読む。</p>
     </footer>
   </body>
