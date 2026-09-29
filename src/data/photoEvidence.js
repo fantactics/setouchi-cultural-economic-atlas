@@ -1429,6 +1429,45 @@ export const photoEvidence = [
     takenAt:'2012-04-28',
     lat:34.471532,lon:134.271692,
     verifiedAt:'2026-09-30'
+  },
+
+  {
+    id:'photo-oyster-shell-pile-comparative',
+    placeId:'hiroshima-bay',
+    nodeKey:'today',
+    theme:'industry',
+    title:'積み上がるカキ殻（比較資料）',
+    caption:'飲食・加工後に大量に残るカキ殻の集積。写真は米国ガルベストン湾の事例で、瀬戸内そのものではない比較資料。',
+    insight:'牡蠣を「食べて終わる商品」と見ると、殻は廃棄物になる。しかし大量に集積する殻を一つの鉱物資源として見直すと、肥料・飼料・底質改良材・建設材料など別の循環が立ち上がる。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Oyster%20shells.jpg?width=1400',
+    alt:'大量に積み上げられたカキ殻',
+    author:'EEmenike',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Oyster_shells.jpg',
+    license:'CC BY-SA 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2022-02-05',
+    verifiedAt:'2026-09-30'
+  },
+  {
+    id:'photo-bream-scale-illustration',
+    placeId:'ehime-citrus',
+    nodeKey:'today',
+    theme:'industry',
+    title:'タイ類の鱗の構造図',
+    caption:'タイ類の鱗を描いた19世紀の図版。魚の鱗が、単なる「硬い廃棄物」ではなく、コラーゲンと無機質を含む素材であることを考える入口。',
+    insight:'加工場では小さな副産物に見える鱗も、素材として分解してみるとタンパク質と鉱物成分の複合体である。副産物の価値は、形ではなく成分を見ることで変わる。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/PSM%20V35%20D072%20Scale%20of%20bream.jpg?width=1400',
+    alt:'タイ類の鱗を描いた図版',
+    author:'Unknown author / Popular Science Monthly',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:PSM_V35_D072_Scale_of_bream.jpg',
+    license:'Public domain',
+    licenseUrl:'https://commons.wikimedia.org/wiki/File:PSM_V35_D072_Scale_of_bream.jpg',
+    sourceType:'Wikimedia Commons',
+    takenAt:'1889',
+    verifiedAt:'2026-09-30'
   }
 ];
 
