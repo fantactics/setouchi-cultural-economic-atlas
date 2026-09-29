@@ -11,33 +11,9 @@ const mapPlaces=places.map((p)=>({
   prefecture:p.prefecture,
   lat:p.lat,
   lon:p.lon,
-  subtitle:p.subtitle,
-  pilot:['imabari','shimotsui','niihama'].includes(p.id)
+  subtitle:p.subtitle
 }));
 
-const pilots=[
-  {
-    id:'imabari',
-    kicker:'今治・来島海峡',
-    title:'潮の速い海峡と港から、海事産業へ。',
-    chain:['急潮','潮待ち','修繕','造船・海運'],
-    href:'/setouchi-cultural-economic-atlas/places/imabari/'
-  },
-  {
-    id:'shimotsui',
-    kicker:'児島・下津井',
-    title:'海だった土地から、綿とデニムの産地へ。',
-    chain:['浅海','干拓・綿','縫製','デニム'],
-    href:'/setouchi-cultural-economic-atlas/book/kojima-from-cotton-to-jeans/'
-  },
-  {
-    id:'niihama',
-    kicker:'新居浜・別子',
-    title:'山の銅山から、海辺の工業都市へ。',
-    chain:['銅山','製錬','機械・化学・電力'],
-    href:'/setouchi-cultural-economic-atlas/places/niihama/'
-  }
-];
 ---
 <BaseLayout title="瀬戸内自然文化経済アトラス" description="地図から瀬戸内を見る。島、港、平野、海峡を入口に、自然・産業・文化のつながりをたどる。">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
@@ -48,7 +24,6 @@ const pilots=[
       data-places={JSON.stringify(mapPlaces)}></div>
 
     <div class="map-first-copy">
-      <div class="kicker">SETOUCHI ATLAS</div>
       <h1>瀬戸内を、<br/>地図から読む。</h1>
       <p>島、港、平野、海峡。まず場所を選んでください。そこから自然、産業、食、文化のつながりをたどれます。</p>
       <div class="map-first-actions">
@@ -58,43 +33,14 @@ const pilots=[
     </div>
 
     <div class="map-first-legend">
-      <span><i class="map-dot pilot"></i>地域パイロット</span>
       <span><i class="map-dot"></i>掲載地域</span>
       <small>地図の点をクリックすると地域ページへ進めます。</small>
-    </div>
-  </section>
-
-  <section class="section home-pilots">
-    <div class="section-heading-row">
-      <div>
-        <div class="kicker">REGIONAL PILOTS</div>
-        <h2>まず3地域から見てみる</h2>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">すべての地域を見る →</a>
-    </div>
-    <div class="home-pilot-grid">
-      {pilots.map((pilot)=>(
-        <a class="home-pilot-card" href={pilot.href}>
-          <small>{pilot.kicker}</small>
-          <h3>{pilot.title}</h3>
-          <div class="home-pilot-chain">
-            {pilot.chain.map((item,i)=>(
-              <>
-                <span>{item}</span>
-                {i < pilot.chain.length-1 && <b>→</b>}
-              </>
-            ))}
-          </div>
-          <em>地図と資料で見る →</em>
-        </a>
-      ))}
     </div>
   </section>
 
   <section class="section latest-serial home-reading">
     <div class="section-heading-row">
       <div>
-        <div class="kicker">STORIES</div>
         <h2>地域の物語を読む</h2>
       </div>
       <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">目次を開く →</a>
@@ -118,7 +64,6 @@ const pilots=[
   </section>
 
   <section class="section home-evidence">
-    <div class="kicker">DATA LIBRARY</div>
     <h2>データ集</h2>
     <p class="lead">地域を詳しく確認するときに使う基礎データと地図です。</p>
     <div class="evidence-link-grid">
@@ -148,11 +93,11 @@ const pilots=[
 
       places.forEach((place)=>{
         const marker=L.circleMarker([place.lat,place.lon],{
-          radius:place.pilot ? 9 : 6,
-          weight:place.pilot ? 3 : 2,
-          fillOpacity:place.pilot ? .95 : .76,
-          color:place.pilot ? '#17313b' : '#ffffff',
-          fillColor:place.pilot ? '#f0a45d' : '#245b6a'
+          radius:7,
+          weight:2,
+          fillOpacity:.84,
+          color:'#ffffff',
+          fillColor:'#245b6a'
         }).addTo(map);
 
         marker.bindTooltip(place.name,{direction:'top',offset:[0,-5],opacity:.92});
