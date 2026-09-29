@@ -1258,6 +1258,85 @@ export const bookArticles = [
       {id:5,title:'塩商品',publisher:'株式会社日本海水',url:'https://www.nihonkaisui.co.jp/products/salt_product'}
     ]
   }
+  {
+    slug:'takamatsu-sea-castle-to-gateway',
+    number:'19',
+    part:'第六部　都市の更新',
+    title:'海に開いた城は、なぜ四国の玄関口になったのか',
+    subtitle:'高松――海城、港、鉄道、連絡船、県都を「交通の更新」として読む',
+    cities:['高松'],
+    keywords:['高松城','海城','高松港','宇高連絡船','鉄道','県都','交通結節','サンポート'],
+    heroPhotoId:'photo-takamatsu-port',
+    lead:'高松城は、海を背にした城ではない。堀に海水を引き込み、軍船が城内へ出入りできるようにつくられた「海に開いた城」だった。そこから約300年後、高松港と鉄道は宇野との連絡船で結ばれ、高松は四国の玄関口になる。さらに瀬戸大橋が開通すると、その玄関口機能は大きく変わった。高松の歴史は、港町が衰退せずに、交通の仕組みを何度も更新してきた歴史として読むと分かりやすい。',
+    sections:[
+      {
+        heading:'城下町の前に、まず港町があった',
+        paragraphs:[
+          {text:'高松城が築かれる以前、この一帯には「野原」と呼ばれる港町がありました。1588年に生駒親正が高松城の築城を始め、その周囲に城下町を整備したことで、既存の港町は政治・軍事・商業の中心へ組み込まれていきます。',refs:[1]},
+          {text:'ここで重要なのは、城が内陸に置かれたのではなく、瀬戸内海へ直接開く形でつくられたことです。高松城は北側を海に面し、内堀・中堀・外堀に海水を引き込む海城でした。海は防御線であると同時に、人と物を運ぶ主要交通路でもありました。',refs:[1,2]},
+          {text:'つまり高松の都市形成は、「城があって、その近くに港ができた」のではありません。港のある場所に城と城下町を重ね、海上交通そのものを都市機能へ取り込んだところから始まっています。',refs:[]}
+        ],
+        photoIds:['photo-takamatsu-port']
+      },
+      {
+        heading:'海城は、城下町の商業とものづくりを引き寄せた',
+        paragraphs:[
+          {text:'高松城の南側には商人町や職人町が形成され、城下町の拡大とともに商業・工芸が発展しました。高松市の資料では、丸亀町などの商人町が形成され、漆芸、保多織、理平焼、桐下駄、円座などのものづくりも育ったと整理されています。',refs:[3]},
+          {text:'海上交通の結節点に政治中心が重なると、単に船が寄るだけでなく、藩の需要、商人の取引、職人の生産が同じ都市に集中します。港と城下町の一体化が、後の高松の「中枢性」の最初の形だったと考えられます。',refs:[]},
+          {text:'この段階ではまだ「四国の玄関口」ではありません。しかし、外部とつながる港と、内部を統括する政治・商業機能が同じ場所にあるという構造は、近代以降の交通再編を受け止める土台になりました。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'近代化で、高松は一度「出遅れた」',
+        paragraphs:[
+          {text:'明治初期の高松は、必ずしも四国の交通中心ではありませんでした。高松市の広報資料によれば、当時は多度津や丸亀の港湾整備が先行し、高松港では大型船が沖に停泊し、人や荷物が小舟へ乗り換える必要がありました。',refs:[4]},
+          {text:'鉄道も同様で、香川県で最初に発達したのは丸亀・多度津・琴平方面でした。1897年に丸亀―高松間が開通しても、初代高松駅は港から離れており、船と鉄道の乗り継ぎは便利とは言えませんでした。',refs:[4]},
+          {text:'ここで高松は、城下町の中心性だけでは交通都市として優位に立てない状況に直面します。近代交通では、「港がある」だけでなく、港と鉄道をどう接続するかが都市の競争力を左右するようになりました。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'港と鉄道をつないだことで、「四国の玄関口」になった',
+        paragraphs:[
+          {text:'高松港の近代的な改修は明治30年代以降に本格化し、1900年には大規模な港湾整備が進みました。さらに1910年、新しい高松駅が港に近い位置へ移り、宇野―高松間の鉄道連絡船が就航します。',refs:[4,5]},
+          {text:'これにより、船で高松へ着き、そのまま鉄道で四国各地へ向かう流れが一本化されました。海上交通と陸上交通の結節点として、高松は「四国の玄関口」という地位を確立していきます。',refs:[4,5]},
+          {text:'ここで継承されたのは、帆船時代の港そのものではありません。港町として外部流動を受け止めてきた場所に、鉄道駅と連絡船を接続することで、新しい時代の交通システムへ役割を更新したのです。',refs:[]}
+        ],
+        photoIds:['photo-takamatsu-port']
+      },
+      {
+        heading:'瀬戸大橋は、玄関口としての高松をいったん弱めた',
+        paragraphs:[
+          {text:'1988年に瀬戸大橋が開通し、宇高連絡船が廃止されると、高松を経由して本州と四国を行き来する人流は大きく変わりました。高松市自身も、これによって「四国の玄関口」としての機能が大幅に低下したと振り返っています。',refs:[6]},
+          {text:'これは、地域資源が失われたというより、ネットワーク上の位置が変わった出来事です。海を渡るには高松を経由する、という交通上の必然性がなくなり、都市の中心性を支えていた流動が別の経路へ移りました。',refs:[]},
+          {text:'それでも高松は県都としての行政、金融、商業、サービス機能を維持しました。交通ネットワークの中心性が弱まっても、それまでに蓄積した都市機能まで一度に消えるわけではありません。ここに、交通拠点が長期的に残す「都市能力」が見えます。',refs:[6]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'現在の高松は、再び「海と陸をつなぐ都心」をつくっている',
+        paragraphs:[
+          {text:'現在の高松港は、離島・本州航路、商港、観光港、工業港など複数の機能を持ちます。玉藻地区には旅客船が集中し、朝日地区では国際コンテナ航路が運航されています。',refs:[7]},
+          {text:'サンポート高松では、高松港、JR高松駅、ことでん高松築港駅などを近接させ、港湾・鉄道・都市機能を組み合わせた新しい都心形成が進められています。かつて連絡船が担った「海から陸へ人を渡す」役割は形を変えながら残っています。',refs:[7,8]},
+          {text:'高松を一貫して説明するなら、「海城の町」でも「県都」でも「連絡船の町」でもありません。海と陸の接点という場所の価値を、城下町、近代港湾、鉄道連絡、県都機能、ウォーターフロントへと何度も更新してきた都市です。変わらなかったのは産業ではなく、接続点としての役割でした。',refs:[]}
+        ],
+        photoIds:['photo-takamatsu-port']
+      }
+    ],
+    provisionalConclusion:'高松の地域形成を貫くのは、特定の産業ではなく「海と陸を接続する場所」の継続的な更新である。海城と城下町、近代港湾と鉄道、宇高連絡船、サンポートという異なる時代の都市機能は、いずれも外部から来る人・物・情報を都市内部へ接続する仕組みだった。',
+    openQuestions:['高松港・高松駅の位置変化を旧版地図で重ねると、交通結節点の移動をどこまで可視化できるか','宇高連絡船廃止前後で中心市街地の商業・宿泊・人流がどう変化したか','県都機能が交通上の玄関口喪失をどの程度補完したかを定量的に比較できるか'],
+    sources:[
+      {id:1,title:'史跡高松城跡の歴史',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shisetsu/park/tamamo/bunzai201806051.html'},
+      {id:2,title:'高松城跡',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/bunka/bunkazai/shiteibunkazai/shiseki/takamatsujo.html'},
+      {id:3,title:'創造都市推進ビジョン関連資料',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/kurashi/shinotorikumi/johokokai/fuzoku/fuzoku/ichiran/sozotoshi_suishin/sozotoshi_shingi/souzoutoshi.files/19986_L29_shiryou1.pdf'},
+      {id:4,title:'海城から広がった高松の未来 ウォーターフロントのキセキ',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/kurashi/shinotorikumi/koho/kouhou_4/kouhoutakamatsu2025.files/2025_10.pdf'},
+      {id:5,title:'高松港',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/documents/13082/takamatsu.pdf'},
+      {id:6,title:'市長定例記者会見 瀬戸大橋開通25周年',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/kurashi/shichoushitsu/hatsugen/teirei/h25/250409.html'},
+      {id:7,title:'高松港の紹介',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/takamatsukokanri/port_takamatsu/kfvn.html'},
+      {id:8,title:'高松港頭地区地区計画',publisher:'高松市',url:'https://www.city.takamatsu.kagawa.jp/jigyosha/toshikeikaku/kenchiku_kakunin/chiku/takamatsuko.html'}
+    ]
+  },
 ];
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
