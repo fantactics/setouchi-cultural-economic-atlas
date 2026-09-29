@@ -3,7 +3,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const articlePhoto=(article)=>{
+  const ids=[
+    article.heroPhotoId,
+    ...article.sections.flatMap((section)=>section.photoIds || [])
+  ].filter(Boolean);
+  return ids.map((id)=>photoById[id]).find(Boolean) || null;
+};
 const parts=[...new Set(orderedBookArticles.map((a)=>a.part))];
+const editorialFeatures=[
+  orderedBookArticles.find((a)=>a.slug==='oysters-taste-of-small-seas'),
+  orderedBookArticles.find((a)=>a.slug==='ports-that-needed-waiting'),
+  orderedBookArticles.find((a)=>a.slug==='niihama-after-copper')
+].filter(Boolean);
+const editorialPhotos=editorialFeatures.map(articlePhoto).filter(Boolean);
+const leadFeature=editorialFeatures[0] || orderedBookArticles.find((a)=>articlePhoto(a));
+const leadPhoto=leadFeature ? articlePhoto(leadFeature) : photoEvidence[0];
 const chapterDescriptions={
   '海と陸は、人がつくった':'雨を貯める。海を干す。川を渡る。自然に適応しながら、人は土地そのものをつくり変えてきた。',
   'なぜ、船はここで止まったのか':'潮、風、海峡、港。移動の不便さが、交易と町を生んだ。',
@@ -14,14 +29,56 @@ const chapterDescriptions={
 };
 ---
 <BaseLayout title="地域エッセイ | 瀬戸内自然文化経済アトラス" description="瀬戸内の地域が、自然・交通・産業・文化の積み重なりからどう形成されたかを読む。">
-  <section class="book-cover">
-    <div class="book-cover-inner">
-      <h1>地域エッセイ</h1>
-      <p>一つの名物や産業だけで町を説明せず、地形、海、交通、生業、技術、資本をたどりながら、その地域がなぜ今の姿になったのかを読み解きます。</p>
-      <div class="book-cover-links">
-        <a href="/setouchi-cultural-economic-atlas/cities/">都市から逆引き →</a>
-        <a href="/setouchi-cultural-economic-atlas/keywords/">キーワードから逆引き →</a>
+  <section class="essay-index-cover">
+    {leadPhoto && <img class="essay-index-cover-image" src={leadPhoto.imageUrl} alt={leadPhoto.alt} fetchpriority="high" />}
+    <div class="essay-index-cover-scrim"></div>
+
+    <div class="essay-index-cover-meta">
+      <span>ESSAYS</span>
+      <span>瀬戸内自然文化経済アトラス</span>
+    </div>
+
+    <div class="essay-index-cover-copy">
+      <h1>エッセイ</h1>
+      <p class="essay-index-cover-thesis">瀬戸内を、<br/>問いから読む。</p>
+      <p class="essay-index-cover-dek">地形、海、交通、生業、技術、資本、食。目の前の風景に「なぜ？」を置くと、地域の成り立ちが一本の物語として見えてきます。</p>
+      {leadFeature && (
+        <a class="essay-index-feature-link" href={'/setouchi-cultural-economic-atlas/book/' + leadFeature.slug + '/'}>
+          <small>FEATURED ESSAY</small>
+          <strong>{leadFeature.title}</strong>
+          <span>読む →</span>
+        </a>
+      )}
+    </div>
+
+    {leadPhoto && (
+      <div class="essay-index-cover-credit">
+        <strong>{leadPhoto.title}</strong>
+        <span>Photo: {leadPhoto.author} / <a href={leadPhoto.sourcePage} target="_blank" rel="noreferrer">{leadPhoto.license}</a></span>
       </div>
+    )}
+  </section>
+
+  <section class="essay-index-editorial-strip">
+    <div class="essay-index-editorial-intro">
+      <span>THIS EDITION</span>
+      <strong>海・土地・産業を、別々にしない。</strong>
+    </div>
+    <div class="essay-index-mini-features">
+      {editorialFeatures.slice(1).map((article)=>{
+        const photo=articlePhoto(article);
+        return (
+          <a href={'/setouchi-cultural-economic-atlas/book/' + article.slug + '/'}>
+            {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
+            <span>{article.part}</span>
+            <strong>{article.title}</strong>
+          </a>
+        )
+      })}
+    </div>
+    <div class="essay-index-tools">
+      <a href="/setouchi-cultural-economic-atlas/cities/">都市から探す →</a>
+      <a href="/setouchi-cultural-economic-atlas/keywords/">キーワードから探す →</a>
     </div>
   </section>
 
@@ -35,7 +92,7 @@ const chapterDescriptions={
       <div class="book-part-title">{part}</div>\n      <p class="book-part-dek">{chapterDescriptions[part]}</p>
       <div class="book-toc-list">
         {orderedBookArticles.filter((a)=>a.part===part).map((article)=>{
-          const photo=photoById[article.heroPhotoId];
+          const photo=articlePhoto(article);
           return (
             <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
               <div class="book-toc-copy">
