@@ -238,7 +238,7 @@ const storyParagraphsById = {
   shodoshima:[
     '小豆島は山地が多く、耕地が限られる島です。しかし海上交通によって外部原料と市場へ接続できるため、島内の資源だけに依存しない産業が育ちました。',
     '醤油、素麺、ごま油、佃煮などの産業では、大豆、小麦、ごまなど必ずしも島内産ではない原料を受け入れ、発酵、製麺、製油、調味といった加工技術で価値を高めてきました。オリーブもまた、導入された作物を地域ブランドへ育てた例です。',
-    '小豆島の固有性は「島で採れるもの」だけでは説明できません。外から来たものを島内の技能、設備、風土、物語で編集し、再び外へ送り出すことにあります。生産地というより、変換と編集の島として見ると、ばらばらに見える名産が一つの構造にまとまります。'
+    '小豆島の固有性は「島で採れるもの」だけでは説明できません。外から来たものを島内の技能、設備、風土、地域イメージで編集し、再び外へ送り出すことにあります。生産地というより、変換と編集の島として見ると、ばらばらに見える名産が一つの構造にまとまります。'
   ],
   iwakuni:[
     '岩国では、中国山地から流れる錦川が城下町の中心を横切ります。川は防御線であり、水運の軸であり、同時に洪水と分断をもたらす存在でもありました。この一つの川が、都市の配置と交通の両方を決めました。',
@@ -292,7 +292,7 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
 
     <nav class="region-layer-nav" aria-label={`${place.name}のページ構成`}>
       <a href="#region-story">
-        <strong>物語</strong>
+        <strong>エッセイ</strong>
         <span>この町は、なぜこの町になったのか</span>
       </a>
       <a href="#region-research">
@@ -307,7 +307,7 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
   </section>
 
   <section class="section place-story-intro region-layer-section" id="region-story">
-    <div class="region-layer-label story">物語</div>
+    <div class="region-layer-label story">エッセイ</div>
     <p class="region-layer-description">まず、この地域固有の因果関係をたどります。</p>
     <h2>{story.title}</h2>
     <p class="place-story-lead">{story.body}</p>
@@ -332,9 +332,9 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
 
   {relatedStories.length > 0 && (
     <section class="section place-related-stories region-layer-section">
-      <div class="region-layer-label story">物語</div>
-      <h2>{place.name}を、さらに物語で読む</h2>
-      <p class="region-layer-description">一つの問いを深く追う長編記事です。</p>
+      <div class="region-layer-label story">エッセイ</div>
+      <h2>{place.name}を、さらにエッセイで読む</h2>
+      <p class="region-layer-description">一つの問いを深く追う地域エッセイです。</p>
       <div class="place-related-story-list">
         {relatedStories.map((article)=>(
           <a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
@@ -396,7 +396,7 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
   <section class="section region-data-intro region-layer-section" id="region-data">
     <div class="region-layer-label data">データ</div>
     <h2>{place.name}を、資料から確かめる</h2>
-    <p class="lead">ここからは、物語と研究ノートを支える写真・基礎データ・出典です。</p>
+    <p class="lead">ここからは、エッセイと研究ノートを支える写真・基礎データ・出典です。</p>
   </section>
 
   <PhotoEvidenceGallery items={placePhotos} title="写真資料" />
