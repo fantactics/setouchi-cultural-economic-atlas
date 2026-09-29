@@ -2,20 +2,23 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchChapters } from '../../data/researchChapters.js';
 ---
-<BaseLayout title="研究本文 | 瀬戸内文化経済アトラス" description="地形から石油文明まで、瀬戸内の地域形成を因果で読む研究本文。">
-  <section class="place-hero chapter-hero">
-    <div class="kicker">RESEARCH CHAPTERS 02–10</div>
-    <h1>瀬戸内を、因果の連鎖として読む</h1>
-    <p class="subtitle">地形・水・生態系から、生業、港、産業、食・信仰、都市、近代化まで。地域紹介ではなく「なぜそうなったか」を章ごとに追います。</p>
+<BaseLayout
+  title="研究ノート | SETOUCHI ATLAS"
+  description="地域を越えて、瀬戸内の仕組みを考える。地形、水、生態系、生業、交通、産業、文化、都市、近代化を横断して読む研究ノート。"
+>
+  <section class="place-hero chapter-hero research-notes-hero">
+    <h1>研究ノート</h1>
+    <p class="subtitle">地域を越えて、瀬戸内の仕組みを考える。</p>
+    <p class="research-notes-lead">地形、水、海、生態系、生業、産業、文化、都市。個々の地域を越えて、瀬戸内に共通する仕組みと、地域差が生まれる理由を考えます。</p>
   </section>
 
-  <section class="section">
-    <div class="kicker">THE SPINE</div>
-    <h2>自然から文化・都市へ</h2>
-    <div class="chapter-spine">
+  <section class="section research-notes-index">
+    <h2>瀬戸内は、なぜこの形になったのか</h2>
+    <p class="lead">ここでは結論を並べるのではなく、複数の地域を比較しながら「なぜそうなったのか」を検証します。新しい資料や比較によって、解釈は更新されます。</p>
+
+    <div class="chapter-spine research-note-grid">
       {researchChapters.map((chapter)=>(
-        <a class="chapter-spine-card" href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
-          <span>{chapter.number}</span>
+        <a class="chapter-spine-card research-note-card" href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
           <strong>{chapter.title}</strong>
           <small>{chapter.subtitle}</small>
         </a>
@@ -23,9 +26,22 @@ import { researchChapters } from '../../data/researchChapters.js';
     </div>
   </section>
 
-  <section class="section gene-section">
-    <div class="kicker">EDITORIAL RULE</div>
-    <h2>章は「項目一覧」ではなく、因果の説明</h2>
-    <p class="lead">自然条件は産業を決定しません。自然が与える制約と可能性に、人間が技術・制度・交易・投資で応答し、その結果が地域能力・都市・文化として蓄積します。各章では事実・解釈・仮説を分けながら、その連鎖を追います。</p>
+  <section class="section research-note-method">
+    <h2>研究ノートの読み方</h2>
+    <p class="lead">地域の物語が一つの町を深く読む「ケース」だとすれば、研究ノートは複数地域を横断する「比較と仮説」です。基礎データや史料に戻りながら、事実・解釈・仮説を分けて因果関係を考えます。</p>
+    <div class="research-note-role-grid">
+      <article>
+        <strong>地域の物語</strong>
+        <p>一つの地域から「なぜ？」を追う。</p>
+      </article>
+      <article>
+        <strong>研究ノート</strong>
+        <p>複数地域を比べ、共通構造と違いを考える。</p>
+      </article>
+      <article>
+        <strong>データ集</strong>
+        <p>気候・地形・交通・産業などの根拠を確かめる。</p>
+      </article>
+    </div>
   </section>
 </BaseLayout>
