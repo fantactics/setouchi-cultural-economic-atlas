@@ -638,7 +638,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .editorial-statement h2,.book-intro h2{font-family:var(--book-serif);font-weight:500;font-size:clamp(2.2rem,5vw,4.5rem);letter-spacing:-.03em;}
 .editorial-statement p{font-family:var(--book-serif);font-size:1.1rem;line-height:2.15;max-width:850px;}
 .serial-stack{border-top:1px solid var(--line);}
-.serial-row{display:grid;grid-template-columns:72px minmax(0,1fr) 220px;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;}
+.serial-row{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;}
 .serial-number{font-family:var(--book-serif);font-size:2.1rem;color:#899397;}
 .serial-copy small{color:var(--sea);font-size:.75rem;}
 .serial-copy h3{font-family:var(--book-serif);font-weight:500;font-size:1.55rem;margin:.2rem 0 .25rem;}
@@ -662,7 +662,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 .book-part{max-width:1200px;margin:auto;}
 .book-part-title{font-family:var(--book-serif);font-size:1rem;letter-spacing:.12em;border-bottom:2px solid var(--ink);padding-bottom:10px;}
 .book-toc-list{display:grid;}
-.book-toc-item{display:grid;grid-template-columns:60px minmax(0,1fr) 270px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;}
+.book-toc-item{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;}
 .book-toc-number{font-family:var(--book-serif);font-size:2.2rem;color:#90999c;}
 .book-toc-copy h2{font-family:var(--book-serif);font-weight:500;font-size:1.6rem;margin:0 0 4px;}
 .book-toc-copy p{margin:0;color:var(--muted);}
