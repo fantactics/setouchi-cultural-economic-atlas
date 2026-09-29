@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { places, claimLabels } from '../../data/places.js';
+import { places } from '../../data/places.js';
 import { climateProfiles } from '../../data/climate.js';
 import { photosForPlace } from '../../data/photoEvidence.js';
 import PhotoEvidenceGallery from '../../components/PhotoEvidenceGallery.astro';
@@ -16,8 +16,9 @@ const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, 
 const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
 const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
+const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮説' };
 ---
-<BaseLayout title={`${place.name} | 瀬戸内文化経済アトラス`} description={place.subtitle}>
+<BaseLayout title={`${place.name} | 瀬戸内自然文化経済アトラス`} description={place.subtitle}>
   <section class="place-hero">
     <div class="kicker">{place.prefecture}</div>
     <h1>{place.name}</h1>
@@ -25,66 +26,43 @@ const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(pla
     <ul class="tags">{place.tags.map((tag) => <li>{tag}</li>)}</ul>
   </section>
 
-  <section class="section place-research-links">
-    <div class="kicker">READ ACROSS THE ATLAS</div>
-    <h2>この地域を、横断テーマの中で読む</h2>
-    <div class="chapter-related-grid">
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/geography/">02 地形</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/livelihoods/">05 生業</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/ports-trade/">06 港・交易</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/capabilities/">07 地域能力</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/culture/">08 文化</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/cities/">09 都市</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/standardization/">10 近代化</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="kicker">18-LAYER CITY PROFILE</div>
-    <h2>地域を18の層で読む</h2>
-    <p class="lead">事実と解釈を分けながら、自然・歴史・産業・暮らしを一つの因果構造として読みます。</p>
-    <div class="profile-grid">
-      {place.sections.map(([title, body, type], i) => (
-        <article class="profile-card">
-          <div class="profile-num">{String(i + 1).padStart(2,'0')}</div>
-          <div>
-            <div class={`claim-badge ${type}`}>{claimLabels[type]}</div>
-            {i === 2 && hasClimate ? (
-              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>{title} →</a></h3>
-            ) : i === 4 ? (
-              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>{title} →</a></h3>
-            ) : i === 5 ? (
-              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`}>{title} →</a></h3>
-            ) : [6,7,8,9,10].includes(i) ? (
-              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/industry/#place-${place.id}`}>{title} →</a></h3>
-            ) : i === 17 ? (
-              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/evolution/#place-${place.id}`}>{title} →</a></h3>
-            ) : (
-              <h3>{title}</h3>
-            )}
-            <p>{body}</p>
-            {place.sectionSources?.[i]?.length > 0 && (
-              <div class="claim-sources">
-                <span class="claim-sources-label">Sources</span>
-                {place.sectionSources[i].map((sourceId) => {
-                  const source = sourceById[sourceId];
-                  return source ? (
-                    <a href={source.url} target="_blank" rel="noreferrer" title={source.label}>{source.id}</a>
-                  ) : null;
-                })}
-              </div>
-            )}
+  <section class="section place-story-intro">
+    <h2>この地域は、どうできたか</h2>
+    <p class="place-story-lead">{place.sections[17][1]}</p>
+    <div class="place-story-chains">
+      {place.genes.map((gene) => (
+        <article class="place-story-chain">
+          <h3>{gene.name}</h3>
+          <div class="chain">
+            {gene.chain.map((step, i) => (
+              <>
+                <span>{step}</span>
+                {i < gene.chain.length - 1 && <b class="arrow">→</b>}
+              </>
+            ))}
           </div>
         </article>
       ))}
     </div>
   </section>
 
-  <PhotoEvidenceGallery items={placePhotos} title={`${place.name}の写真証拠`} />
+  <PhotoEvidenceGallery items={placePhotos} title={`${place.name}を写真で見る`} />
+
+  <section class="section place-research-links">
+    <h2>関連するテーマ</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/geography/">地形</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/livelihoods/">生業</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/ports-trade/">港・交易</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/capabilities/">地域能力</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/culture/">文化</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/cities/">都市</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/standardization/">近代化</a>
+    </div>
+  </section>
 
   {textileRelated && (
     <section class="section place-textile-link">
-      <div class="kicker">TEXTILE INDUSTRY NETWORK</div>
       <h2>瀬戸内の繊維・縫製産業帯の中で見る</h2>
       <p class="lead">{place.id === 'tomonoura'
         ? '福山市北部の備後絣・デニム産地との市域内比較です。鞆の浦の港町形成から直接デニム産業が生まれたという意味ではありません。'
@@ -94,9 +72,8 @@ const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(pla
   )}
 
   <section class="section gene-section">
-    <div class="kicker">INDUSTRIAL GENES</div>
-    <h2>産業遺伝子</h2>
-    <p class="lead">現在の産業を、その成立経路まで遡って表示します。</p>
+    <h2>産業の系譜</h2>
+    <p class="lead">現在の産業が、どのような資源・技能・物流・資本から生まれたかをたどります。</p>
     <div class="grid">
       {place.genes.map((gene) => (
         <article class="card">
@@ -115,22 +92,55 @@ const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(pla
     </div>
   </section>
 
-  <section class="section">
-    <div class="kicker">SYNTHESIS</div>
-    <h2>なぜこの町はこの町になったのか</h2>
-    <div class="synthesis">{place.sections[17][1]}</div>
+  <section class="section place-data-section">
+    <h2>地域データ</h2>
+    <p class="lead">自然、歴史、産業、暮らしなど18項目をまとめています。各項目は、事実・解釈・仮説を区別して表示します。</p>
+    <div class="profile-grid">
+      {place.sections.map(([title, body, type], i) => (
+        <article class="profile-card">
+          <div class="profile-num">{String(i + 1).padStart(2,'0')}</div>
+          <div>
+            <div class={`claim-badge ${type}`}>{claimLabelsJa[type]}</div>
+            {i === 2 && hasClimate ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/places/${place.id}/climate/`}>{title} →</a></h3>
+            ) : i === 4 ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/transport/#place-${place.id}`}>{title} →</a></h3>
+            ) : i === 5 ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`}>{title} →</a></h3>
+            ) : [6,7,8,9,10].includes(i) ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/industry/#place-${place.id}`}>{title} →</a></h3>
+            ) : i === 17 ? (
+              <h3><a class="profile-detail-link" href={`/setouchi-cultural-economic-atlas/evolution/#place-${place.id}`}>{title} →</a></h3>
+            ) : (
+              <h3>{title}</h3>
+            )}
+            <p>{body}</p>
+            {place.sectionSources?.[i]?.length > 0 && (
+              <div class="claim-sources">
+                <span class="claim-sources-label">出典</span>
+                {place.sectionSources[i].map((sourceId) => {
+                  const source = sourceById[sourceId];
+                  return source ? (
+                    <a href={source.url} target="_blank" rel="noreferrer" title={source.label}>{source.id}</a>
+                  ) : null;
+                })}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section sources-section">
-    <div class="kicker">PRIMARY SOURCES</div>
     <h2>主な出典</h2>
-    <p class="lead">自治体・気象庁等の一次情報を優先し、各記述カードから出典IDを追えるようにしています。解釈・仮説は、出典が示す事実を基礎に編集上の推論を加えたものです。</p>
+    <p class="lead">自治体・気象庁等の一次情報を優先しています。解釈・仮説は、出典が示す事実を基礎に編集上の推論を加えたものです。</p>
     <div class="source-list">
       {place.sources.map((source) => (
         <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
           <span>
             <b>{source.id}</b>　{source.label}
-            <small>{source.publisher} / verified {source.verifiedAt}</small>
+            <small>{source.publisher} / 確認日 {source.verifiedAt}</small>
           </span>
           <span>↗</span>
         </a>
