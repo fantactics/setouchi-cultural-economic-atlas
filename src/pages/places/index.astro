@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
 
-const eastToWestPlaces=[...places].sort((a,b)=>b.lon-a.lon);
+const eastToWestOrder=['hiketa','ako','shodoshima','ushimado','takamatsu','sakaide','shimotsui','tadotsu','tomonoura','niihama','onomichi','mihara','imabari','takehara','mitarai','matsuyama','iwakuni','yanai','hofu','shimonoseki'];
+const eastToWestPlaces=eastToWestOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 ---
 <BaseLayout
   title="地域から見る | SETOUCHI ATLAS"
