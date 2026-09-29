@@ -10,27 +10,27 @@ export function getStaticPaths() {
   }));
 }
 const { chapter } = Astro.props;
-const labels={fact:'FACT',interpretation:'INTERPRETATION',hypothesis:'HYPOTHESIS'};
+const labels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
 const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').includes(chapter.number));
 ---
-<BaseLayout title={`${chapter.number} ${chapter.title} | 瀬戸内文化経済アトラス`} description={chapter.subtitle}>
-  <section class="place-hero chapter-hero">
-    <div class="kicker">CHAPTER {chapter.number}</div>
+<BaseLayout title={`${chapter.title} | 研究ノート | SETOUCHI ATLAS`} description={chapter.subtitle}>
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
     <h1>{chapter.title}</h1>
     <p class="subtitle">{chapter.subtitle}</p>
     <div class="chapter-thesis">{chapter.thesis}</div>
   </section>
 
   <section class="section chapter-intro">
-    <div class="kicker">WHY IT MATTERS</div>
+    <h2>このテーマを考える理由</h2>
     {chapter.intro.map((p)=><p class="lead">{p}</p>)}
   </section>
 
   <section class="section chapter-toc">
-    <div class="kicker">CONTENTS</div>
-    <div class="chapter-toc-grid">
+    <h2>このノートで考えること</h2>
+    <div class="chapter-toc-grid chapter-toc-plain">
       {chapter.sections.map((section,i)=>(
-        <a href={`#section-${i+1}`}><span>{String(i+1).padStart(2,'0')}</span>{section.title}</a>
+        <a href={`#section-${i+1}`}>{section.title}</a>
       ))}
     </div>
   </section>
@@ -39,7 +39,6 @@ const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').
     {chapter.sections.map((section,i)=>(
       <article class="research-section" id={`section-${i+1}`}>
         <div class="research-section-head">
-          <span class="research-section-num">{chapter.number}-{String(i+1).padStart(2,'0')}</span>
           <div class={`claim-badge ${section.claim}`}>{labels[section.claim] || section.claim}</div>
         </div>
         <h2>{section.title}</h2>
@@ -57,13 +56,11 @@ const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').
 
   {relatedReasoning.length > 0 && (
     <section class="section chapter-reasoning">
-      <div class="kicker">HOW THE ANALYSIS EMERGED</div>
-      <h2>この章の「思考の道筋」</h2>
+      <h2>思考の道筋</h2>
       <p class="lead">結論だけでなく、どこで疑い、どの比較から説明を組み替えたかを読みます。</p>
       <div class="reasoning-chapter-grid">
         {relatedReasoning.map((essay)=>(
           <a class="reasoning-chapter-card" href={`/setouchi-cultural-economic-atlas/reasoning/${essay.slug}/`}>
-            <small>CH. {essay.chapter}</small>
             <h3>{essay.title}</h3>
             <p>{essay.question}</p>
           </a>
@@ -73,12 +70,11 @@ const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').
   )}
 
   <section class="section chapter-related">
-    <div class="kicker">EXPLORE THE EVIDENCE</div>
     <h2>地図・データ・地域ページへ</h2>
     <div class="chapter-related-grid">
       {chapter.related.map((item)=><a class="compare-button" href={item.href}>{item.label} →</a>)}
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">全章一覧 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
     </div>
   </section>
 </BaseLayout>
