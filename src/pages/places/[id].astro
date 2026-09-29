@@ -254,26 +254,26 @@ const storyParagraphs = storyParagraphsById[place.id] || [
 ];
 const researchBySlug=Object.fromEntries(researchChapters.map((chapter)=>[chapter.slug,chapter]));
 const researchSlugsByPlace={
-  ako:['geography','livelihoods','capabilities','standardization'],
-  ushimado:['ports-trade','culture','cities'],
-  shimotsui:['geography','livelihoods','capabilities','cities'],
-  tomonoura:['geography','ports-trade','culture','cities'],
-  onomichi:['ports-trade','capabilities','culture','cities'],
+  ako:['geography','livelihoods','gastronomy','capabilities','standardization'],
+  ushimado:['ports-trade','gastronomy','culture','cities'],
+  shimotsui:['geography','livelihoods','gastronomy','capabilities','cities'],
+  tomonoura:['geography','ports-trade','gastronomy','culture','cities'],
+  onomichi:['ports-trade','gastronomy','capabilities','culture','cities'],
   mihara:['ports-trade','capabilities','cities','standardization'],
-  takehara:['livelihoods','capabilities','culture','cities'],
-  mitarai:['ports-trade','culture','cities','standardization'],
+  takehara:['livelihoods','gastronomy','capabilities','culture','cities'],
+  mitarai:['ports-trade','gastronomy','culture','cities','standardization'],
   iwakuni:['geography','climate-water','cities','culture'],
   yanai:['ports-trade','capabilities','culture','cities'],
   hofu:['geography','livelihoods','capabilities','cities'],
-  shimonoseki:['geography','ports-trade','capabilities','cities'],
-  hiketa:['geography','ports-trade','livelihoods','culture'],
-  shodoshima:['climate-water','livelihoods','capabilities','culture'],
-  takamatsu:['ports-trade','cities','standardization','culture'],
-  sakaide:['geography','livelihoods','capabilities','standardization'],
-  tadotsu:['ports-trade','capabilities','cities','standardization'],
+  shimonoseki:['geography','ports-trade','gastronomy','capabilities','cities'],
+  hiketa:['geography','ports-trade','livelihoods','gastronomy','culture'],
+  shodoshima:['climate-water','livelihoods','gastronomy','capabilities','culture'],
+  takamatsu:['ports-trade','gastronomy','cities','standardization','culture'],
+  sakaide:['geography','livelihoods','gastronomy','capabilities','standardization'],
+  tadotsu:['ports-trade','gastronomy','capabilities','cities','standardization'],
   niihama:['livelihoods','capabilities','cities','standardization'],
-  imabari:['geography','ports-trade','capabilities','cities'],
-  matsuyama:['ports-trade','culture','cities','standardization']
+  imabari:['geography','ports-trade','gastronomy','capabilities','cities'],
+  matsuyama:['ports-trade','gastronomy','culture','cities','standardization']
 };
 const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-trade','cities'])
   .map((slug)=>researchBySlug[slug])
@@ -282,7 +282,7 @@ const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-tra
 const naturalEnvironment=[
   {title:'地理・地形',body:place.sections?.[1]?.[1],claim:place.sections?.[1]?.[2],href:'/setouchi-cultural-economic-atlas/transect/'},
   {title:'気候・水',body:place.sections?.[2]?.[1],claim:place.sections?.[2]?.[2],href:hasClimate ? `/setouchi-cultural-economic-atlas/places/${place.id}/climate/` : '/setouchi-cultural-economic-atlas/climate/'},
-  {title:'生態系・食資源',body:place.sections?.[5]?.[1],claim:place.sections?.[5]?.[2],href:`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`},
+  {title:'食資源・自然利用',body:place.sections?.[5]?.[1],claim:place.sections?.[5]?.[2],href:`/setouchi-cultural-economic-atlas/seafood/#place-${place.id}`},
   {title:'自然制約・災害',body:place.sections?.[14]?.[1],claim:place.sections?.[14]?.[2],href:null}
 ].filter((item)=>item.body);
 
