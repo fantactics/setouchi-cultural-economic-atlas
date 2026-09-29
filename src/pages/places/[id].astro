@@ -330,7 +330,7 @@ const regionMapPoints=[
 ---
 <BaseLayout title={`${place.name} | 地域から見る | SETOUCHI ATLAS`} description={place.subtitle}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <section class="region-cover">
+  <section class="region-cover" data-cover-photo={coverPhoto?.id || ''}>
     {coverPhoto && (
       <img class="region-cover-image" src={coverPhoto.imageUrl} alt={coverPhoto.alt} fetchpriority="high" />
     )}
