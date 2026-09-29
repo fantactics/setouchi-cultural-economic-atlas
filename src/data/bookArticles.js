@@ -1,7 +1,6 @@
 export const bookArticles = [
   {
     slug:'four-salt-fields',
-    number:'01',
     part:'海と陸は、人がつくった',
     title:'四つの塩田、その後',
     subtitle:'赤穂・竹原・坂出・三田尻――同じ「塩の町」は、なぜ別々の都市になったのか',
@@ -119,7 +118,6 @@ export const bookArticles = [
   },
   {
     slug:'kojima-from-cotton-to-jeans',
-    number:'02',
     part:'海と陸は、人がつくった',
     title:'海だった土地から、ジーンズが生まれるまで',
     subtitle:'児島――綿、足袋、学生服、洗い加工を「商品」ではなく「工程」でつなぐ',
@@ -194,7 +192,6 @@ export const bookArticles = [
   },
   {
     slug:'ports-that-needed-waiting',
-    number:'03',
     part:'なぜ、船はここで止まったのか',
     title:'船は、なぜそこで止まったのか',
     subtitle:'鞆・御手洗・多度津・尾道――「港町」という一語では消えてしまう違い',
@@ -272,7 +269,6 @@ export const bookArticles = [
   },
   {
     slug:'imabari-why-shipbuilding',
-    number:'04',
     part:'産業は、紡がれる',
     title:'今治は、なぜ造船の町になったのか',
     subtitle:'「来島海峡の急潮→造船」では、一段飛んでいる',
@@ -342,7 +338,6 @@ export const bookArticles = [
   },
   {
     slug:'niihama-after-copper',
-    number:'05',
     part:'産業は、紡がれる',
     title:'銅山が閉じても、新居浜に工業が残った理由',
     subtitle:'別子銅山の「本業」より、本業を支えた仕事の方が長生きした',
@@ -409,7 +404,6 @@ export const bookArticles = [
   },
   {
     slug:'shodoshima-open-island',
-    number:'06',
     part:'産業は、紡がれる',
     title:'小豆島は、「島で採れるもの」の島ではない',
     subtitle:'醤油、素麺、ごま油、佃煮、オリーブ――ばらばらな名産を「変換する島」として読む',
@@ -485,7 +479,6 @@ export const bookArticles = [
   },
   {
     slug:'faith-as-transport-map',
-    number:'07',
     part:'なぜ、船はここで止まったのか',
     title:'神社を追うと、消えた航路が見えてくる',
     subtitle:'御手洗・下津井・鞆――信仰を「点」ではなく、人・金・建物が動くネットワークとして読む',
@@ -550,7 +543,6 @@ export const bookArticles = [
   },
   {
     slug:'sanuki-store-the-rain',
-    number:'08',
     part:'海と陸は、人がつくった',
     title:'雨を貯めると、地域社会まで変わる',
     subtitle:'讃岐平野――少雨、ため池、水利慣行、香川用水を一本の「水の履歴」で読む',
@@ -627,7 +619,6 @@ export const bookArticles = [
   },
   {
     slug:'iwakuni-river-city',
-    number:'09',
     part:'海と陸は、人がつくった',
     title:'橋を見れば、川に分けられた都市が見える',
     subtitle:'岩国――錦川、横山・錦見、錦帯橋、流域の生業を一つの都市システムとして読む',
@@ -705,7 +696,6 @@ export const bookArticles = [
   },
   {
     slug:'onomichi-capital-to-culture-and-ships',
-    number:'10',
     part:'富は、町に何を残したのか',
     title:'港の富は、なぜ寺と造船所の両方に残ったのか',
     subtitle:'尾道――交易、商人資本、寄進、銀行、造船を「海から生まれた資本」の流れで読む',
@@ -767,7 +757,6 @@ export const bookArticles = [
   },
   {
     slug:'takehara-salt-capital-to-townscape',
-    number:'11',
     part:'富は、町に何を残したのか',
     title:'塩の利益は、なぜ町並みとして残ったのか',
     subtitle:'竹原――塩田、酒造、廻船、商人資本、町家を「利益の固定化」として読む',
@@ -827,7 +816,6 @@ export const bookArticles = [
   },
   {
     slug:'mitarai-economy-of-waiting',
-    number:'12',
     part:'なぜ、船はここで止まったのか',
     title:'「待つ時間」は、どうやって町の富になったのか',
     subtitle:'御手洗――潮待ち・風待ち、船宿、茶屋、雁木を「滞留の経済」として読む',
@@ -888,7 +876,6 @@ export const bookArticles = [
   },
   {
     slug:'shimonoseki-resource-made-by-market',
-    number:'13',
     part:'なぜ、船はここで止まったのか',
     title:'「下関の魚」は、どこで獲れた魚なのか',
     subtitle:'下関――海峡、港、市場、加工が、外から来た資源を地域ブランドへ変える',
@@ -949,7 +936,6 @@ export const bookArticles = [
   },
   {
     slug:'yanai-trade-profit-to-whitewalls',
-    number:'14',
     part:'富は、町に何を残したのか',
     title:'交易の利益は、なぜ白壁になったのか',
     subtitle:'柳井――広域商圏、商人資本、町家・蔵を「富が都市空間へ固定される過程」として読む',
@@ -1008,7 +994,6 @@ export const bookArticles = [
   },
   {
     slug:'mihara-castle-to-multimodal-city',
-    number:'15',
     part:'町は、何度でもつくり直される',
     title:'城の本丸を鉄道が貫いたとき、町は何を得たのか',
     subtitle:'三原――海城、港、鉄道、新幹線、空港を「交通拠点の更新」として読む',
@@ -1069,7 +1054,6 @@ export const bookArticles = [
   },
   {
     slug:'matsuyama-three-centers-one-city',
-    number:'16',
     part:'町は、何度でもつくり直される',
     title:'城下町・温泉・港は、どう一つの都市になったのか',
     subtitle:'松山――松山城、道後、三津浜を、私鉄が結び直した近代都市形成',
@@ -1131,7 +1115,6 @@ export const bookArticles = [
   },
   {
     slug:'hiketa-castle-port-town',
-    number:'17',
     part:'なぜ、船はここで止まったのか',
     title:'城は、なぜ港を見下ろす場所に築かれたのか',
     subtitle:'引田――風待ち・潮待ちの港、城下町、商家、漁業を「港を守る地形」から読む',
@@ -1190,7 +1173,6 @@ export const bookArticles = [
   },
   {
     slug:'ako-after-salt-fields',
-    number:'18',
     part:'産業は、紡がれる',
     title:'塩田をやめても、なぜ赤穂では塩づくりが残ったのか',
     subtitle:'赤穂――入浜式、流下式、イオン交換膜へ。「産業を残す」とは何を残すことなのか',
@@ -1260,7 +1242,6 @@ export const bookArticles = [
   },
   {
     slug:'takamatsu-sea-castle-to-gateway',
-    number:'19',
     part:'町は、何度でもつくり直される',
     title:'海に開いた城は、なぜ四国の玄関口になったのか',
     subtitle:'高松――海城、港、鉄道、連絡船、県都を「交通の更新」として読む',
