@@ -1176,3 +1176,38 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   color:var(--muted);
   letter-spacing:.08em;
 }
+
+
+.home-region-group + .home-region-group{
+  margin-top:2rem;
+}
+.home-region-group>h3{
+  margin:0 0 .8rem;
+  font-family:var(--book-serif);
+  font-size:1.2rem;
+  font-weight:600;
+}
+.place-region-group + .place-region-group{
+  margin-top:3.5rem;
+}
+.place-region-group-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+  padding-bottom:.65rem;
+  border-bottom:1px solid var(--line);
+}
+.place-region-group-head h2{
+  margin:0;
+  font-family:var(--book-serif);
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:500;
+}
+.place-region-group-head span{
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--muted);
+  white-space:nowrap;
+}

@@ -2,16 +2,18 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
 
-const eastToWestOrder=['hiketa','ako','shodoshima','ushimado','takamatsu','sakaide','shimotsui','tadotsu','tomonoura','niihama','onomichi','mihara','imabari','takehara','mitarai','matsuyama','iwakuni','yanai','hofu','shimonoseki'];
-const eastToWestPlaces=eastToWestOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
+const mainlandOrder=['ako','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
+const shikokuOrder=['hiketa','shodoshima','takamatsu','sakaide','tadotsu','niihama','imabari','matsuyama'];
+const mainlandPlaces=mainlandOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
+const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 ---
 <BaseLayout
   title="地域から見る | SETOUCHI ATLAS"
-  description="瀬戸内のまちを東から西へ。自然環境と人々の営みが、地域の現在をどう形づくったのかをたどる。"
+  description="瀬戸内のまちを、近畿・中国地方、四国地方の順にたどる。自然環境と人々の営みが地域の現在をどう形づくったのかを読む。"
 >
   <section class="place-hero chapter-hero">
     <h1>地域から見る</h1>
-    <p class="subtitle">瀬戸内のまちを東から西へ。地形、海、水、交通、生業、産業、文化がどう重なり、現在の姿になったのかを地域ごとにたどります。</p>
+    <p class="subtitle">まず近畿・中国地方を東から西へ、次に四国地方を東から西へ。地形、海、水、交通、生業、産業、文化がどう重なり、現在の姿になったのかを地域ごとにたどります。</p>
   </section>
 
   <section class="section place-index-story">
@@ -20,22 +22,40 @@ const eastToWestPlaces=eastToWestOrder.map((id)=>places.find((p)=>p.id===id)).fi
       <p>地域名を選ぶと、まず「なぜこの町はこの町になったのか」を読みます。その後に写真、関連する物語、産業の系譜が続き、ページの最後に自然・歴史・産業・暮らしなど18項目の地域データをまとめています。</p>
     </div>
 
-    <div class="place-index-direction">
-      <span>東</span>
-      <b>→</b>
-      <span>西</span>
+    <div class="place-region-group">
+      <div class="place-region-group-head">
+        <h2>近畿・中国地方</h2>
+        <span>東 → 西</span>
+      </div>
+      <div class="place-index-grid">
+        {mainlandPlaces.map((place)=>(
+          <a class="place-index-card place-index-story-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+            <div class="place-index-prefecture">{place.prefecture}</div>
+            <h2>{place.name}</h2>
+            <p class="place-index-subtitle">{place.subtitle}</p>
+            <p class="place-index-causal">{place.sections[17][1]}</p>
+            <span class="place-index-read">この地域を読む →</span>
+          </a>
+        ))}
+      </div>
     </div>
 
-    <div class="place-index-grid">
-      {eastToWestPlaces.map((place)=>(
-        <a class="place-index-card place-index-story-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-          <div class="place-index-prefecture">{place.prefecture}</div>
-          <h2>{place.name}</h2>
-          <p class="place-index-subtitle">{place.subtitle}</p>
-          <p class="place-index-causal">{place.sections[17][1]}</p>
-          <span class="place-index-read">この地域を読む →</span>
-        </a>
-      ))}
+    <div class="place-region-group">
+      <div class="place-region-group-head">
+        <h2>四国地方</h2>
+        <span>東 → 西</span>
+      </div>
+      <div class="place-index-grid">
+        {shikokuPlaces.map((place)=>(
+          <a class="place-index-card place-index-story-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+            <div class="place-index-prefecture">{place.prefecture}</div>
+            <h2>{place.name}</h2>
+            <p class="place-index-subtitle">{place.subtitle}</p>
+            <p class="place-index-causal">{place.sections[17][1]}</p>
+            <span class="place-index-read">この地域を読む →</span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
