@@ -181,7 +181,6 @@ const compactCases=landUseCases.map((item)=>({
       const markers=new Map();
       cases.forEach((item)=>{
         const marker=L.circleMarker([item.lat,item.lon],markerStyle(item.stages[defaultEra].kind)).addTo(map);
-        marker.on('click',()=>location.href='#case-'+item.id);
         markers.set(item.id,marker);
       });
 
