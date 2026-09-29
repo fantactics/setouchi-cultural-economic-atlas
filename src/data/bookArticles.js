@@ -411,7 +411,7 @@ export const bookArticles = [
           {text:'鉱石を掘る場所は山に固定される。しかし製錬、機械、化学などの事業は、必ずしも坑口のそばにある必要はない。大量輸送や用地、港湾への接続を考えれば、平野や海側の方が有利になる。',refs:[]},
           {text:'こうして産業の中心が山から海へ下りるにつれ、町の中心も変わった。工場、鉄道、港、住宅地が臨海部へ広がり、新居浜は鉱山町から工業都市へ姿を変えていった。',refs:[]}
         ],
-        photoIds:['photo-niihama-tonaru','photo-niihama-sumitomo-chemical']
+        photoIds:['photo-niihama-main-port','photo-niihama-sumitomo-chemical']
       },
       {
         heading:'銅山が閉じる前に、「銅山のない未来」を準備していた',
@@ -429,7 +429,7 @@ export const bookArticles = [
           {text:'本業が大きいほど、周辺には多くの問題が発生する。その問題を解くために生まれた部署や技能が、本業の外でも通用するようになれば、新しい産業の種になる。',refs:[]},
           {text:'新居浜を面白くするのは、「銅山があった」という結論ではない。なぜ鉱山の脇役だった仕事が主役へ変わり、資源がなくなっても町を支え続けたのか。その過程を追うと、産業が終わる前から次の産業が内部で育っていることが見えてくる。',refs:[]}
         ],
-        photoIds:['photo-niihama-sumitomo-chemical']
+        photoIds:['photo-niihama-main-port','photo-niihama-sumitomo-chemical']
       }
     ],
     provisionalConclusion:'新居浜に工業が残ったのは、銅が残ったからではない。別子銅山を動かすために必要だった修理・機械・電力・化学・物流・都市整備の能力が、鉱山の内部で専門化し、やがて独立した事業へ育ったからである。資源産業の「脇役」が次代の主役になった。',
@@ -470,7 +470,7 @@ export const bookArticles = [
           {text:'重要なのは、島内で原料を完全自給することではない。外から原料を入れても、麹を育て、もろみを発酵・熟成させ、品質を整え、商品として出荷する工程が島にあれば、付加価値は島内で生まれる。',refs:[]},
           {text:'小豆島の醤油産業は、海に囲まれているから閉じたのではなく、海でつながっているから成立した。島の制約を海運で補い、加工で価値を高める仕組みだった。',refs:[]}
         ],
-        photoIds:['photo-shodoshima-hishio']
+        photoIds:['photo-shodoshima-hishio-yamasan','photo-shodoshima-hishio']
       },
       {
         heading:'職人技だけではなく、研究する仕組みまで作った',
@@ -479,7 +479,7 @@ export const bookArticles = [
           {text:'ここで産業の性格が変わる。蔵ごとの経験だけに頼るのではなく、発酵や品質を測り、改善し、地域全体へ広げる仕組みができた。技能が個人の勘から、産地の共有能力へ移っていった。',refs:[]},
           {text:'長く続く産地は、昔のやり方を守るだけではない。伝統を残しながら、測定し、標準化し、研究する。この「学習する仕組み」が、新しい加工食品へ進む土台にもなる。',refs:[]}
         ],
-        photoIds:['photo-shodoshima-hishio']
+        photoIds:['photo-shodoshima-hishio-yamasan']
       },
       {
         heading:'醤油を作れる島なら、なぜ佃煮へ進みやすかったのか',
@@ -506,7 +506,7 @@ export const bookArticles = [
           {text:'その後も害虫被害や輸入自由化などで産業は揺れた。それでも試験研究と栽培技術の蓄積が続き、現在はオリーブ油だけでなく食品、化粧品、景観、観光まで島のイメージを作っている。',refs:[3]},
           {text:'「地域資源」は、昔からそこに自生しているものだけではない。外から来た作物でも、その土地で試行錯誤を重ね、加工技術や文化を付け加えれば、その地域固有の資源へ変わる。',refs:[]}
         ],
-        photoIds:['photo-shodoshima-olive']
+        photoIds:['photo-shodoshima-olive-sea','photo-shodoshima-olive']
       },
       {
         heading:'小豆島の強みは、「原料」ではなく「変換」にあった',
@@ -515,7 +515,7 @@ export const bookArticles = [
           {text:'醤油、素麺、ごま油、佃煮、オリーブは、一本の原料から枝分かれした兄弟産業ではない。それでも、発酵、乾燥、延ばす、搾る、煮る、品質を管理する、販路を作るという「変換能力」を地域で積み重ねた点では共通している。',refs:[]},
           {text:'だから小豆島を面白くするのは、「名産が多い」という結論ではない。なぜ島外の原料や技術まで、小豆島らしい商品へ変えられたのか。その問いを追うと、閉じた島ではなく、外部とつながることで強くなった島の姿が見えてくる。',refs:[]}
         ],
-        photoIds:['photo-shodoshima-hishio','photo-shodoshima-olive']
+        photoIds:['photo-shodoshima-hishio-yamasan','photo-shodoshima-olive-sea']
       }
     ],
     provisionalConclusion:'小豆島の産業をつないでいるのは共通の原料ではない。海運で外部の原料や技術を取り込み、発酵・乾燥・搾油・調理・品質管理などの加工能力で価値を付けて外へ出す力である。島の地域性は「自給」にあるのではなく、外から来たものを島のものへ変える能力にある。',
@@ -1414,7 +1414,7 @@ export const bookArticles = [
           {text:'高松城は北側を海に面し、堀へ海水を引き込む海城だった。海は敵を防ぐ線であると同時に、人と物を運ぶ主要交通路でもある。城を海に開くことは、防御と物流を同時に都市へ取り込むことだった。',refs:[1,2]},
           {text:'つまり高松は、「城ができ、その近くに港が発達した」町ではない。もともと海へ開いていた場所へ城と城下町を重ね、海上交通そのものを都市機能の一部にしたところから始まった。',refs:[]}
         ],
-        photoIds:['photo-takamatsu-port']
+        photoIds:['photo-takamatsu-seawater-moat','photo-takamatsu-port']
       },
       {
         heading:'港と城が重なると、町に何が集まったのか',
