@@ -898,7 +898,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 }
 .home-reading h2{
   font-family:var(--book-serif);
-  font-size:clamp(2.8rem,6vw,5.2rem);
+  font-size:clamp(2.2rem,4.2vw,3.8rem);
   font-weight:500;
   line-height:1.05;
   letter-spacing:-.045em;
@@ -919,7 +919,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
 @media(max-width:800px){
   .home-reading{padding-top:4rem;padding-bottom:4rem;}
   .home-reading .section-heading-row{align-items:flex-start;}
-  .home-reading h2{font-size:clamp(2.5rem,12vw,4rem);}
+  .home-reading h2{font-size:clamp(2.15rem,9vw,3.2rem);}
 }
 
 
