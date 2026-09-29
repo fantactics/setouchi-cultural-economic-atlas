@@ -2948,3 +2948,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   font-weight:800;
   text-decoration:none;
 }
+
+.land-use-sequence-step{
+  display:contents;
+}
