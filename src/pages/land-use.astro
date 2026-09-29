@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { landUseCases, landUseEras, landUseKinds } from '../data/landUse.js';
+import { photoEvidence } from '../data/photoEvidence.js';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const compactCases=landUseCases.map((item)=>({
+  id:item.id,
+  placeId:item.placeId,
+  name:item.name,
+  prefecture:item.prefecture,
+  lat:item.lat,
+  lon:item.lon,
+  coordinateNote:item.coordinateNote,
+  articleSlug:item.articleSlug,
+  thesis:item.thesis,
+  chain:item.chain,
+  stages:item.stages
+}));
+---
+
+<BaseLayout title="土地利用の変遷 | 瀬戸内自然文化経済アトラス" description="海、塩田、工業地、市街地、太陽光。瀬戸内の土地が何度も用途を変えてきた過程を地図と時間軸で比較する。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <section class="land-use-cover">
+    <div class="land-use-cover-copy">
+      <span>LAND USE / REUSE</span>
+      <h1>土地は、<br/>何度でも使い直される。</h1>
+      <p>海を干し、塩田をつくり、塩田を工場・住宅・発電所へ変える。瀬戸内の土地を「いま何があるか」ではなく、何度用途を書き換えてきたかで読みます。</p>
+      <a href="#land-use-map">地図から比較する ↓</a>
+    </div>
+    <div class="land-use-cover-chain">
+      <span>海・干潟</span><b>→</b><span>塩田</span><b>→</b><span>跡地</span><b>→</b><span>工業・都市・発電</span><b>→</b><span>次の用途</span>
+    </div>
+  </section>
+
+  <section class="section land-use-intro">
+    <div class="kicker">WHY LAND HISTORY MATTERS</div>
+    <h2>同じ「塩田跡」でも、その後は同じではない。</h2>
+    <p class="lead">錦海は太陽光発電所へ、坂出は港湾・臨海工業・市街地へ、赤穂は工業地・住宅地・公園へ。前の産業が残した平坦地を、次の社会が何に使ったかを横並びで見ます。</p>
+  </section>
+
+  <section class="section land-use-map-section" id="land-use-map">
+    <div class="section-heading-row">
+      <div>
+        <div class="kicker">TIME-LAYER MAP</div>
+        <h2>時代を切り替えて、土地の役割を見る</h2>
+        <p class="lead">ボタンを押すと、各地点で同じ時代に土地が何として使われていたかを比較できます。点は代表位置で、旧塩田等の正確な範囲を示すポリゴンではありません。</p>
+      </div>
+    </div>
+
+    <div class="land-use-era-control" role="group" aria-label="土地利用の時代">
+      {landUseEras.map((era,i)=>(
+        <button class={'land-use-era-button ' + (i===3?'active':'')} type="button" data-era={era.id}>
+          <strong>{era.label}</strong>
+          <small>{era.note}</small>
+        </button>
+      ))}
+    </div>
+
+    <div class="land-use-map-layout">
+      <div
+        id="land-use-leaflet"
+        class="land-use-map"
+        data-cases={JSON.stringify(compactCases)}
+        data-default-era="current"
+      ></div>
+      <aside class="land-use-map-reading" id="land-use-map-reading">
+        <span class="kicker">CURRENT LAYER</span>
+        <h3>現在</h3>
+        <p>現在の土地利用を表示しています。時代を切り替えると、同じ地点が別の役割を担っていたことが分かります。</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section land-use-case-section">
+    <div class="kicker">THREE TRAJECTORIES</div>
+    <h2>三つの土地は、別々の未来を選んだ</h2>
+
+    <div class="land-use-case-grid">
+      {landUseCases.map((item)=>{
+        const photo=photoById[item.photoId];
+        return (
+          <article class="land-use-case-card" id={'case-'+item.id}>
+            {photo && (
+              <a class="land-use-case-photo" href={photo.sourcePage} target="_blank" rel="noreferrer">
+                <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+                <small>{photo.title}</small>
+              </a>
+            )}
+            <div class="land-use-case-body">
+              <span>{item.prefecture}</span>
+              <h3>{item.name}</h3>
+              <p class="land-use-thesis">{item.thesis}</p>
+
+              <div class="land-use-sequence">
+                {item.chain.map((step,i)=>(
+                  <>
+                    <em>{step}</em>
+                    {i<item.chain.length-1 && <b>→</b>}
+                  </>
+                ))}
+              </div>
+
+              <div class="land-use-stage-list">
+                {landUseEras.map((era)=>{
+                  const stage=item.stages[era.id];
+                  return (
+                    <div>
+                      <small>{era.label}</small>
+                      <strong>{stage.label}</strong>
+                      <p>{stage.text}</p>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div class="land-use-case-actions">
+                <a href={'/setouchi-cultural-economic-atlas/book/'+item.articleSlug+'/'}>エッセイを読む →</a>
+                <a href={'/setouchi-cultural-economic-atlas/places/'+item.placeId+'/'}>地域ページ →</a>
+              </div>
+
+              <details class="land-use-sources">
+                <summary>主な出典</summary>
+                {item.sources.map((source)=><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>)}
+              </details>
+            </div>
+          </article>
+        )
+      })}
+    </div>
+  </section>
+
+  <section class="section land-use-reading-section">
+    <div class="kicker">COMPARATIVE READING</div>
+    <h2>土地利用転換を読む4つの軸</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>土地の形</h3><p>広さ、平坦さ、海への近さ、地盤。前の産業がつくった土地条件は、次の用途の候補を絞る。</p></article>
+      <article class="insight-card"><h3>維持コスト</h3><p>干拓地なら排水、造成地なら法面やインフラ。使われなくなっても、土地の維持費は消えない。</p></article>
+      <article class="insight-card"><h3>政策選択</h3><p>工場、住宅、緑地、再エネ。土地の次用途は市場だけでなく、都市計画や産業政策によって分岐する。</p></article>
+      <article class="insight-card"><h3>可逆性</h3><p>次に何へ戻せるか。人口減少時代には「建てる価値」だけでなく「撤去した後の土地」を含めて設計する必要がある。</p></article>
+    </div>
+  </section>
+
+  <section class="section land-use-next">
+    <div class="kicker">NEXT LAYER</div>
+    <h2>次は、点から面へ。</h2>
+    <p class="lead">この地図は代表点による第一版です。今後は旧塩田の範囲、現在の工業地・市街地・太陽光発電所の範囲をGISポリゴンとして重ね、面積と用途転換を定量比較できる形へ拡張します。</p>
+    <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">関連エッセイを見る →</a>
+  </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline define:vars={{ compactCases, landUseEras, landUseKinds }}>
+    (() => {
+      const mapEl=document.getElementById('land-use-leaflet');
+      if(!mapEl || !window.L) return;
+      const cases=compactCases;
+      const eras=landUseEras;
+      const defaultEra=mapEl.dataset.defaultEra || 'current';
+
+      const map=L.map(mapEl,{scrollWheelZoom:false,zoomControl:true}).setView([34.55,134.05],8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:18,
+        attribution:'&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      const markerStyle=(kind)=>{
+        const styles={
+          sea:{fillColor:'#5f8fa3'},
+          salt:{fillColor:'#cbb57f'},
+          idle:{fillColor:'#97928a'},
+          reclamation:{fillColor:'#9a7659'},
+          solar:{fillColor:'#315a70'},
+          industry:{fillColor:'#575d65'},
+          mixed:{fillColor:'#756a75'},
+          future:{fillColor:'#7b8b70'}
+        };
+        return {radius:10,weight:3,color:'#fff',fillOpacity:.92,...(styles[kind]||{})};
+      };
+
+      const markers=new Map();
+      cases.forEach((item)=>{
+        const marker=L.circleMarker([item.lat,item.lon],markerStyle(item.stages[defaultEra].kind)).addTo(map);
+        marker.on('click',()=>location.href='#case-'+item.id);
+        markers.set(item.id,marker);
+      });
+
+      const escapeHtml=(value)=>String(value ?? '')
+        .replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')
+        .replaceAll('"','&quot;').replaceAll("'","&#039;");
+
+      const renderEra=(eraId)=>{
+        const era=eras.find((x)=>x.id===eraId) || eras[0];
+        document.querySelectorAll('[data-era]').forEach((button)=>{
+          button.classList.toggle('active',button.dataset.era===eraId);
+        });
+
+        cases.forEach((item)=>{
+          const stage=item.stages[eraId];
+          const marker=markers.get(item.id);
+          if(!marker || !stage) return;
+          marker.setStyle(markerStyle(stage.kind));
+          marker.bindTooltip(item.name+'｜'+stage.label,{direction:'top',offset:[0,-6],opacity:.94});
+          marker.bindPopup(
+            '<div class="land-use-popup">'+
+              '<small>'+escapeHtml(item.prefecture)+' / '+escapeHtml(era.label)+'</small>'+
+              '<strong>'+escapeHtml(item.name)+'</strong>'+
+              '<b>'+escapeHtml(stage.label)+'</b>'+
+              '<p>'+escapeHtml(stage.text)+'</p>'+
+              '<a href="#case-'+escapeHtml(item.id)+'">変遷を詳しく見る →</a>'+
+            '</div>'
+          );
+        });
+
+        const reading=document.getElementById('land-use-map-reading');
+        if(reading){
+          reading.innerHTML=
+            '<span class="kicker">CURRENT LAYER</span>'+
+            '<h3>'+escapeHtml(era.label)+'</h3>'+
+            '<p>'+escapeHtml(era.note)+'</p>'+
+            '<div class="land-use-era-summary">'+cases.map((item)=>{
+              const stage=item.stages[eraId];
+              return '<a href="#case-'+escapeHtml(item.id)+'"><strong>'+escapeHtml(item.name)+'</strong><span>'+escapeHtml(stage.label)+'</span></a>';
+            }).join('')+'</div>';
+        }
+      };
+
+      document.querySelectorAll('[data-era]').forEach((button)=>{
+        button.addEventListener('click',()=>renderEra(button.dataset.era));
+      });
+
+      const bounds=cases.map((item)=>[item.lat,item.lon]);
+      if(bounds.length) map.fitBounds(L.latLngBounds(bounds),{padding:[38,38]});
+      renderEra(defaultEra);
+    })();
+  </script>
+</BaseLayout>
