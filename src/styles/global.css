@@ -2859,11 +2859,18 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   border:1px solid var(--line);
 }
 .land-use-sequence em{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
   font-style:normal;
   font-size:.78rem;
   font-weight:700;
 }
-.land-use-sequence b{color:var(--muted);}
+.land-use-sequence em:not(:last-child)::after{
+  content:"→";
+  color:var(--muted);
+  font-weight:700;
+}
 .land-use-stage-list{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
@@ -2949,6 +2956,3 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   text-decoration:none;
 }
 
-.land-use-sequence-step{
-  display:contents;
-}
