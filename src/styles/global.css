@@ -1221,3 +1221,102 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   line-height:1.85;
   color:var(--muted);
 }
+
+
+/* Research notes */
+.home-research-notes{
+  background:#f2f0e8;
+}
+.home-research-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.4rem;
+}
+.home-research-grid a{
+  display:block;
+  min-height:150px;
+  padding:1.2rem;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  color:inherit;
+  text-decoration:none;
+}
+.home-research-grid strong{
+  display:block;
+  margin-bottom:.55rem;
+  font-family:var(--book-serif);
+  font-size:1.2rem;
+  font-weight:600;
+}
+.home-research-grid span{
+  display:block;
+  color:var(--muted);
+  line-height:1.65;
+}
+.research-notes-hero .research-notes-lead{
+  max-width:780px;
+  margin:1.2rem 0 0;
+  font-family:var(--book-serif);
+  font-size:1.05rem;
+  line-height:1.9;
+}
+.research-notes-index h2,
+.research-note-method h2,
+.chapter-intro h2,
+.chapter-toc h2{
+  font-family:var(--book-serif);
+  font-weight:500;
+}
+.research-note-grid{
+  margin-top:1.8rem;
+}
+.research-note-card{
+  grid-template-columns:1fr;
+}
+.research-note-card strong{
+  font-size:1.35rem;
+}
+.research-note-card small{
+  font-size:.9rem;
+  line-height:1.55;
+  color:var(--muted);
+}
+.research-note-role-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.4rem;
+}
+.research-note-role-grid article{
+  padding:1.2rem;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.research-note-role-grid strong{
+  font-family:var(--book-serif);
+  font-size:1.15rem;
+}
+.research-note-role-grid p{
+  margin:.45rem 0 0;
+  color:var(--muted);
+}
+.research-note-back{
+  display:inline-block;
+  margin-bottom:1rem;
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+}
+.chapter-toc-plain a{
+  grid-template-columns:1fr;
+}
+@media(max-width:900px){
+  .home-research-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:700px){
+  .home-research-grid,.research-note-role-grid{grid-template-columns:1fr;}
+}
