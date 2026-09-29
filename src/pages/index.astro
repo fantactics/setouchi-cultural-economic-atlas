@@ -19,35 +19,106 @@ const mapPlaces=places.map((p)=>({
   subtitle:p.subtitle
 }));
 
+const coverArticles=orderedBookArticles.map((article)=>({
+  slug:article.slug,
+  part:article.part,
+  title:article.title,
+  subtitle:article.subtitle
+}));
+const coverPhotos=photoEvidence
+  .filter((photo)=>photo.imageUrl && photo.sourcePage)
+  .map((photo)=>({
+    id:photo.id,
+    placeId:photo.placeId,
+    title:photo.title,
+    caption:photo.caption,
+    imageUrl:photo.imageUrl,
+    alt:photo.alt,
+    author:photo.author,
+    license:photo.license,
+    sourcePage:photo.sourcePage
+  }));
+
 ---
 <BaseLayout title="SETOUCHI ATLAS" description="瀬戸内のまちの過去・現在・未来を、自然環境と人々の営みとの関係性からたどる。">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
-  <section id="regional-stories" class="section latest-serial home-reading">
+  <section
+    id="magazine-cover"
+    class="magazine-cover"
+    data-articles={JSON.stringify(coverArticles)}
+    data-photos={JSON.stringify(coverPhotos)}
+  >
+    <img class="magazine-cover-image" data-cover-image src={coverPhotos[0]?.imageUrl} alt={coverPhotos[0]?.alt || ''} />
+    <div class="magazine-cover-scrim"></div>
+
+    <div class="magazine-masthead">
+      <span class="magazine-issue">SETOUCHI NATURAL / CULTURAL / ECONOMIC ATLAS</span>
+      <strong>瀬戸内<br/>自然文化経済<br/>アトラス</strong>
+    </div>
+
+    <div class="magazine-feature">
+      <div class="magazine-feature-label">FEATURED ESSAY</div>
+      <small data-cover-part>{coverArticles[0]?.part}</small>
+      <h1 data-cover-title>{coverArticles[0]?.title}</h1>
+      <p data-cover-subtitle>{coverArticles[0]?.subtitle}</p>
+      <div class="magazine-feature-actions">
+        <a data-cover-link href={`/setouchi-cultural-economic-atlas/book/${coverArticles[0]?.slug}/`}>このエッセイを読む →</a>
+        <button type="button" data-reshuffle>別の表紙を見る</button>
+      </div>
+    </div>
+
+    <div class="magazine-photo-credit">
+      <span data-cover-photo-title>{coverPhotos[0]?.title}</span>
+      <small>Photo: <span data-cover-photo-author>{coverPhotos[0]?.author}</span> / <a data-cover-photo-source href={coverPhotos[0]?.sourcePage} target="_blank" rel="noreferrer">{coverPhotos[0]?.license}</a></small>
+    </div>
+  </section>
+
+  <section class="section magazine-selection">
     <div class="section-heading-row">
       <div>
-        <h2>地域エッセイを読む</h2>
-        <p class="home-reading-intro">瀬戸内のまちの過去・現在・未来を、「なぜ？」からたどる読み物</p>
+        <div class="kicker">THIS VISIT</div>
+        <h2>今号の読みもの</h2>
+        <p class="home-reading-intro">アクセスするたびに、アトラスから3本を選びます。固定された「おすすめ順」ではなく、思いがけない地域やテーマとの出会いをつくります。</p>
       </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">目次を開く →</a>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a>
     </div>
-    <div class="serial-stack">
-      {orderedBookArticles.map((article)=>{
-        const photo=photoById[article.heroPhotoId];
+    <div class="magazine-story-grid">
+      {[0,1,2].map((i)=>(
+        <a class="magazine-story-card" data-random-story={i} href={`/setouchi-cultural-economic-atlas/book/${coverArticles[i]?.slug}/`}>
+          <small data-story-part>{coverArticles[i]?.part}</small>
+          <strong data-story-title>{coverArticles[i]?.title}</strong>
+          <span data-story-subtitle>{coverArticles[i]?.subtitle}</span>
+          <em>読む →</em>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section magazine-photo-selection">
+    <div class="section-heading-row">
+      <div>
+        <div class="kicker">PHOTO NOTES</div>
+        <h2>今日の3枚</h2>
+        <p class="home-reading-intro">港、斜面、工場、町並み。文章とは別の入口から瀬戸内を眺めます。</p>
+      </div>
+      <a class="text-link" href="/setouchi-cultural-economic-atlas/photos/">写真資料 →</a>
+    </div>
+    <div class="magazine-photo-grid">
+      {[0,1,2].map((i)=>{
+        const photo=coverPhotos[i];
         return (
-          <a class="serial-row" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            <div class="serial-copy">
-              <small>{article.part}</small>
-              <h3>{article.title}</h3>
-              <p>{article.subtitle}</p>
+          <a class="magazine-photo-card" data-random-photo={i} href={photo?.placeId ? `/setouchi-cultural-economic-atlas/places/${photo.placeId}/` : '/setouchi-cultural-economic-atlas/photos/'}>
+            <img data-photo-image src={photo?.imageUrl} alt={photo?.alt || ''} loading="lazy" />
+            <div>
+              <strong data-photo-title>{photo?.title}</strong>
+              <span data-photo-caption>{photo?.caption}</span>
             </div>
-            {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
           </a>
         )
       })}
     </div>
   </section>
-
 
 
   <section class="map-first-hero">
@@ -137,6 +208,94 @@ const mapPlaces=places.map((p)=>({
   </section>
 
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script is:inline>
+    (() => {
+      const cover=document.getElementById('magazine-cover');
+      if(!cover) return;
+
+      let articles=[];
+      let photos=[];
+      try {
+        articles=JSON.parse(cover.dataset.articles || '[]');
+        photos=JSON.parse(cover.dataset.photos || '[]');
+      } catch (_) {
+        return;
+      }
+
+      const shuffle=(items)=>{
+        const a=[...items];
+        for(let i=a.length-1;i>0;i--){
+          const j=Math.floor(Math.random()*(i+1));
+          [a[i],a[j]]=[a[j],a[i]];
+        }
+        return a;
+      };
+
+      const setText=(selector,value)=>{
+        const el=document.querySelector(selector);
+        if(el) el.textContent=value || '';
+      };
+
+      const render=()=>{
+        if(!articles.length || !photos.length) return;
+        const storyPool=shuffle(articles);
+        const photoPool=shuffle(photos);
+        const feature=storyPool[0];
+        const coverPhoto=photoPool[0];
+
+        const coverImage=cover.querySelector('[data-cover-image]');
+        if(coverImage){
+          coverImage.src=coverPhoto.imageUrl;
+          coverImage.alt=coverPhoto.alt || '';
+        }
+        setText('[data-cover-part]',feature.part);
+        setText('[data-cover-title]',feature.title);
+        setText('[data-cover-subtitle]',feature.subtitle);
+        const coverLink=cover.querySelector('[data-cover-link]');
+        if(coverLink) coverLink.href='/setouchi-cultural-economic-atlas/book/'+feature.slug+'/';
+
+        setText('[data-cover-photo-title]',coverPhoto.title);
+        setText('[data-cover-photo-author]',coverPhoto.author);
+        const source=cover.querySelector('[data-cover-photo-source]');
+        if(source){
+          source.href=coverPhoto.sourcePage;
+          source.textContent=coverPhoto.license || 'source';
+        }
+
+        document.querySelectorAll('[data-random-story]').forEach((card,index)=>{
+          const article=storyPool[index+1] || storyPool[index] || feature;
+          card.href='/setouchi-cultural-economic-atlas/book/'+article.slug+'/';
+          const part=card.querySelector('[data-story-part]');
+          const title=card.querySelector('[data-story-title]');
+          const subtitle=card.querySelector('[data-story-subtitle]');
+          if(part) part.textContent=article.part || '';
+          if(title) title.textContent=article.title || '';
+          if(subtitle) subtitle.textContent=article.subtitle || '';
+        });
+
+        document.querySelectorAll('[data-random-photo]').forEach((card,index)=>{
+          const photo=photoPool[index+1] || photoPool[index] || coverPhoto;
+          card.href=photo.placeId
+            ? '/setouchi-cultural-economic-atlas/places/'+photo.placeId+'/'
+            : '/setouchi-cultural-economic-atlas/photos/';
+          const img=card.querySelector('[data-photo-image]');
+          const title=card.querySelector('[data-photo-title]');
+          const caption=card.querySelector('[data-photo-caption]');
+          if(img){
+            img.src=photo.imageUrl;
+            img.alt=photo.alt || '';
+          }
+          if(title) title.textContent=photo.title || '';
+          if(caption) caption.textContent=photo.caption || '';
+        });
+      };
+
+      render();
+      const reshuffle=cover.querySelector('[data-reshuffle]');
+      if(reshuffle) reshuffle.addEventListener('click',render);
+    })();
+  </script>
+
   <script is:inline>
     (() => {
       const el=document.getElementById('home-atlas-map');
