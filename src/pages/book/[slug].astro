@@ -1,15 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
+import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 
+const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
+
 export function getStaticPaths(){
-  return orderedBookArticles.map((article,index)=>({
+  return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
       article,
-      prev:index>0?orderedBookArticles[index-1]:null,
-      next:index<orderedBookArticles.length-1?orderedBookArticles[index+1]:null
+      prev:index>0?allBookArticles[index-1]:null,
+      next:index<allBookArticles.length-1?allBookArticles[index+1]:null
     }
   }));
 }
@@ -34,6 +37,7 @@ const placeLinkByName = {
   '今治':'imabari',
   '波止浜':'imabari',
   '来島海峡':'imabari',
+  '大三島':'imabari',
   '新居浜':'niihama',
   '別子':'niihama',
   '東平':'niihama',
