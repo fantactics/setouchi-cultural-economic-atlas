@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const layers = [
+  { key:'resource', label:'資源', question:'原料は毎年また利用できるか', kpis:'資源量・漁獲量・加入量・生残率・海況' },
+  { key:'people', label:'担い手', question:'漁撈・養殖・加工の技能を担う人が続くか', kpis:'就業者数・年齢・新規参入・後継者' },
+  { key:'processing', label:'加工・流通', question:'原料を地域の価値へ変換する機能が残るか', kpis:'加工場・処理能力・冷蔵冷凍・市場取扱量' },
+  { key:'access', label:'食べる場', question:'住民と来訪者が繰り返し食べられるか', kpis:'提供店・小売・給食・家庭調理・祭礼' },
+  { key:'memory', label:'文化記憶', question:'作り方と意味が次世代へ伝わるか', kpis:'認知度・調理技能・教育・行事・語り手' },
+  { key:'economy', label:'経済循環', question:'所得が生産・加工・資源管理へ戻るか', kpis:'単価・粗利・地域内調達率・付加価値・再投資' }
+];
+
+const cases = [
+  {
+    id:'shimotsui',
+    place:'下津井',
+    food:'マダコ／たこめし',
+    model:'天然資源依存型',
+    thesis:'潮流の速い漁場と漁師料理の距離が短い。したがって資源量・漁業者・地元提供店の三点を同時に追う必要がある。',
+    evidence:[
+      ['資源','部分','下津井のタコ漁・たこめしとの結びつきは一次資料で確認できるが、地区単位の連続的な漁獲量・資源量データは本ダッシュボードでは未整備。'],
+      ['担い手','未整備','下津井地区のタコ漁従事者数、年齢、新規参入を年次で取得する必要がある。'],
+      ['加工・流通','未整備','鮮魚・冷凍・干しダコ等の処理量、地域内市場への出荷比率を要調査。'],
+      ['食べる場','部分','たこめしは倉敷市の郷土料理として確認できる。提供店数・家庭調理頻度は未整備。'],
+      ['文化記憶','部分','漁師が船上で食べたことが由来とされる郷土料理として記録される。地域で作れる人・語れる人の把握が次の課題。'],
+      ['経済循環','未整備','タコ単価、料理・土産の付加価値、漁業者へ戻る所得を接続した統計が必要。']
+    ],
+    next:'最優先は「下津井地区のタコ漁獲量×漁業者数×提供店数」を同じ年次で並べること。資源減少と文化接触の減少が同時進行しているかを検証する。',
+    links:[
+      ['たこめし（岡山県）','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_10_okayama.html'],
+      ['海の上流に森があると魚がよく育つ？','岡山県','https://www.pref.okayama.jp/page/419836.html'],
+      ['漁業許可の公示（下津井地区）','岡山県','https://www.pref.okayama.jp/page/695022.html']
+    ]
+  },
+  {
+    id:'ibuki',
+    place:'伊吹島',
+    food:'カタクチイワシ／伊吹いりこ',
+    model:'漁業＋加工一体型',
+    thesis:'価値をつくるのは漁獲量だけではない。漁場と加工場の近さ、高速運搬、一貫加工という組織能力そのものが地域資産である。',
+    evidence:[
+      ['資源','確認','2025年4月下旬の燧灘調査ではカタクチイワシ卵が3.3個/m³で、前年36.4個/m³、同時期平年14.1個/m³を下回った。単月値なので年間資源量とは区別して追跡する必要がある。'],
+      ['担い手','部分','網元が漁獲から加工まで一貫して担う構造は確認済み。網元数・乗組員数・後継者の時系列は未整備。'],
+      ['加工・流通','確認','漁獲後、高速運搬船で加工場へ運び、短時間で塩茹で・乾燥する一貫工程が品質形成の中核。'],
+      ['食べる場','部分','讃岐うどんのだし、いりこ飯など地域内外の需要との接続は確認済み。地域住民の摂食頻度は未整備。'],
+      ['文化記憶','部分','伊吹いりこは香川を代表するブランドとして発信される。加工技能の継承人数を測る必要がある。'],
+      ['経済循環','未整備','原魚価格、加工後単価、網元・加工・流通の付加価値配分を追えるデータが必要。']
+    ],
+    next:'資源指標だけでなく「水揚げから加工までの時間」「稼働加工場数」「網元数」を文化KPIとして記録する。加工機能の縮小は資源が残っていても食文化の再生産力を落とす。',
+    links:[
+      ['かんおんじの「伊吹いりこ」','観音寺市','https://www.city.kanonji.kagawa.jp/soshiki/21/13865.html'],
+      ['2025年度 燧灘カタクチイワシ卵稚仔調査','香川県水産試験場','https://www.pref.kagawa.lg.jp/documents/12971/r70424.pdf'],
+      ['香川県の栽培漁業の現状と今後','香川県','https://www.pref.kagawa.lg.jp/documents/12897/report.pdf']
+    ]
+  },
+  {
+    id:'hiroshima-oyster',
+    place:'広島湾・広島県沿岸',
+    food:'マガキ／広島かき',
+    model:'養殖産業クラスター型',
+    thesis:'自然環境を養殖技術が増幅し、加工・流通・飲食・観光まで大きな産業連鎖をつくる。環境ショックが地域経済へ波及する構造を追いやすい。',
+    evidence:[
+      ['資源','確認','2025年シーズンには大規模なへい死が発生。県の聞き取りでは、深刻な生産者で通常3〜5割程度のへい死に対し7〜9割となった事例が報告された。2026年春には新たなへい死は見られず、身入りは回復傾向だが、出荷量が平年より伸び悩む地域・生産者が残った。'],
+      ['担い手','部分','県は2026年2〜3月に県内全域の生産者72名へヒアリングを実施。経営継続・養殖方法転換を含む支援が進むが、年齢構成・退出率まで一体化した指標は今後の課題。'],
+      ['加工・流通','確認','県・県議会はへい死の影響が生産だけでなく加工・流通・小売等へ波及すると認識し、関連事業者も含めた支援を検討・実施している。'],
+      ['食べる場','部分','広島を代表する水産物として飲食・観光との結びつきは強い。供給ショック時の提供店数、価格、代替調達を継続観測したい。'],
+      ['文化記憶','部分','「広島かき」という地域ブランドは強いが、養殖技能・家庭料理・季節行事の継承を別指標として把握する必要がある。'],
+      ['経済循環','部分','へい死が雇用・加工・流通・飲食・観光へ波及することは行政資料で確認できる。産業連関を数量化するには売上・仕入・雇用の追跡が必要。']
+    ],
+    next:'「生残率→出荷量→浜値→加工稼働率→飲食提供価格→観光消費」までを同じシーズンでつなぐ。広島かきは、食文化再生産を地域産業クラスターとして測る代表ケースになる。',
+    links:[
+      ['広島県かきへい死に関する有識者会議','広島県','https://www.pref.hiroshima.lg.jp/soshiki/88/hiroshimakaki-yushikishakaigi.html'],
+      ['令和7年度第2回有識者会議概要','広島県','https://www.pref.hiroshima.lg.jp/uploaded/attachment/666003.pdf'],
+      ['カキ養殖の事業継続に向けた支援等を求める意見書','広島県議会','https://www.pref.hiroshima.lg.jp/site/gikai/hatsugi07-11.html']
+    ]
+  }
+];
+
+const statusClass = (status) => status === '確認' ? 'fact' : status === '部分' ? 'interpretation' : 'hypothesis';
+
+const commonKpis = [
+  ['資源','年次漁獲量／資源量／加入量／養殖生残率','行政統計・資源評価・漁協','年次＋漁期'],
+  ['担い手','就業者数／平均年齢／新規参入／退出','漁協・漁業センサス・事業者聞取','年次'],
+  ['加工・流通','加工場数／処理量／稼働率／地域内取扱比率','加工組合・市場・事業者','漁期＋年次'],
+  ['食べる場','提供店数／小売取扱店／給食回数／家庭調理率','店舗調査・学校・住民調査','年次'],
+  ['文化記憶','認知率／作れる人／行事回数／学習機会','住民調査・学校・地域団体','2〜3年'],
+  ['経済循環','浜値／加工単価／料理単価／地域内付加価値／再投資額','市場・事業者・観光統計','漁期＋年次']
+];
+---
+<BaseLayout title="食文化再生産ダッシュボード | 研究ノート | SETOUCHI ATLAS" description="下津井のタコ、伊吹いりこ、広島かきを、資源・担い手・加工・食べる場・文化記憶・経済循環の6領域で比較する。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">FOOD CULTURE REPRODUCTION DASHBOARD / v0.1</div>
+    <h1>食文化は、どこで途切れ始めるのか</h1>
+    <p class="subtitle">下津井のタコ・伊吹いりこ・広島かきを、同じ6つの指標で見る。</p>
+    <div class="chapter-thesis">目的は「どの食文化が優れているか」を比べることではない。資源・人・加工・需要・記憶・所得のうち、どこがボトルネックになっているかを早く発見し、地域が介入できるようにすることである。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <div class="kicker">WHY DASHBOARD</div>
+    <h2>保存状況ではなく、再生産能力を測る</h2>
+    <p class="lead">郷土料理のレシピが残っているかだけでは、食文化が生きているかは分かりません。原料が毎年得られ、技能を持つ人がいて、地域で加工・販売され、人が繰り返し食べ、その所得が次の担い手と資源管理へ戻る。この循環を観測するための試作版です。</p>
+    <p class="map-note">v0.1では、三地域で公表単位・年度・統計体系が揃っていないため、健康度の点数化はしません。「確認／部分／未整備」で証拠の充足度を示し、次に集めるデータを明示します。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">COMMON FRAME</div>
+    <h2>6つの再生産レイヤー</h2>
+    <div class="comparison-insight-grid">
+      {layers.map((item)=>(
+        <article class="insight-card">
+          <h3>{item.label}</h3>
+          <p>{item.question}</p>
+          <p class="map-note">KPI: {item.kpis}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">THREE SYSTEMS</div>
+    <h2>三つの食文化経済システムを比べる</h2>
+    <div class="comparison-insight-grid">
+      {cases.map((item)=>(
+        <article class="insight-card">
+          <div class="kicker">{item.model}</div>
+          <h3>{item.place}｜{item.food}</h3>
+          <p>{item.thesis}</p>
+          <a class="text-link" href={`#${item.id}`}>ダッシュボードを見る →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {cases.map((item)=>(
+    <section class="section research-section" id={item.id}>
+      <div class="kicker">{item.model}</div>
+      <h2>{item.place}｜{item.food}</h2>
+      <p class="lead">{item.thesis}</p>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead><tr><th>領域</th><th>観測状況</th><th>現在確認できること／不足データ</th></tr></thead>
+          <tbody>
+            {item.evidence.map(([layer,status,body])=>(
+              <tr>
+                <th>{layer}</th>
+                <td><span class={`claim-badge ${statusClass(status)}`}>{status}</span></td>
+                <td>{body}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="chapter-thesis">次に測ること：{item.next}</div>
+      <div class="source-list">
+        {item.links.map(([label,publisher,url])=>(
+          <a class="text-link" href={url} target="_blank" rel="noreferrer">{publisher}｜{label} →</a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="kicker">WHAT THE COMPARISON SHOWS</div>
+    <h2>ボトルネックの場所が違う</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>下津井｜まず「資源×人×接触」をつなぐ</h3><p>タコとたこめしの結びつきは強いが、地区単位の連続データが弱い。漁獲量だけでなく漁業者数と提供店数を同じ時系列で追うことが最初の課題になる。</p></article>
+      <article class="insight-card"><h3>伊吹島｜加工システム自体が文化資本</h3><p>カタクチイワシが存在しても、短時間で加工できる立地・設備・網元組織が失われれば「伊吹いりこ」の品質体系は維持できない。</p></article>
+      <article class="insight-card"><h3>広島かき｜環境ショックが産業連鎖へ伝播する</h3><p>養殖生残率の変化が加工・流通・飲食・観光へ波及する。自然環境と地域経済を同じシーズンで接続して追えるケースである。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">MEASUREMENT PROTOCOL</div>
+    <h2>今後そろえる共通KPI</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>領域</th><th>共通指標</th><th>主な取得先</th><th>頻度</th></tr></thead>
+        <tbody>{commonKpis.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <p class="map-note">三地域を単純ランキングするのではなく、同一地域の時系列変化と、同じ機能を持つ指標同士の比較を優先します。行政区・漁協・海域・ブランドの単位が一致しない場合は、空間単位を明記して混同を避けます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">EARLY WARNING</div>
+    <h2>地域経営として見るべき「早期警戒シグナル」</h2>
+    <div class="research-chain"><span>加入・生残の悪化 → 水揚げ減 → 原料不足 → 加工稼働率低下 → 提供機会減少 → 認知・調理技能低下 → 付加価値低下 → 担い手退出</span></div>
+    <p class="lead">食文化が消える直前だけを見るのでは遅い。生物資源、加工稼働、提供店、家庭接触のいずれかが先に低下し始めた時点で、文化政策・産業政策・資源政策を横断して介入する必要があります。</p>
+  </section>
+
+  <section class="section chapter-related">
+    <div class="kicker">RELATED</div>
+    <h2>前後の研究ノート</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/">食文化再生産モデルへ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/gastronomy-matrix/">食資源マトリクスへ →</a>
+    </div>
+  </section>
+</BaseLayout>
