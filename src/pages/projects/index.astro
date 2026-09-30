@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoEvidence } from '../../data/photoEvidence.js';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const heroPhoto=photoById['photo-imabari-kurushima'] || photoEvidence[0];
+const projectPhotos=[
+  photoById['photo-ako-salt-terrace'],
+  photoById['photo-yanai-whitewall'],
+  photoById['photo-niihama-main-port'],
+  photoById['photo-shodoshima-olive-sea']
+].filter(Boolean);
+---
+<BaseLayout
+  title="地域アトラスをつくる | SETOUCHI ATLAS"
+  description="地域を調査し、構造化し、地図・写真・文章・データを組み合わせて伝わる形へ編集する地域アトラス型プロジェクト。"
+>
+  <section class="atlas-projects-cover">
+    {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
+    <div class="atlas-projects-cover-scrim"></div>
+    <div class="atlas-projects-cover-copy">
+      <span>REGIONAL ATLAS PROJECTS</span>
+      <h1>地域を、<br/>調べて、編む。</h1>
+      <p>地域に散在する自然、歴史、産業、文化、交通、食、景観の情報を、単なる資源一覧ではなく、一つの地域像として構造化し、伝わる形へ編集します。</p>
+    </div>
+    {heroPhoto && (
+      <div class="atlas-projects-cover-credit">
+        {heroPhoto.title} — Photo: {heroPhoto.author} / <a href={heroPhoto.sourcePage} target="_blank" rel="noreferrer">{heroPhoto.license}</a>
+      </div>
+    )}
+  </section>
+
+  <section class="section atlas-projects-intro">
+    <div class="atlas-about-eyebrow">WHAT WE DO</div>
+    <h2>Webサイトをつくる前に、地域そのものを読み解く。</h2>
+    <div class="atlas-about-lead-grid">
+      <p>地域の情報発信では、観光資源、文化財、産業、統計、歴史などが分野ごとに整理されることが少なくありません。しかし、情報が増えるだけでは「この地域はどのような場所なのか」が伝わらないことがあります。</p>
+      <p>地域アトラス型のプロジェクトでは、既存資料、統計、地図、写真、現地観察などを横断し、情報の間にある因果関係や継承関係を整理します。そのうえで、地域の特徴を第三者が理解できる構造へ編集します。</p>
+    </div>
+  </section>
+
+  <section class="section atlas-projects-services">
+    <div class="atlas-about-section-head">
+      <div>
+        <div class="atlas-about-eyebrow">SCOPE</div>
+        <h2>対象になる仕事</h2>
+      </div>
+      <p>完成形はWebサイトに限りません。調査・構想・編集を中心に、目的に応じて成果物を組み合わせます。</p>
+    </div>
+
+    <div class="atlas-projects-service-grid">
+      <article>
+        <span>01</span>
+        <h3>地域構造の調査</h3>
+        <p>自然環境、歴史、生業、産業、交通、文化、食、都市形成を横断し、地域固有の構造を整理します。</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>地域資源の再編集</h3>
+        <p>既存の観光資源や文化資産を単独で紹介するのではなく、その背景や相互関係を含めて再構成します。</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>地域ストーリーの設計</h3>
+        <p>「何があるか」ではなく、「なぜここにあるのか」まで説明できる地域のストーリーラインを設計します。</p>
+      </article>
+      <article>
+        <span>04</span>
+        <h3>地図・写真・データの可視化</h3>
+        <p>位置関係、産業の系譜、自然条件、地域間ネットワークなどを、地図・写真・図表で理解できる形にします。</p>
+      </article>
+      <article>
+        <span>05</span>
+        <h3>アトラス型Webサイト</h3>
+        <p>調査成果を蓄積し、更新しながら公開できる地域アーカイブ／リサーチサイトとして実装します。</p>
+      </article>
+      <article>
+        <span>06</span>
+        <h3>報告書・構想資料</h3>
+        <p>地域計画、観光戦略、地域産業分析などの検討材料として、調査結果を報告書や構想資料へ展開します。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section atlas-projects-process">
+    <div class="atlas-about-eyebrow">PROCESS</div>
+    <h2>調査から公開まで</h2>
+    <div class="atlas-projects-process-list">
+      <article>
+        <span>01</span>
+        <div><strong>問いを設定する</strong><p>地域の課題や目的から、「何を明らかにするのか」を定めます。</p></div>
+      </article>
+      <article>
+        <span>02</span>
+        <div><strong>資料を集める</strong><p>行政資料、統計、地図、文献、写真、既存調査などを横断します。</p></div>
+      </article>
+      <article>
+        <span>03</span>
+        <div><strong>現地を見る</strong><p>地形、土地利用、港、町並み、産業施設など、現場でしか分からない関係を確認します。</p></div>
+      </article>
+      <article>
+        <span>04</span>
+        <div><strong>構造化する</strong><p>自然条件から現在の産業・文化まで、因果と継承の関係を組み立てます。</p></div>
+      </article>
+      <article>
+        <span>05</span>
+        <div><strong>編集する</strong><p>文章、写真、地図、図表を組み合わせ、第三者が理解できる地域像へ変換します。</p></div>
+      </article>
+      <article>
+        <span>06</span>
+        <div><strong>公開・活用する</strong><p>Web、報告書、地域資料、研修等、目的に合う形で利用できる成果物にします。</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section atlas-projects-gallery">
+    <div class="atlas-about-section-head">
+      <div>
+        <div class="atlas-about-eyebrow">THE ATLAS METHOD</div>
+        <h2>地域の違いを、同じ物差しだけで消さない。</h2>
+      </div>
+      <p>比較できる共通軸を持ちながら、その地域でしか成立しなかった条件や選択を残すことを重視します。</p>
+    </div>
+    <div class="atlas-projects-photo-grid">
+      {projectPhotos.map((photo)=>(
+        <figure>
+          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+          <figcaption>{photo.title}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="section atlas-projects-clients">
+    <div class="atlas-about-eyebrow">POSSIBLE PARTNERS</div>
+    <h2>想定している活用場面</h2>
+    <div class="atlas-projects-client-grid">
+      <article><strong>自治体・地域団体</strong><p>地域ビジョン、文化・産業資源の整理、政策検討の基礎資料。</p></article>
+      <article><strong>DMO・観光協会</strong><p>名所紹介を超えた地域理解、滞在価値や地域ストーリーの再構築。</p></article>
+      <article><strong>地域企業</strong><p>自社事業を地域の産業史や資源循環の中に位置づける調査・発信。</p></article>
+      <article><strong>NPO・文化団体</strong><p>地域文化、暮らし、産業遺産などの記録・継承・公開。</p></article>
+    </div>
+  </section>
+
+  <section class="section atlas-projects-positioning">
+    <span>POSITIONING</span>
+    <h2>「きれいな地域紹介」をつくることが目的ではありません。</h2>
+    <p>目指すのは、その地域を深く理解するための知的基盤をつくることです。調査結果を蓄積し、地域内外の人が読み直し、比較し、次の構想へ使える状態にする。その表現手段の一つとして、アトラスという形を採用しています。</p>
+    <a href="/setouchi-cultural-economic-atlas/about/">このアトラスの考え方を見る →</a>
+  </section>
+</BaseLayout>
