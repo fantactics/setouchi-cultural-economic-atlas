@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/cycle-tourism.css';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const heroPhoto=photoById['photo-imabari-kurushima'];
+const stripPhotos=[
+  photoById['photo-onomichi-channel-dock'],
+  photoById['photo-mitarai-townscape']
+].filter(Boolean);
+
+const routes=[
+  {
+    name:'しまなみ海道',
+    stage:'成熟した周辺エコシステム型',
+    facts:['約70kmのナショナルサイクルルート','尾道―今治を橋と島内道路で連結','レンタサイクル・宿泊・飲食・イベント・DMOが重層化'],
+    evidence:'2013年→2019年で沿線主要観光地入込は154万人→202万人、レンタサイクル貸出は81,851台→149,365台。',
+    issue:'来訪者数は増えたが、島ごとの滞在時間・宿泊率・地元店舗への支出をどこまで高められるか。',
+    reading:'ルートそのものではなく、ルートの周囲に形成された事業・サービス・広域連携の厚みが地域効果を左右している可能性が高い。'
+  },
+  {
+    name:'とびしま海道',
+    stage:'高品質ルート・地域捕捉力形成途上型',
+    facts:['呉市川尻町―岡村島を結ぶ約31km','海沿い中心で比較的アップダウンが少ない','ブルーライン等の走行環境整備を実施'],
+    evidence:'呉市の観光計画は、サイクルコンテンツ造成の目的として「滞在時間の延長、宿泊及び観光消費額の増加」を明記。',
+    issue:'御手洗など強い観光資源を持ちながら、通過型走行から宿泊・体験・飲食へどこまで転換できるか。',
+    reading:'景観品質が高くても、宿泊・サービス密度・二次交通・予約可能な体験が不足すると地域経済への捕捉率は伸びにくい。'
+  },
+  {
+    name:'ゆめしま海道',
+    stage:'新規開通・地域経済形成期',
+    facts:['2022年3月に岩城橋開通で全線開通','島間移動の利便性と観光動線が同時に変化','しまなみと船で接続する小規模島嶼ルート'],
+    evidence:'2025年度の「サイクルフリー」利用は12,089台。上島町計画は通過型観光を課題とし、滞在時間延長と観光消費額増加を政策目標に置く。',
+    issue:'新しい来訪流を、宿泊・飲食・特産品・体験・起業へどこまで接続できるか。',
+    reading:'橋の開通だけでは地域経済は完成しない。ルート整備後に、地域側が需要を受け止める事業基盤を形成できるかが観察できる。'
+  }
+];
+
+const impactLayers=[
+  ['01','来訪','サイクリスト数、外国人比率、リピーター、季節性'],
+  ['02','滞在','宿泊率、平均泊数、立寄地点数、島内滞在時間'],
+  ['03','消費','飲食、宿泊、レンタル、体験、物販、交通'],
+  ['04','事業','新規出店、創業、廃業、移住創業、雇用'],
+  ['05','人口','移住、協力隊定着、若年層、関係人口、二地域居住'],
+  ['06','空間','空き家再生、道路、港、公共空間、景観、サイン'],
+  ['07','組織','DMO、行政、民間、住民、広域連携、ガイド'],
+  ['08','再投資','観光収益が地域維持・景観・インフラへ戻る仕組み']
+];
+
+const stats=[
+  {value:'154→202万人',label:'しまなみ沿線主要観光地',note:'2013年から2019年。愛媛県資料では48万人増、約1.3倍。'},
+  {value:'8.2→14.9万台',label:'しまなみレンタサイクル',note:'2013年度から2019年度。約6.8万台増、約1.8倍。'},
+  {value:'15.8%',label:'外国人貸出台数比率',note:'2019年度のしまなみレンタサイクル。2013年度は2.7%。'},
+  {value:'19.2%',label:'大三島への転入理由「起業」',note:'2020年。今治市全体は3.4%。因果は単純化せず、サイクリング以外の要因も検証する。'},
+  {value:'約1/2',label:'大三島の飲食店に占める移住者経営',note:'2021年4月時点、48店の約半数。'},
+  {value:'12,089台',label:'ゆめしま「サイクルフリー」',note:'2025年度。サイクリング目的の船舶自転車運賃無料化の利用台数。'}
+];
+
+const sources=[
+  {label:'国土交通省｜しまなみ海道サイクリングロード',url:'https://www.mlit.go.jp/road/bicycleuse/good-cycle-japan/national_cycle_route/shimanami.html'},
+  {label:'愛媛県｜しまなみ海道自転車道の無料化による効果',url:'https://www.pref.ehime.jp/uploaded/attachment/115988.pdf'},
+  {label:'国土交通省｜平成27年度国土交通白書（しまなみ海道）',url:'https://www.mlit.go.jp/hakusyo/mlit/h27/hakusho/h28/html/n1312000.html'},
+  {label:'愛媛県｜自転車通行料金無料化の継続',url:'https://www.pref.ehime.jp/page/140206.html'},
+  {label:'広島県｜とびしま海道サイクリングロード',url:'https://www.pref.hiroshima.lg.jp/soshiki/98/tobishima-cycling.html'},
+  {label:'呉市｜観光振興計画・サイクリスト誘客',url:'https://www.city.kure.lg.jp/uploaded/attachment/94842.pdf'},
+  {label:'上島町｜サイクルフリー令和7年度実績',url:'https://www.town.kamijima.lg.jp/soshiki/kanko-senryaku/27310.html'},
+  {label:'上島町｜第2次総合計画 後期基本計画',url:'https://www.town.kamijima.lg.jp/uploaded/life/18858_67128_misc.pdf'},
+  {label:'IRC｜大三島・移住起業者の分析',url:'https://www.iyoirc.jp/wp-content/uploads/2022/03/22-148.pdf'},
+  {label:'J-STAGE｜しまなみ海道におけるサイクルツーリズム振興の一考察',url:'https://www.jstage.jst.go.jp/article/jafit/26/0/26_127/_article/-char/ja'},
+  {label:'J-STAGE｜地域消費購買行動を促すサイクルツーリズム研究',url:'https://www.jstage.jst.go.jp/article/ckg/20/0/20_147/_article/-char/ja'},
+  {label:'国土交通省｜サイクルツーリズムが地域経済に与える影響',url:'https://www.mlit.go.jp/road/ir/ir-council/bicycle-up/07pdf/04.pdf'}
+];
+---
+<BaseLayout title="自転車は島を変えたか | 研究ノート | SETOUCHI ATLAS" description="しまなみ・とびしま・ゆめしまを比較し、サイクルツーリズムが地域経済、移住、事業、景観、インフラへ与えた影響を考える。">
+  <section class="cycle-hero">
+    {heroPhoto && <img class="cycle-hero-image" src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
+    <div class="cycle-hero-scrim"></div>
+    <div class="cycle-hero-copy">
+      <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+      <span class="cycle-kicker">RESEARCH NOTE / CYCLE TOURISM & REGIONAL MANAGEMENT</span>
+      <h1>自転車は、<br/>島を変えたか</h1>
+      <p>しまなみ・とびしま・ゆめしま。サイクルルートの整備は、来訪者を増やしただけなのか。それとも、地域経済、移住・起業、空き家、景観、道路・港湾投資、地域イメージまで組み替えたのか。</p>
+    </div>
+    <div class="cycle-hero-thesis">
+      <span>中心仮説</span>
+      <strong>サイクリストが金を落とすかではなく、地域が需要を捕捉できるか。</strong>
+      <p>ルートの価値は通行量だけでは決まらない。速度を落とし、泊まり、食べ、買い、地域の人と接触する仕組みがあって初めて、移動が地域経済へ変換される。</p>
+    </div>
+  </section>
+
+  {stripPhotos.length > 0 && (
+    <section class="cycle-photo-strip">
+      {stripPhotos.map((photo)=>(
+        <figure>
+          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+          <figcaption><strong>{photo.title}</strong><small>Photo: {photo.author}</small></figcaption>
+        </figure>
+      ))}
+    </section>
+  )}
+
+  <section class="section cycle-intro">
+    <span class="region-layer-label research">問題設定</span>
+    <h2>「観光客が増えた」で評価を終えない</h2>
+    <div class="cycle-prose">
+      <p>サイクルツーリズムは、道路・橋・港といった既存インフラを、単なる交通施設から「移動そのものを楽しむ観光資源」へ読み替えます。しかし、ルートが有名になっても、島内で飲食・宿泊・買物・体験が発生しなければ、地域経済への波及は限定されます。</p>
+      <p>本ノートでは、来訪者数の増加を入口にしつつ、その後に何が起きたかを追います。飲食・宿泊の増加、移住・創業、空き家の再利用、道路・港・公共空間への追加投資、地域ブランドの形成までを、ひとつの地域システムとして読みます。</p>
+    </div>
+    <div class="capture-formula">
+      <span>地域捕捉力</span><b>=</b><span>来訪者</span><b>×</b><span>滞在時間</span><b>×</b><span>立寄率</span><b>×</b><span>1人当たり支出</span><b>×</b><span>地域内残存率</span>
+    </div>
+    <p class="capture-note">※「地域捕捉力」は本アトラス上の分析概念です。現時点では単一の公式指標ではなく、各要素を個別データで検証します。</p>
+  </section>
+
+  <section class="section cycle-stats-section">
+    <span class="region-layer-label data">確認できる変化</span>
+    <h2>しまなみでは、来訪の増加は明確に確認できる</h2>
+    <div class="cycle-stat-grid">
+      {stats.map((stat)=>(
+        <article>
+          <strong>{stat.value}</strong>
+          <span>{stat.label}</span>
+          <p>{stat.note}</p>
+        </article>
+      ))}
+    </div>
+    <p class="cycle-caution">ただし、観光地入込やレンタサイクルの増加を、そのままサイクリング施策だけの因果効果とはみなしません。無料化、イベント、広域PR、民間出店、尾道・今治の観光需要などが重なっています。</p>
+  </section>
+
+  <section class="section cycle-impact-section">
+    <span class="region-layer-label research">分析フレーム</span>
+    <h2>影響を8層に分解する</h2>
+    <div class="cycle-impact-grid">
+      {impactLayers.map(([no,title,body])=>(
+        <article>
+          <span>{no}</span>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cycle-comparison-section">
+    <div class="cycle-heading-row">
+      <div>
+        <span class="region-layer-label research">3海道比較</span>
+        <h2>同じ「島＋橋＋自転車」でも、地域効果は同じではない</h2>
+      </div>
+      <p>類型は現時点の暫定整理。追加調査で更新する。</p>
+    </div>
+    <div class="cycle-route-grid">
+      {routes.map((route)=>(
+        <article>
+          <span class="cycle-stage">{route.stage}</span>
+          <h3>{route.name}</h3>
+          <ul>{route.facts.map((fact)=><li>{fact}</li>)}</ul>
+          <dl>
+            <div><dt>確認できること</dt><dd>{route.evidence}</dd></div>
+            <div><dt>次の問い</dt><dd>{route.issue}</dd></div>
+            <div><dt>読み</dt><dd>{route.reading}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cyclist-spend-section">
+    <span class="region-layer-label research">俗説の検証</span>
+    <h2>「サイクリストはお金を落とさない」は、属性ではなく旅程の問題ではないか</h2>
+    <div class="cyclist-spend-grid">
+      <article>
+        <span>通過型</span>
+        <h3>走ることが目的になる</h3>
+        <p>朝に出発し、補給だけして夕方にゴールする。距離達成型の旅程では、島内での購買機会そのものが少ない。</p>
+      </article>
+      <article>
+        <span>滞在型</span>
+        <h3>宿泊が消費構造を変える</h3>
+        <p>1泊すると夕食・朝食・宿・飲料・土産・体験が加わる。国交省資料が引用する北海道調査でも、域外・外国人のサイクリング旅行は宿泊費を含む支出が大きい。</p>
+      </article>
+      <article>
+        <span>学習・交流型</span>
+        <h3>「立ち止まる理由」を設計する</h3>
+        <p>ガイド、食、文化、農漁業体験など地域との接触を増やすと、購買行動を促進し得ることを示す研究もある。</p>
+      </article>
+    </div>
+    <div class="cycle-hypothesis-box">
+      <span>仮説</span>
+      <strong>問題は「自転車客は低消費」ではなく、「高速に通過できる成功したルートほど、地域側が意図的に停止点を設計しないと消費を取り逃がす」ことにある。</strong>
+    </div>
+  </section>
+
+  <section class="section cycle-migration-section">
+    <span class="region-layer-label research">人口・人材</span>
+    <h2>移住効果は「来訪者→起業者」への転換として見る</h2>
+    <div class="cycle-prose">
+      <p>大三島では、2020年の転入理由で「起業」が19.2%と、今治市全体の3.4%を大きく上回りました。また2021年4月時点で飲食店48店の約半数が移住者経営とされています。</p>
+      <p>ただし、これをサイクリングだけの成果とはしません。大山祇神社、自然環境、島暮らし、橋によるアクセス、地域おこし協力隊、先行移住者のネットワークなど複数要因が重なっています。サイクルツーリズムは、地域との「最初の接点」と事業需要を増やす一要因として検証します。</p>
+    </div>
+    <div class="cycle-causal-chain">
+      <span>世界的認知</span><b>→</b><span>初回来訪</span><b>→</b><span>地域との接触</span><b>→</b><span>市場機会の発見</span><b>→</b><span>移住・起業</span><b>→</b><span>新しい店・サービス</span><b>→</b><span>さらに滞在価値が増える</span>
+    </div>
+  </section>
+
+  <section class="section cycle-infrastructure-section">
+    <span class="region-layer-label data">空間・インフラ</span>
+    <h2>既存道路を「観光資産」へ読み替えると、追加投資の方向が変わる</h2>
+    <div class="cycle-infra-grid">
+      <article><h3>走行環境</h3><p>ブルーライン、距離表示、案内標識、橋の自転車通行環境、無料化。</p></article>
+      <article><h3>停止環境</h3><p>サイクルスタンド、休憩所、トイレ、給水、カフェ、ベンチ、景観眺望点。</p></article>
+      <article><h3>接続環境</h3><p>フェリー、港の浮桟橋、レンタサイクル、乗捨、鉄道・バスとの接続。</p></article>
+      <article><h3>滞在環境</h3><p>宿泊、荷物配送、修理、ガイド、予約可能な体験、夜間の飲食。</p></article>
+    </div>
+    <p class="cycle-caution">愛媛県では、しまなみ・ゆめしま・とびしまの3海道を支える港づくりを地域再生計画として位置づけ、小型船だまりや浮桟橋の改良も進めています。サイクル政策が道路だけでなく港湾投資へ波及している点は重要です。</p>
+  </section>
+
+  <section class="section cycle-fieldwork-section">
+    <span class="region-layer-label research">次の調査</span>
+    <h2>現地では「何人走っているか」より、「どこで止まるか」を記録する</h2>
+    <div class="cycle-fieldwork-grid">
+      <article><strong>消費</strong><p>昼食、カフェ、宿泊、土産、体験、修理。価格帯と営業日も記録する。</p></article>
+      <article><strong>空き家</strong><p>古民家宿、飲食店、ショップなど、サイクル需要を契機に再利用された建物を追う。</p></article>
+      <article><strong>人材</strong><p>経営者の出身地、移住時期、来訪経験、創業理由を聞く。</p></article>
+      <article><strong>速度</strong><p>橋・海岸・集落・峠で、サイクリストが減速・停止する地点を観察する。</p></article>
+      <article><strong>公共投資</strong><p>標識、舗装、港、休憩所、トイレ、公共施設の整備年と目的を確認する。</p></article>
+      <article><strong>地域内循環</strong><p>売上が地元雇用・仕入れ・修繕・税・景観維持へ戻っているかを追う。</p></article>
+    </div>
+  </section>
+
+  <section class="section cycle-conclusion">
+    <span class="region-layer-label research">暫定結論</span>
+    <h2>サイクルルートは、完成品ではなく「需要の幹線」である</h2>
+    <div class="cycle-prose">
+      <p>しまなみの経験からは、サイクルルートそのものが地域経済を自動的に活性化するのではなく、ルートに沿って宿泊・飲食・レンタル・体験・ガイド・移住創業が蓄積することで、初めて「サイクリング経済圏」が形成されると考えられます。</p>
+      <p>とびしま・ゆめしまは、同じ瀬戸内多島海でもその周辺エコシステムが形成途上にあります。だからこそ、しまなみとの比較によって、何が地域効果を生む本当の変数なのかを検証できます。</p>
+    </div>
+  </section>
+
+  <section class="section cycle-sources">
+    <h2>主な資料</h2>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source.url} target="_blank" rel="noreferrer"><span>{source.label}</span><small>外部資料 ↗</small></a>)}
+    </div>
+  </section>
+</BaseLayout>
