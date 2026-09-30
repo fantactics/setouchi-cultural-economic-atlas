@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
+import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
   const ids=[
@@ -10,14 +12,14 @@ const articlePhoto=(article)=>{
   ].filter(Boolean);
   return ids.map((id)=>photoById[id]).find(Boolean) || null;
 };
-const parts=[...new Set(orderedBookArticles.map((a)=>a.part))];
+const parts=[...new Set(allBookArticles.map((a)=>a.part))];
 const editorialFeatures=[
-  orderedBookArticles.find((a)=>a.slug==='oysters-taste-of-small-seas'),
-  orderedBookArticles.find((a)=>a.slug==='ports-that-needed-waiting'),
-  orderedBookArticles.find((a)=>a.slug==='niihama-after-copper')
+  cycleTourismEssay,
+  allBookArticles.find((a)=>a.slug==='oysters-taste-of-small-seas'),
+  allBookArticles.find((a)=>a.slug==='ports-that-needed-waiting')
 ].filter(Boolean);
 const editorialPhotos=editorialFeatures.map(articlePhoto).filter(Boolean);
-const leadFeature=editorialFeatures[0] || orderedBookArticles.find((a)=>articlePhoto(a));
+const leadFeature=editorialFeatures[0] || allBookArticles.find((a)=>articlePhoto(a));
 const leadPhoto=leadFeature ? articlePhoto(leadFeature) : photoEvidence[0];
 const chapterDescriptions={
   '海と陸は、人がつくった':'雨を貯める。海を干す。川を渡る。自然に適応しながら、人は土地そのものをつくり変えてきた。',
@@ -27,7 +29,8 @@ const chapterDescriptions={
   '捨てるものは、どこへ行くのか':'カキ殻、魚のアラ、ウロコ、搾り粕。主製品の陰で生まれる副産物を追い、海・農地・飼料・素材へ戻る循環を読む。',
   '産業は、紡がれる':'鉱山が機械を生み、塩田が化学を残し、織物がジーンズへ変わる。前の産業が残した技能・資本・設備が、次の産業へ渡っていく。',
   '富は、町に何を残したのか':'交易や産業で生まれた利益は、寺、町家、白壁、文化へ姿を変えて残っていく。',
-  '町は、何度でもつくり直される':'港から鉄道へ、鉄道から道路へ。交通が変わるたびに、都市の中心も組み替えられる。'
+  '町は、何度でもつくり直される':'港から鉄道へ、鉄道から道路へ。交通が変わるたびに、都市の中心も組み替えられる。',
+  '移動は、地域を変える':'人を運ぶ道が観光資源になったとき、地域には売上だけでなく、店、人、建物、景観、インフラ、関係が残り始める。'
 };
 ---
 <!-- editorial-index-publish-marker -->
@@ -92,12 +95,13 @@ const chapterDescriptions={
 
   {parts.map((part)=>(
     <section class="section book-part">
-      <div class="book-part-title">{part}</div>\n      <p class="book-part-dek">{chapterDescriptions[part]}</p>
+      <div class="book-part-title">{part}</div>
+      <p class="book-part-dek">{chapterDescriptions[part]}</p>
       {part==='土地は、何度でも使い直される' && (
         <a class="book-part-map-link" href="/setouchi-cultural-economic-atlas/land-use/">土地利用変遷マップで比較する →</a>
       )}
       <div class="book-toc-list">
-        {orderedBookArticles.filter((a)=>a.part===part).map((article)=>{
+        {allBookArticles.filter((a)=>a.part===part).map((article)=>{
           const photo=articlePhoto(article);
           return (
             <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
