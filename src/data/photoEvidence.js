@@ -1546,6 +1546,26 @@ export const photoEvidence = [
     sourceType:'Wikimedia Commons',
     takenAt:'',
     verifiedAt:'2026-09-30'
+  },
+
+  {
+    id:'photo-tadano-crane-product',
+    placeId:'',
+    nodeKey:'today',
+    theme:'industry',
+    title:'タダノのトラッククレーン',
+    caption:'タダノ製クレーン。写真は東京モーターショー2007で撮影された車両。',
+    insight:'タダノの成長を決めたのは、鉄工所そのものではなく「移動できる油圧式クレーン」という製品だった。大型鋼構造物、油圧、車両、制御を一体化した製品が、香川の製造業集積を世界市場につないだ。',
+    claimType:'interpretation',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Tadano-Crane.jpg?width=1600',
+    alt:'タダノ製のトラッククレーン',
+    author:'Ypy31',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Tadano-Crane.jpg',
+    license:'Public domain',
+    licenseUrl:'https://commons.wikimedia.org/wiki/File:Tadano-Crane.jpg',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2007-10-28',
+    verifiedAt:'2026-09-30'
   }
 ];
 
