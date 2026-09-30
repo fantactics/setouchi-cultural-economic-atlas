@@ -2,6 +2,7 @@
 const { title = 'SETOUCHI ATLAS', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 import '../styles/global.css';
+import '../styles/about-projects.css';
 ---
 <!doctype html>
 <html lang="ja">
@@ -26,6 +27,10 @@ import '../styles/global.css';
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
       <p>自然環境が何を可能にし、人間がそれを何に変え、地域間の流れと時間がどう組み替えたのか。事実・解釈・仮説を分けながら、瀬戸内の地域形成を因果で読む。</p>
+      <div class="footer-atlas-links">
+        <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて</a>
+        <a href="/setouchi-cultural-economic-atlas/projects/">地域アトラスをつくる</a>
+      </div>
     </footer>
   </body>
 </html>
