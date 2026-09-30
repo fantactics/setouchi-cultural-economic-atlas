@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/cycle-tourism.css';
+import '../../styles/cycle-counterfactual.css';
+
+const riderModules=[
+  ['A','旅程','居住地、起点・終点、走行区間、日帰り/宿泊、泊数、同行者、レンタル/自車、フェリー利用'],
+  ['B','停止','立寄地点、停止時間、入店地点、観光地・集落・港で止まった理由'],
+  ['C','消費','飲食、宿泊、物販、体験、レンタル、修理、交通を「どの島・地区で」使ったか'],
+  ['D','再訪','初訪/再訪、過去訪問回数、次回意向、別季節の再訪意向'],
+  ['E','関係人口','この地域を知った契機、サイクリングが初接触だったか、二地域居住・移住・創業への関心'],
+  ['F','評価','走行安全、案内、トイレ、休憩、飲食、宿泊、荷物、公共交通、地域との交流の満足度']
+];
+
+const panels=[
+  {title:'サイクリスト調査',target:'年間1,000票を目安',body:'春・秋の繁忙期だけでなく夏冬、平日・休日を分ける。尾道・今治だけでなく島内の複数地点で捕捉し、短距離利用者も含める。'},
+  {title:'事業者パネル',target:'30〜50事業者を継続追跡',body:'宿、飲食、カフェ、小売、レンタル、修理、体験事業者について、売上、サイクリスト比率、地元仕入、雇用、設備投資を年次で追う。'},
+  {title:'資産・投資台帳',target:'公共・民間を同じ年表へ',body:'ブルーライン、橋、港、トイレ、休憩所、案内等の公共投資と、古民家宿、飲食店、店舗改修等の民間投資を位置と年で記録する。'},
+  {title:'住民・地域調査',target:'便益と外部不経済を測る',body:'道路安全、景観整備、公共交通、交流機会などの便益と、混雑、事故不安、マナー、住宅・地価負担などの負担を同時に測る。'}
+];
+
+const coreMetrics=[
+  ['地域捕捉売上','サイクリスト1,000人当たり、沿線地域で実際に発生した消費額'],
+  ['宿泊転換率','サイクリスト総数のうち、対象地域内で1泊以上した割合'],
+  ['停止密度','1人当たりの平均立寄・入店地点数。通過型か滞在型かを直接見る'],
+  ['地域内残存率','観光売上のうち地元雇用・地元仕入・修繕・税等として地域内に残る比率'],
+  ['創業誘発率','サイクル需要を主要理由に開業した事業数を来訪規模で標準化'],
+  ['資産再生率','空き家・空き店舗のうち宿・店・工房・交流拠点へ転用された割合'],
+  ['公共投資誘発倍率','サイクル関連公共投資1円に対して誘発された民間投資額'],
+  ['人材転換率','初回来訪→再訪→関係人口→移住・創業へ進んだ割合'],
+  ['住民純便益','生活利便・安全・景観改善等の便益から混雑等の負担を差し引いて評価']
+];
+
+const tests=[
+  {name:'前後比較',body:'料金無料化、NCR指定、橋開通など介入時点の前後で通行・宿泊・消費・投資を比較する。'},
+  {name:'対照地域比較',body:'大崎上島等、自然条件や人口減少が似る一方で広域サイクル幹線ではない地域と比較し、一般的な島嶼変化を差し引く。'},
+  {name:'区間比較',body:'しまなみの中でも「走るだけの区間」と「宿泊・飲食・文化資源が密な区間」を比較し、停止点密度の効果を見る。'},
+  {name:'旅程比較',body:'日帰り完走型、1泊型、2泊以上型で消費額と立寄回数を比較する。宿泊が最大の分岐点かを検証する。'},
+  {name:'コホート追跡',body:'移住・創業者について、初回来訪の契機、サイクリング経験、出店理由、顧客構成を聞き、観光→人材転換の経路を追う。'}
+];
+
+const sources=[
+  {label:'愛媛県｜令和6年度しまなみ広域サイクルツーリズム圏域形成促進に係る動向調査委託事業',url:'https://www.pref.ehime.jp/uploaded/attachment/132776.pdf'},
+  {label:'呉市｜観光客動向・観光消費額調査',url:'https://www.city.kure.lg.jp/uploaded/attachment/53798.pdf'},
+  {label:'国土交通省｜サイクルツーリズムが地域経済に与える影響',url:'https://www.mlit.go.jp/road/ir/ir-council/bicycle-up/07pdf/04.pdf'},
+  {label:'J-STAGE｜サイクルツーリズムを活用した地域での消費購買行動促進システム',url:'https://www.jstage.jst.go.jp/article/ckg/18/1/18_257/_article/-char/ja'},
+  {label:'J-STAGE｜サイクリング×人のつながり×学び',url:'https://www.jstage.jst.go.jp/article/ckg/20/0/20_147/_article/-char/ja'},
+  {label:'観光庁｜旅行・観光消費動向調査',url:'https://www.mlit.go.jp/kankocho/tokei_hakusyo/shohidoko.html'}
+];
+---
+<BaseLayout title="サイクルツーリズムを、どう実測するか | 研究ノート | SETOUCHI ATLAS" description="しまなみ・とびしま・ゆめしまのサイクルツーリズム効果を、サイクリスト調査、事業者パネル、投資台帳、住民調査で実測する調査設計。">
+  <section class="counter-hero">
+    <div class="counter-scrim"></div>
+    <div class="counter-copy">
+      <a href="/setouchi-cultural-economic-atlas/chapters/cycle-tourism-counterfactual-kpi/">← 効果測定KPIに戻る</a>
+      <span>FIELD PROTOCOL / CYCLE TOURISM EVALUATION</span>
+      <h1>サイクルツーリズムを、<br/>どう実測するか</h1>
+      <p>「何人走ったか」から、「どこで止まり、何泊し、何円が地域に残り、何件の事業・空き家再生・移住へつながったか」へ。政策評価に耐える調査設計をつくります。</p>
+    </div>
+  </section>
+
+  <section class="section counter-thesis">
+    <span class="region-layer-label research">検証仮説</span>
+    <h2>サイクリストの属性ではなく、地域側の「捕捉能力」を測る</h2>
+    <div class="counter-prose">
+      <p>しまなみでは、通過型・小消費型が多いことが政策課題として認識されています。一方、とびしまの調査では、サイクリングという明確な目的を持つ層ほど再訪や消費につながる可能性も示されています。</p>
+      <p>この矛盾は、サイクリストが本質的に低消費なのではなく、<strong>宿泊・食・文化・体験・買物へ接続できる地域と、走り抜けるだけの地域との差</strong>として検証できます。</p>
+    </div>
+    <div class="counter-formula"><span>来訪</span><b>→</b><span>停止</span><b>→</b><span>宿泊</span><b>→</b><span>消費</span><b>→</b><span>事業</span><b>→</b><span>資産再生</span><b>→</b><span>人材定着</span></div>
+  </section>
+
+  <section class="section counter-comparison">
+    <span class="region-layer-label data">4本の調査</span>
+    <h2>アンケート一枚では、地域効果は測れない</h2>
+    <div class="counter-grid">
+      {panels.map((item)=>(
+        <article><span>{item.target}</span><h3>{item.title}</h3><p>{item.body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-kpi">
+    <span class="region-layer-label research">サイクリスト調査票</span>
+    <h2>「いくら使ったか」だけでなく、旅程を復元する</h2>
+    <div class="counter-kpi-grid">
+      {riderModules.map(([no,title,body])=>(
+        <article><span>{no}</span><h3>{title}</h3><p>{body}</p></article>
+      ))}
+    </div>
+    <p class="counter-note">調査地点ごとの偏りを避けるため、起終点だけでなく島内の港・道の駅・カフェ・主要交差点等でも回収し、季節・曜日・時間帯で層化する。</p>
+  </section>
+
+  <section class="section counter-derived">
+    <span class="region-layer-label data">主要アウトプット</span>
+    <h2>自治体が毎年追える数字へ変換する</h2>
+    <div class="counter-derived-grid">
+      {coreMetrics.map(([name,body])=>(
+        <article><h3>{name}</h3><p>{body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-intervention">
+    <span class="region-layer-label research">因果を言い過ぎない</span>
+    <h2>5つの比較で「サイクリングだから起きた」を検証する</h2>
+    <div class="counter-grid">
+      {tests.map((item)=>(
+        <article><h3>{item.name}</h3><p>{item.body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-dashboard">
+    <span class="region-layer-label research">最終ダッシュボード</span>
+    <h2>1,000人来た時に、地域に何が残ったか</h2>
+    <p class="lead">ルート間比較の共通単位を「サイクリスト1,000人」に置くと、規模の違う地域でも比較しやすくなります。</p>
+    <div class="counter-dashboard-row"><span>1,000人</span><b>→</b><span>平均停止数</span><b>→</b><span>宿泊者数</span><b>→</b><span>地域内消費額</span><b>→</b><span>地元残存額</span><b>→</b><span>再生資産</span><b>→</b><span>誘発投資</span><b>→</b><span>人材転換</span></div>
+    <p class="counter-note">人数競争ではなく、同じ1,000人を地域がどれだけ価値へ変換できるかを比較する。</p>
+  </section>
+
+  <section class="section counter-sources">
+    <h2>調査設計の参照資料</h2>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source.url} target="_blank" rel="noreferrer"><span>{source.label}</span><small>外部資料 ↗</small></a>)}
+    </div>
+  </section>
+</BaseLayout>
