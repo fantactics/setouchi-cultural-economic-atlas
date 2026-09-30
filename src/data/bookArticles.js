@@ -2726,10 +2726,97 @@ export const bookArticles = [
       {id:6,title:'会社概要',publisher:'株式会社大越鉄工所',url:'https://kkoogosi.sakura.ne.jp/company.html'},
       {id:7,title:'会社概要',publisher:'株式会社タダノ',url:'https://www.tadano.co.jp/ja/company/overview/'}
     ]
+  },
+
+  {
+    slug:'miura-matsuyama-small-boiler-revolution',
+    part:'産業は、紡がれる',
+    title:'なぜ世界的ボイラメーカーは松山にあるのか',
+    subtitle:'三浦工業と「小さく分ける」技術革命――精麦機から多缶システム、全国サービス網へ',
+    cities:['松山','愛媛'],
+    keywords:['三浦工業','松山','小型貫流ボイラ','多缶設置','メンテナンス','水処理','舶用機器','標準化','サービス産業'],
+    heroPhotoId:'photo-matsuyama-city-view',
+    lead:'松山には、世界的なボイラメーカー三浦工業がある。しかし、その起源を瀬戸内の海や重工業から直接説明することはできない。1927年、三浦製作所は精麦・精米機の製造から始まった。転機は1959～60年。規制緩和を捉えて小型貫流ボイラへ進出し、その後「大きな一台」ではなく「小さな機械を複数並べて必要な分だけ動かす」という多缶設置システムをつくった。さらに保守契約、オンライン監視、水処理、食品・医療・舶用機器へ広がった。三浦工業の成長は、地方企業が巨大設備メーカーになる物語ではなく、小型化・標準化・サービス化によって全国市場へ伸びる別の産業生成モデルである。',
+    sections:[
+      {
+        heading:'出発点は、ボイラではなく精麦・精米機だった',
+        paragraphs:[
+          {text:'三浦工業の公式沿革によれば、1927年、愛媛県松山市で三浦製作所を創業し、精麦・精米機の製造・販売を始めた。会社の回顧では、人力中心だった農作業の機械化需要を見込んだことが原点とされる。',refs:[1,2]},
+          {text:'したがって、現在の三浦工業を最初から「ボイラ会社」として見ると、企業形成の重要な部分を見落とす。原点は地域の農業・食品加工に近い機械製造であり、そこから別の成長市場へ移った。',refs:[1,2]},
+          {text:'ここでも、松山という土地がボイラ産業を必然的に生んだわけではない。企業が市場の変化を読み、製品領域を乗り換えたことが先にある。',refs:[]}
+        ],
+        photoIds:['photo-matsuyama-city-view']
+      },
+      {
+        heading:'1959年、「規制の境界」に市場を見つけた',
+        paragraphs:[
+          {text:'1959年に株式会社三浦製作所を設立し、各種ボイラの製造へ進出。1960年には小型貫流ボイラの製造を開始した。三浦工業は、経済発展によるボイラ需要の増加を見込んで自社製作に踏み切ったと説明している。',refs:[1,2]},
+          {text:'さらに重要なのが法制度である。三浦工業によれば、1959年の法令改正によって、一定条件の小型貫流ボイラは無免許で扱えるようになった。これを受けて独自構造のZP型を開発した。',refs:[3]},
+          {text:'技術革新だけでなく、制度変更によって新しく生まれた市場を素早く捉えたことが、ボイラメーカーへの転換を可能にした。産業生成には自然条件だけでなく、制度もまた「下部構造」になり得る。',refs:[3]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'大きな一台ではなく、「小さな複数台」にした',
+        paragraphs:[
+          {text:'1977年、三浦工業は小型貫流ボイラを複数台組み合わせ、自動台数制御するMI（多缶設置）システムを商品化した。需要に応じて稼働台数を増減し、必要な蒸気だけを供給する仕組みである。',refs:[2,4]},
+          {text:'ここで三浦工業は、大容量需要へ対応するために一台を巨大化するのではなく、小型機を標準化し、複数台を制御して一つのシステムにする方法を選んだ。部分負荷時の効率、設備増設の柔軟性、故障時の冗長性という利点が生まれる。',refs:[4]},
+          {text:'タダノが大型クレーンという巨大な一品を高度化していったのに対し、三浦工業は小さな標準機を多数組み合わせる方向へ進んだ。この違いが、その後の企業構造にも影響した。',refs:[]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'本当の商品は、ボイラだけではなかった',
+        paragraphs:[
+          {text:'三浦工業は1969年に有料メンテナンス制度を始め、1972年には部品・補修を含む保守管理契約を開始した。1988年には機器の運転状態を知らせる機能を持つボイラを発売し、翌年には電話回線を用いた24時間365日のオンラインメンテナンス体制を整えた。',refs:[2]},
+          {text:'現在は75,000台以上のオンラインメンテナンス契約を持ち、全国約100拠点に約1,200名規模のフィールドエンジニアを配置している。',refs:[4,5]},
+          {text:'つまり三浦工業は、機械を売って顧客との関係を終えるメーカーではない。標準化された多数の機械を全国へ置き、その運転データ、点検、部品、予防保全を長期的に引き受けることでサービス事業を積み上げてきた。',refs:[4,5]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'ボイラから「熱・水・環境」へ広がった',
+        paragraphs:[
+          {text:'現在の三浦工業の事業は、小型貫流ボイラに加え、舶用補助ボイラ、排ガスボイラ、水処理機器、食品機器、滅菌器、薬品、環境計量などに広がっている。会社は自らの技術基盤を「熱・水・環境」と表現している。',refs:[6,7]},
+          {text:'ボイラは熱だけの機械ではない。水質が悪ければスケールや腐食が起こり、燃焼や蒸気利用を含めて工場全体の効率に影響する。だから、ボイラを深く扱うほど水処理、薬品、排熱回収、制御、環境計測へ領域が広がる。',refs:[4,6]},
+          {text:'製品多角化がばらばらに起きたのではなく、蒸気・熱・水という共通技術を隣接市場へ展開したと見る方が、三浦工業の産業系譜を理解しやすい。',refs:[6,7]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'1967年から、瀬戸内の海事産業とも接続した',
+        paragraphs:[
+          {text:'三浦工業は1967年に舶用補助ボイラの製造を開始した。現在も舶用補助ボイラや排ガスボイラなどを事業領域に持つ。',refs:[1,6]},
+          {text:'この段階になると、松山で始まった企業の技術は、今治を中心とする愛媛・瀬戸内の造船・海運産業とも接続する。三浦工業が造船集積から直接生まれたわけではないが、成長後には瀬戸内の海事産業が重要な隣接市場の一つになったと考えられる。',refs:[1,6]},
+          {text:'地域性は企業の誕生時にだけ作用するとは限らない。企業が成長し、技術領域を広げる過程で、周囲の産業との親和性が高まり、地域との結びつきが後から強くなることもある。',refs:[]}
+        ],
+        photoIds:['photo-matsuyama-mitsuhama']
+      },
+      {
+        heading:'三浦工業は、「脱地域化しながら地域に残る」企業である',
+        paragraphs:[
+          {text:'2026年3月末時点で三浦工業は連結7,896名を擁し、松山本社と松山市内の北条工場を持ちながら、国内外で製造・販売・サービスを展開している。',refs:[6]},
+          {text:'販売先は全国・世界に広がり、サービス網も全国化している。この意味では、市場と顧客は松山から大きく脱地域化した。一方、本社と主要な技術・生産拠点は松山に残る。',refs:[5,6]},
+          {text:'タダノが大型機械の生産を軸に周辺の製缶・溶接企業を引き寄せた企業だとすれば、三浦工業は標準製品を全国へ分散配置し、サービス網で顧客を結んだ企業である。同じ四国発の世界企業でも、地域に根を張る方法はまったく異なる。',refs:[]}
+        ],
+        photoIds:['photo-matsuyama-city-view']
+      }
+    ],
+    provisionalConclusion:'三浦工業は、松山の自然環境から直接生まれたボイラ産業ではない。精麦・精米機メーカーが、高度成長による需要と1959年の制度変更を捉えて小型貫流ボイラへ転換し、1977年には小型機を複数組み合わせる多缶設置システムを確立した。さらに有料保守、オンライン監視、全国のフィールドエンジニア網を通じて、製品販売から継続サービスへ事業を広げ、水処理・食品・医療・舶用など「熱・水・環境」の技術プラットフォームへ発展した。三浦工業は、地方企業が小型化・標準化・サービス化によって市場を全国・世界へ拡張しながら、本社と技術基盤を地域に残す成長モデルである。',
+    openQuestions:['創業期の精麦・精米機事業と愛媛の裸麦・食品加工産業との具体的な取引関係を史料から確認できるか','松山本社・北条工場と県内サプライヤーの企業間取引を地図化できるか','三浦工業の舶用機器事業と今治造船・愛媛船主群との取引史を追えるか','タダノ・三浦工業・今治造船を、土地集約度・標準化度・サービス比率で比較するとどのような地域企業類型が作れるか'],
+    sources:[
+      {id:1,title:'会社沿革',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/history.html'},
+      {id:2,title:'ひらめきと愛のHISTORY',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/sonoai/history.html'},
+      {id:3,title:'小型貫流ボイラZP型が機械遺産に認定',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/news/topics/2015/975.php'},
+      {id:4,title:'ボイラ―ミウラの特長とMI多缶設置システム',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/product/boiler/'},
+      {id:5,title:'メンテナンス体制',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/product/miura/maintenance/'},
+      {id:6,title:'会社概要',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/profile.html'},
+      {id:7,title:'社長メッセージ',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/topmessage.html'}
+    ]
   }
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","tadano-shido-industrial-ecosystem","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","tadano-shido-industrial-ecosystem","miura-matsuyama-small-boiler-revolution","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
