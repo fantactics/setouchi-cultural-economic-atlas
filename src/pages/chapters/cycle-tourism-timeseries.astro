@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/cycle-tourism.css';
+import '../../styles/cycle-timeseries.css';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const heroPhoto=photoById['photo-imabari-kurushima'];
+
+const areas=[
+  {
+    name:'大三島',route:'しまなみ海道',period:'2010 → 2020',change:'−23.6%',
+    population:[['2010','6,494'],['2015','5,675'],['2020','4,963']],
+    populationNote:'旧上浦町＋旧大三島町の国勢調査人口を合算。',
+    economy:'2020年の転入理由では「起業」19.2%（今治市全体3.4%）。2021年4月時点の飲食店48店の約半数が移住者経営と報告されている。',
+    reading:'人口減少は続いている。一方で、域外需要を相手にする飲食・観光サービスと移住創業の厚みが増している可能性がある。サイクルツーリズムを「人口反転策」とだけ評価すると、この変化を捉え損なう。',
+    status:'人口減少＋事業構成変化'
+  },
+  {
+    name:'瀬戸田地域',route:'しまなみ海道（生口島・高根島）',period:'2015 → 2020',change:'−5.8%',
+    population:[['2015','9,383'],['2020','8,839']],
+    populationNote:'尾道市空家等対策計画の瀬戸田地域人口。',
+    economy:'2018年→2020年で総観光客67.3万人→45.7万人、宿泊者13,000人→9,623人とコロナ禍で減少。一方、1人当たり観光消費額は2,259円→2,588円へ14.6%上昇。',
+    reading:'来訪者数の減少と単価上昇が同時に起きている。高価格帯宿泊や古民家活用など、滞在価値を上げる投資の効果を「人数」と分けて測る必要がある。',
+    status:'人数減でも単価上昇'
+  },
+  {
+    name:'大崎下島',route:'とびしま海道',period:'2015 → 2020',change:'−19.4%',
+    population:[['2015','2,169'],['2020','1,748']],
+    populationNote:'島単位の国勢調査人口を離島経済新聞が整理。2020年の国交省資料でも大崎下島・豊町側1,525人等が示される。',
+    economy:'呉市観光振興計画は、サイクルツーリズム施策の目的として「滞在時間の延長、宿泊及び観光消費額の増加」を掲げる。島単位で継続比較できる消費・創業統計は現時点で不足。',
+    reading:'御手洗という強い文化資産と良好な走行景観があっても、地域消費を数量で追える統計は弱い。「来訪したか」より「どこで止まり、何を買ったか」を現地調査で補完する必要がある。',
+    status:'高品質ルート＋捕捉データ不足'
+  },
+  {
+    name:'上島町',route:'ゆめしま海道',period:'2020 → 2024',change:'−6.5%',
+    population:[['2020','6,598'],['2021','6,590'],['2022','6,377'],['2023','6,277'],['2024','6,171']],
+    populationNote:'住民基本台帳、各年4月末。2022年3月に岩城橋が開通し、ゆめしま海道が全線開通。',
+    economy:'2025年度の「サイクルフリー」利用は12,089台。町は全線開通後、国内外から多くのサイクリストが来訪したと説明している。',
+    reading:'全線開通後も人口減少は続く。したがって、橋とサイクルルートの効果は人口総数だけでなく、来訪、宿泊、創業、関係人口、空き家利用などの中間指標で追う必要がある。',
+    status:'新規来訪増＋人口減継続'
+  }
+];
+
+const chronology=[
+  ['1999','しまなみ海道','西瀬戸自動車道が全線開通。橋と島内道路が連続した観光ルートへ。'],
+  ['2008','とびしま海道','豊島大橋が開通し、本土側から岡村島方面まで橋で連続するルートが形成。'],
+  ['2014','しまなみ海道','自転車通行料金の無料化開始。利用障壁を下げる制度投資。'],
+  ['2018','瀬戸田','古民家等活用事業で、サイクリスト等を対象とする滞在拠点整備を民間へ接続。'],
+  ['2019','しまなみ海道','ナショナルサイクルルートに指定。国内ルートから国際的ブランドへ。'],
+  ['2022','ゆめしま海道','岩城橋開通で全線開通。島内生活道路と観光動線が同時に再編。'],
+  ['2025','上島町','サイクルフリー年間利用12,089台。船との接続を含む誘客施策を継続。']
+];
+
+const nextMetrics=[
+  ['宿泊','客室数、稼働率、平均単価、サイクリスト比率'],
+  ['飲食・小売','店舗数、新規開業、廃業、客単価、サイクリスト売上比率'],
+  ['移住・創業','移住者数、創業目的比率、移住前の初回来訪経路'],
+  ['空き家','宿・店舗・工房への転用件数、改修投資額'],
+  ['公共投資','ブルーライン、港、トイレ、休憩所、案内、景観整備の事業費'],
+  ['地域内循環','地元雇用、地元仕入、修繕発注、税収、地域団体への還流']
+];
+
+const sources=[
+  {label:'今治市｜令和2年国勢調査（旧市町村別）',url:'https://www.city.imabari.ehime.jp/simingamannaka/tokei/kokuseichosa/'},
+  {label:'IRC｜大三島 起業・移住者たちの活躍',url:'https://www.member.iyoirc.jp/storage/mon_img/mon_pdf_57b8ba11-0ddb-4622-91ea-2b922cc403fc.pdf'},
+  {label:'尾道市｜第2期空家等対策計画（瀬戸田地域）',url:'https://www.city.onomichi.hiroshima.jp/uploaded/attachment/42632.pdf'},
+  {label:'尾道市｜瀬戸田地域未来創造支援事業 評価',url:'https://www.city.onomichi.hiroshima.jp/uploaded/life/45746_123287_misc.pdf'},
+  {label:'尾道市｜瀬戸田町古民家等活用事業',url:'https://www.city.onomichi.hiroshima.jp/soshiki/2/22945.html'},
+  {label:'国土交通省｜しまなみ・とびしま海道位置図',url:'https://www.mlit.go.jp/policy/shingikai/content/001720467.pdf'},
+  {label:'呉市｜観光振興計画',url:'https://www.city.kure.lg.jp/uploaded/attachment/94835.pdf'},
+  {label:'上島町｜第3期子ども・子育て支援事業計画（人口推移）',url:'https://www.town.kamijima.lg.jp/uploaded/life/26092_101034_misc.pdf'},
+  {label:'上島町｜サイクルフリー令和7年度実績',url:'https://www.town.kamijima.lg.jp/soshiki/kanko-senryaku/27310.html'}
+];
+---
+<BaseLayout title="サイクルツーリズム前後比較 | データノート | SETOUCHI ATLAS" description="大三島・瀬戸田・大崎下島・上島町について、サイクルルート整備前後の人口、観光、消費、移住・創業を時系列で比較する。">
+  <section class="cycle-time-hero">
+    {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
+    <div class="cycle-time-scrim"></div>
+    <div class="cycle-time-copy">
+      <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/">← 「自転車は、島を変えたか」に戻る</a>
+      <span>DATA NOTE / BEFORE & AFTER</span>
+      <h1>自転車の前と後を、<br/>数字で見る</h1>
+      <p>人口、観光客数、宿泊、消費、移住・創業。サイクルルート整備後に何が変わったのかを、取れる数字と取れない数字に分けて追います。</p>
+    </div>
+  </section>
+
+  <section class="section cycle-time-thesis">
+    <span class="region-layer-label research">最初に確認すること</span>
+    <h2>サイクルツーリズムは、人口減少を止めてはいない</h2>
+    <div class="cycle-prose">
+      <p>大三島、瀬戸田、大崎下島、上島町のいずれも、比較可能な期間では人口減少が続いています。したがって「有名なサイクルルートになった＝人口が増えた」という説明は成立しません。</p>
+      <p>一方で、大三島の移住創業、瀬戸田の1人当たり観光消費、上島町への新しいサイクリスト流入など、人口総数とは別の変化が確認できます。評価すべきなのは、人口の反転だけではなく、<strong>地域経済の構成・人材の質・遊休資産の利用・域外需要の捕捉</strong>です。</p>
+    </div>
+    <div class="cycle-time-principle"><strong>人口効果</strong><b>≠</b><strong>経済効果</strong><b>≠</b><strong>人材効果</strong><b>≠</b><strong>景観・資産効果</strong></div>
+  </section>
+
+  <section class="section cycle-time-areas">
+    <span class="region-layer-label data">4地域比較</span>
+    <h2>「人口は減るが、別のものが増える」を見落とさない</h2>
+    <div class="cycle-time-area-grid">
+      {areas.map((area)=>(
+        <article>
+          <div class="cycle-time-area-head">
+            <div><span>{area.route}</span><h3>{area.name}</h3></div>
+            <strong>{area.change}</strong>
+          </div>
+          <small>{area.period} 人口変化</small>
+          <div class="cycle-time-pop-row">
+            {area.population.map(([year,value])=><div><span>{year}</span><strong>{value}</strong><small>人</small></div>)}
+          </div>
+          <p class="cycle-time-note">{area.populationNote}</p>
+          <dl>
+            <div><dt>人口以外の変化</dt><dd>{area.economy}</dd></div>
+            <div><dt>読み</dt><dd>{area.reading}</dd></div>
+          </dl>
+          <em>{area.status}</em>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cycle-time-chronology">
+    <span class="region-layer-label research">介入の時系列</span>
+    <h2>橋ができた時と、観光商品になった時は違う</h2>
+    <p class="lead">交通インフラの完成、料金政策、ブランド指定、民間投資は別々の時点で起きています。「開通前後」だけではなく、複数の介入を重ねて見る必要があります。</p>
+    <div class="cycle-time-line">
+      {chronology.map(([year,place,text])=>(
+        <article><span>{year}</span><div><strong>{place}</strong><p>{text}</p></div></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cycle-time-method">
+    <span class="region-layer-label research">因果をどう見るか</span>
+    <h2>「サイクリングのおかげ」と言う前に、反実仮想を置く</h2>
+    <div class="cycle-time-method-grid">
+      <article><strong>① 同じ島の前後</strong><p>ルート整備・無料化・ブランド指定の前後で、来訪・宿泊・消費・創業がどう変わったか。</p></article>
+      <article><strong>② 島どうしの比較</strong><p>しまなみと、とびしま・ゆめしまを比較し、サービス密度や交通接続の差を見る。</p></article>
+      <article><strong>③ 対照地域を置く</strong><p>橋やサイクルブランドの条件が異なる大崎上島などを参照し、一般的な過疎化と施策固有効果を分ける。</p></article>
+      <article><strong>④ コロナ等を分離</strong><p>2020〜2022年は観光統計が大きく歪むため、単純な前年差ではなく複数年平均や回復局面も確認する。</p></article>
+    </div>
+  </section>
+
+  <section class="section cycle-time-missing">
+    <span class="region-layer-label data">不足している数字</span>
+    <h2>本当に必要なのは、自治体統計にまだ少ない「地域捕捉」のデータ</h2>
+    <div class="cycle-time-metric-grid">
+      {nextMetrics.map(([title,body])=><article><strong>{title}</strong><p>{body}</p></article>)}
+    </div>
+    <div class="cycle-hypothesis-box">
+      <span>次の検証</span>
+      <strong>サイクリスト数ではなく、「1,000人通過したとき、地域内に何泊・何食・何件の購買・何人の再訪・何件の創業が残るか」を海道ごとに比較する。</strong>
+    </div>
+  </section>
+
+  <section class="section cycle-time-conclusion">
+    <span class="region-layer-label research">現段階の読み</span>
+    <h2>成功は「人口増」ではなく、縮小地域に新しい需要回路をつくれたかで測る</h2>
+    <div class="cycle-prose">
+      <p>少なくとも現時点の数字から、サイクルツーリズムが島嶼部の人口減少を反転させたとは言えません。しかし、大三島の移住創業や瀬戸田の消費単価上昇のように、人口減少の内部で経済活動の構成が変わる現象は確認できます。</p>
+      <p>したがって、サイクルルートの地域効果は「人口を増やしたか」という単一指標ではなく、<strong>域外需要を持ち込み、それを地元の宿・店・人材・空き家・景観投資へ変換できたか</strong>で評価する方が実態に近いと考えます。</p>
+    </div>
+  </section>
+
+  <section class="section cycle-sources">
+    <h2>主な資料</h2>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source.url} target="_blank" rel="noreferrer"><span>{source.label}</span><small>外部資料 ↗</small></a>)}
+    </div>
+  </section>
+</BaseLayout>
