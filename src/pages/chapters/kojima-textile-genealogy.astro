@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const stages = [
+  ['01','海だった平野','現在の倉敷南部の平野は、近世以前には「吉備の穴海」と呼ばれる浅海と島々だった。高梁川が運んだ土砂と近世以降の干拓によって、海は農地・市街地へ変わった。'],
+  ['02','塩分の残る干拓地','造成直後の土地は塩分が多く、水稲には不向きだった。そこで塩分に比較的強い綿やイ草が商品作物として選ばれた。'],
+  ['03','海上交易が農業を増幅','玉島・下津井などの港には、綿作の肥料となる干鰯やニシン粕が入り、原綿・繰綿・塩などが出ていった。海運は販売路であると同時に、生産力を支える投入財の供給路でもあった。'],
+  ['04','織る・縫う技能の蓄積','児島では真田紐、小倉織、足袋などが生産され、織り・裁断・縫製の技能と商取引が地域内に蓄積した。'],
+  ['05','近代工業化','1881年に下村紡績・玉島紡績、1889年に倉敷紡績所が設立され、在来の綿・織物経済へ機械制紡績が接続した。'],
+  ['06','学生服への転換','生活様式の洋風化と学校制度の拡大を背景に、足袋等で培った縫製技術が学生服へ展開した。1960年代には児島が全国有数の学生服産地となる。'],
+  ['07','ジーンズへの再転換','学生服市場の競争激化と産業再編の中で、縫製・染色・洗い・仕上げの専門技能が別製品へ転用され、1965年に国産ジーンズ生産へつながった。'],
+  ['08','原料立地から技能立地へ','現在の競争力は、地元綿花そのものより、企画・製織・染色・裁断・縫製・洗い加工・仕上げまでの企業・職人ネットワークに宿る。']
+];
+
+const nodes = [
+  {
+    name:'倉敷',role:'集荷・商人資本・近代紡績・文化投資',
+    detail:'倉敷川を通じた物資集散と綿商人の蓄積が町を形成し、明治期には倉敷紡績所が成立。紡績業から生まれた資本は、電力・教育・研究・文化事業にも展開した。'
+  },
+  {
+    name:'玉島',role:'綿の広域交易・港湾物流',
+    detail:'備中綿の集荷・販売拠点として発達。港と土蔵群は、綿作地域と瀬戸内・北前船航路を結ぶ交易ノードだった。'
+  },
+  {
+    name:'下津井',role:'北前船・肥料輸入・綿製品／塩の移出',
+    detail:'干鰯やニシン粕などを受け入れ、綿製品や塩を送り出した。港町の繁栄と児島の繊維産業は、別々ではなく一つの海陸物流システムとして読める。'
+  },
+  {
+    name:'児島',role:'織物・縫製・加工の技能集積',
+    detail:'真田紐、小倉織、足袋、学生服、作業服、ジーンズへと製品を変えながら、製織・裁断・縫製・染色・加工の専門能力を蓄積した。'
+  }
+];
+
+const transitions = [
+  ['綿花・イ草','干拓地の塩分条件に適応した商品作物','自然条件と土地改変が産業の入口をつくる'],
+  ['真田紐・小倉織','原料を地域内で織物へ変換','原料産地から加工産地へ'],
+  ['足袋','裁断・縫製・規格生産','縫製産業としての量産能力を獲得'],
+  ['学生服','学校需要・洋装化・合繊化','標準化された全国市場へ接続'],
+  ['ジーンズ','縫製＋染色＋洗い＋ダメージ加工','大量生産能力を高付加価値・多工程型へ再編集'],
+  ['産業観光・ブランド','工場・技能・町を見せる','生産能力そのものを地域文化資産として価値化']
+];
+
+const sources = [
+  ['倉敷市｜一輪の綿花から始まる倉敷物語','https://www.city.kurashiki.okayama.jp/culture/tourism/1002215/1013347/1002267.html'],
+  ['倉敷市｜児島の日本遺産について','https://www.city.kurashiki.okayama.jp/culture/tourism/1001881/1011764/1008099/1011534.html'],
+  ['文化庁｜日本遺産「一輪の綿花から始まる倉敷物語」','https://www.japan-heritage.bunka.go.jp/ja/stories/story049/'],
+  ['児島商工会議所｜繊維総合工場 こじまファクトリー','https://www.kojima-cci.or.jp/kojima-factory/'],
+  ['児島商工会議所｜業種で見る児島の繊維産業','https://www.kojima-cci.or.jp/kojima-factory/company_cat/industries'],
+  ['岡山県｜児島の学生服産業史','https://www.pref.okayama.jp/uploaded/life/94418_4530516_misc.pdf'],
+  ['クラボウ｜クラボウヒストリー','https://www.kurabo.co.jp/kurabo-history/']
+];
+---
+<BaseLayout title="なぜ児島でジーンズだったのか | 研究ノート | SETOUCHI ATLAS" description="干拓・綿作・北前船・紡績・学生服・ジーンズをつなぎ、倉敷・玉島・下津井・児島の繊維産業を地域産業エコシステムとして読む。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">INDUSTRIAL GENEALOGY / TEXTILE</div>
+    <h1>なぜ児島で<br/>ジーンズだったのか</h1>
+    <p class="subtitle">海だった土地から、世界に通じる加工技術へ。</p>
+    <div class="chapter-thesis">児島のジーンズは1965年に突然生まれた「名物」ではない。干拓、塩分を含む土壌への適応、綿作、海上交易、織物、紡績、縫製、学生服という数百年の産業系譜の上に成立した。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <div class="kicker">QUESTION</div>
+    <h2>産業の土地固有性は、原料が変わっても残るのか</h2>
+    <p class="lead">地域産業を「現在ここに工場がある」という一点で見ると、児島のジーンズと江戸期の綿作は別の産業に見えます。しかし、工程・技能・商流・企業関係を時間軸で追うと、製品は変わっても生産能力が次の産業へ受け渡されてきたことが見えてきます。</p>
+    <div class="research-chain"><span>浅海・干拓 → 塩性土壌 → 綿・イ草 → 海上肥料物流 → 織物 → 紡績・縫製 → 学生服 → ジーンズ → 加工・ブランド</span></div>
+    <p class="map-note">本ノートは環境決定論ではなく、自然条件に対する人間の土地改変、作物選択、交易、技術導入、企業組織の積み重ねを因果鎖として扱います。</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">CAUSAL CHAIN</div>
+    <h2>産業は、8段階で形を変えた</h2>
+    <div class="region-layer-grid">
+      {stages.map(([step,title,body])=>(
+        <article class="region-layer-card"><span>{step}</span><h3>{title}</h3><p>{body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge fact">事実</div></div>
+      <h2>出発点は「海を陸にしたこと」だった</h2>
+      <div class="research-copy">
+        <p>倉敷市南部の平野は、もともと大小の島々と浅海からなる「吉備の穴海」でした。高梁川が運ぶ土砂と近世以降の干拓によって陸地が拡大しましたが、造成直後の土地には塩分が残り、水稲には適しませんでした。倉敷市は、そこで綿やイ草が栽培されたことを、現在の繊維産業につながる起点として位置づけています。</p>
+        <p>つまり重要なのは「綿が自然に生えていた」ことではありません。人間が海を干拓し、その土地条件に適応して作物を選んだ結果として、綿作が成立したことです。自然環境と土木、農業技術、市場選択の組合せが産業の入口をつくりました。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>北前船は「輸送手段」ではなく、生産力の一部だった</h2>
+      <div class="research-copy">
+        <p>玉島や下津井には、北海道・東北・北陸方面から綿作の肥料となる干鰯やニシン粕が運ばれました。帰り荷として綿・綿製品・塩などが移出されました。</p>
+        <p>ここから見ると、港は完成品を出荷するだけの出口ではありません。海の向こうの栄養資源を農地へ投入し、綿花の生産力そのものを支える入口でもありました。児島・倉敷の繊維産業は、干拓地だけで完結せず、北方海域まで伸びた物質循環の上に成立していたと読めます。</p>
+      </div>
+      <div class="research-chain"><span>北方の魚資源 → 干鰯・ニシン粕 → 瀬戸内の港 → 綿作 → 織物・綿製品 → 再び海上流通</span></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="kicker">REGIONAL NETWORK</div>
+    <h2>一つの「繊維のまち」ではなく、役割分担する地域ネットワーク</h2>
+    <p class="lead">倉敷・玉島・下津井・児島は、それぞれ異なる役割を担いました。産業集積を行政区域や一つの中心市街地だけで読むと、この分業構造を見失います。</p>
+    <div class="gastronomy-case-grid">
+      {nodes.map((node)=>(
+        <article class="gastronomy-case-card">
+          <div class="kicker">{node.role}</div>
+          <h3>{node.name}</h3>
+          <p>{node.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">PATH DEPENDENCE</div>
+    <h2>製品は変わったが、能力は捨てられなかった</h2>
+    <div class="gastronomy-matrix-wrap">
+      <table class="gastronomy-matrix-table compact-table">
+        <thead><tr><th>主力</th><th>新たに蓄積された能力</th><th>次の産業への継承</th></tr></thead>
+        <tbody>{transitions.map((row)=><tr><th>{row[0]}</th><td>{row[1]}</td><td>{row[2]}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="lead">児島の強さは、一つの製品を守り続けたことより、既存の技能を別市場へ組み替え続けたことにあります。学生服の大量生産で蓄積された縫製・仕上げ能力は、ジーンズという別の商品へ転用されました。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge fact">転換点</div></div>
+      <h2>学生服の「成功」が、ジーンズへの転換条件をつくった</h2>
+      <div class="research-copy">
+        <p>児島では学生服生産が拡大し、岡山県資料では1963年に1,006万着というピークが記録されています。一方で、その前後には価格競争と企業淘汰も進みました。1970年には児島地区の学生服メーカー89社で430万着まで減少したとされています。</p>
+        <p>この縮小を単なる衰退として見るのではなく、「既存設備・技能・人材を何へ転用するか」という産業転換の圧力として読むことができます。1965年の国産ジーンズ生産は、その前に存在した巨大な縫製産業集積と切り離して考えにくい出来事です。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">現在</div></div>
+      <h2>土地固有性は「綿花」から「工程ネットワーク」へ移った</h2>
+      <div class="research-copy">
+        <p>現在の児島では、商品企画、製織、染色・加工、パターン、裁断、縫製、仕上げ、副資材、卸売など、多数の専門企業が存在します。児島商工会議所の産業マップも、地域を一つの「繊維総合工場」として表現しています。</p>
+        <p>ここでは、産業の土地固有性を「地元産の原料があるか」だけで測ることはできません。歴史の初期には塩性土壌と綿花が重要でしたが、現在の競争力は技能、人材、設備、取引関係、評判、ブランドという移動しにくい能力の束へ移っています。</p>
+      </div>
+      <div class="research-chain"><span>土地固有性：自然資源 → 物流・商人資本 → 生産技能 → 企業ネットワーク → ブランド・文化資産</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>「地域固有性の転移」という見方</h2>
+      <div class="research-copy">
+        <p>近代化すると産業は土地から切り離される、と単純に考える必要はないのかもしれません。原料の地域性が弱まっても、過去の産業が残した技能・企業・設備・市場知識が次の産業の参入障壁になります。</p>
+        <p>この意味で児島は、<strong>自然条件に始まった土地固有性が、時間とともに「能力の地域固有性」へ転移した地域</strong>と捉えられます。これは、瀬戸内の近代産業を分析するうえで重要なモデルになり得ます。</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">NEXT QUESTIONS</div>
+    <h2>次に検証すること</h2>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>企業系譜</h3><p>足袋・学生服企業のどの企業、人材、設備がジーンズ・作業服・カジュアルへ移ったのか。企業単位で追う。</p></article>
+      <article class="insight-card"><h3>工程ネットワーク</h3><p>染色、織り、裁断、縫製、洗い加工、仕上げがどの距離圏で取引されているかを地図化する。</p></article>
+      <article class="insight-card"><h3>原料との切断点</h3><p>地元綿花から域外・輸入原料へ移った後も、なぜ産地が残ったのか。原料立地から技能立地への転換時期を特定する。</p></article>
+      <article class="insight-card"><h3>産業→文化への再投資</h3><p>紡績・繊維の富が、町並み、教育、研究、美術館、産業観光へどう転換され、現在の都市ブランドを形成したかを追う。</p></article>
+    </div>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する読み方</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/places/shimotsui/">下津井の地域ページ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/comparative-reading/">地域比較 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+
+  <section class="section preservation-sources">
+    <h2>主な資料</h2>
+    <p class="lead">歴史的事実は倉敷市、文化庁、岡山県、児島商工会議所、クラボウ等の公開資料を基礎にしています。「地域固有性の転移」という整理は本アトラスの分析仮説です。</p>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source[1]} target="_blank" rel="noreferrer"><span>{source[0]}</span><small>資料 ↗</small></a>)}
+    </div>
+  </section>
+
+  <style>
+    .gastronomy-matrix-wrap{overflow-x:auto;margin-top:1.25rem;border:1px solid var(--line,#d8d8d8);border-radius:14px}
+    .gastronomy-matrix-table{border-collapse:collapse;min-width:760px;width:100%;font-size:.88rem;line-height:1.55}
+    .gastronomy-matrix-table th,.gastronomy-matrix-table td{padding:.9rem;vertical-align:top;border-right:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd)}
+    .gastronomy-matrix-table thead th{text-align:left;background:var(--paper,#fff)}
+    .gastronomy-matrix-table tbody th{text-align:left;min-width:150px}
+  </style>
+</BaseLayout>
