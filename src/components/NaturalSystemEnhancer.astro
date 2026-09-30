@@ -1,0 +1,87 @@
+---
+const { profile } = Astro.props;
+const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮説' };
+---
+
+<template id="natural-system-summary-template">
+  <p class="lead natural-system-place-summary">{profile.summary}</p>
+</template>
+
+<template id="natural-system-grid-template">
+  <div class="region-natural-grid natural-system-grid">
+    {profile.layers.map((item, index)=>(
+      <article class="region-natural-card natural-system-card">
+        <div class="natural-system-step">{String(index + 1).padStart(2,'0')}</div>
+        <div class={`claim-badge ${item.claim}`}>{claimLabelsJa[item.claim]}</div>
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+        {item.href && <a href={item.href}>関連データを見る →</a>}
+      </article>
+    ))}
+  </div>
+</template>
+
+<template id="natural-system-sources-template">
+  <div class="natural-system-sources">
+    <strong>この自然環境プロファイルの主な出典</strong>
+    <div class="source-list">
+      {profile.sources.map((source)=>(
+        <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+          <span>
+            <b>{source.label}</b>
+            <small>{source.publisher}</small>
+          </span>
+          <span>↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</template>
+
+<script is:inline define:vars={{ chainText: profile.chain.join(' → ') }}>
+  (() => {
+    const section = document.getElementById('region-environment');
+    const summaryTemplate = document.getElementById('natural-system-summary-template');
+    const gridTemplate = document.getElementById('natural-system-grid-template');
+    const sourcesTemplate = document.getElementById('natural-system-sources-template');
+    if (!section || !summaryTemplate || !gridTemplate || !sourcesTemplate) return;
+
+    const heading = section.querySelector('.region-context-heading > div');
+    if (heading && !heading.querySelector('.natural-system-place-summary')) {
+      heading.appendChild(summaryTemplate.content.cloneNode(true));
+    }
+
+    const oldGrid = section.querySelector('.region-natural-grid');
+    if (oldGrid) oldGrid.replaceWith(gridTemplate.content.cloneNode(true));
+
+    const principle = section.querySelector('.region-natural-principle span');
+    if (principle) principle.textContent = chainText;
+
+    const principleBox = section.querySelector('.region-natural-principle');
+    if (principleBox && !section.querySelector('.natural-system-sources')) {
+      principleBox.after(sourcesTemplate.content.cloneNode(true));
+    }
+  })();
+</script>
+
+<style>
+  .natural-system-place-summary {
+    margin-top: 1rem;
+  }
+  .natural-system-card {
+    position: relative;
+  }
+  .natural-system-step {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    opacity: .55;
+    margin-bottom: .4rem;
+  }
+  .natural-system-sources {
+    margin-top: 1.5rem;
+  }
+  .natural-system-sources > strong {
+    display: block;
+    margin-bottom: .8rem;
+  }
+</style>
