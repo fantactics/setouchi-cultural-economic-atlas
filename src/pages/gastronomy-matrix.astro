@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const foods = [
+  {
+    id:'tai',
+    food:'鯛（マダイ）',
+    area:'今治・松山・南予ほか',
+    type:'料理分岐型',
+    environment:'来島海峡など潮流の速い海域を含む瀬戸内・宇和海の漁場。',
+    season:'通年利用。祝い魚として季節を越えて使われる。',
+    harvest:'一本釣り・網漁など地域ごとの漁法。',
+    processing:'鮮魚利用が中心。炊込み、刺身、姿煮など料理段階で大きく分岐。',
+    distribution:'港・魚市場・家庭・飲食店。現在は観光飲食でも地域差が可視化される。',
+    cuisine:'東予・中予の炊込み型鯛めし／南予の刺身＋たれ型鯛めし／鯛そうめん等。',
+    ritual:'高：祝い魚、婚礼・ハレの日料理との結びつきが強い。',
+    tourism:'高：愛媛を代表する地域料理として外食・観光商品化。',
+    envPower:'中', techPower:'中', culturePower:'高',
+    insight:'同じ資源から異なる料理が生まれるため、自然環境だけでは料理形態を説明できない。地域の漁業慣行、船上調理、祝いの制度、外食市場が分岐をつくる。',
+    sources:[
+      ['鯛めし（愛媛県）','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/taimeshi_ehime.html'],
+      ['愛媛県の食文化','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/ehime.html']
+    ]
+  },
+  {
+    id:'tako',
+    food:'タコ（マダコ）',
+    area:'三原・尾道・備後',
+    type:'漁場直結型',
+    environment:'三原沖の安定した水温、岩場、餌資源、速い海流などがマダコの生息条件になる。',
+    season:'夏を中心。冷凍技術により通年利用が可能。',
+    harvest:'たこつぼ漁。海底位置を読む経験知が漁撈技術の一部になる。',
+    processing:'塩揉み、茹で、急速冷凍。干しダコ利用もある。',
+    distribution:'漁師飯から家庭食・飲食店へ広がり、現在はブランド、水産加工、土産品にも展開。',
+    cuisine:'たこめし、刺身、煮だこ、たこ天など。',
+    ritual:'中：一部では豊作祈願の食習があり、三原では「タコの日」や供養行事も行われる。',
+    tourism:'高：「三原やっさタコ」など地域ブランドとイベントに展開。',
+    envPower:'高', techPower:'高', culturePower:'中',
+    insight:'漁場条件→たこつぼ漁→漁師飯→地域料理という連鎖が比較的明瞭。ただしブランド化や通年流通は冷凍・販促という現代技術で増幅される。',
+    sources:[
+      ['たこめし（広島県）','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_18_hiroshima.html'],
+      ['たこの生態について','三原市','https://www.city.mihara.hiroshima.jp/soshiki/4/tako-seitai.html']
+    ]
+  },
+  {
+    id:'sawara',
+    food:'サワラ',
+    area:'岡山・日生・備讃瀬戸',
+    type:'季節暦・儀礼固定型',
+    environment:'冬を外海側で過ごし、春に紀伊水道・豊後水道から瀬戸内海へ来遊して産卵する回遊魚。',
+    season:'岡山では4〜6月頃が「春を告げる魚」として重視される。',
+    harvest:'春の来遊期の沿岸漁業。',
+    processing:'刺身、たたき、焼物、寿司など。旬の鮮魚利用と寿司文化が重なる。',
+    distribution:'春の漁獲が地域の祭礼・祝い・接待料理へ組み込まれる。',
+    cuisine:'まつりずし、さわらのこうこずし、刺身、たたき等。',
+    ritual:'高：日生では節句・祭り・船降ろしなどのハレの場で寿司に用いられる。',
+    tourism:'中〜高：岡山の春の味覚として地域食文化の発信対象。',
+    envPower:'高', techPower:'中', culturePower:'高',
+    insight:'回遊が「春」という食の暦をつくるが、それを寿司や祭礼に固定したのは社会側の選択。自然の季節性が儀礼カレンダーへ翻訳された例。',
+    sources:[
+      ['サワラの紹介','岡山県','https://www.pref.okayama.jp/page/detail-22449.html'],
+      ['岡山県の食文化','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/okayama.html']
+    ]
+  },
+  {
+    id:'anago',
+    food:'アナゴ',
+    area:'宮島・大野瀬戸・広島湾',
+    type:'交通・観光市場型',
+    environment:'広島湾・大野瀬戸周辺の沿岸漁場。大野瀬戸は潮流の速い海域として知られる。',
+    season:'年間利用。夏や晩秋が美味とされる。',
+    harvest:'沿岸漁業による地域資源。',
+    processing:'蒲焼、白焼き、煮物など。あなご飯では焼いた穴子とだし飯を組み合わせる。',
+    distribution:'地域の魚食→鉄道駅弁→宮島参拝客・観光客向け名物へ展開。',
+    cuisine:'あなご飯、寿司、白焼き、天ぷら、雑煮等。',
+    ritual:'低〜中：祭礼料理というより、参詣・旅行時の食として定着。',
+    tourism:'非常に高：駅弁と宮島観光が料理の知名度を大きく広げた。',
+    envPower:'中', techPower:'中', culturePower:'高',
+    insight:'魚の存在だけでは「あなご飯」は説明できない。鉄道開通、駅弁、参詣・観光という需要装置が、地域の魚を名物料理へ変えた。',
+    sources:[
+      ['あなご飯（広島県）','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_30_hiroshima.html'],
+      ['広島湾七大海の幸','広島市','https://www.city.hiroshima.lg.jp/business/sangyo/1021494/1026486/1026488/1033082/1017703.html']
+    ]
+  },
+  {
+    id:'kaki',
+    food:'牡蠣（マガキ）',
+    area:'広島湾',
+    type:'養殖技術増幅型',
+    environment:'太田川などからの栄養流入、植物プランクトン、島や岬に囲まれた湾内環境が養殖を支える。',
+    season:'冬を中心に食文化・観光需要が強まる。',
+    harvest:'筏養殖。天然の環境条件を養殖技術によって生産システムへ変換する。',
+    processing:'殻付き、むき身、加熱、鍋、飯など多様。',
+    distribution:'養殖生産→市場・加工→家庭・外食・観光消費。',
+    cuisine:'焼き牡蠣、かき飯、土手鍋、フライ等。',
+    ritual:'低〜中：特定儀礼より冬季の地域食・贈答・外食文化との結びつきが強い。',
+    tourism:'高：広島を象徴する水産物として食観光の核になる。',
+    envPower:'高', techPower:'高', culturePower:'中',
+    insight:'自然条件が重要でも、現在の供給規模は養殖筏・採苗・育成管理によって大きく増幅される。「自然資源」より「自然×生産技術」として読むべき事例。',
+    sources:[
+      ['広島湾七大海の幸','広島市','https://www.city.hiroshima.lg.jp/business/sangyo/1021494/1026486/1026488/1033082/1017703.html'],
+      ['太田川の水産資源を増やす取組','広島市','https://www.city.hiroshima.lg.jp/business/sangyo/1021494/1026486/1026487/1033081/1017704.html']
+    ]
+  },
+  {
+    id:'iriko',
+    food:'カタクチイワシ／伊吹いりこ',
+    area:'伊吹島・燧灘・西讃',
+    type:'加工立地型',
+    environment:'燧灘のカタクチイワシ漁場と伊吹島の加工拠点が近接する。',
+    season:'主漁期は夏。加工品化により年間利用される。',
+    harvest:'大型の網を2隻で曳く漁法などで漁獲し、高速運搬船で加工場へ運ぶ。',
+    processing:'鮮度低下の早い魚を短時間で塩茹で・乾燥。網元が漁獲から加工まで一貫して担う。',
+    distribution:'加工品として全国流通し、地域内ではだし・料理素材として利用。',
+    cuisine:'讃岐うどんのだし、いりこ飯、天ぷら等。',
+    ritual:'低：儀礼性より日常的なだし文化との結びつきが強い。',
+    tourism:'高：讃岐うどん文化と「伊吹いりこ」ブランドが相互補強。',
+    envPower:'中', techPower:'高', culturePower:'高',
+    insight:'価値を決めるのは魚が獲れることだけではなく「漁場と加工場の距離」と加工速度。鮮度制約を立地と組織で克服したことが地域固有性を生む。',
+    sources:[
+      ['かんおんじの「伊吹いりこ」','観音寺市','https://www.city.kanonji.kagawa.jp/soshiki/21/13865.html'],
+      ['県産水産物カタクチイワシの概要','香川県','https://www.pref.kagawa.lg.jp/nouki/tisan/syokuikujugyou/syokuiku_sakaide.html']
+    ]
+  }
+];
+
+const types = [
+  ['漁場直結型','漁場条件と漁法・料理の距離が短い。','タコ'],
+  ['養殖技術増幅型','自然条件を養殖技術が増幅し、供給規模そのものを変える。','牡蠣'],
+  ['季節暦・儀礼固定型','生物の季節性を祭礼・祝いが地域の暦へ固定する。','サワラ'],
+  ['加工立地型','漁場と加工場の距離、加工速度、組織が品質を決める。','伊吹いりこ'],
+  ['料理分岐型','同じ資源から複数の料理体系が生まれ、自然だけでは説明できない。','鯛'],
+  ['交通・観光市場型','交通・参詣・観光需要が地域資源を「名物」に変える。','穴子']
+];
+
+const levelClass = (level) => level.startsWith('高') || level.startsWith('非常') ? 'level-high' : level.startsWith('中') ? 'level-mid' : 'level-low';
+---
+<BaseLayout title="瀬戸内食資源マトリクス | SETOUCHI ATLAS" description="鯛・タコ・サワラ・穴子・牡蠣・伊吹いりこを、環境・漁法・加工・流通・料理・儀礼・観光の同じ軸で比較する。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">GASTRONOMY MATRIX</div>
+    <h1>瀬戸内食資源マトリクス</h1>
+    <p class="subtitle">同じ海の食でも、地域固有性が生まれる場所は違う。</p>
+    <div class="chapter-thesis">食文化を「魚種リスト」ではなく、環境 → 資源 → 漁撈・養殖 → 保存加工 → 流通市場 → 調理 → 儀礼・観光という変換システムとして比較する。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <div class="kicker">QUESTION</div>
+    <h2>どの段階で「その土地らしさ」が生まれるのか</h2>
+    <p class="lead">自然環境は重要ですが、地域料理を自然だけへ還元すると、鯛めしの地域差、伊吹いりこの加工立地、あなご飯の駅弁化のような現象を説明できません。この表では、同じ軸を使って6事例を比較し、地域固有性がどの段階で強く生まれるのかを探ります。</p>
+    <div class="research-chain"><span>海域・陸域環境 → 生態系・資源 → 漁撈・養殖 → 保存・加工 → 流通・市場 → 調理 → 儀礼・観光</span></div>
+    <p class="map-note">「環境規定度」「技術媒介度」「市場・文化媒介度」は優劣の評価ではなく、因果関係の重心を比較するための暫定的な分析指標です。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">MATRIX</div>
+    <h2>6つの食資源を、同じ物差しで比べる</h2>
+    <div class="gastronomy-matrix-wrap">
+      <table class="gastronomy-matrix-table">
+        <thead>
+          <tr>
+            <th>食資源</th><th>地域</th><th>環境・生態</th><th>漁撈・養殖</th><th>保存・加工</th><th>流通・市場</th><th>料理</th><th>儀礼性</th><th>観光商品化</th>
+          </tr>
+        </thead>
+        <tbody>
+          {foods.map((f)=>(
+            <tr>
+              <th><a href={`#${f.id}`}>{f.food}</a><small>{f.type}</small></th>
+              <td>{f.area}</td><td>{f.environment}</td><td>{f.harvest}</td><td>{f.processing}</td><td>{f.distribution}</td><td>{f.cuisine}</td><td>{f.ritual}</td><td>{f.tourism}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CAUSAL WEIGHT</div>
+    <h2>因果の重心は、食材ごとに違う</h2>
+    <div class="causal-weight-grid">
+      {foods.map((f)=>(
+        <article class="causal-weight-card" id={f.id}>
+          <div class="kicker">{f.type}</div>
+          <h3>{f.food}</h3>
+          <p class="matrix-area">{f.area}</p>
+          <div class="weight-row"><span>環境規定度</span><b class={levelClass(f.envPower)}>{f.envPower}</b></div>
+          <div class="weight-row"><span>技術媒介度</span><b class={levelClass(f.techPower)}>{f.techPower}</b></div>
+          <div class="weight-row"><span>市場・文化媒介度</span><b class={levelClass(f.culturePower)}>{f.culturePower}</b></div>
+          <p>{f.insight}</p>
+          <details>
+            <summary>根拠資料</summary>
+            <div class="matrix-source-list">
+              {f.sources.map((s)=><a href={s[2]} target="_blank" rel="noreferrer"><strong>{s[0]}</strong><small>{s[1]}</small></a>)}
+            </div>
+          </details>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">TYPOLOGY</div>
+    <h2>暫定的に6つの型へ分ける</h2>
+    <div class="comparison-insight-grid">
+      {types.map((t)=>(
+        <article class="insight-card">
+          <h3>{t[0]}</h3>
+          <p>{t[1]}</p>
+          <small>代表例：{t[2]}</small>
+        </article>
+      ))}
+    </div>
+    <p class="map-note">これは料理そのものの分類ではなく、「地域固有性が生まれる因果の位置」の分類です。一つの料理が複数の型を併せ持つこともあります。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>見えてくるのは「資源」より「接続の束」</h2>
+      <div class="research-copy">
+        <p>鯛やタコが獲れること自体は地域料理の必要条件になり得ますが、十分条件ではありません。漁法、保存、加工時間、物流、祝いの制度、交通、観光市場が組み合わさって、はじめて地域固有の料理として固定されます。</p>
+        <p>したがって、地域の食文化を再生・継承しようとする場合も「特産魚を増やす」だけでは足りません。漁業者、加工場、市場、料理人、家庭、祭礼、交通、観光まで含む接続関係を維持・更新する必要があります。</p>
+      </div>
+      <div class="research-chain"><span>地域固有性 ≒ 環境 × 技術 × 時間 × 流通 × 制度 × 記憶</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>地域経営では、「食材」より変換システムを守る</h2>
+      <div class="research-copy">
+        <p>漁獲量が減ったとき、単に代替魚を使えば同じ食文化が維持できるとは限りません。逆に、資源が残っていても加工者、料理人、港市場、家庭内継承が失われれば、料理文化は弱くなります。</p>
+        <p>食文化政策の対象を「名物料理」から、その背後にある変換システムへ広げると、資源管理、加工業承継、物流、観光、学校給食、祭礼までを一つの地域経営課題として扱える可能性があります。</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究・データ</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/">研究ノート：自然環境と食文化 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/seafood/">瀬戸内の海の食文化 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/seafood/resources/">水産資源マップ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+
+  <style>
+    .gastronomy-matrix-wrap{overflow-x:auto;margin-top:1.25rem;border:1px solid var(--line,#d8d8d8);border-radius:14px}
+    .gastronomy-matrix-table{border-collapse:collapse;min-width:1500px;width:100%;font-size:.88rem;line-height:1.55}
+    .gastronomy-matrix-table th,.gastronomy-matrix-table td{padding:.9rem;vertical-align:top;border-right:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd)}
+    .gastronomy-matrix-table thead th{position:sticky;top:0;background:var(--paper,#fff);z-index:1;text-align:left}
+    .gastronomy-matrix-table tbody th{min-width:150px;text-align:left}
+    .gastronomy-matrix-table tbody th small{display:block;margin-top:.4rem;font-weight:400;opacity:.65}
+    .causal-weight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1.25rem}
+    .causal-weight-card{border:1px solid var(--line,#ddd);border-radius:16px;padding:1.25rem}
+    .causal-weight-card h3{margin:.25rem 0}
+    .matrix-area{opacity:.7;margin-top:0}
+    .weight-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line,#e4e4e4)}
+    .weight-row b{min-width:3.7em;text-align:center;border-radius:999px;padding:.18rem .6rem;font-size:.82rem}
+    .level-high{background:rgba(55,110,80,.13)}
+    .level-mid{background:rgba(160,120,50,.13)}
+    .level-low{background:rgba(100,100,100,.10)}
+    .matrix-source-list{display:grid;gap:.45rem;margin-top:.7rem}
+    .matrix-source-list a{display:block;text-decoration:none}
+    .matrix-source-list small{display:block;opacity:.65}
+    details{margin-top:1rem}
+    summary{cursor:pointer;font-weight:700}
+  </style>
+</BaseLayout>
