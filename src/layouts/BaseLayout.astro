@@ -1,9 +1,14 @@
 ---
-const { title = 'SETOUCHI ATLAS', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
-const baseUrl = '/setouchi-cultural-economic-atlas/';
+import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
+import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
+
+const { title = 'SETOUCHI ATLAS', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
+const baseUrl = '/setouchi-cultural-economic-atlas/';
+const placePathMatch = Astro.url.pathname.match(/\/places\/([^/]+)\/?$/);
+const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMatch[1]] : null;
 ---
 <!doctype html>
 <html lang="ja">
@@ -24,7 +29,10 @@ import '../styles/preservation.css';
         <a href="/setouchi-cultural-economic-atlas/#data-library">データ</a>
       </nav>
     </header>
-    <main><slot /></main>
+    <main>
+      <slot />
+      {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
+    </main>
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
       <p>自然環境が何を可能にし、人間がそれを何に変え、地域間の流れと時間がどう組み替えたのか。事実・解釈・仮説を分けながら、瀬戸内の地域形成を因果で読む。</p>
