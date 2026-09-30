@@ -1,0 +1,418 @@
+/* About / regional atlas projects */
+.atlas-about-cover,
+.atlas-projects-cover{
+  position:relative;
+  min-height:76vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:#17252b;
+  color:#fff;
+}
+.atlas-about-cover>img,
+.atlas-projects-cover>img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.atlas-about-cover-scrim,
+.atlas-projects-cover-scrim{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,18,22,.1) 0%,rgba(10,18,22,.18) 32%,rgba(10,18,22,.82) 86%),
+    linear-gradient(90deg,rgba(10,18,22,.64) 0%,rgba(10,18,22,.16) 62%,rgba(10,18,22,.03) 100%);
+}
+.atlas-about-cover-copy,
+.atlas-projects-cover-copy{
+  position:relative;
+  z-index:2;
+  width:min(900px,78vw);
+  margin:0 0 clamp(48px,7vh,82px) 5vw;
+}
+.atlas-about-cover-copy>span,
+.atlas-projects-cover-copy>span,
+.atlas-about-eyebrow{
+  display:block;
+  color:inherit;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.atlas-about-cover-copy h1,
+.atlas-projects-cover-copy h1{
+  margin:.6rem 0 1rem;
+  font-family:var(--book-serif);
+  font-size:clamp(3.8rem,8vw,7.8rem);
+  line-height:.95;
+  font-weight:500;
+  letter-spacing:-.05em;
+}
+.atlas-about-cover-copy p,
+.atlas-projects-cover-copy p{
+  max-width:760px;
+  margin:0;
+  font-family:var(--book-serif);
+  font-size:clamp(1.05rem,1.65vw,1.3rem);
+  line-height:1.8;
+}
+.atlas-about-cover-credit,
+.atlas-projects-cover-credit{
+  position:absolute;
+  z-index:2;
+  right:2vw;
+  bottom:2vh;
+  max-width:390px;
+  font-size:.65rem;
+  line-height:1.45;
+  text-align:right;
+  opacity:.86;
+}
+.atlas-about-cover-credit a,
+.atlas-projects-cover-credit a{color:inherit;}
+
+.atlas-about-definition,
+.atlas-projects-intro{
+  max-width:1180px;
+  margin:auto;
+  padding-top:5.5rem;
+  padding-bottom:5.5rem;
+}
+.atlas-about-eyebrow{
+  color:var(--sea);
+  margin-bottom:.65rem;
+}
+.atlas-about-definition h2,
+.atlas-projects-intro h2,
+.atlas-about-section-head h2,
+.atlas-about-research h2,
+.atlas-about-project-bridge h2,
+.atlas-projects-process h2,
+.atlas-projects-clients h2,
+.atlas-projects-positioning h2{
+  margin:.1rem 0 1rem;
+  font-family:var(--book-serif);
+  font-size:clamp(2rem,4vw,3.6rem);
+  font-weight:500;
+  line-height:1.25;
+  letter-spacing:-.035em;
+}
+.atlas-about-lead-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:2.2rem;
+  margin-top:2rem;
+}
+.atlas-about-lead-grid p{
+  margin:0;
+  font-family:var(--book-serif);
+  font-size:1.08rem;
+  line-height:2;
+}
+
+.atlas-about-principle-section,
+.atlas-projects-services{
+  background:#eef1ed;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.atlas-about-section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(300px,.75fr);
+  gap:3rem;
+  align-items:end;
+  max-width:1180px;
+}
+.atlas-about-section-head>p{
+  margin:0 0 .55rem;
+  color:var(--muted);
+  line-height:1.85;
+}
+.atlas-about-principle-grid,
+.atlas-projects-service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  margin-top:2rem;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.atlas-about-principle-grid article,
+.atlas-projects-service-grid article{
+  min-height:260px;
+  padding:1.35rem;
+  background:#fff;
+}
+.atlas-about-principle-grid span,
+.atlas-projects-service-grid span{
+  color:var(--sea);
+  font-size:.72rem;
+  font-weight:800;
+}
+.atlas-about-principle-grid h3,
+.atlas-projects-service-grid h3{
+  margin:2.4rem 0 .65rem;
+  font-family:var(--book-serif);
+  font-size:1.35rem;
+  font-weight:600;
+  line-height:1.4;
+}
+.atlas-about-principle-grid p,
+.atlas-projects-service-grid p{
+  margin:0;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.75;
+}
+.atlas-about-causal-line{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.65rem;
+  margin-top:1.2rem;
+  padding:1.1rem 1.2rem;
+  background:#fff;
+  border:1px solid var(--line);
+  font-family:var(--book-serif);
+}
+.atlas-about-causal-line span{
+  padding:.35rem .55rem;
+  background:#f3f1ea;
+}
+.atlas-about-causal-line b{color:var(--muted);}
+
+.atlas-about-visual-method,
+.atlas-projects-gallery{
+  background:#f7f5ef;
+}
+.atlas-about-photo-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:2rem;
+}
+.atlas-about-photo-row figure,
+.atlas-projects-photo-grid figure{
+  margin:0;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.atlas-about-photo-row img,
+.atlas-projects-photo-grid img{
+  width:100%;
+  display:block;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.atlas-about-photo-row figcaption{
+  padding:1rem;
+}
+.atlas-about-photo-row figcaption strong,
+.atlas-about-photo-row figcaption span{
+  display:block;
+}
+.atlas-about-photo-row figcaption strong{
+  font-family:var(--book-serif);
+  font-size:1.1rem;
+}
+.atlas-about-photo-row figcaption span{
+  margin-top:.45rem;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.7;
+}
+
+.atlas-about-research{
+  max-width:1050px;
+  margin:auto;
+  padding-top:5.5rem;
+  padding-bottom:5.5rem;
+}
+.atlas-about-copy-column{
+  max-width:820px;
+  margin-top:2rem;
+}
+.atlas-about-copy-column p{
+  font-family:var(--book-serif);
+  font-size:1.06rem;
+  line-height:2.05;
+  margin:0 0 1.4rem;
+}
+.atlas-about-project-bridge,
+.atlas-projects-positioning{
+  background:#18262c;
+  color:#fff;
+  padding-top:5.5rem;
+  padding-bottom:5.5rem;
+}
+.atlas-about-project-bridge>span,
+.atlas-projects-positioning>span{
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.atlas-about-project-bridge h2,
+.atlas-projects-positioning h2{
+  max-width:950px;
+  font-size:clamp(2.3rem,5vw,4.8rem);
+}
+.atlas-about-project-bridge p,
+.atlas-projects-positioning p{
+  max-width:780px;
+  font-family:var(--book-serif);
+  font-size:1.08rem;
+  line-height:1.9;
+}
+.atlas-about-project-bridge a,
+.atlas-projects-positioning a{
+  display:inline-block;
+  margin-top:1.2rem;
+  padding:.65rem 0;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.62);
+  text-decoration:none;
+  font-weight:800;
+  font-size:.82rem;
+}
+
+.atlas-projects-service-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.atlas-projects-process{
+  max-width:1180px;
+  margin:auto;
+  padding-top:5.5rem;
+  padding-bottom:5.5rem;
+}
+.atlas-projects-process-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:2rem;
+  border-top:1px solid var(--line);
+}
+.atlas-projects-process-list article{
+  display:grid;
+  grid-template-columns:3rem 1fr;
+  gap:1rem;
+  padding:1.4rem 1rem 1.4rem 0;
+  border-bottom:1px solid var(--line);
+}
+.atlas-projects-process-list article:nth-child(odd){
+  padding-right:2rem;
+  border-right:1px solid var(--line);
+}
+.atlas-projects-process-list article:nth-child(even){padding-left:2rem;}
+.atlas-projects-process-list>article>span{
+  color:#9aa2a4;
+  font-family:var(--book-serif);
+  font-size:1.8rem;
+}
+.atlas-projects-process-list strong{
+  display:block;
+  font-family:var(--book-serif);
+  font-size:1.25rem;
+}
+.atlas-projects-process-list p{
+  margin:.35rem 0 0;
+  color:var(--muted);
+  font-size:.9rem;
+}
+.atlas-projects-photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.7rem;
+  margin-top:2rem;
+}
+.atlas-projects-photo-grid figcaption{
+  padding:.75rem .85rem;
+  font-family:var(--book-serif);
+  font-size:.9rem;
+}
+.atlas-projects-clients{
+  max-width:1180px;
+  margin:auto;
+  padding-top:5.5rem;
+  padding-bottom:5.5rem;
+}
+.atlas-projects-client-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+  margin-top:2rem;
+}
+.atlas-projects-client-grid article{
+  padding:1.2rem;
+  border-top:2px solid var(--ink);
+}
+.atlas-projects-client-grid strong{
+  font-family:var(--book-serif);
+  font-size:1.15rem;
+}
+.atlas-projects-client-grid p{
+  margin:.55rem 0 0;
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.75;
+}
+
+.footer-atlas-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:1rem;
+}
+.footer-atlas-links a{
+  color:var(--ink);
+  font-size:.78rem;
+  font-weight:800;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+}
+
+@media(max-width:1000px){
+  .atlas-about-principle-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .atlas-projects-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .atlas-projects-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .atlas-projects-client-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:760px){
+  .atlas-about-cover,
+  .atlas-projects-cover{min-height:70vh;}
+  .atlas-about-cover-copy,
+  .atlas-projects-cover-copy{
+    width:calc(100vw - 36px);
+    margin-left:18px;
+    margin-bottom:5rem;
+  }
+  .atlas-about-cover-credit,
+  .atlas-projects-cover-credit{
+    left:18px;
+    right:18px;
+    bottom:1rem;
+    max-width:none;
+    text-align:left;
+  }
+  .atlas-about-lead-grid,
+  .atlas-about-section-head,
+  .atlas-about-photo-row,
+  .atlas-projects-process-list,
+  .atlas-projects-client-grid{
+    grid-template-columns:1fr;
+  }
+  .atlas-about-principle-grid,
+  .atlas-projects-service-grid,
+  .atlas-projects-photo-grid{
+    grid-template-columns:1fr;
+  }
+  .atlas-about-section-head{gap:1rem;}
+  .atlas-about-principle-grid article,
+  .atlas-projects-service-grid article{min-height:auto;}
+  .atlas-projects-process-list article:nth-child(odd),
+  .atlas-projects-process-list article:nth-child(even){
+    padding:1.2rem 0;
+    border-right:0;
+  }
+}
