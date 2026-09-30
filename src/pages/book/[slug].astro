@@ -4,9 +4,8 @@ import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 
-const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
-
 export function getStaticPaths(){
+  const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
