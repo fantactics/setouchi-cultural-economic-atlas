@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const cases = [
+  {
+    food:'鯛',
+    place:'今治・東予／愛媛',
+    environment:'来島海峡など潮流の速い海域。',
+    resource:'マダイ',
+    technique:'漁獲・鮮魚流通／炊飯',
+    cuisine:'鯛めし（炊込み型）',
+    point:'自然条件は魚の質と入手可能性を支えるが、料理の型までは決めない。南予の刺身＋たれ型との違いが反例になる。'
+  },
+  {
+    food:'タコ',
+    place:'三原・備後灘',
+    environment:'潮流、岩場、水温・水質などの沿岸条件。',
+    resource:'マダコ',
+    technique:'たこつぼ漁／船上・家庭での炊込み',
+    cuisine:'たこめし',
+    point:'漁場条件→漁法→漁師飯という連鎖が比較的読みやすい。'
+  },
+  {
+    food:'牡蠣',
+    place:'広島湾',
+    environment:'島や岬に囲まれた静穏な湾、河川流入、汽水的環境とプランクトン。',
+    resource:'マガキ',
+    technique:'養殖いかだ／むき身・加熱調理',
+    cuisine:'かきの土手鍋ほか',
+    point:'自然条件だけでなく、養殖技術が資源量を大きく増幅する典型。'
+  },
+  {
+    food:'サワラ',
+    place:'日生・岡山沿岸',
+    environment:'春の瀬戸内への回遊と沿岸漁場。',
+    resource:'サワラ',
+    technique:'漁獲／酢じめ・寿司',
+    cuisine:'さわらのこうこずし・ばらずし',
+    point:'季節回遊が食の暦をつくり、祭礼・祝いという社会制度が郷土料理へ固定する。'
+  },
+  {
+    food:'いりこ',
+    place:'伊吹島・燧灘',
+    environment:'島近海のカタクチイワシ漁場。',
+    resource:'カタクチイワシ',
+    technique:'漁獲後すぐ運搬し、塩茹で・乾燥。網元による一貫加工。',
+    cuisine:'伊吹いりこ／だし文化',
+    point:'「漁場と加工場の距離」が品質を左右する。自然資源と加工立地の接続が重要。'
+  },
+  {
+    food:'穴子',
+    place:'宮島・広島湾',
+    environment:'沿岸の漁場と港町・島嶼の生活圏。',
+    resource:'アナゴ',
+    technique:'蒲焼・だし飯',
+    cuisine:'あなご飯',
+    point:'地域での漁獲が基礎にある一方、料理としての定着には飲食・交通・観光市場も重なる。'
+  }
+];
+
+const sources = [
+  {label:'瀬戸内海の潮流',publisher:'環境省 せとうちネット',url:'https://www.env.go.jp/water/heisa/heisa_net/setouchiNet/seto/g2/g2cat01/choryu.html'},
+  {label:'海洋生物多様性保全戦略―瀬戸内海の生態系特性',publisher:'環境省',url:'https://www.env.go.jp/nature/biodic/kaiyo-hozen/guideline/06-3-table.html'},
+  {label:'鯛めし（愛媛県）',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/taimeshi_ehime.html'},
+  {label:'たこめし（広島県）',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_18_hiroshima.html'},
+  {label:'広島県の食文化',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/hiroshima.html'},
+  {label:'広島の牡蠣と養殖環境',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/lab/topics/20211108/01/'},
+  {label:'岡山県の食文化',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/okayama.html'},
+  {label:'さわらのこうこずし（岡山県）',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_7_okayama.html'},
+  {label:'かんおんじの「伊吹いりこ」',publisher:'観音寺市',url:'https://www.city.kanonji.kagawa.jp/soshiki/21/13865.html'},
+  {label:'あなご飯（広島県）',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_30_hiroshima.html'}
+];
+---
+<BaseLayout title="瀬戸内の食は、どこまで自然環境で説明できるか | 研究ノート | SETOUCHI ATLAS" description="海域・資源・漁法・加工・流通・調理法をつなぎ、瀬戸内の食文化を自然環境だけに還元せずに読む研究ノート。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">GASTRONOMY × ENVIRONMENT</div>
+    <h1>瀬戸内の食は、どこまで自然環境で説明できるか</h1>
+    <p class="subtitle">魚がいるから郷土料理が生まれる、では足りない。</p>
+    <div class="chapter-thesis">自然環境は「何が獲れるか」を強く規定する。しかし「どう獲り、どう保存し、どう運び、どう食べるか」は、技術・労働・市場・祭礼・交通によって決まる。瀬戸内のガストロノミーは、その接続関係として読む必要がある。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <h2>このテーマを考える理由</h2>
+    <p class="lead">瀬戸内の食文化を説明するとき、「潮流が速いから鯛がおいしい」「魚が豊富だから魚料理が発達した」といった自然環境からの説明は魅力的です。しかし、それだけでは地域差を説明できません。同じ魚を使っても料理は違い、豊かな漁場があっても加工・流通・需要がなければ郷土料理として定着しないからです。</p>
+    <p class="lead">そこで本ノートでは、自然を出発点にしながらも、途中に人間の選択を置きます。食文化を「自然の産物」ではなく、自然資源を社会が食へ変換するシステムとして読みます。</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">CORE MODEL</div>
+    <h2>食文化を、7段階の変換として読む</h2>
+    <div class="research-chain"><span>海域・陸域環境 → 生態系・資源 → 漁法・農法 → 保存・加工 → 流通・市場 → 調理法 → 郷土料理・食文化</span></div>
+    <p class="lead">重要なのは矢印です。自然環境と料理を直接つながず、その間に漁獲技術、加工時間、保存技術、交通、商圏、祭礼、家庭習慣を置くことで、「なぜ同じ瀬戸内でも違う料理になるのか」を検証できます。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge fact">事実</div></div>
+      <h2>瀬戸内海そのものが、一様な漁場ではない</h2>
+      <div class="research-copy">
+        <p>瀬戸内海は浅い閉鎖性海域で、多数の島を含み、「灘」のような比較的穏やかな海域と、「瀬戸」のように潮流の速い狭い海域が交互に現れます。干潟、アマモ場、砂底、泥底、岩礁、汽水域なども短い距離で切り替わります。</p>
+        <p>したがって「瀬戸内の魚介」と一括りにするより、潮流、海底、河川流入、湾の閉鎖性、島の配置などによって、資源の組成と漁法の条件が変わると考える方が実態に近いでしょう。</p>
+      </div>
+      <div class="research-chain"><span>多島海・浅海 → 潮流・底質・汽水環境の差 → 生息資源の差 → 漁法・養殖条件の差</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>自然環境の説明力が強い食、弱い食</h2>
+      <div class="research-copy">
+        <p>三原のタコ、広島湾の牡蠣、伊吹島のいりこは、自然条件と食・加工の結びつきが比較的見えやすい事例です。岩場や潮流、静穏な湾と河川流入、漁場と加工場の近接といった条件が、漁法や品質形成へ具体的につながります。</p>
+        <p>一方で鯛めしは、自然環境だけでは料理形態を説明できません。愛媛では東予・中予の炊込み型と、南予の刺身をたれとともに食べる型が併存します。同じ「鯛」という資源から複数の料理文化が成立することは、漁業慣行、船上調理、地域間交流、家庭料理などの社会的媒介を検討する必要を示します。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">比較</div></div>
+      <h2>6つの事例を、同じ物差しで比べる</h2>
+      <div class="gastronomy-case-grid">
+        {cases.map((item)=>(
+          <article class="gastronomy-case-card">
+            <div class="kicker">{item.food} / {item.place}</div>
+            <p><strong>環境</strong><br/>{item.environment}</p>
+            <p><strong>資源</strong><br/>{item.resource}</p>
+            <p><strong>技術</strong><br/>{item.technique}</p>
+            <p><strong>料理</strong><br/>{item.cuisine}</p>
+            <p class="gastronomy-case-point">{item.point}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>「保存・加工」は、自然と文化をつなぐ中間層である</h2>
+      <div class="research-copy">
+        <p>漁獲物は、そのまま料理になるわけではありません。鮮度劣化の速度、漁場から集落までの距離、塩・酢・乾燥・発酵・加熱といった保存加工技術が、食べ方の選択肢を変えます。</p>
+        <p>伊吹いりこは特に分かりやすい事例です。カタクチイワシは鮮度低下が速いため、伊吹島では漁場と加工場の近さと高速運搬、漁獲から加工までの一貫体制が品質形成の核心になります。「よい漁場」だけでなく、「獲ってから何分で加工できるか」が地域資源になります。</p>
+      </div>
+      <div class="research-chain"><span>資源 → 鮮度制約 → 加工距離・時間 → 保存技術 → 商品特性 → 料理・だし文化</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>「旬」は生態現象だが、「ハレの料理」は社会現象である</h2>
+      <div class="research-copy">
+        <p>岡山・日生のサワラは、春の瀬戸内への来遊と強く結びつきます。しかし、それが「さわらのこうこずし」や祭り・船降ろしの料理として定着するには、季節漁だけでは足りません。豊漁、安全祈願、祝い事という社会的な時間の編成が必要です。</p>
+        <p>つまり「旬」は資源の季節変動ですが、「いつ、誰と、どの場面で食べるか」は共同体が決めます。郷土料理は、生態カレンダーと社会カレンダーが重なる場所に成立すると考えられます。</p>
+      </div>
+      <div class="research-chain"><span>季節回遊 → 水揚げ期 → 祭礼・祝い → 調理慣行 → 地域の食暦</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>仮説：郷土料理の土地固有性は「資源」より「接続の束」に宿る</h2>
+      <div class="research-copy">
+        <p>地域らしい料理を生むのは、固有の魚種そのものとは限りません。鯛、タコ、サワラ、アナゴは瀬戸内の複数地域で利用されます。それでも料理文化が異なるのは、漁法、港、加工、商圏、祭礼、家庭、宿、鉄道や観光といった接続の仕方が異なるためではないか。</p>
+        <p>この仮説が正しければ、ガストロノミー研究では「名物料理の一覧」より、資源が料理になるまでの変換経路を地域ごとに比較する方が、土地固有性を説明しやすくなります。</p>
+      </div>
+      <div class="research-chain"><span>土地固有性 ≠ 食材だけ ／ 土地固有性 = 環境 × 技術 × 時間 × 流通 × 制度 × 記憶</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">次の検証</div></div>
+      <h2>次に、何を数字で確かめるか</h2>
+      <div class="research-copy">
+        <p>次段階では、①魚種別漁獲量・季節性、②漁場と加工地の距離、③保存技術と流通圏、④祭礼・観光・外食市場、⑤資源量の長期変化を重ねます。特にタコ、サワラ、牡蠣、カタクチイワシは時系列を作り、料理文化の継続と資源変動がどの程度連動しているかを検証します。</p>
+        <p>また、「同じ魚なのに食べ方が違う地域」と「似た海況なのに名物が違う地域」を対照比較します。自然条件と文化の相関を見るだけでなく、どの中間変数が違いを生んだのかを特定することが目的です。</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section sources-section">
+    <div class="kicker">SOURCES</div>
+    <h2>主要資料</h2>
+    <p class="lead">自然条件と郷土料理を直接結びつけず、環境・漁業・加工・料理の各段階を公的資料で確認します。</p>
+    <div class="source-list">
+      {sources.map((source)=>(
+        <a class="source-link" href={source.url} target="_blank" rel="noreferrer">
+          <span><b>{source.label}</b><small>{source.publisher}</small></span><span>↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する地図・研究ノート</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/seafood/">海の食資源 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/geography/">地形・地理 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/climate-water/">気候・水 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/gastronomy/">食・ガストロノミー →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+
+  <style>
+    .gastronomy-case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.4rem}
+    .gastronomy-case-card{padding:1.2rem;border:1px solid rgba(128,128,128,.25);border-radius:14px;background:rgba(128,128,128,.04)}
+    .gastronomy-case-card p{margin:.65rem 0;line-height:1.7}
+    .gastronomy-case-point{padding-top:.8rem;border-top:1px solid rgba(128,128,128,.2)}
+  </style>
+</BaseLayout>
