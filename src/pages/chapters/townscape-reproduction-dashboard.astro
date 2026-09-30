@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const axes = [
+  ['01','資産ストック','建物・街路・景観は健全か','修理件数、未修理・危険建物、空地化、景観連続性'],
+  ['02','所有・居住','誰が持ち、使い続けるか','居住・営業率、不在所有、相続・売買、空き家期間'],
+  ['03','修理技能','誰が直せるか','大工・左官・瓦・建具等の施工者数、待機期間、修理単価'],
+  ['04','利用・接触','町並みが日常で使われるか','住宅・店舗・宿泊・公共利用、営業日、住民・来訪者接触'],
+  ['05','地域内価値','利用の価値が地域に残るか','地元雇用、地域内調達、家賃・売上、住民便益'],
+  ['06','再投資','価値が修理・防災へ戻るか','民間修理費、公的補助、防災投資、維持管理費'],
+  ['07','適応・継承','変化しながら残せるか','空き家転用、制度改定、防災、住民合意、次世代教育']
+];
+
+const districts = [
+  {
+    id:'takehara',name:'竹原',type:'保存＋民間活用実験型',
+    thesis:'人口減少と空き家・空き地の増加を、保存範囲の見直しと歴史的建造物の新用途導入で乗り越えられるか。',
+    strength:'「保存」と「活用」を2本柱と明示し、市有歴史的建造物への民間運営導入を社会実験・サウンディングで検討している。',
+    bottleneck:'地区内外の空き家・空き地、所有継承、民間利用が、町並みの面的連続性とどう結びつくかを継続測定する必要がある。',
+    next:'空き家率・用途転換件数・修理件数・民間運営施設の収支と修理再投資を年次で接続する。',
+    evidence:[
+      ['資産ストック','確認','修理・修景と保存地区制度が継続。'],
+      ['所有・居住','部分','地域社会調査で人口減少、空き家・空き地増加を課題として把握。年次の所有移転・居住継続データは要整備。'],
+      ['修理技能','未整備','施工者数、技能者年齢、工事待機期間の公開時系列を確認できない。'],
+      ['利用・接触','確認','市有歴史的建造物で社会実験・サウンディングを行い、民間運営を検討。'],
+      ['地域内価値','未整備','観光・施設利用による地域内所得捕捉率や地元雇用効果は共通指標化されていない。'],
+      ['再投資','部分','保存修理・修景は確認できるが、利用収益から修理へ戻る民間循環は要計測。'],
+      ['適応・継承','確認','保存地区範囲見直し調査と民間活用の市場調査を実施。']
+    ],
+    sources:[
+      ['竹原市｜町並み保存地区','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/2421.html'],
+      ['竹原市｜町並み保存地区地域社会調査','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1/5/2420.html'],
+      ['竹原市｜歴史的建造物活用に関するサウンディング型市場調査','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1/5/4995.html']
+    ]
+  },
+  {
+    id:'mitarai',name:'御手洗',type:'島嶼縮小下の修理継続型',
+    thesis:'人口規模が縮小する島嶼港町で、建物群を「誰が持ち、直し、使うか」を再構築できるか。',
+    strength:'伝統的建造物の修理とその他建物の修景を支援し、単体ではなく町並み全体の連続性を維持する制度が続いている。',
+    bottleneck:'修理制度は確認できる一方、所有継承、空き家の用途、施工者、利用収益の再投資を一体で追う公開データが不足する。',
+    next:'所有者所在地・空き家期間・用途・修理履歴・施工者・利用形態を建物単位台帳で接続する。',
+    evidence:[
+      ['資産ストック','確認','修理・修景事業の募集と補助制度が継続。'],
+      ['所有・居住','未整備','地区単位の所有継承、不在所有、居住・営業率の継続指標が必要。'],
+      ['修理技能','未整備','島外施工も含む職人・事業者の供給能力を測る指標が必要。'],
+      ['利用・接触','部分','保存・観光利用はあるが、建物用途別稼働率を比較可能な形で追う必要がある。'],
+      ['地域内価値','未整備','宿泊・飲食・物販等の価値が所有者・修理・地域雇用へどの程度戻るか未計測。'],
+      ['再投資','確認','修理・修景への公的補助は確認できる。民間収益からの再投資は要計測。'],
+      ['適応・継承','部分','制度は継続しているが、人口縮小下の所有・用途転換を束ねる共通ダッシュボードは未整備。']
+    ],
+    sources:[
+      ['呉市｜御手洗地区の修理・修景事業補助金','https://www.city.kure.lg.jp/soshiki/106/mitaraidenkenhojokin.html']
+    ]
+  },
+  {
+    id:'tomo',name:'鞆',type:'相談・防災統合型',
+    thesis:'生活交通・観光・木造密集地の防災を、文化財保存と空き家再生の同じ現場で束ねられるか。',
+    strength:'修理、現状変更、空き家再生活用の相談を「鞆てらす」で一体化し、防災計画・補助制度も組み合わせている。',
+    bottleneck:'相談機能は強いが、空き家が実際に居住・事業へ移行した件数や、観光価値が修理費へ戻る割合を継続可視化する余地がある。',
+    next:'相談→取得・賃借→改修→利用開始→地域雇用→再修理まで案件単位で追跡する。',
+    evidence:[
+      ['資産ストック','確認','現状変更許可、修理補助、保存地区防災計画を運用。'],
+      ['所有・居住','部分','空き家再生活用の相談窓口がある。相談後の所有・利用移行率は要計測。'],
+      ['修理技能','部分','修理相談の仕組みはあるが、施工者供給や技能継承の時系列は要整備。'],
+      ['利用・接触','確認','鞆てらすは住民・来訪者の交流、保存相談、観光周遊の複合拠点。'],
+      ['地域内価値','部分','飲食・土産・宿泊への導線はあるが、地域内捕捉率と修理への還流率は要計測。'],
+      ['再投資','確認','修理補助と防災事業補助が制度化。'],
+      ['適応・継承','確認','防災計画、空き家相談、観光と住民生活の両立を同時に扱っている。']
+    ],
+    sources:[
+      ['福山市｜鞆町伝統的建造物群保存地区','https://www.city.fukuyama.hiroshima.jp/soshiki/bunka/305509.html'],
+      ['福山市｜鞆町町並み保存拠点施設（鞆てらす）','https://www.city.fukuyama.hiroshima.jp/site/tomoterasu/'],
+      ['福山市｜鞆町伝統的建造物群保存地区防災計画','https://www.city.fukuyama.hiroshima.jp/soshiki/bunka/324621.html']
+    ]
+  },
+  {
+    id:'kurashiki',name:'倉敷川畔',type:'長期制度蓄積型',
+    thesis:'観光・商業利用が成熟した地区で、保存地区内部だけでなく背景景観まで含めて長期管理できるか。',
+    strength:'毎年の保存修理、防火・無電柱化等の公共投資、税制措置、保存地区の拡大、背景保全条例を数十年にわたり積み重ねている。',
+    bottleneck:'制度と公共投資の蓄積は厚い一方、観光・商業から生じる価値が住民生活、所有継承、民間修理へどう還流するかを統一指標で測る余地がある。',
+    next:'居住・営業用途の構成、所有継承、民間修理費、地元雇用、観光収益の地域内捕捉を制度履歴と重ねる。',
+    evidence:[
+      ['資産ストック','確認','毎年の保存修理に加え、背景地区まで景観管理。'],
+      ['所有・居住','部分','税負担軽減等の制度はあるが、所有継承・居住継続の共通時系列は要整備。'],
+      ['修理技能','部分','長期の修理事業実績は確認できるが、技能者供給の年次指標は必要。'],
+      ['利用・接触','確認','保存地区と美観地区を長期運用し、生活・商業・観光が重なる地区として管理。'],
+      ['地域内価値','未整備','観光・商業価値の地域内捕捉と修理還流を共通KPIで測る必要がある。'],
+      ['再投資','確認','保存修理、防火水槽、無電柱化、街路整備等の長期投資を実施。'],
+      ['適応・継承','確認','保存地区拡大、背景保全条例、景観条例など制度を段階的に更新。']
+    ],
+    sources:[
+      ['倉敷市｜美観地区の保存の歩み','https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007819/1007821.html'],
+      ['倉敷市｜倉敷川畔伝統的建造物群保存地区背景保全条例','https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007819/1007879/1007885.html'],
+      ['倉敷市｜美観地区について','https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007819/1011519.html']
+    ]
+  },
+  {
+    id:'tatsuno',name:'龍野',type:'住民協働・学習型',
+    thesis:'生活市街地として使い続けながら、保存制度を住民の合意形成と次世代教育へ埋め込めるか。',
+    strength:'修理・修景制度に加え、「コミネット龍野」、町並み保存会、学習冊子、学校出張教室など、制度を住民・次世代へ伝える仕組みが厚い。',
+    bottleneck:'住民協働と教育は確認できるが、町家再生・事業利用・地域内所得・修理再投資を同一データで追う必要がある。',
+    next:'修理件数、町家再生件数、用途、居住・営業継続、イベント・教育参加、地域内売上を年次で接続する。',
+    evidence:[
+      ['資産ストック','確認','2020年度以降の修理・修景補助と保存活用計画を運用。'],
+      ['所有・居住','部分','町家再生NPO等の活動は確認できるが、不在所有・相続・居住継続の共通指標は要整備。'],
+      ['修理技能','部分','修理事業は継続するが、職人・施工者の供給能力の定量把握が必要。'],
+      ['利用・接触','確認','町並み施設、住民イベント、アート利用など複数の接触機会がある。'],
+      ['地域内価値','未整備','町並み利用が地元雇用・商業・所有者所得へどの程度残るか要計測。'],
+      ['再投資','確認','修理・修景補助制度を継続。'],
+      ['適応・継承','確認','住民への継続広報、保存会、学校教育、景観ガイドライン等を組み合わせる。']
+    ],
+    sources:[
+      ['たつの市｜修理、修景事業補助金について','https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/shuuri_shuukeizigyou/2560.html'],
+      ['たつの市｜コミネット龍野','https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/koremadenotorikumi/2431.html'],
+      ['たつの市｜市や関係団体の町並み保存活動','https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/koremadenotorikumi/1677.html'],
+      ['たつの市｜保存活用計画','https://www.city.tatsuno.lg.jp/material/files/group/29/denken_hozonkatsuyoukeikaku_20231228.pdf']
+    ]
+  }
+];
+
+const statusClass = (s) => s === '確認' ? 'status-confirmed' : s === '部分' ? 'status-partial' : 'status-gap';
+
+const warning = [
+  '空き家・不在所有が増える',
+  '日常的な小修繕が止まる',
+  '劣化が進み修理費が上がる',
+  '取得・賃借・再利用が難しくなる',
+  '除却・空地化で町並みの連続性が切れる',
+  '暮らし・商業・滞在価値が下がる',
+  '次の所有者・利用者を呼び込みにくくなる'
+];
+
+const protocol = [
+  ['毎年','行政・保存会','修理・修景件数、空き家・空地、現状変更、用途転換、相談件数'],
+  ['毎年','事業者・所有者','営業・居住継続、修理費、地元雇用、地域内調達、建物利用日数'],
+  ['3年ごと','住民調査','居住意向、観光負荷、保存制度への納得、継承意向、生活利便性'],
+  ['3年ごと','施工者調査','職人年齢、受注余力、材料調達、工期、技能継承'],
+  ['随時','案件追跡','空き家相談→所有移転→改修→利用開始→再投資までの転換率']
+];
+---
+<BaseLayout title="町並みは、どこで再生産が止まるのか | 研究ノート | SETOUCHI ATLAS" description="竹原・御手洗・鞆・倉敷川畔・龍野を、資産・所有・技能・利用・地域内価値・再投資・適応で比較する町並み再生産ダッシュボード。">
+  <section class="preservation-hero">
+    <div class="preservation-hero-copy">
+      <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+      <span class="preservation-kicker">RESEARCH NOTE / TOWNSCAPE REPRODUCTION DASHBOARD</span>
+      <h1>町並みは、どこで<br/>再生産が止まるのか</h1>
+      <p>竹原・御手洗・鞆・倉敷川畔・龍野を、建物の美しさではなく、<strong>所有・利用・修理技能・地域内価値・再投資</strong>が循環しているかで比較します。</p>
+    </div>
+    <div class="preservation-thesis">
+      <span>目的</span>
+      <strong>「保存の成果」ではなく、「次の修理が可能か」を測る。</strong>
+      <p>町並みは一度修理して終わる資産ではない。何十年にもわたり、所有者・用途・職人・資金を更新できるかが持続性を決める。</p>
+    </div>
+  </section>
+
+  <section class="section preservation-intro">
+    <span class="region-layer-label research">COMMON KPI</span>
+    <h2>7つの領域で、再生産の切れ目を探す</h2>
+    <p class="lead">各地区に総合点は付けません。公開資料の粒度が違ううえ、「観光が強い」「制度が厚い」だけでは町並みが持続するとは限らないためです。各領域について、公開資料で継続的に確認できるものを「確認」、仕組みはあるが時系列や成果が不足するものを「部分」、比較可能な公開指標が不足するものを「未整備」とします。</p>
+    <div class="region-layer-grid">
+      {axes.map(([n,title,q,kpi])=>(
+        <article class="region-layer-card"><span>{n}</span><h3>{title}</h3><p>{q}</p><small>{kpi}</small></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="region-layer-label research">MATRIX</span>
+    <h2>5地区を、同じ物差しで見る</h2>
+    <div class="gastronomy-matrix-wrap">
+      <table class="gastronomy-matrix-table">
+        <thead><tr><th>地区</th>{axes.map((a)=><th>{a[1]}</th>)}</tr></thead>
+        <tbody>
+          {districts.map((d)=>(
+            <tr>
+              <th><a href={`#${d.id}`}>{d.name}</a><small>{d.type}</small></th>
+              {d.evidence.map((e)=><td><b class={statusClass(e[1])}>{e[1]}</b><span class="status-note">{e[2]}</span></td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="map-note">「未整備」は地区の保存努力が弱いという意味ではありません。地域経営として比較するために必要なデータが、公開資料上ではまだ接続されていないことを示します。</p>
+  </section>
+
+  <section class="section gene-section">
+    <span class="region-layer-label research">DISTRICT DIAGNOSIS</span>
+    <h2>制度の強みより、「次に測るべきもの」を特定する</h2>
+    <div class="gastronomy-case-grid">
+      {districts.map((d)=>(
+        <article class="gastronomy-case-card" id={d.id}>
+          <div class="kicker">{d.type}</div>
+          <h3>{d.name}</h3>
+          <p><strong>問い</strong><br/>{d.thesis}</p>
+          <p><strong>現在確認できる強み</strong><br/>{d.strength}</p>
+          <p class="gastronomy-case-point"><strong>ボトルネック</strong><br/>{d.bottleneck}</p>
+          <p><strong>次に測る</strong><br/>{d.next}</p>
+          <details><summary>根拠資料</summary><div class="matrix-source-list">{d.sources.map((s)=><a href={s[1]} target="_blank" rel="noreferrer">{s[0]}</a>)}</div></details>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="region-layer-label hypothesis">EARLY WARNING</span>
+    <h2>町並み消失は、除却より前に始まる</h2>
+    <p class="lead">建物が取り壊された時点だけを危機とみなすと遅い可能性があります。再生産モデルでは、所有・日常利用・小修繕が切れた時点から早期警戒します。</p>
+    <div class="research-chain"><span>{warning.join(' → ')}</span></div>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>先行指標</h3><p>空き家期間、不在所有、小修繕相談、施工待機期間、材料費、相続未整理。</p></article>
+      <article class="insight-card"><h3>中間指標</h3><p>大型修理費、用途転換成立率、店舗・住宅稼働率、相談から利用開始までの期間。</p></article>
+      <article class="insight-card"><h3>結果指標</h3><p>除却・空地化、景観の断絶、居住・営業減少、来訪滞在価値、修理件数。</p></article>
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <span class="region-layer-label research">MEASUREMENT PROTOCOL</span>
+    <h2>「町並み保存統計」を、地域経営統計へ拡張する</h2>
+    <p class="lead">修理件数だけでなく、所有・利用・技能・所得・再投資を同じ時間軸で追えば、どの地区でも「何が先に弱っているか」を比較できます。</p>
+    <div class="gastronomy-matrix-wrap">
+      <table class="gastronomy-matrix-table compact-table">
+        <thead><tr><th>頻度</th><th>取得主体</th><th>最低限追うデータ</th></tr></thead>
+        <tbody>{protocol.map((p)=><tr><th>{p[0]}</th><td>{p[1]}</td><td>{p[2]}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>5地区の違いは、「保存制度の有無」より運営システムにある</h2>
+      <div class="research-copy">
+        <p>5地区はいずれも保存制度を持ちますが、倉敷は数十年の制度・公共投資の蓄積、鞆は修理・空き家・防災の相談統合、竹原は民間活用実験、龍野は住民協働と教育、御手洗は人口縮小下での面的修理という異なる課題に向き合っています。</p>
+        <p>したがって、他地域が「成功地区の補助率」だけを模倣しても同じ結果にはなりません。自地域で切れている再生産機能が、所有なのか、技能なのか、利用なのか、所得循環なのかを先に診断する必要があります。</p>
+      </div>
+    </article>
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>町並みの再生産力は「利用収益」だけでは決まらない</h2>
+      <div class="research-copy">
+        <p>観光・商業収益は重要ですが、所有関係が不安定、職人が不足、防災リスクが高い、住民の納得がない場合には再投資へ転換しにくくなります。逆に観光規模が小さくても、居住・所有・修理・地域組織が安定していれば町並みは維持され得ます。</p>
+      </div>
+      <div class="research-chain"><span>町並み再生産力 ≒ 資産健全性 × 所有継続 × 修理能力 × 利用継続 × 地域内価値捕捉 × 再投資 × 適応力</span></div>
+    </article>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/townscape-preservation/">研究ノート：町並みはどうすれば残り続けるのか →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">地域資産の再生産モデル →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+
+  <style>
+    .gastronomy-matrix-wrap{overflow-x:auto;margin-top:1.25rem;border:1px solid var(--line,#d8d8d8);border-radius:14px}
+    .gastronomy-matrix-table{border-collapse:collapse;min-width:1500px;width:100%;font-size:.84rem;line-height:1.5}
+    .gastronomy-matrix-table.compact-table{min-width:760px}
+    .gastronomy-matrix-table th,.gastronomy-matrix-table td{padding:.85rem;vertical-align:top;border-right:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd)}
+    .gastronomy-matrix-table thead th{background:var(--paper,#fff);text-align:left;white-space:nowrap}
+    .gastronomy-matrix-table tbody th{min-width:130px;text-align:left}
+    .gastronomy-matrix-table tbody th small{display:block;margin-top:.4rem;font-weight:400;opacity:.65}
+    .gastronomy-matrix-table td b{display:inline-block;padding:.18rem .5rem;border-radius:999px;font-size:.75rem;margin-bottom:.45rem}
+    .status-note{display:block;min-width:190px}
+    .status-confirmed{background:#e5f2e8}
+    .status-partial{background:#f4edd9}
+    .status-gap{background:#ececec}
+    .matrix-source-list{display:grid;gap:.45rem;margin-top:.75rem}
+    .matrix-source-list a{font-size:.88rem}
+    @media(max-width:720px){.gastronomy-matrix-table{font-size:.8rem}.gastronomy-case-grid{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>
