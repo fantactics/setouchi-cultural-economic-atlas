@@ -2648,10 +2648,88 @@ export const bookArticles = [
       {id:2,title:'2040年、太陽光パネルのゴミが大量に出てくる？',publisher:'資源エネルギー庁',url:'https://www.enecho.meti.go.jp/about/special/johoteikyo/taiyoukouhaiki.html'},
       {id:3,title:'エネルギー白書2021 第3部第3章第2節',publisher:'資源エネルギー庁',url:'https://www.enecho.meti.go.jp/about/whitepaper/2021/html/3-3-2.html'}
     ]
+  },
+
+  {
+    slug:'tadano-shido-industrial-ecosystem',
+    part:'産業は、紡がれる',
+    title:'なぜ世界的クレーンメーカーは香川にあるのか',
+    subtitle:'高松の小さな鉄工所から、志度20万㎡工場と鋼構造物サプライチェーンへ',
+    cities:['高松','志度','さぬき市'],
+    keywords:['タダノ','志度','高松','クレーン','油圧','溶接','鋼構造物','サプライチェーン','産業集積'],
+    heroPhotoId:'photo-tadano-crane-product',
+    lead:'志度の海辺に、20万平方メートルを超える巨大工場がある。タダノ志度工場である。しかし、タダノは志度の地場産業から生まれた会社ではない。高松で育った鉄工所が、溶接と油圧の試作を重ね、日本初の油圧式トラッククレーンという製品をつかみ、全国企業になった後に志度へ進出した。では、土地固有性の弱い出発点を持つ企業が、なぜ香川に根を張り続け、周囲に製缶・溶接・油圧・機械加工の企業群を形成したのか。タダノは「自然環境から産業が生まれる」というアトラスの因果モデルを、逆方向から考える格好の事例である。',
+    sections:[
+      {
+        heading:'タダノは「志度から生まれた会社」ではない',
+        paragraphs:[
+          {text:'株式会社タダノの前身、多田野鉄工所は1948年に高松市藤塚町で設立された。現在も本社は高松市新田町にあり、タダノは高松を起点として成長した企業である。',refs:[1,7]},
+          {text:'志度工場の新設は1980年である。その時点でタダノはすでに大阪・東京の証券市場に上場し、海外子会社も設けていた。したがって「志度という土地がタダノを生んだ」という説明は時系列的に成立しない。',refs:[1]},
+          {text:'問いは別のところにある。高松で成立した技術企業が、なぜ成長の次の段階でも香川県内に大規模生産拠点を置き、その後も県内に複数の工場・研究・試験拠点を展開したのか、である。',refs:[2,7]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'原点は、地域資源ではなく「試作を繰り返す技術」だった',
+        paragraphs:[
+          {text:'タダノの公式沿革によれば、1950年には鉄道保線機械を発明し国鉄へ納入し、1954年には油圧式産業機械の開発に着手してダンプトラックを完成させた。初期の多田野鉄工所は、特定製品に固定されたメーカーではなく、顧客課題に応じて多様な機械を試作する企業だった。',refs:[1]},
+          {text:'この過程で蓄積されたのが、溶接、鋼構造物の製作、油圧制御、車両架装といった複数技術の組み合わせである。後のクレーンは、その技術群を一つの製品へ統合したものと見ることができる。',refs:[1]},
+          {text:'ここでは「海があったから」「鉱物があったから」という自然資源起点の説明はできない。企業家と技能蓄積が先にあり、地域との結びつきは後から強まっていった。',refs:[]}
+        ],
+        photoIds:['photo-tadano-crane-product']
+      },
+      {
+        heading:'1955年、製品の発見が会社の運命を変えた',
+        paragraphs:[
+          {text:'1955年、多田野鉄工所は日本初の油圧式トラッククレーンOC-2型を開発した。公式沿革では全国から注文が殺到し、ここからクレーンメーカーとしての歩みが始まったとされる。',refs:[1]},
+          {text:'戦後の日本では道路、工場、電力、通信、都市建設が拡大し、現場へ自走して重量物を吊り上げる機械への需要が大きくなった。タダノは、成長市場に対して「移動できる油圧式クレーン」という製品で応えた。',refs:[]},
+          {text:'1970年には日本初のラフテレーンクレーンを発売し、1973年にはオランダに初の海外子会社を設立した。志度工場ができる前に、すでに製品技術と市場の双方で全国・海外へ展開する企業になっていた。',refs:[1]}
+        ],
+        photoIds:['photo-tadano-crane-product']
+      },
+      {
+        heading:'なぜ志度だったのか――確実に言えるのは「巨大な生産空間が必要になった」こと',
+        paragraphs:[
+          {text:'1980年に新設された志度工場の土地面積は200,816平方メートル、建物延床面積は93,542平方メートル。現在はオールテレーンクレーン、ラフテレーンクレーン、トラッククレーンなど大型製品を生産している。',refs:[2]},
+          {text:'クレーン製造では、長大なブームの製缶・溶接、大型油圧シリンダー、重量部品の組立、塗装、完成車両の移動・検査など、広い連続空間を必要とする。2007年の工場紹介でも、志度工場でブーム溶接やシリンダー組立、塗装などを行っていたことが確認できる。',refs:[2,6]},
+          {text:'ただし、1980年当時に経営陣が志度を選んだ直接理由を示す一次資料は、今回確認できた公開資料にはない。したがって「土地が安かった」「港が近かったから」と断定するのではなく、成長した大型機械メーカーが約20haの生産用地を香川県内に確保した、という事実と、その後の産業集積を分けて考える必要がある。',refs:[2]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'大企業が来たのではなく、周囲に「クレーンをつくる地域」ができた',
+        paragraphs:[
+          {text:'香川県は現在、タダノ、今治造船、川崎重工業、マキタなどを核に「造船・建機等鋼構造物関連分野」の産業クラスターを位置づけ、鋼材加工、製缶・板金、溶接などの一次・二次協力企業が多数立地する強固なサプライチェーンが形成されていると説明している。',refs:[3]},
+          {text:'志度末工業団地の錦工業は、大型クレーン用重要構造部品、製缶、溶接、機械加工を手がけ、主要取引先にタダノを挙げる。三村鉄工は油圧機械器具を製造し、タダノを取引先に持つ。大越鉄工所もトラッククレーン部品加工を行う。',refs:[4,5,6]},
+          {text:'ここではタダノが地域の技能を一方的に利用しただけではない。タダノの継続的な需要が、周辺企業に大型製缶、溶接、油圧、機械加工の設備投資と技能蓄積を促し、その供給力がまたタダノの生産を支える。企業と地域産業が相互に強化される構造である。',refs:[3,4,5,6]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'「瀬戸内型産業」は、生まれ方ではなく育ち方で決まることもある',
+        paragraphs:[
+          {text:'今治造船は海運・船主・港湾という地域構造から産業生成を説明しやすい。新居浜の住友系産業も、別子銅山から臨海工業へという資源と土地の系譜が明確である。タダノはそれらとは異なる。',refs:[]},
+          {text:'タダノの起点は、企業家、溶接技術、試作文化、油圧という移動可能な能力だった。しかし企業が大型化すると、広い工場、鋼材、製缶、溶接、油圧部品、輸送、試験場といった地域的な生産基盤が重要になった。結果として、企業の側が地域に産業生態系をつくり、その生態系が企業を地域に留める力にもなった。',refs:[2,3,7]},
+          {text:'自然環境→生業→産業という因果だけでは、地域産業は説明しきれない。技能→製品革新→企業成長→地域集積→技能再生産という逆方向の回路もある。タダノは、瀬戸内の産業形成をより複眼的に読むための重要なケースである。',refs:[]}
+        ],
+        photoIds:['photo-tadano-crane-product']
+      }
+    ],
+    provisionalConclusion:'タダノは、志度の自然条件や地場産業から直接生まれた企業ではない。高松で育った鉄工所が、溶接・油圧・試作の技能を日本初の油圧式トラッククレーンへ統合し、全国・海外市場へ成長した後、1980年に志度へ20万平方メートル超の大規模工場を展開した。その後は周辺に製缶・溶接・油圧・機械加工の協力企業群が育ち、現在の香川県は造船・建機等鋼構造物のクラスターとしてこの集積を位置づけている。タダノは「土地が企業を生む」だけでなく、「企業が土地に新しい産業生態系をつくる」ことを示す。',
+    openQuestions:['1980年の志度工場立地選定について、社史・自治体資料から具体的な候補地比較や用地取得経緯を確認できるか','タダノ向け一次・二次協力企業を地図化すると、志度・高松・多度津を結ぶどのような産業圏が見えるか','今治造船・川崎重工坂出・タダノ・マキタを含む香川～東予の大型鋼構造物産業を、企業間取引と技能移動の両面から可視化できるか'],
+    sources:[
+      {id:1,title:'タダノの歴史',publisher:'株式会社タダノ',url:'https://www.tadano.co.jp/history/ja/'},
+      {id:2,title:'生産拠点',publisher:'株式会社タダノ',url:'https://www.tadano.co.jp/ja/company/production-site/'},
+      {id:3,title:'香川県地域産業クラスター計画―造船・建機等鋼構造物関連分野',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/sangyo/cluster_plan/cluster_plan.html'},
+      {id:4,title:'企業情報',publisher:'錦工業株式会社',url:'https://nishiki-ind.com/about/'},
+      {id:5,title:'会社概要',publisher:'三村鉄工株式会社',url:'https://www.mimura-iron.co.jp/company/'},
+      {id:6,title:'会社概要',publisher:'株式会社大越鉄工所',url:'https://kkoogosi.sakura.ne.jp/company.html'},
+      {id:7,title:'会社概要',publisher:'株式会社タダノ',url:'https://www.tadano.co.jp/ja/company/overview/'}
+    ]
   }
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","tadano-shido-industrial-ecosystem","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
