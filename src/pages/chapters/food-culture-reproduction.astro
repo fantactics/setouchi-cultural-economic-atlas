@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const reproductionLayers = [
+  {
+    step:'01',
+    title:'資源が再生産される',
+    body:'魚介・農産物・水・塩などの基礎資源が、毎年また利用できること。資源管理、海域環境、養殖技術、気候変動への適応まで含める。',
+    metric:'資源量・漁獲量・加入量・養殖生残率・海況'
+  },
+  {
+    step:'02',
+    title:'担い手が再生産される',
+    body:'漁業者・農業者だけでなく、加工、仲買、料理人、販売、運搬まで技能を持つ人が次世代へつながること。',
+    metric:'就業者数・年齢構成・新規就業者・技能継承'
+  },
+  {
+    step:'03',
+    title:'加工・流通機能が残る',
+    body:'水揚げした原料を、地域で食べられる形へ変える設備と事業者が存在すること。鮮度制約の強い食材ほど、この中間層が重要になる。',
+    metric:'加工場・市場・冷蔵冷凍・物流・取扱量'
+  },
+  {
+    step:'04',
+    title:'食べる機会が再生産される',
+    body:'家庭、飲食店、学校、祭礼、宿泊施設などで、地域の料理に繰り返し出会えること。レシピの保存だけでは、この接点は維持できない。',
+    metric:'提供店・家庭調理・学校給食・祭礼・購入頻度'
+  },
+  {
+    step:'05',
+    title:'記憶と意味が再生産される',
+    body:'「なぜこの地域で、この料理なのか」が語られ、祝い・季節・暮らし・港町の記憶と結びつくこと。文化的意味が価格以外の選択理由をつくる。',
+    metric:'伝承機会・認知度・地域行事・ストーリー・教育'
+  },
+  {
+    step:'06',
+    title:'所得が上流へ戻る',
+    body:'地域料理の需要が、生産者・加工・飲食へ十分な付加価値として戻り、次の設備投資・新規就業・資源管理を可能にすること。',
+    metric:'単価・粗利・地域内調達率・付加価値・再投資'
+  }
+];
+
+const cases = [
+  {
+    title:'サワラ｜「資源が戻らなければ、文化は支えられない」',
+    place:'瀬戸内海・岡山など',
+    claim:'fact',
+    body:'瀬戸内海系群のサワラ漁獲量は1987年の約6千トンから1998年に199トンまで急減しました。その後、漁獲制限・種苗放流・資源管理などが進められ、2024年の漁獲量は1.9千トンとされています。春の来遊と寿司・祭礼が結びつく食文化も、まず生物資源の存続を必要とします。',
+    chain:'資源悪化 → 漁獲減 → 食材との接触減 ／ 資源管理 → 漁獲機会回復 → 食文化の基盤回復',
+    links:[
+      ['サワラ（瀬戸内海系群）資源評価','水産庁','https://www.jfa.maff.go.jp/j/press/sigen/attach/pdf/20250926-7.pdf'],
+      ['瀬戸内海の資源回復計画','水産庁 瀬戸内海漁業調整事務所','https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html']
+    ]
+  },
+  {
+    title:'伊吹いりこ｜「漁業者だけではなく、加工システムを残す」',
+    place:'伊吹島・燧灘',
+    claim:'interpretation',
+    body:'伊吹いりこは、カタクチイワシの漁場と加工場が近く、高速運搬し、網元が漁獲から加工まで一貫して担うことが品質形成の中核です。ここでは魚が残るだけでは足りません。運搬、釜、乾燥、加工技能、事業組織までが一つの文化資本です。',
+    chain:'漁場 → 漁獲 → 高速運搬 → 即時加工 → 品質 → ブランド・だし需要 → 漁業・加工所得',
+    links:[
+      ['かんおんじの「伊吹いりこ」','観音寺市','https://www.city.kanonji.kagawa.jp/soshiki/21/13865.html']
+    ]
+  },
+  {
+    title:'広島牡蠣｜「自然ショックは、加工・流通まで波及する」',
+    place:'広島湾ほか',
+    claim:'fact',
+    body:'広島県は2025年以降のかきへい死被害に対し、養殖事業者だけでなく関連事業者向けの支援も実施しています。これは、食文化の基盤が生産者だけで完結せず、加工・流通を含む産業連鎖であることを示します。',
+    chain:'海況・生残率悪化 → 生産量減 → 加工・流通の原料不足 → 外食・小売への波及',
+    links:[
+      ['かきへい死被害に対する支援一覧','広島県','https://www.pref.hiroshima.lg.jp/soshiki/88/kakiheishihigaishienichiran.html'],
+      ['令和6年度水産白書 第2章','水産庁','https://www.jfa.maff.go.jp/j/kikaku/wpaper/R6/attach/pdf/250606_1-14.pdf']
+    ]
+  },
+  {
+    title:'家庭・学校・地域｜「食べ方を教える場」が必要になる',
+    place:'全国調査から瀬戸内を考える',
+    claim:'fact',
+    body:'農林水産省の2020年度調査では、地域や家庭の料理・味などを「受け継いでいる」と答えた人は69.6％でした。一方、20〜39歳では61.6％に下がります。継承に必要なこととして、家庭、学校、地域で伝える機会が挙げられています。供給網だけでなく、食べ方を経験する社会装置も再生産が必要です。',
+    chain:'家庭・学校・地域で食べる → 作り方と意味を知る → 好み・記憶が形成 → 次世代の需要と伝承へ',
+    links:[
+      ['食文化の継承及び伝承について','農林水産省','https://www.maff.go.jp/j/syokuiku/ishiki/r02/3-7.html'],
+      ['「うちの郷土料理」について','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/about/index.html']
+    ]
+  }
+];
+
+const failure = [
+  ['資源量の低下','食材そのものが得にくくなり、価格・供給が不安定になる。'],
+  ['生産者・担い手の減少','漁法、産地処理、目利きなど暗黙知が失われる。'],
+  ['加工・市場機能の縮小','地域で食材を扱える量と形が減る。'],
+  ['提供店・家庭調理の減少','住民が実際に食べる頻度が下がる。'],
+  ['記憶・意味の希薄化','「名物の名前は知っているが、日常では食べない」状態になる。'],
+  ['需要と所得の低下','上流へ戻る収益が減り、担い手・資源管理への再投資が難しくなる。']
+];
+
+const interventions = [
+  {
+    title:'A｜資源を守る',
+    body:'漁獲量を増やすことだけを目標にせず、資源評価、漁獲管理、藻場・干潟、養殖の生残安定などを「食文化政策の入口」と位置づける。'
+  },
+  {
+    title:'B｜中間層を守る',
+    body:'加工場、魚市場、冷蔵冷凍、運搬、包丁・乾燥・発酵などの技能を、単なる産業設備ではなく文化インフラとして把握する。'
+  },
+  {
+    title:'C｜日常の需要をつくる',
+    body:'観光客だけでなく、住民、学校、社員食堂、宿泊、地域行事で食べる頻度を増やす。文化は「年に一度見る」より「繰り返し食べる」方が再生産されやすい。'
+  },
+  {
+    title:'D｜変化を許容する',
+    body:'昔のレシピを完全固定するのではなく、食材事情、家庭人数、調理時間、若年層の嗜好に合わせた変容を許容する。農林水産省の郷土料理選定でも、現代的に変容したレシピや新しい価値の提供が推奨項目に含まれる。'
+  },
+  {
+    title:'E｜物語を経済価値へ戻す',
+    body:'由来や景観を語るだけでなく、適正価格、地域内調達、体験、飲食、土産、宿泊へ接続し、付加価値を生産・加工・資源管理へ還流させる。'
+  },
+  {
+    title:'F｜毎年測る',
+    body:'資源量、担い手、加工能力、提供店、家庭・学校での接触機会、付加価値を同じダッシュボードで追い、どこがボトルネックかを更新する。'
+  }
+];
+
+const kpis = [
+  ['生態系','資源量・漁獲量・加入量・養殖生残率','「原料は持続するか」'],
+  ['担い手','就業者数・年齢・新規参入・後継者','「技術を担う人が続くか」'],
+  ['加工・流通','加工場数・処理能力・市場取扱・地域内調達率','「食材を料理へつなぐ機能があるか」'],
+  ['食べる場','提供店数・給食・家庭調理・祭礼頻度','「住民が繰り返し接触するか」'],
+  ['文化記憶','認知度・作れる人・語れる人・学習機会','「意味まで伝わっているか」'],
+  ['経済循環','単価・粗利・地域付加価値・再投資','「継承に必要な所得が戻るか」']
+];
+
+const sources = [
+  ['令和7年度 水産白書 概要','水産庁','https://www.jfa.maff.go.jp/j/kikaku/wpaper/R7/attach/pdf/260605_2-1.pdf'],
+  ['令和6年度 水産白書 第2章','水産庁','https://www.jfa.maff.go.jp/j/kikaku/wpaper/R6/attach/pdf/250606_1-14.pdf'],
+  ['令和6年度 水産白書 第5章','水産庁','https://www.jfa.maff.go.jp/j/kikaku/wpaper/R6/attach/pdf/250606_2-8.pdf'],
+  ['食文化の継承及び伝承について','農林水産省','https://www.maff.go.jp/j/syokuiku/ishiki/r02/3-7.html'],
+  ['「うちの郷土料理」について','農林水産省','https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/about/index.html'],
+  ['「食文化ストーリー」創出・発信事業','文化庁','https://www.bunka.go.jp/seisaku/bunkazai/joseishien/syokubunka_story/index.html'],
+  ['瀬戸内海の資源回復計画','水産庁 瀬戸内海漁業調整事務所','https://www.jfa.maff.go.jp/setouti/sigen_kaihuku/index.html'],
+  ['かんおんじの「伊吹いりこ」','観音寺市','https://www.city.kanonji.kagawa.jp/soshiki/21/13865.html'],
+  ['かきへい死被害に対する支援一覧','広島県','https://www.pref.hiroshima.lg.jp/soshiki/88/kakiheishihigaishienichiran.html']
+];
+---
+<BaseLayout title="食文化は、どうすれば消えずに再生産されるのか | 研究ノート | SETOUCHI ATLAS" description="郷土料理を保存対象ではなく、資源・担い手・加工・市場・記憶・所得が循環する地域システムとして考える。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">GASTRONOMY × REGIONAL MANAGEMENT</div>
+    <h1>食文化は、どうすれば消えずに再生産されるのか</h1>
+    <p class="subtitle">「レシピを残す」から、「食べ続けられる地域システムを残す」へ。</p>
+    <div class="chapter-thesis">食文化の持続性は、文化財としての保存だけでは決まらない。資源、生産者、加工・流通、料理を提供する場、家庭や学校での経験、地域の記憶、そして所得が循環し、次世代の担い手へ戻るとき、食文化は生きた地域資産として再生産される。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <h2>「残っている」と「生きている」は違う</h2>
+    <p class="lead">郷土料理の名前、レシピ、古い写真が保存されていても、その魚を獲る人がいない、加工できる人がいない、地域の店で食べられない、家庭で作らない、という状態はあり得ます。その文化は記録としては残っていても、地域社会の中で再生産されているとは言いにくいでしょう。</p>
+    <p class="lead">反対に、昔とまったく同じ作り方ではなくても、地域の資源や技能を使い、人が繰り返し食べ、所得が上流へ戻り、次の担い手が育っているなら、その食文化は変化しながら生きています。本ノートでは、この差を地域経営の問題として考えます。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">REPRODUCTION LOOP</div>
+    <h2>食文化を、6つの再生産として読む</h2>
+    <div class="reproduction-grid">
+      {reproductionLayers.map((item)=>(
+        <article class="reproduction-card">
+          <span>{item.step}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          <small>観測候補：{item.metric}</small>
+        </article>
+      ))}
+    </div>
+    <div class="research-chain"><span>資源 → 担い手 → 加工・流通 → 食べる機会 → 記憶・意味 → 需要・所得 → 次の資源管理・担い手</span></div>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge fact">事実</div></div>
+      <h2>食文化の供給側では、人と加工機能が弱くなっている</h2>
+      <div class="research-copy">
+        <p>水産庁の令和7年度水産白書は、漁業就業者数が一貫して減少傾向にあり、新規就業者数がおおむね1,700人程度で推移していると整理しています。漁村は全国平均より高齢化が進み、水産業の担い手をどう維持するかが全国的な課題です。</p>
+        <p>さらに水産加工業では、経営体力不足、従業員不足、原材料の調達難が課題とされています。つまり食文化の消失リスクは「魚が減る」だけではなく、魚を食べられる状態へ変える中間産業の弱体化からも生じます。</p>
+      </div>
+      <div class="research-chain"><span>担い手減少 ＋ 加工機能縮小 → 地域で扱える魚介の量・形が減る → 地域料理との接触機会が減る</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>消失は、一か所ではなく連鎖として起きる</h2>
+      <div class="failure-chain">
+        {failure.map(([title,body],i)=>(
+          <article>
+            <span>{String(i+1).padStart(2,'0')}</span>
+            <div><strong>{title}</strong><p>{body}</p></div>
+          </article>
+        ))}
+      </div>
+      <p class="lead">この連鎖の怖さは、最初の原因がどこでもよいことです。資源減少から始まる場合もあれば、後継者不足、加工場閉鎖、家庭調理の減少、観光向け価格への偏りから始まる場合もあります。地域ごとに「最も細い環」を特定する必要があります。</p>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">比較</div></div>
+      <h2>瀬戸内の事例から見る、再生産のボトルネック</h2>
+      <div class="case-grid">
+        {cases.map((item)=>(
+          <article class="case-card">
+            <div class="kicker">{item.place}</div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            <div class="mini-chain">{item.chain}</div>
+            <div class="source-list compact">
+              {item.links.map(([label,publisher,url])=>(
+                <a class="source-link" href={url} target="_blank" rel="noreferrer"><span><b>{label}</b><small>{publisher}</small></span><span>↗</span></a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>食文化の持続性は、「供給能力 × 接触頻度 × 経済循環」で考えられる</h2>
+      <div class="research-copy">
+        <p>ここまでの比較から、食文化が生き続けるための最低条件を三つに集約できます。第一は、資源・担い手・加工によって料理を供給できること。第二は、住民や来訪者が繰り返し食べ、作り、意味を知る接触機会があること。第三は、その需要から生まれた所得が地域の生産・技能・資源管理へ戻ることです。</p>
+        <p>したがって、観光客に有名な料理でも、原料を地域外に依存し、地域の家庭では食べず、所得も地域外へ流出するなら「ブランドは強いが再生産性は弱い」可能性があります。逆に、知名度が低くても、家庭・市場・生産者の循環が強ければ、生きた食文化としては頑健です。</p>
+      </div>
+      <div class="formula-box">食文化の再生産力 ≒ 供給能力 × 接触頻度 × 地域内経済循環</div>
+      <p class="map-note">これは現段階の分析仮説です。今後、各指標を実データ化し、地域間比較で検証します。</p>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">地域経営</div></div>
+      <h2>地域が介入できる6つの場所</h2>
+      <div class="intervention-grid">
+        {interventions.map((item)=>(
+          <article><h3>{item.title}</h3><p>{item.body}</p></article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">測定設計</div></div>
+      <h2>「食文化再生産ダッシュボード」をつくる</h2>
+      <p class="lead">観光入込客数や名物の知名度だけでは、食文化が持続可能かどうかは分かりません。最低でも次の6領域を同時に追う必要があります。</p>
+      <div class="table-wrap">
+        <table class="research-table">
+          <thead><tr><th>領域</th><th>見る指標</th><th>問い</th></tr></thead>
+          <tbody>
+            {kpis.map(([area,metric,q])=><tr><th>{area}</th><td>{metric}</td><td>{q}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <p class="lead">このダッシュボードを魚種・地域ごとに持てば、「タコは資源がボトルネック」「いりこは加工人材」「ある郷土料理は家庭継承」というように、施策の重点を変えられます。食文化政策を一律のPR事業から、地域ごとの再生産ボトルネック管理へ変える考え方です。</p>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">結論</div></div>
+      <h2>文化を守るとは、循環を守ることである</h2>
+      <div class="research-copy">
+        <p>食文化を文化財として記録することは重要です。しかし、地域経営の視点では、それだけでは不十分です。資源、生業、加工、販売、料理、家庭、学校、祭礼、観光、所得を一つの循環として維持する必要があります。</p>
+        <p>文化庁が食文化の継承・振興と地域活性化を結びつけ、農林水産省が郷土料理の選定で現代的な変容や新しい価値の提供も評価していることは、この方向と整合的です。伝統とは固定された形を凍結することではなく、地域社会が次の世代にもそれを作り、食べ、意味づけられる条件を更新し続けることだと考えます。</p>
+      </div>
+      <div class="research-chain"><span>保存する文化 → 再生産する文化 → 地域経営資源として持続する文化</span></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SOURCES</div>
+    <h2>主な一次資料</h2>
+    <div class="source-list">
+      {sources.map(([label,publisher,url])=>(
+        <a class="source-link" href={url} target="_blank" rel="noreferrer"><span><b>{label}</b><small>{publisher}</small></span><span>↗</span></a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する読み方</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/gastronomy-matrix/">瀬戸内食資源マトリクス →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/">自然環境と食文化 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/seafood/">海の食文化 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
+    </div>
+  </section>
+
+  <style>
+    .reproduction-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.4rem 0}
+    .reproduction-card,.case-card,.intervention-grid article{border:1px solid var(--line);border-radius:16px;padding:1.15rem;background:var(--surface)}
+    .reproduction-card>span{font-size:.74rem;letter-spacing:.14em;opacity:.55}.reproduction-card small{display:block;margin-top:.9rem;opacity:.72;line-height:1.6}
+    .failure-chain{display:grid;gap:.7rem;margin:1.3rem 0}.failure-chain article{display:grid;grid-template-columns:3rem 1fr;gap:.8rem;padding:.85rem 0;border-bottom:1px solid var(--line)}.failure-chain article>span{opacity:.45;font-size:.78rem;letter-spacing:.12em}.failure-chain p{margin:.2rem 0 0}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.case-card h3{margin-top:.4rem}.mini-chain{margin:1rem 0;padding:.8rem;border-radius:10px;background:var(--surface-soft);line-height:1.7;font-size:.92rem}
+    .source-list.compact{grid-template-columns:1fr}.source-list.compact .source-link{padding:.65rem .75rem}
+    .formula-box{margin:1.4rem 0;padding:1.25rem;border:1px solid var(--line);border-radius:14px;font-weight:700;text-align:center;font-size:1.06rem;background:var(--surface-soft)}
+    .intervention-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.intervention-grid h3{margin-top:0}
+    .table-wrap{overflow-x:auto;margin:1.2rem 0}.research-table{width:100%;border-collapse:collapse;min-width:720px}.research-table th,.research-table td{padding:.8rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.research-table thead th{font-size:.78rem;letter-spacing:.08em;opacity:.7}
+    @media (max-width:800px){.reproduction-grid{grid-template-columns:1fr}.case-grid,.intervention-grid{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>
