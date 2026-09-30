@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/cycle-tourism.css';
+import '../../styles/cycle-counterfactual.css';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const heroPhoto=photoById['photo-imabari-kurushima'];
+const sidePhoto=photoById['photo-mitarai-townscape'];
+
+const comparison=[
+  {
+    name:'大三島',type:'しまなみ海道 / 処置群',
+    baseline:'人口減少が続く一方、観光・飲食・移住創業が厚くなる。',
+    evidence:'2020年の転入理由「起業」19.2%。2021年4月時点で飲食店48店の約半数が移住者経営。',
+    reading:'「人口を増やしたか」ではなく、域外需要を受け止める事業者構成が変わったかを見る。'
+  },
+  {
+    name:'大崎下島',type:'とびしま海道 / 弱い処置群',
+    baseline:'橋と良好な海岸ルート、御手洗の文化資産を持つが、宿泊・サービス密度はしまなみより薄い。',
+    evidence:'呉市調査では、とびしま等を訪れた層は非訪問層より各消費項目が高い。訪問目的がサイクリングの層は「体験」「宿泊費」で最も高かった。',
+    reading:'サイクリストが低消費なのではなく、滞在型商品へ接続できれば高消費層になり得る。'
+  },
+  {
+    name:'上島町',type:'ゆめしま海道 / 新規処置群',
+    baseline:'2022年3月の岩城橋開通でルートが全線化。島間移動と観光動線が同時に変化。',
+    evidence:'サイクルフリー利用はR3年度7,822台→R4年度15,871台へ増加。2025年度は12,089台。',
+    reading:'開通直後のジャンプは確認できるが、コロナ回復と重なるため橋だけの因果効果とはしない。'
+  },
+  {
+    name:'大崎上島',type:'主対照群 / 非架橋島',
+    baseline:'一周約35kmでサイクリング可能だが、しまなみ型の連続架橋・世界ブランドを持たない。',
+    evidence:'人口は2010年8,448人→2015年7,992人→2020年7,158人。2014年+28、2015年+54、2018年+8、2020年+33の社会増も経験。観光客は2019年までは8万人前後。',
+    reading:'移住や社会増はサイクルブランドがなくても起こる。したがって、移住を全てサイクリング効果に帰属させないための対照になる。'
+  }
+];
+
+const kpis=[
+  ['01','到達','年間サイクリスト数','ルートが需要を生んだか。通行量・レンタル・フェリー自転車台数を追う。'],
+  ['02','停止','立寄率・平均停止箇所','何人来たかではなく、何人が集落・店・観光地で止まったか。'],
+  ['03','宿泊','宿泊転換率・平均泊数','日帰りを1泊へ変えられたか。最も大きな消費構造転換点。'],
+  ['04','消費','1人当たり地域内消費額','飲食・宿泊・体験・物販・修理・交通を分けて測る。'],
+  ['05','残存','地域内残存率','売上のうち地元雇用・地元仕入・修繕・税・地域団体へ残る割合。'],
+  ['06','事業','新規開業・廃業・移住創業','来訪需要が常設サービスへ変換されたか。'],
+  ['07','資産','空き家・空き店舗再生件数','宿、カフェ、工房、拠点など遊休資産が再利用されたか。'],
+  ['08','人材','関係人口→移住・定着','初回来訪、再訪、二地域居住、移住、創業という転換を追う。'],
+  ['09','民間投資','民間投資額 / 公共投資額','道路・標識・港への公的投資が、どれだけ民間投資を誘発したか。'],
+  ['10','住民便益','住民利用・安全・生活利便','観光客だけでなく、道路、港、公共空間の改善が住民にも便益を生んだか。'],
+  ['11','外部不経済','事故・混雑・マナー・地価負担','成功の副作用も同じダッシュボードで測る。'],
+  ['12','再投資','観光収益→地域維持','稼いだ価値が景観、道路、文化財、交通、担い手へ戻っているか。']
+];
+
+const derived=[
+  {name:'1,000人当たり地域捕捉売上',formula:'地域内消費額 ÷ サイクリスト数 × 1,000',why:'単純な来訪者数競争をやめ、同じ1,000人から地域がどれだけ価値を受け取ったかを見る。'},
+  {name:'宿泊転換率',formula:'サイクリスト宿泊者数 ÷ サイクリスト総数',why:'「走り抜ける」から「泊まる」への転換を直接測る。'},
+  {name:'停止密度',formula:'総立寄回数 ÷ 総走行者数',why:'店舗・集落・観光資源がルート上の停止点として機能しているかを見る。'},
+  {name:'資産再生率',formula:'観光・交流用途へ転用した空き家件数 ÷ 地区空き家数',why:'需要が不動産・町並みの維持へ波及したかを見る。'},
+  {name:'公共投資誘発倍率',formula:'誘発民間投資額 ÷ サイクル関連公共投資額',why:'ブルーラインや港整備が民間の宿・飲食・サービス投資をどれだけ呼び込んだか。'},
+  {name:'人材転換率',formula:'サイクル来訪を契機とする移住・創業者 ÷ 調査対象来訪者',why:'観光を人口政策へ接続する場合の最終転換率。ただし長期追跡が必要。'}
+];
+
+const sources=[
+  {label:'大崎上島町｜統計情報（国勢調査人口）',url:'https://www.town.osakikamijima.hiroshima.jp/soshiki/jumin/772.html'},
+  {label:'大崎上島町｜第2次地方人口ビジョン（社会増減）',url:'https://www.town.osakikamijima.hiroshima.jp/material/files/group/2/jinko2.pdf'},
+  {label:'大崎上島町｜移住・定住支援ポータル',url:'https://iju-teiju.town.osakikamijima.hiroshima.jp/'},
+  {label:'大崎上島町｜第3次長期総合計画（観光）',url:'https://www.town.osakikamijima.hiroshima.jp/material/files/group/20/kihonkeikaku.pdf'},
+  {label:'呉市｜とびしま等への訪問目的別観光消費額調査',url:'https://www.city.kure.lg.jp/uploaded/attachment/53798.pdf'},
+  {label:'上島町｜令和7年度当初予算（サイクルフリー過去実績）',url:'https://www.town.kamijima.lg.jp/uploaded/life/25423_97335_misc.pdf'},
+  {label:'上島町｜令和7年度サイクルフリー実績',url:'https://www.town.kamijima.lg.jp/soshiki/kanko-senryaku/27310.html'},
+  {label:'上島町｜第2期総合戦略',url:'https://www.town.kamijima.lg.jp/uploaded/life/8448_81415_misc.pdf'},
+  {label:'国土交通省｜国内サイクルツーリズムの現状',url:'https://www.mlit.go.jp/road/ir/ir-council/ncr/pdf01/05.pdf'},
+  {label:'IRC｜大三島 起業・移住者たちの活躍',url:'https://www.member.iyoirc.jp/storage/mon_img/mon_pdf_57b8ba11-0ddb-4622-91ea-2b922cc403fc.pdf'}
+];
+---
+<BaseLayout title="サイクルルートの効果をどう測るか | 研究ノート | SETOUCHI ATLAS" description="大崎上島を対照群に置き、しまなみ・とびしま・ゆめしまのサイクルツーリズム効果を地域経営KPIで測る方法を考える。">
+  <section class="counter-hero">
+    {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
+    <div class="counter-scrim"></div>
+    <div class="counter-copy">
+      <a href="/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/">← 「自転車は、島を変えたか」に戻る</a>
+      <span>RESEARCH NOTE / COUNTERFACTUAL & KPI</span>
+      <h1>サイクルルートの効果を、<br/>どう測るか</h1>
+      <p>来訪者数だけでは、地域が変わったかは分からない。似た条件を持つ対照地域と比べながら、消費、人材、空き家、投資、住民便益まで測る。</p>
+    </div>
+  </section>
+
+  <section class="section counter-thesis">
+    <span class="region-layer-label research">方法</span>
+    <h2>「ルートがある地域」だけを見ない</h2>
+    <div class="counter-prose">
+      <p>しまなみで移住者が増えたとしても、それだけでサイクルツーリズムの効果とは言えません。瀬戸内の島では、高校魅力化、造船・製造業、移住支援、空き家政策、自然環境など別の要因でも人は動きます。</p>
+      <p>そこで、自然条件・島嶼性・人口減少という条件が似ながら、連続架橋された世界的サイクルルートを持たない<strong>大崎上島</strong>を主対照群に置きます。完全な実験ではありませんが、「何もしなくても起き得た変化」を推測する基準になります。</p>
+    </div>
+    <div class="counter-formula"><span>観察された変化</span><b>−</b><span>似た地域でも起きた変化</span><b>≈</b><span>サイクルルート固有効果の候補</span></div>
+    <p class="counter-note">※厳密な差の差分析には、統一定義の複数年データと複数の対照地域が必要です。本ページはそのための設計図です。</p>
+  </section>
+
+  <section class="section counter-comparison">
+    <span class="region-layer-label data">比較設計</span>
+    <h2>大崎上島を置くと、因果の言い過ぎを防げる</h2>
+    <div class="counter-grid">
+      {comparison.map((area)=>(
+        <article>
+          <span>{area.type}</span>
+          <h3>{area.name}</h3>
+          <p>{area.baseline}</p>
+          <dl>
+            <div><dt>確認できること</dt><dd>{area.evidence}</dd></div>
+            <div><dt>この比較から読むこと</dt><dd>{area.reading}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-spend">
+    <div class="counter-spend-copy">
+      <span class="region-layer-label research">重要な反証</span>
+      <h2>「サイクリストはお金を落とさない」とは限らない</h2>
+      <p>呉市の観光調査では、とびしまエリアや音戸・倉橋エリアを訪れた人は、訪れていない人より食事、体験、買物、交通、宿泊の各項目で1人当たり消費額が高くなりました。さらに訪問目的別では、<strong>「サイクリング（自転車）」が「体験」と「宿泊費」で最も高い</strong>という結果でした。</p>
+      <p>この調査は「とびしまだけ」「サイクリストだけ」の純粋な因果推定ではありません。しかし少なくとも、サイクリストを一律に低消費客とみなす説明とは整合しません。</p>
+      <div class="counter-quote">低消費なのは「自転車」という交通手段ではなく、<strong>泊まらず・止まらず・体験しない旅程</strong>なのではないか。</div>
+    </div>
+    {sidePhoto && <figure><img src={sidePhoto.imageUrl} alt={sidePhoto.alt} loading="lazy"/><figcaption>{sidePhoto.title}<small>Photo: {sidePhoto.author}</small></figcaption></figure>}
+  </section>
+
+  <section class="section counter-kpi">
+    <span class="region-layer-label research">地域経営KPI</span>
+    <h2>通行台数から「地域に何が残ったか」へ</h2>
+    <div class="counter-kpi-grid">
+      {kpis.map(([no,title,metric,body])=>(
+        <article><span>{no}</span><h3>{title}</h3><strong>{metric}</strong><p>{body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-derived">
+    <span class="region-layer-label data">派生指標</span>
+    <h2>自治体の政策評価に使える指標へ変換する</h2>
+    <div class="counter-derived-grid">
+      {derived.map((item)=>(
+        <article><h3>{item.name}</h3><code>{item.formula}</code><p>{item.why}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section counter-intervention">
+    <span class="region-layer-label research">準実験として読む</span>
+    <h2>ゆめしま海道では、開通直後に「流入の段差」がある</h2>
+    <div class="counter-prose">
+      <p>上島町のサイクルフリー利用は、2021年度7,822台から、岩城橋が全線開通した2022年度15,871台へ増えました。ほぼ倍増です。しかし同じ時期はコロナ禍からの観光回復期でもあります。</p>
+      <p>したがって重要なのは「橋を架ければ倍増する」と結論することではありません。<strong>開通という介入の前後で明確な段差が生じた</strong>ことを確認し、その後、宿泊、消費、店舗、空き家活用が追随したかを別指標で追うことです。</p>
+    </div>
+    <div class="counter-jump"><div><span>2021年度</span><strong>7,822</strong><small>台</small></div><b>→</b><div><span>2022年度</span><strong>15,871</strong><small>台</small></div><em>岩城橋開通＋コロナ回復が同時期</em></div>
+  </section>
+
+  <section class="section counter-dashboard">
+    <span class="region-layer-label research">最終形</span>
+    <h2>1,000人が走った時、地域に何が残るか</h2>
+    <p class="lead">海道間の比較は、総来訪者数ではなく同じ1,000人を基準にすると分かりやすくなります。</p>
+    <div class="counter-dashboard-row">
+      <span>1,000 riders</span><b>→</b><span>宿泊 ___ 泊</span><b>→</b><span>飲食 ___ 円</span><b>→</b><span>体験 ___ 円</span><b>→</b><span>地域内残存 ___ 円</span><b>→</b><span>空き家再生 ___ 件</span><b>→</b><span>移住・創業 ___ 人</span>
+    </div>
+    <p class="counter-note">空欄は「まだ測れていない」ことを可視化するために残します。データがないこと自体が、次の調査設計になります。</p>
+  </section>
+
+  <section class="section counter-sources">
+    <h2>主な資料</h2>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source.url} target="_blank" rel="noreferrer"><span>{source.label}</span><small>外部資料 ↗</small></a>)}
+    </div>
+  </section>
+</BaseLayout>
