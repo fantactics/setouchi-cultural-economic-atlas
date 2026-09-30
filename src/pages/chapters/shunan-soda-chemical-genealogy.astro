@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const stages = [
+  ['01','塩田・港湾・沿岸低地','江戸期の周南沿岸では塩の生産と新田開発が進み、富田・徳山・下松の各港は生産品の積出港として発達した。'],
+  ['02','近代工業立地','良港、石灰石・石炭へのアクセス、鉄道・港湾、広い沿岸用地が重なり、海軍燃料廠や基礎素材工場が進出した。'],
+  ['03','ソーダ工業','1918年に日本曹達工業（現トクヤマ）、1935年に東洋曹達工業（現東ソー）が創業し、ソーダ灰・苛性ソーダ・塩素を核とする無機化学が形成された。'],
+  ['04','副産物と工程結合','ソーダ工程の副産物をセメント原料へ、電解で生じる塩素・水素を次工程へ回すことで、単品工場から化学チェーンへ発展した。'],
+  ['05','石油化学・コンビナート','1960年代以降、塩ビ・ポリエチレン・合成ゴムなど石油化学へ広がり、港湾・電力・用役を共有する臨海コンビナートへ転換した。'],
+  ['06','高機能材料','蓄積した高純度化・電解・無機材料・プロセス制御を基盤に、半導体材料、ジルコニア、ゼオライト、高純度薬品などへ展開した。'],
+  ['07','脱炭素への再編集','現在は水素、バイオマス、電力・蒸気等の企業間融通を含め、コンビナート全体を脱炭素型産業基盤へ再編集する段階に入っている。']
+];
+
+const companies = [
+  {
+    name:'トクヤマ',
+    start:'1918年、日本曹達工業として徳山町で創業',
+    origin:'輸入依存だったソーダ灰の国産化を目的にアンモニアソーダ法を事業化。工場建設では塩田跡地を埋め立て、港湾等の基盤を整備した。',
+    chain:'ソーダ灰 → 苛性ソーダ・塩素 → セメント → 石油化学 → 高純度多結晶シリコン・高純度薬品・窒化アルミニウム',
+    point:'地域固有性が「塩」から「電解・高純度化・プロセス技術」へ転移した例。'
+  },
+  {
+    name:'東ソー',
+    start:'1935年、東洋曹達工業として現周南市で創業',
+    origin:'アンモニア法ソーダと電解ソーダ、セメントを兼営する「近代的一大理想工場」を志向。副産物と熱を工程間で利用する設計思想を持った。',
+    chain:'ソーダ灰・苛性ソーダ → 塩素・水素 → 塩ビモノマー・ポリマー → 合成ゴム・アミン → ジルコニア・ゼオライト等',
+    point:'地域固有性が「原料立地」から「化学チェーンと統合インフラ」へ転移した例。'
+  }
+];
+
+const sources = [
+  ['周南市｜市の沿革','https://www.city.shunan.lg.jp/uploaded/attachment/19295.pdf'],
+  ['徳山下松港｜沿革','https://tokuyama-kudamatsu-ko.com/'],
+  ['周南市｜海軍燃料廠のストーリー','https://www.city.shunan.lg.jp/site/sengo80/130730.html'],
+  ['トクヤマ｜沿革','https://www.tokuyama.co.jp/company/history.html'],
+  ['トクヤマ｜ソーダ灰事業','https://www.tokuyama.co.jp/feature/productsite.html'],
+  ['東ソー｜挑戦の歴史','https://www.tosoh.co.jp/company/history/'],
+  ['東ソー｜南陽事業所','https://www.tosoh.co.jp/company/location/nanyou_est/'],
+  ['山口県｜コンビナート企業間の連携促進','https://www.pref.yamaguchi.lg.jp/soshiki/254/202793.html'],
+  ['周南市｜水素利活用構想・協議会','https://www.city.shunan.lg.jp/site/council-hydrogen/index.html']
+];
+---
+
+<BaseLayout
+  title="塩田は、どう化学コンビナートになったのか | SETOUCHI ATLAS"
+  description="周南・徳山の塩田、港湾、ソーダ工業から、トクヤマ・東ソー、石油化学、高機能材料、脱炭素コンビナートまでを一つの産業系譜として読む。"
+>
+  <section class="place-hero chapter-hero research-notes-hero">
+    <p class="eyebrow">INDUSTRIAL GENEALOGY / SHUNAN</p>
+    <h1>塩田は、どう化学コンビナートになったのか</h1>
+    <p class="subtitle">トクヤマと東ソーから読む、周南の「地域固有性の転移」</p>
+    <p class="research-notes-lead">周南の化学工業を「昔、塩をつくっていたからソーダ工業が生まれた」とだけ説明すると、因果を単純化しすぎます。重要なのは、塩田・港・沿岸低地という初期条件が、港湾・工場用地・電力・副産物利用・企業集積へ形を変えながら、100年以上にわたり産業基盤として引き継がれたことです。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">問い</div></div>
+      <h2>「製塩 → ソーダ → 化学」は、本当に一本の直線なのか</h2>
+      <div class="research-copy">
+        <p>江戸期の周南沿岸では新田開発と製塩が進み、富田・徳山・下松の各港が生産物の積出港として発達しました。ところが、近代ソーダ工業が本格化した段階では、原料塩そのものは域外・海外からも調達されます。したがって、現在の化学コンビナートを「地元産の塩の加工業」とみなすだけでは不十分です。</p>
+        <p>むしろ継承されたのは、<strong>沿岸の平坦地、港湾、物流、工業用地、石灰石や石炭へのアクセス、用役供給、さらに工程を結びつける企業・技術の集積</strong>でした。</p>
+      </div>
+      <div class="research-chain"><span>製塩地の自然・空間条件 → 工業立地 → ソーダ工程 → 副産物利用 → 化学チェーン → 高機能材料 → 脱炭素型コンビナート</span></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <h2>産業の系譜を、7段階で読む</h2>
+    <div class="research-note-role-grid industrial-stage-grid">
+      {stages.map((stage)=>(
+        <article>
+          <small>{stage[0]}</small>
+          <strong>{stage[1]}</strong>
+          <p>{stage[2]}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge fact">事実</div></div>
+      <h2>最初の主役はトクヤマ、第二の主役が東ソー</h2>
+      <div class="company-genealogy-grid">
+        {companies.map((c)=>(
+          <article class="company-genealogy-card">
+            <h3>{c.name}</h3>
+            <p><strong>起点：</strong>{c.start}</p>
+            <p><strong>創業の構造：</strong>{c.origin}</p>
+            <p><strong>展開：</strong>{c.chain}</p>
+            <p class="company-point">{c.point}</p>
+          </article>
+        ))}
+      </div>
+      <div class="research-copy">
+        <p>トクヤマは1918年、輸入に頼っていたソーダ灰の国産化を目的として徳山で創業しました。東ソーは1935年、「アンモニア法ソーダ＋電解ソーダ＋セメント」を組み合わせた大規模工場を目指して南陽地区で創業します。</p>
+        <p>したがって「周南のソーダ工業」を理解するには、東ソー単独ではなく、<strong>先行するトクヤマと後発の東ソーが同一湾岸産業地域で異なる技術系列を蓄積した</strong>と見る方が適切です。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">解釈</div></div>
+      <h2>塩田が残したのは、塩だけではない</h2>
+      <div class="research-copy">
+        <p>塩田は原料供給の場であると同時に、海面に近い広い平地をつくり、港と生産地を結ぶ沿岸物流を発達させました。トクヤマの施設部門自身も、創業期の工場建設が塩田跡地の埋立と港湾整備から始まったと説明しています。</p>
+        <p>ここで注目したいのは、産業が近代化すると地域固有性の所在が変わることです。原料塩は輸入できても、巨大な港、埋立地、電力、蒸気、配管、貯蔵設備、熟練オペレーター、保全人材、企業間取引は簡単には移せません。</p>
+      </div>
+      <div class="research-chain"><span>塩田・沿岸地形 → 港湾・工場用地 → 大規模プロセス産業 → 用役・配管・人材 → コンビナートという「固定された能力」</span></div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">比較</div></div>
+      <h2>児島と周南では、「地域固有性」が違う場所へ移った</h2>
+      <div class="compare-industry-grid">
+        <article>
+          <h3>児島・倉敷</h3>
+          <p>干拓地 → 綿・イ草 → 織物 → 縫製 → 学生服 → ジーンズ</p>
+          <strong>固有性の現在地：技能・企業間分業・ブランド</strong>
+        </article>
+        <article>
+          <h3>周南・徳山</h3>
+          <p>塩田・港 → ソーダ → 電解 → セメント・塩素 → 石油化学 → 高機能材料</p>
+          <strong>固有性の現在地：統合プロセス・用役インフラ・化学技術</strong>
+        </article>
+      </div>
+      <div class="research-copy">
+        <p>両地域とも、現在の主力製品の原料を地元で採っているわけではありません。それでも産業が地域に残るのは、過去の産業が次の産業へ引き渡した「能力」があるからです。児島では縫製・加工技能、周南では電解・高純度化・巨大装置運営・副産物利用・港湾物流がその能力に当たります。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>産業集積は「原料依存」から「相互依存」へ移る</h2>
+      <div class="research-copy">
+        <p>初期には自然条件や原料への近さが立地を説明します。しかしコンビナート化が進むと、企業同士が蒸気・電力・原料・副産物・港湾・人材を共有し、立地理由は「この場所でしか取れない資源」から「この場所にしかない接続関係」へ変わります。</p>
+        <p>現在、周南地域では企業間の用役融通、水素利用、バイオマス、脱炭素化の共同検討が進んでいます。これは古いコンビナートを解体するのではなく、既存の相互依存を次世代エネルギー体系へ組み替える試みと見ることができます。</p>
+      </div>
+      <div class="research-chain"><span>地域固有性 ＝ 自然資源 → 立地インフラ → 工程技術 → 企業間相互依存 → 再編集能力</span></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <h2>資料</h2>
+    <p class="lead">企業沿革だけでなく、港湾史・都市史・コンビナート政策を重ねて読む。</p>
+    <div class="matrix-source-list">
+      {sources.map((s)=><a href={s[1]} target="_blank" rel="noreferrer">{s[0]} ↗</a>)}
+    </div>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/">児島：なぜジーンズだったのか →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">地域資産の再生産モデル →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+
+  <style>
+    .industrial-stage-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+    .industrial-stage-grid small{display:block;opacity:.55;margin-bottom:.35rem}
+    .company-genealogy-grid,.compare-industry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.2rem 0}
+    .company-genealogy-card,.compare-industry-grid article{border:1px solid var(--line,#ddd);border-radius:14px;padding:1.15rem;background:var(--paper,#fff)}
+    .company-genealogy-card h3,.compare-industry-grid h3{margin-top:0}
+    .company-point{font-weight:700;border-top:1px solid var(--line,#ddd);padding-top:.8rem}
+    .matrix-source-list{display:grid;gap:.5rem;margin-top:1rem}
+    .matrix-source-list a{font-size:.9rem}
+    @media(max-width:720px){.company-genealogy-grid,.compare-industry-grid{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>
