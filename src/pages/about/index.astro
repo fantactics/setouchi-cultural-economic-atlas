@@ -75,6 +75,19 @@ const methodPhotos=[
     </div>
   </section>
 
+  <section class="section atlas-about-research">
+    <div class="atlas-about-eyebrow">WORKING METHOD</div>
+    <h2>エッセイと研究ノートを往復する</h2>
+    <div class="atlas-about-copy-column">
+      <p>地域経営では、人口、産業、交通、観光、景観、自然環境、食文化、制度、コミュニティが相互に作用します。しかも地域を取り巻く条件は速く変わり、最初に立てた問いそのものを修正しなければならないことがあります。単一分野の枠内で答えを固定するより、観察と検証を反復しながら地域像を更新していく方が、実態に近づけると考えています。</p>
+      <p><strong>エッセイ</strong>では、現地の風景、資料、比較から生まれた違和感や「なぜ？」を起点に、分野をまたいで事実をつなぎ、説明のための仮説を立てます。<strong>研究ノート</strong>では、その仮説を統計、史料、地図、地域間比較、現地調査などによって分解し、確かめます。</p>
+      <p>検証によって仮説が支持されることもあれば、修正されたり、別の問いへ置き換わったりすることもあります。その結果を再びエッセイへ戻し、地域の見方を書き換える。この往復そのものを、本アトラスの知識生産の方法として公開します。</p>
+    </div>
+    <div class="atlas-about-causal-line">
+      <span>観察</span><b>→</b><span>問い</span><b>→</b><span>エッセイ：仮説形成</span><b>→</b><span>研究ノート：検証</span><b>→</b><span>修正・再解釈</span><b>→</b><span>次の問い</span>
+    </div>
+  </section>
+
   <section class="section atlas-about-visual-method">
     <div class="atlas-about-section-head">
       <div>
@@ -86,7 +99,7 @@ const methodPhotos=[
     <div class="atlas-about-photo-row">
       {methodPhotos.map((photo)=>(
         <figure>
-          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
           <figcaption>
             <strong>{photo.title}</strong>
             <span>{photo.insight}</span>
