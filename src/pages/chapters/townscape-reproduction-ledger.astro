@@ -1,1 +1,233 @@
-placeholder
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const districts = [
+  {
+    id:'takehara',
+    name:'竹原',
+    type:'製塩町',
+    selected:'1982-12-16',
+    area:'5.0 ha',
+    stock:'江戸中期～明治期を中心とする町家群。地区面積5.0ha。',
+    ownership:'2020年度の地域社会調査で、人口減少に伴う空き家・空き地の増加を公式に課題化。地区単位の空き家件数・不在所有率は本台帳では未取得。',
+    repair:'選定後、保存修理・修景事業、無電柱化等を継続。累計修理件数の統一時系列は本台帳では未取得。',
+    use:'市有歴史的建造物について、民間運営導入に向けた社会実験・サウンディングを実施。',
+    localValue:'観光・施設利用が地域雇用、家賃、地元調達へどれだけ残るかは未接続。',
+    reinvest:'公的な保存修理・修景は確認できるが、事業収益から民間修理へ戻る額は未取得。',
+    next:['保存地区内の空き家・空き地件数','年間修理・修景件数と事業費','用途転換件数','民間運営施設の地元雇用・地元調達','利用収益から修理への再投資額'],
+    sources:[
+      ['文化庁｜重伝建一覧','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html'],
+      ['竹原市｜竹原地区伝統的建造物群保存地区','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1/5/2427.html'],
+      ['竹原市｜町並み保存地区地域社会調査','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1/5/2420.html'],
+      ['竹原市｜町並み保存地区','https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/2421.html']
+    ]
+  },
+  {
+    id:'mitarai',
+    name:'御手洗',
+    type:'港町',
+    selected:'1994-07-04',
+    area:'6.9 ha',
+    stock:'商家、茶屋、船宿、住宅、寺社と、大波止・雁木・高燈籠等の港湾遺構が残る。地区面積6.9ha。',
+    ownership:'地区単位の空き家件数、不在所有率、相続未整理件数は本台帳では未取得。',
+    repair:'修理・修景補助制度を継続し、2027年度事業の希望者募集も実施。年度別実施件数・事業費の連続時系列は未取得。',
+    use:'観光案内・歴史的建造物公開等の利用は確認できるが、建物用途別の稼働率は未取得。',
+    localValue:'宿泊・飲食・物販等の所得が地区内所有者・施工者・雇用へ戻る割合は未取得。',
+    reinvest:'公的補助制度は継続。民間収益から維持修理へ戻る額は未取得。',
+    next:['空き家件数・空き家期間','所有者の地区内／地区外比率','年度別修理・修景件数と総事業費','施工者の島内／島外比率','建物用途別稼働率','民間修理負担額'],
+    sources:[
+      ['文化庁｜重伝建一覧','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html'],
+      ['呉市｜御手洗伝統的建造物群保存地区','https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html'],
+      ['呉市｜御手洗地区の修理・修景事業補助金','https://www.city.kure.lg.jp/soshiki/106/mitaraidenkenhojokin.html']
+    ]
+  },
+  {
+    id:'tomo',
+    name:'鞆',
+    type:'港町',
+    selected:'2017-11-28',
+    area:'8.6 ha',
+    stock:'近世港町の地割と、江戸期～昭和30年代の建築・工作物・港湾施設が一体で残る。地区面積8.6ha。',
+    ownership:'鞆てらすで空き家再生活用相談を実施。相談件数、契約成立率、居住・営業開始率の年次時系列は本台帳では未取得。',
+    repair:'修理補助、現状変更許可、防災事業補助を運用。年度別修理件数・民間負担額は未取得。',
+    use:'鞆てらすが保存相談、住民・来訪者交流、観光周遊の複合拠点として機能。',
+    localValue:'飲食・宿泊・物販等の観光消費から、地区内雇用・調達・所有者所得への捕捉率は未取得。',
+    reinvest:'修理・防災への公的支援は確認。空き家再生後の事業収益が次回修理へ戻るかは未計測。',
+    next:['空き家相談件数','相談→賃貸・売買成立率','改修→居住・営業開始率','年度別修理・防災投資額','地域内調達・雇用率','再生物件の再修理積立・維持費'],
+    sources:[
+      ['文化庁｜重伝建一覧','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html'],
+      ['福山市｜鞆町伝統的建造物群保存地区','https://www.city.fukuyama.hiroshima.jp/soshiki/bunka/305509.html']
+    ]
+  },
+  {
+    id:'kurashiki',
+    name:'倉敷川畔',
+    type:'商家町',
+    selected:'1979-05-21',
+    area:'15.0 ha',
+    stock:'倉敷川沿いの町家・土蔵等を中心とする商家町。1998年に13.5haから15.0haへ拡大。',
+    ownership:'固定資産税・都市計画税の減額制度など所有継続を支える制度はあるが、地区内の所有者交代、不在所有、居住継続率の時系列は未取得。',
+    repair:'1979年度から毎年、保存修理事業を継続。防火水槽、無電柱化、街路整備、背景保全等も長期実施。累計修理件数は本台帳では未集計。',
+    use:'生活・商業・観光が重なる成熟地区。用途構成と住民利用／観光利用の比率を共通時系列で把握する余地がある。',
+    localValue:'観光商業の規模は大きいが、地元雇用・地元所有・修理業への還流率は本台帳では未取得。',
+    reinvest:'毎年の保存修理と公共空間・防災への長期投資は確認。民間収益からの再投資額は未接続。',
+    next:['年間修理件数・修理費の累計台帳化','住宅／店舗／宿泊用途比率','所有者交代・不在所有率','地区内雇用・地元調達','民間修理負担額','観光収益と公共・民間再投資の接続'],
+    sources:[
+      ['文化庁｜重伝建一覧','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html'],
+      ['倉敷市｜美観地区の保存の歩み','https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007819/1007821.html'],
+      ['倉敷市｜倉敷川畔','https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007597/1011206/1007790/1007791.html']
+    ]
+  },
+  {
+    id:'tatsuno',
+    name:'龍野',
+    type:'商家町・醸造町',
+    selected:'2019-12-23',
+    area:'15.9 ha',
+    stock:'15.9haの地区内に伝統的建造物292件。町家を中心に、うすくち醤油醸造の町並みを構成。',
+    ownership:'修理・修景希望を所有者・管理責任者から募集。地区全体の空き家率、不在所有率、所有移転件数は本台帳では未取得。',
+    repair:'2020～2024年の5年間で修理・修景11件。2024年度は修理3件。補助率は修理80％、修景60％（上限あり）。',
+    use:'現役の醤油醸造を含む生活・産業市街地。住民向け「コミネット龍野」を継続発行し、保存制度とまちづくりの情報を共有。',
+    localValue:'現役産業・商業との接続は強いが、保存事業が地元施工・雇用・所得へどれだけ波及するかの統一指標は未取得。',
+    reinvest:'修理・修景補助の制度と案件記録が比較的充実。民間事業所得から次回修理への還流は未計測。',
+    next:['292件の状態区分（健全／要修理等）の定期更新','空き家・不在所有率','年間修理件数と修理単価','地元施工者比率','事業者・住民の建物利用継続率','民間維持費・修繕積立'],
+    sources:[
+      ['文化庁｜重伝建一覧','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html'],
+      ['たつの市｜過年度修理・修景事業物件','https://www.city.tatsuno.lg.jp/kanko-bunka-sports/rekishi-bunkazai/zyuudenken/8974.html'],
+      ['たつの市｜修理・修景事業補助金','https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/shuuri_shuukeizigyou/2560.html'],
+      ['たつの市｜コミネット龍野','https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/koremadenotorikumi/2431.html']
+    ]
+  }
+];
+
+const fields = [
+  ['資産ストック','建物総数・状態区分・空地化','年次または3年ごと'],
+  ['所有・居住','空き家、不在所有、相続、居住・営業','年次'],
+  ['修理','修理件数、修理費、補助額、民間負担','年次'],
+  ['修理技能','施工者数、地元施工比率、待機期間','3年ごと'],
+  ['利用','住宅・店舗・宿泊・公共利用、稼働率','年次'],
+  ['地域内価値','地元雇用、地元調達、家賃・売上、住民便益','年次'],
+  ['再投資','民間維持費、防災、公共投資、積立','年次'],
+  ['案件追跡','相談→取得→改修→利用→所得→再修理','案件単位']
+];
+
+const status = (value) => value.includes('未取得') || value.includes('未集計') || value.includes('未接続') || value.includes('未計測') ? 'gap' : value.includes('一部') ? 'partial' : 'known';
+---
+<BaseLayout title="町並み再生産データ台帳 | 研究ノート | SETOUCHI ATLAS" description="竹原・御手洗・鞆・倉敷川畔・龍野について、町並みを再生産するための所有・修理・利用・地域内価値・再投資データを台帳化する。">
+  <section class="place-hero chapter-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">TOWNSCAPE REPRODUCTION LEDGER / v0.1</div>
+    <h1>町並み再生産データ台帳</h1>
+    <p class="subtitle">「何が分かっているか」と「何がまだ測れていないか」を、同じ表に置く。</p>
+    <div class="chapter-thesis">保存状態を採点するのではなく、資産ストック → 所有 → 修理 → 利用 → 地域内価値 → 再投資の循環を、地区ごとに実数と根拠資料で追跡するための初期台帳です。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <div class="kicker">WHY A LEDGER?</div>
+    <h2>制度比較から、実測可能な地域経営へ</h2>
+    <p class="lead">伝建地区には修理補助、許可、防災、景観規制など多くの制度があります。しかし「制度がある」ことと、「町並みを次世代へ再生産できている」ことは同義ではありません。本台帳では、公式資料で確認できる数値・事実だけを先に置き、空白を推測で埋めません。</p>
+    <div class="research-chain"><span>公式実数 → 年次更新 → 空白の特定 → 現地調査・行政照会 → 再生産KPIへ接続</span></div>
+    <p class="map-note">初版：2026-10-01。地区単位の公開データがない項目は「未取得」と表示します。未取得は地区の弱さではなく、次に調べるべきデータ空白です。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">COMMON BASELINE</div>
+    <h2>まず、5地区を同じ基準に揃える</h2>
+    <div class="ledger-grid">
+      {districts.map((d)=>(
+        <article class="ledger-card" id={d.id}>
+          <div class="ledger-card-head"><div><span>{d.type}</span><h3>{d.name}</h3></div><strong>{d.area}</strong></div>
+          <dl>
+            <div><dt>国の選定</dt><dd>{d.selected}</dd></div>
+            <div><dt>資産ストック</dt><dd>{d.stock}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">LEDGER</div>
+    <h2>再生産の循環を、項目ごとに記録する</h2>
+    <div class="ledger-table-wrap">
+      <table class="ledger-table">
+        <thead><tr><th>地区</th><th>所有・居住</th><th>修理</th><th>利用</th><th>地域内価値</th><th>再投資</th></tr></thead>
+        <tbody>
+          {districts.map((d)=>(
+            <tr>
+              <th><a href={`#${d.id}-detail`}>{d.name}</a></th>
+              {[d.ownership,d.repair,d.use,d.localValue,d.reinvest].map((v)=><td><span class={`ledger-status ${status(v)}`}>{status(v)==='gap'?'要取得':'確認済み資料あり'}</span>{v}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">NEXT DATA</div>
+    <h2>地区ごとに、次に取るべき数字を固定する</h2>
+    <div class="gastronomy-case-grid">
+      {districts.map((d)=>(
+        <article class="gastronomy-case-card" id={`${d.id}-detail`}>
+          <div class="kicker">{d.name}</div>
+          <h3>{d.type}</h3>
+          <ol class="ledger-next-list">{d.next.map((x)=><li>{x}</li>)}</ol>
+          <details>
+            <summary>根拠資料</summary>
+            <div class="matrix-source-list">{d.sources.map((s)=><a href={s[1]} target="_blank" rel="noreferrer">{s[0]} ↗</a>)}</div>
+          </details>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">DATA DICTIONARY</div>
+    <h2>今後は、同じ項目を同じ頻度で取る</h2>
+    <div class="ledger-table-wrap compact">
+      <table class="ledger-table compact-table">
+        <thead><tr><th>領域</th><th>最低限の指標</th><th>更新頻度</th></tr></thead>
+        <tbody>{fields.map((f)=><tr><th>{f[0]}</th><td>{f[1]}</td><td>{f[2]}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="lead">特に重要なのは「案件追跡」です。空き家活用件数だけではなく、相談が契約・改修・利用・所得・次回修理までつながったかを追うことで、町並み再生産の循環が実際に閉じているかを確認できます。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">現時点の発見</div></div>
+      <h2>制度データより、所有・民間再投資データが薄い</h2>
+      <div class="research-copy">
+        <p>5地区とも、保存地区の面積、選定時期、修理・修景制度、許可制度などの「行政制度」は比較的追いやすい。一方で、空き家期間、不在所有、用途転換後の事業継続、地元施工、民間維持費、観光・商業収益から修理へ戻る金額は、地区横断で比較できる公開統計が少ない。</p>
+        <p>つまり、町並み再生産を地域経営として測るには、文化財行政の統計だけでは足りません。不動産、商業、観光、施工、人材、住民生活のデータを建物・案件単位で接続する必要があります。</p>
+      </div>
+    </article>
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>「修理件数」より「再投資が閉じる割合」を測る</h2>
+      <div class="research-copy"><p>長期的には、年間修理件数だけでなく、利用によって生まれた家賃・事業所得・公共便益の一部が、建物修理、防災、技能継承へ戻る割合を測る必要があります。これが町並みを「観光消費される資産」から「再生産される地域資産」へ分ける指標になる可能性があります。</p></div>
+      <div class="research-chain"><span>再投資閉鎖率（仮） = 再生産に戻った民間・公共投資 ÷ 地域資産から生まれた地域内価値</span></div>
+    </article>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/townscape-reproduction-dashboard/">町並み再生産ダッシュボード →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/townscape-preservation/">伝建地区の保存ノウハウ比較 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">地域資産再生産モデル →</a>
+    </div>
+  </section>
+
+  <style>
+    .ledger-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.2rem}
+    .ledger-card{border:1px solid var(--line,#ddd);border-radius:16px;padding:1.1rem;background:var(--paper,#fff)}
+    .ledger-card-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.ledger-card-head span{font-size:.75rem;opacity:.65}.ledger-card-head h3{margin:.2rem 0}.ledger-card-head strong{white-space:nowrap}
+    .ledger-card dl{margin:1rem 0 0}.ledger-card dl div{border-top:1px solid var(--line,#ddd);padding:.6rem 0}.ledger-card dt{font-size:.75rem;opacity:.65}.ledger-card dd{margin:.25rem 0 0}
+    .ledger-table-wrap{overflow-x:auto;margin-top:1rem;border:1px solid var(--line,#ddd);border-radius:14px}.ledger-table{border-collapse:collapse;min-width:1450px;width:100%;font-size:.84rem;line-height:1.55}.ledger-table.compact-table{min-width:760px}.ledger-table th,.ledger-table td{padding:.85rem;vertical-align:top;border-right:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd)}.ledger-table thead th{background:var(--paper,#fff);text-align:left;white-space:nowrap}.ledger-table tbody th{text-align:left;min-width:100px}
+    .ledger-status{display:block;width:max-content;font-size:.7rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;margin-bottom:.45rem}.ledger-status.known{background:#e5f2e8}.ledger-status.partial{background:#f4edd9}.ledger-status.gap{background:#ececec}
+    .ledger-next-list{padding-left:1.2rem}.ledger-next-list li{margin:.4rem 0}.matrix-source-list{display:grid;gap:.45rem;margin-top:.75rem}
+    @media(max-width:720px){.ledger-table{font-size:.79rem}.ledger-grid{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>
