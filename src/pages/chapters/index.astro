@@ -14,7 +14,7 @@ import { researchChapters } from '../../data/researchChapters.js';
 
   <section class="section research-notes-index">
     <h2>瀬戸内は、なぜこの形になったのか</h2>
-    <p class="lead">ここでは結論を並べるのではなく、複数の地域を比較しながら「なぜそうなったのか」を検証します。新しい資料や比較によって、解釈は更新されます。</p>
+    <p class="lead">ここでは結論を並べるのではなく、エッセイや現地観察から生まれた仮説を、複数地域の比較、統計、史料、地図、時系列から検証します。検証結果は再びエッセイへ戻し、地域の読み方そのものを更新していきます。</p>
 
     <div class="chapter-spine research-note-grid">
       {researchChapters.map((chapter)=>(
@@ -57,20 +57,24 @@ import { researchChapters } from '../../data/researchChapters.js';
 
   <section class="section research-note-method">
     <h2>研究ノートの読み方</h2>
-    <p class="lead">地域エッセイが一つの町や一つの問いを深く読む読み物だとすれば、研究ノートは複数地域を横断する比較と仮説検証です。基礎データや史料に戻りながら、事実・解釈・仮説を分けて因果関係を考えます。</p>
+    <p class="lead">エッセイが現地の風景や違和感から問いを立て、説明仮説を組み立てる場だとすれば、研究ノートはその仮説を横断比較とデータで検証する場です。事実・解釈・仮説を分け、反証や例外も含めて因果関係を考え、その結果を次のエッセイと次の問いへ返します。</p>
     <div class="research-note-role-grid">
       <article>
-        <strong>地域エッセイ</strong>
-        <p>一つの地域から「なぜ？」を追う。</p>
+        <strong>エッセイ</strong>
+        <p>一つの地域や風景から「なぜ？」を立て、仮説をつくる。</p>
       </article>
       <article>
         <strong>研究ノート</strong>
-        <p>複数地域を比べ、共通構造と違いを考える。</p>
+        <p>複数地域を比べ、仮説を検証・修正する。</p>
       </article>
       <article>
         <strong>データ集</strong>
         <p>気候・地形・交通・産業などの根拠を確かめる。</p>
       </article>
+    </div>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">エッセイへ戻る →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論を見る →</a>
     </div>
   </section>
 </BaseLayout>
