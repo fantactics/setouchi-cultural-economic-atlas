@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const assetTypes = [
+  {
+    type:'自然・生業資産',
+    example:'魚介・漁場・農地・水・森林',
+    stock:'資源量、生態系、生産環境',
+    custodian:'漁業者、農業者、加工業者',
+    use:'漁獲・生産・加工・食文化',
+    reinvest:'資源管理、設備、担い手育成',
+    failure:'採りすぎ・環境悪化・担い手退出で、資産そのものが痩せる。'
+  },
+  {
+    type:'歴史・建築資産',
+    example:'町家、港町景観、寺社、伝建地区',
+    stock:'建物群、街路、景観、空間構成',
+    custodian:'所有者、住民、職人、行政',
+    use:'居住、商業、宿泊、公共利用',
+    reinvest:'修理・修景、防災、所有継承',
+    failure:'使われず直されなければ、形は残っても再生産が止まる。'
+  },
+  {
+    type:'インフラ・ネットワーク資産',
+    example:'港、航路、サイクルルート、街道',
+    stock:'道路、橋、港湾、案内、交通接続',
+    custodian:'自治体、交通事業者、地域事業者',
+    use:'移動、観光、物流、交流',
+    reinvest:'維持更新、安全、接続改善、公共空間',
+    failure:'利用者だけ増えて維持費が戻らなければ、地域側の負担が累積する。'
+  },
+  {
+    type:'無形・関係資産',
+    example:'料理、祭礼、技能、語り、ブランド',
+    stock:'知識、記憶、信頼、意味づけ',
+    custodian:'家庭、職人、地域組織、学校、事業者',
+    use:'日常実践、教育、祭礼、商品・サービス',
+    reinvest:'継承機会、学習、実践の場、所得',
+    failure:'記録だけ残り、実践頻度が下がると「展示された文化」になる。'
+  }
+];
+
+const commonCycle = [
+  ['01','資産ストック','何を次世代へ残すのか。自然資源、建物、インフラ、技能、記憶を把握する。'],
+  ['02','担い手','誰が管理・修理・利用・継承するのか。所有者だけでなく職人、事業者、住民まで見る。'],
+  ['03','利用・接触','資産が日常、仕事、観光、教育の中で使われ続けているか。'],
+  ['04','価値化','利用が所得、便益、誇り、学習、交流などの価値へ変換されているか。'],
+  ['05','地域内捕捉','生まれた価値のどれだけが地域の生産者、所有者、事業者、公共部門へ戻るか。'],
+  ['06','再投資','修理、資源管理、人材育成、設備更新、防災へ資金と労力が戻るか。'],
+  ['07','適応・更新','人口減少、気候変動、観光圧、技術変化に応じて使い方や制度を変えられるか。']
+];
+
+const comparisons = [
+  {
+    title:'食文化｜資源と実践が毎年更新される資産',
+    chain:'魚介・農産物 → 生産者 → 加工 → 料理 → 消費 → 所得 → 資源管理・担い手',
+    insight:'食文化は「毎年つくり直す」必要がある。レシピを保存しても、資源・担い手・食べる機会が切れれば再生産されない。',
+    link:'/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/'
+  },
+  {
+    title:'町並み｜修理と利用を繰り返す資産',
+    chain:'歴史的建造物 → 所有・利用 → 事業・生活 → 所得・公共支援 → 修理・防災 → 次の利用',
+    insight:'建物は一度保存すれば終わりではない。所有者、職人、用途、資金が周期的に更新される必要がある。',
+    link:'/setouchi-cultural-economic-atlas/chapters/townscape-preservation/'
+  },
+  {
+    title:'サイクルルート｜利用増を地域の再投資へ戻す資産',
+    chain:'道路・橋・景観 → 来訪 → 飲食・宿泊・移動 → 地域所得 → 安全・景観・施設更新 → 次の利用',
+    insight:'来訪者数が増えても、地域内消費と再投資が弱ければ「利用されるが育たない資産」になる。',
+    link:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'
+  }
+];
+
+const failureModes = [
+  ['保存だけ','規制・記録・修理は行うが、利用・所得・担い手が再生産されない。'],
+  ['消費だけ','観光客や市場需要は増えるが、資源・景観・生活環境への再投資が追いつかない。'],
+  ['外部流出','売上は立つが、原料・雇用・所有・利益が地域外へ流れ、地域資産の維持能力が高まらない。'],
+  ['補助金依存','公的支援が途切れると修理・活動も止まり、自律的な循環が形成されない。'],
+  ['固定化','「本物らしさ」を守ることが目的化し、人口・暮らし・需要変化への適応を拒む。'],
+  ['過剰利用','観光圧や採取圧が資源、住民生活、景観、インフラを摩耗させる。']
+];
+
+const dashboard = [
+  ['資産ストック','資源量、建物状態、景観、施設状態、技能保有者','資産そのものは減っていないか'],
+  ['担い手','所有者、就業者、職人、後継者、新規参入','管理する人が次世代へ続くか'],
+  ['利用・接触','住民利用、来訪者、提供店、稼働率、行事頻度','使われ続けているか'],
+  ['地域内価値','地域内調達、地元雇用、付加価値、住民便益','利用が地域の価値へ変わるか'],
+  ['再投資','修理費、資源管理費、防災、教育、設備更新','価値が資産へ戻っているか'],
+  ['適応力','用途転換、制度改定、新規事業、気候・災害対応','変化しながら継承できるか']
+];
+
+const sources = [
+  ['UNESCO｜Recommendation on the Historic Urban Landscape','https://www.unesco.org/en/legal-affairs/recommendation-historic-urban-landscape-including-glossary-definitions'],
+  ['文化庁｜伝統的建造物群保存地区','https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/'],
+  ['Council of Europe｜Faro Convention','https://www.coe.int/en/web/culture-and-heritage/faro-convention']
+];
+---
+<BaseLayout title="地域資産は、どうすれば消費されず再生産されるのか | 研究ノート | SETOUCHI ATLAS" description="食文化、町並み、サイクルルートを横断し、地域資産を利用・価値化・再投資する地域経営モデルを考える。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">REGIONAL ASSET REPRODUCTION</div>
+    <h1>地域資産は、どうすれば<br/>消費されず再生産されるのか</h1>
+    <p class="subtitle">「残す」と「使う」の間に、地域経営がある。</p>
+    <div class="chapter-thesis">地域資産は、保存するだけでも、利用するだけでも持続しない。利用によって生まれた価値が地域内に残り、その一部が資産・担い手・制度へ再投資されるとき、初めて次世代へ再生産される。</div>
+  </section>
+
+  <section class="section chapter-intro">
+    <h2>食文化と町並みは、実は同じ問題を抱えている</h2>
+    <p class="lead">魚は毎年獲り直し、料理は毎回つくり直します。町並みは何十年ごとに屋根や壁を直し、所有者と用途を引き継ぎます。時間尺度は違いますが、どちらも「資産が存在すること」と「資産を維持する社会システムが存在すること」は別問題です。</p>
+    <p class="lead">UNESCOのHistoric Urban Landscapeの考え方も、歴史地区を固定された過去ではなく、自然・建築・社会・文化・経済が重なる動的な都市環境として捉え、保存を地域の持続的発展と統合することを求めています。文化庁の伝建制度も、修理・修景・防災等を通じた継続的な保存活用を前提としています。</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">CORE MODEL</div>
+    <h2>地域資産の再生産サイクル</h2>
+    <div class="research-chain"><span>資産ストック → 担い手 → 利用・接触 → 価値化 → 地域内捕捉 → 再投資 → 適応・更新 → 次の資産ストック</span></div>
+    <p class="lead">この循環の重要な点は、観光客数や売上を終点にしないことです。売上や便益が、資源管理、修理、技能継承、防災、公共空間、次世代の事業へ戻るかまで見ます。</p>
+  </section>
+
+  <section class="section chapter-body">
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">分析フレーム</div></div>
+      <h2>7つの段階で「再生産」を見る</h2>
+      <div class="region-layer-grid">
+        {commonCycle.map(([step,title,body])=>(
+          <article class="region-layer-card">
+            <span>{step}</span><h3>{title}</h3><p>{body}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">類型</div></div>
+      <h2>地域資産は、種類によって再生産の仕方が違う</h2>
+      <div class="gastronomy-case-grid">
+        {assetTypes.map((asset)=>(
+          <article class="gastronomy-case-card">
+            <div class="kicker">{asset.type}</div>
+            <h3>{asset.example}</h3>
+            <p><strong>資産ストック</strong><br/>{asset.stock}</p>
+            <p><strong>担い手</strong><br/>{asset.custodian}</p>
+            <p><strong>利用</strong><br/>{asset.use}</p>
+            <p><strong>再投資</strong><br/>{asset.reinvest}</p>
+            <p class="gastronomy-case-point">{asset.failure}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">比較</div></div>
+      <h2>食・町並み・サイクルルートを同じ式で読む</h2>
+      <div class="gastronomy-case-grid">
+        {comparisons.map((item)=>(
+          <article class="gastronomy-case-card">
+            <h3>{item.title}</h3>
+            <div class="research-chain"><span>{item.chain}</span></div>
+            <p>{item.insight}</p>
+            <a class="compare-button secondary" href={item.link}>関連研究を見る →</a>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">仮説</div></div>
+      <h2>「価値がある」だけでは、資産は残らない</h2>
+      <div class="research-copy">
+        <p>地域資産の持続性は、文化的価値や観光人気だけでは決まりません。資産そのものの健全性、担い手、地域内で価値を捕捉する力、再投資、変化への適応が同時に必要です。</p>
+      </div>
+      <div class="chapter-thesis">地域資産の再生産力 ≒ 資産の健全性 × 担い手再生産 × 地域内価値捕捉 × 再投資 × 適応力</div>
+      <p class="lead">掛け算として置くのは、どれか一つが極端に弱いと循環全体が止まりやすいからです。これは厳密な数式ではなく、地域経営上の診断仮説です。</p>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">失敗モード</div></div>
+      <h2>地域資産が「消費される」6つのパターン</h2>
+      <div class="preservation-axis-grid">
+        {failureModes.map(([title,body],index)=>(
+          <article class="preservation-axis-card"><span>{String(index+1).padStart(2,'0')}</span><h3>{title}</h3><p>{body}</p></article>
+        ))}
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">地域経営KPI</div></div>
+      <h2>観光客数ではなく「循環」を測る</h2>
+      <div class="matrix-table-wrap">
+        <table class="matrix-table">
+          <thead><tr><th>領域</th><th>指標例</th><th>問い</th></tr></thead>
+          <tbody>
+            {dashboard.map((row)=>(<tr>{row.map((cell)=><td>{cell}</td>)}</tr>))}
+          </tbody>
+        </table>
+      </div>
+      <p class="lead">食文化再生産ダッシュボードと同様、最初から一つの総合点にせず、どの循環が弱いかを見る方が実務的です。地域ごとに資産の種類と時間尺度が異なるため、KPIは共通軸を保ちながら現地仕様へ調整します。</p>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge interpretation">含意</div></div>
+      <h2>保存政策と産業政策を分けすぎない</h2>
+      <div class="research-copy">
+        <p>町家の修理は文化財政策、漁業者支援は水産政策、観光消費は観光政策、道路整備は土木政策として別々に扱われがちです。しかし、地域資産の再生産という視点に立つと、これらは一つの循環の異なる部分です。</p>
+        <p>文化遺産を地域社会の文化・社会・経済の動態と結びつけるFaro Conventionや、保存と地域開発を統合するUNESCOのHistoric Urban Landscapeは、この方向と親和的です。SETOUCHI ATLASでは、さらに自然資源・生業・インフラまで同じ再生産フレームへ広げます。</p>
+      </div>
+    </article>
+
+    <article class="research-section">
+      <div class="research-section-head"><div class="claim-badge hypothesis">次の検証</div></div>
+      <h2>「再生産される地域」と「消費される地域」を比較する</h2>
+      <p class="lead">次段階では、竹原・御手洗・鞆・倉敷・龍野などの町並みと、下津井・伊吹島・広島湾の食文化を同じダッシュボードで比較します。見るのは人気の大小ではなく、利用によって生まれた価値が資産へ戻っているかです。</p>
+      <div class="chapter-related-grid">
+        <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/">食文化ダッシュボード →</a>
+        <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/townscape-preservation/">町並み保存研究 →</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="section sources-section">
+    <div class="kicker">SOURCES</div>
+    <h2>参照資料</h2>
+    <div class="source-list">
+      {sources.map(([label,url])=><a href={url} target="_blank" rel="noreferrer">{label}</a>)}
+    </div>
+  </section>
+</BaseLayout>
