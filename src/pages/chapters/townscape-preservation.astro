@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoEvidence } from '../../data/photoEvidence.js';
+
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const fieldPhotos=[
+  photoById['photo-takehara-view'],
+  photoById['photo-tomonoura-port'],
+  photoById['photo-mitarai-panorama']
+].filter(Boolean);
+
+const districts=[
+  {
+    name:'龍野',prefecture:'兵庫県たつの市',visited:true,type:'生活・産業共存型',
+    pressure:'生活市街地として使い続けながら、醤油醸造など地域産業と歴史的景観を継承する。',
+    institution:'現状変更の許可と、伝統的建造物の修理・非伝統的建造物の修景を組み合わせる。',
+    management:'「コミネット龍野」を継続発行し、制度の動向や話し合いの過程を住民と共有する。',
+    question:'保存制度を、住民の日常的な合意形成へどう埋め込むか。'
+  },
+  {
+    name:'倉敷川畔',prefecture:'岡山県倉敷市',visited:true,type:'成熟管理型',
+    pressure:'観光・商業利用が強い中で、地区内部だけでなく周辺景観まで長期的に管理する。',
+    institution:'伝建地区に加え、背景地区を指定して周辺の建築行為にも協議・同意を求める。',
+    management:'数十年にわたり条例、修理、防災、街路・景観施策を積み重ねる。',
+    question:'保存地区を「点」ではなく都市景観全体として管理するには何が必要か。'
+  },
+  {
+    name:'竹原',prefecture:'広島県竹原市',visited:true,type:'保存＋再利用型',
+    pressure:'人口減少、高齢化、空き家・空き地増加により町並みの連続性が失われる。',
+    institution:'修理・修景と現状変更許可に加え、保存地区周辺を含む地域社会調査を実施。',
+    management:'市有歴史的建造物への民間運営導入を社会実験・市場調査で検討する。',
+    question:'保存費用を支える新しい利用と事業を、歴史的価値を壊さずどう導入するか。'
+  },
+  {
+    name:'鞆',prefecture:'広島県福山市',visited:true,type:'生活・観光・防災統合型',
+    pressure:'狭い街路に生活交通と観光が重なり、木造町並み特有の防災課題も抱える。',
+    institution:'現状変更許可、修理補助、防災計画、防災事業補助を組み合わせる。',
+    management:'「鞆てらす」で修理、許可申請、空き家再生活用の相談を一体的に受ける。',
+    question:'文化財行政・防災・空き家対策・観光管理を一つの現場でどう束ねるか。'
+  },
+  {
+    name:'御手洗',prefecture:'広島県呉市',visited:true,type:'島嶼縮小型',
+    pressure:'島嶼部の人口減少と所有者負担の中で、港町景観を面的に維持する必要がある。',
+    institution:'伝統的建造物は修理、その他の建物は修景。いずれも基準に沿って町並みを整える。',
+    management:'修理・修景とも補助対象とし、単体文化財ではなく地区景観の連続性を維持する。',
+    question:'人口が減っても、町並みを構成する建物群を誰が直し続けるのか。'
+  },
+  {
+    name:'笠島',prefecture:'香川県丸亀市',visited:false,type:'島嶼継承型',
+    pressure:'小規模な島嶼集落で、居住人口・所有者・修理技能・資材調達を同時に維持する必要がある。',
+    institution:'1985年の重伝建選定から40年を機に、2026年3月に新しい保存活用計画を策定。',
+    management:'今後の現地調査で、所有・利用・施工体制・地域組織の実態を確認する。',
+    question:'極小規模の歴史集落を「住み続けられる場所」として維持できるか。'
+  },
+  {
+    name:'柳井・古市金屋',prefecture:'山口県柳井市',visited:false,type:'商家町・周辺管理型',
+    pressure:'小さな保存地区だけを守っても、周辺建物の更新で歴史景観全体が損なわれ得る。',
+    institution:'保存地区周辺にも修景補助制度を設け、地区計画と合わせて景観形成を図る。',
+    management:'今後の現地調査で、商家の所有継承・店舗利用・周辺部との連続性を確認する。',
+    question:'保存区域の境界を越えて、歴史地区の「背景」までどう管理するか。'
+  }
+];
+
+const managementAxes=[
+  ['01','規制','何を残すか','現状変更、除却、新築、外観変更をどこまで制御するか。'],
+  ['02','資金','誰が直すか','修理・修景費用を所有者、自治体、国がどう分担するか。'],
+  ['03','技術','誰が直せるか','大工、左官、瓦、建具など伝統技術と施工者をどう確保するか。'],
+  ['04','所有','誰が持ち続けるか','相続、共有、不在所有者、空き家をどう扱うか。'],
+  ['05','利用','何に使うか','住宅、店舗、宿泊、公共施設などへどう転用するか。'],
+  ['06','防災','どう失わないか','火災、地震、高潮、白蟻等から面的景観をどう守るか。'],
+  ['07','地域運営','誰が決めるか','行政、住民、保存会、事業者の役割をどう分担するか。'],
+  ['08','経済循環','どう再投資するか','観光・事業収益を修理と地域維持へどう戻すか。']
+];
+
+const sources=[
+  {label:'文化庁｜伝統的建造物群保存地区制度',url:'https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/'},
+  {label:'たつの市｜修理、修景事業補助金について',url:'https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/shuuri_shuukeizigyou/2560.html'},
+  {label:'たつの市｜コミネット龍野',url:'https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/koremadenotorikumi/2431.html'},
+  {label:'倉敷市｜倉敷川畔伝統的建造物群保存地区背景保全条例',url:'https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007819/1007879/1007885.html'},
+  {label:'竹原市｜町並み保存地区',url:'https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/2421.html'},
+  {label:'竹原市｜町並み保存地区地域社会調査',url:'https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1/5/2420.html'},
+  {label:'福山市｜鞆町伝統的建造物群保存地区',url:'https://www.city.fukuyama.hiroshima.jp/soshiki/bunka/305509.html'},
+  {label:'呉市｜御手洗地区の修理・修景事業補助金',url:'https://www.city.kure.lg.jp/soshiki/106/mitaraidenkenhojokin.html'},
+  {label:'丸亀市｜笠島重要伝統的建造物群保存地区',url:'https://www.city.marugame.lg.jp/page/1011.html'},
+  {label:'柳井市｜柳井市景観計画（古市金屋周辺地区）',url:'https://www.city-yanai.jp/uploaded/attachment/2791.pdf'}
+];
+---
+<BaseLayout title="町並みは、どうすれば残り続けるのか | 研究ノート | SETOUCHI ATLAS" description="伝建地区を、建築保存ではなく地域資産を再生産する経営システムとして比較する。">
+  <section class="preservation-hero">
+    <div class="preservation-hero-copy">
+      <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+      <span class="preservation-kicker">RESEARCH NOTE / HERITAGE MANAGEMENT</span>
+      <h1>町並みは、<br/>どうすれば残り続けるのか</h1>
+      <p>伝建地区を「古い建物を残す制度」としてではなく、所有・資金・修理技能・利用・住民合意・経済循環を維持する<strong>地域経営システム</strong>として比較します。</p>
+    </div>
+    <div class="preservation-thesis">
+      <span>仮説</span>
+      <strong>保存とは、過去の形を固定することではない。</strong>
+      <p>歴史的建造物が使われ、直され、所有され、その費用を支える活動が次の世代へ循環する状態をつくることである。</p>
+    </div>
+  </section>
+
+  {fieldPhotos.length > 0 && (
+    <section class="preservation-photo-strip" aria-label="実見済み地区の写真">
+      {fieldPhotos.map((photo)=>(
+        <figure>
+          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+          <figcaption>{photo.title}<small>Photo: {photo.author}</small></figcaption>
+        </figure>
+      ))}
+    </section>
+  )}
+
+  <section class="section preservation-intro">
+    <span class="region-layer-label research">問題設定</span>
+    <h2>「保存できたか」ではなく、「保存し続けられるか」</h2>
+    <div class="preservation-prose">
+      <p>伝統的建造物群保存地区制度では、市町村が保存条例に基づいて保存活用計画を定め、国は価値の高い地区を重要伝統的建造物群保存地区に選定します。修理・修景、防災設備などには公的支援があります。</p>
+      <p>しかし、制度指定だけで町並みが持続するわけではありません。建物には所有者が必要で、修理には資金と職人が必要です。空き家になれば新しい利用者が必要になり、観光客が増えれば生活環境との調整が必要になります。</p>
+      <p>そこで本ノートでは、町並み保存を<strong>「地域資産の再生産」</strong>として読み直します。</p>
+    </div>
+    <div class="preservation-loop" aria-label="地域資産の再生産サイクル">
+      <span>歴史的地域資産</span><b>→</b><span>保存制度</span><b>→</b><span>修理・修景</span><b>→</b><span>所有・利用</span><b>→</b><span>事業・生活</span><b>→</b><span>収益・公共投資</span><b>→</b><span>再修理</span>
+    </div>
+  </section>
+
+  <section class="section preservation-axes-section">
+    <span class="region-layer-label research">分析フレーム</span>
+    <h2>保存ノウハウを8つに分解する</h2>
+    <p class="lead">補助金額だけを比較しても、保存の実力は分かりません。地区を維持する機能を8層に分けます。</p>
+    <div class="preservation-axis-grid">
+      {managementAxes.map(([no,label,question,description])=>(
+        <article>
+          <span>{no}</span>
+          <small>{label}</small>
+          <h3>{question}</h3>
+          <p>{description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section preservation-comparison-section">
+    <div class="preservation-heading-row">
+      <div>
+        <span class="region-layer-label research">比較研究</span>
+        <h2>第一期・7地区比較</h2>
+      </div>
+      <p><strong>実見済み 5地区</strong>／次回調査 2地区</p>
+    </div>
+    <div class="preservation-table-wrap">
+      <table class="preservation-table">
+        <thead>
+          <tr><th>地区</th><th>類型</th><th>主な保存圧力</th><th>制度・手段</th><th>運営ノウハウ</th><th>次に問うこと</th></tr>
+        </thead>
+        <tbody>
+          {districts.map((district)=>(
+            <tr class:list={{'fieldwork-pending':!district.visited}}>
+              <th>
+                <strong>{district.name}</strong>
+                <small>{district.prefecture}</small>
+                <em>{district.visited ? '実見済み' : '現地調査予定'}</em>
+              </th>
+              <td>{district.type}</td>
+              <td>{district.pressure}</td>
+              <td>{district.institution}</td>
+              <td>{district.management}</td>
+              <td>{district.question}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section preservation-types-section">
+    <span class="region-layer-label research">暫定類型</span>
+    <h2>保存地区が受ける「圧力」が違えば、必要な技術も違う</h2>
+    <div class="preservation-type-grid">
+      <article>
+        <span>01 / SHRINKAGE</span>
+        <h3>衰退圧力から守る</h3>
+        <strong>御手洗・笠島・竹原</strong>
+        <p>人口減少、空き家、不在所有、修理負担によって建物そのものが失われる。核心は「使う人・持つ人・直す人」をつなぎ直すこと。</p>
+      </article>
+      <article>
+        <span>02 / LIVING CITY</span>
+        <h3>生活・産業と共存させる</h3>
+        <strong>龍野・柳井・鞆</strong>
+        <p>歴史地区を博物館化せず、住宅・店舗・交通・地域産業を残す。保存ルールと生活上の更新要求を調整する能力が必要になる。</p>
+      </article>
+      <article>
+        <span>03 / DEVELOPMENT</span>
+        <h3>観光・開発圧力から守る</h3>
+        <strong>倉敷（将来：宮島・北野）</strong>
+        <p>建物が使われないのではなく、利用価値が高すぎることが問題になる。用途転換、看板、建築ボリューム、周辺景観を含む面的管理が重要になる。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section preservation-fieldwork-section">
+    <span class="region-layer-label research">次回現地調査</span>
+    <h2>笠島・柳井で見るべきこと</h2>
+    <div class="preservation-fieldwork-grid">
+      <article>
+        <span>塩飽本島・笠島</span>
+        <h3>島嶼縮小社会で、誰が保存を担うのか</h3>
+        <ul>
+          <li>常住人口と空き家の分布、週末利用・二地域居住の有無</li>
+          <li>修理工事の施工者は島内か島外か。資材搬入コストはどうか</li>
+          <li>所有者不在・相続未整理物件が保存を妨げていないか</li>
+          <li>公開住宅・店舗・宿泊等への転用がどこまで成立しているか</li>
+          <li>2026年保存活用計画が、従来の保存から何を変えようとしているか</li>
+        </ul>
+      </article>
+      <article>
+        <span>柳井・古市金屋</span>
+        <h3>保存地区の「外側」をどう守るのか</h3>
+        <ul>
+          <li>保存地区1.7haと周辺市街地の景観連続性</li>
+          <li>周辺修景補助によって、実際にどの範囲まで景観が誘導されているか</li>
+          <li>商家の所有が世代継承されているか、売買・賃貸へ移っているか</li>
+          <li>住宅・店舗・観光施設の用途構成と昼夜人口</li>
+          <li>甘露醤油等の現役産業が町並み保存とどう結び付いているか</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section preservation-conclusion">
+    <span class="region-layer-label research">暫定結論</span>
+    <h2>文化財保存から「地域資産経営」へ</h2>
+    <div class="preservation-prose">
+      <p>歴史的町並みは、過去の地域経済が建物・街路・土地へ固定された資本です。しかし、固定資産は維持しなければ劣化します。</p>
+      <p>したがって保存政策の核心は、建築規制だけではなく、<strong>所有権、資金、技能、利用、地域組織、事業収益を循環させる制度設計</strong>にあります。</p>
+      <p>この視点に立つと、伝建地区は文化財行政の特殊分野ではありません。人口減少時代に地域資産をどう次世代へ渡すかという、地域経営そのものの実験場として読むことができます。</p>
+    </div>
+  </section>
+
+  <section class="section preservation-sources">
+    <h2>主な資料</h2>
+    <p class="lead">制度・事業に関する記述は、文化庁および各自治体の公開資料を基礎にしています。比較類型と「地域資産の再生産」という整理は本アトラスの分析です。</p>
+    <div class="source-list">
+      {sources.map((source)=><a class="source-link" href={source.url} target="_blank" rel="noreferrer"><span>{source.label}</span><small>公式資料 ↗</small></a>)}
+    </div>
+  </section>
+</BaseLayout>
