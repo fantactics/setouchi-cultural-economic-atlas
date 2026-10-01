@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="瀬戸内ワット・ビット地理 | SETOUCHI ATLAS"
+  description="瀬戸内の電力・通信・データセンター・工業基盤・AI需要を地域スケールで重ね、21世紀の産業地理として読む。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">WATT × BIT / INDUSTRIAL GEOGRAPHY</p>
+    <h1>瀬戸内ワット・ビット地理</h1>
+    <p class="subtitle">港湾産業地図から、電力と通信の産業地図へ。</p>
+    <p class="lead">近代瀬戸内の産業立地は、港・鉱山・塩田・工業用水・臨海工業地帯を軸に形成された。AI時代には、そこへ大容量電力、光通信、GPU計算資源、クラウド接続、地域側のAI需要が加わる。本ノートでは、瀬戸内の産業地理を「ワット」「ビット」「コンピュート」「需要」の4層として重ね直す。</p>
+  </section>
+
+  <section class="section">
+    <h2>問い｜AI時代の「港」は何か</h2>
+    <p>工業化の時代、港は原料と製品を出し入れする結節点だった。AI時代の結節点は、物質ではなく電力とデータを受け入れ、計算能力へ変換する場所である。</p>
+    <div class="process-chain"><span>発電・系統</span><b>→</b><span>変電・受電</span><b>→</b><span>光通信</span><b>→</b><span>GPU/DC</span><b>→</b><span>AI利用</span><b>→</b><span>新産業</span></div>
+    <p>したがって、現代の産業立地を読むには「発電所があるか」でも「光回線があるか」でも足りない。<strong>ワットとビットが同じ地域で接続できるか</strong>、さらにその計算資源を使う産業・大学・行政・スタートアップが存在するかまで見る必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜4つのレイヤーで読む</h2>
+    <div class="research-note-role-grid">
+      <article><strong>WATT｜電力</strong><p>基幹系統、ローカル系統、受電可能性、系統増強、再エネ、非常用電源。AI DCの立地速度を最も左右しやすい。</p></article>
+      <article><strong>BIT｜通信</strong><p>光ファイバー、異経路化、キャリア数、大都市DCへの専用線、クラウド直結。大量の計算結果を外部へ出すための物流網。</p></article>
+      <article><strong>COMPUTE｜計算</strong><p>GPU DC、既存企業向けDC、クラウド接続、ストレージ。電力と通信が「計算能力」に変換される層。</p></article>
+      <article><strong>DEMAND｜需要</strong><p>製造業、半導体、化学、物流、行政、大学、医療、スタートアップ。計算資源を地域産業へ接続する需要層。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>02｜WATTレイヤー――系統はすでに「読むことができる」</h2>
+    <p>中国電力ネットワークは、岡山・広島・山口について、基幹系統とローカル系統の系統構成、送電線、変圧器、潮流実績等を公開している。四国電力送配電も、187kV以上の基幹系統と香川・愛媛等のローカル系統について、系統構成、予想潮流、空容量を公開している。</p>
+    <p>さらに四国電力送配電は、大規模需要向けに変電所・送電線の空容量を示す「ウェルカムゾーンマップ」を公開している。これはAI DC立地を「発電所の近さ」ではなく、<strong>大規模需要をいつ・どの程度受けられるか</strong>で見るための重要な一次情報になる。</p>
+    <div class="process-chain"><span>発電能力</span><b>≠</b><span>接続可能容量</span><b>→</b><span>変電所・送電線空容量</span><b>→</b><span>接続検討</span></div>
+  </section>
+
+  <section class="section">
+    <h2>03｜BITレイヤー――瀬戸内の「デジタル港」</h2>
+    <p>中国地方では、エネコムが中国地方に張り巡らせた光ファイバー網を基盤に、広島・岡山のデータセンターと法人通信サービスを展開している。EneWings広島データセンターでは異なる変電所からの2系統受電に加え、メガクラウドとの直接接続を広島で提供している。</p>
+    <p>四国側では、STNetのPowericoが異なる変電所から2系統受電し、異なる通信局舎から異経路で回線を引き込む。加えてアルテリア・ネットワークスは2025年度下期から瀬戸大橋経由で自社光ネットワークを四国へ延伸し、四国と東京・大阪の主要データセンターを結ぶ100Gbps専用線環境を整備している。</p>
+    <p>このため瀬戸大橋は、道路・鉄道だけでなく、<strong>本州と四国を結ぶデジタル回廊</strong>としても意味を持ち始めている。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜COMPUTEレイヤー――点だったDCが、地域ノードになる</h2>
+    <div class="table-wrap"><table><thead><tr><th>ノード</th><th>確認できる計算基盤</th><th>地域地理上の意味</th></tr></thead><tbody>
+      <tr><td><strong>香川</strong></td><td>Powerico、高松GPU DC、綾川GPU DC</td><td>BCP型DCとGPU型DCが重なり、AIファクトリー政策まで接続。</td></tr>
+      <tr><td><strong>広島</strong></td><td>EneWings広島DC、クラウド直接接続</td><td>中国地方の既存ICTハブ。企業系DCからAI基盤への拡張余地。</td></tr>
+      <tr><td><strong>三原</strong></td><td>本郷産業団地の大型DC計画</td><td>大規模アンカー投資から周辺インフラを形成するモデル。</td></tr>
+      <tr><td><strong>岡山</strong></td><td>既存企業向けDC群</td><td>中国地方東部のBCP・企業システム需要を支える既存ノード。</td></tr>
+      <tr><td><strong>愛媛</strong></td><td>再エネ活用GDC、NVIDIA B200等</td><td>巨大集積ではなく、地方分散型GPU計算資源の実装。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>05｜DEMANDレイヤー――DCを「飛び地」にしない条件</h2>
+    <p>計算資源が存在しても、地域産業とつながらなければ地域経済への波及は限定的である。瀬戸内には、化学、水島・周南コンビナート、半導体、造船、自動車、物流、素材産業など、AI利用余地の大きい産業が連続している。</p>
+    <p>したがって瀬戸内のAI産業政策は、「DCを誘致する」より、<strong>既存製造業のAI需要を顕在化し、地域内の計算資源へ接続する</strong>ことが重要になる。</p>
+    <div class="process-chain"><span>製造業データ</span><b>→</b><span>GPU計算</span><b>→</b><span>設計・保全・品質・物流AI</span><b>→</b><span>地域企業の生産性</span></div>
+  </section>
+
+  <section class="section">
+    <h2>06｜瀬戸内ワット・ビット回廊｜模式図</h2>
+    <div class="wb-map" role="img" aria-label="瀬戸内の電力・通信・データセンター・産業需要を示す模式図">
+      <div class="wb-row north">
+        <span class="hub">岡山・水島<small>WATT / INDUSTRY</small></span>
+        <i>⇄</i><span class="hub">福山・三原<small>DC / INDUSTRY</small></span>
+        <i>⇄</i><span class="hub">広島<small>BIT / CLOUD</small></span>
+        <i>⇄</i><span class="hub">周南<small>WATT / GX</small></span>
+      </div>
+      <div class="bridge">瀬戸大橋<br/><small>ROAD / RAIL / FIBER</small></div>
+      <div class="wb-row south">
+        <span class="hub key">香川<small>GPU / BIT / GX</small></span>
+        <i>⇄</i><span class="hub">新居浜・西条<small>INDUSTRY / WATT</small></span>
+        <i>⇄</i><span class="hub">愛媛<small>DISTRIBUTED GPU</small></span>
+      </div>
+    </div>
+    <p class="note">※地域スケールの概念図。送電線・光回線・変電所等の正確な経路や設備位置を示すものではない。</p>
+  </section>
+
+  <section class="section">
+    <h2>07｜ここから見える3つの産業地理</h2>
+    <div class="research-note-role-grid">
+      <article><strong>① 香川型｜ワット・ビット同時形成</strong><p>電力・通信・GPU・政策・AI需要を同時に形成する。最も「AIファクトリー」に近い。</p></article>
+      <article><strong>② 三原型｜アンカーDC先行</strong><p>大型DCがまず立地し、その後に通信・電力・関連企業・需要が形成される。</p></article>
+      <article><strong>③ 工業地帯転用型｜水島・周南・新居浜</strong><p>既存の電力・土地・設備人材を、通信とGPUへ接続して計算インフラへ転換する。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>08｜次に測るべきもの――「距離」ではなく接続時間</h2>
+    <p>従来の産業地理では港まで何km、原料産地まで何kmという距離が重要だった。AI DCでは、同じ距離でも系統増強や通信工事に何年かかるかで立地価値が変わる。</p>
+    <div class="table-wrap"><table><thead><tr><th>レイヤー</th><th>実務指標</th><th>意味</th></tr></thead><tbody>
+      <tr><td>WATT</td><td>接続可能MW、接続回答、増強工事期間</td><td>何MWをいつ使えるか</td></tr>
+      <tr><td>BIT</td><td>キャリア数、異経路数、100/400Gbps、主要DCへの遅延</td><td>データをどれだけ速く・冗長に運べるか</td></tr>
+      <tr><td>COMPUTE</td><td>GPU世代、ラック密度、PUE/WUE、拡張余地</td><td>電力をどれだけ効率よく計算へ変換できるか</td></tr>
+      <tr><td>DEMAND</td><td>地域GPU利用率、AI導入企業数、大学共同研究</td><td>地域内で計算資源を消費・価値化できるか</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>結論｜21世紀の瀬戸内産業地図は「港＋ワット＋ビット」になる</h2>
+    <p>瀬戸内の強みは、AI時代にゼロから生まれるのではない。臨海工業化が残した電力・土地・設備運用能力、電力会社系通信事業者、既存データセンター、製造業需要がすでに存在する。</p>
+    <p>次の競争力は、それらを<strong>計算資源を中心に再結合できるか</strong>で決まる。港湾が物質を集めて産業を生んだように、ワットとビットを集めるノードがAI時代の新しい産業集積を生む可能性がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>出典・確認資料</h2>
+    <ul>
+      <li><a href="https://www.energia.co.jp/nw/service/retailer/keitou/access/" target="_blank" rel="noreferrer">中国電力ネットワーク｜系統アクセス情報の公開</a></li>
+      <li><a href="https://www.yonden.co.jp/nw/line_access/data.html" target="_blank" rel="noreferrer">四国電力送配電｜系統アクセスに関するデータ集</a></li>
+      <li><a href="https://www.yonden.co.jp/nw/industrial_area/" target="_blank" rel="noreferrer">四国電力送配電｜大規模需要向けウェルカムゾーンマップ</a></li>
+      <li><a href="https://www.enecom.co.jp/business/enewings/" target="_blank" rel="noreferrer">エネコム｜EneWings</a></li>
+      <li><a href="https://www.enecom.co.jp/business/enewings/wan/dedicated/direct/" target="_blank" rel="noreferrer">エネコム｜メガクラウド直接接続</a></li>
+      <li><a href="https://www.stnet.co.jp/business/dc/powerico/" target="_blank" rel="noreferrer">STNet｜Powerico</a></li>
+      <li><a href="https://www.arteria-net.com/news/2025/0121-01/" target="_blank" rel="noreferrer">アルテリア｜四国への光ネットワーク延伸</a></li>
+      <li><a href="https://highreso.jp/press/40442/" target="_blank" rel="noreferrer">ハイレゾ｜綾川町GPUデータセンター</a></li>
+      <li><a href="https://www.pref.hiroshima.lg.jp/uploaded/attachment/555714.pdf" target="_blank" rel="noreferrer">広島県｜本郷産業団地データセンター計画</a></li>
+      <li><a href="https://www.mirait-one.com/info/001915.html" target="_blank" rel="noreferrer">ミライト・ワン｜愛媛県グリーンデータセンター事業</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/">AIデータセンター適地マップを見る →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/">AI DCエコシステム論へ戻る →</a>
+    </div>
+  </section>
+
+  <style>
+    .wb-map{margin:1.5rem 0;padding:1.5rem;border:1px solid rgba(127,127,127,.25);border-radius:18px;background:linear-gradient(180deg,rgba(85,125,150,.10),rgba(80,120,145,.18));display:grid;gap:1.5rem}
+    .wb-row{display:flex;gap:.75rem;align-items:center;justify-content:center;flex-wrap:wrap}.hub{display:flex;flex-direction:column;gap:.2rem;padding:.85rem 1rem;border:1px solid rgba(127,127,127,.3);border-radius:12px;background:rgba(255,255,255,.05);font-weight:700}.hub small{font-size:.68rem;font-weight:500;letter-spacing:.08em;opacity:.7}.hub.key{border-width:2px}.wb-row i{font-style:normal;opacity:.65}.bridge{justify-self:center;text-align:center;padding:.65rem 1.2rem;border-radius:999px;border:1px dashed rgba(127,127,127,.45);font-weight:700}.bridge small{font-size:.65rem;letter-spacing:.08em;opacity:.7}.note{font-size:.85rem;opacity:.72}
+  </style>
+</BaseLayout>
