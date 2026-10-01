@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="瀬戸内Physical AIユースケース地図 | SETOUCHI ATLAS"
+  description="造船・化学・鉄鋼・自動車・港湾物流・建設を、現場データ、学習、シミュレーション、推論、機械制御の循環で比較する。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">PHYSICAL AI / USE-CASE MAP</p>
+    <h1>瀬戸内Physical AIユースケース地図</h1>
+    <p class="subtitle">現場データ → 学習 → シミュレーション → モデル配信 → エッジ推論 → 機械の行動 → 新しいデータ</p>
+    <p class="lead">Physical AIの競争力は、巨大GPUを持つことだけでは決まらない。現実世界で発生する高品質なデータを取得し、大規模計算で学習し、現場の機械へ戻し、その結果を再びデータ化できるか。瀬戸内では、造船・化学・鉄鋼・自動車・港湾物流・建設という既存産業が、その循環の実験場になり得る。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜Physical AIは「クラウドAI」ではなく、循環システムである</h2>
+    <p>経済産業省は2026年、製造業の実データをAIが利用できる状態にするAI-Ready化と、ロボット基盤モデルの開発支援を進めている。さらに、フィジカルAI向けマルチモーダル基盤モデルについても、画像・動画・音声・センサーデータを含む現場データを活用することを政策上の重点に置いている。</p>
+    <div class="process-chain"><span>現場</span><b>→</b><span>データ取得</span><b>→</b><span>学習DC</span><b>→</b><span>シミュレーション</span><b>→</b><span>モデル配信</span><b>→</b><span>エッジ推論</span><b>→</b><span>機械の行動</span></div>
+    <p>この循環では、学習と推論の立地条件が異なる。学習・大規模推論は電力・冷却・GPU間通信を優先するが、機械制御は遅延、通信断耐性、安全性、データ秘匿を優先する。したがって、AIインフラは一か所に集約するのではなく、階層化される。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜瀬戸内の4層AI配置</h2>
+    <div class="research-note-role-grid">
+      <article><strong>AIファクトリー</strong><p>基盤モデル学習、大規模ファインチューニング、デジタルツイン、強化学習。電力と冷却を優先。</p></article>
+      <article><strong>地域推論・データハブ</strong><p>企業データを保管・加工し、複数工場へモデルを配信。通信冗長性とデータ主権が重要。</p></article>
+      <article><strong>産業エッジ</strong><p>工場・港湾・建設現場の制御室やオンプレGPU。低遅延、通信断耐性、安全停止が重要。</p></article>
+      <article><strong>機械内AI</strong><p>ロボット、AGV、クレーン、船舶、建機、検査装置。ミリ秒級判断とセンサ統合を担う。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>03｜ユースケース地図</h2>
+    <div class="usecase-map">
+      <article><span>造船</span><strong>今治・西条・尾道・因島・呉</strong><p>溶接、曲げ、塗装、搬送、船殻検査、生産工程最適化、自動運航。</p></article>
+      <article><span>鉄鋼</span><strong>福山・水島</strong><p>表面欠陥検査、炉・圧延制御、搬送、自律保全、エネルギー最適化。</p></article>
+      <article><span>化学</span><strong>周南・水島・新居浜</strong><p>異常兆候検知、予知保全、巡回ロボット、運転支援、プロセス最適化。</p></article>
+      <article><span>自動車</span><strong>広島・水島</strong><p>外観検査、組立支援、搬送、協働ロボット、品質予測、設備保全。</p></article>
+      <article><span>港湾物流</span><strong>水島・広島・福山・徳山下松</strong><p>荷役最適化、遠隔クレーン、ゲート自動化、AGV、コンテナ検査。</p></article>
+      <article><span>建設・保全</span><strong>瀬戸内全域</strong><p>自動施工、橋梁・岸壁・プラント点検、ドローン、遠隔施工、維持管理。</p></article>
+    </div>
+    <p class="note">※ 地域名は産業集積と既存インフラをもとにした研究上のノード。個別企業の導入状況を一律に示すものではない。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜造船｜瀬戸内で最も「学習と行動」の分離が見えやすい</h2>
+    <p>国土交通省は2026年、船舶建造の曲げ加工・溶接等について、AIを活用した強化学習によりAI曲げ加工ロボット、AI溶接ロボット等を開発し、作業経路・干渉・センサー視界を仮想空間で検証するAIシミュレーション基盤を整備する事業を開始した。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>溶接ビード、姿勢、電流、熱、曲率、作業映像、熟練者操作。</p></article><article><strong>学習・シミュレーション</strong><p>強化学習、ロボット行動計画、デジタルツイン、生産順序最適化。</p></article><article><strong>推論場所</strong><p>造船所オンプレGPU／ロボット内エッジ。</p></article><article><strong>機械</strong><p>溶接・曲げ・搬送・検査ロボット、自動運航船。</p></article></div>
+    <p><strong>地域に残る能力：</strong>熟練技能のデータ化、ロボットSI、センサ・制御、船舶デジタルツイン、現場安全設計。</p>
+  </section>
+
+  <section class="section">
+    <h2>05｜化学｜Physical AIは「自律運転」より先に保全・巡回から広がる</h2>
+    <p>化学プラントでは連続運転・高温高圧・危険物を扱うため、完全自律制御には高い安全保証が必要になる。短期的には、画像・音・振動・温度・圧力を統合した異常兆候検知、巡回ロボット、保全計画、運転員支援が現実的な導入口になる。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>DCS履歴、振動、音響、腐食画像、配管温度、保全記録。</p></article><article><strong>学習・シミュレーション</strong><p>異常検知、故障予測、プロセスデジタルツイン、保全優先順位。</p></article><article><strong>推論場所</strong><p>プラント内エッジ＋地域推論DC。</p></article><article><strong>機械</strong><p>巡回ロボット、ドローン、バルブ監視、保全支援端末。</p></article></div>
+    <p><strong>瀬戸内ノード：</strong>周南・水島・新居浜。既存コンビナートの設備保全会社や計装・電気人材まで含めると、AIモデルだけでなく実装能力の集積として評価できる。</p>
+  </section>
+
+  <section class="section">
+    <h2>06｜鉄鋼｜巨大設備と視覚AIの組合せ</h2>
+    <p>鉄鋼では高温・高速・重量物という人間に厳しい環境が多く、表面欠陥検査、設備異常、搬送、炉・圧延条件の最適化など、センサとAIの組合せ余地が大きい。福山・水島は、鉄鋼だけでなく港湾・物流・化学が近接するため、複合データエコシステムを形成できる可能性がある。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>鋼板画像、温度、振動、圧延荷重、炉況、搬送位置。</p></article><article><strong>学習</strong><p>欠陥モデル、設備劣化モデル、運転条件最適化。</p></article><article><strong>推論場所</strong><p>製鉄所内エッジ。検査系は特に低遅延。</p></article><article><strong>機械</strong><p>検査カメラ、搬送設備、ロボット、クレーン。</p></article></div>
+  </section>
+
+  <section class="section">
+    <h2>07｜自動車｜「検査」が地域中小企業まで広がる入口</h2>
+    <p>経済産業省とNEDOは2026年、自動車製造業の表面異常検査を対象に、傷・打痕・付着・色ムラ等を検出するロボットソリューションの開発を支援している。完成車工場だけでなく、部品メーカーにも共通する工程であり、Physical AIの地域展開に向いたユースケースである。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>部品・塗装面画像、照明条件、欠陥分類、検査員判断。</p></article><article><strong>学習</strong><p>異常検知、マルチモーダル検査、ロボット視点最適化。</p></article><article><strong>推論場所</strong><p>工場エッジ。品質判定は通信断でも継続する必要がある。</p></article><article><strong>機械</strong><p>検査ロボット、協働ロボット、搬送設備。</p></article></div>
+    <p><strong>瀬戸内ノード：</strong>広島・水島とその部品サプライチェーン。大企業のAI導入を地域中小企業へ横展開できるかがクラスター形成の鍵になる。</p>
+  </section>
+
+  <section class="section">
+    <h2>08｜港湾物流｜AIが「計画」から「機械制御」へ進む</h2>
+    <p>国土交通省はコンテナターミナルでAIによる荷繰り最適化を実証し、荷繰り回数削減を確認している。2026年度には遠隔操作等荷役機械の安全確保ルール整備や、ゲート高度化支援も進んでいる。水島港・広島港はゲート高度化補助の対象港湾にも含まれる。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>コンテナ位置、搬出入予約、クレーン動作、車両位置、画像。</p></article><article><strong>学習・最適化</strong><p>荷繰り計画、到着予測、配車、混雑予測。</p></article><article><strong>推論場所</strong><p>港湾エッジ＋地域推論DC。</p></article><article><strong>機械</strong><p>遠隔クレーン、AGV、ゲート、検査カメラ。</p></article></div>
+    <p>ここではPhysical AIが単独機械ではなく、港全体のオペレーションOSへ発展する可能性がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>09｜建設・インフラ保全｜瀬戸内全域へ広げられる用途</h2>
+    <p>Physical AIの地域価値は大工場だけに限定されない。橋梁、港湾施設、斜面、プラント、道路など、人口減少下で点検・施工人材が不足する分野では、ドローン、遠隔施工、画像AI、建機自動化の需要が広域に存在する。</p>
+    <div class="flow-grid"><article><strong>現場データ</strong><p>ひび割れ画像、3D点群、施工履歴、地形、振動。</p></article><article><strong>学習</strong><p>劣化判定、施工計画、危険予測、3D認識。</p></article><article><strong>推論場所</strong><p>現場エッジ＋モバイル回線＋地域DC。</p></article><article><strong>機械</strong><p>ドローン、建機、点検ロボット、遠隔操作機械。</p></article></div>
+  </section>
+
+  <section class="section">
+    <h2>10｜地域の本当の資産は「データ工場」である</h2>
+    <p>Physical AI時代には、工場・港・造船所そのものがデータ生産装置になる。価値があるのは設備の存在だけではなく、失敗例、熟練操作、異常時対応、品質判定、設備劣化といった、現場でしか取得できないデータである。</p>
+    <p><strong>仮説：</strong>瀬戸内のPhysical AI競争力 ≒ 産業現場密度 × データ品質 × 学習計算資源 × エッジ実装力 × フィードバック速度。</p>
+    <div class="process-chain"><span>工場・港</span><b>→</b><span>高品質データ</span><b>→</b><span>AIファクトリー</span><b>→</b><span>モデル</span><b>→</b><span>現場機械</span><b>→</b><span>新データ</span></div>
+  </section>
+
+  <section class="section">
+    <h2>11｜瀬戸内Physical AIベルトという仮説</h2>
+    <p>瀬戸内には、単一の巨大都市ではなく、製造業都市と港湾が連続する多核構造がある。これはAI産業に不利とは限らない。学習計算を電力有利地へ置き、推論を需要地へ分散し、機械内AIを各工場・港へ配置する階層型アーキテクチャとはむしろ相性が良い。</p>
+    <div class="belt-grid"><article><strong>香川・三原</strong><p>AIファクトリー／大規模学習・推論</p></article><article><strong>岡山・広島</strong><p>地域推論・企業データハブ</p></article><article><strong>水島・福山・周南・新居浜</strong><p>製造業Physical AIエッジ</p></article><article><strong>今治・尾道・因島・呉・港湾群</strong><p>ロボティクス・自律移動・船舶AI</p></article></div>
+    <p>このネットワークが成立すれば、瀬戸内は「AIを使う工業地帯」ではなく、<strong>AIが現実世界を学び、行動し、再学習する地域</strong>へ転換する。</p>
+  </section>
+
+  <section class="section">
+    <h2>次に測るもの</h2>
+    <div class="table-wrap"><table><thead><tr><th>領域</th><th>確認項目</th></tr></thead><tbody>
+      <tr><td>データ</td><td>画像・動画・センサ・操作履歴の量、保存期間、権利、匿名化・秘匿条件</td></tr>
+      <tr><td>学習</td><td>GPU時間、データ転送量、シミュレーション環境、再学習頻度</td></tr>
+      <tr><td>推論</td><td>許容遅延、通信断時の自律時間、安全停止条件、オンプレGPU容量</td></tr>
+      <tr><td>機械</td><td>ロボット・AGV・クレーン・船舶・建機へのモデル配信方式</td></tr>
+      <tr><td>地域循環</td><td>SIer、設備会社、大学・高専、AI企業、現場企業の連携案件数</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>出典・確認資料</h2>
+    <ul>
+      <li><a href="https://www.meti.go.jp/press/2026/05/20260514001/20260514001.html" target="_blank" rel="noreferrer">経済産業省｜製造業データ等のAI-Ready化・ロボット基盤モデル</a></li>
+      <li><a href="https://www.meti.go.jp/press/2026/06/20260630005/20260630005.html" target="_blank" rel="noreferrer">経済産業省｜AIロボット・フィジカルAI向けマルチモーダル基盤モデル</a></li>
+      <li><a href="https://www.meti.go.jp/press/2026/06/20260630004/20260630004.html" target="_blank" rel="noreferrer">経済産業省｜自動車製造業の表面異常検査ロボット</a></li>
+      <li><a href="https://www.mlit.go.jp/report/press/kaiji05_hh_000320.html" target="_blank" rel="noreferrer">国土交通省｜AI造船ロボット等の研究開発</a></li>
+      <li><a href="https://www.mlit.go.jp/report/press/port02_hh_000226.html" target="_blank" rel="noreferrer">国土交通省｜港湾技術開発制度 2026</a></li>
+      <li><a href="https://www.mlit.go.jp/kowan/kowan_tk5_000056.html" target="_blank" rel="noreferrer">国土交通省｜コンテナターミナルゲート高度化</a></li>
+      <li><a href="https://www.mlit.go.jp/kowan/kowan_fr5_000114.html" target="_blank" rel="noreferrer">国土交通省｜遠隔操作等荷役機械の安全確保</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/setouchi-ai-cluster-physical-ai/">AI産業クラスター論へ戻る →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/setouchi-watt-bit-geography/">ワット・ビット地理を見る →</a>
+    </div>
+  </section>
+
+  <style>
+    .usecase-map,.flow-grid,.belt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.4rem 0}.usecase-map article,.flow-grid article,.belt-grid article{border:1px solid rgba(127,127,127,.24);border-radius:14px;padding:1rem;background:rgba(127,127,127,.04)}.usecase-map span{display:inline-block;font-size:.78rem;letter-spacing:.08em;margin-bottom:.45rem;opacity:.72}.usecase-map strong,.flow-grid strong,.belt-grid strong{display:block;margin-bottom:.35rem}.note{font-size:.86rem;opacity:.72}@media(max-width:760px){.usecase-map,.flow-grid,.belt-grid{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>
