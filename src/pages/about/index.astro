@@ -1,131 +1,71 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { photoEvidence } from '../../data/photoEvidence.js';
-
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
 const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
-const methodPhotos=[
-  photoById['photo-shimotsui-geography'],
-  photoById['photo-niihama-tonaru'],
-  photoById['photo-shodoshima-hishio-yamasan']
-].filter(Boolean);
+const methodPhotos=[photoById['photo-shimotsui-geography'],photoById['photo-niihama-tonaru'],photoById['photo-shodoshima-hishio-yamasan']].filter(Boolean);
 ---
-<BaseLayout
-  title="このアトラスについて | SETOUCHI ATLAS"
-  description="瀬戸内自然文化経済アトラスの目的、地域を見る視点、調査・編集の方法について。"
->
+<BaseLayout title="このアトラスについて | SETOUCHI ATLAS" description="瀬戸内を、自然から地域が形成される過程と、人口減少・産業転換の中で地域を再編集する過程の両方向から読むリサーチ・アトラス。">
   <section class="atlas-about-cover">
     {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
     <div class="atlas-about-cover-scrim"></div>
     <div class="atlas-about-cover-copy">
       <span>ABOUT THE ATLAS</span>
-      <h1>地域を、<br/>関係として読む。</h1>
-      <p>自然、産業、文化、交通、都市を別々に並べるのではなく、それらがどう結びつき、現在の地域をつくってきたのかを読み解くためのリサーチ・アトラスです。</p>
+      <h1>地域を、<br/>形成と再編集の両方向から読む。</h1>
+      <p>自然から産業・文化・都市がどう生まれたかを遡り、人口減少・産業転換の先に、土地・自然・地域能力をどう組み替えられるかを考えるリサーチ・アトラスです。</p>
     </div>
-    {heroPhoto && (
-      <div class="atlas-about-cover-credit">
-        {heroPhoto.title} — Photo: {heroPhoto.author} / <a href={heroPhoto.sourcePage} target="_blank" rel="noreferrer">{heroPhoto.license}</a>
-      </div>
-    )}
   </section>
 
   <section class="section atlas-about-definition">
     <div class="atlas-about-eyebrow">DEFINITION</div>
-    <h2>地域経営のための、リサーチ・アトラス</h2>
+    <h2>地域経営のための、更新型リサーチ・アトラス</h2>
     <div class="atlas-about-lead-grid">
-      <p>瀬戸内自然文化経済アトラスは、瀬戸内の地域を、観光地や行政区域の集合としてではなく、自然・生業・産業・交通・文化・都市が相互に関係する一つのシステムとして読み解くためのプロジェクトです。</p>
-      <p>海峡、島、河川、平野、斜面、降水量、潮流といった自然条件の上に、人は港をつくり、土地を拓き、魚を獲り、塩をつくり、船を動かし、商品を加工し、町を築いてきました。その積み重なりを、現在の地域から遡って考えます。</p>
+      <p>瀬戸内自然文化経済アトラスは、瀬戸内を観光地や行政区域の集合ではなく、自然・生態系・生業・技術・産業・文化・都市が相互作用するシステムとして読みます。</p>
+      <p>同時に、現在の地域を完成形とは考えません。人口、産業、気候、土地利用が変われば、何を維持し、何を低密度管理へ移し、何を自然へ還すかも変わります。その変化を継続観測し、仮説と地域像を更新します。</p>
     </div>
   </section>
 
   <section class="section atlas-about-principle-section">
-    <div class="atlas-about-section-head">
-      <div>
-        <div class="atlas-about-eyebrow">OUR LENS</div>
-        <h2>基本となる見方</h2>
-      </div>
-      <p>自然環境が地域を一方的に決めるとは考えません。自然が与える制約と可能性に対して、人が何を選び、何を技術化し、何を次の時代へ残したのかを見ます。</p>
+    <div class="atlas-about-section-head"><div><div class="atlas-about-eyebrow">THREE QUESTIONS</div><h2>3つの問い</h2></div><p>過去を説明するだけでも、未来像を描くだけでもなく、地域が形成され、何を残し、次にどう変わるかを一つの時間軸で考えます。</p></div>
+    <div class="research-pillar-grid">
+      <article class="research-pillar"><span>01 / FORMATION</span><h3>なぜここに、この産業・文化・都市が生まれたのか</h3><p>自然条件が与えた可能性と制約に、人が技術、制度、資本、交易でどう働きかけたかを追います。</p></article>
+      <article class="research-pillar"><span>02 / REPRODUCTION</span><h3>産業や文化が変わっても、何が地域に残るのか</h3><p>技能、設備、企業ネットワーク、信用、景観、文化、制度などを、次の時代へ移せる地域資産として捉えます。</p></article>
+      <article class="research-pillar"><span>03 / RE-EDITING</span><h3>人口減少時代に、何を維持し、何を自然へ還すのか</h3><p>人工資本と自然資本の配分を見直し、土地・都市・産業の管理密度をAdaptiveに更新します。</p></article>
     </div>
-
-    <div class="atlas-about-principle-grid">
-      <article>
-        <span>01</span>
-        <h3>自然環境から始める</h3>
-        <p>地形、地質、気候、水、海況、生態系を、地域形成の基層として確認します。</p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>人の選択を見る</h3>
-        <p>同じ条件でも地域の姿は同じになりません。生業、技術、交易、制度、投資という選択を追います。</p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>産業の前後をつなぐ</h3>
-        <p>一つの産業が終わったあとに残る技能、土地、資本、物流、企業組織が、次の産業へどう継承されたかを考えます。</p>
-      </article>
-      <article>
-        <span>04</span>
-        <h3>事実と解釈を分ける</h3>
-        <p>確認できる事実、そこから導く解釈、検証途上の仮説を区別しながら記述します。</p>
-      </article>
-    </div>
-
-    <div class="atlas-about-causal-line">
-      <span>自然環境</span><b>→</b><span>エコシステム</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>地域社会</span>
-    </div>
+    <div class="atlas-about-causal-line"><span>自然環境</span><b>→</b><span>生態系</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>都市・地域社会</span></div>
   </section>
 
   <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">WORKING METHOD</div>
-    <h2>エッセイと研究ノートを往復する</h2>
+    <div class="atlas-about-eyebrow">RESEARCH LOOP</div>
+    <h2>エッセイ、研究ノート、データを往復する</h2>
     <div class="atlas-about-copy-column">
-      <p>地域経営では、人口、産業、交通、観光、景観、自然環境、食文化、制度、コミュニティが相互に作用します。しかも地域を取り巻く条件は速く変わり、最初に立てた問いそのものを修正しなければならないことがあります。単一分野の枠内で答えを固定するより、観察と検証を反復しながら地域像を更新していく方が、実態に近づけると考えています。</p>
-      <p><strong>エッセイ</strong>では、現地の風景、資料、比較から生まれた違和感や「なぜ？」を起点に、分野をまたいで事実をつなぎ、説明のための仮説を立てます。<strong>研究ノート</strong>では、その仮説を統計、史料、地図、地域間比較、現地調査などによって分解し、確かめます。</p>
-      <p>検証によって仮説が支持されることもあれば、修正されたり、別の問いへ置き換わったりすることもあります。その結果を再びエッセイへ戻し、地域の見方を書き換える。この往復そのものを、本アトラスの知識生産の方法として公開します。</p>
+      <p><strong>エッセイ</strong>では、現地の風景や違和感から「なぜ？」を立て、説明仮説をつくります。<strong>研究ノート</strong>では、複数地域、史料、統計、世界の類似事例と比較して仮説を検証します。<strong>データ</strong>は、その検証と継続観測のための証拠です。</p>
+      <p>仮説が支持されなければ修正します。新しい土地利用や管理方法を試した場合は、その結果を観測して次の判断へ戻します。知識生産と地域計画を、同じAdaptive Managementの循環として扱います。</p>
     </div>
-    <div class="atlas-about-causal-line">
-      <span>観察</span><b>→</b><span>問い</span><b>→</b><span>エッセイ：仮説形成</span><b>→</b><span>研究ノート：検証</span><b>→</b><span>修正・再解釈</span><b>→</b><span>次の問い</span>
-    </div>
-    <div class="chapter-related-grid">
-      <a class="compare-button" href="/setouchi-cultural-economic-atlas/methodology/">方法論を詳しく見る →</a>
-    </div>
+    <div class="atlas-about-causal-line"><span>現場</span><b>→</b><span>問い</span><b>→</b><span>仮説</span><b>→</b><span>比較・検証</span><b>→</b><span>小さく試す</span><b>→</b><span>観測</span><b>→</b><span>修正</span></div>
+  </section>
+
+  <section class="learning-band">
+    <div class="kicker">LOCAL DEPTH × GLOBAL COMPARISON × ADAPTIVE MANAGEMENT</div>
+    <h2>AIは、地域が学び続けるためのコストを下げる。</h2>
+    <p>現地を深く見ることと、世界の類似課題を広く比較することを両立させます。AIは翻訳、探索、データ整理、比較、変化検知を支援しますが、何を大切にし、どのリスクを受け入れるかという価値判断は人間側に残します。</p>
+    <div class="learning-metrics"><div><strong>現地観察</strong><span>地域固有の問いを失わない</span></div><div><strong>世界比較</strong><span>事例ではなくメカニズムを学ぶ</span></div><div><strong>Adaptive Management</strong><span>完成図ではなく更新ルールを持つ</span></div></div>
   </section>
 
   <section class="section atlas-about-visual-method">
-    <div class="atlas-about-section-head">
-      <div>
-        <div class="atlas-about-eyebrow">VISUAL EVIDENCE</div>
-        <h2>写真も、地域を読む資料です</h2>
-      </div>
-      <p>港の形、山と市街地の距離、工場の立地、商家の構造、畑の傾斜。文章や統計だけでは見えにくい地域の構造を、写真から読み取ります。</p>
-    </div>
+    <div class="atlas-about-section-head"><div><div class="atlas-about-eyebrow">VISUAL EVIDENCE</div><h2>写真も、地域を読む資料です</h2></div><p>港の形、山と市街地の距離、工場の立地、商家、畑の傾斜。文章や統計だけでは見えにくい因果の途中を写真から読みます。</p></div>
     <div class="atlas-about-photo-row">
-      {methodPhotos.map((photo)=>(
-        <figure>
-          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
-          <figcaption>
-            <strong>{photo.title}</strong>
-            <span>{photo.insight}</span>
-          </figcaption>
-        </figure>
-      ))}
+      {methodPhotos.map((photo)=><figure><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /><figcaption><strong>{photo.title}</strong><span>{photo.insight}</span></figcaption></figure>)}
     </div>
   </section>
 
   <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">WHY WE PUBLISH</div>
-    <h2>地域を見る方法そのものを、公開する</h2>
+    <div class="atlas-about-eyebrow">THE REGIONAL ASSET</div>
+    <h2>最終的に残したいのは、地域のLearning Velocity。</h2>
     <div class="atlas-about-copy-column">
-      <p>地域の将来を考えるためには、「何を始めるか」だけでなく、なぜ現在の産業や文化が存在するのか、その地域にどのような能力や資産が蓄積しているのか、そのうち何を次の時代へ持ち越せるのかを理解する必要があります。</p>
-      <p>本サイトは、地域経営・地域事業に関するコンサルティングを行う運営者自身のリサーチプロジェクトでもあります。調査の結果だけでなく、地域をどう分解し、どう結び直し、どう伝えるかという方法も含めて公開しています。</p>
-      <p>歴史、地理、産業、食文化、交通、都市形成を別々の専門領域として閉じず、一つの地域像へ編集すること。それが、このアトラスの中心的な試みです。</p>
+      <p>資源、土地、港、工場、建築、技能は重要です。しかし環境が変われば、資産の意味も変わります。長期的に地域を強くするのは、持っている資産を別の用途へ再結合し、誤りを発見し、方針を修正できる能力です。</p>
+      <p><strong>地域のLearning Velocity――学習と修正の速度こそが、AI時代における最大の地域資産</strong>だという仮説を、このアトラス全体を通じて検証していきます。</p>
     </div>
-  </section>
-
-  <section class="section atlas-about-project-bridge">
-    <span>FROM RESEARCH TO PRACTICE</span>
-    <h2>地域を調べ、構造化し、伝わる形へ編集する。</h2>
-    <p>このアトラスで用いている方法は、自治体、地域団体、観光地域づくり法人、地域企業などの地域調査・構想・情報発信にも応用できます。</p>
-    <a href="/setouchi-cultural-economic-atlas/projects/">地域アトラスをつくる →</a>
+    <div class="chapter-related-grid"><a class="compare-button" href="/setouchi-cultural-economic-atlas/book/ai-era-regional-planning-learning-velocity/">中核エッセイを読む →</a><a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">方法論を見る →</a></div>
   </section>
 </BaseLayout>

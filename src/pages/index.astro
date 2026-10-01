@@ -3,344 +3,162 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
-import { researchChapters } from '../data/researchChapters.js';
 
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
-const mainlandOrder=['ako','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
-const shikokuOrder=['hiketa','shodoshima','takamatsu','sakaide','tadotsu','niihama','imabari','matsuyama'];
-const mainlandPlaces=mainlandOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
-const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
-const mapPlaces=places.map((p)=>({
-  id:p.id,
-  name:p.name,
-  prefecture:p.prefecture,
-  lat:p.lat,
-  lon:p.lon,
-  subtitle:p.subtitle
-}));
-
-const coverArticles=orderedBookArticles.map((article)=>({
-  slug:article.slug,
-  part:article.part,
-  title:article.title,
-  subtitle:article.subtitle,
-  heroPhotoId:article.heroPhotoId,
-  photoIds:[...new Set([
-    article.heroPhotoId,
-    ...article.sections.flatMap((section)=>section.photoIds || [])
-  ].filter(Boolean))]
-}));
-const coverPhotos=photoEvidence
-  .filter((photo)=>photo.imageUrl && photo.sourcePage)
-  .map((photo)=>({
-    id:photo.id,
-    placeId:photo.placeId,
-    title:photo.title,
-    caption:photo.caption,
-    imageUrl:photo.imageUrl,
-    alt:photo.alt,
-    author:photo.author,
-    license:photo.license,
-    sourcePage:photo.sourcePage
-  }));
-const coverPhotoById=Object.fromEntries(coverPhotos.map((photo)=>[photo.id,photo]));
-const featureArticles=coverArticles.filter((article)=>article.photoIds.some((id)=>coverPhotoById[id]));
-const initialFeature=featureArticles[0] || coverArticles[0];
-const initialFeaturePhotos=(initialFeature?.photoIds || []).map((id)=>coverPhotoById[id]).filter(Boolean);
-const initialCoverPhoto=coverPhotoById[initialFeature?.heroPhotoId] || initialFeaturePhotos[0] || coverPhotos[0];
-
+const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
+const mapPlaces=places.map((p)=>({id:p.id,name:p.name,prefecture:p.prefecture,lat:p.lat,lon:p.lon,subtitle:p.subtitle}));
+const aiEssay=orderedBookArticles.find((a)=>a.slug==='ai-era-regional-planning-learning-velocity');
+const saltEssay=orderedBookArticles.find((a)=>a.slug==='four-salt-fields');
+const portsEssay=orderedBookArticles.find((a)=>a.slug==='ports-that-needed-waiting');
+const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
 ---
-<BaseLayout title="SETOUCHI ATLAS" description="瀬戸内のまちの過去・現在・未来を、自然環境と人々の営みとの関係性からたどる。">
+<BaseLayout title="SETOUCHI ATLAS | 瀬戸内自然文化経済アトラス" description="自然から地域がどう形成され、何が再生産され、人口減少・産業転換の中で土地と地域をどう再編集するかを考えるリサーチ・アトラス。">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
-  <section
-    id="magazine-cover"
-    class="magazine-cover"
-    data-articles={JSON.stringify(coverArticles)}
-    data-photos={JSON.stringify(coverPhotos)}
-  >
-    <!-- Cover photos are constrained to the featured essay's photo set. -->
-    <img class="magazine-cover-image" data-cover-image src={initialCoverPhoto?.imageUrl} alt={initialCoverPhoto?.alt || ''} />
-    <div class="magazine-cover-scrim"></div>
-
-    <div class="magazine-feature">
-      <div class="magazine-feature-label">FEATURED ESSAY</div>
-      <small data-cover-part>{initialFeature?.part}</small>
-      <h1 data-cover-title>{initialFeature?.title}</h1>
-      <p data-cover-subtitle>{initialFeature?.subtitle}</p>
-      <div class="magazine-feature-actions">
-        <a data-cover-link href={`/setouchi-cultural-economic-atlas/book/${initialFeature?.slug}/`}>このエッセイを読む →</a>
-        <button type="button" data-reshuffle>別の表紙を見る</button>
-      </div>
+  <section class="concept-hero">
+    <div class="kicker">SETOUCHI NATURAL / CULTURAL / ECONOMIC ATLAS</div>
+    <h1>地域は、どう生まれ、どう変わり、どう学び直すのか。</h1>
+    <p class="concept-dek">瀬戸内を、自然・生態系・生業・産業・文化・都市の連鎖として読みます。さらに人口減少、産業転換、気候変動の時代に、何を残し、何を薄く管理し、何を自然へ還し、どのように次の地域へ再編集できるかを考えます。</p>
+    <div class="concept-chain" aria-label="地域形成の因果連鎖">
+      <span>自然環境</span><b>→</b><span>生態系</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>都市・地域社会</span>
     </div>
-
-    <div class="magazine-photo-credit">
-      <span data-cover-photo-title>{initialCoverPhoto?.title}</span>
-      <small>Photo: <span data-cover-photo-author>{initialCoverPhoto?.author}</span> / <a data-cover-photo-source href={initialCoverPhoto?.sourcePage} target="_blank" rel="noreferrer">{initialCoverPhoto?.license}</a></small>
+    <div class="concept-actions">
+      <a href="/setouchi-cultural-economic-atlas/about/">このアトラスの考え方</a>
+      <a class="secondary" href="/setouchi-cultural-economic-atlas/book/ai-era-regional-planning-learning-velocity/">Learning Velocityを読む</a>
     </div>
   </section>
 
-  <section class="section magazine-selection">
-    <div class="section-heading-row">
+  <section class="section atlas-thesis">
+    <div class="atlas-thesis-grid">
+      <blockquote>自然から都市が生まれた歴史を読み、縮小する都市からどのような自然と地域経済を戻せるかを考える。</blockquote>
       <div>
-        <div class="kicker">THIS VISIT</div>
-        <h2>今号の読みもの</h2>
-        <p class="home-reading-intro">アクセスするたびに、アトラスから3本を選びます。固定された「おすすめ順」ではなく、思いがけない地域やテーマとの出会いをつくります。</p>
+        <div class="kicker">THE CORE QUESTION</div>
+        <p>本アトラスは地域を「完成した場所」として扱いません。自然条件に人間が働きかけて形成された地域が、次の変化にどう適応し、能力・文化・土地をどう再生産するかを追います。</p>
+        <p>目的は一つの正解を出すことではなく、地域が自らを観測し、比較し、試し、修正できる知識基盤をつくることです。</p>
       </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a>
-    </div>
-    <div class="magazine-story-grid">
-      {[0,1,2].map((i)=>(
-        <a class="magazine-story-card" data-random-story={i} href={`/setouchi-cultural-economic-atlas/book/${coverArticles[i]?.slug}/`}>
-          <small data-story-part>{coverArticles[i]?.part}</small>
-          <strong data-story-title>{coverArticles[i]?.title}</strong>
-          <span data-story-subtitle>{coverArticles[i]?.subtitle}</span>
-          <em>読む →</em>
-        </a>
-      ))}
     </div>
   </section>
 
-  <section class="section magazine-photo-selection">
+  <section class="section">
+    <div class="kicker">THREE RESEARCH PILLARS</div>
+    <h2>3つの問いで、瀬戸内を読む</h2>
+    <div class="research-pillar-grid">
+      <article class="research-pillar">
+        <span>01 / FORMATION</span>
+        <h3>なぜ、この土地にこの地域が生まれたのか</h3>
+        <p>地形・地質・気候・海況から、生業、交易、産業、食文化、港、都市形成までを因果でつなぎます。</p>
+      </article>
+      <article class="research-pillar">
+        <span>02 / REPRODUCTION</span>
+        <h3>何が残れば、地域は次の時代へ移れるのか</h3>
+        <p>資本、技能、設備、企業間ネットワーク、文化、制度を、地域が再生産できる資産として捉えます。</p>
+      </article>
+      <article class="research-pillar">
+        <span>03 / RE-EDITING</span>
+        <h3>何を維持し、何を自然へ還し、どう更新するのか</h3>
+        <p>ネイチャーポジティブとAdaptive Managementを用い、土地・産業・都市の管理密度を継続的に見直します。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="learning-band">
+    <div class="kicker">AI × ADAPTIVE MANAGEMENT</div>
+    <h2>最大の地域資産は、学習と修正の速度である。</h2>
+    <p>AIが地域計画にもたらす本質的な変化は、未来を一度で正確に予測することではなく、観測・比較・翻訳・分析・再評価のコストを下げることです。地域計画を「完成図」から「学習する仕組み」へ変える。SETOUCHI ATLASはその過程自体を公開します。</p>
+    <div class="learning-metrics">
+      <div><strong>Local Depth</strong><span>現地の風景と地域固有性から問いを立てる</span></div>
+      <div><strong>Global Comparison</strong><span>世界の類似課題からメカニズムを抽出する</span></div>
+      <div><strong>Learning Velocity</strong><span>測る・試す・修正する速度を地域能力として捉える</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">HOW TO READ</div>
+    <h2>5つの入口から読む</h2>
+    <div class="route-grid">
+      <a class="route-card" href="/setouchi-cultural-economic-atlas/places/">
+        <span>REGIONS</span><h3>地域</h3><p>一つの町・島・港を、自然基盤から現在の変化まで縦に読む。</p><em>地域から入る →</em>
+      </a>
+      <a class="route-card" href="/setouchi-cultural-economic-atlas/book/">
+        <span>ESSAYS</span><h3>エッセイ</h3><p>現地で生まれた違和感や問いから、分野横断の仮説を組み立てる。</p><em>問いから読む →</em>
+      </a>
+      <a class="route-card" href="/setouchi-cultural-economic-atlas/chapters/">
+        <span>RESEARCH NOTES</span><h3>研究ノート</h3><p>複数地域・時系列・史料・統計・世界事例を比較して仮説を検証する。</p><em>仕組みを検証する →</em>
+      </a>
+      <a class="route-card" href="/setouchi-cultural-economic-atlas/data/">
+        <span>DATA</span><h3>データ</h3><p>地図、気候、土地利用、産業、交通、写真などの検証材料を確認する。</p><em>根拠を見る →</em>
+      </a>
+      <a class="route-card" href="/setouchi-cultural-economic-atlas/methodology/">
+        <span>METHOD</span><h3>方法論</h3><p>事実・解釈・仮説を分け、世界比較とAdaptive Managementで更新する。</p><em>研究方法を見る →</em>
+      </a>
+    </div>
+  </section>
+
+  <section class="section gene-section">
     <div class="section-heading-row">
-      <div>
-        <div class="kicker">PHOTO NOTES</div>
-        <h2>今日の3枚</h2>
-        <p class="home-reading-intro">港、斜面、工場、町並み。文章とは別の入口から瀬戸内を眺めます。</p>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/photos/">写真資料 →</a>
-    </div>
-    <div class="magazine-photo-grid">
-      {[0,1,2].map((i)=>{
-        const photo=coverPhotos[i];
-        return (
-          <a class="magazine-photo-card" data-random-photo={i} href={photo?.placeId ? `/setouchi-cultural-economic-atlas/places/${photo.placeId}/` : '/setouchi-cultural-economic-atlas/photos/'}>
-            <img data-photo-image src={photo?.imageUrl} alt={photo?.alt || ''} loading="lazy" />
-            <div>
-              <strong data-photo-title>{photo?.title}</strong>
-              <span data-photo-caption>{photo?.caption}</span>
-            </div>
-          </a>
-        )
-      })}
-    </div>
-  </section>
-
-
-  <section class="map-first-hero">
-    <div id="home-atlas-map"
-      class="home-atlas-map-canvas"
-      data-places={JSON.stringify(mapPlaces)}></div>
-
-    <div class="map-first-copy">
-      <h1>瀬戸内を、<br/>地図から読む。</h1>
-      <p>島、港、平野、海峡。まず場所を選んでください。そこから自然、産業、食、文化のつながりをたどれます。</p>
-      <div class="map-first-actions">
-        <a href="/setouchi-cultural-economic-atlas/places/">地域一覧</a>
-        <a href="/setouchi-cultural-economic-atlas/book/">エッセイを読む</a>
-      </div>
-    </div>
-
-    <div class="map-first-legend">
-      <span><i class="map-dot"></i>掲載地域</span>
-      <small>地図の点をクリックすると地域ページへ進めます。</small>
-    </div>
-  </section>
-
-
-
-  <section class="section home-region-index">
-    <div class="section-heading-row">
-      <div>
-        <h2>地域から見る</h2>
-      </div>
-      <a class="text-link" href="/setouchi-cultural-economic-atlas/places/">地域一覧 →</a>
-    </div>
-
-    <div class="home-region-group">
-      <h3>近畿・中国地方</h3>
-      <div class="home-region-grid">
-        {mainlandPlaces.map((place)=>(
-          <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-            <strong>{place.name}</strong>
-            <span>{place.prefecture}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <div class="home-region-group">
-      <h3>四国地方</h3>
-      <div class="home-region-grid">
-        {shikokuPlaces.map((place)=>(
-          <a href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-            <strong>{place.name}</strong>
-            <span>{place.prefecture}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section home-research-notes">
-    <div class="section-heading-row">
-      <div>
-        <h2>研究ノート</h2>
-        <p class="home-reading-intro">地域を越えて、瀬戸内の仕組みを考える。</p>
-      </div>
+      <div><div class="kicker">CURRENT CORE PROGRAMS</div><h2>現在の重点研究</h2></div>
       <a class="text-link" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
     </div>
-    <div class="home-research-grid">
-      {researchChapters.map((chapter)=>(
-        <a href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
-          <strong>{chapter.title}</strong>
-          <span>{chapter.subtitle}</span>
-        </a>
-      ))}
+    <div class="program-grid">
+      <a class="program-card featured" href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">
+        <span>NATURE POSITIVE</span><h3>人口減少時代に、どの土地を自然へ還すのか</h3><p>維持・集約、低密度管理、生態系復元、自然遷移を土地ごとに選ぶ「戦略的再自然化」を研究します。</p>
+      </a>
+      <a class="program-card featured" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">
+        <span>REGIONAL REPRODUCTION</span><h3>地域資産は、どうすれば再生産されるのか</h3><p>産業、技能、文化、町並み、自然資本を「使いながら次世代へ残す」循環を考えます。</p>
+      </a>
+      <a class="program-card" href="/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/">
+        <span>INDUSTRIAL TRANSFORMATION</span><h3>産業は、なぜ別の産業へ転生できるのか</h3><p>製品ではなく、技能・設備・ネットワーク・市場接続が何を次産業へ渡すかを追います。</p>
+      </a>
+      <a class="program-card" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">
+        <span>AI / ADAPTIVE MANAGEMENT</span><h3>完成形ではなく、更新能力を設計する</h3><p>Local Depth × Global Comparison × Adaptive ManagementをATLASの標準方法として整備します。</p>
+      </a>
     </div>
   </section>
 
-  <section id="data-library" class="section home-evidence">
-    <h2>データ集</h2>
-    <p class="lead">地域を詳しく確認するときに使う基礎データと地図です。</p>
+  <section class="map-first-hero">
+    <div id="home-atlas-map" class="home-atlas-map-canvas" data-places={JSON.stringify(mapPlaces)}></div>
+    <div class="map-first-copy">
+      <div class="kicker">MAP</div>
+      <h1>場所から読む。</h1>
+      <p>自然条件も、産業の履歴も、これからの土地利用も地域ごとに違います。地図から一つの地域を選び、形成と再編集を縦にたどってください。</p>
+      <div class="map-first-actions"><a href="/setouchi-cultural-economic-atlas/places/">地域一覧へ</a></div>
+    </div>
+  </section>
+
+  {featuredEssays.length>0 && (
+    <section class="section">
+      <div class="section-heading-row"><div><div class="kicker">ESSAYS</div><h2>問いを立てる</h2><p class="home-reading-intro">エッセイは結論ではなく、現地の違和感を検証可能な問いへ変える場所です。</p></div><a class="text-link" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a></div>
+      <div class="magazine-story-grid">
+        {featuredEssays.map((article)=><a class="magazine-story-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><small>{article.part}</small><strong>{article.title}</strong><span>{article.subtitle}</span><em>読む →</em></a>)}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-heading-row"><div><div class="kicker">EVIDENCE</div><h2>データで確かめる</h2><p class="home-reading-intro">地図・統計・写真は結論ではなく、仮説を支持・修正するための証拠です。</p></div><a class="text-link" href="/setouchi-cultural-economic-atlas/data/">データ一覧 →</a></div>
     <div class="evidence-link-grid">
       <a href="/setouchi-cultural-economic-atlas/climate/"><b>気候</b><span>雨・気温・日照</span></a>
       <a href="/setouchi-cultural-economic-atlas/wind-tide/"><b>潮と風</b><span>海峡・航海・港</span></a>
-      <a href="/setouchi-cultural-economic-atlas/industry/"><b>産業</b><span>土地・技能・企業</span></a>
-      <a href="/setouchi-cultural-economic-atlas/land-use/"><b>土地利用</b><span>海・塩田・跡地・再利用</span></a>
-      <a href="/setouchi-cultural-economic-atlas/transport/"><b>交通</b><span>港・鉄道・橋</span></a>
+      <a href="/setouchi-cultural-economic-atlas/land-use/"><b>土地利用</b><span>干拓・市街地・産業跡地・再自然化</span></a>
+      <a href="/setouchi-cultural-economic-atlas/industry/"><b>産業</b><span>土地・技能・企業ネットワーク</span></a>
       <a href="/setouchi-cultural-economic-atlas/transect/"><b>地形断面</b><span>山から海まで</span></a>
-      <a href="/setouchi-cultural-economic-atlas/photos/"><b>写真資料</b><span>景観・港・産業</span></a>
+      <a href="/setouchi-cultural-economic-atlas/photos/"><b>写真資料</b><span>景観を証拠として読む</span></a>
     </div>
   </section>
 
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script is:inline>
-    (() => {
-      const cover=document.getElementById('magazine-cover');
-      if(!cover) return;
-
-      let articles=[];
-      let photos=[];
-      try {
-        articles=JSON.parse(cover.dataset.articles || '[]');
-        photos=JSON.parse(cover.dataset.photos || '[]');
-      } catch (_) {
-        return;
-      }
-
-      const shuffle=(items)=>{
-        const a=[...items];
-        for(let i=a.length-1;i>0;i--){
-          const j=Math.floor(Math.random()*(i+1));
-          [a[i],a[j]]=[a[j],a[i]];
-        }
-        return a;
-      };
-
-      const setText=(selector,value)=>{
-        const el=document.querySelector(selector);
-        if(el) el.textContent=value || '';
-      };
-
-      const render=()=>{
-        if(!articles.length || !photos.length) return;
-        const photoById=Object.fromEntries(photos.map((photo)=>[photo.id,photo]));
-        const eligibleArticles=articles.filter((article)=>(article.photoIds || []).some((id)=>photoById[id]));
-        const storyPool=shuffle(eligibleArticles.length ? eligibleArticles : articles);
-        const photoPool=shuffle(photos);
-        const feature=storyPool[0];
-        const featurePhotos=(feature?.photoIds || []).map((id)=>photoById[id]).filter(Boolean);
-        const heroPhoto=feature?.heroPhotoId ? photoById[feature.heroPhotoId] : null;
-        const coverPhoto=heroPhoto || shuffle(featurePhotos)[0] || photoPool[0];
-
-        const coverImage=cover.querySelector('[data-cover-image]');
-        if(coverImage){
-          coverImage.src=coverPhoto.imageUrl;
-          coverImage.alt=coverPhoto.alt || '';
-        }
-        setText('[data-cover-part]',feature.part);
-        setText('[data-cover-title]',feature.title);
-        setText('[data-cover-subtitle]',feature.subtitle);
-        const coverLink=cover.querySelector('[data-cover-link]');
-        if(coverLink) coverLink.href='/setouchi-cultural-economic-atlas/book/'+feature.slug+'/';
-
-        setText('[data-cover-photo-title]',coverPhoto.title);
-        setText('[data-cover-photo-author]',coverPhoto.author);
-        const source=cover.querySelector('[data-cover-photo-source]');
-        if(source){
-          source.href=coverPhoto.sourcePage;
-          source.textContent=coverPhoto.license || 'source';
-        }
-
-        document.querySelectorAll('[data-random-story]').forEach((card,index)=>{
-          const article=storyPool[index+1] || storyPool[index] || feature;
-          card.href='/setouchi-cultural-economic-atlas/book/'+article.slug+'/';
-          const part=card.querySelector('[data-story-part]');
-          const title=card.querySelector('[data-story-title]');
-          const subtitle=card.querySelector('[data-story-subtitle]');
-          if(part) part.textContent=article.part || '';
-          if(title) title.textContent=article.title || '';
-          if(subtitle) subtitle.textContent=article.subtitle || '';
-        });
-
-        document.querySelectorAll('[data-random-photo]').forEach((card,index)=>{
-          const photo=photoPool[index+1] || photoPool[index] || coverPhoto;
-          card.href=photo.placeId
-            ? '/setouchi-cultural-economic-atlas/places/'+photo.placeId+'/'
-            : '/setouchi-cultural-economic-atlas/photos/';
-          const img=card.querySelector('[data-photo-image]');
-          const title=card.querySelector('[data-photo-title]');
-          const caption=card.querySelector('[data-photo-caption]');
-          if(img){
-            img.src=photo.imageUrl;
-            img.alt=photo.alt || '';
-          }
-          if(title) title.textContent=photo.title || '';
-          if(caption) caption.textContent=photo.caption || '';
-        });
-      };
-
-      render();
-      const reshuffle=cover.querySelector('[data-reshuffle]');
-      if(reshuffle) reshuffle.addEventListener('click',render);
-    })();
-  </script>
-
-  <script is:inline>
-    (() => {
+    (()=>{
       const el=document.getElementById('home-atlas-map');
       if(!el || !window.L) return;
-      const places=JSON.parse(el.dataset.places || '[]');
-      const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([34.25,133.45],7);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-        maxZoom:18,
-        attribution:'&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      places.forEach((place)=>{
-        const marker=L.circleMarker([place.lat,place.lon],{
-          radius:7,
-          weight:2,
-          fillOpacity:.84,
-          color:'#ffffff',
-          fillColor:'#245b6a'
-        }).addTo(map);
-
-        marker.bindTooltip(place.name,{direction:'top',offset:[0,-5],opacity:.92});
-        marker.bindPopup(
-          '<div class="home-map-popup">'+
-          '<small>'+place.prefecture+'</small>'+
-          '<strong>'+place.name+'</strong>'+
-          '<p>'+place.subtitle+'</p>'+
-          '<a href="/setouchi-cultural-economic-atlas/places/'+place.id+'/">この地域を見る →</a>'+
-          '</div>'
-        );
+      let items=[]; try{items=JSON.parse(el.dataset.places||'[]')}catch(_){return}
+      const map=L.map(el,{scrollWheelZoom:false}).setView([34.25,133.45],7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(map);
+      items.forEach((p)=>{
+        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
+        const marker=L.circleMarker([p.lat,p.lon],{radius:6,weight:2,fillOpacity:.85}).addTo(map);
+        marker.bindPopup(`<strong>${p.name}</strong><br><small>${p.prefecture}</small><br>${p.subtitle||''}<br><a href="/setouchi-cultural-economic-atlas/places/${p.id}/">地域ページへ →</a>`);
       });
-
-      const coords=places.filter((p)=>Number.isFinite(p.lat)&&Number.isFinite(p.lon)).map((p)=>[p.lat,p.lon]);
-      if(coords.length) map.fitBounds(L.latLngBounds(coords),{padding:[36,36]});
     })();
   </script>
 </BaseLayout>

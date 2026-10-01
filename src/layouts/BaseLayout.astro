@@ -4,8 +4,9 @@ import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
+import '../styles/concept-refresh.css';
 
-const { title = 'SETOUCHI ATLAS', description = '地形・気候・海況から、生業・産業・港・文化・都市形成までを因果で読む。' } = Astro.props;
+const { title = 'SETOUCHI ATLAS', description = '自然から地域がどう形成され、何が再生産され、変化の中でどう再編集されるかを読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const placePathMatch = Astro.url.pathname.match(/\/places\/([^/]+)\/?$/);
 const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMatch[1]] : null;
@@ -20,13 +21,16 @@ const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMat
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={baseUrl}>SETOUCHI ATLAS</a>
+      <a class="brand-wrap" href={baseUrl}>
+        <span class="brand">SETOUCHI ATLAS</span>
+        <span class="brand-tagline">瀬戸内自然文化経済アトラス</span>
+      </a>
       <nav>
-        <a href="/setouchi-cultural-economic-atlas/">TOP</a>
-        <a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
+        <a href="/setouchi-cultural-economic-atlas/">トップ</a>
         <a href="/setouchi-cultural-economic-atlas/places/">地域</a>
+        <a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
         <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
-        <a href="/setouchi-cultural-economic-atlas/#data-library">データ</a>
+        <a href="/setouchi-cultural-economic-atlas/data/">データ</a>
       </nav>
     </header>
     <main>
@@ -35,10 +39,11 @@ const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMat
     </main>
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
-      <p>自然環境が何を可能にし、人間がそれを何に変え、地域間の流れと時間がどう組み替えたのか。事実・解釈・仮説を分けながら、瀬戸内の地域形成を因果で読む。</p>
+      <p class="footer-thesis">自然環境から地域形成を読み、人口減少・産業転換の先にある土地と産業の再編集を考える。現地観察、比較研究、データ、AI支援を往復しながら、仮説そのものを更新していくリサーチ・アトラスです。</p>
       <div class="footer-atlas-links">
         <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて</a>
         <a href="/setouchi-cultural-economic-atlas/methodology/">方法論</a>
+        <a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Management</a>
         <a href="/setouchi-cultural-economic-atlas/projects/">地域アトラスをつくる</a>
       </div>
     </footer>
