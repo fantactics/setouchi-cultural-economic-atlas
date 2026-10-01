@@ -9,69 +9,70 @@ const placeName = place?.name || 'この地域';
 <section class="section regional-adaptive" id="region-future">
   <div class="regional-adaptive-head">
     <div>
-      <div class="kicker">FUTURE / ADAPTIVE LENS</div>
-      <h2>{placeName}は、何を残し、何を変えるか</h2>
+      <div class="kicker">CHANGE / POSSIBILITY LENS</div>
+      <h2>{placeName}で、何が可能になり、何が難しくなっているか</h2>
     </div>
-    <p>これは固定的な将来計画ではなく、現在のデータと比較事例から置く<strong>更新可能な地域仮説</strong>です。変化を観測し、試し、結果を測り、必要なら管理方法そのものを変えます。</p>
+    <p>ここでは将来像を先に決めません。人口、産業、土地利用、環境、交通などの変化が、人の暮らしや生業にどのような<strong>可能性と制約</strong>を生んでいるかを整理し、その先にある複数の選択肢とトレードオフを示します。</p>
   </div>
 
   <div class="regional-adaptive-grid">
     <article class="regional-adaptive-card pressure">
-      <span>01 / CHANGE PRESSURE</span>
-      <h3>いま何が変わりつつあるか</h3>
+      <span>01 / CHANGE</span>
+      <h3>いま何が変わっているか</h3>
       <p>{lens.pressure}</p>
     </article>
 
     <article class="regional-adaptive-card assets">
-      <span>02 / REPRODUCE</span>
-      <h3>次世代へ残す地域資産</h3>
+      <span>02 / EXISTING CAPABILITIES</span>
+      <h3>現在この地域に残っている可能性の基盤</h3>
       <ul>{lens.assets.map((item)=><li>{item}</li>)}</ul>
     </article>
 
     <article class="regional-adaptive-card redesign">
-      <span>03 / RE-EDIT</span>
-      <h3>再編集の仮説</h3>
+      <span>03 / OPTIONS & TRADE-OFFS</span>
+      <h3>考えられる選択肢と、その交換条件</h3>
       <p>{lens.redesign}</p>
+      <p class="regional-adaptive-note">ここに示すのは推奨案ではありません。何を得る代わりに何を失うのかを比較するための作業仮説です。</p>
     </article>
 
     <article class="regional-adaptive-card world">
       <span>04 / WORLD COMPARISON</span>
-      <h3>世界から何を比較するか</h3>
+      <h3>世界の事例から、何を比較できるか</h3>
       <div class="regional-world-list">
         {lens.world.map(([name,mechanism])=>(
           <div><strong>{name}</strong><small>{mechanism}</small></div>
         ))}
       </div>
-      <p class="regional-adaptive-note">事業をそのまま輸入するのではなく、土地所有・制度・資金・管理・モニタリングのメカニズムを比較します。</p>
+      <p class="regional-adaptive-note">事業をそのまま輸入するのではなく、土地所有・制度・資金・管理・生活・生態系への影響を比較します。</p>
     </article>
 
     <article class="regional-adaptive-card monitor">
       <span>05 / OBSERVE</span>
-      <h3>継続して測るもの</h3>
+      <h3>変化を確かめるために見るもの</h3>
       <div class="regional-monitor-chips">{lens.monitor.map((item)=><span>{item}</span>)}</div>
     </article>
 
     <article class="regional-adaptive-card trigger">
-      <span>06 / TRIGGER</span>
-      <h3>いつ前提を見直すか</h3>
+      <span>06 / RECONSIDER</span>
+      <h3>どんな変化が起きたら、見方を改めるか</h3>
       <p>{lens.trigger}</p>
     </article>
   </div>
 
   <div class="regional-learning-loop">
-    <div class="regional-learning-chain" aria-label="Adaptive Management cycle">
-      <span>観測</span><b>→</b><span>比較</span><b>→</b><span>小さく試す</span><b>→</b><span>測定</span><b>→</b><span>修正</span>
+    <div class="regional-learning-chain" aria-label="research update cycle">
+      <span>観測</span><b>→</b><span>比較</span><b>→</b><span>解釈</span><b>→</b><span>利得と損失を確認</span><b>→</b><span>再記述</span>
     </div>
     <div class="regional-learning-copy">
-      <small>LEARNING VELOCITY</small>
-      <strong>地域の強さを、計画の完成度ではなく、学習と修正の速度から見る。</strong>
-      <p>人口、産業、自然環境が変われば、この仮説も更新します。地域ページ自体をAdaptive Managementの記録として育てます。</p>
+      <small>OPEN-ENDED REGIONAL READING</small>
+      <strong>地域の未来を先に決めず、可能性と制約の変化を読み続ける。</strong>
+      <p>人口が減ることも、産業が伸びることも、それ自体を成功や失敗とはみなしません。地域ページ自体を、何が得られ、何が失われ、何ができるようになり、何が難しくなったのかを更新する記録として育てます。</p>
     </div>
   </div>
 
   <div class="regional-adaptive-links">
-    <a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Management →</a>
-    <a href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">ネイチャーポジティブ論 →</a>
+    <a href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    <a href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">土地利用と自然の変化 →</a>
     <a href="/setouchi-cultural-economic-atlas/data/">観測データ →</a>
   </div>
 </section>
@@ -82,7 +83,7 @@ const placeName = place?.name || 'この地域';
     if(!nav || nav.querySelector('a[href="#region-future"]')) return;
     const link=document.createElement('a');
     link.href='#region-future';
-    link.innerHTML='<small>05</small><strong>次の再編集</strong><span>何を残し、何を変え、何を観測するか</span>';
+    link.innerHTML='<small>05</small><strong>変化した可能性と制約</strong><span>何が可能になり、何が難しくなったか</span>';
     nav.appendChild(link);
   })();
 </script>
