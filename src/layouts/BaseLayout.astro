@@ -1,6 +1,8 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
+import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
+import { regionalFutureLenses, defaultRegionalFutureLens } from '../data/regionalFutureLenses.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
@@ -9,7 +11,9 @@ import '../styles/concept-refresh.css';
 const { title = 'SETOUCHI ATLAS', description = '自然から地域がどう形成され、何が再生産され、変化の中でどう再編集されるかを読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const placePathMatch = Astro.url.pathname.match(/\/places\/([^/]+)\/?$/);
-const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMatch[1]] : null;
+const placeId = placePathMatch?.[1] || null;
+const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
+const regionalFutureLens = placeId ? (regionalFutureLenses[placeId] || defaultRegionalFutureLens) : null;
 ---
 <!doctype html>
 <html lang="ja">
@@ -36,6 +40,7 @@ const naturalSystemProfile = placePathMatch ? naturalSystemProfiles[placePathMat
     <main>
       <slot />
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
+      {regionalFutureLens && placeId && <RegionalAdaptiveLens placeId={placeId} lens={regionalFutureLens} />}
     </main>
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
