@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pilots = [
+  {
+    name:'芸予諸島の柑橘斜面',
+    places:'大三島・生口島・大崎下島など',
+    type:'島嶼・斜面',
+    question:'どの果樹園・棚畑を生産／文化景観として残し、どこを粗放管理・草地・森林へ移すか。',
+    hypothesis:'一律森林化ではなく、集落周辺・景観軸・生産性の高い園地を残し、周縁斜面から管理密度を下げるモザイク化が合理的な可能性がある。',
+    layers:['2070年500m将来人口','100m土地利用','農地筆ポリゴン','土砂災害警戒区域','生物多様性・連結性'],
+    gaps:'園地別の収益性、耕作者年齢、石積み等の文化景観価値、獣害・管理時間'
+  },
+  {
+    name:'尾道の斜面市街地',
+    places:'尾道水道北側斜面など',
+    type:'都市スポンジ・急傾斜',
+    question:'接道困難・空き家化が進む街区を、住宅地として個別再生し続けるのか、緑地・避難空間・生態回廊として再編するのか。',
+    hypothesis:'歴史景観を構成する居住街区と、インフラ維持負担・災害リスクが大きい街区を分け、街区単位で人工利用密度を変える必要がある。',
+    layers:['2070年500m将来人口','100m土地利用','土砂災害警戒区域','道路・公共施設','都市緑地'],
+    gaps:'空き家位置、接道条件、上下水道更新費、歴史景観・眺望価値'
+  },
+  {
+    name:'日生の里海',
+    places:'備前市日生沿岸',
+    type:'沿岸・藻場',
+    question:'アマモ場再生を自然保護面積ではなく、漁業・教育・観光・海岸管理を含む地域資産としてどう評価するか。',
+    hypothesis:'里海は「利用をやめて自然化」するのではなく、漁業利用と生態系回復を同じ管理システムに載せる戦略的再自然化の基準事例になる。',
+    layers:['藻場・干潟','自然共生サイト等','沿岸土地利用','流域・河川','人口・産業'],
+    gaps:'アマモ面積の長期時系列、漁獲・観光・教育への便益、管理投入量'
+  },
+  {
+    name:'松永湾の干潟・藻場',
+    places:'福山市・尾道市境界の松永湾',
+    type:'湾・河川・干潟',
+    question:'河川・市街地・農地から湾までを一つのランドスケープとして、干潟・藻場・水質・利用をどう再接続するか。',
+    hypothesis:'市町村境より流域＋湾を単位にした方が、自然資本と地域産業の関係を説明しやすい。',
+    layers:['藻場・干潟','河川・流域','100m土地利用','洪水浸水想定','自然共生・生物多様性'],
+    gaps:'流域からの栄養塩・土砂、漁業利用、沿岸所有・管理主体'
+  },
+  {
+    name:'瀬戸内沿岸の河川低地',
+    places:'岡山・広島・香川・愛媛の低平地から代表流域を選定',
+    type:'洪水・氾濫原',
+    question:'将来人口が大きく減る低平地で、住宅・農地・工業利用を維持する区域と、湿地・遊水・緑地へ戻す区域をどう分けるか。',
+    hypothesis:'人口縮小圧と洪水リスクが重なるだけでは再自然化根拠として不十分で、都市コアへのアクセス、生産価値、土地所有、氾濫原としての回復可能性を追加すべきである。',
+    layers:['2070年500m将来人口','2025年度洪水浸水想定','100m土地利用','農地筆ポリゴン','河川・標高'],
+    gaps:'インフラ更新費、地価・取引、農地生産性、地権者意向'
+  },
+  {
+    name:'旧工業地・港湾遊休地',
+    places:'呉・水島・周南などから用途転換案件を個別抽出',
+    type:'旧工業地・臨海部',
+    question:'大規模跡地を全面再開発する前提から離れ、生産・エネルギー・緑地・雨水貯留・生物共生護岸をどう組み合わせるか。',
+    hypothesis:'土地需要が十分でない局面では、人工利用率100％より、産業利用と自然資本を混在させた方が長期の維持費・防災・景観価値を改善するケースがある。',
+    layers:['土地利用','洪水・高潮・津波','港湾・道路','土壌・地歴','沿岸生態系'],
+    gaps:'土壌汚染、所有・契約、産業需要、港湾機能維持条件、再自然化コスト'
+  }
+];
+
+const layers = [
+  ['将来人口','500mメッシュ別将来推計人口（R6国政局推計）','2020基準・2025〜2070年','確認','人口縮小圧を見る。人口減少だけで再自然化判定はしない。'],
+  ['土地利用','土地利用細分メッシュ','100m・2021年度','確認','田、農用地、森林、荒地、建物、交通、河川等を識別。'],
+  ['洪水','洪水浸水想定区域','2025年度版','確認','想定最大規模等の浸水深ポリゴン。土地利用維持コストとの重なりを見る。'],
+  ['土砂','土砂災害警戒区域','主に2021〜2022年度','確認','急傾斜・土石流・地すべり。斜面市街地・果樹園の重要レイヤー。'],
+  ['津波','津波浸水想定','県により公開条件差','部分','岡山・香川は国土数値情報からDL不可、愛媛は再配信条件付き。県公式GISを個別確認。'],
+  ['農地','農林水産省 筆ポリゴン','2026年版','確認','農地区画単位。生産継続・粗放管理・転換を検討する基礎。'],
+  ['生物多様性','環境省「見える化」マップ・自然共生サイト','継続更新','部分','重要地域・保護地域・自然共生サイトを確認。生態系回廊は別途モデル化が必要。'],
+  ['維持管理費','道路・上下水道・公共施設等','自治体ごと','未取得','再自然化の経済合理性を評価するうえで重要だが全国統一GISはない。'],
+  ['文化・景観','文化財・景観計画・農業景観等','自治体ごと','未取得','低需要地でも残すべき土地を除外するための重要レイヤー。']
+];
+---
+<BaseLayout
+  title="戦略的再自然化 v0.2｜パイロット分析単位 | SETOUCHI ATLAS"
+  description="瀬戸内ネイチャーポジティブ研究を、人口・土地利用・災害・農地・生物多様性を重ねる6つのパイロット分析単位へ落とし込む。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">NATURE POSITIVE / STRATEGIC RENATURING / v0.2</p>
+    <h1>どこを自然へ還すか、ではなく<br/>どこで管理密度を変えるか</h1>
+    <p class="subtitle">瀬戸内 戦略的再自然化｜パイロット分析単位</p>
+    <p class="lead">v0.1では、人口減少・土地利用・災害・農地・生物多様性を重ねるための共通レイヤーを定義した。v0.2では分析単位を置く。島の柑橘斜面、斜面市街地、里海、干潟・湾、河川低地、旧工業地を同じ判定フレームで読み、「維持」「低密度管理」「生態系復元」「自然遷移」のどこへ移すかを検証する。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜まず「出口」を4つに分ける</h2>
+    <div class="research-note-role-grid">
+      <article><strong>維持・集約</strong><p>人口・産業・文化・公共サービスを維持する価値が高い土地。むしろ投資を集中し、人工利用の質を高める。</p></article>
+      <article><strong>低密度管理</strong><p>果樹園、里山、棚田、草地等。完全放棄せず、管理頻度を下げながら半自然・文化景観を維持する。</p></article>
+      <article><strong>生態系復元</strong><p>湿地、氾濫原、藻場、干潟、都市緑地等へ、意図的な工事・管理を加えて自然機能を戻す。</p></article>
+      <article><strong>自然遷移</strong><p>安全確保等の最低限管理を残しつつ、人為を大幅に減らして森林化等の遷移を許容する。</p></article>
+    </div>
+    <p class="note">4区分は土地の優劣ではない。同じ地域の中に4つがモザイク状に存在することを前提とする。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜公開GISレイヤーの実装台帳</h2>
+    <div class="table-wrap"><table><thead><tr><th>論点</th><th>データ</th><th>時点・解像度</th><th>状態</th><th>ATLASでの使い方</th></tr></thead><tbody>
+      {layers.map((r)=><tr>{r.map((c,i)=><td>{i===0 ? <strong>{c}</strong> : c}</td>)}</tr>)}
+    </tbody></table></div>
+    <p>ここで重要なのは、<strong>分析できることと公開地図上で再配信できることを分ける</strong>ことである。特に津波浸水想定は都道府県ごとに提供条件が異なるため、ATLASでは出典・利用条件・更新年をレイヤーごとに記録する。</p>
+  </section>
+
+  <section class="section">
+    <h2>03｜6つのパイロット分析単位</h2>
+    <div class="chapter-spine research-note-grid">
+      {pilots.map((p)=><article class="chapter-spine-card research-note-card">
+        <small>{p.type}</small>
+        <strong>{p.name}</strong>
+        <span>{p.places}</span>
+        <p><b>問い：</b>{p.question}</p>
+        <p><b>仮説：</b>{p.hypothesis}</p>
+        <p><b>重ねるレイヤー：</b>{p.layers.join(' / ')}</p>
+        <p><b>未取得：</b>{p.gaps}</p>
+      </article>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>04｜判定ロジック｜人口減少だけでは自然化しない</h2>
+    <div class="process-chain"><span>将来需要が低い</span><b>＋</b><span>維持費・災害負担が大きい</span><b>＋</b><span>自然回復・連結性が高い</span><b>→</b><span>再自然化候補</span></div>
+    <p>ただし、ここへ<strong>生産価値・文化景観・居住機能・重要インフラ</strong>という除外・保全条件を重ねる。したがって「人口が半減する」「洪水区域に入る」だけで自然化候補にしない。</p>
+    <div class="table-wrap"><table><thead><tr><th>ゲート</th><th>確認すること</th><th>意味</th></tr></thead><tbody>
+      <tr><td><strong>A｜需要</strong></td><td>2070人口、世帯、雇用、公共交通、都市機能</td><td>人工利用を30〜50年維持する合理性。</td></tr>
+      <tr><td><strong>B｜負担</strong></td><td>災害、道路、上下水道、擁壁、農地管理</td><td>人工利用を続ける社会的費用。</td></tr>
+      <tr><td><strong>C｜自然資本</strong></td><td>生態系回復、流域・海岸との連結、炭素、防災</td><td>自然へ戻したとき増える公益。</td></tr>
+      <tr><td><strong>D｜残す価値</strong></td><td>食料生産、文化景観、コミュニティ、歴史、重要施設</td><td>低需要でも人為管理を残す理由。</td></tr>
+      <tr><td><strong>E｜実装可能性</strong></td><td>所有、取得、制度、土壌、費用、担い手</td><td>実際に土地利用を変更できるか。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>05｜v0.2の核心｜「適地マップ」ではなく「管理密度マップ」へ</h2>
+    <p>最終的に作りたいものは、再自然化候補地を一色で塗る地図ではない。都市コアは高密度に維持し、その周囲で農地・里山・斜面・水辺の管理密度を段階的に変える<strong>土地管理密度マップ</strong>である。</p>
+    <div class="process-chain"><span>都市・産業コア</span><b>→</b><span>生産・半自然</span><b>→</b><span>生態系管理</span><b>→</b><span>自然遷移</span></div>
+    <p><strong>仮説：</strong>人口減少時代の地域計画は、用途地域を追加するだけでは足りない。人工資本と自然資本に配分する「管理密度」を空間的に設計する必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>06｜次の実装｜v0.3</h2>
+    <p>次段階では、まず1つのパイロット地域を選び、500m将来人口と100m土地利用を基礎格子として、洪水・土砂・農地を重ねる。そこで候補セルを抽出した後、文化景観・生物多様性・インフラ維持費を人手で監査し、誤判定を除く。</p>
+    <p>この順番にする理由は、全国統一データだけで最終判断を自動化すると、棚田・果樹園・歴史街区・漁業利用など、瀬戸内固有の価値を「低利用」と誤認する危険があるためである。</p>
+  </section>
+
+  <section class="section">
+    <h2>Sources / Data Registry</h2>
+    <ul class="source-list">
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-mesh500r6.html" target="_blank" rel="noreferrer">国土交通省｜500mメッシュ別将来推計人口（R6国政局推計）</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L03-b-v3_1.html" target="_blank" rel="noreferrer">国土交通省｜土地利用細分メッシュ</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A31a-2025.html" target="_blank" rel="noreferrer">国土交通省｜洪水浸水想定区域 2025年度版</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A33.html" target="_blank" rel="noreferrer">国土交通省｜土砂災害警戒区域</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A40.html" target="_blank" rel="noreferrer">国土交通省｜津波浸水想定</a></li>
+      <li><a href="https://www.maff.go.jp/j/tokei/census/shuraku_data/2025/mb/index.html" target="_blank" rel="noreferrer">農林水産省｜筆ポリゴン 2026年版</a></li>
+      <li><a href="https://www.biodiversitymap.env.go.jp/" target="_blank" rel="noreferrer">環境省｜生物多様性「見える化」マップ</a></li>
+      <li><a href="https://policies.env.go.jp/nature/biodiversity/30by30alliance/kyousei/" target="_blank" rel="noreferrer">環境省｜自然共生サイト</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/">v0.1 スクリーニング設計 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">ネイチャーポジティブ中核論 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
+    </div>
+  </section>
+</BaseLayout>
