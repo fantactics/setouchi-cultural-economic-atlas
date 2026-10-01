@@ -1,27 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="方法論 | SETOUCHI ATLAS" description="SETOUCHI ATLAS が地域をどう読み、問いを立て、仮説を検証し、知識を更新するかを示す方法論。">
+<BaseLayout title="方法論 | SETOUCHI ATLAS" description="SETOUCHI ATLAS が地域の可能性と制約をどう読み、価値判断を先取りせず、仮説を検証し、知識を更新するかを示す方法論。">
   <section class="place-hero chapter-hero">
     <div class="kicker">METHODOLOGY</div>
     <h1>地域をどう読み、どう確かめるか</h1>
-    <p class="subtitle">自然・生業・産業・文化・都市を分野ごとに切り離さず、問いを立て、仮説をつくり、比較と証拠で検証し、必要なら書き換える。そのための共通ルールです。</p>
+    <p class="subtitle">自然・生業・産業・文化・都市を切り離さず、「何が増えたか」だけでなく「何が可能になり、何が難しくなったか」を追う。そのための共通ルールです。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">POSITION</div>
+    <h2>地域の未来を、分析より先に決めない</h2>
+    <p class="lead">本アトラスは、人口増加、人口維持、産業振興、観光客増加、地価上昇などを自動的な目的とは置きません。それらは地域の状態を示す変数であり、人の生活に複数の利得と損失を同時にもたらし得るからです。</p>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>人口減少</h3><p>サービスやインフラ維持を難しくする一方、土地利用余地、混雑の少なさ、生態系へのアクセスなどを増やす場合がある。</p></article>
+      <article class="insight-card"><h3>産業成長</h3><p>所得や雇用を生む一方、土地利用、環境、景観、時間、地域社会の構造を変える場合がある。</p></article>
+      <article class="insight-card"><h3>交通改善</h3><p>外部へのアクセスを高める一方、地域内部の商業や移動の仕組みを弱める場合がある。</p></article>
+    </div>
+    <p class="lead"><strong>したがって「地域課題」は最初から置かない。</strong>変化を分解し、誰が何を得られるようになり、何を失い、何ができるようになり、何が難しくなったかを確かめた後に、初めて課題や選択肢が見えてくると考えます。</p>
   </section>
 
   <section class="section">
     <div class="kicker">OVERVIEW</div>
-    <h2>方法論は、4つの段階で考える</h2>
+    <h2>方法論は、5つの段階で考える</h2>
     <div class="comparison-insight-grid">
       <article class="insight-card"><h3>01　地域を見る</h3><p>自然環境と人間の選択を一つのシステムとして捉え、単純な環境決定論を避ける。</p></article>
-      <article class="insight-card"><h3>02　仮説を検証する</h3><p>エッセイで問いと仮説をつくり、研究ノートで比較・検証し、結果を再び記述へ戻す。</p></article>
-      <article class="insight-card"><h3>03　証拠を重ねる</h3><p>統計、史料、地図、写真、現地観察を組み合わせ、行政境界を越えて地域差を見る。</p></article>
-      <article class="insight-card"><h3>04　更新する</h3><p>事実・解釈・仮説を分け、情報の時間軸に応じて継続的に更新する。</p></article>
+      <article class="insight-card"><h3>02　可能性と制約を見る</h3><p>増減や成長率を目的化せず、人が得られるもの・できることの変化へ翻訳する。</p></article>
+      <article class="insight-card"><h3>03　仮説を検証する</h3><p>エッセイで問いと仮説をつくり、研究ノートで比較・検証し、結果を記述へ戻す。</p></article>
+      <article class="insight-card"><h3>04　証拠を重ねる</h3><p>統計、史料、地図、写真、現地観察を組み合わせ、行政境界を越えて地域差を見る。</p></article>
+      <article class="insight-card"><h3>05　更新する</h3><p>事実・解釈・仮説・価値判断を分け、新しい証拠に応じて見方を更新する。</p></article>
     </div>
     <div class="chapter-related-grid">
       <a class="compare-button" href="#lens">01 地域を見る</a>
-      <a class="compare-button secondary" href="#cycle">02 仮説を検証する</a>
-      <a class="compare-button secondary" href="#evidence">03 証拠を重ねる</a>
-      <a class="compare-button secondary" href="#update">04 更新する</a>
+      <a class="compare-button secondary" href="#possibility">02 可能性と制約</a>
+      <a class="compare-button secondary" href="#cycle">03 仮説を検証する</a>
+      <a class="compare-button secondary" href="#evidence">04 証拠を重ねる</a>
+      <a class="compare-button secondary" href="#update">05 更新する</a>
     </div>
   </section>
 
@@ -29,28 +43,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="kicker">01 / LENS</div>
     <h2>地域を「自然条件 × 人間の選択」のシステムとして読む</h2>
     <div class="research-chain">
-      <span>地質・地形</span><b>→</b><span>水・土壌・海況</span><b>→</b><span>生態系</span><b>→</b><span>資源と制約</span><b>→</b><span>技術・制度・市場</span><b>→</b><span>生業・産業</span><b>→</b><span>文化・都市</span>
+      <span>地質・地形</span><b>→</b><span>水・土壌・海況</span><b>→</b><span>生態系</span><b>→</b><span>可能性と制約</span><b>→</b><span>技術・制度・市場</span><b>→</b><span>生業・産業</span><b>→</b><span>文化・都市</span>
     </div>
     <p class="lead">自然環境は地域の可能性と制約をつくりますが、結果を一意に決めるわけではありません。人間が技術、制度、資本、市場、交易を組み合わせて経路を選び、その活動が干拓、採石、鉱山、植林、港湾整備などを通じて自然側も書き換えます。本アトラスは、その双方向の関係を追います。</p>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>自然は「条件」</h3><p>浅海、河川、花崗岩、潮流などは、何が可能かを左右するが、産業や文化を自動的には決めない。</p></article>
+      <article class="insight-card"><h3>自然は「条件」</h3><p>浅海、河川、花崗岩、潮流などは何が可能かを左右するが、産業や文化を自動的には決めない。</p></article>
       <article class="insight-card"><h3>人が「経路」を選ぶ</h3><p>同じ自然条件でも、技術、政策、資本、交易、市場、歴史的選択によって異なる地域像が生まれる。</p></article>
-      <article class="insight-card"><h3>人が自然を変える</h3><p>干拓、港湾、採石、工業化などの改変が、新しい自然条件と次の産業・暮らしの前提をつくる。</p></article>
+      <article class="insight-card"><h3>人が自然を変える</h3><p>干拓、港湾、採石、工業化などの改変が、新しい自然条件と次の生活・生業の前提をつくる。</p></article>
     </div>
-
     <h3>分析単位は、市町村境界に固定しない</h3>
-    <p class="lead">水、土砂、魚、物流、信仰、商圏は行政境界を越えます。問いに応じて、機能的につながる範囲を地域として扱います。</p>
+    <p class="lead">水、土砂、魚、物流、信仰、商圏、技能、企業取引は行政境界を越えます。問いに応じて、機能的につながる範囲を地域として扱います。</p>
     <div class="comparison-insight-grid">
       <article class="insight-card"><h3>流域＋沿岸海域</h3><p>山地から河川、平野、干潟、沿岸漁場まで、物質循環を一体で見る。</p></article>
       <article class="insight-card"><h3>港＋後背地</h3><p>港湾物流と内陸の農業・加工・商業を一つの経済圏として読む。</p></article>
-      <article class="insight-card"><h3>都市核＋外港・対岸</h3><p>城下町と外港、島と対岸など、行政上は別でも機能的に一体の地域を追う。</p></article>
+      <article class="insight-card"><h3>産業ネットワーク</h3><p>児島―井原―備後や瀬戸内海事産業のように、技能と企業間取引が連続する範囲を追う。</p></article>
     </div>
   </section>
 
+  <section id="possibility" class="section">
+    <div class="kicker">02 / POSSIBILITY & CONSTRAINT</div>
+    <h2>指標を、人の「できること」へ翻訳する</h2>
+    <p class="lead">人口、所得、地価、観光客数、工業出荷額は重要なデータですが、それ自体を目的変数にはしません。変化が人と地域の関係をどう変えたかへ翻訳します。</p>
+    <div class="comparison-insight-grid">
+      <article class="insight-card"><h3>生活可能性</h3><p>住む、移動する、学ぶ、医療を受ける、子育てする、老いる。</p></article>
+      <article class="insight-card"><h3>生業可能性</h3><p>漁をする、耕す、店を営む、ものをつくる、船を持つ、独立する。</p></article>
+      <article class="insight-card"><h3>自然享受可能性</h3><p>海へ近づく、魚を獲る、山林や水を利用する、静けさや景観を享受する。</p></article>
+      <article class="insight-card"><h3>文化実践可能性</h3><p>祭り、食文化、地域技能、信仰、共同作業を行い、次世代へ渡す。</p></article>
+      <article class="insight-card"><h3>経済的可能性</h3><p>所得を得る、起業する、市場へアクセスする、資本を調達する。</p></article>
+      <article class="insight-card"><h3>選択可能性</h3><p>残る、外へ出る、戻る、複数拠点で暮らすなど、生き方を選べる余地。</p></article>
+    </div>
+    <h3>一つの変化について、利得と損失を同時に書く</h3>
+    <p class="lead">「人口減少」「工業化」「観光化」「道路整備」などを単語だけで評価せず、可能性を広げた側面と狭めた側面をできるだけ同じ解像度で記述します。両者が同程度に正しいという意味ではなく、確認できる効果を価値判断と混同しないためです。</p>
+  </section>
+
   <section id="cycle" class="section gene-section">
-    <div class="kicker">02 / ESSAY ↔ RESEARCH NOTE</div>
+    <div class="kicker">03 / ESSAY ↔ RESEARCH NOTE</div>
     <h2>問いを立て、仮説をつくり、検証して書き換える</h2>
-    <p class="lead">地域経営の対象は、自然、人口、産業、交通、観光、景観、食、制度などが絡み合い、条件も変化します。そこで本アトラスでは、最初から答えを固定せず、観察された事実や違和感から説明仮説を組み立てるアブダクション的な進め方を採ります。</p>
+    <p class="lead">地域は自然、人口、産業、交通、観光、景観、食、制度などが絡み合い、条件も変化します。最初から答えを固定せず、観察された事実や違和感から説明仮説を組み立てるアブダクション的な進め方を採ります。</p>
     <div class="research-chain">
       <span>観察</span><b>→</b><span>問い</span><b>→</b><span>エッセイ：仮説形成</span><b>→</b><span>研究ノート：比較・検証</span><b>→</b><span>修正・再解釈</span><b>→</b><span>再記述</span>
     </div>
@@ -59,76 +88,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <article class="insight-card"><h3>研究ノート</h3><p>統計、史料、地図、時系列、地域比較、現地調査を使い、仮説を分解して確かめる。</p></article>
       <article class="insight-card"><h3>更新</h3><p>支持された仮説も、反証された仮説もエッセイへ戻し、地域の見方と次の問いを書き換える。</p></article>
     </div>
-
-    <h3>記述は「事実・解釈・仮説」を分ける</h3>
+    <h3>記述は「事実・解釈・仮説・価値判断」を分ける</h3>
     <div class="methodology-grid">
-      <article class="method-card">
-        <div class="claim-badge fact">FACT</div>
-        <h2>事実</h2>
-        <p>統計、自治体資料、企業公式情報、文化財資料、一次史料など、外部から確認できる記述。</p>
-      </article>
-      <article class="method-card">
-        <div class="claim-badge interpretation">INTERPRETATION</div>
-        <h2>解釈</h2>
-        <p>複数の事実をつないだ本アトラスの分析。どの事実からその説明を導いたかを示す。</p>
-      </article>
-      <article class="method-card">
-        <div class="claim-badge hypothesis">HYPOTHESIS</div>
-        <h2>仮説</h2>
-        <p>説明力はあるが追加検証が必要な推論。魅力的な因果でも、自動的に事実へ昇格させない。</p>
-      </article>
-    </div>
-
-    <h3>因果関係にも確度を持たせる</h3>
-    <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>高い確度</h3><p>史料・統計・公式資料等によって、因果関係まで比較的明瞭に確認できる。</p></article>
-      <article class="insight-card"><h3>中程度</h3><p>関係は強いが、複数要因が介在し、単一原因とは言えない。</p></article>
-      <article class="insight-card"><h3>作業仮説</h3><p>分布・時系列・比較から有力だが、追加史料や現地調査で検証すべき段階。</p></article>
+      <article class="method-card"><div class="claim-badge fact">FACT</div><h2>事実</h2><p>統計、自治体資料、企業公式情報、文化財資料、一次史料など、外部から確認できる記述。</p></article>
+      <article class="method-card"><div class="claim-badge interpretation">INTERPRETATION</div><h2>解釈</h2><p>複数の事実をつないだ本アトラスの分析。どの事実からその説明を導いたかを示す。</p></article>
+      <article class="method-card"><div class="claim-badge hypothesis">HYPOTHESIS</div><h2>仮説</h2><p>説明力はあるが追加検証が必要な推論。魅力的な因果でも、自動的に事実へ昇格させない。</p></article>
+      <article class="method-card"><div class="claim-badge interpretation">VALUE</div><h2>価値判断</h2><p>何を望ましいと考えるかという選択。事実や因果分析から自動的には導かれないため、分析と区別する。</p></article>
     </div>
   </section>
 
   <section id="evidence" class="section">
-    <div class="kicker">03 / EVIDENCE</div>
+    <div class="kicker">04 / EVIDENCE</div>
     <h2>証拠を重ねて、地域差を比較する</h2>
     <p class="lead">一つの統計、一枚の古地図、一枚の写真だけで地域を説明しません。自然条件、歴史資料、産業統計、地図、写真、現地観察を重ね、異なる資料が同じ説明を支持するかを確かめます。</p>
-
-    <h3>地域ページは18項目を、4つの束で読む</h3>
+    <h3>地域ページは、4つの束で読む</h3>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>自然基盤</h3><p>基本情報、地理・地形、気候・水・自然条件、災害・環境。</p></article>
-      <article class="insight-card"><h3>形成過程</h3><p>歴史・都市形成、港・交通・物流、食文化、観光・文化。</p></article>
-      <article class="insight-card"><h3>経済構造</h3><p>地域産業、代表企業、産業遺伝子、資本形成、産業生態系、人口・地域経済。</p></article>
-      <article class="insight-card"><h3>現在と意味</h3><p>暮らし、現在の変化、文化への経済的波及、「なぜこの町はこの町になったのか」。</p></article>
+      <article class="insight-card"><h3>自然基盤</h3><p>地理・地形、気候、水、海況、生態系、災害、環境。</p></article>
+      <article class="insight-card"><h3>形成過程</h3><p>歴史・都市形成、港・交通・物流、食文化、信仰、文化。</p></article>
+      <article class="insight-card"><h3>地域能力</h3><p>生業、産業、技能、設備、資本形成、企業間関係、制度、文化的実践。</p></article>
+      <article class="insight-card"><h3>可能性の変化</h3><p>暮らし、生業、自然利用、文化実践、移動、経済活動について、何が可能になり、何が難しくなったか。</p></article>
     </div>
-
     <h3>写真も、装飾ではなく証拠として使う</h3>
-    <p class="lead">写真は「この写真が何を示すのか」を明確にし、地形や海峡のような自然基盤だけでなく、作業、工程、港湾、工場、町割り、料理、祭礼、現在景観まで因果の途中を可視化します。</p>
-    <div class="method-list-grid">
-      {[
-        '自然基盤・生態系：地形、海峡、河川、干潟、藻場、森林、農地',
-        '生業・技術：漁、農、採石、採鉱、塩田、蔵、工場、修船',
-        '集落・インフラ：雁木、路地、町割り、港湾、社宅、大型インフラ',
-        '文化・現在：料理、祭礼、信仰、継続利用、転用、産業遺産化'
-      ].map((x,i)=><div class="method-list-item"><span>{String(i+1).padStart(2,'0')}</span>{x}</div>)}
-    </div>
+    <p class="lead">写真は「この写真が何を示すのか」を明確にし、自然基盤だけでなく、作業、工程、港湾、工場、町割り、料理、祭礼、現在景観まで因果の途中を可視化します。</p>
   </section>
 
   <section id="update" class="section gene-section">
-    <div class="kicker">04 / UPDATE</div>
+    <div class="kicker">05 / UPDATE</div>
     <h2>時間軸を分け、検証可能な形で更新する</h2>
-    <p class="lead">地域の知識には、ほとんど変わらないものと、毎年変わるものが混在します。更新頻度を分けることで、歴史的な構造と現在進行形の変化を同じページで混同しないようにします。</p>
+    <p class="lead">地域の知識には、ほとんど変わらないものと、毎年変わるものが混在します。更新頻度を分け、歴史的な構造と現在進行形の変化を混同しないようにします。</p>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>STATIC</h3><p>地形、地質、近世港の成立など。変化が遅く、地域構造の基層となる情報。</p></article>
+      <article class="insight-card"><h3>STATIC</h3><p>地質、地形、歴史的出来事、文化財など。原則として固定し、より良い史料が出たときに修正する。</p></article>
       <article class="insight-card"><h3>SLOW</h3><p>人口、産業統計、気候平年値、土地利用など。年次・数年単位で見直す情報。</p></article>
-      <article class="insight-card"><h3>DYNAMIC</h3><p>企業、航路、再開発、災害、店舗など。継続的に変化を追う情報。</p></article>
+      <article class="insight-card"><h3>DYNAMIC</h3><p>企業、航路、再開発、災害、店舗、生態系の急変など。継続的に変化を追う情報。</p></article>
     </div>
-
     <h3>サイト全体も、同じ循環で更新する</h3>
     <p class="lead">研究ノートは地域を越えた比較と因果を扱い、地域ページはその問いを個別地域に当てます。エッセイは、そこで生まれた問いと仮説を読める形に編集します。データ、地図、写真、比較ページは、その往復を支える検証材料です。</p>
     <div class="chapter-related-grid">
       <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">エッセイ →</a>
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート →</a>
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域 →</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/#data-library">データ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/data/">データ →</a>
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/about/">このアトラスについて →</a>
     </div>
   </section>
