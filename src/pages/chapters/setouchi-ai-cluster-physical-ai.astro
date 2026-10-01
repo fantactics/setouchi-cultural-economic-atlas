@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="瀬戸内AI産業クラスターは、どこに何を置くべきか | SETOUCHI ATLAS"
+  description="学習DC・大規模推論DC・地域推論DC・Physical AIエッジを分け、瀬戸内の電力・通信・製造業・造船・物流との接続からAI産業クラスターを考える。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">AI INDUSTRIAL CLUSTER / PHYSICAL AI</p>
+    <h1>瀬戸内AI産業クラスターは、どこに何を置くべきか</h1>
+    <p class="subtitle">学習・シミュレーション → 大規模推論 → 地域推論 → 現場エッジ → Physical AI</p>
+    <p class="lead">AIデータセンターを一種類の施設として扱うと、立地論を誤る。学習、長思考推論、低遅延推論、ロボット制御では、電力・通信・冷却・需要地への近さ・通信断耐性・データ秘匿性の重みが異なる。瀬戸内のAI産業地理は、用途別に計算資源を階層配置して考える必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜「学習DC」と「推論DC」は立地原理が違う</h2>
+    <p>学習では、多数のGPUを高速ネットワークで同期させ、長時間にわたり高い稼働率で回す。したがって、<strong>大量の電力、受電までの時間、高密度冷却、大規模敷地、クラスタ内部ネットワーク</strong>が支配的な条件になる。利用者から数十km離れていても、学習処理そのものには大きな問題になりにくい。</p>
+    <p>一方、推論は一様ではない。生成AIや長思考モデルを大量に処理する推論は、学習と同様に巨大な計算設備を必要とし得る。しかし、工場、港、車両、船、ロボットを制御する推論では、<strong>応答遅延、通信断耐性、データ秘匿、現場側の安全</strong>が支配的になる。</p>
+    <div class="table-wrap"><table><thead><tr><th>計算タイプ</th><th>重視する立地条件</th><th>瀬戸内での配置イメージ</th></tr></thead><tbody>
+      <tr><td><strong>学習・大規模シミュレーション</strong></td><td>電力容量、接続時期、液冷、大規模敷地、高帯域GPU間ネットワーク</td><td>香川・三原等の大規模AIファクトリー／アンカーDC候補</td></tr>
+      <tr><td><strong>長思考・大規模推論</strong></td><td>電力、GPU密度、可用性、外部通信、コスト</td><td>学習拠点と共用または近接する大型推論ファクトリー</td></tr>
+      <tr><td><strong>地域推論</strong></td><td>低遅延、通信多重性、企業データ接続、SLA</td><td>高松・岡山・広島など既存DC・通信ノードを持つ都市</td></tr>
+      <tr><td><strong>Physical AIエッジ</strong></td><td>ミリ秒級応答、通信断耐性、現場データ、機能安全</td><td>水島・福山・周南・新居浜・造船所・港湾・工場のオンプレ／近接エッジ</td></tr>
+    </tbody></table></div>
+    <p class="note">※これは用途別の立地仮説であり、各地域の個別プロジェクトを意味しない。特に大規模推論は中央集約と地域分散の両方があり得る。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜Physical AIは「クラウドだけ」では成立しない</h2>
+    <p>Physical AIは、カメラ、LiDAR、力覚、音、設備ログなどの現場データを認識し、機械の行動へ戻す。ロボット、自動運転、ドローン、自動運航船、建設機械などでは、判断が遅れること自体が品質・安全問題になる。</p>
+    <p>したがって、Physical AIの計算系は<strong>学習・シミュレーションを担う大規模AIファクトリー</strong>と、<strong>現場でリアルタイム推論するエッジコンピュータ</strong>に分かれる。両者の間には、モデル更新、実データ回収、評価、フリート学習を担う地域推論・データ基盤が必要になる。</p>
+    <div class="process-chain"><span>現場データ</span><b>→</b><span>データ整備</span><b>→</b><span>学習・世界モデル</span><b>→</b><span>シミュレーション</span><b>→</b><span>地域配信</span><b>→</b><span>エッジ推論</span><b>→</b><span>ロボット・船・設備</span></div>
+  </section>
+
+  <section class="section">
+    <h2>03｜瀬戸内はPhysical AIの「現場データ」を持っている</h2>
+    <p>経済産業省は2026年、製造業等の実データのAI-Ready化とロボット基盤モデルの開発を政策支援し、フィジカルAIでは日本の製造現場データを競争力の源泉として位置づけている。瀬戸内には、化学、鉄鋼、自動車、造船、物流、港湾、設備保全など、センサーと技能が蓄積された現場が高密度に存在する。</p>
+    <p>ここでは、DCの立地だけではなく、<strong>「どこにGPUがあるか」×「どこに高品質な現場データがあるか」</strong>の接続が重要になる。AI産業クラスターの希少資源は電力だけでなく、現場データと運用知識である。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜造船は瀬戸内Physical AIの象徴的ユースケースになり得る</h2>
+    <p>国土交通省は2026年から、船舶建造の曲げ加工・溶接等にAIを用いるロボットと、生産工程をバーチャル空間で最適化するAIシミュレーション基盤の開発を進めている。さらに自動運航船は、経産省のロボット基盤モデル開発対象にも含まれる。</p>
+    <p>造船では、<strong>学習・強化学習・シミュレーション</strong>は大規模GPU側へ寄せられる一方、<strong>溶接・曲げ・搬送・検査・自律航行</strong>の推論は造船所や船上のエッジへ置く必要がある。この分業は、瀬戸内のAIインフラ地理を考えるうえで非常に分かりやすい。</p>
+    <div class="process-chain"><span>造船所の熟練技能・映像・センサ</span><b>→</b><span>学習DC</span><b>→</b><span>デジタルツイン／強化学習</span><b>→</b><span>モデル配信</span><b>→</b><span>AI溶接・曲げ・搬送</span></div>
+  </section>
+
+  <section class="section">
+    <h2>05｜瀬戸内AIクラスターは「一極集中」より階層ネットワークが合う</h2>
+    <div class="research-note-role-grid">
+      <article><strong>Tier 1｜AIファクトリー</strong><p>大規模学習、世界モデル、合成データ、強化学習、長思考推論。電力と冷却を優先し、香川・三原のような大型DC形成地域が候補。</p></article>
+      <article><strong>Tier 2｜地域推論・データハブ</strong><p>地域企業向け推論、モデル配信、データガバナンス、RAG、企業専用AI。高松・岡山・広島等の通信・既存DC集積と親和性が高い。</p></article>
+      <article><strong>Tier 3｜産業エッジ</strong><p>工場・造船所・倉庫・港湾に置き、リアルタイム推論と安全制御を担う。水島・福山・周南・新居浜等の産業ノードが主役になる。</p></article>
+      <article><strong>Tier 4｜機械内AI</strong><p>ロボット、AGV、クレーン、船舶、車両に搭載し、通信断時も自律動作する。Physical AIの最終実行点。</p></article>
+    </div>
+    <p>この構造なら、全ての計算資源を一か所へ集める必要はない。むしろ、<strong>モデルを育てる場所、推論を大量処理する場所、現場を制御する場所を分け、光ネットワークで循環させる</strong>方が瀬戸内の多核型産業構造に合う。</p>
+  </section>
+
+  <section class="section">
+    <h2>06｜地域別に見ると、役割が変わる</h2>
+    <div class="table-wrap"><table><thead><tr><th>地域ノード</th><th>向く役割の仮説</th><th>Physical AIとの接続</th></tr></thead><tbody>
+      <tr><td><strong>香川</strong></td><td>AIファクトリー＋地域推論</td><td>GPU基盤、人材育成、AI利用企業を束ね、四国側のモデル供給・推論ハブへ</td></tr>
+      <tr><td><strong>三原</strong></td><td>大型学習・大規模推論のアンカー候補</td><td>大規模計算資源から備後・広島の製造業へモデル供給する構造を検証</td></tr>
+      <tr><td><strong>岡山・広島</strong></td><td>地域推論・企業AIハブ</td><td>既存DC・通信と企業データを接続し、低遅延推論・データガバナンスを担う</td></tr>
+      <tr><td><strong>水島・福山</strong></td><td>産業エッジ密集地</td><td>鉄鋼・化学・物流・製造設備の検査、保全、自律搬送、ロボット制御</td></tr>
+      <tr><td><strong>周南</strong></td><td>プロセス産業Physical AI</td><td>巡回点検、異常検知、設備保全、プロセス最適化をエッジ推論と接続</td></tr>
+      <tr><td><strong>新居浜・西条</strong></td><td>製造・設備系Physical AI</td><td>化学・電機・設備保全・物流の現場データとエッジAIを接続</td></tr>
+      <tr><td><strong>瀬戸内の造船・港湾ノード</strong></td><td>ロボティクス・自律移動</td><td>AI溶接・曲げ・搬送・検査、自動運航、港湾物流、デジタルツイン</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>07｜立地KPIも用途別に変える</h2>
+    <div class="table-wrap"><table><thead><tr><th>指標</th><th>学習DC</th><th>地域推論DC</th><th>Physical AIエッジ</th></tr></thead><tbody>
+      <tr><td>電力</td><td>接続可能MW、接続年数、電力単価、脱炭素電源</td><td>電力＋冗長性＋コスト</td><td>現場電源、UPS、非常時継続</td></tr>
+      <tr><td>通信</td><td>外部回線よりGPU間ネットワークと大容量データ転送</td><td>低遅延、複数キャリア、主要都市・クラウド接続</td><td>5G/ローカル5G/Wi-Fi/有線、通信断時の自律性</td></tr>
+      <tr><td>冷却</td><td>液冷、高密度ラック、PUE/WUE</td><td>密度と可用性のバランス</td><td>粉塵・熱・振動等の現場環境耐性</td></tr>
+      <tr><td>需要地距離</td><td>相対的重要度は低い</td><td>重要</td><td>最重要。現場内・機械内も含む</td></tr>
+      <tr><td>データ</td><td>大量学習データ、合成データ</td><td>企業データ、RAG、運用ログ</td><td>映像・センサー・制御データ、技能データ</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>08｜地域経営上の勝ち筋は「GPU誘致」よりループ形成</h2>
+    <p>Physical AIでは、現場で発生したデータが学習側へ戻り、改善されたモデルが再び現場へ配布される。この<strong>データ→学習→シミュレーション→推論→現場→新データ</strong>の循環を地域内または瀬戸内圏内で回せることが重要である。</p>
+    <div class="process-chain"><span>工場・港・船</span><b>→</b><span>現場データ</span><b>→</b><span>地域データハブ</span><b>→</b><span>AIファクトリー</span><b>→</b><span>モデル</span><b>→</b><span>エッジ推論</span><b>→</b><span>生産性・安全性</span></div>
+    <p>この循環が成立すれば、瀬戸内の既存製造業はAIデータセンターの「需要家」であるだけでなく、<strong>Physical AIを学習させるデータ産業</strong>にもなる。</p>
+  </section>
+
+  <section class="section">
+    <h2>09｜仮説｜瀬戸内は「Physical AIベルト」になり得る</h2>
+    <p>瀬戸内の強みは、巨大AI企業の本社が集まっていることではない。電力・通信・工業インフラの上に、造船、化学、鉄鋼、自動車、物流など、AIが物理世界へ作用するための現場が連続していることである。</p>
+    <p><strong>仮説：</strong>瀬戸内のAI産業競争力は、最大GPU数ではなく、<strong>学習計算資源と高密度な産業現場を、地域推論・エッジ推論で短く接続できること</strong>から生まれる。</p>
+    <p>これは、これまでの「港湾地理 → 工業地理 → ワット・ビット地理」の次に、<strong>「学習・推論・行動の地理」</strong>を加えることを意味する。</p>
+  </section>
+
+  <section class="section">
+    <h2>出典・確認資料</h2>
+    <ul>
+      <li><a href="https://www.nvidia.com/ja-jp/solutions/ai-factories/" target="_blank" rel="noreferrer">NVIDIA｜AIファクトリー</a></li>
+      <li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development" target="_blank" rel="noreferrer">NVIDIA｜Physical AI Data Factory Blueprint</a></li>
+      <li><a href="https://www.nvidia.com/en-us/industries/robotics/.com/" target="_blank" rel="noreferrer">NVIDIA｜Robotics / Three-Computer Solution</a></li>
+      <li><a href="https://aws.amazon.com/what-is/edge-inference/" target="_blank" rel="noreferrer">AWS｜Edge Inference</a></li>
+      <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/mes-on-aws/edge.html" target="_blank" rel="noreferrer">AWS｜Industrial Edge Computing</a></li>
+      <li><a href="https://www.meti.go.jp/press/2026/06/20260630005/20260630005.html" target="_blank" rel="noreferrer">経済産業省｜AIロボット・フィジカルAIを見据えたマルチモーダル基盤モデル開発</a></li>
+      <li><a href="https://www.meti.go.jp/press/2026/05/20260514001/20260514001.html" target="_blank" rel="noreferrer">経済産業省｜製造業データAI-Ready化・ロボット基盤モデル</a></li>
+      <li><a href="https://www.mlit.go.jp/report/press/kaiji05_hh_000320.html" target="_blank" rel="noreferrer">国土交通省｜AI造船ロボット等の研究開発</a></li>
+      <li><a href="https://www.mlit.go.jp/report/press/kaiji05_hh_000347.html" target="_blank" rel="noreferrer">国土交通省｜造船業におけるAI・ロボティクス普及</a></li>
+      <li><a href="https://www.pref.kagawa.lg.jp/kocho/chijipage/chijiblog/2026/20260217.html" target="_blank" rel="noreferrer">香川県｜NVIDIAとのAI活用等推進連携協定</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/setouchi-watt-bit-geography/">瀬戸内ワット・ビット地理 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/">AIデータセンター適地マップ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/">AI DCエコシステム論 →</a>
+    </div>
+  </section>
+</BaseLayout>
