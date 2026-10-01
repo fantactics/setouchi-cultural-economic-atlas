@@ -1,7 +1,7 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
-import HomeResearchMapEnhancer from '../components/HomeResearchMapEnhancer.astro';
+import HomeResearchMapGlobalEnhancer from '../components/HomeResearchMapGlobalEnhancer.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import { regionalFutureLenses, defaultRegionalFutureLens } from '../data/regionalFutureLenses.js';
 import '../styles/global.css';
@@ -41,7 +41,7 @@ const isHome = Astro.url.pathname === '/setouchi-cultural-economic-atlas/' || As
     </header>
     <main>
       <slot />
-      {isHome && <HomeResearchMapEnhancer />}
+      {isHome && <HomeResearchMapGlobalEnhancer />}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
       {regionalFutureLens && placeId && <RegionalAdaptiveLens placeId={placeId} lens={regionalFutureLens} />}
     </main>
