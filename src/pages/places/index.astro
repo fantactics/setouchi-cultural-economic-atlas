@@ -13,7 +13,7 @@ const coverPhotoFor=(place)=>photoById[regionCoverPhotoIds[place.id]] || null;
 const leadPhoto=photoById['photo-onomichi-panorama'];
 const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPlaces},{title:'四国地方',note:'東 → 西',items:shikokuPlaces}];
 ---
-<BaseLayout title="地域 | SETOUCHI ATLAS" description="一つの地域を、自然基盤、形成過程、蓄積した地域資産、現在の変化、これからの再編集まで縦に読む。">
+<BaseLayout title="地域 | SETOUCHI ATLAS" description="地域における人間の可能性の変遷を、自然基盤、生業、技術、産業、文化、都市、暮らしの関係から縦に読む。">
   <section class="places-index-cover">
     <div class="places-index-cover-grid">
       <div class="places-index-main-photo">
@@ -22,8 +22,8 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
         <div class="places-index-cover-copy">
           <span class="places-index-kicker">REGIONS</span>
           <h1>地域から見る</h1>
-          <p class="places-index-thesis">地域は、<br/>自然と人の選択の履歴である。</p>
-          <p>地形や海況が可能性をつくり、人が港・農地・産業・町をつくる。その結果として残った技能、土地、文化、制度が、次の時代の選択肢になります。</p>
+          <p class="places-index-thesis">地域は、<br/>人の可能性と制約が変化してきた場所である。</p>
+          <p>地形や海況、生態系、交通、技術、産業、制度の変化によって、この土地で人が得られるもの、できること、難しくなったことは変わってきました。地域ページでは、その変遷を一つの時間軸で読みます。</p>
           <a href="#place-directory">地域を選ぶ ↓</a>
         </div>
       </div>
@@ -35,28 +35,29 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
 
   <section class="section">
     <div class="page-intro-grid">
-      <p class="big-question">「この町はなぜこの町になったのか」から、「次に何を残し、何を変えるのか」まで読む。</p>
+      <p class="big-question">「この町はなぜこの町になったのか」と、「そこで可能だった生き方はどう変わったのか」を読む。</p>
       <div class="body-copy">
-        <p>地域ページは観光案内ではなく、地域形成と地域経営を一つの時間軸で読むための入口です。行政境界よりも、流域、海域、港と後背地、島と対岸など、実際に機能がつながる範囲を重視します。</p>
-        <p>記述は固定的なプロフィールではありません。人口、産業、土地利用、自然環境の変化に合わせ、研究ノートとデータから更新されます。</p>
+        <p>地域ページは観光案内でも、地域振興の処方箋でもありません。自然環境、生態系、生業、技術、産業、文化、都市、制度の変化を追い、それによって人の暮らしや選択肢がどう変わったかを記述するための入口です。</p>
+        <p>人口増加や産業成長を自動的に成功とはせず、人口減少や産業縮小を自動的に失敗ともみなしません。それぞれの変化が何を可能にし、何を難しくしたのかを、利得と損失の両面から確かめます。</p>
       </div>
     </div>
     <div class="reading-lens-grid">
-      <div class="reading-lens"><span>01</span><strong>自然基盤</strong><p>地形・地質・水・気候・海況・生態系。</p></div>
-      <div class="reading-lens"><span>02</span><strong>人の働きかけ</strong><p>生業・技術・交易・制度・土地改変。</p></div>
-      <div class="reading-lens"><span>03</span><strong>蓄積した資産</strong><p>技能・企業・設備・文化・景観・信用。</p></div>
-      <div class="reading-lens"><span>04</span><strong>現在の変化</strong><p>人口減少・産業転換・災害・観光・生活。</p></div>
-      <div class="reading-lens"><span>05</span><strong>次の再編集</strong><p>何を維持し、低密度化し、自然へ還すか。</p></div>
+      <div class="reading-lens"><span>01</span><strong>自然基盤</strong><p>地形・地質・水・気候・海況・生態系がつくる可能性と制約。</p></div>
+      <div class="reading-lens"><span>02</span><strong>人の働きかけ</strong><p>生業・技術・交易・制度・土地改変が自然条件をどう読み替えたか。</p></div>
+      <div class="reading-lens"><span>03</span><strong>可能になったこと</strong><p>働く、移動する、商う、つくる、住む、自然を利用するなど、地域が開いた選択肢。</p></div>
+      <div class="reading-lens"><span>04</span><strong>失われた・難しくなったこと</strong><p>産業、交通、人口、環境の変化によって縮小した生業、文化、アクセス、生活上の選択肢。</p></div>
+      <div class="reading-lens"><span>05</span><strong>新しく生まれた可能性</strong><p>技術、交通、市場、制度の変化によって、以前にはなかった生き方や仕事がどう生まれたか。</p></div>
+      <div class="reading-lens"><span>06</span><strong>これから問われる選択</strong><p>何を大切にするかは分析から自動的には決まりません。未来の選択は、この変化を理解した先に置きます。</p></div>
     </div>
   </section>
 
   <section class="section gene-section">
-    <div class="kicker">FROM PROFILE TO ADAPTIVE REGION</div>
+    <div class="kicker">FROM PROFILE TO CHANGING POSSIBILITIES</div>
     <h2>地域ページも、更新され続ける。</h2>
-    <p class="lead">SETOUCHI ATLASでは、地域の「正解」を一度で確定しません。現地観察、統計、土地利用、産業、世界の比較事例を重ね、仮説が変われば地域の読み方も書き換えます。地域のLearning Velocity――変化を観測し、学び、修正する速度――も研究対象です。</p>
+    <p class="lead">SETOUCHI ATLASでは、地域の「正解」を一度で確定しません。現地観察、統計、土地利用、産業、世界の比較事例を重ね、新しい証拠が出れば仮説も地域の読み方も書き換えます。変化を観測し、地域と人との関係を更新して理解すること自体が研究対象です。</p>
     <div class="chapter-related-grid">
-      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/ai-era-regional-planning-learning-velocity/">AI時代の地域計画を読む →</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">Adaptive Management →</a>
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/about/">このアトラスの立場 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論を見る →</a>
     </div>
   </section>
 
@@ -64,7 +65,7 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
     <div class="place-index-intro">
       <div class="kicker">DIRECTORY</div>
       <h2>地域を選ぶ</h2>
-      <p>東から西へ並べています。各ページでは自然基盤から都市形成、産業・食文化、現在の変化、関連エッセイ・研究ノート・データまでを横断します。</p>
+      <p>東から西へ並べています。各ページでは、自然基盤から都市形成、産業・食文化、暮らし、現在の変化までを横断し、その地域で人が得られるもの・できることがどう変わってきたかを読みます。</p>
     </div>
 
     {groups.map((group)=>(
@@ -78,7 +79,7 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
                 <div class="place-index-prefecture">{place.prefecture}</div>
                 <h2>{place.name}</h2>
                 <p class="place-index-subtitle">{place.subtitle}</p>
-                <div class="region-layer-chips" aria-label="この地域ページの内容"><span>自然基盤</span><span>形成</span><span>再編集</span></div>
+                <div class="region-layer-chips" aria-label="この地域ページの内容"><span>自然基盤</span><span>形成過程</span><span>可能性と制約</span></div>
                 {place.sections?.[17]?.[1] && <p class="place-index-causal">{place.sections[17][1]}</p>}
                 <span class="place-index-read">地域ページを開く →</span>
               </div>
