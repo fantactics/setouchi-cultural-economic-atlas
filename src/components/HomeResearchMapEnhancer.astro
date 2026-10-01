@@ -1,0 +1,131 @@
+---
+import { places } from '../data/places.js';
+import { regionalFutureLenses } from '../data/regionalFutureLenses.js';
+
+const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
+const regionPoints=places.map((p)=>({
+  id:p.id,
+  name:p.name,
+  lat:p.lat,
+  lon:p.lon,
+  subtitle:p.subtitle,
+  href:`/setouchi-cultural-economic-atlas/places/${p.id}/`
+}));
+
+const industryPoints=[
+  {name:'児島・下津井',lat:placeById.shimotsui?.lat ?? 34.43,lon:placeById.shimotsui?.lon ?? 133.80,theme:'繊維産業の再生産',href:'/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'},
+  {name:'福山',lat:34.49,lon:133.36,theme:'技能再結合とデニム',href:'/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'},
+  {name:'周南',lat:34.05,lon:131.81,theme:'塩田から化学工業へ',href:'/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'},
+  {name:'新居浜',lat:placeById.niihama?.lat ?? 33.96,lon:placeById.niihama?.lon ?? 133.28,theme:'鉱山から化学・重工業へ',href:'/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'},
+  {name:'今治',lat:placeById.imabari?.lat ?? 34.06,lon:placeById.imabari?.lon ?? 133.00,theme:'海事資本循環',href:'/setouchi-cultural-economic-atlas/chapters/imabari-maritime-cluster/'},
+  {name:'因島・尾道',lat:34.36,lon:133.18,theme:'技能コモンズ',href:'/setouchi-cultural-economic-atlas/chapters/onomichi-innoshima-skill-ecosystem/'},
+  {name:'呉',lat:34.25,lon:132.57,theme:'制度的コンバージョン',href:'/setouchi-cultural-economic-atlas/chapters/kure-state-led-industrial-transition/'},
+  {name:'玉野',lat:34.49,lon:133.95,theme:'企業城下町のアンバンドリング',href:'/setouchi-cultural-economic-atlas/chapters/tamano-company-town-shipbuilding/'}
+];
+
+const naturePoints=[
+  {name:'呉・旧日本製鉄地区',lat:34.24,lon:132.56,issue:'大規模臨海工業跡地を、産業利用と自然資本の混合空間へ再編集できるか'},
+  {name:'水島臨海工業地帯',lat:34.53,lon:133.75,issue:'現役工業港に生態系・緩衝緑地・水際機能を再導入できるか'},
+  {name:'坂出・番の州',lat:34.33,lon:133.82,issue:'工業地帯の緩衝緑地を、生態回廊・雨水管理・暑熱対策へ更新できるか'},
+  {name:'新居浜港',lat:33.97,lon:133.27,issue:'港湾再編を、親水・防災・生態系のモザイク化へ接続できるか'},
+  {name:'尾道・斜面市街地',lat:placeById.onomichi?.lat ?? 34.41,lon:placeById.onomichi?.lon ?? 133.20,issue:'高リスク宅地を街区単位で低密度化し、緑地・防災空地へ転換できるか'},
+  {name:'芸予諸島・柑橘斜面',lat:34.25,lon:133.00,issue:'果樹園・粗放管理・草地・森林を管理密度で再配分できるか'},
+  {name:'笠岡湾干拓地',lat:34.48,lon:133.50,issue:'農業生産を維持しながら、水路・汽水域・干潟の生態系を再接続できるか'},
+  {name:'児島湖・児島湾低地',lat:34.58,lon:133.93,issue:'農地・水路・ヨシ原・遊水地を湿地システムとして再編できるか'},
+  {name:'松永湾',lat:34.42,lon:133.25,issue:'河川・干潟・藻場・市街地を一つの陸海システムとして管理できるか'},
+  {name:'周南コンビナート周辺',lat:34.05,lon:131.82,issue:'工業港・住宅地・大規模緩衝緑地を一体で自然資本化できるか'}
+].map((p)=>({...p,href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/'}));
+
+const adaptivePoints=places
+  .filter((p)=>regionalFutureLenses[p.id])
+  .map((p)=>({
+    id:p.id,
+    name:p.name,
+    lat:p.lat,
+    lon:p.lon,
+    issue:regionalFutureLenses[p.id].redesign,
+    href:`/setouchi-cultural-economic-atlas/places/${p.id}/#region-future`
+  }));
+
+const mapData={regionPoints,industryPoints,naturePoints,adaptivePoints};
+---
+<style is:global>
+  .research-map-section{padding:0;background:#10252d;color:white;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+  .research-map-heading{padding:3.6rem 5vw 1.4rem;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:2rem;align-items:end}
+  .research-map-heading h2{font-size:clamp(2rem,4vw,3.8rem);line-height:1.05;margin:.4rem 0 .8rem;max-width:15ch}
+  .research-map-heading p{margin:0;color:rgba(255,255,255,.74);max-width:42rem}
+  .research-map-kicker{font-size:.75rem;font-weight:800;letter-spacing:.13em;color:#9ac8d0}
+  .research-map-shell{display:grid;grid-template-columns:320px 1fr;min-height:560px;border-top:1px solid rgba(255,255,255,.12)}
+  .research-map-panel{padding:1.4rem 1.2rem 1.6rem 5vw;background:#142d36;border-right:1px solid rgba(255,255,255,.12)}
+  .research-map-panel h3{font-size:1rem;margin:.2rem 0 .3rem}.research-map-panel>p{font-size:.83rem;color:rgba(255,255,255,.64);margin:.2rem 0 1.1rem}
+  .research-layer-list{display:grid;gap:.55rem}.research-layer-button{width:100%;border:1px solid rgba(255,255,255,.17);border-radius:12px;padding:.75rem .8rem;background:rgba(255,255,255,.04);color:white;text-align:left;cursor:pointer;display:grid;grid-template-columns:12px 1fr auto;gap:.65rem;align-items:center;font:inherit}
+  .research-layer-button:hover{background:rgba(255,255,255,.08)}.research-layer-button[aria-pressed="true"]{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32)}
+  .research-layer-button i{width:10px;height:10px;border-radius:50%;display:block}.research-layer-button strong{font-size:.86rem}.research-layer-button small{font-size:.7rem;color:rgba(255,255,255,.55)}
+  .research-map-note{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.12);font-size:.74rem;color:rgba(255,255,255,.55)}
+  #home-research-map{width:100%;min-height:560px;background:#d9e4e6}.research-map-section .leaflet-popup-content-wrapper{border-radius:12px}.research-map-popup small{display:block;color:#6b7377;margin:.2rem 0 .5rem}.research-map-popup a{font-weight:800;text-decoration:none}.research-map-popup .tag{display:inline-block;font-size:.65rem;font-weight:800;letter-spacing:.06em;padding:.12rem .38rem;border-radius:999px;background:#edf2f2;margin-bottom:.35rem}
+  .research-map-footer{padding:1rem 5vw 1.35rem;display:flex;justify-content:space-between;gap:1rem;align-items:center;color:rgba(255,255,255,.64);font-size:.8rem}.research-map-footer a{color:white;font-weight:700;text-decoration:none}
+  @media(max-width:860px){.research-map-heading{grid-template-columns:1fr}.research-map-shell{grid-template-columns:1fr}.research-map-panel{padding:1.2rem 5vw;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.research-layer-list{grid-template-columns:repeat(2,minmax(0,1fr))}#home-research-map{min-height:480px}.research-map-footer{align-items:flex-start;flex-direction:column}}
+  @media(max-width:560px){.research-layer-list{grid-template-columns:1fr}.research-map-heading{padding-top:2.7rem}}
+</style>
+<script is:inline define:vars={{ mapData }}>
+  (()=>{
+    const section=document.querySelector('.map-first-hero');
+    if(!section || !window.L) return;
+    section.className='research-map-section';
+    section.innerHTML=`
+      <div class="research-map-heading">
+        <div><div class="research-map-kicker">RESEARCH MAP / LIVE ATLAS</div><h2>このアトラスはいま、どこで何を調べているか。</h2></div>
+        <p>地域形成、産業の再生産、ネイチャーポジティブ、Adaptive Managementを同じ地図上で重ねます。場所を入口に、過去の形成史から次の再編集まで辿れます。</p>
+      </div>
+      <div class="research-map-shell">
+        <aside class="research-map-panel">
+          <h3>研究レイヤー</h3><p>複数選択できます。ネイチャーポジティブ10地点は研究対象の概略位置です。</p>
+          <div class="research-layer-list">
+            <button class="research-layer-button" data-layer="regions" aria-pressed="true"><i style="background:#3d7184"></i><strong>地域形成</strong><small>${mapData.regionPoints.length}</small></button>
+            <button class="research-layer-button" data-layer="industry" aria-pressed="true"><i style="background:#c88732"></i><strong>産業再生産</strong><small>${mapData.industryPoints.length}</small></button>
+            <button class="research-layer-button" data-layer="nature" aria-pressed="true"><i style="background:#2f7c56"></i><strong>ネイチャーポジティブ</strong><small>${mapData.naturePoints.length}</small></button>
+            <button class="research-layer-button" data-layer="adaptive" aria-pressed="false"><i style="background:#7b67a8"></i><strong>Adaptive Lens</strong><small>${mapData.adaptivePoints.length}</small></button>
+          </div>
+          <div class="research-map-note">地図の点は研究単位を示す代表点で、事業区域・災害区域・行政境界を示すものではありません。今後GISデータに置き換え、精度を上げます。</div>
+        </aside>
+        <div id="home-research-map" aria-label="瀬戸内の研究テーマ地図"></div>
+      </div>
+      <div class="research-map-footer"><span>形成 → 再生産 → 再編集 → 学習を、地理的に重ねて読む。</span><a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a></div>`;
+
+    const map=L.map('home-research-map',{scrollWheelZoom:false,zoomControl:true}).setView([34.25,133.35],7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+
+    const escapeHtml=(value)=>String(value??'').replace(/[&<>"']/g,(ch)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+    const specs={
+      regions:{data:mapData.regionPoints,color:'#3d7184',radius:5,label:'REGION',description:(p)=>p.subtitle},
+      industry:{data:mapData.industryPoints,color:'#c88732',radius:7,label:'INDUSTRY',description:(p)=>p.theme},
+      nature:{data:mapData.naturePoints,color:'#2f7c56',radius:8,label:'NATURE POSITIVE',description:(p)=>p.issue},
+      adaptive:{data:mapData.adaptivePoints,color:'#7b67a8',radius:6,label:'ADAPTIVE',description:(p)=>p.issue}
+    };
+    const groups={};
+    Object.entries(specs).forEach(([key,spec])=>{
+      const group=L.layerGroup();
+      spec.data.forEach((p)=>{
+        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
+        const marker=L.circleMarker([p.lat,p.lon],{radius:spec.radius,weight:2,color:'#ffffff',fillColor:spec.color,fillOpacity:.9});
+        const text=spec.description(p)||'';
+        marker.bindPopup(`<div class="research-map-popup"><span class="tag">${spec.label}</span><strong>${escapeHtml(p.name)}</strong><small>${escapeHtml(text)}</small><a href="${escapeHtml(p.href)}">詳しく見る →</a></div>`);
+        marker.addTo(group);
+      });
+      groups[key]=group;
+    });
+    groups.regions.addTo(map); groups.industry.addTo(map); groups.nature.addTo(map);
+
+    document.querySelectorAll('.research-layer-button').forEach((button)=>{
+      button.addEventListener('click',()=>{
+        const key=button.dataset.layer; const group=groups[key]; if(!group) return;
+        const active=button.getAttribute('aria-pressed')==='true';
+        if(active){map.removeLayer(group);button.setAttribute('aria-pressed','false');}
+        else{group.addTo(map);button.setAttribute('aria-pressed','true');}
+      });
+    });
+    const all=[...mapData.regionPoints,...mapData.industryPoints,...mapData.naturePoints].filter((p)=>typeof p.lat==='number'&&typeof p.lon==='number');
+    if(all.length) map.fitBounds(L.latLngBounds(all.map((p)=>[p.lat,p.lon])),{padding:[28,28],maxZoom:8});
+    setTimeout(()=>map.invalidateSize(),0);
+  })();
+</script>
