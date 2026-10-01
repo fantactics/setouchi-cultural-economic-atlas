@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint:editorial": "node scripts/check-editorial-language.mjs",
+    "lint:editorial:strict": "node scripts/check-editorial-language.mjs --strict"
   },
   "dependencies": {
     "astro": "^5.14.0"
