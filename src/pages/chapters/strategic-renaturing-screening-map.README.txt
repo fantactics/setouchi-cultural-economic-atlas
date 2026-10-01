@@ -1,1 +1,0 @@
-Data roadmap: v0.2 should overlay 500m future population (R6), 100m land use, flood/landslide/tsunami risk, MAFF field polygons, biodiversity/OECM, and local infrastructure-cost data. Do not infer parcel-level renaturing suitability from v0.1 alone.
