@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="瀬戸内Physical AIエコシステム・プレイヤーマップ | SETOUCHI ATLAS"
+  description="GPU/DC、電力、通信、SI、ロボット・制御、産業データ、大学・高専、行政をつなぎ、瀬戸内でPhysical AIの学習→実装→再学習ループを成立させるプレイヤー構造を整理する。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">PHYSICAL AI / ECOSYSTEM PLAYER MAP</p>
+    <h1>瀬戸内Physical AIエコシステム・プレイヤーマップ</h1>
+    <p class="subtitle">GPUだけでは産業にならない。データ、現場、制御、通信、人材、統合主体をどう接続するか。</p>
+    <p class="lead">Physical AIの地域競争力は、単独企業の技術力ではなく、現場データを学習資源へ変換し、モデルを安全に現場へ戻し、改善を繰り返すプレイヤー間ネットワークで決まる。本ノートでは瀬戸内の既存プレイヤーを役割別に整理し、どこに接続があり、どこに空白が残るかを読む。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜必要なのは「企業一覧」ではなく、学習ループを完成させる役割分担</h2>
+    <div class="process-chain"><span>現場企業</span><b>→</b><span>データ整備・権利処理</span><b>→</b><span>GPU/DC</span><b>→</b><span>学習・シミュレーション</span><b>→</b><span>SI・モデル配信</span><b>→</b><span>ロボット・制御</span><b>→</b><span>現場</span></div>
+    <p>この循環のどこか一つでも欠けると、地域のAI投資はPoCで止まりやすい。とくにPhysical AIでは、<strong>現場データの意味を理解する人、機械を安全に動かす人、企業間データを扱うルールを作る人</strong>が必要で、GPUやAIモデルだけでは完結しない。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜7つのプレイヤー層</h2>
+    <div class="table-wrap"><table><thead><tr><th>層</th><th>役割</th><th>瀬戸内で確認できる代表例</th></tr></thead><tbody>
+      <tr><td><strong>1. COMPUTE</strong></td><td>GPU、AIファクトリー、地域推論基盤</td><td>ハイレゾ（高松・綾川）、STNet、EneWings広島DC、両備システムズの岡山DC、三原の大型DC計画</td></tr>
+      <tr><td><strong>2. WATT / BIT</strong></td><td>電力、系統、光通信、クラウド接続</td><td>四国電力送配電・中国電力ネットワーク、STNet、エネコム、アルテリア等</td></tr>
+      <tr><td><strong>3. DATA OWNER</strong></td><td>実世界データ、設備、技能、運転知識を持つ</td><td>今治造船、新来島どっく、BEMAC、JFEスチール、マツダ、周南・新居浜の化学企業、港湾・物流事業者</td></tr>
+      <tr><td><strong>4. ROBOTICS / CONTROL</strong></td><td>AIの判断を物理動作へ変換</td><td>BEMAC、造船ロボット・FA関連企業、搬送・検査・設備制御企業</td></tr>
+      <tr><td><strong>5. SI / DATA PLATFORM</strong></td><td>データ収集、MLOps、エッジ、セキュリティ、既存設備統合</td><td>両備システムズ、STNet、エネコム、BEMAC等。域外大手SIerとの接続も必要</td></tr>
+      <tr><td><strong>6. KNOWLEDGE / TALENT</strong></td><td>研究、人材育成、技能の形式知化</td><td>広島大学デジタルものづくり教育研究センター、愛媛大学、新居浜高専、徳山高専、地域大学・高専</td></tr>
+      <tr><td><strong>7. ORCHESTRATOR / GOVERNANCE</strong></td><td>複数企業を束ね、協調領域、データ権利、投資順序を設計</td><td>香川県AIファクトリー推進コンソーシアム、今治海事エコシステム推進機構、広島大学共創コンソーシアム等</td></tr>
+    </tbody></table></div>
+    <p class="note">※企業名は公開情報で役割が確認できる代表例。各社が本ノートで示す全機能を提供しているという意味ではない。</p>
+  </section>
+
+  <section class="section">
+    <h2>03｜香川モデル：COMPUTE起点のエコシステム</h2>
+    <p>香川では、GPUデータセンターの実装が先行し、2026年8月には香川県AIファクトリー推進コンソーシアムが設立された。高松・綾川のGPU拠点、STNetのデータセンター・通信基盤、県のGX戦略地域政策を重ねることで、<strong>計算資源から利用企業・人材・投資を呼び込む</strong>モデルが形成されつつある。</p>
+    <div class="process-chain"><span>電力・通信</span><b>→</b><span>GPU/DC</span><b>→</b><span>AI利用企業</span><b>→</b><span>人材・実証</span><b>→</b><span>追加需要</span></div>
+    <p>さらにSTNetは、離れたGPUサーバーを高速・低遅延ネットワークで束ねる「遠隔GPUクラスター」の実証を2026年度上期に開始する計画を示している。これは瀬戸内の多核立地と相性がよく、将来は一つの巨大施設ではなく<strong>複数ノードをネットワークで一つの計算資源として扱う</strong>方向へ進む可能性がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜広島モデル：研究・共創起点のエコシステム</h2>
+    <p>広島大学デジタルものづくり教育研究センターでは、データ駆動型スマートシステム、スマート検査・モニタリング等の共創コンソーシアムを運営し、マツダ、JFEスチール、コベルコ建機、北川鉄工所、サタケ、リョービ、中国電力など多数の企業が参加している。</p>
+    <p>ここではGPUそのものより、<strong>企業課題 → 共同研究 → センシング・制御・AI → 社会実装 → 人材育成</strong>の接続が先行している。Physical AIに必要な「現場課題を研究テーマへ翻訳する能力」がすでに地域内に存在する点が強い。</p>
+    <div class="process-chain"><span>企業課題</span><b>→</b><span>大学・研究設備</span><b>→</b><span>共同実験</span><b>→</b><span>現場実装</span><b>→</b><span>次の課題</span></div>
+  </section>
+
+  <section class="section">
+    <h2>05｜今治モデル：INDUSTRIAL DATA起点のエコシステム</h2>
+    <p>今治では2026年から、今治市・愛媛県・愛媛大学・今治造船・新来島どっく・BEMAC等が参画する「今治海事エコシステム構築プロジェクト」が本格化した。計画には、海事関連データセンターの設置、データ集積・利活用、自律運航、スマートファクトリー、高度人材育成が明示されている。</p>
+    <p>このモデルの特徴は、<strong>造船・舶用・海運という実データの発生源が先に存在する</strong>ことにある。BEMACは自律運航支援、船舶IoT、異常予兆検知等を開発しており、現場データを学習・制御へ戻す橋渡し役になり得る。</p>
+    <div class="process-chain"><span>船・造船所</span><b>→</b><span>海事データ</span><b>→</b><span>研究・AI</span><b>→</b><span>制御・自律運航</span><b>→</b><span>新しい航海・生産データ</span></div>
+  </section>
+
+  <section class="section">
+    <h2>06｜岡山・水島は「地域SI＋産業現場」をどう接続するか</h2>
+    <p>岡山には、データセンター、ネットワーク、クラウド、AI・IoT研究開発を持つ両備システムズが存在する。一方、水島には鉄鋼、化学、自動車、物流等の巨大な現場データがある。</p>
+    <p>したがって岡山圏の鍵は、<strong>都市側のIT・DC能力と、臨海工業地帯のOT（Operational Technology）を誰が接続するか</strong>である。ここが成立すると、岡山は単なるBCP型DC拠点から、産業推論・データ統合拠点へ性格を変え得る。</p>
+  </section>
+
+  <section class="section">
+    <h2>07｜周南・新居浜では「プラントOT」が希少資産になる</h2>
+    <p>化学プラントでは、ロボットを導入するだけでは価値が出にくい。プロセス条件、設備保全、安全規則、危険区域、異常時操作といったOT知識が必要になる。したがってPhysical AIの実装では、AI企業以上に<strong>設備メーカー、保全会社、制御系技術者、操業担当者</strong>が重要になる。</p>
+    <p>新居浜では新居浜高専が「ものづくりとAI」を開講し、東予東部では新居浜高専・商工会議所・自治体・100社超の製造企業を含む人材ネットワークが形成されている。周南でも徳山高専がAI・デジタルツイン・ロボット教育を進めている。これらは単なる教育機関ではなく、<strong>現場とAIの翻訳者を供給する地域ノード</strong>として見るべきである。</p>
+  </section>
+
+  <section class="section">
+    <h2>08｜最大の不足は「オーケストレーター」と「データ・トラスト」</h2>
+    <p>瀬戸内には電力、通信、GPU、製造現場、大学・高専がすでに点在する。にもかかわらず地域全体でPhysical AIが自動的に成立するわけではない。企業データは競争力そのものであり、工場映像、異常履歴、品質データ、熟練技能は外部へ簡単に持ち出せない。</p>
+    <p>したがって必要なのは、<strong>誰がデータを所有するか、どこまで学習に使えるか、学習済みモデルの権利は誰に帰属するか、競合企業間で何を共有するか</strong>を設計するデータ・トラスト機能である。</p>
+    <div class="research-note-role-grid">
+      <article><strong>協調領域</strong><p>安全、設備故障の一般モデル、ロボット基盤、データ形式、通信・MLOpsなどを共同化する。</p></article>
+      <article><strong>競争領域</strong><p>製品条件、顧客情報、独自操業ノウハウ、個別品質モデル等は企業内に残す。</p></article>
+      <article><strong>オーケストレーター</strong><p>行政・大学・中立組織等がプロジェクト設計、権利処理、投資順序、成果配分を統合する。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>09｜3つの形成モデルを比較する</h2>
+    <div class="table-wrap"><table><thead><tr><th>モデル</th><th>起点</th><th>強み</th><th>弱点になりやすい点</th></tr></thead><tbody>
+      <tr><td><strong>香川</strong></td><td>GPU・DC・政策</td><td>計算資源を先に作り需要を呼び込める</td><td>地域産業の高品質データとどう結びつけるか</td></tr>
+      <tr><td><strong>広島</strong></td><td>大学・共創研究</td><td>企業課題を研究・社会実装へ変換する仕組み</td><td>大規模計算資源・商用スケールへの接続</td></tr>
+      <tr><td><strong>今治</strong></td><td>海事産業・現場データ</td><td>Physical AIが学習する実世界が高密度</td><td>計算資源・共通データ基盤・企業横断ルール</td></tr>
+    </tbody></table></div>
+    <p><strong>仮説：</strong>瀬戸内全体では、この3モデルを競わせるより、<strong>香川のCOMPUTE、広島のR&D、今治のINDUSTRIAL DATA</strong>をワット・ビット回廊で接続した方が強い。</p>
+  </section>
+
+  <section class="section">
+    <h2>10｜地域経営として追うべきKPI</h2>
+    <div class="table-wrap"><table><thead><tr><th>領域</th><th>KPI例</th></tr></thead><tbody>
+      <tr><td>計算</td><td>地域GPU容量、稼働率、産業用途比率、学習／推論別利用量</td></tr>
+      <tr><td>データ</td><td>AI-Readyデータセット数、企業間共有案件、データ利用許諾までの日数</td></tr>
+      <tr><td>実装</td><td>PoC→本番移行率、現場稼働ロボット・エッジAI数、モデル更新頻度</td></tr>
+      <tr><td>人材</td><td>AI×OT人材、共同研究者、高専・大学から地域企業への就職数</td></tr>
+      <tr><td>地域循環</td><td>地元SI・設備企業への発注、地域企業の生産性・安全性改善、追加投資額</td></tr>
+    </tbody></table></div>
+    <p>Physical AIエコシステムの成果は「コンソーシアム参加社数」だけでは測れない。<strong>データが学習へ回り、モデルが現場に実装され、その成果が次のデータと投資を生む速度</strong>を追う必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>11｜結論｜瀬戸内の希少資源は「現場をAIへ変換できる接続能力」</h2>
+    <p>瀬戸内には、GPU、通信、電力、大学、造船所、製鉄所、化学プラント、港湾、制御企業、高専が既に存在する。課題は不足している要素を一から作ることより、<strong>既存の強いノード同士を、データ権利と実装責任を明確にして接続すること</strong>である。</p>
+    <p>地域固有性の転移という観点から見ると、瀬戸内の次の競争力は、港・工場・技能そのものから、<strong>現場をデータ化し、AIへ学習させ、再び機械の行動として戻す接続能力</strong>へ移りつつある。</p>
+  </section>
+
+  <section class="section">
+    <h2>出典・確認資料</h2>
+    <ul>
+      <li><a href="https://www.pref.kagawa.lg.jp/kigyoritti/kaic/index.html" target="_blank" rel="noreferrer">香川県｜AIファクトリー推進コンソーシアム</a></li>
+      <li><a href="https://highreso.jp/press/50299/" target="_blank" rel="noreferrer">ハイレゾ｜綾川町GPUデータセンター</a></li>
+      <li><a href="https://www.stnet.co.jp/archives/001/202511/press_20251104.pdf" target="_blank" rel="noreferrer">STNet｜遠隔GPUクラスター実証</a></li>
+      <li><a href="https://hudmerc.hiroshima-u.ac.jp/project/" target="_blank" rel="noreferrer">広島大学デジタルものづくり教育研究センター｜共創プロジェクト</a></li>
+      <li><a href="https://www.city.imabari.ehime.jp/kaiji/ecosystem/" target="_blank" rel="noreferrer">今治市｜今治海事エコシステム構築プロジェクト</a></li>
+      <li><a href="https://www.bemac-jp.com/tokyo-data-lab/" target="_blank" rel="noreferrer">BEMAC｜東京データラボ</a></li>
+      <li><a href="https://www.ryobi.co.jp/company/corporate_outline" target="_blank" rel="noreferrer">両備システムズ｜会社概要・AI/IoT・DC事業</a></li>
+      <li><a href="https://www.niihama-nct.ac.jp/" target="_blank" rel="noreferrer">新居浜工業高等専門学校</a></li>
+      <li><a href="https://www.tokuyama.ac.jp/" target="_blank" rel="noreferrer">徳山工業高等専門学校</a></li>
+    </ul>
+  </section>
+
+  <section class="section"><div class="chapter-related-grid">
+    <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/physical-ai-usecase-map/">Physical AIユースケース地図 →</a>
+    <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/setouchi-ai-cluster-physical-ai/">AI産業クラスター論 →</a>
+    <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/setouchi-watt-bit-geography/">ワット・ビット地理 →</a>
+  </div></section>
+</BaseLayout>
