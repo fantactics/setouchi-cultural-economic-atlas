@@ -1,0 +1,244 @@
+---
+import { places } from '../data/places.js';
+import { regionalFutureLenses } from '../data/regionalFutureLenses.js';
+
+const placeById=Object.fromEntries(places.map((p)=>[p.id,p]));
+
+const regionPoints=places.map((p)=>({
+  id:p.id,
+  name:p.name,
+  lat:p.lat,
+  lon:p.lon,
+  subtitle:p.subtitle,
+  href:`/setouchi-cultural-economic-atlas/places/${p.id}/`
+}));
+
+const industryPoints=[
+  {name:'児島・下津井',lat:placeById.shimotsui?.lat ?? 34.43,lon:placeById.shimotsui?.lon ?? 133.80,theme:'繊維産業の再生産',href:'/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'},
+  {name:'福山',lat:34.49,lon:133.36,theme:'技能再結合とデニム',href:'/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'},
+  {name:'周南',lat:34.05,lon:131.81,theme:'塩田から化学工業へ',href:'/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'},
+  {name:'新居浜',lat:placeById.niihama?.lat ?? 33.96,lon:placeById.niihama?.lon ?? 133.28,theme:'鉱山から化学・重工業へ',href:'/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'},
+  {name:'今治',lat:placeById.imabari?.lat ?? 34.06,lon:placeById.imabari?.lon ?? 133.00,theme:'海事資本循環',href:'/setouchi-cultural-economic-atlas/chapters/imabari-maritime-cluster/'},
+  {name:'因島・尾道',lat:34.36,lon:133.18,theme:'技能コモンズ',href:'/setouchi-cultural-economic-atlas/chapters/onomichi-innoshima-skill-ecosystem/'},
+  {name:'呉',lat:34.25,lon:132.57,theme:'制度的コンバージョン',href:'/setouchi-cultural-economic-atlas/chapters/kure-state-led-industrial-transition/'},
+  {name:'玉野',lat:34.49,lon:133.95,theme:'企業城下町のアンバンドリング',href:'/setouchi-cultural-economic-atlas/chapters/tamano-company-town-shipbuilding/'}
+];
+
+const naturePoints=[
+  {id:'kure-brownfield',name:'呉・旧日本製鉄地区',lat:34.24,lon:132.56,issue:'大規模臨海工業跡地を、産業利用と自然資本の混合空間へ再編集できるか'},
+  {id:'mizushima',name:'水島臨海工業地帯',lat:34.53,lon:133.75,issue:'現役工業港に生態系・緩衝緑地・水際機能を再導入できるか'},
+  {id:'bannosu',name:'坂出・番の州',lat:34.33,lon:133.82,issue:'工業地帯の緩衝緑地を、生態回廊・雨水管理・暑熱対策へ更新できるか'},
+  {id:'niihama-port',name:'新居浜港',lat:33.97,lon:133.27,issue:'港湾再編を、親水・防災・生態系のモザイク化へ接続できるか'},
+  {id:'onomichi-slope',name:'尾道・斜面市街地',lat:placeById.onomichi?.lat ?? 34.41,lon:placeById.onomichi?.lon ?? 133.20,issue:'高リスク宅地を街区単位で低密度化し、緑地・防災空地へ転換できるか'},
+  {id:'geiyo-orchards',name:'芸予諸島・柑橘斜面',lat:34.25,lon:133.00,issue:'果樹園・粗放管理・草地・森林を管理密度で再配分できるか'},
+  {id:'kasaoka',name:'笠岡湾干拓地',lat:34.48,lon:133.50,issue:'農業生産を維持しながら、水路・汽水域・干潟の生態系を再接続できるか'},
+  {id:'kojima-lowland',name:'児島湖・児島湾低地',lat:34.58,lon:133.93,issue:'農地・水路・ヨシ原・遊水地を湿地システムとして再編できるか'},
+  {id:'matsunaga',name:'松永湾',lat:34.42,lon:133.25,issue:'河川・干潟・藻場・市街地を一つの陸海システムとして管理できるか'},
+  {id:'shunan-port',name:'周南コンビナート周辺',lat:34.05,lon:131.82,issue:'工業港・住宅地・大規模緩衝緑地を一体で自然資本化できるか'}
+].map((p)=>({...p,href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/'}));
+
+const adaptivePoints=places
+  .filter((p)=>regionalFutureLenses[p.id])
+  .map((p)=>({
+    id:p.id,
+    name:p.name,
+    lat:p.lat,
+    lon:p.lon,
+    issue:regionalFutureLenses[p.id].redesign,
+    href:`/setouchi-cultural-economic-atlas/places/${p.id}/#region-future`
+  }));
+
+const worldSites=[
+  {
+    id:'south-bay',name:'San Francisco Bay / South Bay Salt Ponds',country:'USA',lat:37.45,lon:-122.05,
+    mechanism:'産業塩田を、潮汐湿地・管理池・洪水防御・公共利用へ段階的に再配分する。',
+    transfer:'全面復元ではなく、生産・生態系・治水の配分をモニタリングしながら調整する考え方。',
+    constraint:'事業規模、土地所有、湿地制度、財源構造は瀬戸内と異なる。',
+    source:'https://www.southbayrestoration.org/page/restoration-project'
+  },
+  {
+    id:'christchurch',name:'Christchurch / Ōtākaro–Avon River Corridor',country:'New Zealand',lat:-43.53,lon:172.67,
+    mechanism:'災害高リスク住宅地を公的取得し、緑地・湿地・治水空間へ長期転換する。',
+    transfer:'高リスク宅地の取得、所有集約、用途終了、自然資本化を一連の制度として扱うこと。',
+    constraint:'大規模地震後の特別な公的買収環境を、日本の平時の縮退政策へそのまま移せない。',
+    source:'https://ccc.govt.nz/parks-and-gardens/regenerationareas/otakaro-avon-river-corridor/history-and-background'
+  },
+  {
+    id:'emscher',name:'Ruhr / Emscher',country:'Germany',lat:51.52,lon:7.10,
+    mechanism:'重工業地域の構造転換と河川再生を、次の地域価値形成へ接続する。',
+    transfer:'環境修復を産業撤退後の後処理ではなく、次の投資・居住・公共空間形成の基盤にすること。',
+    constraint:'広域水管理主体、長期投資規模、自治体間調整の制度条件が異なる。',
+    source:'https://www.eglv.de/en/emschergenossenschaft/emscher-conversion/'
+  },
+  {
+    id:'rotterdam',name:'Rotterdam / Getijdenpark',country:'Netherlands',lat:51.91,lon:4.47,
+    mechanism:'現役港湾の護岸・水際へ潮汐生態系と公共空間を挿入する。',
+    transfer:'産業を止めなくても、直立護岸一辺倒から生物共生水際へ管理密度を変えられること。',
+    constraint:'潮位条件、港湾管理制度、治水基準、都市投資規模の違いを補正する必要がある。',
+    source:'https://www.rotterdam.nl/getijdenpark'
+  },
+  {
+    id:'nijmegen',name:'Nijmegen / Room for the River',country:'Netherlands',lat:51.86,lon:5.87,
+    mechanism:'堤防強化だけでなく、河川へ空間を返し、治水と都市価値を両立する。',
+    transfer:'防御施設の追加だけでなく、土地利用側を変えて水のための空間を確保する発想。',
+    constraint:'河川規模、国の水管理権限、補償・用地取得制度は日本と異なる。',
+    source:'https://www.rijkswaterstaat.nl/en/projects/iconic-structures/room-for-the-river'
+  },
+  {
+    id:'bluebelt',name:'New York / Staten Island Bluebelt',country:'USA',lat:40.57,lon:-74.15,
+    mechanism:'湿地・池・水路を公共雨水インフラとして保全・取得・管理する。',
+    transfer:'自然地を「未利用地」ではなく、治水・浄化機能を持つインフラ資産として評価すること。',
+    constraint:'下水道制度、土地取得、都市密度、資産評価の枠組みは地域ごとに異なる。',
+    source:'https://www.nyc.gov/site/dep/water/the-bluebelt-program.page'
+  },
+  {
+    id:'bishan',name:'Singapore / Bishan–Ang Mo Kio Park',country:'Singapore',lat:1.36,lon:103.85,
+    mechanism:'コンクリート水路を自然化し、公園・洪水調節・生態系を一体化する。',
+    transfer:'治水か自然かを二択にせず、自然そのものを都市インフラとして設計すること。',
+    constraint:'公有地比率、行政執行力、熱帯気候、水文条件は瀬戸内と大きく異なる。',
+    source:'https://www.nparks.gov.sg/visit/parks/park-detail/bishan-ang-mo-kio-park/'
+  }
+];
+
+const comparisonLinks=[
+  {local:'kasaoka',world:'south-bay',mechanism:'生産用沿岸地を全廃せず、湿地・水路・生産地をモザイク状に再配分する。'},
+  {local:'kojima-lowland',world:'south-bay',mechanism:'低平地の水管理と湿地再生を一体で考える。'},
+  {local:'onomichi-slope',world:'christchurch',mechanism:'高リスク宅地の用途終了後を、公共空間・自然資本へ転換する。'},
+  {local:'mizushima',world:'emscher',mechanism:'産業構造転換と自然再生を、次の地域価値形成へ接続する。'},
+  {local:'shunan-port',world:'emscher',mechanism:'工業基盤を残しながら、緑・水系ネットワークを再構築する。'},
+  {local:'kure-brownfield',world:'emscher',mechanism:'巨大産業資産の用途転換と自然・公共機能の再配置を同時に考える。'},
+  {local:'mizushima',world:'rotterdam',mechanism:'現役工業港へ潮間帯・生物共生水際を挿入する。'},
+  {local:'bannosu',world:'rotterdam',mechanism:'産業機能を維持しつつ、水際と緩衝帯の自然密度を高める。'},
+  {local:'niihama-port',world:'rotterdam',mechanism:'港湾再編の中へ親水・生態・防災機能を混在させる。'},
+  {local:'kojima-lowland',world:'nijmegen',mechanism:'防御一辺倒から、氾濫原・湿地へ一部の空間を返す。'},
+  {local:'kojima-lowland',world:'bluebelt',mechanism:'湿地・水路を公共インフラ資産として保有・管理する。'},
+  {localPoint:{name:'高松・都市水系',lat:34.34,lon:134.05},world:'bishan',mechanism:'都市水路・公園・雨水管理・生態系を一つの公共空間として再設計する。'}
+];
+
+const mapData={regionPoints,industryPoints,naturePoints,adaptivePoints,worldSites,comparisonLinks};
+---
+<style is:global>
+  .research-map-section{padding:0;background:#10252d;color:white;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+  .research-map-heading{padding:3.6rem 5vw 1.4rem;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:2rem;align-items:end}
+  .research-map-heading h2{font-size:clamp(2rem,4vw,3.8rem);line-height:1.05;margin:.4rem 0 .8rem;max-width:15ch}
+  .research-map-heading p{margin:0;color:rgba(255,255,255,.74);max-width:42rem}
+  .research-map-kicker{font-size:.75rem;font-weight:800;letter-spacing:.13em;color:#9ac8d0}
+  .research-map-shell{display:grid;grid-template-columns:340px 1fr;min-height:580px;border-top:1px solid rgba(255,255,255,.12)}
+  .research-map-panel{padding:1.4rem 1.2rem 1.6rem 5vw;background:#142d36;border-right:1px solid rgba(255,255,255,.12)}
+  .research-map-panel h3{font-size:1rem;margin:.2rem 0 .3rem}.research-map-panel>p{font-size:.83rem;color:rgba(255,255,255,.64);margin:.2rem 0 1.1rem}
+  .research-layer-list{display:grid;gap:.55rem}.research-layer-button{width:100%;border:1px solid rgba(255,255,255,.17);border-radius:12px;padding:.75rem .8rem;background:rgba(255,255,255,.04);color:white;text-align:left;cursor:pointer;display:grid;grid-template-columns:12px 1fr auto;gap:.65rem;align-items:center;font:inherit}
+  .research-layer-button:hover{background:rgba(255,255,255,.08)}.research-layer-button[aria-pressed="true"]{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32)}
+  .research-layer-button i{width:10px;height:10px;border-radius:50%;display:block}.research-layer-button strong{font-size:.86rem}.research-layer-button small{font-size:.7rem;color:rgba(255,255,255,.55)}
+  .research-map-note{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.12);font-size:.74rem;color:rgba(255,255,255,.55)}
+  .world-comparison-principle{margin-top:1rem;padding:.8rem;border:1px solid rgba(216,176,106,.3);border-radius:12px;background:rgba(216,176,106,.07);font-size:.75rem;line-height:1.55;color:rgba(255,255,255,.72)}
+  .world-comparison-principle strong{display:block;color:#efd3a1;margin-bottom:.2rem;letter-spacing:.04em}
+  #home-research-map{width:100%;min-height:580px;background:#d9e4e6}.research-map-section .leaflet-popup-content-wrapper{border-radius:12px}.research-map-popup small{display:block;color:#6b7377;margin:.2rem 0 .5rem}.research-map-popup a{font-weight:800;text-decoration:none}.research-map-popup .tag{display:inline-block;font-size:.65rem;font-weight:800;letter-spacing:.06em;padding:.12rem .38rem;border-radius:999px;background:#edf2f2;margin-bottom:.35rem}.research-map-popup p{font-size:.76rem;line-height:1.45;margin:.4rem 0}.research-map-popup .world-field{border-top:1px solid #e6e9e9;padding-top:.35rem}.research-map-popup .world-field b{display:block;font-size:.68rem;color:#697376;text-transform:uppercase;letter-spacing:.04em}.research-map-popup .constraint{color:#7e6660}
+  .research-map-footer{padding:1rem 5vw 1.35rem;display:flex;justify-content:space-between;gap:1rem;align-items:center;color:rgba(255,255,255,.64);font-size:.8rem}.research-map-footer a{color:white;font-weight:700;text-decoration:none}
+  @media(max-width:860px){.research-map-heading{grid-template-columns:1fr}.research-map-shell{grid-template-columns:1fr}.research-map-panel{padding:1.2rem 5vw;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.research-layer-list{grid-template-columns:repeat(2,minmax(0,1fr))}#home-research-map{min-height:500px}.research-map-footer{align-items:flex-start;flex-direction:column}}
+  @media(max-width:560px){.research-layer-list{grid-template-columns:1fr}.research-map-heading{padding-top:2.7rem}}
+</style>
+<script is:inline define:vars={{ mapData }}>
+  (()=>{
+    const section=document.querySelector('.map-first-hero');
+    if(!section || !window.L) return;
+    section.className='research-map-section';
+    section.innerHTML=`
+      <div class="research-map-heading">
+        <div><div class="research-map-kicker">RESEARCH MAP / LIVE ATLAS</div><h2>瀬戸内を深く読み、世界と比べる。</h2></div>
+        <p>地域形成、産業再生産、ネイチャーポジティブ、Adaptive Managementに加え、世界の類似課題を同じ研究地図へ接続します。比較するのは景観ではなく、土地を変える仕組みです。</p>
+      </div>
+      <div class="research-map-shell">
+        <aside class="research-map-panel">
+          <h3>研究レイヤー</h3><p>複数選択できます。WORLD COMPARISONをONにすると、瀬戸内の研究地点と海外比較事例の関係を表示します。</p>
+          <div class="research-layer-list">
+            <button class="research-layer-button" data-layer="regions" aria-pressed="true"><i style="background:#3d7184"></i><strong>地域形成</strong><small>${mapData.regionPoints.length}</small></button>
+            <button class="research-layer-button" data-layer="industry" aria-pressed="true"><i style="background:#c88732"></i><strong>産業再生産</strong><small>${mapData.industryPoints.length}</small></button>
+            <button class="research-layer-button" data-layer="nature" aria-pressed="true"><i style="background:#2f7c56"></i><strong>ネイチャーポジティブ</strong><small>${mapData.naturePoints.length}</small></button>
+            <button class="research-layer-button" data-layer="adaptive" aria-pressed="false"><i style="background:#7b67a8"></i><strong>Adaptive Lens</strong><small>${mapData.adaptivePoints.length}</small></button>
+            <button class="research-layer-button" data-layer="world" aria-pressed="false"><i style="background:#d8b06a"></i><strong>WORLD COMPARISON</strong><small>${mapData.worldSites.length}</small></button>
+          </div>
+          <div class="world-comparison-principle"><strong>LOCAL DEPTH × GLOBAL COMPARISON</strong>海外事例を完成形として輸入しません。制度、土地所有、資金、管理主体、モニタリングのメカニズムを抽出し、瀬戸内で成立する条件を問い直します。</div>
+          <div class="research-map-note">地図の点・線は研究上の対応関係を示す概略表現です。事業区域、災害区域、行政境界や政策上の推奨範囲を示すものではありません。</div>
+        </aside>
+        <div id="home-research-map" aria-label="瀬戸内と世界の比較研究地図"></div>
+      </div>
+      <div class="research-map-footer"><span>Local Depth × Global Comparison × Adaptive Management</span><a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">研究方法を見る →</a></div>`;
+
+    const map=L.map('home-research-map',{scrollWheelZoom:false,zoomControl:true,worldCopyJump:true}).setView([34.25,133.35],7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+
+    const escapeHtml=(value)=>String(value??'').replace(/[&<>"']/g,(ch)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+    const specs={
+      regions:{data:mapData.regionPoints,color:'#3d7184',radius:5,label:'REGION',description:(p)=>p.subtitle},
+      industry:{data:mapData.industryPoints,color:'#c88732',radius:7,label:'INDUSTRY',description:(p)=>p.theme},
+      nature:{data:mapData.naturePoints,color:'#2f7c56',radius:8,label:'NATURE POSITIVE',description:(p)=>p.issue},
+      adaptive:{data:mapData.adaptivePoints,color:'#7b67a8',radius:6,label:'ADAPTIVE',description:(p)=>p.issue}
+    };
+    const groups={};
+
+    Object.entries(specs).forEach(([key,spec])=>{
+      const group=L.layerGroup();
+      spec.data.forEach((p)=>{
+        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
+        const marker=L.circleMarker([p.lat,p.lon],{radius:spec.radius,weight:2,color:'#ffffff',fillColor:spec.color,fillOpacity:.9});
+        const text=spec.description(p)||'';
+        marker.bindPopup(`<div class="research-map-popup"><span class="tag">${spec.label}</span><strong>${escapeHtml(p.name)}</strong><small>${escapeHtml(text)}</small><a href="${escapeHtml(p.href)}">詳しく見る →</a></div>`);
+        marker.addTo(group);
+      });
+      groups[key]=group;
+    });
+
+    const worldById=Object.fromEntries(mapData.worldSites.map((site)=>[site.id,site]));
+    const localById=Object.fromEntries(mapData.naturePoints.map((site)=>[site.id,site]));
+    const worldGroup=L.layerGroup();
+
+    mapData.worldSites.forEach((site)=>{
+      const related=mapData.comparisonLinks.filter((link)=>link.world===site.id).map((link)=>link.localPoint?.name || localById[link.local]?.name).filter(Boolean);
+      const marker=L.circleMarker([site.lat,site.lon],{radius:8,weight:2,color:'#ffffff',fillColor:'#d8b06a',fillOpacity:.95});
+      marker.bindPopup(`<div class="research-map-popup"><span class="tag">WORLD COMPARISON</span><strong>${escapeHtml(site.name)}</strong><small>${escapeHtml(site.country)} / 比較先: ${escapeHtml(related.join('、'))}</small><p>${escapeHtml(site.mechanism)}</p><p class="world-field"><b>TRANSFERABLE MECHANISM</b>${escapeHtml(site.transfer)}</p><p class="world-field constraint"><b>CONDITION GAP</b>${escapeHtml(site.constraint)}</p><a href="${escapeHtml(site.source)}" target="_blank" rel="noreferrer">公式資料を見る ↗</a></div>`);
+      marker.addTo(worldGroup);
+    });
+
+    const shortestWorldLon=(localLon,worldLon)=>{
+      let adjusted=worldLon;
+      while(adjusted-localLon>180) adjusted-=360;
+      while(localLon-adjusted>180) adjusted+=360;
+      return adjusted;
+    };
+
+    mapData.comparisonLinks.forEach((link)=>{
+      const local=link.localPoint || localById[link.local];
+      const world=worldById[link.world];
+      if(!local || !world) return;
+      const worldLon=shortestWorldLon(local.lon,world.lon);
+      const line=L.polyline([[local.lat,local.lon],[world.lat,worldLon]],{color:'#d8b06a',weight:1.4,opacity:.6,dashArray:'6 8',interactive:true});
+      line.bindPopup(`<div class="research-map-popup"><span class="tag">COMPARISON LINK</span><strong>${escapeHtml(local.name)} ↔ ${escapeHtml(world.name)}</strong><small>${escapeHtml(link.mechanism)}</small><p>同じ事業を再現するのではなく、この因果・制度メカニズムが瀬戸内で成立する条件を比較します。</p></div>`);
+      line.addTo(worldGroup);
+    });
+    groups.world=worldGroup;
+
+    groups.regions.addTo(map); groups.industry.addTo(map); groups.nature.addTo(map);
+
+    const localAll=[...mapData.regionPoints,...mapData.industryPoints,...mapData.naturePoints].filter((p)=>typeof p.lat==='number'&&typeof p.lon==='number');
+    const localBounds=localAll.length ? L.latLngBounds(localAll.map((p)=>[p.lat,p.lon])) : null;
+    const worldBounds=L.latLngBounds([[-55,-170],[65,175]]);
+    const resetLocalView=()=>{if(localBounds) map.fitBounds(localBounds,{padding:[28,28],maxZoom:8});};
+
+    document.querySelectorAll('.research-layer-button').forEach((button)=>{
+      button.addEventListener('click',()=>{
+        const key=button.dataset.layer; const group=groups[key]; if(!group) return;
+        const active=button.getAttribute('aria-pressed')==='true';
+        if(active){
+          map.removeLayer(group);button.setAttribute('aria-pressed','false');
+          if(key==='world') resetLocalView();
+        } else {
+          group.addTo(map);button.setAttribute('aria-pressed','true');
+          if(key==='world') map.fitBounds(worldBounds,{padding:[22,22]});
+        }
+      });
+    });
+
+    resetLocalView();
+    setTimeout(()=>map.invalidateSize(),80);
+  })();
+</script>
