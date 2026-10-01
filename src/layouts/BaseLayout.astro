@@ -3,18 +3,16 @@ import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import HomeResearchMapGlobalEnhancer from '../components/HomeResearchMapGlobalEnhancer.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
-import { regionalFutureLenses, defaultRegionalFutureLens } from '../data/regionalFutureLenses.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
 import '../styles/concept-refresh.css';
 
-const { title = 'SETOUCHI ATLAS', description = '自然から地域がどう形成され、何が再生産され、変化の中でどう再編集されるかを読む。' } = Astro.props;
+const { title = 'SETOUCHI ATLAS', description = '地域における人間の可能性の変遷を、自然・生態系・生業・技術・産業・文化・都市の関係から読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const placePathMatch = Astro.url.pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
-const regionalFutureLens = placeId ? (regionalFutureLenses[placeId] || defaultRegionalFutureLens) : null;
 const isHome = Astro.url.pathname === '/setouchi-cultural-economic-atlas/' || Astro.url.pathname === '/setouchi-cultural-economic-atlas';
 ---
 <!doctype html>
@@ -43,15 +41,15 @@ const isHome = Astro.url.pathname === '/setouchi-cultural-economic-atlas/' || As
       <slot />
       {isHome && <HomeResearchMapGlobalEnhancer />}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
-      {regionalFutureLens && placeId && <RegionalAdaptiveLens placeId={placeId} lens={regionalFutureLens} />}
+      {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
-      <p class="footer-thesis">自然環境から地域形成を読み、人口減少・産業転換の先にある土地と産業の再編集を考える。現地観察、比較研究、データ、AI支援を往復しながら、仮説そのものを更新していくリサーチ・アトラスです。</p>
+      <p class="footer-thesis">地域の価値を、人口や経済規模だけでは測りません。その土地で人が何を得られ、何ができたのか、そして何が難しくなり、新しく何が可能になったのかを、自然・生態系・生業・技術・産業・文化・都市の関係から記録するリサーチ・アトラスです。地域の未来を先に決めず、分析の先に選択を置きます。</p>
       <div class="footer-atlas-links">
         <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて</a>
         <a href="/setouchi-cultural-economic-atlas/methodology/">方法論</a>
-        <a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Management</a>
+        <a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Research</a>
         <a href="/setouchi-cultural-economic-atlas/projects/">地域アトラスをつくる</a>
       </div>
     </footer>
