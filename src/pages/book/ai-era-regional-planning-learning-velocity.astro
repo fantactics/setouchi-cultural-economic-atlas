@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { aiRegionalPlanningEssay as article } from '../../data/aiRegionalPlanningEssay.js';
+---
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
+  <article class="book-article">
+    <header class="book-article-header">
+      <div class="book-article-series">{article.part}</div>
+      <h1>{article.title}</h1>
+      <p class="book-article-subtitle">{article.subtitle}</p>
+      <p class="book-article-dek">{article.lead}</p>
+      <div class="book-meta-row">
+        <div><a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Management</a></div>
+        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+      </div>
+    </header>
+
+    <div class="book-reading-column">
+      {article.sections.map((section,sectionIndex)=>(
+        <section class="book-prose-section">
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <h2>{section.heading}</h2>
+          {section.paragraphs.map((p)=>(
+            <p>
+              {p.text}
+              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+            </p>
+          ))}
+        </section>
+      ))}
+
+      <section class="book-small-conclusion">
+        <div class="kicker">暫定的なまとめ</div>
+        <p>{article.provisionalConclusion}</p>
+      </section>
+
+      <section class="book-open-questions">
+        <div class="kicker">まだ分からないこと</div>
+        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
+      </section>
+
+      <section class="book-sources">
+        <div class="kicker">出典・参照資料</div>
+        <ol>
+          {article.sources.map((source)=>(
+            <li id={`source-${source.id}`}>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+              <span>{source.publisher}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section" style="padding-left:0;padding-right:0;">
+        <div class="chapter-related-grid">
+          <a class="compare-button" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI時代の方法論 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">瀬戸内ネイチャーポジティブ論 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">地域資産再生産論 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

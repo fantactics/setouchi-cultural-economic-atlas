@@ -2,8 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
+import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
-const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
+const allBookArticles=[...orderedBookArticles,cycleTourismEssay,aiRegionalPlanningEssay];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
   const ids=[
@@ -15,8 +16,8 @@ const articlePhoto=(article)=>{
 const parts=[...new Set(allBookArticles.map((a)=>a.part))];
 const editorialFeatures=[
   cycleTourismEssay,
-  allBookArticles.find((a)=>a.slug==='oysters-taste-of-small-seas'),
-  allBookArticles.find((a)=>a.slug==='ports-that-needed-waiting')
+  aiRegionalPlanningEssay,
+  allBookArticles.find((a)=>a.slug==='oysters-taste-of-small-seas')
 ].filter(Boolean);
 const editorialPhotos=editorialFeatures.map(articlePhoto).filter(Boolean);
 const leadFeature=editorialFeatures[0] || allBookArticles.find((a)=>articlePhoto(a));
@@ -30,7 +31,8 @@ const chapterDescriptions={
   '産業は、紡がれる':'鉱山が機械を生み、塩田が化学を残し、織物がジーンズへ変わる。前の産業が残した技能・資本・設備が、次の産業へ渡っていく。',
   '富は、町に何を残したのか':'交易や産業で生まれた利益は、寺、町家、白壁、文化へ姿を変えて残っていく。',
   '町は、何度でもつくり直される':'港から鉄道へ、鉄道から道路へ。交通が変わるたびに、都市の中心も組み替えられる。',
-  '移動は、地域を変える':'人を運ぶ道が観光資源になったとき、地域には売上だけでなく、店、人、建物、景観、インフラ、関係が残り始める。'
+  '移動は、地域を変える':'人を運ぶ道が観光資源になったとき、地域には売上だけでなく、店、人、建物、景観、インフラ、関係が残り始める。',
+  '地域は、学習し続ける':'AI時代の地域計画は、完成形を固定することから、観測し、比較し、試し、学び、修正し続けることへ。地域のLearning Velocityを考える。'
 };
 ---
 <!-- editorial-index-publish-marker -->
