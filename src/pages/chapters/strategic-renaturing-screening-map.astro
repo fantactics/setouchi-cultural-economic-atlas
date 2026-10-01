@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="瀬戸内 戦略的再自然化スクリーニング・マップ | SETOUCHI ATLAS"
+  description="人口減少・土地利用・災害リスク・生態系連結性・農地・沿岸環境を重ね、瀬戸内で維持・低密度管理・生態系復元・自然遷移を検討するためのスクリーニング・マップ。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">CORE / NATURE POSITIVE / SCREENING MAP v0.1</p>
+    <h1>瀬戸内 戦略的再自然化スクリーニング・マップ</h1>
+    <p class="subtitle">「どこを自然へ還すか」を決める前に、人工利用を続ける理由と、自然資本へ転換する理由を同じ地図に置く。</p>
+    <p class="lead">本ページは再自然化の「適地」を断定する地図ではない。人口減少、土地利用、災害、生態系、農地、インフラ負担を重ね、維持・低密度管理・生態系復元・自然遷移のどれを検討すべきかを絞り込むための一次スクリーニングである。最終判断には現地調査、土地所有、営農・漁業実態、文化景観、自治体計画との照合が必要になる。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜4つの出口を先に決める</h2>
+    <p>人口減少地域の土地利用を、開発継続か放棄かの二択にしない。ATLASでは次の4つを同じ選択肢として扱う。</p>
+    <div class="research-note-role-grid">
+      <article><strong>維持・集約</strong><p>居住、医療、教育、産業、生産など将来も人工利用を集中させる場所。公共投資もここへ寄せる。</p></article>
+      <article><strong>低密度管理</strong><p>棚田、果樹園、里山、草地など、人が完全撤退すると価値を失う半自然生態系。管理頻度を下げながら維持する。</p></article>
+      <article><strong>生態系復元</strong><p>河川、湿地、干潟、藻場、都市空地など、自然機能を能動的に回復・創出する場所。</p></article>
+      <article><strong>自然遷移</strong><p>将来需要が小さく、管理継続の公益も乏しい土地。安全を確保した上で森林化等の自然遷移へ委ねる。</p></article>
+    </div>
+    <p class="note">重要：この4分類は土地の「優劣」ではなく、将来の管理方法を区別するためのもの。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜スクリーニングに重ねる6レイヤー</h2>
+    <div class="table-wrap"><table><thead><tr><th>レイヤー</th><th>見るもの</th><th>利用できる公開データ</th><th>判断への使い方</th></tr></thead><tbody>
+      <tr><td><strong>人口</strong></td><td>人口密度、将来人口、年齢構成</td><td>国土数値情報「500mメッシュ別将来推計人口」</td><td>人工利用の将来需要を確認。2020年国勢調査を基準に2070年までの500mメッシュ推計が公開されている。</td></tr>
+      <tr><td><strong>土地利用</strong></td><td>住宅、工場、空地、農地、森林、水面</td><td>国土数値情報「土地利用細分メッシュ」</td><td>100mメッシュで現在利用を把握し、人工被覆が疎になる帯や自然との接続候補を探す。</td></tr>
+      <tr><td><strong>農地</strong></td><td>農地の区画・連続性</td><td>農水省「筆ポリゴン」</td><td>小区画・飛び地・斜面等を現地条件と組み合わせ、営農継続／粗放管理／転換を検討する。</td></tr>
+      <tr><td><strong>災害</strong></td><td>洪水、高潮、津波、土砂等</td><td>国土数値情報「洪水浸水想定区域」ほか</td><td>将来人口減少と高災害リスクが重なる場所では、再建抑制や水辺再生を検討する材料になる。</td></tr>
+      <tr><td><strong>生物多様性</strong></td><td>重要な生息地、自然共生サイト、連結性</td><td>環境省「生物多様性 見える化」、自然共生サイト</td><td>単独の緑地ではなく、森・里・川・海をつなぐ回廊として価値を見る。</td></tr>
+      <tr><td><strong>管理コスト</strong></td><td>道路、上下水道、護岸、公共施設等</td><td>自治体台帳・個別施設計画等</td><td>人口減少後も残る固定費を把握。再自然化の財政効果を検証する。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>03｜v0.1 地域スクリーニング</h2>
+    <p>現段階ではGISによる筆・街区単位の適地判定は行わず、瀬戸内で優先的に重ね合わせるべき「地域類型」を置く。各地域名は再自然化の推奨地ではなく、検証フィールド候補である。</p>
+    <div class="research-note-role-grid">
+      <article><strong>島嶼斜面｜しまなみ・芸予諸島</strong><p><b>論点：</b>人口減少 × 果樹園・農地 × 森林化。全てを森林へ戻すのではなく、果樹景観・防災・生物多様性を考慮し「低密度管理」と「自然遷移」を分ける。</p></article>
+      <article><strong>都市スポンジ｜尾道・呉等の斜面市街地</strong><p><b>論点：</b>空き家・空地 × 接道・急傾斜 × インフラ維持。点在空地を個別再利用するだけでなく、まとまりとして緑地・避難空間・生態回廊へ転換できるかを検証する。</p></article>
+      <article><strong>里海復元｜日生</strong><p><b>論点：</b>アマモ場再生 × 漁業 × 教育 × 地域経済。生態系回復を漁業資源と地域価値へ戻す既存実践を、沿岸ネイチャーポジティブの基準事例として扱う。</p></article>
+      <article><strong>干潟・湾奥｜松永湾</strong><p><b>論点：</b>干潟・藻場 × 水質 × 生業 × 市民参加。陸域・河川から湾内までを一体に扱う「流域＋沿岸海域」モデルとして追跡する。</p></article>
+      <article><strong>河川・低地｜瀬戸内沿岸平野</strong><p><b>論点：</b>人口減少 × 洪水リスク × 農地 × 市街地。高リスク・低需要の土地を氾濫受容空間や湿地へ戻せるか。ただし営農・治水・所有権との調整が不可欠。</p></article>
+      <article><strong>旧工業地・港湾跡地｜臨海工業都市</strong><p><b>論点：</b>ブラウンフィールド × 土壌・護岸 × 新産業需要。すべてを再開発するのではなく、生物共生護岸・緑地・雨水貯留等を産業再編と同時に組み込む。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>04｜判定ロジック｜「人口減少」だけでは自然へ戻さない</h2>
+    <div class="process-chain"><span>将来需要</span><b>×</b><span>生態系価値</span><b>×</b><span>災害リスク</span><b>×</b><span>文化・生産価値</span><b>×</b><span>管理費</span><b>×</b><span>連結性</span></div>
+    <p>例えば人口が減る果樹園でも、文化景観、生業、生物多様性、防災機能が高いなら低密度管理が適切かもしれない。一方で住宅需要がほぼ消え、災害リスクが高く、生態系ネットワーク上も重要な低地なら、生態系復元の検討順位が上がる。<strong>人口減少は入口であって、結論ではない。</strong></p>
+  </section>
+
+  <section class="section">
+    <h2>05｜GIS実装ロードマップ</h2>
+    <div class="table-wrap"><table><thead><tr><th>段階</th><th>実装</th><th>成果</th></tr></thead><tbody>
+      <tr><td>v0.1</td><td>公開データのレイヤー設計と地域類型</td><td>本ページ。何を重ねるかを固定する。</td></tr>
+      <tr><td>v0.2</td><td>500m人口 × 100m土地利用 × 洪水・土砂等</td><td>「人工利用縮小圧」が高いメッシュを可視化。</td></tr>
+      <tr><td>v0.3</td><td>筆ポリゴン × 生物多様性・自然共生サイト</td><td>低密度管理／復元／自然遷移を分ける。</td></tr>
+      <tr><td>v0.4</td><td>自治体インフラコスト・空き家・所有情報</td><td>財政・権利関係を含む実装可能性を評価。</td></tr>
+      <tr><td>v1.0</td><td>現地調査・自治体計画・住民合意を統合</td><td>2050年土地利用シナリオとして提示。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>06｜この地図が目指すもの</h2>
+    <p>従来の土地利用計画は、どこを市街化し、どこを農地・森林として規制するかを決めてきた。人口減少期にはそれに加えて、<strong>どの人工利用を終了し、どの程度の人為管理を残し、どの自然機能へ転換するか</strong>を計画対象にする必要がある。</p>
+    <blockquote><strong>縮小時代の土地政策は、「開発可能性」を測る政策から、「最適な管理密度」を決める政策へ変わる。</strong></blockquote>
+    <p>この視点から、ネイチャーポジティブを環境部局だけの政策ではなく、都市計画、農林水産、防災、財政、産業政策を横断する土地経営として研究していく。</p>
+  </section>
+
+  <section class="section source-list">
+    <h2>主なデータソース</h2>
+    <ul>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-mesh500r6.html" target="_blank" rel="noreferrer">国土交通省 国土数値情報｜500mメッシュ別将来推計人口データ（R6国政局推計）</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L03-b-v3_1.html" target="_blank" rel="noreferrer">国土交通省 国土数値情報｜土地利用細分メッシュデータ</a></li>
+      <li><a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A31a-2025.html" target="_blank" rel="noreferrer">国土交通省 国土数値情報｜洪水浸水想定区域データ</a></li>
+      <li><a href="https://www.maff.go.jp/j/tokei/porigon/" target="_blank" rel="noreferrer">農林水産省｜農地の区画情報（筆ポリゴン）</a></li>
+      <li><a href="https://www.biodiversitymap.env.go.jp/" target="_blank" rel="noreferrer">環境省｜生物多様性「見える化」マップ</a></li>
+      <li><a href="https://policies.env.go.jp/nature/biodiversity/30by30alliance/kyousei/nintei/" target="_blank" rel="noreferrer">環境省｜自然共生サイト認定一覧</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">ネイチャーポジティブ中核論へ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/land-use/">土地利用データを見る →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/">地域資産再生産論へ →</a>
+    </div>
+  </section>
+</BaseLayout>
