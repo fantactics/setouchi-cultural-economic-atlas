@@ -8,154 +8,84 @@ const shikokuOrder=['hiketa','shodoshima','takamatsu','sakaide','tadotsu','niiha
 const mainlandPlaces=mainlandOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
-const regionCoverPhotoIds={
-  ako:'photo-ako-salt-terrace',
-  ushimado:'photo-ushimado-islands',
-  shimotsui:'photo-shimotsui-geography',
-  tomonoura:'photo-tomonoura-port',
-  onomichi:'photo-onomichi-panorama',
-  mihara:'photo-mihara-castle-station',
-  takehara:'photo-takehara-view',
-  mitarai:'photo-mitarai-panorama',
-  iwakuni:'photo-iwakuni-kintai',
-  yanai:'photo-yanai-whitewall',
-  hofu:'photo-hofu-salt-official',
-  shimonoseki:'photo-shimonoseki-kanmon',
-  hiketa:'photo-hiketa-townscape',
-  shodoshima:'photo-shodoshima-olive-sea',
-  takamatsu:'photo-takamatsu-seawater-moat',
-  sakaide:'photo-sakaide-bannosu-aerial',
-  tadotsu:'photo-tadotsu-station',
-  niihama:'photo-niihama-tonaru',
-  imabari:'photo-imabari-kurushima',
-  matsuyama:'photo-matsuyama-city-view'
-};
+const regionCoverPhotoIds={ako:'photo-ako-salt-terrace',ushimado:'photo-ushimado-islands',shimotsui:'photo-shimotsui-geography',tomonoura:'photo-tomonoura-port',onomichi:'photo-onomichi-panorama',mihara:'photo-mihara-castle-station',takehara:'photo-takehara-view',mitarai:'photo-mitarai-panorama',iwakuni:'photo-iwakuni-kintai',yanai:'photo-yanai-whitewall',hofu:'photo-hofu-salt-official',shimonoseki:'photo-shimonoseki-kanmon',hiketa:'photo-hiketa-townscape',shodoshima:'photo-shodoshima-olive-sea',takamatsu:'photo-takamatsu-seawater-moat',sakaide:'photo-sakaide-bannosu-aerial',tadotsu:'photo-tadotsu-station',niihama:'photo-niihama-tonaru',imabari:'photo-imabari-kurushima',matsuyama:'photo-matsuyama-city-view'};
 const coverPhotoFor=(place)=>photoById[regionCoverPhotoIds[place.id]] || null;
-const indexLeadPhoto=photoById['photo-onomichi-panorama'];
-const indexSidePhotos=[
-  photoById['photo-imabari-kurushima'],
-  photoById['photo-ako-salt-terrace']
-].filter(Boolean);
+const leadPhoto=photoById['photo-onomichi-panorama'];
+const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPlaces},{title:'四国地方',note:'東 → 西',items:shikokuPlaces}];
 ---
-<BaseLayout
-  title="地域から見る | SETOUCHI ATLAS"
-  description="都市名を入口に、地域エッセイ、関連する研究ノート、写真・基礎データ・出典を一つの地域ページからたどる。"
->
+<BaseLayout title="地域 | SETOUCHI ATLAS" description="一つの地域を、自然基盤、形成過程、蓄積した地域資産、現在の変化、これからの再編集まで縦に読む。">
   <section class="places-index-cover">
     <div class="places-index-cover-grid">
       <div class="places-index-main-photo">
-        {indexLeadPhoto && <img src={indexLeadPhoto.imageUrl} alt={indexLeadPhoto.alt} fetchpriority="high" />}
+        {leadPhoto && <img src={leadPhoto.imageUrl} alt={leadPhoto.alt} fetchpriority="high" />}
         <div class="places-index-photo-scrim"></div>
         <div class="places-index-cover-copy">
           <span class="places-index-kicker">REGIONS</span>
           <h1>地域から見る</h1>
-          <p class="places-index-thesis">瀬戸内は、<br/>一つの地域ではない。</p>
-          <p>海峡、干潟、斜面、河口、島、港。自然条件の違いに、人の技術と交易が重なって、それぞれ別の町が生まれました。</p>
+          <p class="places-index-thesis">地域は、<br/>自然と人の選択の履歴である。</p>
+          <p>地形や海況が可能性をつくり、人が港・農地・産業・町をつくる。その結果として残った技能、土地、文化、制度が、次の時代の選択肢になります。</p>
           <a href="#place-directory">地域を選ぶ ↓</a>
         </div>
-        {indexLeadPhoto && (
-          <div class="places-index-photo-credit">
-            {indexLeadPhoto.title} — Photo: {indexLeadPhoto.author}
-          </div>
-        )}
       </div>
-
       <div class="places-index-side-photos">
-        {indexSidePhotos.map((photo)=>(
-          <figure>
-            <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
-            <figcaption>{photo.title}</figcaption>
-          </figure>
-        ))}
+        {[photoById['photo-imabari-kurushima'],photoById['photo-niihama-tonaru']].filter(Boolean).map((photo)=><figure><img src={photo.imageUrl} alt={photo.alt} loading="lazy"/><figcaption>{photo.title}</figcaption></figure>)}
       </div>
     </div>
   </section>
 
-  <section class="section region-layer-guide">
-    <div class="region-layer-guide-grid">
-      <article>
-        <span>自然環境</span>
-        <strong>人は、どんな土地と海に働きかけたのか</strong>
-        <p>地図、地形、気候、水、生態系、自然制約を最初に確認します。</p>
-      </article>
-      <article>
-        <span>エッセイ</span>
-        <strong>この町は、なぜこの町になったのか</strong>
-        <p>その地域固有の地形・交通・生業・産業のつながりを、因果の流れとして読みます。</p>
-      </article>
-      <article>
-        <span>研究ノート</span>
-        <strong>この町を、瀬戸内全体の中で考える</strong>
-        <p>地形、水、港、産業、文化、都市など、複数地域を横断するテーマへ進みます。</p>
-      </article>
-      <article>
-        <span>データ</span>
-        <strong>根拠を、写真と基礎情報で確かめる</strong>
-        <p>写真資料、18項目の地域データ、一次情報を中心とした出典を確認できます。</p>
-      </article>
+  <section class="section">
+    <div class="page-intro-grid">
+      <p class="big-question">「この町はなぜこの町になったのか」から、「次に何を残し、何を変えるのか」まで読む。</p>
+      <div class="body-copy">
+        <p>地域ページは観光案内ではなく、地域形成と地域経営を一つの時間軸で読むための入口です。行政境界よりも、流域、海域、港と後背地、島と対岸など、実際に機能がつながる範囲を重視します。</p>
+        <p>記述は固定的なプロフィールではありません。人口、産業、土地利用、自然環境の変化に合わせ、研究ノートとデータから更新されます。</p>
+      </div>
+    </div>
+    <div class="reading-lens-grid">
+      <div class="reading-lens"><span>01</span><strong>自然基盤</strong><p>地形・地質・水・気候・海況・生態系。</p></div>
+      <div class="reading-lens"><span>02</span><strong>人の働きかけ</strong><p>生業・技術・交易・制度・土地改変。</p></div>
+      <div class="reading-lens"><span>03</span><strong>蓄積した資産</strong><p>技能・企業・設備・文化・景観・信用。</p></div>
+      <div class="reading-lens"><span>04</span><strong>現在の変化</strong><p>人口減少・産業転換・災害・観光・生活。</p></div>
+      <div class="reading-lens"><span>05</span><strong>次の再編集</strong><p>何を維持し、低密度化し、自然へ還すか。</p></div>
+    </div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">FROM PROFILE TO ADAPTIVE REGION</div>
+    <h2>地域ページも、更新され続ける。</h2>
+    <p class="lead">SETOUCHI ATLASでは、地域の「正解」を一度で確定しません。現地観察、統計、土地利用、産業、世界の比較事例を重ね、仮説が変われば地域の読み方も書き換えます。地域のLearning Velocity――変化を観測し、学び、修正する速度――も研究対象です。</p>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/ai-era-regional-planning-learning-velocity/">AI時代の地域計画を読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">Adaptive Management →</a>
     </div>
   </section>
 
   <section class="section place-index-story region-directory" id="place-directory">
     <div class="place-index-intro">
-      <h2>都市名から入る</h2>
-      <p>近畿・中国地方を東から西へ、その後に四国地方を東から西へ並べています。都市名を選ぶと、地図と自然環境、その地域のエッセイ・研究ノート・データをまとめたページへ進みます。</p>
+      <div class="kicker">DIRECTORY</div>
+      <h2>地域を選ぶ</h2>
+      <p>東から西へ並べています。各ページでは自然基盤から都市形成、産業・食文化、現在の変化、関連エッセイ・研究ノート・データまでを横断します。</p>
     </div>
 
-    <div class="place-region-group">
-      <div class="place-region-group-head">
-        <h2>近畿・中国地方</h2>
-        <span>東 → 西</span>
-      </div>
-      <div class="place-index-grid">
-        {mainlandPlaces.map((place)=>(
-          <a class="place-index-card place-index-story-card region-hub-card visual-region-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-            {coverPhotoFor(place) && (
-              <div class="visual-region-card-photo">
-                <img src={coverPhotoFor(place).imageUrl} alt={coverPhotoFor(place).alt} loading="lazy" />
+    {groups.map((group)=>(
+      <div class="place-region-group">
+        <div class="place-region-group-head"><h2>{group.title}</h2><span>{group.note}</span></div>
+        <div class="place-index-grid">
+          {group.items.map((place)=>(
+            <a class="place-index-card place-index-story-card region-hub-card visual-region-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
+              {coverPhotoFor(place) && <div class="visual-region-card-photo"><img src={coverPhotoFor(place).imageUrl} alt={coverPhotoFor(place).alt} loading="lazy" /></div>}
+              <div class="visual-region-card-body">
+                <div class="place-index-prefecture">{place.prefecture}</div>
+                <h2>{place.name}</h2>
+                <p class="place-index-subtitle">{place.subtitle}</p>
+                <div class="region-layer-chips" aria-label="この地域ページの内容"><span>自然基盤</span><span>形成</span><span>再編集</span></div>
+                {place.sections?.[17]?.[1] && <p class="place-index-causal">{place.sections[17][1]}</p>}
+                <span class="place-index-read">地域ページを開く →</span>
               </div>
-            )}
-            <div class="visual-region-card-body">
-            <div class="place-index-prefecture">{place.prefecture}</div>
-            <h2>{place.name}</h2>
-            <p class="place-index-subtitle">{place.subtitle}</p>
-            <div class="region-layer-chips" aria-label="この地域ページの内容">
-              <span>エッセイ</span><span>研究ノート</span><span>データ</span>
-            </div>
-            <p class="place-index-causal">{place.sections[17][1]}</p>
-            <span class="place-index-read">地域ページを開く →</span>
-            </div>
-          </a>
-        ))}
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-
-    <div class="place-region-group">
-      <div class="place-region-group-head">
-        <h2>四国地方</h2>
-        <span>東 → 西</span>
-      </div>
-      <div class="place-index-grid">
-        {shikokuPlaces.map((place)=>(
-          <a class="place-index-card place-index-story-card region-hub-card visual-region-card" href={`/setouchi-cultural-economic-atlas/places/${place.id}/`}>
-            {coverPhotoFor(place) && (
-              <div class="visual-region-card-photo">
-                <img src={coverPhotoFor(place).imageUrl} alt={coverPhotoFor(place).alt} loading="lazy" />
-              </div>
-            )}
-            <div class="visual-region-card-body">
-            <div class="place-index-prefecture">{place.prefecture}</div>
-            <h2>{place.name}</h2>
-            <p class="place-index-subtitle">{place.subtitle}</p>
-            <div class="region-layer-chips" aria-label="この地域ページの内容">
-              <span>エッセイ</span><span>研究ノート</span><span>データ</span>
-            </div>
-            <p class="place-index-causal">{place.sections[17][1]}</p>
-            <span class="place-index-read">地域ページを開く →</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
+    ))}
   </section>
 </BaseLayout>
