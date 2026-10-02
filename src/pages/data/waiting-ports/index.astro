@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const rows=[
+  {port:'鞆',natural:'瀬戸内中央部の潮汐切替＋仙酔島などに守られた泊地',scale:'1697年：719戸・7,756人',service:'荷役、宿泊、飲食、補給、修船、遊興、商取引',portEvidence:'1827年：大船10艘を同時に焚船できる焚場',rail:'1913年 鞆―野上、1914年 福山まで延伸',capital:'有力商家。船具・鍛冶・廻船・銀行業',transition:'鉄鋼・建築金物へ技能転換。広域結節点は福山へ'},
+  {port:'御手洗',natural:'安芸灘航路の潮待ち・風待ち、島嶼の泊地',scale:'江戸期から昭和初期まで港町機能が継続',service:'船宿、問屋・仲買、荷役、補給、飲食、風呂、茶屋・遊興',portEvidence:'港湾サービス集積。小型船・機帆船の避難港として継続',rail:'島嶼のため鉄道直接接続なし',capital:'港湾商業。後に大長を中心とする柑橘経済',transition:'柑橘生産・選果・出荷、歴史景観保存・観光'},
+  {port:'多度津',natural:'潮待ち・風待ち港＋讃岐平野への入口',scale:'最盛期：商家70余軒',service:'港湾商業、旅客、金毘羅参詣客の上陸・内陸移動',portEvidence:'1838年までに大型船が入れる湛甫へ改修',rail:'1889年 丸亀―多度津―琴平間で讃岐鉄道開業',capital:'地元商人が鉄道会社の発起人となり投資',transition:'海陸結節点を鉄道時代へ継承。予讃・土讃方面へ展開'},
+  {port:'尾道',natural:'尾道水道の天然良港、山陽側の後背地',scale:'中世以来の広域商業都市',service:'商品集散、倉庫、商取引、金融、海事サービス',portEvidence:'港と市街地が近接し海陸物流を集約',rail:'1891年 山陽鉄道 福山―尾道開通',capital:'豪商、第六十六国立銀行、住友の拠点',transition:'商業→金融、物流→鉄道、海事技能→造船・修繕へ多角化'}
+];
+
+const chronology=[
+  ['1659','鞆','保命酒の醸造開始'],
+  ['1666','御手洗','町割りが行われ港町形成が進む'],
+  ['1697','鞆','719戸・7,756人'],
+  ['1827','鞆','大船10艘を処理できる焚場整備'],
+  ['1838','多度津','湛甫改修で大型船対応'],
+  ['1878','尾道','第六十六国立銀行設立'],
+  ['1889','多度津','讃岐鉄道 丸亀―多度津―琴平開業'],
+  ['1891','尾道','山陽鉄道が尾道へ到達'],
+  ['1903','大崎下島・大長','青江早生みかん栽培成功、柑橘拡大'],
+  ['1913–14','鞆','鞆軽便鉄道が福山へ接続'],
+  ['1937','御手洗','乙女座建設。後にみかん選果場へ転用'],
+  ['1994','御手洗','重要伝統的建造物群保存地区に選定']
+];
+---
+<BaseLayout title="潮待ち港比較データ | SETOUCHI ATLAS" description="鞆・御手洗・多度津・尾道の自然条件、港湾サービス、人口・商業規模、鉄道接続、資本、近代転換を比較するデータページ。">
+  <section class="data-library-head">
+    <div>
+      <span>DATA / PORTS</span>
+      <h1>潮待ち港比較</h1>
+      <p>鞆・御手洗・多度津・尾道を、帆船時代の条件と近代交通への転換で並べます。解釈は最小限にし、比較に使う基礎情報をまとめています。</p>
+    </div>
+    <div class="data-library-stats">
+      <div><strong>4</strong><span>港</span></div>
+      <div><strong>8</strong><span>比較項目</span></div>
+      <div><strong>{chronology.length}</strong><span>主要年表項目</span></div>
+    </div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>COMPARISON</span><h2>4港比較表</h2></div>
+    <div class="table-wrap"><table><thead><tr>
+      <th>港</th><th>自然・地理条件</th><th>規模の指標</th><th>主な港湾サービス</th><th>港湾能力・特徴</th><th>鉄道</th><th>資本・組織</th><th>近代以降の転換</th>
+    </tr></thead><tbody>
+      {rows.map((r)=><tr><td><strong>{r.port}</strong></td><td>{r.natural}</td><td>{r.scale}</td><td>{r.service}</td><td>{r.portEvidence}</td><td>{r.rail}</td><td>{r.capital}</td><td>{r.transition}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>CHRONOLOGY</span><h2>主要年表</h2></div>
+    <div class="table-wrap"><table><thead><tr><th>年</th><th>地域</th><th>出来事</th></tr></thead><tbody>
+      {chronology.map((r)=><tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>NOTES</span><h2>データ上の注意</h2></div>
+    <ul>
+      <li>「潮待ち・風待ち」は各港で同じ意味・同じ強度ではありません。自然条件、航路、泊地、商流の組み合わせが異なります。</li>
+      <li>鞆の「大船10艘」は待機船の平均隻数ではなく、焚場の同時処理能力を示す史料です。</li>
+      <li>各港の人口・戸数は同一年次で揃っていないため、単純な規模ランキングには使用しません。</li>
+      <li>近代転換は港湾機能だけでなく、後背地、鉄道網、商人資本、技能、土地条件を併せて読む必要があります。</li>
+    </ul>
+  </section>
+
+  <section class="data-library-section book-sources">
+    <div class="data-library-section-head"><span>SOURCES</span><h2>主な出典</h2></div>
+    <ol>
+      <li><a href="https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/128219.pdf" target="_blank" rel="noreferrer">鞆学区地域まちづくり計画</a><span>福山市</span></li>
+      <li><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179050.html" target="_blank" rel="noreferrer">焚場調査結果の概要</a><span>福山市</span></li>
+      <li><a href="https://port-economics.jp/archive/jpea/data/16.pdf" target="_blank" rel="noreferrer">御手洗港に関する一考察</a><span>港湾経済研究</span></li>
+      <li><a href="https://www.city.kure.lg.jp/soshiki/53/ayumi-yutaka.html" target="_blank" rel="noreferrer">豊町のあゆみ</a><span>呉市</span></li>
+      <li><a href="https://www.kmuseum.pref.kagawa.lg.jp/magazine/post-2498/" target="_blank" rel="noreferrer">近代香川を生み出したまち 多度津ものがたり</a><span>香川県立ミュージアム</span></li>
+      <li><a href="https://www.city.onomichi.hiroshima.jp/uploaded/life/59723_154106_misc.pdf" target="_blank" rel="noreferrer">尾道近代史年表</a><span>尾道市</span></li>
+    </ol>
+  </section>
+
+  <section class="data-library-section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/">研究ノートで解釈する →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/">エッセイとして読む →</a>
+    </div>
+  </section>
+</BaseLayout>
