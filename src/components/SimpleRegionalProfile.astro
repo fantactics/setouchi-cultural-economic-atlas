@@ -1,6 +1,10 @@
 ---
+import PlaceLocatorMap from './PlaceLocatorMap.astro';
+import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 const { place } = Astro.props;
 const claimLabels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
+const photos=additionalPlacePhotos[place.id] || [];
+const heroPhoto=photos[0] || null;
 ---
 <article class="regional-profile-page">
   <section class="place-hero chapter-hero">
@@ -10,11 +14,49 @@ const claimLabels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
     <div class="tag-row">{place.tags.map((tag)=><span>{tag}</span>)}</div>
   </section>
 
+  {heroPhoto && (
+    <section class="section">
+      <figure class="photo-evidence-card">
+        <a class="photo-image-link" href={heroPhoto.sourcePage} target="_blank" rel="noreferrer">
+          <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" decoding="async" />
+        </a>
+        <figcaption>
+          <h3>{heroPhoto.title}</h3>
+          <p class="photo-caption">{heroPhoto.caption}</p>
+          <div class="photo-insight"><strong>この写真から読む：</strong>{heroPhoto.insight}</div>
+          <div class="photo-credit">Photo: {heroPhoto.author} / <a href={heroPhoto.licenseUrl} target="_blank" rel="noreferrer">{heroPhoto.license}</a> · <a href={heroPhoto.sourcePage} target="_blank" rel="noreferrer">原典 ↗</a></div>
+        </figcaption>
+      </figure>
+    </section>
+  )}
+
+  <PlaceLocatorMap place={place} />
+
   <section class="section">
     <div class="kicker">CORE QUESTION</div>
     <h2>なぜ、この町はこの町になったのか。</h2>
     <p class="lead">{place.sections[17]?.[1]}</p>
   </section>
+
+  {photos.length > 1 && (
+    <section class="section photo-evidence-section">
+      <div class="kicker">PHOTO EVIDENCE</div>
+      <h2>{place.name}を、写真から読む</h2>
+      <div class="photo-evidence-grid">
+        {photos.slice(1).map((photo)=><figure class="photo-evidence-card" id={photo.id}>
+          <a class="photo-image-link" href={photo.sourcePage} target="_blank" rel="noreferrer">
+            <img src={photo.imageUrl} alt={photo.alt} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>
+            <h3>{photo.title}</h3>
+            <p class="photo-caption">{photo.caption}</p>
+            <div class="photo-insight"><strong>この写真から読む：</strong>{photo.insight}</div>
+            <div class="photo-credit">Photo: {photo.author} / <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a> · <a href={photo.sourcePage} target="_blank" rel="noreferrer">原典 ↗</a></div>
+          </figcaption>
+        </figure>)}
+      </div>
+    </section>
+  )}
 
   <section class="section gene-section">
     <div class="kicker">REGIONAL PROFILE</div>
