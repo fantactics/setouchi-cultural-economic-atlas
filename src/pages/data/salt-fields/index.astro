@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const rows=[
+  {
+    place:'赤穂',
+    start:'近世初頭に大規模化',
+    scale:'江戸期に国内有数の産地',
+    turning:'1959年 第三次塩業整備',
+    residual:'西浜塩業組合の企業組織・製塩事業、産地認知、旧塩田土地',
+    added:'赤穂海水設立（1960）、イオン交換膜法（1972～）',
+    outcome:'工場型製塩を継続。旧塩田の一部は工業・住宅・公園等へ転用'
+  },
+  {
+    place:'竹原',
+    start:'1650年 31軒、1652年 計98軒',
+    scale:'約60ha。1719年に広島藩塩税収の75％',
+    turning:'1960年 全面廃止',
+    residual:'浜主・商人資本、町家、酒造・廻船・問屋、旧塩田土地',
+    added:'呉線・駅前整備、公共施設、非鉄金属・火力発電などの近代産業',
+    outcome:'旧市街に歴史的町並み、旧塩田側に現在の中心市街地'
+  },
+  {
+    place:'坂出',
+    start:'1829年 東大浜・西大浜等完成',
+    scale:'約132ha、延べ約194万人を動員',
+    turning:'戦後の塩業縮小と塩田廃止',
+    residual:'造成沿岸地、塩積出港、海上物流の立地',
+    added:'番の州埋立（1965～）、港湾整備、企業誘致',
+    outcome:'臨海工業港へ転換。1967年以降大型企業が立地'
+  },
+  {
+    place:'三田尻',
+    start:'1699年 古浜築造、その後六ヶ所浜',
+    scale:'7代毛利重就期に塩業者201軒。赤穂に次ぐ大製塩地',
+    turning:'1960年 製塩業廃止',
+    residual:'広大な塩田跡地、三田尻港、広域流通拠点としての立地',
+    added:'工場用地造成、工業用水道（1964供給開始）、政策指定・企業誘致',
+    outcome:'輸送用機械等が集積する工業都市へ'
+  }
+];
+
+const timeline=[
+  ['1647','竹原','大新開完成。耕作不適地の一部が後に塩浜へ転換'],
+  ['1650','竹原','慶安の古浜31軒'],
+  ['1652','竹原','新たに67軒が加わり計98軒、約60ha'],
+  ['1699','三田尻','古浜築造。後に中浜・鶴浜・大浜・江泊浜・西浦浜と合わせ六ヶ所浜'],
+  ['1719','竹原','塩の税収が広島藩の75％を占めたとされる'],
+  ['1829','坂出','久米通賢が約132haの塩田開墾を完成'],
+  ['1905','全国','塩専売制度開始'],
+  ['1959','赤穂','第三次塩業整備。西浜は自主廃業ではなく経営改善を選択'],
+  ['1960','赤穂','赤穂海水株式会社設立'],
+  ['1960','竹原','塩田全面廃止'],
+  ['1960','防府','三田尻を含む市内製塩業が廃止'],
+  ['1964','防府','工業用水道整備、協和醗酵工業へ日量2万m³供給開始'],
+  ['1965','坂出','番の州埋立工事着手'],
+  ['1967','坂出','川崎重工業が番の州で操業開始'],
+  ['1972','赤穂','全国第1号のイオン交換膜製塩許可']
+];
+---
+<BaseLayout title="塩田4地域比較データ | SETOUCHI ATLAS" description="赤穂・竹原・坂出・三田尻の塩田規模、廃止時期、残存資産、追加インフラ、跡地転用を比較する基礎データ。">
+  <section class="data-library-head">
+    <div>
+      <span>DATA / SALT FIELDS</span>
+      <h1>塩田4地域比較</h1>
+      <p>赤穂・竹原・坂出・三田尻を、塩田そのものの規模だけでなく、塩業終焉後に残った資産と、その後に追加された投資に分けて整理します。</p>
+    </div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>COMPARISON</span><h2>4地域の比較</h2></div>
+    <div class="table-wrap"><table><thead><tr><th>地域</th><th>成立・拡大</th><th>確認できる規模</th><th>転換点</th><th>塩業から残ったもの</th><th>後から追加されたもの</th><th>その後</th></tr></thead><tbody>
+      {rows.map((r)=><tr><td><strong>{r.place}</strong></td><td>{r.start}</td><td>{r.scale}</td><td>{r.turning}</td><td>{r.residual}</td><td>{r.added}</td><td>{r.outcome}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>INTERPRETATION GUIDE</span><h2>データを読むときの区別</h2></div>
+    <div class="data-field-grid">
+      <article><h3>直接継承</h3><p>企業組織、製品、市場、技能など、旧産業から次の段階へ比較的直接つながったもの。</p></article>
+      <article><h3>用途転換</h3><p>塩田跡地、港、町家など、用途を変えて再利用された固定資産。</p></article>
+      <article><h3>新規投入</h3><p>埋立、工業用水、鉄道、政策指定、企業誘致など、塩業終焉後に新たに加えられた条件。</p></article>
+    </div>
+    <p>「塩田があったから工業化した」と判断するには、直接継承と新規投入を混同しないことが必要です。</p>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>TIMELINE</span><h2>主要年表</h2></div>
+    <div class="table-wrap"><table><thead><tr><th>年</th><th>地域</th><th>出来事</th></tr></thead><tbody>
+      {timeline.map((x)=><tr><td>{x[0]}</td><td>{x[1]}</td><td>{x[2]}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>DATA GAPS</span><h2>今後埋めたいデータ</h2></div>
+    <ul>
+      <li>赤穂：東浜・西浜それぞれの最大塩田面積、生産量、製塩業者数の時系列。</li>
+      <li>竹原：塩業者・浜主別の土地所有と、酒造・廻船等への投資額。</li>
+      <li>坂出：塩田廃止面積と、番の州・林田等の造成面積を同一地図で比較。</li>
+      <li>三田尻：塩田跡地の造成・地権移転・企業進出を区画単位で復元。</li>
+      <li>4地域共通：人口、製造品出荷額、港湾貨物量を1950～1980年代で同一指標比較。</li>
+    </ul>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>RELATED</span><h2>関連ページ</h2></div>
+    <div class="data-timeseries-grid">
+      <a href="/setouchi-cultural-economic-atlas/book/four-salt-fields/"><strong>エッセイ</strong><p>同じ塩田だったのに、なぜ町の未来は分かれたのか。</p><span>読む →</span></a>
+      <a href="/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/"><strong>研究ノート</strong><p>塩田は、地域に何を残したのか。</p><span>読む →</span></a>
+    </div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>SOURCES</span><h2>主な出典</h2></div>
+    <ul>
+      <li><a href="https://www.shiojigyo.com/study/fudoki/shikoku/" target="_blank" rel="noreferrer">公益財団法人塩事業センター「香川県と塩／十州塩」</a></li>
+      <li><a href="https://www.city.ako.lg.jp/koushitsu/hishokouhou/documents/r5_news_report_427.pdf" target="_blank" rel="noreferrer">赤穂市「旧赤穂西浜塩業組合関係史料」</a></li>
+      <li><a href="https://www.city.takehara.lg.jp/material/files/group/19/03_dai1shouR4.pdf" target="_blank" rel="noreferrer">竹原市「歴史的風致形成の背景」</a></li>
+      <li><a href="https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html" target="_blank" rel="noreferrer">坂出市「坂出塩田の父 久米通賢」</a></li>
+      <li><a href="https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html" target="_blank" rel="noreferrer">防府市「三田尻塩田の歴史」</a></li>
+      <li><a href="https://www.city.hofu.yamaguchi.jp/uploaded/attachment/143055.pdf" target="_blank" rel="noreferrer">防府市上下水道局「工業用水道事業の沿革」</a></li>
+    </ul>
+  </section>
+</BaseLayout>
