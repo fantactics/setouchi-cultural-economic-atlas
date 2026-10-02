@@ -1,0 +1,29 @@
+---
+const { place, title = null } = Astro.props;
+const point = place ? { id:place.id, name:place.name, prefecture:place.prefecture, lat:place.lat, lon:place.lon, subtitle:place.subtitle } : null;
+---
+{point && (
+  <section class="section region-locator-section">
+    <div class="kicker">MAP</div>
+    <h2>{title || `${place.name}の位置`}</h2>
+    <p class="lead">瀬戸内とその周辺の中で、この地域がどこに位置するかを確認します。</p>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <div class="region-context-map" data-place-locator data-point={JSON.stringify(point)} aria-label={`${place.name}の位置を示す地図`}></div>
+    <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script is:inline>
+      (()=>{
+        if(!window.L) return;
+        document.querySelectorAll('[data-place-locator]:not([data-map-initialized])').forEach((el)=>{
+          el.dataset.mapInitialized='true';
+          let p=null;
+          try{p=JSON.parse(el.dataset.point||'null')}catch(_){return}
+          if(!p || typeof p.lat!=='number' || typeof p.lon!=='number') return;
+          const map=L.map(el,{scrollWheelZoom:false}).setView([p.lat,p.lon],10);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+          const marker=L.circleMarker([p.lat,p.lon],{radius:9,weight:3,fillOpacity:.9}).addTo(map);
+          marker.bindPopup(`<strong>${p.name}</strong><br><small>${p.prefecture}</small><br>${p.subtitle||''}`).openPopup();
+        });
+      })();
+    </script>
+  </section>
+)}
