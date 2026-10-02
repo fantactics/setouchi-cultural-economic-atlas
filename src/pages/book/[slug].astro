@@ -5,6 +5,7 @@ import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
+import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
@@ -19,7 +20,7 @@ export function getStaticPaths(){
   }));
 }
 const { article:rawArticle, prev, next }=Astro.props;
-const article=enhanceBookArticle(rawArticle);
+const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
 const isGastronomy=article.part==='食は、土地を語る';
@@ -166,6 +167,16 @@ const placeLinkByName = {
           )}
         </section>
       ))}
+
+      {article.researchLinks?.length>0 && (
+        <section class="book-open-questions">
+          <div class="kicker">もっと深く知りたくなったら</div>
+          <p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p>
+          <div class="chapter-related-grid">
+            {article.researchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}
+          </div>
+        </section>
+      )}
 
       <section class="book-small-conclusion">
         <div class="kicker">暫定的なまとめ</div>
