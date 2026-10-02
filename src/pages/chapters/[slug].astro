@@ -4,10 +4,8 @@ import { researchChapters } from '../../data/researchChapters.js';
 import { transportResearchChapters } from '../../data/transportResearchChapters.js';
 import { reasoningEssays } from '../../data/reasoningEssays.js';
 
-const allResearchChapters=[...researchChapters,...transportResearchChapters];
-
 export function getStaticPaths() {
-  return allResearchChapters.map((chapter)=>({
+  return [...researchChapters,...transportResearchChapters].map((chapter)=>({
     params:{slug:chapter.slug},
     props:{chapter}
   }));
