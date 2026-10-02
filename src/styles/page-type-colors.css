@@ -1,0 +1,129 @@
+/* Page-type color system — regions / essays / research notes / data */
+
+body.page-type-region {
+  --paper:#f2f6f1;
+  --page-accent:#5f7f68;
+  --page-header:rgba(242,246,241,.95);
+  --page-footer:#e9f0ea;
+}
+body.page-type-essay {
+  --paper:#fbf5ea;
+  --page-accent:#a37239;
+  --page-header:rgba(251,245,234,.95);
+  --page-footer:#f4eadb;
+}
+body.page-type-research {
+  --paper:#eef4f8;
+  --page-accent:#52758d;
+  --page-header:rgba(238,244,248,.95);
+  --page-footer:#e4edf3;
+}
+body.page-type-data {
+  --paper:#f3f0f8;
+  --page-accent:#75658e;
+  --page-header:rgba(243,240,248,.95);
+  --page-footer:#ebe6f2;
+}
+
+body.page-type-region,
+body.page-type-essay,
+body.page-type-research,
+body.page-type-data {
+  background:var(--paper);
+}
+
+body.page-type-region main,
+body.page-type-essay main,
+body.page-type-research main,
+body.page-type-data main {
+  background:var(--paper);
+}
+
+body.page-type-region .site-header,
+body.page-type-essay .site-header,
+body.page-type-research .site-header,
+body.page-type-data .site-header {
+  background:var(--page-header);
+  border-bottom:3px solid var(--page-accent);
+}
+
+body.page-type-region footer,
+body.page-type-essay footer,
+body.page-type-research footer,
+body.page-type-data footer {
+  background:var(--page-footer);
+  border-top-color:var(--page-accent);
+}
+
+.site-nav-link {
+  position:relative;
+  padding:.35rem .15rem .4rem;
+  text-decoration:none;
+}
+.site-nav-link.active {
+  font-weight:800;
+}
+body.page-type-region .site-nav-link.active,
+body.page-type-essay .site-nav-link.active,
+body.page-type-research .site-nav-link.active,
+body.page-type-data .site-nav-link.active {
+  color:var(--page-accent);
+}
+body.page-type-region .site-nav-link.active::after,
+body.page-type-essay .site-nav-link.active::after,
+body.page-type-research .site-nav-link.active::after,
+body.page-type-data .site-nav-link.active::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:var(--page-accent);
+}
+
+/* Keep long-form essay pages within the essay tint instead of their old neutral paper. */
+body.page-type-essay .book-article {
+  background:var(--paper);
+}
+
+/* Give index/detail heroes a quiet category tint when they do not already use photography. */
+body.page-type-region .place-hero,
+body.page-type-region .region-cover-guide,
+body.page-type-region .region-layer-guide,
+body.page-type-essay .book-intro,
+body.page-type-research .research-notes-hero,
+body.page-type-research .chapter-hero,
+body.page-type-data .data-hero,
+body.page-type-data .index-hero {
+  background:var(--paper);
+}
+
+/* Small category marker that survives card-heavy pages. */
+body.page-type-region .kicker,
+body.page-type-region .region-layer-label,
+body.page-type-essay .book-article-series,
+body.page-type-essay .kicker,
+body.page-type-research .kicker,
+body.page-type-research .research-section-num,
+body.page-type-data .kicker {
+  color:var(--page-accent);
+}
+
+body.page-type-region .compare-button,
+body.page-type-essay .compare-button,
+body.page-type-research .compare-button,
+body.page-type-data .compare-button {
+  border-color:var(--page-accent);
+}
+
+@media (max-width:800px) {
+  .site-nav-link { padding-bottom:.25rem; }
+  body.page-type-region .site-nav-link.active::after,
+  body.page-type-essay .site-nav-link.active::after,
+  body.page-type-research .site-nav-link.active::after,
+  body.page-type-data .site-nav-link.active::after {
+    height:2px;
+  }
+}
