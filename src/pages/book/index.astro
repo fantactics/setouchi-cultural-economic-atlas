@@ -26,14 +26,35 @@ const chapterDescriptions={
   '地域は、学習し続ける':'変化の速い時代に、地域はどう考え続けるのか。未来を決め打ちせず、試し、比べ、考え直すことをめぐるエッセイ。'
 };
 
-const featureEssay=allBookArticles.find((a)=>a.slug==='four-salt-fields') || allBookArticles[0];
-const sideEssays=['tai-meshi-two-seas','ports-that-needed-waiting']
-  .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
-const sideFallback=allBookArticles.filter((a)=>a!==featureEssay && !sideEssays.includes(a)).slice(0,2-sideEssays.length);
-const coverSide=[...sideEssays,...sideFallback].slice(0,2);
+const coverSlugs=[
+  'four-salt-fields',
+  'tai-meshi-two-seas',
+  'ports-that-needed-waiting',
+  'shimotsui-tako-meshi',
+  'oysters-taste-of-small-seas',
+  'shodoshima-open-island'
+];
+const coverStories=coverSlugs
+  .map((slug)=>allBookArticles.find((a)=>a.slug===slug))
+  .filter(Boolean)
+  .map((article)=>{
+    const photo=articlePhoto(article);
+    return photo ? {
+      imageUrl:photo.imageUrl,
+      alt:photo.alt,
+      part:article.part,
+      title:article.title,
+      subtitle:article.subtitle,
+      href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`
+    } : null;
+  })
+  .filter(Boolean);
+const featureStory=coverStories[0];
+const coverSide=coverStories.slice(1,3);
+
 const visualEssays=['shimotsui-tako-meshi','oysters-taste-of-small-seas','shodoshima-open-island']
   .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
-const visualFallback=allBookArticles.filter((a)=>a!==featureEssay && !coverSide.includes(a) && !visualEssays.includes(a)).slice(0,3-visualEssays.length);
+const visualFallback=allBookArticles.filter((a)=>!visualEssays.includes(a)).slice(0,3-visualEssays.length);
 const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 ---
 <BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
@@ -46,26 +67,71 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
       <p>港町の路地、海峡を渡る船、皿の上の鯛やタコ、海辺に並ぶ工場。何気なく見える風景にも、その土地の自然と人の営みが積み重なっています。気になるところから、自由に読んでください。</p>
     </section>
 
-    <section class="essay-magazine-cover" aria-label="今読みたいエッセイ">
-      {featureEssay && (
-        <a class="essay-cover-main" href={`/setouchi-cultural-economic-atlas/book/${featureEssay.slug}/`}>
-          {articlePhoto(featureEssay) && <img src={articlePhoto(featureEssay).imageUrl} alt={articlePhoto(featureEssay).alt} fetchpriority="high" />}
+    <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
+      {featureStory && (
+        <a class="essay-cover-main js-essay-main" href={featureStory.href}>
+          <img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" />
           <div class="essay-cover-copy">
-            <small>FEATURE / {featureEssay.part}</small>
-            <h1>{featureEssay.title}</h1>
-            <p>{featureEssay.subtitle}</p>
+            <small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small>
+            <h1 class="js-essay-main-title">{featureStory.title}</h1>
+            <p class="js-essay-main-subtitle">{featureStory.subtitle}</p>
           </div>
         </a>
       )}
       <div class="essay-cover-side">
-        {coverSide.map((article)=>(
-          <a class="essay-cover-side-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            {articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="eager" />}
-            <div class="essay-card-copy"><small>{article.part}</small><h2>{article.title}</h2></div>
+        {coverSide.map((story,index)=>(
+          <a class={`essay-cover-side-card js-essay-side js-essay-side-${index}`} href={story.href}>
+            <img class="js-essay-side-image" src={story.imageUrl} alt={story.alt} loading="eager" />
+            <div class="essay-card-copy"><small class="js-essay-side-kicker">{story.part}</small><h2 class="js-essay-side-title">{story.title}</h2></div>
           </a>
         ))}
       </div>
     </section>
+
+    <script is:inline>
+      (() => {
+        const cover=document.querySelector('[data-random-cover="essays"]');
+        if (!cover) return;
+        let stories=[];
+        try { stories=JSON.parse(cover.dataset.coverStories || '[]'); } catch (_) { return; }
+        if (stories.length<3) return;
+        const key='setouchi-essay-cover-last';
+        const previous=Number(sessionStorage.getItem(key));
+        const indices=stories.map((_,i)=>i);
+        for (let i=indices.length-1;i>0;i--) {
+          const j=Math.floor(Math.random()*(i+1));
+          [indices[i],indices[j]]=[indices[j],indices[i]];
+        }
+        if (indices.length>1 && Number.isInteger(previous) && indices[0]===previous) {
+          const swapWith=1+Math.floor(Math.random()*(indices.length-1));
+          [indices[0],indices[swapWith]]=[indices[swapWith],indices[0]];
+        }
+        sessionStorage.setItem(key,String(indices[0]));
+        const chosen=indices.slice(0,3).map((i)=>stories[i]);
+        const main=chosen[0];
+        const mainLink=cover.querySelector('.js-essay-main');
+        const mainImage=cover.querySelector('.js-essay-main-image');
+        const mainKicker=cover.querySelector('.js-essay-main-kicker');
+        const mainTitle=cover.querySelector('.js-essay-main-title');
+        const mainSubtitle=cover.querySelector('.js-essay-main-subtitle');
+        if (mainLink) mainLink.href=main.href;
+        if (mainImage) { mainImage.src=main.imageUrl; mainImage.alt=main.alt || ''; }
+        if (mainKicker) mainKicker.textContent=`FEATURE / ${main.part || ''}`;
+        if (mainTitle) mainTitle.textContent=main.title || '';
+        if (mainSubtitle) mainSubtitle.textContent=main.subtitle || '';
+        chosen.slice(1).forEach((story,index)=>{
+          const card=cover.querySelector(`.js-essay-side-${index}`);
+          if (!card) return;
+          card.href=story.href;
+          const image=card.querySelector('.js-essay-side-image');
+          const kicker=card.querySelector('.js-essay-side-kicker');
+          const title=card.querySelector('.js-essay-side-title');
+          if (image) { image.src=story.imageUrl; image.alt=story.alt || ''; }
+          if (kicker) kicker.textContent=story.part || '';
+          if (title) title.textContent=story.title || '';
+        });
+      })();
+    </script>
 
     <section>
       <div class="essay-magazine-heading">
