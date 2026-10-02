@@ -11,54 +11,43 @@ const timeline = regionalPossibilityTimelines[placeId] || [];
 
 const possibilityDimensions = [
   {
-    id:'living',
-    number:'01',
-    title:'生活可能性',
-    subtitle:'住む・移動する・日常生活を営む',
+    id:'living', number:'01', title:'生活可能性', subtitle:'住む・移動する・日常生活を営む',
     question:'地形、交通、住宅、災害リスク、生活サービスは、どのような暮らしを可能にし、何を難しくしているか。',
     items:[section(12),section(4),section(14)].filter(Boolean)
   },
   {
-    id:'livelihood',
-    number:'02',
-    title:'生業可能性',
-    subtitle:'働く・つくる・商う・技能を継ぐ',
+    id:'livelihood', number:'02', title:'生業可能性', subtitle:'働く・つくる・商う・技能を継ぐ',
     question:'この土地では、どのような仕事や技能が成立してきたか。産業の変化によって、何が失われ、何が別の形で残ったか。',
     items:[section(6),section(8),section(10)].filter(Boolean)
   },
   {
-    id:'nature',
-    number:'03',
-    title:'自然享受可能性',
-    subtitle:'海・山・水・食・景観から恩恵を得る',
+    id:'nature', number:'03', title:'自然享受可能性', subtitle:'海・山・水・食・景観から恩恵を得る',
     question:'自然環境や生態系から何を得られるか。開発、人口変化、土地利用の変化は、そのアクセスと恩恵をどう変えたか。',
     items:[section(2),section(5),section(14)].filter(Boolean)
   },
   {
-    id:'culture',
-    number:'04',
-    title:'文化実践可能性',
-    subtitle:'祭る・食べる・つくる・記憶を継ぐ',
+    id:'culture', number:'04', title:'文化実践可能性', subtitle:'祭る・食べる・つくる・記憶を継ぐ',
     question:'文化を「残っている物」としてではなく、今も実践できる行為として見る。誰が担い、どの条件によって継続可能になっているか。',
     items:[section(13),section(16),section(3)].filter(Boolean)
   },
   {
-    id:'economic',
-    number:'05',
-    title:'経済的可能性',
-    subtitle:'所得を得る・起業する・市場とつながる',
+    id:'economic', number:'05', title:'経済的可能性', subtitle:'所得を得る・起業する・市場とつながる',
     question:'地域の企業、設備、技能、取引網、市場接続は、どのような経済活動を可能にしているか。成長だけでなく依存や外部不経済も含めて見る。',
     items:[section(10),section(11),section(9)].filter(Boolean)
   },
   {
-    id:'choice',
-    number:'06',
-    title:'選択可能性',
-    subtitle:'残る・出る・戻る・別の使い方を選ぶ',
+    id:'choice', number:'06', title:'選択可能性', subtitle:'残る・出る・戻る・別の使い方を選ぶ',
     question:'現在の変化によって、人や地域が選べる生き方・土地利用・産業の幅は広がっているか、狭まっているか。',
     items:[section(15),section(17),section(12)].filter(Boolean)
   }
 ];
+
+const possibilityProfile = possibilityDimensions.map((dimension,index)=>({
+  ...dimension,
+  position:`p${index + 1}`,
+  anchor:dimension.items[0]?.[0] || '地域の基盤',
+  change:dimension.items[1]?.[0] || dimension.items[0]?.[0] || '変化を観察'
+}));
 ---
 <section class="section regional-adaptive" id="region-possibilities">
   <div class="regional-adaptive-head">
@@ -72,10 +61,7 @@ const possibilityDimensions = [
   {timeline.length > 0 && (
     <div class="regional-possibility-timeline-wrap">
       <div class="regional-possibility-timeline-head">
-        <div>
-          <span>CHANGE OVER TIME</span>
-          <h3>可能性の変遷</h3>
-        </div>
+        <div><span>CHANGE OVER TIME</span><h3>可能性の変遷</h3></div>
         <p>同じ土地でも、人ができることは一定ではありません。自然条件への適応、交通、技術、産業、制度の変化によって、可能性と制約の組み合わせそのものが変わります。</p>
       </div>
       <div class="regional-possibility-timeline">
@@ -85,14 +71,8 @@ const possibilityDimensions = [
             <div class="regional-phase-body">
               <h4>{phase.era}</h4>
               <div class="regional-phase-pair">
-                <div>
-                  <span class="regional-phase-label enabled">可能になったこと</span>
-                  <p>{phase.enabled}</p>
-                </div>
-                <div>
-                  <span class="regional-phase-label constrained">同時にあった制約</span>
-                  <p>{phase.constrained}</p>
-                </div>
+                <div><span class="regional-phase-label enabled">可能になったこと</span><p>{phase.enabled}</p></div>
+                <div><span class="regional-phase-label constrained">同時にあった制約</span><p>{phase.constrained}</p></div>
               </div>
             </div>
           </article>
@@ -102,12 +82,36 @@ const possibilityDimensions = [
     </div>
   )}
 
-  <div class="regional-possibility-dimensions-head">
-    <div>
-      <span>SIX DIMENSIONS</span>
-      <h3>現在を6つの可能性から読む</h3>
+  <div class="regional-possibility-profile-wrap">
+    <div class="regional-possibility-profile-head">
+      <div><span>POSSIBILITY PROFILE</span><h3>現在の可能性を、構造として見る</h3></div>
+      <p>レーダーチャートや点数評価は使いません。6つの可能性は相互依存しており、ある可能性の拡大が別の可能性を狭めることもあるためです。ここでは、各領域を支える基盤と、変化を観察する論点を同時に置きます。</p>
     </div>
-    <p>時系列で変化を見たうえで、現在の地域を生活・生業・自然・文化・経済・選択の6側面から読み直します。</p>
+    <div class="regional-possibility-profile" aria-label={`${placeName}の可能性プロファイル`}>
+      <div class="regional-profile-center">
+        <small>NO SCORE / NO RANKING</small>
+        <strong>{placeName}</strong>
+        <span>人間の可能性の構造</span>
+        <p>6領域の大きさを競うのではなく、どの関係が支え合い、どこに緊張や交換条件があるかを読む。</p>
+      </div>
+      {possibilityProfile.map((dimension)=>(
+        <article class={`regional-profile-node ${dimension.position} ${dimension.id}`}>
+          <span>{dimension.number}</span>
+          <h4>{dimension.title}</h4>
+          <p>{dimension.subtitle}</p>
+          <dl>
+            <div><dt>基盤を見る</dt><dd>{dimension.anchor}</dd></div>
+            <div><dt>変化を見る</dt><dd>{dimension.change}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+    <p class="regional-profile-note">この図は優劣や充足度を示すものではありません。同じ地域でも、住民、来訪者、事業者、世代によって享受する可能性と制約は異なります。</p>
+  </div>
+
+  <div class="regional-possibility-dimensions-head">
+    <div><span>SIX DIMENSIONS</span><h3>6つの可能性を詳しく読む</h3></div>
+    <p>構造図で全体を見たうえで、生活・生業・自然・文化・経済・選択の各側面を、既存の地域データから読み直します。</p>
   </div>
 
   <div class="regional-adaptive-grid">
@@ -119,10 +123,7 @@ const possibilityDimensions = [
         <p>{dimension.question}</p>
         <div class="regional-world-list">
           {dimension.items.map(([title,body])=>(
-            <div>
-              <strong>{title}</strong>
-              <small>{body}</small>
-            </div>
+            <div><strong>{title}</strong><small>{body}</small></div>
           ))}
         </div>
       </article>
