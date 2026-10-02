@@ -1,7 +1,6 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
-import HomeResearchMapGlobalEnhancer from '../components/HomeResearchMapGlobalEnhancer.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
@@ -54,7 +53,6 @@ const pageType = pathname.startsWith(`${baseUrl}places`)
     </header>
     <main>
       <slot />
-      {isHome && <HomeResearchMapGlobalEnhancer />}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
