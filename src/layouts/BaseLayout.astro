@@ -8,7 +8,7 @@ import '../styles/preservation.css';
 import '../styles/concept-refresh.css';
 import '../styles/page-type-colors.css';
 
-const { title = 'SETOUCHI ATLAS', description = '地域における人間の可能性の変遷を、自然・生態系・生業・技術・産業・文化・都市の関係から読む。' } = Astro.props;
+const { title = 'SETOUCHI ATLAS', description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノート、地図・統計・写真データを行き来しながら読むアトラス。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
@@ -58,12 +58,14 @@ const pageType = pathname.startsWith(`${baseUrl}places`)
     </main>
     <footer id="about">
       <strong>SETOUCHI ATLAS</strong>
-      <p class="footer-thesis">地域の価値を、人口や経済規模だけでは測りません。その土地で人が何を得られ、何ができたのか、そして何が難しくなり、新しく何が可能になったのかを、自然・生態系・生業・技術・産業・文化・都市の関係から記録するリサーチ・アトラスです。地域の未来を先に決めず、分析の先に選択を置きます。</p>
+      <p class="footer-thesis">瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノート、地図・統計・写真データを行き来しながら読むアトラスです。現地の風景や暮らしから生まれた問いをエッセイでひらき、地域ページで土地との関係をたどり、研究ノートで掘り下げ、データで確かめます。読むこと、見ること、調べることを一つにつなぎ、瀬戸内と人の関係を立体的に描きます。</p>
       <div class="footer-atlas-links">
         <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて</a>
+        <a href="/setouchi-cultural-economic-atlas/places/">地域</a>
+        <a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
+        <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
+        <a href="/setouchi-cultural-economic-atlas/data/">データ</a>
         <a href="/setouchi-cultural-economic-atlas/methodology/">方法論</a>
-        <a href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">AI × Adaptive Research</a>
-        <a href="/setouchi-cultural-economic-atlas/projects/">地域アトラスをつくる</a>
       </div>
     </footer>
   </body>
