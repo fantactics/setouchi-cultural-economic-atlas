@@ -3,10 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
+import { hinasePlace } from '../data/hinasePlace.js';
 
+const allPlaces=[...places,hinasePlace];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
-const mapPlaces=places.map((p)=>({id:p.id,name:p.name,prefecture:p.prefecture,lat:p.lat,lon:p.lon,subtitle:p.subtitle}));
+const mapPlaces=allPlaces.map((p)=>({id:p.id,name:p.name,prefecture:p.prefecture,lat:p.lat,lon:p.lon,subtitle:p.subtitle}));
 const aiEssay=orderedBookArticles.find((a)=>a.slug==='ai-era-regional-planning-learning-velocity');
 const saltEssay=orderedBookArticles.find((a)=>a.slug==='four-salt-fields');
 const portsEssay=orderedBookArticles.find((a)=>a.slug==='ports-that-needed-waiting');
@@ -77,7 +79,7 @@ const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
     <h2>5つの入口から読む</h2>
     <div class="route-grid">
       <a class="route-card" href="/setouchi-cultural-economic-atlas/places/">
-        <span>REGIONS</span><h3>地域</h3><p>一つの町・島・港を、自然基盤から現在の可能性と制約まで縦に読む。</p><em>地域から入る →</em>
+        <span>REGIONS / 21</span><h3>地域</h3><p>21の町・島・港を、自然基盤から現在の可能性と制約まで縦に読む。</p><em>地域から入る →</em>
       </a>
       <a class="route-card" href="/setouchi-cultural-economic-atlas/book/">
         <span>ESSAYS</span><h3>エッセイ</h3><p>現地で生まれた違和感や問いから、分野横断の仮説を組み立てる。</p><em>問いから読む →</em>
@@ -118,7 +120,7 @@ const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
   <section class="map-first-hero">
     <div id="home-atlas-map" class="home-atlas-map-canvas" data-places={JSON.stringify(mapPlaces)}></div>
     <div class="map-first-copy">
-      <div class="kicker">MAP</div>
+      <div class="kicker">MAP / 21 REGIONS</div>
       <h1>場所から読む。</h1>
       <p>自然条件も、産業の履歴も、人が得られるもの・できることも地域ごとに違います。地図から一つの地域を選び、その可能性と制約の変化をたどってください。</p>
       <div class="map-first-actions"><a href="/setouchi-cultural-economic-atlas/places/">地域一覧へ</a></div>
