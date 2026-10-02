@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AtlasRegionMap from '../../components/AtlasRegionMap.astro';
 import { places } from '../../data/places.js';
 import { hinasePlace } from '../../data/hinasePlace.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
@@ -34,6 +35,8 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
       </div>
     </div>
   </section>
+
+  <AtlasRegionMap places={allPlaces} actionHref="#place-directory" actionLabel="地域一覧へ" />
 
   <section class="section">
     <div class="page-intro-grid">
