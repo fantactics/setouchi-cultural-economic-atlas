@@ -5,9 +5,10 @@ import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
+import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
-const allPlaces=[...places,hinasePlace];
+const allPlaces=[...places,hinasePlace,...additionalPlaces];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 
 const coverSlugs=[
@@ -156,11 +157,11 @@ const photoFeatures=photoFeatureDefs.map(([id,title,href])=>({photo:photoById[id
   </section>
 
   <section class="home-map-intro">
-    <div class="kicker">21 REGIONS</div>
+    <div class="kicker">24 REGIONS</div>
     <h2>気になる場所から、歩き始める。</h2>
-    <p>赤穂から下関、引田から松山まで。地域ページでは、一つの町を自然、食、生業、産業、暮らしの時間軸で読みます。</p>
+    <p>加太・明石から下関、鳴門から松山まで。地域ページでは、一つの町を自然、食、生業、産業、暮らしの時間軸で読みます。</p>
   </section>
-  <AtlasRegionMap places={allPlaces} actionHref="/setouchi-cultural-economic-atlas/places/" actionLabel="21地域を見る" />
+  <AtlasRegionMap places={allPlaces} actionHref="/setouchi-cultural-economic-atlas/places/" actionLabel="24地域を見る" />
 
   <section class="section home-magazine-section home-deeper-section">
     <div class="home-magazine-section-header">
