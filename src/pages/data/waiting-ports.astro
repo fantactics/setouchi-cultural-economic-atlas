@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const ports=[
+  {
+    name:'鞆の浦',
+    waiting:'潮待ち・風待ち。瀬戸内海中央部の潮の切替と、仙酔島などに守られた泊地。',
+    scale:'1697年 7,756人・719戸／1827年 焚場「大船10艘」対応／公認遊女屋4軒',
+    carried:'鍛冶・船具技能、商人資本',
+    rail:'1913年 鞆―野上、1914年 福山方面へ延伸。山陽本線の福山へ接続する支線。',
+    after:'鉄鋼・建築金物・漁業・観光。広域交通中心性は福山へ。'
+  },
+  {
+    name:'御手洗',
+    waiting:'潮待ち・風待ち。安芸灘航路上の静穏な泊地。',
+    scale:'船宿・問屋・荷役・補給・茶屋・遊興が集積。江戸後期から昭和初期まで港町機能を維持。',
+    carried:'島嶼交通、商業サービス、歴史的建築ストック',
+    rail:'島嶼のため鉄道直接接続なし。',
+    after:'大崎下島の柑橘生産・選果・海上輸送。1994年 重伝建選定。'
+  },
+  {
+    name:'多度津',
+    waiting:'潮待ち・風待ち港。金毘羅参詣客の上陸港でもあった。',
+    scale:'江戸後期に港湾改修。港町に米屋・問屋など70余軒の商家とされる。',
+    carried:'金毘羅参詣という内陸需要、商人資本、交通事業の組織力',
+    rail:'1889年 丸亀―多度津―琴平で讃岐鉄道開業。のち高松・愛媛・高知方面への分岐点。',
+    after:'海陸交通結節点、鉄道、電力・金融など近代事業へ展開。'
+  },
+  {
+    name:'尾道',
+    waiting:'内海航路の寄港・待機に加え、中世以来の広域集散港。',
+    scale:'1878年 第六十六国立銀行／1891年 山陽鉄道／1892年 商業会議所／近代に造船・修繕集積',
+    carried:'豪商資本、倉庫、商品流通、信用・決済、内陸後背地、海事技能',
+    rail:'1891年 山陽鉄道開通。全国幹線が市街地を通過。',
+    after:'商業・金融・鉄道物流・造船・修繕を重ねる複合都市へ。'
+  }
+];
+
+const tomoPopulation=[
+  ['1684','658','5,818'],
+  ['1697','719','7,756'],
+  ['1816','1,123','4,794']
+];
+
+const milestones=[
+  ['御手洗','1666','町割り'],['御手洗','1937','乙女座建設'],['御手洗','戦後〜昭和40年代','乙女座を映画館として使用、その後みかん選果場へ転用'],['御手洗','1994','重要伝統的建造物群保存地区に選定'],
+  ['多度津','1838','港の大改修'],['多度津','1889','讃岐鉄道 丸亀―多度津―琴平 開業'],['多度津','1897','高松方面へ延伸'],
+  ['尾道','1878','第六十六国立銀行設立'],['尾道','1891','山陽鉄道開通'],['尾道','1892','商業会議所設立'],['尾道','1913','水野船渠創業（後の造船集積の一系譜）']
+];
+
+const sources=[
+  ['鞆学区地域まちづくり計画','福山市','https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/128219.pdf'],
+  ['鞆町の歴史（位置と自然）','福山市','https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179016.html'],
+  ['乙女座／豊地区','呉市','https://www.city.kure.lg.jp/soshiki/53/shiseki20-yutaka.html'],
+  ['豊町のあゆみ','呉市','https://www.city.kure.lg.jp/soshiki/53/ayumi-yutaka.html'],
+  ['特別展「近代香川を生み出したまち 多度津ものがたり」','香川県立ミュージアム','https://www.kmuseum.pref.kagawa.lg.jp/magazine/post-2498/'],
+  ['尾道近代史年表','尾道市・尾道商業会議所記念館','https://www.city.onomichi.hiroshima.jp/uploaded/life/59723_154106_misc.pdf']
+];
+---
+<BaseLayout title="潮待ち港比較データ | SETOUCHI ATLAS" description="鞆・御手洗・多度津・尾道の潮待ち港としての条件、人口・商業規模、鉄道接続、近代以降の産業転換を比較するデータページ。">
+  <section class="data-library-head">
+    <div><span>DATA / PORTS</span><h1>潮待ち港比較データ</h1><p>鞆・御手洗・多度津・尾道を、待機条件、都市規模、持ち越した資産、鉄道接続、近代以降の経済で並べます。</p></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>COMPARISON</span><h2>4港比較</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>港</th><th>帆船時代の条件</th><th>規模・定量指標</th><th>次代へ持ち越したもの</th><th>鉄道との関係</th><th>近代以降</th></tr></thead>
+        <tbody>{ports.map((p)=><tr><th>{p.name}</th><td>{p.waiting}</td><td>{p.scale}</td><td>{p.carried}</td><td>{p.rail}</td><td>{p.after}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>TOMONOURA</span><h2>鞆の人口・戸数</h2></div>
+    <div class="table-wrap compact"><table><thead><tr><th>年</th><th>戸数</th><th>人口</th></tr></thead><tbody>{tomoPopulation.map((r)=><tr>{r.map((x)=><td>{x}</td>)}</tr>)}</tbody></table></div>
+    <p class="note">※ 年次ごとに史料条件が異なるため、単純な人口成長率としてではなく、港町の規模を示す基礎値として掲載。</p>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>TIMELINE</span><h2>近代交通・産業転換の主要年表</h2></div>
+    <div class="table-wrap compact"><table><thead><tr><th>地域</th><th>年</th><th>出来事</th></tr></thead><tbody>{milestones.map((r)=><tr>{r.map((x)=><td>{x}</td>)}</tr>)}</tbody></table></div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>LINKS</span><h2>読み物・研究へ</h2></div>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/">エッセイを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/">研究ノートを読む →</a>
+    </div>
+  </section>
+
+  <section class="data-library-section">
+    <div class="data-library-section-head"><span>SOURCES</span><h2>主な出典</h2></div>
+    <ol class="sources">{sources.map((s)=><li><a href={s[2]} target="_blank" rel="noreferrer">{s[0]}</a><span>{s[1]}</span></li>)}</ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .table-wrap{overflow-x:auto;margin-top:1rem}.table-wrap table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.55}.table-wrap th,.table-wrap td{padding:.8rem .7rem;border-bottom:1px solid var(--border,#d9d9d2);vertical-align:top;text-align:left;min-width:9rem}.table-wrap thead th{font-size:.78rem;letter-spacing:.04em}.table-wrap tbody th{white-space:nowrap;min-width:6rem}.table-wrap.compact{max-width:880px}.note{font-size:.85rem;opacity:.72}.sources{display:grid;gap:.55rem;padding-left:1.3rem}.sources li span{display:block;font-size:.82rem;opacity:.7}
+</style>
