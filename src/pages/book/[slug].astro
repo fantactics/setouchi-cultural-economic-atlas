@@ -4,6 +4,7 @@ import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
+import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
@@ -17,7 +18,8 @@ export function getStaticPaths(){
     }
   }));
 }
-const { article, prev, next }=Astro.props;
+const { article:rawArticle, prev, next }=Astro.props;
+const article=enhanceBookArticle(rawArticle);
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
 const isGastronomy=article.part==='食は、土地を語る';
