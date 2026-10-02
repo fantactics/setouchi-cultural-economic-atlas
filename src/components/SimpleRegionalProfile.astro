@@ -1,0 +1,57 @@
+---
+const { place } = Astro.props;
+const claimLabels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
+---
+<article class="regional-profile-page">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">REGION / {place.prefecture}</div>
+    <h1>{place.name}</h1>
+    <p class="subtitle">{place.subtitle}</p>
+    <div class="tag-row">{place.tags.map((tag)=><span>{tag}</span>)}</div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">CORE QUESTION</div>
+    <h2>なぜ、この町はこの町になったのか。</h2>
+    <p class="lead">{place.sections[17]?.[1]}</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">REGIONAL PROFILE</div>
+    <h2>自然基盤から現在までを読む</h2>
+    <div class="comparison-insight-grid">
+      {place.sections.map((section,index)=><article class="insight-card">
+        <span class="kicker">{String(index+1).padStart(2,'0')} / {claimLabels[section[2]] || section[2]}</span>
+        <h3>{section[0]}</h3>
+        <p>{section[1]}</p>
+      </article>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">REGIONAL CAPABILITIES</div>
+    <h2>地域に蓄積してきた連鎖</h2>
+    {place.genes.map((gene)=><article class="chapter-block">
+      <h3>{gene.name}</h3>
+      <p>{gene.type}</p>
+      <div class="research-chain">{gene.chain.map((item,index)=><><span>{item}</span>{index<gene.chain.length-1 && <b>→</b>}</>)}</div>
+    </article>)}
+    <p class="lead">ここで示す連鎖は「同じ土地に後の産業がある」というだけで能力継承とみなすものではありません。人材・技能・組織・資本・土地・交通条件のどれが実際に次の時代へ持ち越されたのかを、今後の研究ノートで分解して検証します。</p>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">RELATED READING</div>
+    <h2>他地域と比べる</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/places/">地域一覧へ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/">エッセイから読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノートへ →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">SOURCES</div>
+    <h2>出典・参照資料</h2>
+    <ol class="source-list">{place.sources.map((source)=><li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a> <span>— {source.publisher}</span></li>)}</ol>
+  </section>
+</article>
