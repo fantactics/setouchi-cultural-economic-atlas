@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
+import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
   const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
@@ -18,7 +20,10 @@ export function getStaticPaths(){
 const { article, prev, next }=Astro.props;
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
-const sourceById=Object.fromEntries(article.sources.map((s)=>[s.id,s]));
+const isGastronomy=article.part==='食は、土地を語る';
+const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
+  .map((entry)=>entry.photoId ? photoById[entry.photoId] : entry)
+  .filter(Boolean);
 const placeLinkByName = {
   '赤穂':'ako',
   '竹原':'takehara',
@@ -78,6 +83,34 @@ const placeLinkByName = {
       </figure>
     )}
 
+    {isGastronomy && gastronomyPhotos.length>0 && (
+      <section class="gastronomy-photo-atlas" aria-label="料理と食材の写真">
+        <div class="gastronomy-photo-head">
+          <div>
+            <span>FOOD / INGREDIENTS</span>
+            <h2>料理と食材から読む</h2>
+          </div>
+          <p>風景だけでなく、食材そのもの、料理の完成形、生産・加工の場を並べます。土地の自然条件が、人の仕事と調理を介してどのような「食べられる形」へ変わったのかを写真から追います。</p>
+        </div>
+        <div class="gastronomy-photo-mosaic">
+          {gastronomyPhotos.map((photo,index)=>(
+            <figure class:list={['gastronomy-photo-card',index===0&&'feature']}>
+              <a href={photo.sourcePage} target="_blank" rel="noreferrer">
+                <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
+              </a>
+              <figcaption>
+                <strong>{photo.title}</strong>
+                <span>{photo.caption}</span>
+                {photo.insight && <em>写真から考える：{photo.insight}</em>}
+                <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="gastronomy-photo-note">「比較資料」と記した写真は、当該地域で撮影されたものではなく、食材・料理法・作業形態を比較するために掲載しています。</p>
+      </section>
+    )}
+
     <div class="book-reading-column">
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
@@ -99,7 +132,7 @@ const placeLinkByName = {
                   <strong>{photo.title}</strong>
                   <span>{photo.caption}</span>
                   <em>写真から考える：{photo.insight}</em>
-                  <small>Photo: {photo.author} / <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a></small>
+                  <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
                 </figcaption>
               </figure>
             );
@@ -122,7 +155,7 @@ const placeLinkByName = {
                       <strong>{photo.title}</strong>
                       <span>{photo.caption}</span>
                       <em>写真から考える：{photo.insight}</em>
-                      <small>Photo: {photo.author} / <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a></small>
+                      <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
                     </figcaption>
                   </figure>
                 )
