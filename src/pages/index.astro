@@ -9,8 +9,34 @@ import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
-const heroArticle=orderedBookArticles.find((a)=>a.slug==='four-salt-fields') || orderedBookArticles[0];
-const heroPhoto=photoById[heroArticle?.heroPhotoId] || photoById['photo-ako-salt-terrace'] || photoEvidence[0];
+
+const coverSlugs=[
+  'four-salt-fields',
+  'tai-meshi-two-seas',
+  'shimotsui-tako-meshi',
+  'oysters-taste-of-small-seas',
+  'ports-that-needed-waiting',
+  'shodoshima-open-island'
+];
+const coverStories=coverSlugs
+  .map((slug)=>orderedBookArticles.find((a)=>a.slug===slug))
+  .filter(Boolean)
+  .map((article)=>{
+    const photo=photoById[article.heroPhotoId] || (article.sections || []).flatMap((section)=>section.photoIds || []).map((id)=>photoById[id]).find(Boolean);
+    return photo ? {
+      imageUrl:photo.imageUrl,
+      alt:photo.alt,
+      photoTitle:photo.title,
+      credit:photo.credit || '',
+      part:article.part,
+      title:article.title,
+      subtitle:article.subtitle,
+      href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`
+    } : null;
+  })
+  .filter(Boolean);
+const heroStory=coverStories[0];
+const heroPhoto=heroStory ? {imageUrl:heroStory.imageUrl,alt:heroStory.alt,title:heroStory.photoTitle,credit:heroStory.credit} : photoEvidence[0];
 
 const curatedSlugs=[
   'tai-meshi-two-seas',
@@ -35,20 +61,48 @@ const photoFeatureDefs=[
 const photoFeatures=photoFeatureDefs.map(([id,title,href])=>({photo:photoById[id],title,href})).filter((item)=>item.photo);
 ---
 <BaseLayout title="SETOUCHI ATLAS | 瀬戸内自然文化経済アトラス" description="瀬戸内を歩き、食べ、眺め、考える。写真とエッセイから地域と人の関係をたどるアトラス。">
-  <section class="home-magazine-cover">
-    {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
+  <section class="home-magazine-cover" data-random-cover="home" data-cover-stories={JSON.stringify(coverStories)}>
+    {heroPhoto && <img class="js-cover-image" src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
     <div class="home-magazine-masthead">
       <strong>SETOUCHI ATLAS</strong>
       <span>LANDSCAPE / FOOD / PORTS / INDUSTRY / LIFE</span>
     </div>
     <div class="home-magazine-feature">
-      <small>FEATURED ESSAY / {heroArticle?.part}</small>
-      <h1>{heroArticle?.title}</h1>
-      <p>{heroArticle?.subtitle}</p>
-      {heroArticle && <a href={`/setouchi-cultural-economic-atlas/book/${heroArticle.slug}/`}>このエッセイを読む →</a>}
+      <small class="js-cover-kicker">FEATURED ESSAY / {heroStory?.part}</small>
+      <h1 class="js-cover-title">{heroStory?.title}</h1>
+      <p class="js-cover-subtitle">{heroStory?.subtitle}</p>
+      {heroStory && <a class="js-cover-link" href={heroStory.href}>このエッセイを読む →</a>}
     </div>
-    {heroPhoto && <div class="home-magazine-credit">{heroPhoto.title}{heroPhoto.credit ? ` / ${heroPhoto.credit}` : ''}</div>}
+    {heroPhoto && <div class="home-magazine-credit js-cover-credit">{heroPhoto.title}{heroPhoto.credit ? ` / ${heroPhoto.credit}` : ''}</div>}
   </section>
+
+  <script is:inline>
+    (() => {
+      const cover=document.querySelector('[data-random-cover="home"]');
+      if (!cover) return;
+      let stories=[];
+      try { stories=JSON.parse(cover.dataset.coverStories || '[]'); } catch (_) { return; }
+      if (!stories.length) return;
+      const key='setouchi-home-cover-last';
+      const previous=Number(sessionStorage.getItem(key));
+      let index=Math.floor(Math.random()*stories.length);
+      if (stories.length>1 && Number.isInteger(previous) && index===previous) index=(index+1+Math.floor(Math.random()*(stories.length-1)))%stories.length;
+      sessionStorage.setItem(key,String(index));
+      const story=stories[index];
+      const image=cover.querySelector('.js-cover-image');
+      const kicker=cover.querySelector('.js-cover-kicker');
+      const title=cover.querySelector('.js-cover-title');
+      const subtitle=cover.querySelector('.js-cover-subtitle');
+      const link=cover.querySelector('.js-cover-link');
+      const credit=cover.querySelector('.js-cover-credit');
+      if (image) { image.src=story.imageUrl; image.alt=story.alt || ''; }
+      if (kicker) kicker.textContent=`FEATURED ESSAY / ${story.part || ''}`;
+      if (title) title.textContent=story.title || '';
+      if (subtitle) subtitle.textContent=story.subtitle || '';
+      if (link) link.href=story.href;
+      if (credit) credit.textContent=`${story.photoTitle || ''}${story.credit ? ` / ${story.credit}` : ''}`;
+    })();
+  </script>
 
   <section class="section home-cover-intro">
     <p>瀬戸内の町を歩く。港を見る。魚を食べる。工場の向こうに、かつての塩田を想像する。SETOUCHI ATLASは、そんな小さな発見から、土地と人の暮らしの関係をたどる読み物です。</p>
