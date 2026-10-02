@@ -16,6 +16,7 @@ const datasets=[
   {group:'土地・都市',title:'都市・地域索引',href:`${base}/cities/`,meta:`${allPlaces.length}地域`,items:['地域名','都道府県','位置','地域ページ','関連テーマ']},
   {group:'交通',title:'交通・港湾',href:`${base}/transport/`,meta:'海路・鉄道・道路',items:['港湾','航路','鉄道','道路','架橋','サイクルルート','交通転換']},
   {group:'交通',title:'潮待ち港比較',href:`${base}/data/waiting-ports/`,meta:'鞆・御手洗・多度津・尾道',items:['潮待ち・風待ち条件','人口・戸数','港湾サービス','鉄道開業','商人資本','近代産業転換']},
+  {group:'産業',title:'塩田4地域比較',href:`${base}/data/salt-fields/`,meta:'赤穂・竹原・坂出・三田尻',items:['塩田規模','塩業者','廃止時期','残存資産','追加インフラ','跡地転用']},
   {group:'産業',title:'産業分布',href:`${base}/industry/`,meta:'瀬戸内の産業空間',items:['造船','化学','製鉄','機械','製塩','繊維','企業・工場立地','産業クラスター']},
   {group:'産業',title:'繊維産業',href:`${base}/textiles/`,meta:'児島・井原・備後ほか',items:['綿','足袋','学生服','デニム','染色','縫製','産地分業']},
   {group:'産業',title:'産業の変遷',href:`${base}/evolution/`,meta:'製品・技能・設備の変化',items:['産業転換','技能継承','設備転用','企業変遷','地域能力']},
@@ -29,6 +30,7 @@ const datasets=[
 
 const timeseries=[
   ['潮待ち港の転換比較','鞆・御手洗・多度津・尾道を、帆船時代から鉄道・近代産業への転換で並べる。',`${base}/data/waiting-ports/`],
+  ['塩田4地域の転換比較','赤穂・竹原・坂出・三田尻で、塩田廃止後に残った資産と追加投資を並べる。',`${base}/data/salt-fields/`],
   ['自転車観光の時系列','しまなみ海道などの整備前後を、利用者・観光・地域変化の時系列で見る。',`${base}/chapters/cycle-tourism-timeseries/`],
   ['食文化ダッシュボード','瀬戸内の食材・料理・地域分布を比較する。',`${base}/chapters/food-culture-dashboard/`],
   ['地域比較読解','複数地域の変化を同じ論点で並べる。',`${base}/comparative-reading/`],
