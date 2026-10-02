@@ -1,46 +1,102 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { places } from '../../data/places.js';
+import { hinasePlace } from '../../data/hinasePlace.js';
+import { climateProfiles } from '../../data/climate.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/data-library.css';
 
-const domains=[
-  {tag:'NATURAL SYSTEMS',title:'自然基盤',desc:'地域形成の出発点となる気候、水、潮、風、地形断面を確認する。',links:[['気候','/setouchi-cultural-economic-atlas/climate/'],['潮と風','/setouchi-cultural-economic-atlas/wind-tide/'],['地形断面','/setouchi-cultural-economic-atlas/transect/']]},
-  {tag:'HUMAN TRANSFORMATION',title:'人の働きかけ',desc:'干拓、都市化、交通、産業立地など、人が自然をどう作り替えたかを見る。',links:[['土地利用','/setouchi-cultural-economic-atlas/land-use/'],['交通','/setouchi-cultural-economic-atlas/transport/'],['産業','/setouchi-cultural-economic-atlas/industry/']]},
-  {tag:'COMPARATIVE DATA',title:'比較データ',desc:'複数地域や資源を同じ軸で並べ、地域差と変化点を検証する。',links:[['瀬戸内食資源マトリクス','/setouchi-cultural-economic-atlas/gastronomy-matrix/'],['自転車の前と後を数字で見る','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'],['食文化ダッシュボード','/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/']]},
-  {tag:'VISUAL EVIDENCE',title:'写真・視覚資料',desc:'景観を装飾ではなく、地形、港、工場、町並み、土地利用を読む証拠として使う。',links:[['写真資料','/setouchi-cultural-economic-atlas/photos/'],['地域比較','/setouchi-cultural-economic-atlas/compare/'],['キーワード','/setouchi-cultural-economic-atlas/keywords/']]}
+const allPlaces=[...places,hinasePlace];
+const base='/setouchi-cultural-economic-atlas';
+const datasets=[
+  {group:'自然・地形',title:'気候',href:`${base}/climate/`,meta:`${Object.keys(climateProfiles).length}地域・観測点`,items:['月別平均気温','月別降水量','月別日照時間','年平均気温','年降水量','年日照時間','観測点・統計期間']},
+  {group:'自然・地形',title:'潮・風',href:`${base}/wind-tide/`,meta:'海峡・港・航海条件',items:['潮流','潮汐','卓越風','季節風','海峡条件','風待ち・潮待ち港']},
+  {group:'自然・地形',title:'地形断面',href:`${base}/transect/`,meta:'山地から海岸まで',items:['標高断面','河川','平野','干拓地','沿岸部','港湾・市街地との位置関係']},
+  {group:'土地・都市',title:'土地利用',href:`${base}/land-use/`,meta:'干拓・市街地・工業地',items:['干拓','塩田跡','工業用地','住宅地','港湾造成','土地利用転換']},
+  {group:'土地・都市',title:'都市・地域索引',href:`${base}/cities/`,meta:`${allPlaces.length}地域`,items:['地域名','都道府県','位置','地域ページ','関連テーマ']},
+  {group:'交通',title:'交通・港湾',href:`${base}/transport/`,meta:'海路・鉄道・道路',items:['港湾','航路','鉄道','道路','架橋','サイクルルート','交通転換']},
+  {group:'産業',title:'産業分布',href:`${base}/industry/`,meta:'瀬戸内の産業空間',items:['造船','化学','製鉄','機械','製塩','繊維','企業・工場立地','産業クラスター']},
+  {group:'産業',title:'繊維産業',href:`${base}/textiles/`,meta:'児島・井原・備後ほか',items:['綿','足袋','学生服','デニム','染色','縫製','産地分業']},
+  {group:'産業',title:'産業の変遷',href:`${base}/evolution/`,meta:'製品・技能・設備の変化',items:['産業転換','技能継承','設備転用','企業変遷','地域能力']},
+  {group:'食・海',title:'水産・海産物',href:`${base}/seafood/`,meta:'瀬戸内の主要魚介',items:['鯛','タコ','牡蠣','穴子','シャコ','ふく','海藻','地域分布']},
+  {group:'食・海',title:'食資源マトリクス',href:`${base}/gastronomy-matrix/`,meta:'食材×地域×料理',items:['魚介','農産物','加工品','郷土料理','地域差','調理法']},
+  {group:'写真',title:'写真資料',href:`${base}/photos/`,meta:`${photoEvidence.length}点`,items:['港','海岸','地形','町並み','工場','食','歴史資料','景観']},
+  {group:'比較',title:'地域比較',href:`${base}/compare/`,meta:'複数地域の横断比較',items:['自然条件','産業','交通','食文化','都市形成','地域差']},
+  {group:'比較',title:'地域類型',href:`${base}/typology/`,meta:'地域構造の分類',items:['港町','工業都市','島嶼','企業城下町','交通結節点','産業類型']},
+  {group:'索引',title:'キーワード索引',href:`${base}/keywords/`,meta:'テーマから横断検索',items:['地形','港','塩田','造船','食','交通','文化','産業']}
+];
+
+const timeseries=[
+  ['自転車観光の時系列','しまなみ海道などの整備前後を、利用者・観光・地域変化の時系列で見る。',`${base}/chapters/cycle-tourism-timeseries/`],
+  ['食文化ダッシュボード','瀬戸内の食材・料理・地域分布を比較する。',`${base}/chapters/food-culture-dashboard/`],
+  ['地域比較読解','複数地域の変化を同じ論点で並べる。',`${base}/comparative-reading/`],
+  ['産業の変遷','製品・企業・技能・設備がどう入れ替わったかを追う。',`${base}/evolution/`]
+];
+
+const fieldGroups=[
+  ['自然環境',['地理・地形','地質','気候','水','潮汐・潮流','風','海峡・湾','生態系']],
+  ['人口・暮らし',['人口','人口動態','市街地','住宅','移動','生活サービス','島嶼交通']],
+  ['生業・産業',['漁業','農業','製塩','造船','繊維','化学','鉄鋼','機械','加工業','代表企業']],
+  ['交通・物流',['港','航路','鉄道','道路','架橋','物流拠点','サイクルルート']],
+  ['食文化',['魚介','農産物','加工品','郷土料理','市場','養殖','漁法','調理法']],
+  ['歴史・文化',['都市形成','町並み','寺社','祭礼','伝統的建造物群','産業遺産','地域文化']],
+  ['土地・環境',['干拓','塩田跡','工業用地','土地利用転換','災害','環境改変','生態系再生']]
 ];
 ---
-<BaseLayout title="データ | SETOUCHI ATLAS" description="地図、統計、写真、比較表を、仮説を検証し更新するための証拠として整理するデータハブ。">
-  <section class="data-hero">
-    <div class="kicker">DATA / EVIDENCE / MONITORING</div>
-    <h1>データは、結論ではなく更新の材料。</h1>
-    <p>SETOUCHI ATLASでは、地図、統計、写真、時系列を「正解を示す数字」としてではなく、仮説を支持し、反証し、地域の見方を更新するための証拠として使います。将来的には人口、土地利用、生態系、産業、観光などを継続観測し、Adaptive Managementへつなげます。</p>
-  </section>
-
-  <section class="section atlas-thesis">
-    <div class="page-intro-grid">
-      <p class="big-question">「測れるもの」だけで地域を決めず、「測れない価値」も見失わない。</p>
-      <div class="body-copy"><p>人口密度や地価が下がったからといって、その土地の価値がなくなるわけではありません。文化景観、生態系、防災、地域記憶、コミュニティなど、数値化が難しい価値もあります。</p><p>データは意思決定を代替せず、論点を明確にし、比較可能にし、変化を早く発見するために使います。</p></div>
+<BaseLayout title="データ | SETOUCHI ATLAS" description="SETOUCHI ATLASに収録する地域、自然、人口、産業、交通、食、写真、比較データの索引。">
+  <section class="data-library-head">
+    <div>
+      <span>DATA</span>
+      <h1>データ</h1>
+      <p>地図、統計、写真、地域別基礎情報、比較表、時系列データをまとめています。</p>
+    </div>
+    <div class="data-library-stats">
+      <div><strong>{allPlaces.length}</strong><span>地域</span></div>
+      <div><strong>{Object.keys(climateProfiles).length}</strong><span>気候データ地域</span></div>
+      <div><strong>{photoEvidence.length}</strong><span>写真資料</span></div>
+      <div><strong>{datasets.length}</strong><span>データセット</span></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="kicker">DATA LIBRARY</div><h2>4つのデータ領域</h2>
-    <div class="data-domain-grid">
-      {domains.map((domain)=><article class="data-domain-card"><span>{domain.tag}</span><h3>{domain.title}</h3><p>{domain.desc}</p><ul>{domain.links.map((link)=><li><a href={link[1]}>{link[0]} →</a></li>)}</ul></article>)}
+  <nav class="data-jump" aria-label="データページ内ナビゲーション">
+    <a href="#datasets">データセット</a>
+    <a href="#regions">地域別</a>
+    <a href="#timeseries">比較・時系列</a>
+    <a href="#fields">収録項目</a>
+  </nav>
+
+  <section class="data-library-section" id="datasets">
+    <div class="data-library-section-head"><span>DATASETS</span><h2>データセット一覧</h2></div>
+    <div class="data-catalog-grid">
+      {datasets.map((d)=><a class="data-catalog-card" href={d.href}>
+        <div class="data-catalog-top"><span>{d.group}</span><em>{d.meta}</em></div>
+        <h3>{d.title}</h3>
+        <div class="data-item-tags">{d.items.map((x)=><span>{x}</span>)}</div>
+        <b>開く →</b>
+      </a>)}
     </div>
   </section>
 
-  <section class="section gene-section">
-    <div class="kicker">EVIDENCE RULES</div><h2>データを使う3つの原則</h2>
-    <div class="data-principles">
-      <article><h3>時間軸を分ける</h3><p>地形のようにほぼ変わらない情報、人口・産業のように数年で変わる情報、企業・航路のように頻繁に変わる情報を区別します。</p></article>
-      <article><h3>出典と再現性を残す</h3><p>行政オープンデータ、一次資料、写真の出典を明示し、可能な範囲で同じ検証を繰り返せる形にします。</p></article>
-      <article><h3>観測と判断を分ける</h3><p>データが示す変化と、その変化をどう評価するかを分けます。AIも分析を支援しますが、地域の価値判断は人間側に残します。</p></article>
+  <section class="data-library-section" id="regions">
+    <div class="data-library-section-head"><span>REGIONAL DATA</span><h2>地域別データ</h2></div>
+    <div class="regional-data-grid">
+      {allPlaces.map((p)=><a href={`${base}/places/${p.id}/`}>
+        <span>{p.prefecture}</span><strong>{p.name}</strong><small>基本情報・自然環境・歴史・交通・食・産業・暮らし・環境 →</small>
+      </a>)}
     </div>
   </section>
 
-  <section class="section">
-    <div class="kicker">NEXT DATA PROGRAM</div><h2>土地管理密度を、継続的に測る。</h2>
-    <p class="lead">ネイチャーポジティブ研究では、2070年将来人口、土地利用、洪水・土砂、農地、生物多様性などを重ね、維持・集約／低密度管理／生態系復元／自然遷移の候補を更新する「土地管理密度マップ」へ発展させます。</p>
-    <div class="chapter-related-grid"><a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/">戦略的再自然化マップ →</a><a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology-ai-adaptive/">Adaptive Management →</a></div>
+  <section class="data-library-section" id="timeseries">
+    <div class="data-library-section-head"><span>COMPARISON / TIME SERIES</span><h2>比較・時系列データ</h2></div>
+    <div class="data-timeseries-grid">
+      {timeseries.map((x)=><a href={x[2]}><strong>{x[0]}</strong><p>{x[1]}</p><span>開く →</span></a>)}
+    </div>
+  </section>
+
+  <section class="data-library-section" id="fields">
+    <div class="data-library-section-head"><span>FIELDS</span><h2>収録している主な項目</h2></div>
+    <div class="data-field-grid">
+      {fieldGroups.map((g)=><article><h3>{g[0]}</h3><ul>{g[1].map((x)=><li>{x}</li>)}</ul></article>)}
+    </div>
   </section>
 </BaseLayout>
