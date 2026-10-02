@@ -34,7 +34,9 @@ const claimLabels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
     {place.genes.map((gene)=><article class="chapter-block">
       <h3>{gene.name}</h3>
       <p>{gene.type}</p>
-      <div class="research-chain">{gene.chain.map((item,index)=><><span>{item}</span>{index<gene.chain.length-1 && <b>→</b>}</>)}</div>
+      <div class="research-chain">
+        {gene.chain.map((item)=><span>{item}</span>)}
+      </div>
     </article>)}
     <p class="lead">ここで示す連鎖は「同じ土地に後の産業がある」というだけで能力継承とみなすものではありません。人材・技能・組織・資本・土地・交通条件のどれが実際に次の時代へ持ち越されたのかを、今後の研究ノートで分解して検証します。</p>
   </section>
