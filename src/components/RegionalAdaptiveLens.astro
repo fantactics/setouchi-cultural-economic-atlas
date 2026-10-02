@@ -1,11 +1,13 @@
 ---
 import { places } from '../data/places.js';
+import { regionalPossibilityTimelines } from '../data/regionalPossibilityTimelines.js';
 import '../styles/regional-adaptive.css';
 
 const { placeId } = Astro.props;
 const place = places.find((item)=>item.id===placeId);
 const placeName = place?.name || 'この地域';
 const section = (index) => place?.sections?.[index] || null;
+const timeline = regionalPossibilityTimelines[placeId] || [];
 
 const possibilityDimensions = [
   {
@@ -64,7 +66,48 @@ const possibilityDimensions = [
       <div class="kicker">HUMAN POSSIBILITIES / CONSTRAINTS</div>
       <h2>{placeName}で、人は何を得られ、何ができるのか</h2>
     </div>
-    <p>人口、産業、観光、土地利用の増減そのものを評価しません。それらの変化によって、<strong>人が得られるもの・できること・できなくなったこと</strong>がどう変わったのかを、6つの観点から読み直します。</p>
+    <p>人口、産業、観光、土地利用の増減そのものを評価しません。それらの変化によって、<strong>人が得られるもの・できること・できなくなったこと</strong>がどう変わったのかを読みます。</p>
+  </div>
+
+  {timeline.length > 0 && (
+    <div class="regional-possibility-timeline-wrap">
+      <div class="regional-possibility-timeline-head">
+        <div>
+          <span>CHANGE OVER TIME</span>
+          <h3>可能性の変遷</h3>
+        </div>
+        <p>同じ土地でも、人ができることは一定ではありません。自然条件への適応、交通、技術、産業、制度の変化によって、可能性と制約の組み合わせそのものが変わります。</p>
+      </div>
+      <div class="regional-possibility-timeline">
+        {timeline.map((phase,index)=>(
+          <article class="regional-possibility-phase">
+            <div class="regional-phase-index">{String(index + 1).padStart(2,'0')}</div>
+            <div class="regional-phase-body">
+              <h4>{phase.era}</h4>
+              <div class="regional-phase-pair">
+                <div>
+                  <span class="regional-phase-label enabled">可能になったこと</span>
+                  <p>{phase.enabled}</p>
+                </div>
+                <div>
+                  <span class="regional-phase-label constrained">同時にあった制約</span>
+                  <p>{phase.constrained}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="regional-timeline-note">この時系列は、既存資料と地域ページの記述を「人間の可能性」という観点から再構成した編集上の解釈です。時代を成功／衰退の順序として並べるものではありません。</p>
+    </div>
+  )}
+
+  <div class="regional-possibility-dimensions-head">
+    <div>
+      <span>SIX DIMENSIONS</span>
+      <h3>現在を6つの可能性から読む</h3>
+    </div>
+    <p>時系列で変化を見たうえで、現在の地域を生活・生業・自然・文化・経済・選択の6側面から読み直します。</p>
   </div>
 
   <div class="regional-adaptive-grid">
