@@ -4,81 +4,125 @@ import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/essay-magazine.css';
 
 const allBookArticles=[...orderedBookArticles,cycleTourismEssay,aiRegionalPlanningEssay];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
-  const ids=[article.heroPhotoId,...article.sections.flatMap((section)=>section.photoIds || [])].filter(Boolean);
+  const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find(Boolean) || null;
 };
 const parts=[...new Set(allBookArticles.map((a)=>a.part))];
 const chapterDescriptions={
-  '海と陸は、人がつくった':'自然は背景ではない。干拓、塩田、河川、港を通じて、人は海と陸の境界そのものを作り替えてきた。',
-  '土地は、何度でも使い直される':'塩田、工場、住宅、港。前の用途が残した地形・設備・権利・記憶が、次の土地利用をどう決めるかを追う。',
-  'なぜ、船はここで止まったのか':'潮、風、海峡、港。移動の制約が交易、情報、都市を生む仕組みを読む。',
-  '食は、土地を語る':'海、川、畑、市場、加工。自然資源が食文化へ変わるまでの地域固有の連鎖を読む。',
-  '捨てるものは、どこへ行くのか':'副産物や廃棄物が、農地・飼料・素材へ戻る循環から地域経済を見る。',
-  '産業は、紡がれる':'前の産業が残した技能、設備、資本、企業ネットワークが、次の産業へどう受け渡されるかを読む。',
-  '富は、町に何を残したのか':'交易や産業の利益が、建築、文化、教育、制度へ固定され、地域資産へ変わる過程を追う。',
-  '町は、何度でもつくり直される':'交通、人口、産業の変化に応じて、都市の中心と土地利用がどう組み替えられてきたかを見る。',
-  '移動は、地域を変える':'人の移動が売上だけでなく、店、人材、景観、インフラ、関係人口へ何を残すかを考える。',
-  '地域は、学習し続ける':'AI時代の地域計画を、完成図ではなく観測・比較・実験・修正を反復するLearning Velocityとして考える。'
+  '海と陸は、人がつくった':'海岸線は、昔から同じ形だったわけではない。塩田、干拓、港、河川改修――人が海と陸の境界に手を入れてきた痕跡をたどる。',
+  '土地は、何度でも使い直される':'塩田が工場になり、工場が町になる。土地に積み重なった過去をたどると、今の風景が少し違って見えてくる。',
+  'なぜ、船はここで止まったのか':'潮を待ち、風を待ち、人と物が集まった港。船が「止まる」ことから生まれた町の時間を歩く。',
+  '食は、土地を語る':'鯛、タコ、牡蠣、柑橘、醤油。ひと皿の向こう側にある海、畑、漁、加工、商いを味わう。',
+  '捨てるものは、どこへ行くのか':'捨てられるはずのものが、別の生業を支えることがある。副産物から、土地の循環をのぞいてみる。',
+  '産業は、紡がれる':'造船、繊維、鉱山、化学。製品は変わっても、町に残った技術や人のつながりが次の仕事を生むことがある。',
+  '富は、町に何を残したのか':'商いで生まれた富は、家、庭、寺、学校、祭りへ姿を変える。町並みに刻まれた経済の記憶を読む。',
+  '町は、何度でもつくり直される':'駅ができ、港が移り、道が変わる。人の流れが変わるたび、町の中心も静かに動いてきた。',
+  '移動は、地域を変える':'橋、自転車、船、鉄道。移動の仕方が変わると、店も景色も、人と土地との距離も変わっていく。',
+  '地域は、学習し続ける':'変化の速い時代に、地域はどう考え続けるのか。未来を決め打ちせず、試し、比べ、考え直すことをめぐるエッセイ。'
 };
+
+const featureEssay=allBookArticles.find((a)=>a.slug==='four-salt-fields') || allBookArticles[0];
+const sideEssays=['tai-meshi-two-seas','ports-that-needed-waiting']
+  .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
+const sideFallback=allBookArticles.filter((a)=>a!==featureEssay && !sideEssays.includes(a)).slice(0,2-sideEssays.length);
+const coverSide=[...sideEssays,...sideFallback].slice(0,2);
+const visualEssays=['shimotsui-tako-meshi','oysters-taste-of-small-seas','shodoshima-open-island']
+  .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
+const visualFallback=allBookArticles.filter((a)=>a!==featureEssay && !coverSide.includes(a) && !visualEssays.includes(a)).slice(0,3-visualEssays.length);
+const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 ---
-<BaseLayout title="エッセイ | SETOUCHI ATLAS" description="現地の風景や違和感から問いを立て、自然・産業・文化・都市を横断して仮説を組み立てる。研究ノートで検証し、必要なら書き換えるための出発点。">
-  <section class="concept-hero">
-    <div class="kicker">ESSAYS / HYPOTHESIS FORMATION</div>
-    <h1>エッセイは、問いを立てる場所。</h1>
-    <p class="concept-dek">風景を見て生まれた「なぜ？」を、地形、歴史、産業、食、交通、文化へ横断させ、説明仮説へ変えます。ここでの文章は完成した結論ではありません。研究ノートとデータで検証され、違えば書き換えられます。</p>
-    <div class="concept-actions"><a href="/setouchi-cultural-economic-atlas/chapters/">研究ノートで検証する</a><a class="secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論を見る</a></div>
-  </section>
-
-  <section class="section atlas-thesis">
-    <div class="page-intro-grid">
-      <p class="big-question">現地観察から仮説をつくり、比較研究で壊し、また地域へ戻す。</p>
-      <div class="body-copy">
-        <p>SETOUCHI ATLASでは、エッセイを「読み物」と「研究の入口」の両方として扱います。直感や違和感を曖昧なまま終わらせず、後から検証できる問いへ変換します。</p>
-        <div class="book-cycle"><span>現場</span><b>→</b><span>問い</span><b>→</b><span>エッセイ</span><b>→</b><span>研究ノート</span><b>→</b><span>世界比較</span><b>→</b><span>再記述</span></div>
+<BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
+  <main class="essay-magazine">
+    <section class="essay-magazine-intro">
+      <div>
+        <div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div>
+        <h2>瀬戸内には、<br/>理由のある風景がある。</h2>
       </div>
-    </div>
-  </section>
+      <p>港町の路地、海峡を渡る船、皿の上の鯛やタコ、海辺に並ぶ工場。何気なく見える風景にも、その土地の自然と人の営みが積み重なっています。気になるところから、自由に読んでください。</p>
+    </section>
 
-  <section class="section">
-    <div class="kicker">CORE ESSAY</div>
-    <h2>いま、このアトラスをどう読むか</h2>
-    <a class="core-essay-callout" href={`/setouchi-cultural-economic-atlas/book/${aiRegionalPlanningEssay.slug}/`}>
-      <div><em>{aiRegionalPlanningEssay.part}</em><strong>{aiRegionalPlanningEssay.title}</strong></div>
-      <div><p>{aiRegionalPlanningEssay.subtitle}</p><p>AI時代の地域計画を、未来予測ではなく「観測・比較・修正の速度」という地域能力から考えます。</p></div>
-    </a>
-  </section>
-
-  <section class="section gene-section">
-    <div class="kicker">ESSAY THEMES</div>
-    <h2>問いの束から読む</h2>
-    <p class="lead">章は分野分類ではなく、地域を見るための問いのまとまりです。自然から形成を読む章と、産業・土地・地域の再編集を考える章を往復してください。</p>
-  </section>
-
-  {parts.map((part)=>(
-    <section class="section book-part">
-      <div class="book-part-title">{part}</div>
-      <p class="book-part-dek">{chapterDescriptions[part] || '地域の風景から問いを立て、複数の因果をつないで仮説を組み立てます。'}</p>
-      <div class="book-toc-list">
-        {allBookArticles.filter((a)=>a.part===part).map((article)=>{
-          const photo=articlePhoto(article);
-          return (
-            <a class="book-toc-item" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-              <div class="book-toc-copy"><h2>{article.title}</h2><p>{article.subtitle}</p><div class="book-toc-tags">{article.cities.map((x)=><span>{x}</span>)}</div></div>
-              {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
-            </a>
-          )
-        })}
+    <section class="essay-magazine-cover" aria-label="今読みたいエッセイ">
+      {featureEssay && (
+        <a class="essay-cover-main" href={`/setouchi-cultural-economic-atlas/book/${featureEssay.slug}/`}>
+          {articlePhoto(featureEssay) && <img src={articlePhoto(featureEssay).imageUrl} alt={articlePhoto(featureEssay).alt} fetchpriority="high" />}
+          <div class="essay-cover-copy">
+            <small>FEATURE / {featureEssay.part}</small>
+            <h1>{featureEssay.title}</h1>
+            <p>{featureEssay.subtitle}</p>
+          </div>
+        </a>
+      )}
+      <div class="essay-cover-side">
+        {coverSide.map((article)=>(
+          <a class="essay-cover-side-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+            {articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="eager" />}
+            <div class="essay-card-copy"><small>{article.part}</small><h2>{article.title}</h2></div>
+          </a>
+        ))}
       </div>
     </section>
-  ))}
 
-  <section class="learning-band">
-    <div class="kicker">FROM ESSAY TO RESEARCH</div>
-    <h2>仮説は、更新されるためにある。</h2>
-    <p>説得力のある物語ほど、反証可能であることが重要です。エッセイで立てた因果は、研究ノート、データ、現地調査、世界比較を通じて検証し、支持されなければ修正します。その更新速度そのものが、このアトラスの研究品質です。</p>
-  </section>
+    <section>
+      <div class="essay-magazine-heading">
+        <h2>写真から、旅を始める。</h2>
+        <p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p>
+      </div>
+      <div class="essay-feature-strip">
+        {visualFeatures.map((article)=>(
+          <a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+            {articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}
+            <div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="essay-magazine-heading">
+        <h2>気になるテーマをめくる。</h2>
+        <p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p>
+      </div>
+
+      {parts.map((part)=>(
+        <section class="essay-theme">
+          <div class="essay-theme-head">
+            <h3>{part}</h3>
+            <p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p>
+          </div>
+          <div class="essay-theme-grid">
+            {allBookArticles.filter((a)=>a.part===part).map((article)=>{
+              const photo=articlePhoto(article);
+              return (
+                <a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+                  {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
+                  <div class="essay-theme-card-body">
+                    <h4>{article.title}</h4>
+                    <p>{article.subtitle}</p>
+                    <span>{article.cities?.join(' / ')}</span>
+                  </div>
+                </a>
+              )
+            })}
+          </div>
+        </section>
+      ))}
+    </section>
+
+    <section class="essay-deeper">
+      <div>
+        <h2>もっと深く知りたくなったら。</h2>
+        <p>エッセイの背景にある史料、比較、統計や地図は、研究ノートとデータのページにまとめています。読んでいて気になったところから、もう一段深くたどれます。</p>
+      </div>
+      <div class="essay-deeper-links">
+        <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
+        <a href="/setouchi-cultural-economic-atlas/data/">データ</a>
+        <a href="/setouchi-cultural-economic-atlas/places/">地域から見る</a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
