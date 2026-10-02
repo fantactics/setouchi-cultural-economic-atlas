@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlaceLocatorMap from '../../components/PlaceLocatorMap.astro';
 import { hinasePlace as place } from '../../data/hinasePlace.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import '../../styles/hinase.css';
@@ -28,6 +29,8 @@ const sourceById=Object.fromEntries(place.sources.map((s)=>[s.id,s]));
       <img src={hero.imageUrl} alt={hero.alt} fetchpriority="high" />
       <figcaption><strong>{hero.title}</strong>　{hero.caption}　Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></figcaption>
     </figure>}
+
+    <PlaceLocatorMap place={place} />
 
     <section class="hinase-question">
       <div class="hinase-kicker">CORE QUESTION</div>
