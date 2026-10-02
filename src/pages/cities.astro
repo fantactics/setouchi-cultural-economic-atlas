@@ -3,15 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { bookArticles, bookCities } from '../data/bookArticles.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
+import { additionalPlaces } from '../data/additionalPlaces.js';
 
-const allPlaces=[...places,hinasePlace];
+const allPlaces=[...places,hinasePlace,...additionalPlaces];
 const aliases={
   '児島':['shimotsui'],'下津井':['shimotsui'],'倉敷':['shimotsui'],'井原':[],
   '今治':['imabari'],'波止浜':['imabari'],'来島海峡':['imabari'],
   '新居浜':['niihama'],'別子':['niihama'],'東平':['niihama'],
   '小豆島':['shodoshima'],'御手洗':['mitarai'],'多度津':['tadotsu'],'尾道':['onomichi'],
   '鞆の浦':['tomonoura'],'赤穂':['ako'],'竹原':['takehara'],'坂出':['sakaide'],
-  '防府（三田尻）':['hofu'],'牛窓':['ushimado'],'日生':['hinase']
+  '防府（三田尻）':['hofu'],'牛窓':['ushimado'],'日生':['hinase'],
+  '加太':['kada'],'鳴門':['naruto'],'明石':['akashi']
 };
 const allCities=[...new Set([...allPlaces.map((p)=>p.name),...bookCities])].sort((a,b)=>a.localeCompare(b,'ja'));
 const placeById=Object.fromEntries(allPlaces.map((p)=>[p.id,p]));
