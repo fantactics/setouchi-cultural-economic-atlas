@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { hinasePlace as place } from '../../data/hinasePlace.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import '../../styles/hinase.css';
+
+const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const hero=photoById['photo-hinase-bay'];
+const oysterPhoto=photoById['photo-hinase-oysters'];
+const sourceById=Object.fromEntries(place.sources.map((s)=>[s.id,s]));
+---
+<BaseLayout title={`${place.name} | SETOUCHI ATLAS`} description={place.subtitle}>
+  <article class="hinase-page">
+    <header class="hinase-header">
+      <div>
+        <div class="hinase-kicker">REGION 21 / OKAYAMA</div>
+        <h1>{place.name}</h1>
+        <p class="hinase-subtitle">{place.subtitle}</p>
+        <div class="hinase-tags">{place.tags.map((tag)=><span>{tag}</span>)}</div>
+      </div>
+      <div>
+        <div class="hinase-kicker">HOW TO READ THIS REGION</div>
+        <p>産業振興や人口維持を先に目的とせず、海と人との関係が変わることで、何が可能になり、何が難しくなったのかを追います。</p>
+      </div>
+    </header>
+
+    {hero && <figure class="hinase-hero">
+      <img src={hero.imageUrl} alt={hero.alt} fetchpriority="high" />
+      <figcaption><strong>{hero.title}</strong>　{hero.caption}　Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></figcaption>
+    </figure>}
+
+    <section class="hinase-question">
+      <div class="hinase-kicker">CORE QUESTION</div>
+      <h2>{place.coreQuestion}</h2>
+    </section>
+
+    <section>
+      <div class="hinase-kicker">REGIONAL PROFILE</div>
+      <div class="hinase-grid">
+        {place.sections.map((section,index)=><article class="hinase-section-card">
+          <small>{String(index+1).padStart(2,'0')} / {section[2]==='fact'?'事実':section[2]==='interpretation'?'解釈':'仮説'}</small>
+          <h3>{section[0]}</h3>
+          <p>{section[1]}</p>
+        </article>)}
+      </div>
+    </section>
+
+    {(hero || oysterPhoto) && <div class="hinase-second-photo">
+      {oysterPhoto && <figure><img src={oysterPhoto.imageUrl} alt={oysterPhoto.alt} loading="lazy"/><figcaption><strong>{oysterPhoto.title}</strong>　{oysterPhoto.caption}　Photo: {oysterPhoto.author}</figcaption></figure>}
+      {hero && <figure><img src={hero.imageUrl} alt={hero.alt} loading="lazy"/><figcaption>島に囲まれた日生の海。漁業・養殖・島嶼交通・里海再生を同じ海域の中で読む。</figcaption></figure>}
+    </div>}
+
+    <section class="hinase-timeline">
+      <div class="hinase-kicker">CHANGING POSSIBILITIES</div>
+      <h2>海との関係は、どう変わったか</h2>
+      <div class="hinase-timeline-list">
+        {place.timeline.map((item)=><article class="hinase-time">
+          <div class="hinase-time-era">{item.era}</div>
+          <div>
+            <h3>{item.title}</h3>
+            <div class="hinase-time-pair">
+              <div><strong>可能になったこと</strong><p>{item.possible}</p></div>
+              <div><strong>制約・難しくなったこと</strong><p>{item.constraint}</p></div>
+            </div>
+          </div>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="hinase-profile">
+      <div class="hinase-kicker">POSSIBILITY PROFILE / NO SCORE</div>
+      <h2>人間の可能性を、6つの関係から読む</h2>
+      <p class="hinase-profile-note">これは評価表ではありません。自然、交通、制度、市場、文化が、人の行為をどのように可能にし、同時にどんな制約を生むのかを関係として読みます。</p>
+      <div class="hinase-profile-grid">
+        {place.possibilityProfile.map((axis)=><article class="hinase-axis">
+          <h3>{axis.axis}</h3>
+          <dl><dt>支える条件</dt><dd>{axis.basis}</dd><dt>変化</dt><dd>{axis.change}</dd></dl>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="hinase-links">
+      <div class="hinase-kicker">RELATED READING</div>
+      <h2>日生から、テーマへ広げる</h2>
+      <div class="hinase-link-grid">
+        <a class="hinase-link" href="/setouchi-cultural-economic-atlas/book/oysters-taste-of-small-seas/"><small>GASTRONOMY</small><strong>日生と広島の牡蠣を比べる</strong><span>川、湾、潮、養殖期間から「小さな海」の味を読む →</span></a>
+        <a class="hinase-link" href="/setouchi-cultural-economic-atlas/places/"><small>REGIONS</small><strong>他の地域と比べる</strong><span>牛窓、下津井、赤穂など、別の海との関係を見る →</span></a>
+      </div>
+    </section>
+
+    <section class="hinase-sources">
+      <div class="hinase-kicker">SOURCES</div>
+      <h2>出典・参照資料</h2>
+      <ol>{place.sources.map((source)=><li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a><span>{source.publisher}</span></li>)}</ol>
+    </section>
+  </article>
+</BaseLayout>
