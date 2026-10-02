@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AtlasRegionMap from '../components/AtlasRegionMap.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { places } from '../data/places.js';
@@ -8,15 +9,12 @@ import { hinasePlace } from '../data/hinasePlace.js';
 const allPlaces=[...places,hinasePlace];
 const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
-const mapPlaces=allPlaces.map((p)=>({id:p.id,name:p.name,prefecture:p.prefecture,lat:p.lat,lon:p.lon,subtitle:p.subtitle}));
 const aiEssay=orderedBookArticles.find((a)=>a.slug==='ai-era-regional-planning-learning-velocity');
 const saltEssay=orderedBookArticles.find((a)=>a.slug==='four-salt-fields');
 const portsEssay=orderedBookArticles.find((a)=>a.slug==='ports-that-needed-waiting');
 const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
 ---
 <BaseLayout title="SETOUCHI ATLAS | 瀬戸内自然文化経済アトラス" description="瀬戸内で人が何を得られ、何ができたのか、そして何が得られなくなり、できなくなったのかを、自然・生態系・生業・技術・産業・文化・都市の変化から読むリサーチ・アトラス。">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-
   <section class="concept-hero">
     <div class="kicker">SETOUCHI NATURAL / CULTURAL / ECONOMIC ATLAS</div>
     <h1>この土地で、人は何を得られ、何ができたのか。</h1>
@@ -117,15 +115,7 @@ const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
     </div>
   </section>
 
-  <section class="map-first-hero">
-    <div id="home-atlas-map" class="home-atlas-map-canvas" data-places={JSON.stringify(mapPlaces)}></div>
-    <div class="map-first-copy">
-      <div class="kicker">MAP / 21 REGIONS</div>
-      <h1>場所から読む。</h1>
-      <p>自然条件も、産業の履歴も、人が得られるもの・できることも地域ごとに違います。地図から一つの地域を選び、その可能性と制約の変化をたどってください。</p>
-      <div class="map-first-actions"><a href="/setouchi-cultural-economic-atlas/places/">地域一覧へ</a></div>
-    </div>
-  </section>
+  <AtlasRegionMap places={allPlaces} actionHref="/setouchi-cultural-economic-atlas/places/" actionLabel="地域一覧へ" />
 
   {featuredEssays.length>0 && (
     <section class="section">
@@ -147,20 +137,4 @@ const featuredEssays=[aiEssay,saltEssay,portsEssay].filter(Boolean);
       <a href="/setouchi-cultural-economic-atlas/photos/"><b>写真資料</b><span>景観を証拠として読む</span></a>
     </div>
   </section>
-
-  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script is:inline>
-    (()=>{
-      const el=document.getElementById('home-atlas-map');
-      if(!el || !window.L) return;
-      let items=[]; try{items=JSON.parse(el.dataset.places||'[]')}catch(_){return}
-      const map=L.map(el,{scrollWheelZoom:false}).setView([34.25,133.45],7);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(map);
-      items.forEach((p)=>{
-        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
-        const marker=L.circleMarker([p.lat,p.lon],{radius:6,weight:2,fillOpacity:.85}).addTo(map);
-        marker.bindPopup(`<strong>${p.name}</strong><br><small>${p.prefecture}</small><br>${p.subtitle||''}<br><a href="/setouchi-cultural-economic-atlas/places/${p.id}/">地域ページへ →</a>`);
-      });
-    })();
-  </script>
 </BaseLayout>
