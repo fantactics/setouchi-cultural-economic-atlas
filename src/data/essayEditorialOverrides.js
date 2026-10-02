@@ -67,6 +67,10 @@ const essayOverrides = {
       '塩業で得た利益が、企業・土地・建物・港湾へどの程度再投資されたのかを地域別に追えるか。',
       '塩田跡の土地利用転換を旧版地形図・航空写真・企業立地年表で比較すると、四地域の違いをどこまで可視化できるか。'
     ],
+    researchLinks:[
+      {label:'詳しい論証を研究ノートで読む',href:'/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'},
+      {label:'比較データを見る',href:'/setouchi-cultural-economic-atlas/data/salt-fields/'}
+    ],
     extraSources:[
       {id:201,title:'日本の塩づくりの歴史',publisher:'公益財団法人 塩事業センター',url:'https://www.shiojigyo.com/siohyakka/made/history.html'},
       {id:202,title:'坂出市まちづくり基本構想・坂出市のあゆみ',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/uploaded/life/67202_238119_misc.pdf'},
