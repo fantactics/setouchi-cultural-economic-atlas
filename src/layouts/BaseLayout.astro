@@ -8,13 +8,21 @@ import '../styles/preservation.css';
 import '../styles/concept-refresh.css';
 import '../styles/page-type-colors.css';
 
-const { title = 'SETOUCHI ATLAS', description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノート、地図・統計・写真データを行き来しながら読むアトラス。' } = Astro.props;
+const {
+  title = 'SETOUCHI ATLAS',
+  description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノート、地図・統計・写真データを行き来しながら読むアトラス。',
+  image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
+  imageAlt = '瀬戸内の町並み',
+  structuredData = null
+} = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
 const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
+const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
+const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
 const dataPrefixes = [
   'data','climate','wind-tide','transect','land-use','transport','industry','gastronomy-matrix','photos','compare'
@@ -28,6 +36,42 @@ const pageType = pathname.startsWith(`${baseUrl}places`)
       : dataPrefixes.some((prefix)=>pathname.startsWith(prefix))
         ? 'data'
         : 'default';
+
+const siteOrigin = Astro.site?.origin || Astro.url.origin;
+const siteRoot = new URL(baseUrl, siteOrigin).href;
+const canonicalUrl = new URL(pathname, siteOrigin).href;
+const sitemapUrl = new URL(`${baseUrl}sitemap-index.xml`, siteOrigin).href;
+const resolvedImage = image?.startsWith('http://') || image?.startsWith('https://')
+  ? image
+  : new URL(image || baseUrl, siteOrigin).href;
+const ogType = isEssayDetail || isResearchDetail ? 'article' : 'website';
+const schemaType = isHome ? 'WebSite' : isEssayDetail ? 'Article' : isResearchDetail ? 'ScholarlyArticle' : 'WebPage';
+const defaultStructuredData = schemaType === 'WebSite'
+  ? {
+      '@context':'https://schema.org',
+      '@type':'WebSite',
+      name:'SETOUCHI ATLAS',
+      alternateName:'瀬戸内自然文化経済アトラス',
+      url:siteRoot,
+      description,
+      inLanguage:'ja'
+    }
+  : {
+      '@context':'https://schema.org',
+      '@type':schemaType,
+      headline:title,
+      name:title,
+      description,
+      url:canonicalUrl,
+      image:resolvedImage ? [resolvedImage] : undefined,
+      inLanguage:'ja',
+      isPartOf:{
+        '@type':'WebSite',
+        name:'SETOUCHI ATLAS',
+        url:siteRoot
+      }
+    };
+const jsonLd = structuredData || defaultStructuredData;
 ---
 <!doctype html>
 <html lang="ja">
@@ -35,6 +79,26 @@ const pageType = pathname.startsWith(`${baseUrl}places`)
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href={sitemapUrl} />
+
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="SETOUCHI ATLAS" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta property="og:image:alt" content={imageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <title>{title}</title>
   </head>
   <body class={`page-type-${pageType}`} data-page-type={pageType}>
