@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SimpleRegionalProfile from '../../components/SimpleRegionalProfile.astro';
+import { additionalPlaces } from '../../data/additionalPlaces.js';
+const place=additionalPlaces.find((p)=>p.id==='kada');
+---
+<BaseLayout title={`${place.name} | SETOUCHI ATLAS`} description={place.subtitle}>
+  <SimpleRegionalProfile place={place} />
+</BaseLayout>
