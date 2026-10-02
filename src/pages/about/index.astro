@@ -3,81 +3,85 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { photoEvidence } from '../../data/photoEvidence.js';
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
 const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
-const methodPhotos=[photoById['photo-shimotsui-geography'],photoById['photo-niihama-tonaru'],photoById['photo-shodoshima-hishio-yamasan']].filter(Boolean);
+const atlasPhotos=[photoById['photo-shimotsui-geography'],photoById['photo-niihama-tonaru'],photoById['photo-shodoshima-hishio-yamasan']].filter(Boolean);
 ---
-<BaseLayout title="このアトラスについて | SETOUCHI ATLAS" description="瀬戸内で人が何を得られ、何ができたのか、その可能性と制約が自然・生態系・生業・技術・産業・文化・都市の変化によってどう変わったかを読むリサーチ・アトラス。">
+<BaseLayout title="このアトラスについて | SETOUCHI ATLAS" description="SETOUCHI ATLASは、瀬戸内のまち、海、産業、食、文化を、自然環境と人々の営みの関係からたどり、地域ごとの固有性とその変化を記録・研究するアトラスです。">
   <section class="atlas-about-cover">
     {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
     <div class="atlas-about-cover-scrim"></div>
     <div class="atlas-about-cover-copy">
       <span>ABOUT THE ATLAS</span>
-      <h1>地域の未来を、<br/>先に決めない。</h1>
-      <p>この土地で、人は何を得られ、何ができたのか。何が得られなくなり、何が難しくなったのか。その変化を、自然・生態系・生業・技術・産業・文化・都市の関係から読みます。</p>
+      <h1>瀬戸内を、<br/>土地と人の関係から読む。</h1>
+      <p>SETOUCHI ATLASは、瀬戸内のまち、海、島、産業、食、文化を、自然環境と人々の営みの関係からたどるアトラスです。風景の背後にある地形や海況、技術、交易、生業、産業のつながりを探りながら、この土地ならではの暮らしと文化がどのように形づくられてきたのかを記録していきます。</p>
     </div>
   </section>
 
   <section class="section atlas-about-definition">
-    <div class="atlas-about-eyebrow">DEFINITION</div>
-    <h2>地域の可能性と制約を記述する、更新型リサーチ・アトラス</h2>
+    <div class="atlas-about-eyebrow">WHY THIS ATLAS</div>
+    <h2>散らばっている瀬戸内の知識を、一つのアトラスに。</h2>
     <div class="atlas-about-lead-grid">
-      <p>瀬戸内自然文化経済アトラスは、瀬戸内を観光地や行政区域の集合ではなく、自然・生態系・生業・技術・産業・文化・都市・制度が相互作用するシステムとして読みます。</p>
-      <p>人口増加、人口維持、産業振興、経済成長をあらかじめ地域経営の目標とは置きません。人口、産業、交通、土地利用、環境の変化が、人の生活や生業にどのような利得と損失をもたらしたのかを確かめます。</p>
+      <p>地域を知ろうとすると、地形や気候は自然科学、港や交通は交通史、産業は企業史、町並みは建築史、食は郷土史や観光情報というように、知識は分野ごとに分かれています。しかし実際の地域では、それらは互いに切り離されて存在しているわけではありません。</p>
+      <p>このサイトは、現地で見た風景、地域の歴史、産業の記録、統計、地図、写真、食文化などを横断して集め、地域を一つの生態系として読み直すための知識基盤をつくることを目的としています。読み物として楽しめるエッセイから、地域ページ、研究ノート、データまでを同じアトラスの中で行き来できる形にしています。</p>
     </div>
   </section>
 
   <section class="section atlas-about-principle-section">
-    <div class="atlas-about-section-head"><div><div class="atlas-about-eyebrow">THREE QUESTIONS</div><h2>3つの問い</h2></div><p>過去を成功や失敗の物語にまとめず、その土地で可能だったこと、難しかったこと、それがどう変化したかを一つの時間軸で追います。</p></div>
+    <div class="atlas-about-section-head">
+      <div><div class="atlas-about-eyebrow">RESEARCH PURPOSE</div><h2>なぜ、この土地に、この暮らし・産業・文化が生まれたのか。</h2></div>
+      <p>本アトラスの研究目的は、地域の特徴を列挙することではなく、その土地の自然条件と、人々が積み重ねてきた働きかけとの関係を明らかにすることです。</p>
+    </div>
     <div class="research-pillar-grid">
-      <article class="research-pillar"><span>01 / FORMATION</span><h3>なぜここに、この生業・産業・文化・都市が生まれたのか</h3><p>自然条件が与えた可能性と制約に、人が技術、制度、資本、交易でどう働きかけたかを追います。</p></article>
-      <article class="research-pillar"><span>02 / POSSIBILITIES</span><h3>この地域で、人は何を得られ、何ができたのか</h3><p>土地、生態系、技能、設備、企業間ネットワーク、交通、文化、制度が、生活と生業にどのような可能性を開いたかを読みます。</p></article>
-      <article class="research-pillar"><span>03 / CHANGE</span><h3>何が難しくなり、新しく何が可能になったのか</h3><p>人口、産業、技術、交通、気候、土地利用の変化を、利得と損失の両面から追います。どちらを選ぶべきかは先に決めません。</p></article>
+      <article class="research-pillar"><span>01 / LAND</span><h3>自然環境が何を可能にしたのか</h3><p>地形、地質、気候、水、海況、生態系など、その土地に与えられた条件を読みます。自然がすべてを決めるとは考えませんが、人の営みが始まる前提として重視します。</p></article>
+      <article class="research-pillar"><span>02 / HUMAN ACTION</span><h3>人はその条件をどう利用し、変えてきたのか</h3><p>漁撈、農業、製塩、航海、港湾、工業、交通、都市形成などを通じて、人が自然条件に適応し、ときに改変しながら、新しい技術や産業を生み出してきた過程を追います。</p></article>
+      <article class="research-pillar"><span>03 / CHANGE</span><h3>その結果、地域と暮らしはどう変わったのか</h3><p>生業、産業、食、文化、集落、都市、制度、移動の変化をたどり、それによって人が得られるもの、できること、難しくなったことがどう変化したのかを考えます。</p></article>
     </div>
-    <div class="atlas-about-causal-line"><span>自然環境</span><b>→</b><span>生態系</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>都市・地域社会</span></div>
+    <div class="atlas-about-causal-line"><span>自然環境</span><b>→</b><span>生態系</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>集落・都市・制度</span><b>→</b><span>人の暮らしと可能性</span></div>
   </section>
 
   <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">OUR POSITION</div>
-    <h2>人口減少も、産業成長も、それ自体を目的や問題とはみなさない</h2>
+    <div class="atlas-about-eyebrow">WHAT WE WANT TO UNDERSTAND</div>
+    <h2>瀬戸内という地域は、どのようにできてきたのか。</h2>
     <div class="atlas-about-copy-column">
-      <p>人口が減れば、公共交通、医療、商業、インフラ、文化継承が難しくなることがあります。一方で、一人当たりの土地利用余地が増え、混雑が減り、自然や生態系から得られる便益が増える場合もあります。</p>
-      <p>産業の成長は所得や雇用を生みますが、土地利用、環境、景観、時間の使い方、地域社会の構造を変えることもあります。本アトラスでは、変化を一方向の尺度で評価せず、<strong>誰が、何を得られるようになり、何を失い、何ができるようになり、何が難しくなったのか</strong>を分解して記述します。</p>
-      <p>したがって、「人口減少＝地域課題」「産業成長＝成功」といった結論を先に置きません。地域の未来についての選択は、可能性と制約を確かめた先にあります。</p>
+      <p>瀬戸内海は、単なる内海ではありません。潮流と風、島々と狭い海峡、穏やかな海域と沿岸平野、塩田や漁場、港、航路、造船所、工場、商都が重なりながら、人と物と技術が行き交う一つの大きな地域圏を形づくってきました。</p>
+      <p>このアトラスでは、行政区域ごとに地域を見るだけでなく、海と陸をまたいでつながる生態系、物流、産業、文化のネットワークを追います。ある町だけを見ていると偶然に見える出来事が、複数の地域を並べることで、瀬戸内全体に共通する仕組みとして見えてくることがあります。</p>
+      <p>一方で、同じ瀬戸内でも条件は均一ではありません。潮流、地形、水資源、港の形、都市への距離、産業集積などの違いが、それぞれの地域に異なる道筋を生みました。共通性と土地固有性の両方を描くことが、この研究の中心です。</p>
     </div>
   </section>
 
-  <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">RESEARCH LOOP</div>
-    <h2>エッセイ、研究ノート、データを往復する</h2>
-    <div class="atlas-about-copy-column">
-      <p><strong>エッセイ</strong>では、現地の風景や違和感から「なぜ？」を立て、説明仮説をつくります。<strong>研究ノート</strong>では、複数地域、史料、統計、世界の類似事例と比較して仮説を検証します。<strong>データ</strong>は、その検証と継続観測のための証拠です。</p>
-      <p>仮説が支持されなければ修正します。変化の意味も固定しません。新しい証拠によって、何が可能になり、何が制約されたのかという読み方そのものを更新します。</p>
+  <section class="section atlas-about-principle-section">
+    <div class="atlas-about-section-head">
+      <div><div class="atlas-about-eyebrow">HOW TO READ</div><h2>読み物、地域、研究、データを行き来する。</h2></div>
+      <p>このサイトには一つの正しい読み順はありません。気になる写真や食べ物から入っても、地域名から入っても、研究テーマやデータから入っても構いません。</p>
     </div>
-    <div class="atlas-about-causal-line"><span>現場</span><b>→</b><span>問い</span><b>→</b><span>仮説</span><b>→</b><span>比較・検証</span><b>→</b><span>観測</span><b>→</b><span>修正</span></div>
-  </section>
-
-  <section class="learning-band">
-    <div class="kicker">LOCAL DEPTH × GLOBAL COMPARISON × ADAPTIVE RESEARCH</div>
-    <h2>AIは、地域についてより速く問い直すために使う。</h2>
-    <p>現地を深く見ることと、世界の類似地域を広く比較することを両立させます。AIは翻訳、探索、データ整理、比較、変化検知を支援しますが、何を大切にし、どの利得と損失を受け入れるかという価値判断は人間側に残します。</p>
-    <div class="learning-metrics"><div><strong>現地観察</strong><span>地域固有の問いを失わない</span></div><div><strong>世界比較</strong><span>事例ではなくメカニズムを学ぶ</span></div><div><strong>Adaptive Research</strong><span>結論ではなく見方を更新する</span></div></div>
+    <div class="research-pillar-grid">
+      <article class="research-pillar"><span>ESSAYS</span><h3>エッセイ</h3><p>港、魚、料理、町並み、工場、島など、現地で出会う具体的な風景から瀬戸内を読み始めます。</p></article>
+      <article class="research-pillar"><span>PLACES</span><h3>地域</h3><p>各地域の自然条件、生業、産業、文化、都市形成を重ね、その土地の成り立ちと変化をたどります。</p></article>
+      <article class="research-pillar"><span>RESEARCH & DATA</span><h3>研究ノート・データ</h3><p>地域を横断するテーマを掘り下げ、地図、統計、写真、比較データなどを参照できるようにします。</p></article>
+    </div>
   </section>
 
   <section class="section atlas-about-visual-method">
-    <div class="atlas-about-section-head"><div><div class="atlas-about-eyebrow">VISUAL EVIDENCE</div><h2>写真も、地域を読む資料です</h2></div><p>港の形、山と市街地の距離、工場の立地、商家、畑の傾斜。文章や統計だけでは見えにくい因果の途中を写真から読みます。</p></div>
+    <div class="atlas-about-section-head">
+      <div><div class="atlas-about-eyebrow">LANDSCAPE / FOOD / INDUSTRY</div><h2>風景の中に、地域の履歴が残っている。</h2></div>
+      <p>港の形、山と市街地の距離、工場の立地、商家、畑の傾斜、料理の材料。写真もまた、土地と人の関係を知る入口です。</p>
+    </div>
     <div class="atlas-about-photo-row">
-      {methodPhotos.map((photo)=><figure><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /><figcaption><strong>{photo.title}</strong><span>{photo.insight}</span></figcaption></figure>)}
+      {atlasPhotos.map((photo)=><figure><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span></figcaption></figure>)}
     </div>
   </section>
 
   <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">THE ATLAS MISSION</div>
-    <h2>未来像ではなく、選択の前提となる知識を残す。</h2>
+    <div class="atlas-about-eyebrow">AN OPEN ATLAS</div>
+    <h2>完成させるのではなく、少しずつ厚くしていく。</h2>
     <div class="atlas-about-copy-column">
-      <p>海、土地、港、工場、建築、技能、文化、交通、制度は、人に何かを可能にする一方で、別の可能性を狭めることがあります。その関係は時代によって変わります。</p>
-      <p>本アトラスが残したいのは、「この地域はこうあるべきだ」という完成図ではありません。<strong>この土地で何が可能で、何が難しかったのか、その条件がどう変わってきたのかを、あとから検証し直せる知識基盤</strong>です。</p>
-      <p>未来の地域経営は、その先にあります。</p>
+      <p>SETOUCHI ATLASは、完成した百科事典ではありません。地域を歩き、新しい資料を読み、比較する地域やテーマが増えるたびに、エッセイ、研究ノート、データ、写真を追加していきます。</p>
+      <p>瀬戸内の過去を保存するだけでなく、現在進行している産業や交通、環境、暮らしの変化も記録し、あとから時間をさかのぼって読み直せるアトラスにしていくことを目指しています。</p>
     </div>
-    <div class="chapter-related-grid"><a class="compare-button" href="/setouchi-cultural-economic-atlas/methodology/">方法論を見る →</a><a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域から読む →</a></div>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/places/">地域から読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/">エッセイを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">研究方法について →</a>
+    </div>
   </section>
 
   <section class="section atlas-about-research">
