@@ -7,13 +7,28 @@ import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
 import '../styles/concept-refresh.css';
+import '../styles/page-type-colors.css';
 
 const { title = 'SETOUCHI ATLAS', description = '地域における人間の可能性の変遷を、自然・生態系・生業・技術・産業・文化・都市の関係から読む。' } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
-const placePathMatch = Astro.url.pathname.match(/\/places\/([^/]+)\/?$/);
+const pathname = Astro.url.pathname;
+const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
-const isHome = Astro.url.pathname === '/setouchi-cultural-economic-atlas/' || Astro.url.pathname === '/setouchi-cultural-economic-atlas';
+const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
+
+const dataPrefixes = [
+  'data','climate','wind-tide','transect','land-use','transport','industry','gastronomy-matrix','photos','compare'
+].map((segment)=>`${baseUrl}${segment}`);
+const pageType = pathname.startsWith(`${baseUrl}places`)
+  ? 'region'
+  : pathname.startsWith(`${baseUrl}book`)
+    ? 'essay'
+    : pathname.startsWith(`${baseUrl}chapters`)
+      ? 'research'
+      : dataPrefixes.some((prefix)=>pathname.startsWith(prefix))
+        ? 'data'
+        : 'default';
 ---
 <!doctype html>
 <html lang="ja">
@@ -23,18 +38,18 @@ const isHome = Astro.url.pathname === '/setouchi-cultural-economic-atlas/' || As
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={`page-type-${pageType}`} data-page-type={pageType}>
     <header class="site-header">
       <a class="brand-wrap" href={baseUrl}>
         <span class="brand">SETOUCHI ATLAS</span>
         <span class="brand-tagline">瀬戸内自然文化経済アトラス</span>
       </a>
       <nav>
-        <a href="/setouchi-cultural-economic-atlas/">トップ</a>
-        <a href="/setouchi-cultural-economic-atlas/places/">地域</a>
-        <a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
-        <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
-        <a href="/setouchi-cultural-economic-atlas/data/">データ</a>
+        <a class:list={['site-nav-link',isHome&&'active']} href="/setouchi-cultural-economic-atlas/">トップ</a>
+        <a class:list={['site-nav-link',pageType==='region'&&'active']} href="/setouchi-cultural-economic-atlas/places/">地域</a>
+        <a class:list={['site-nav-link',pageType==='essay'&&'active']} href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
+        <a class:list={['site-nav-link',pageType==='research'&&'active']} href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
+        <a class:list={['site-nav-link',pageType==='data'&&'active']} href="/setouchi-cultural-economic-atlas/data/">データ</a>
       </nav>
     </header>
     <main>
