@@ -2,11 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
 import { hinasePlace } from '../../data/hinasePlace.js';
+import { additionalPlaces } from '../../data/additionalPlaces.js';
 import { climateProfiles } from '../../data/climate.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import '../../styles/data-library.css';
 
-const allPlaces=[...places,hinasePlace];
+const allPlaces=[...places,hinasePlace,...additionalPlaces];
 const base='/setouchi-cultural-economic-atlas';
 const datasets=[
   {group:'自然・地形',title:'気候',href:`${base}/climate/`,meta:`${Object.keys(climateProfiles).length}地域・観測点`,items:['月別平均気温','月別降水量','月別日照時間','年平均気温','年降水量','年日照時間','観測点・統計期間']},
