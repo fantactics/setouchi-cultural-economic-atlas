@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/places.js';
+import { hinasePlace } from '../../data/hinasePlace.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 
-const mainlandOrder=['ako','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
+const allPlaces=[...places,hinasePlace];
+const mainlandOrder=['ako','hinase','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
 const shikokuOrder=['hiketa','shodoshima','takamatsu','sakaide','tadotsu','niihama','imabari','matsuyama'];
-const mainlandPlaces=mainlandOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
-const shikokuPlaces=shikokuOrder.map((id)=>places.find((p)=>p.id===id)).filter(Boolean);
+const mainlandPlaces=mainlandOrder.map((id)=>allPlaces.find((p)=>p.id===id)).filter(Boolean);
+const shikokuPlaces=shikokuOrder.map((id)=>allPlaces.find((p)=>p.id===id)).filter(Boolean);
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
-const regionCoverPhotoIds={ako:'photo-ako-salt-terrace',ushimado:'photo-ushimado-islands',shimotsui:'photo-shimotsui-geography',tomonoura:'photo-tomonoura-port',onomichi:'photo-onomichi-panorama',mihara:'photo-mihara-castle-station',takehara:'photo-takehara-view',mitarai:'photo-mitarai-panorama',iwakuni:'photo-iwakuni-kintai',yanai:'photo-yanai-whitewall',hofu:'photo-hofu-salt-official',shimonoseki:'photo-shimonoseki-kanmon',hiketa:'photo-hiketa-townscape',shodoshima:'photo-shodoshima-olive-sea',takamatsu:'photo-takamatsu-seawater-moat',sakaide:'photo-sakaide-bannosu-aerial',tadotsu:'photo-tadotsu-station',niihama:'photo-niihama-tonaru',imabari:'photo-imabari-kurushima',matsuyama:'photo-matsuyama-city-view'};
+const regionCoverPhotoIds={ako:'photo-ako-salt-terrace',hinase:'photo-hinase-bay',ushimado:'photo-ushimado-islands',shimotsui:'photo-shimotsui-geography',tomonoura:'photo-tomonoura-port',onomichi:'photo-onomichi-panorama',mihara:'photo-mihara-castle-station',takehara:'photo-takehara-view',mitarai:'photo-mitarai-panorama',iwakuni:'photo-iwakuni-kintai',yanai:'photo-yanai-whitewall',hofu:'photo-hofu-salt-official',shimonoseki:'photo-shimonoseki-kanmon',hiketa:'photo-hiketa-townscape',shodoshima:'photo-shodoshima-olive-sea',takamatsu:'photo-takamatsu-seawater-moat',sakaide:'photo-sakaide-bannosu-aerial',tadotsu:'photo-tadotsu-station',niihama:'photo-niihama-tonaru',imabari:'photo-imabari-kurushima',matsuyama:'photo-matsuyama-city-view'};
 const coverPhotoFor=(place)=>photoById[regionCoverPhotoIds[place.id]] || null;
 const leadPhoto=photoById['photo-onomichi-panorama'];
 const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPlaces},{title:'四国地方',note:'東 → 西',items:shikokuPlaces}];
@@ -63,7 +65,7 @@ const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPl
 
   <section class="section place-index-story region-directory" id="place-directory">
     <div class="place-index-intro">
-      <div class="kicker">DIRECTORY</div>
+      <div class="kicker">DIRECTORY / 21 REGIONS</div>
       <h2>地域を選ぶ</h2>
       <p>東から西へ並べています。各ページでは、自然基盤から都市形成、産業・食文化、暮らし、現在の変化までを横断し、その地域で人が得られるもの・できることがどう変わってきたかを読みます。</p>
     </div>
