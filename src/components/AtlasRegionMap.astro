@@ -1,0 +1,49 @@
+---
+const {
+  places = [],
+  kicker = `MAP / ${places.length} REGIONS`,
+  title = '場所から読む。',
+  description = '自然条件も、産業の履歴も、人が得られるもの・できることも地域ごとに違います。地図から一つの地域を選び、その可能性と制約の変化をたどってください。',
+  actionHref = null,
+  actionLabel = null
+} = Astro.props;
+
+const mapPlaces = places.map((p) => ({
+  id:p.id,
+  name:p.name,
+  prefecture:p.prefecture,
+  lat:p.lat,
+  lon:p.lon,
+  subtitle:p.subtitle
+}));
+---
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+<section class="map-first-hero">
+  <div class="home-atlas-map-canvas" data-atlas-region-map data-places={JSON.stringify(mapPlaces)}></div>
+  <div class="map-first-copy">
+    <div class="kicker">{kicker}</div>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    {actionHref && actionLabel && <div class="map-first-actions"><a href={actionHref}>{actionLabel}</a></div>}
+  </div>
+</section>
+
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script is:inline>
+  (()=>{
+    if(!window.L) return;
+    document.querySelectorAll('[data-atlas-region-map]:not([data-map-initialized])').forEach((el)=>{
+      el.dataset.mapInitialized='true';
+      let items=[];
+      try{items=JSON.parse(el.dataset.places||'[]')}catch(_){return}
+      const map=L.map(el,{scrollWheelZoom:false}).setView([34.25,133.45],7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(map);
+      items.forEach((p)=>{
+        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
+        const marker=L.circleMarker([p.lat,p.lon],{radius:6,weight:2,fillOpacity:.85}).addTo(map);
+        marker.bindPopup(`<strong>${p.name}</strong><br><small>${p.prefecture}</small><br>${p.subtitle||''}<br><a href="/setouchi-cultural-economic-atlas/places/${p.id}/">地域ページへ →</a>`);
+      });
+    });
+  })();
+</script>
