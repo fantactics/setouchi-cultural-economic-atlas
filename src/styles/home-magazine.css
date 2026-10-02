@@ -1,0 +1,366 @@
+/* Homepage as a magazine cover: photography and essays first, research second. */
+.home-magazine-cover{
+  position:relative;
+  min-height:min(86vh,900px);
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:#17242a;
+  color:#fff;
+}
+.home-magazine-cover>img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.home-magazine-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(7,15,19,.05) 0%,rgba(7,15,19,.12) 35%,rgba(7,15,19,.82) 100%),
+    linear-gradient(90deg,rgba(7,15,19,.55) 0%,rgba(7,15,19,.10) 64%,rgba(7,15,19,.02) 100%);
+}
+.home-magazine-masthead{
+  position:absolute;
+  z-index:2;
+  top:clamp(24px,4vh,48px);
+  left:5vw;
+  right:5vw;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:flex-start;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.home-magazine-masthead strong{
+  font-family:var(--book-serif);
+  font-size:clamp(1.5rem,3vw,2.8rem);
+  font-weight:500;
+  letter-spacing:.03em;
+}
+.home-magazine-masthead span{
+  padding-top:.4rem;
+  text-align:right;
+}
+.home-magazine-feature{
+  position:relative;
+  z-index:2;
+  width:min(920px,82vw);
+  margin:0 0 clamp(44px,7vh,78px) 5vw;
+}
+.home-magazine-feature small{
+  display:block;
+  margin-bottom:.7rem;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+.home-magazine-feature h1{
+  max-width:16ch;
+  margin:0;
+  font-family:var(--book-serif);
+  font-size:clamp(2.5rem,5.8vw,6.2rem);
+  line-height:1.04;
+  font-weight:500;
+  letter-spacing:-.045em;
+  text-shadow:0 2px 22px rgba(0,0,0,.22);
+}
+.home-magazine-feature p{
+  max-width:760px;
+  margin:1rem 0 0;
+  font-family:var(--book-serif);
+  font-size:clamp(1rem,1.6vw,1.22rem);
+  line-height:1.8;
+}
+.home-magazine-feature a{
+  display:inline-block;
+  margin-top:1.3rem;
+  padding:.65rem 0;
+  border-bottom:1px solid rgba(255,255,255,.75);
+  color:#fff;
+  font-size:.82rem;
+  font-weight:800;
+  text-decoration:none;
+}
+.home-magazine-credit{
+  position:absolute;
+  z-index:2;
+  right:2vw;
+  bottom:1.7rem;
+  max-width:340px;
+  text-align:right;
+  font-size:.62rem;
+  line-height:1.45;
+  opacity:.82;
+}
+
+.home-cover-intro{
+  max-width:1080px;
+  margin:0 auto;
+  padding-top:4.5rem;
+  padding-bottom:4.5rem;
+}
+.home-cover-intro p{
+  max-width:880px;
+  margin:0;
+  font-family:var(--book-serif);
+  font-size:clamp(1.5rem,3vw,2.55rem);
+  line-height:1.62;
+  letter-spacing:-.025em;
+}
+.home-cover-intro a{
+  display:inline-block;
+  margin-top:1.5rem;
+  font-size:.8rem;
+  font-weight:800;
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+}
+
+.home-magazine-section{
+  padding-top:5rem;
+  padding-bottom:5rem;
+}
+.home-magazine-section-header{
+  display:flex;
+  justify-content:space-between;
+  gap:2rem;
+  align-items:end;
+  margin-bottom:1.7rem;
+}
+.home-magazine-section-header h2{
+  margin:.15rem 0 0;
+  font-family:var(--book-serif);
+  font-size:clamp(2.4rem,4.5vw,4.4rem);
+  line-height:1;
+  font-weight:500;
+  letter-spacing:-.04em;
+}
+.home-magazine-section-header p{
+  max-width:590px;
+  margin:.8rem 0 0;
+  color:var(--muted);
+  font-family:var(--book-serif);
+  font-size:1rem;
+  line-height:1.8;
+}
+.home-magazine-section-header>a{
+  flex:0 0 auto;
+  font-size:.82rem;
+  font-weight:800;
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+}
+
+.home-essay-spread{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:1rem;
+}
+.home-essay-card{
+  grid-column:span 4;
+  display:flex;
+  flex-direction:column;
+  min-height:420px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--line);
+  color:inherit;
+  text-decoration:none;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.home-essay-card:nth-child(1),
+.home-essay-card:nth-child(4){grid-column:span 8;}
+.home-essay-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(23,33,43,.08);
+}
+.home-essay-card-photo{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#e6e4dd;
+}
+.home-essay-card-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease;
+}
+.home-essay-card:hover img{transform:scale(1.02);}
+.home-essay-card-copy{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  padding:1.25rem 1.3rem 1.35rem;
+}
+.home-essay-card-copy small{
+  color:#8b6a3f;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.05em;
+}
+.home-essay-card-copy strong{
+  display:block;
+  margin:.55rem 0 .6rem;
+  font-family:var(--book-serif);
+  font-size:clamp(1.35rem,2vw,1.85rem);
+  line-height:1.42;
+  font-weight:600;
+}
+.home-essay-card-copy span{
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.65;
+}
+.home-essay-card-copy em{
+  margin-top:auto;
+  padding-top:1.2rem;
+  font-style:normal;
+  font-size:.75rem;
+  font-weight:800;
+}
+
+.home-photo-section{
+  background:#191f22;
+  color:#fff;
+}
+.home-photo-section .home-magazine-section-header p{color:#c7ced0;}
+.home-photo-section .home-magazine-section-header>a{color:#fff;}
+.home-photo-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:.75rem;
+}
+.home-photo-card{
+  position:relative;
+  grid-column:span 4;
+  min-height:300px;
+  overflow:hidden;
+  background:#263137;
+  color:#fff;
+  text-decoration:none;
+}
+.home-photo-card:nth-child(1),
+.home-photo-card:nth-child(5){grid-column:span 8;min-height:430px;}
+.home-photo-card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.home-photo-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 35%,rgba(7,14,17,.78) 100%);
+}
+.home-photo-card:hover img{transform:scale(1.025);}
+.home-photo-card div{
+  position:absolute;
+  z-index:2;
+  left:1.15rem;
+  right:1.15rem;
+  bottom:1rem;
+}
+.home-photo-card small{
+  display:block;
+  margin-bottom:.3rem;
+  font-size:.65rem;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.home-photo-card strong{
+  display:block;
+  font-family:var(--book-serif);
+  font-size:clamp(1.2rem,2vw,1.7rem);
+  line-height:1.35;
+  font-weight:500;
+}
+
+.home-map-intro{
+  padding:4.4rem 5vw 2rem;
+  background:#f2f6f1;
+}
+.home-map-intro h2{
+  margin:.2rem 0 .6rem;
+  font-family:var(--book-serif);
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  font-weight:500;
+  letter-spacing:-.035em;
+}
+.home-map-intro p{
+  max-width:760px;
+  margin:0;
+  color:var(--muted);
+  font-family:var(--book-serif);
+  line-height:1.8;
+}
+
+.home-deeper-section{
+  background:#eef4f8;
+  border-top:1px solid #d5e0e7;
+}
+.home-deeper-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.5rem;
+}
+.home-deeper-grid a{
+  display:block;
+  min-height:180px;
+  padding:1.25rem;
+  background:#fff;
+  border:1px solid #cfdae1;
+  color:inherit;
+  text-decoration:none;
+}
+.home-deeper-grid span{
+  display:block;
+  color:#52758d;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.home-deeper-grid strong{
+  display:block;
+  margin:.7rem 0 .5rem;
+  font-family:var(--book-serif);
+  font-size:1.35rem;
+  font-weight:600;
+}
+.home-deeper-grid p{
+  margin:0;
+  color:var(--muted);
+  font-size:.87rem;
+  line-height:1.65;
+}
+
+@media(max-width:900px){
+  .home-magazine-feature{width:calc(100vw - 36px);margin-left:18px;margin-bottom:4.8rem;}
+  .home-magazine-masthead{left:18px;right:18px;}
+  .home-magazine-credit{left:18px;right:18px;text-align:left;}
+  .home-magazine-section-header{align-items:flex-start;flex-direction:column;}
+  .home-essay-card,.home-essay-card:nth-child(1),.home-essay-card:nth-child(4){grid-column:span 6;}
+  .home-photo-card,.home-photo-card:nth-child(1),.home-photo-card:nth-child(5){grid-column:span 6;min-height:330px;}
+}
+@media(max-width:650px){
+  .home-magazine-cover{min-height:78vh;}
+  .home-magazine-masthead span{display:none;}
+  .home-magazine-feature h1{font-size:clamp(2.5rem,12vw,4.5rem);}
+  .home-cover-intro{padding-top:3.4rem;padding-bottom:3.4rem;}
+  .home-cover-intro p{font-size:1.45rem;}
+  .home-magazine-section{padding-top:3.7rem;padding-bottom:3.7rem;}
+  .home-essay-card,.home-essay-card:nth-child(1),.home-essay-card:nth-child(4){grid-column:1/-1;min-height:0;}
+  .home-photo-card,.home-photo-card:nth-child(1),.home-photo-card:nth-child(5){grid-column:1/-1;min-height:300px;}
+  .home-deeper-grid{grid-template-columns:1fr;}
+}
