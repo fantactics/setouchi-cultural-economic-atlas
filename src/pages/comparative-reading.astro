@@ -1,6 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const possibilityRows=[
+  ['移動する','御手洗・鞆の浦','潮や風を待ちながら移動する','高速道路・橋・鉄道で待たずに移動する','移動時間は短くなった一方、滞留から生まれた港町経済は縮小した'],
+  ['働く','児島・今治・新居浜','地域資源や特定産業の工程で働く','蓄積技能を別製品・別産業へ転用する','職業選択は広がる一方、技能継承や外部市場依存が新しい制約になる'],
+  ['自然を利用する','赤穂・坂出・防府','海岸を塩田・生産空間として使う','工業・物流・公共・自然空間など複数用途を比較する','生産性の向上と引き換えに、水際へのアクセスや生態系との関係が変化した'],
+  ['暮らす','尾道・松山','地形と徒歩圏に強く規定された生活圏で暮らす','鉄道・道路・自動車で複数拠点を使い分ける','選択範囲は広がる一方、斜面地や周辺部では移動負担・サービス格差が残る'],
+  ['文化を実践する','竹原・柳井・御手洗','商業・生業と一体で町家・祭礼・港を使う','文化資産として保存・観光・滞在に使う','建物が残っても、担い手や日常利用が減れば文化実践は弱くなる'],
+  ['地域に残る／出る','小豆島・島嶼部','島内の限られた仕事と船便の中で暮らす','島外就業、複数拠点、観光・加工業・創作活動を組み合わせる','選択肢は増える一方、交通コストとサービス維持が残留可能性を左右する']
+];
+
 const industryRows=[
   ['児島','干拓・綿','織る・縫う・加工する','技能転用型','足袋→学生服→ジーンズ','商品より技能が長生きする'],
   ['今治','海運・船','操船・修船・造船','集積自己増殖型','船主→造船→舶用→金融・教育','企業同士が互いの市場になる'],
@@ -24,12 +33,28 @@ const localityRows=[
   ['制度的地域性','教育・研究・金融・ブランドが能力を再生産する','共同研修、発酵研究、地域金融']
 ];
 ---
-<BaseLayout title="地域比較 | 研究ノート | SETOUCHI ATLAS" description="似た条件から、なぜ違う町が生まれたのか。産業進化、都市形成、地域性の違いを地域横断で比較する研究ノート。">
+<BaseLayout title="地域比較 | 研究ノート | SETOUCHI ATLAS" description="地域を、人口や経済規模の優劣ではなく、人が何を得られ、何ができるようになったかという可能性の変化から比較する研究ノート。">
   <section class="place-hero chapter-hero research-note-hero">
     <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
     <h1>地域比較</h1>
-    <p class="subtitle">似た条件から、なぜ違う町が生まれたのか。</p>
-    <div class="chapter-thesis">ランキングではなく、異なる進化経路を比較する。何が同じで、どこから分岐したのかを、産業・都市・文化の違いから考えます。</div>
+    <p class="subtitle">地域の違いを、優劣ではなく「可能性の組み合わせ」の違いとして読む。</p>
+    <div class="chapter-thesis">人口、所得、観光客数の多寡だけでは地域を評価しません。自然、交通、産業、文化、制度の変化によって、人が何をできるようになり、何が難しくなったのかを比較します。</div>
+  </section>
+
+  <section class="section gene-section">
+    <div class="kicker">HUMAN POSSIBILITIES</div>
+    <h2>同じ「近代化」でも、増えた可能性と失われた可能性は違う</h2>
+    <p class="lead">地域比較の単位を「人口が増えた／減った」「産業が伸びた／衰えた」から、人の行為へ移します。何をする可能性がどう変わったかを見ると、成長と喪失が同じ変化の中に共存していることが見えます。</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>人の行為</th><th>例</th><th>以前可能だったこと</th><th>新しく可能になったこと</th><th>同時に生じた交換関係</th></tr></thead>
+        <tbody>{possibilityRows.map((row)=><tr>{row.map((cell,i)=>i===0?<th>{cell}</th>:<td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <div class="comparison-callout">
+      <strong>比較原則</strong>
+      <p>「便利になった」「豊かになった」「衰退した」と先に評価せず、誰のどの可能性が広がり、どの可能性が狭まったのかまで分解してから地域の変化を記述します。</p>
+    </div>
   </section>
 
   <section class="section">
@@ -43,7 +68,7 @@ const localityRows=[
     </div>
     <div class="comparison-callout">
       <strong>共通命題</strong>
-      <p>地域産業の持続性を決めるのは、同じ商品を守れるかではなく、蓄積した能力を別の商品・原料・市場へ再構成できるか。</p>
+      <p>地域産業の継続を、同じ商品を守れるかだけで見ません。蓄積した能力を別の商品・原料・市場へ再構成することで、どのような仕事や生業が新しく可能になったかを見ます。</p>
     </div>
   </section>
 
@@ -71,18 +96,18 @@ const localityRows=[
   <section class="section">
     <h2>都市を比較するときの共通質問</h2>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>何が人を集めたか</h3><p>港、鉱山、城、温泉、参詣、工場など、都市を維持した経済エンジンを特定する。</p></article>
-      <article class="insight-card"><h3>誰が町を作ったか</h3><p>藩、豪商、企業、鉄道会社、中小企業ネットワークなど、投資・公共機能の主体を見る。</p></article>
-      <article class="insight-card"><h3>富はどこへ固定されたか</h3><p>町家、寺社、土地、銀行、工場、社宅、港湾など、流動的利益が都市資産へ変わる先を見る。</p></article>
+      <article class="insight-card"><h3>何ができたか</h3><p>港、鉱山、城、温泉、工場などが、どのような仕事・移動・生活を可能にしたかを見る。</p></article>
+      <article class="insight-card"><h3>誰に可能だったか</h3><p>商人、労働者、船主、農漁業者、住民、来訪者など、可能性が誰に開かれていたかを分けて見る。</p></article>
+      <article class="insight-card"><h3>何との交換だったか</h3><p>所得、便利さ、安全性、自然、土地、時間、共同体など、得たものと同時に変化したものを見る。</p></article>
     </div>
   </section>
 
   <section class="section gene-section">
-    <h2>料理・祭礼・景観も比較できる</h2>
+    <h2>料理・祭礼・景観も「できること」として比較する</h2>
     <div class="comparison-insight-grid">
-      <article class="insight-card"><h3>料理</h3><p>「何が名物か」ではなく、どの生態系・加工・保存・交易が一皿へ統合されたかを見る。</p></article>
-      <article class="insight-card"><h3>祭礼</h3><p>祭神だけでなく、祭礼日、経路、奉納者、講、港との位置関係を追い、旧航路・共同体を読む。</p></article>
-      <article class="insight-card"><h3>景観</h3><p>美しさではなく、石垣・雁木・蔵・路地がどの生活技術・生業を固定したものかを読む。</p></article>
+      <article class="insight-card"><h3>料理</h3><p>「何が名物か」ではなく、どの生態系・加工・保存・交易によって、その料理をつくり食べることが可能になったかを見る。</p></article>
+      <article class="insight-card"><h3>祭礼</h3><p>祭神だけでなく、祭礼を実際に担い続ける人・時間・資金・場所が存在するかを見る。</p></article>
+      <article class="insight-card"><h3>景観</h3><p>美しさだけでなく、そこに住む、歩く、商う、修理する、海へ出るといった行為が今も可能かを見る。</p></article>
     </div>
   </section>
 
