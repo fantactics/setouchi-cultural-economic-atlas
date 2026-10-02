@@ -118,6 +118,24 @@ body.page-type-data .compare-button {
   border-color:var(--page-accent);
 }
 
+/* The homepage teaches the four-color language before the reader enters a section. */
+.route-grid a[href="/setouchi-cultural-economic-atlas/places/"] {
+  background:#f2f6f1;
+  border-top:4px solid #5f7f68;
+}
+.route-grid a[href="/setouchi-cultural-economic-atlas/book/"] {
+  background:#fbf5ea;
+  border-top:4px solid #a37239;
+}
+.route-grid a[href="/setouchi-cultural-economic-atlas/chapters/"] {
+  background:#eef4f8;
+  border-top:4px solid #52758d;
+}
+.route-grid a[href="/setouchi-cultural-economic-atlas/data/"] {
+  background:#f3f0f8;
+  border-top:4px solid #75658e;
+}
+
 @media (max-width:800px) {
   .site-nav-link { padding-bottom:.25rem; }
   body.page-type-region .site-nav-link.active::after,
