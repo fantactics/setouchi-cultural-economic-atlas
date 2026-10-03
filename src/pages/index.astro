@@ -2,64 +2,69 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AtlasRegionMap from '../components/AtlasRegionMap.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
+import { kadaEssays } from '../data/kadaEssays.js';
+import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
+import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
 import { photoEvidence } from '../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const allEssays=[...orderedBookArticles,...kadaEssays,cycleTourismEssay,aiRegionalPlanningEssay];
+const additionalPhotos=Object.entries(additionalPlacePhotos).flatMap(([placeId,items])=>
+  items.map((photo)=>({...photo,placeId,theme:photo.theme || '地域'}))
+);
+const allPhotos=[...photoEvidence,...additionalPhotos];
+const photoById=Object.fromEntries(allPhotos.map((p)=>[p.id,p]));
+const placeNameById=Object.fromEntries(allPlaces.map((p)=>[p.id,p.name]));
 
-const coverSlugs=[
-  'four-salt-fields',
-  'tai-meshi-two-seas',
-  'shimotsui-tako-meshi',
-  'oysters-taste-of-small-seas',
-  'ports-that-needed-waiting',
-  'shodoshima-open-island'
-];
-const coverStories=coverSlugs
-  .map((slug)=>orderedBookArticles.find((a)=>a.slug===slug))
-  .filter(Boolean)
-  .map((article)=>{
-    const photo=photoById[article.heroPhotoId] || (article.sections || []).flatMap((section)=>section.photoIds || []).map((id)=>photoById[id]).find(Boolean);
-    return photo ? {
-      imageUrl:photo.imageUrl,
-      alt:photo.alt,
-      photoTitle:photo.title,
-      credit:photo.credit || '',
-      part:article.part,
-      title:article.title,
-      subtitle:article.subtitle,
-      href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`
-    } : null;
-  })
-  .filter(Boolean);
-const heroStory=coverStories[0];
-const heroPhoto=heroStory ? {imageUrl:heroStory.imageUrl,alt:heroStory.alt,title:heroStory.photoTitle,credit:heroStory.credit} : photoEvidence[0];
+const articlePhoto=(article)=>{
+  const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
+  return ids.map((id)=>photoById[id]).find(Boolean) || null;
+};
 
-const curatedSlugs=[
-  'tai-meshi-two-seas',
-  'shimotsui-tako-meshi',
-  'oysters-taste-of-small-seas',
-  'ports-that-needed-waiting',
-  'shodoshima-open-island',
-  'four-salt-fields'
-];
-const curated=curatedSlugs.map((slug)=>orderedBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
-const essaySelection=[...curated,...orderedBookArticles.filter((a)=>!curatedSlugs.includes(a.slug))].slice(0,6);
-const articlePhoto=(article)=>photoById[article?.heroPhotoId] || heroPhoto;
+const essayPool=allEssays.map((article)=>{
+  const photo=articlePhoto(article);
+  return {
+    slug:article.slug,
+    part:article.part,
+    title:article.title,
+    subtitle:article.subtitle,
+    href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,
+    imageUrl:photo?.imageUrl || '',
+    alt:photo?.alt || article.title,
+    photoTitle:photo?.title || '',
+    credit:photo?.credit || [photo?.author,photo?.license].filter(Boolean).join(' / ')
+  };
+});
+const coverStories=essayPool.filter((story)=>story.imageUrl);
+const heroStory=coverStories[0] || essayPool[0] || null;
+const heroPhoto=heroStory?.imageUrl ? {
+  imageUrl:heroStory.imageUrl,
+  alt:heroStory.alt,
+  title:heroStory.photoTitle,
+  credit:heroStory.credit
+} : allPhotos[0] || null;
+const initialEssaySelection=essayPool.slice(0,6);
 
-const photoFeatureDefs=[
-  ['photo-hinase-bay','日生――牡蠣を育て、海を育て直す','/setouchi-cultural-economic-atlas/places/hinase/'],
-  ['photo-shodoshima-olive-sea','小豆島――海と畑と食産業','/setouchi-cultural-economic-atlas/places/shodoshima/'],
-  ['photo-imabari-kurushima','今治――海峡を渡る技術と暮らし','/setouchi-cultural-economic-atlas/places/imabari/'],
-  ['photo-mitarai-panorama','御手洗――待つことが商いだった港','/setouchi-cultural-economic-atlas/places/mitarai/'],
-  ['photo-shimotsui-geography','下津井――潮流とタコと港町','/setouchi-cultural-economic-atlas/places/shimotsui/'],
-  ['photo-onomichi-panorama','尾道――斜面と水道のあいだ','/setouchi-cultural-economic-atlas/places/onomichi/']
-];
-const photoFeatures=photoFeatureDefs.map(([id,title,href])=>({photo:photoById[id],title,href})).filter((item)=>item.photo);
+const photoPool=allPhotos
+  .filter((photo)=>photo?.imageUrl)
+  .map((photo)=>({
+    id:photo.id,
+    imageUrl:photo.imageUrl,
+    alt:photo.alt || photo.title || '',
+    theme:photo.theme || 'SETOUCHI',
+    title:placeNameById[photo.placeId]
+      ? `${placeNameById[photo.placeId]}――${photo.title}`
+      : (photo.title || '瀬戸内の風景'),
+    href:photo.placeId
+      ? `/setouchi-cultural-economic-atlas/places/${photo.placeId}/`
+      : `/setouchi-cultural-economic-atlas/photos/#${photo.id}`
+  }));
+const initialPhotoFeatures=photoPool.slice(0,6);
 ---
 <BaseLayout title="SETOUCHI ATLAS | 瀬戸内自然文化経済アトラス" description="瀬戸内を歩き、食べ、眺め、考える。写真とエッセイから地域と人の関係をたどるアトラス。">
   <section class="home-magazine-cover" data-random-cover="home" data-cover-stories={JSON.stringify(coverStories)}>
@@ -110,51 +115,107 @@ const photoFeatures=photoFeatureDefs.map(([id,title,href])=>({photo:photoById[id
     <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて →</a>
   </section>
 
-  <section class="section home-magazine-section">
+  <section class="section home-magazine-section" data-random-essays data-essay-pool={JSON.stringify(essayPool)}>
     <div class="home-magazine-section-header">
       <div>
         <div class="kicker">ESSAYS</div>
         <h2>まず、読む。</h2>
-        <p>海、食、港、産業、町並み。現地で生まれた問いを、一本の読み物として追います。</p>
+        <p>海、食、港、産業、町並み。全エッセイから、そのたびに違う6本を表示します。</p>
       </div>
       <a href="/setouchi-cultural-economic-atlas/book/">エッセイをすべて見る →</a>
     </div>
     <div class="home-essay-spread">
-      {essaySelection.map((article)=>{
-        const photo=articlePhoto(article);
-        return (
-          <a class="home-essay-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            {photo && <div class="home-essay-card-photo"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></div>}
-            <div class="home-essay-card-copy">
-              <small>{article.part}</small>
-              <strong>{article.title}</strong>
-              <span>{article.subtitle}</span>
-              <em>読む →</em>
-            </div>
-          </a>
-        );
-      })}
-    </div>
-  </section>
-
-  <section class="section home-magazine-section home-photo-section">
-    <div class="home-magazine-section-header">
-      <div>
-        <div class="kicker">PHOTO STORIES</div>
-        <h2>写真から、入る。</h2>
-        <p>景観、港、海、食、生業。写真を入口に、その場所で人がどう暮らしてきたかをたどります。</p>
-      </div>
-      <a href="/setouchi-cultural-economic-atlas/photos/">写真資料を見る →</a>
-    </div>
-    <div class="home-photo-grid">
-      {photoFeatures.map(({photo,title,href})=>(
-        <a class="home-photo-card" href={href}>
-          <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />
-          <div><small>{photo.theme || 'SETOUCHI'}</small><strong>{title}</strong></div>
+      {initialEssaySelection.map((story)=>(
+        <a class="home-essay-card js-random-essay-card" href={story.href}>
+          <div class="home-essay-card-photo js-essay-photo-wrap" style={story.imageUrl ? '' : 'display:none'}>
+            <img class="js-essay-image" src={story.imageUrl || undefined} alt={story.alt} loading="lazy" />
+          </div>
+          <div class="home-essay-card-copy">
+            <small class="js-essay-part">{story.part}</small>
+            <strong class="js-essay-title">{story.title}</strong>
+            <span class="js-essay-subtitle">{story.subtitle}</span>
+            <em>読む →</em>
+          </div>
         </a>
       ))}
     </div>
   </section>
+
+  <section class="section home-magazine-section home-photo-section" data-random-photos data-photo-pool={JSON.stringify(photoPool)}>
+    <div class="home-magazine-section-header">
+      <div>
+        <div class="kicker">PHOTO STORIES</div>
+        <h2>写真から、入る。</h2>
+        <p>景観、港、海、食、生業。全写真資料から、そのたびに違う6枚を表示します。</p>
+      </div>
+      <a href="/setouchi-cultural-economic-atlas/photos/">写真資料を見る →</a>
+    </div>
+    <div class="home-photo-grid">
+      {initialPhotoFeatures.map((photo)=>(
+        <a class="home-photo-card js-random-photo-card" href={photo.href}>
+          <img class="js-photo-image" src={photo.imageUrl} alt={photo.alt} loading="lazy" />
+          <div><small class="js-photo-theme">{photo.theme}</small><strong class="js-photo-title">{photo.title}</strong></div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline>
+    (()=>{
+      const shuffle=(items)=>{
+        const copy=[...items];
+        for(let i=copy.length-1;i>0;i--){
+          const j=Math.floor(Math.random()*(i+1));
+          [copy[i],copy[j]]=[copy[j],copy[i]];
+        }
+        return copy;
+      };
+
+      const essaySection=document.querySelector('[data-random-essays]');
+      if(essaySection){
+        let pool=[];
+        try{ pool=JSON.parse(essaySection.dataset.essayPool || '[]'); }catch(_){ pool=[]; }
+        const chosen=shuffle(pool).slice(0,6);
+        essaySection.querySelectorAll('.js-random-essay-card').forEach((card,index)=>{
+          const story=chosen[index];
+          if(!story){ card.style.display='none'; return; }
+          card.style.display='';
+          card.href=story.href;
+          const wrap=card.querySelector('.js-essay-photo-wrap');
+          const image=card.querySelector('.js-essay-image');
+          if(story.imageUrl){
+            if(wrap) wrap.style.display='';
+            if(image){ image.src=story.imageUrl; image.alt=story.alt || story.title || ''; }
+          }else if(wrap){ wrap.style.display='none'; }
+          const part=card.querySelector('.js-essay-part');
+          const title=card.querySelector('.js-essay-title');
+          const subtitle=card.querySelector('.js-essay-subtitle');
+          if(part) part.textContent=story.part || '';
+          if(title) title.textContent=story.title || '';
+          if(subtitle) subtitle.textContent=story.subtitle || '';
+        });
+      }
+
+      const photoSection=document.querySelector('[data-random-photos]');
+      if(photoSection){
+        let pool=[];
+        try{ pool=JSON.parse(photoSection.dataset.photoPool || '[]'); }catch(_){ pool=[]; }
+        const chosen=shuffle(pool).slice(0,6);
+        photoSection.querySelectorAll('.js-random-photo-card').forEach((card,index)=>{
+          const photo=chosen[index];
+          if(!photo){ card.style.display='none'; return; }
+          card.style.display='';
+          card.href=photo.href;
+          const image=card.querySelector('.js-photo-image');
+          const theme=card.querySelector('.js-photo-theme');
+          const title=card.querySelector('.js-photo-title');
+          if(image){ image.src=photo.imageUrl; image.alt=photo.alt || photo.title || ''; }
+          if(theme) theme.textContent=photo.theme || 'SETOUCHI';
+          if(title) title.textContent=photo.title || '';
+        });
+      }
+    })();
+  </script>
 
   <section class="home-map-intro">
     <div class="kicker">24 REGIONS</div>
