@@ -1,4 +1,7 @@
+import { essayPhotoGalleriesMore12 } from './essayPhotoGalleriesMore12.js';
+
 export const essayPhotoGalleriesMore11 = {
+  ...essayPhotoGalleriesMore12,
   'kinkai-salt-field-to-solar': [
     {
       title:'錦海湾を干拓する――海を生産空間へ変える途中',
