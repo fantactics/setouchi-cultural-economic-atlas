@@ -5,6 +5,21 @@ const { place } = Astro.props;
 const claimLabels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
 const photos=additionalPlacePhotos[place.id] || [];
 const heroPhoto=photos[0] || null;
+const essayLinksByPlace={
+  kada:[
+    {
+      href:'/setouchi-cultural-economic-atlas/book/kada-sea-bream-one-line/',
+      title:'潮を釣る町――加太の真鯛は、なぜ一本の糸で獲られるのか',
+      description:'紀淡海峡の急潮と一本釣りから、自然条件が漁師の技能を通じて地域価値へ変わる過程を読む。'
+    },
+    {
+      href:'/setouchi-cultural-economic-atlas/book/kitan-strait-tai-to-shirasu/',
+      title:'海峡を越えると、鯛がしらすになる',
+      description:'加太から泉州へ。同じ紀淡海峡につながる海で、漁法・加工・食文化が変わる理由を追う。'
+    }
+  ]
+};
+const essayLinks=essayLinksByPlace[place.id] || [];
 ---
 <article class="regional-profile-page">
   <section class="place-hero chapter-hero">
@@ -37,6 +52,19 @@ const heroPhoto=photos[0] || null;
     <h2>なぜ、この町はこの町になったのか。</h2>
     <p class="lead">{place.sections[17]?.[1]}</p>
   </section>
+
+  {essayLinks.length > 0 && (
+    <section class="section gene-section">
+      <div class="kicker">ESSAYS</div>
+      <h2>{place.name}から読むエッセイ</h2>
+      <div class="chapter-related-grid">
+        {essayLinks.map((essay)=><a class="compare-button secondary" href={essay.href}>
+          <strong>{essay.title}</strong><br />
+          <span>{essay.description}</span>
+        </a>)}
+      </div>
+    </section>
+  )}
 
   {photos.length > 1 && (
     <section class="section photo-evidence-section">
