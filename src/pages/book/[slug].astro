@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
@@ -9,6 +10,7 @@ import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
+import { essayPhotoGalleries } from '../../data/essayPhotoGalleries.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
@@ -29,6 +31,7 @@ const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
+const essayPhotos=essayPhotoGalleries[article.slug]||[];
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
   .map((entry)=>entry.photoId ? photoById[entry.photoId] : entry)
@@ -93,6 +96,10 @@ const placeLinkByName = {
           <span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>
         </figcaption>
       </figure>
+    )}
+
+    {essayPhotos.length>0 && (
+      <EssayPhotoGallery photos={essayPhotos} title={`${article.cities?.[0] || '地域'}を写真で読む`} />
     )}
 
     {isGastronomy && gastronomyPhotos.length>0 && (
