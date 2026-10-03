@@ -12,7 +12,11 @@ const displayPhotos = photos
     seenPhotoKeys.add(key);
     return true;
   })
-  .slice(0, 4);
+  .slice(0, 4)
+  .map((photo) => ({
+    ...photo,
+    isReference: /比較資料|ではない|そのものではない/.test(`${photo?.title || ''} ${photo?.caption || ''}`)
+  }));
 ---
 
 {displayPhotos.length > 0 && (
@@ -27,8 +31,9 @@ const displayPhotos = photos
     <div class="essay-photo-gallery-grid">
       {displayPhotos.map((photo,index)=>(
         <figure class:list={['essay-photo-card', index===0 && 'feature']}>
-          <a href={photo.sourcePage} target="_blank" rel="noreferrer">
+          <a href={photo.sourcePage} target="_blank" rel="noreferrer" class="essay-photo-link">
             <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
+            {photo.isReference && <span class="essay-photo-reference">比較資料</span>}
           </a>
           <figcaption>
             <strong>{photo.title}</strong>
@@ -88,8 +93,9 @@ const displayPhotos = photos
   .essay-photo-card.feature{
     grid-column:span 2;
   }
-  .essay-photo-card a{
+  .essay-photo-link{
     display:block;
+    position:relative;
     overflow:hidden;
     background:#ddd;
   }
@@ -105,6 +111,19 @@ const displayPhotos = photos
   }
   .essay-photo-card a:hover img{
     transform:scale(1.015);
+  }
+  .essay-photo-reference{
+    position:absolute;
+    top:12px;
+    left:12px;
+    padding:5px 9px;
+    background:rgba(255,255,255,.9);
+    border:1px solid rgba(40,40,40,.16);
+    color:#4f4940;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    line-height:1;
   }
   .essay-photo-card figcaption{
     display:grid;
