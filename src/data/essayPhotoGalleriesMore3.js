@@ -1,0 +1,124 @@
+export const essayPhotoGalleriesMore3 = {
+  'shimonoseki-resource-made-by-market': [
+    {
+      photoId:'photo-shimonoseki-kanmon',
+      title:'関門海峡――市場が集まる前の地理',
+      caption:'下関市街と対岸の九州が狭い水路を挟んで向かい合う。船がこの海峡へ集中すること自体が、港・市場・加工業の前提条件になった。',
+      insight:'「下関のふく」を魚の産地だけで説明せず、まず物流が集中する海峡都市として捉えるための基準景観になる。'
+    },
+    {
+      photoId:'photo-shimonoseki-karato',
+      title:'唐戸桟橋――海峡交通と市場の水際',
+      caption:'唐戸の旅客桟橋。市場、旅客交通、市街地が同じ水際に近接している。',
+      insight:'魚を集める市場は単独では成立しない。人・船・物流が重なる場所に市場機能が定着したことを空間から読める。'
+    },
+    {
+      title:'唐戸市場――「獲れた場所」から「価値をつける場所」へ',
+      caption:'唐戸市場の外観。下関では漁場だけでなく、市場・目利き・加工・料理という都市側の機能が水産物へ地域名を与えてきた。',
+      insight:'「下関産」ではなくても「下関のふく」になりうる理由を、取引と加工の集積という都市機能から考えられる。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/141122%20Karato%20Fish%20Market%20Shimonoseki%20Yamaguchi%20pref%20Japan01s3.jpg?width=1600',
+      alt:'山口県下関市の唐戸市場外観',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:141122_Karato_Fish_Market_Shimonoseki_Yamaguchi_pref_Japan01s3.jpg',
+      license:'CC BY 2.5',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.5/'
+    },
+    {
+      title:'市場で食べられる魚――流通の終点が観光になる',
+      caption:'唐戸市場で販売される握り寿司。卸売・小売・飲食・観光が一つの市場空間に重なっている。',
+      insight:'市場が単なる物流施設から「食べる場所」へ拡張すると、魚に付く価値は鮮度や価格だけでなく、体験・地域ブランドまで含むようになる。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Karato%20market%2C%20Shimonoseki.jpg?width=1200',
+      alt:'下関唐戸市場で販売される握り寿司',
+      author:'Maria-Yamaguchi',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Karato_market,_Shimonoseki.jpg',
+      license:'CC BY-SA 4.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'
+    }
+  ],
+
+  'kinkai-salt-field-to-solar': [
+    {
+      photoId:'photo-kinkai-solar',
+      title:'塩田跡を覆うメガソーラー',
+      caption:'牛窓側から見る瀬戸内Kirei太陽光発電所。海だった場所を締め切って塩田にし、さらに別用途へ使い直した土地の現在形である。',
+      insight:'海→塩田→遊休地→発電所という土地利用の重なりを、現在の一枚から逆向きにたどれる。'
+    },
+    {
+      photoId:'photo-ushimado-islands',
+      title:'牛窓の多島海――造成以前の海のスケールを想像する',
+      caption:'島々が近い距離で重なる牛窓の海。錦海湾を含むこの沿岸は、もともと水面と低地が複雑に入り組む環境だった。',
+      insight:'「500ヘクタールの土地」が最初から存在したのではなく、人が海を区切って土地へ変えたという出発点を忘れないための景観。'
+    },
+    {
+      title:'牛窓港――海を交通空間として使う別の方法',
+      caption:'現在の牛窓港。海面を陸へ変える錦海塩田とは対照的に、こちらでは海をそのまま交通路として利用している。',
+      insight:'同じ沿岸でも、埋め立てる・船を浮かべる・漁場として使うなど複数の利用法が併存する。土地利用史を単線的な「発展」と見ないための比較になる。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Setouchi%20Ushimado%20Port04n3200.jpg?width=1400',
+      alt:'岡山県瀬戸内市牛窓町の牛窓港',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Setouchi_Ushimado_Port04n3200.jpg',
+      license:'CC BY 2.5',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.5/'
+    },
+    {
+      photoId:'photo-ushimado-yacht-harbor',
+      title:'牛窓ヨットハーバー――沿岸空間の別の再利用',
+      caption:'牛窓の海辺は、物流港だけでなく海洋レジャーの場にも読み替えられている。',
+      insight:'錦海の巨大発電所とヨットハーバーを並べると、同じ地域の海辺でも「エネルギー」「交通」「観光」という異なる価値の取り出し方が見える。'
+    }
+  ],
+
+  'ports-that-needed-waiting': [
+    {
+      photoId:'photo-mitarai-panorama',
+      title:'御手洗――待つ船を町が受け止めた',
+      caption:'海と急斜面の間に港と町家が圧縮された御手洗。停泊する船の時間を、宿泊・商売・遊興へ転換できる都市密度があった。',
+      insight:'「待つ港」の価値は泊地だけでなく、待ち時間を仕事へ変える背後の町にあった。'
+    },
+    {
+      photoId:'photo-tadotsu-station',
+      title:'多度津駅――港の結節性を鉄道へ載せ替える',
+      caption:'海運と金毘羅参詣で人が集まった多度津は、近代に鉄道の結節点へ役割を更新した。',
+      insight:'交通技術が変わっても「人と物を集め、次へ渡す能力」が残れば、港町の機能を別の交通体系へ継承できる。'
+    },
+    {
+      photoId:'photo-tadotsu-factory',
+      title:'多度津工場――結節点が技術と雇用を残す',
+      caption:'JR四国の車両保守を担う多度津工場。駅が残っただけでなく、鉄道を支える技能と雇用が町に定着した。',
+      insight:'港から鉄道への転換を「交通手段の交代」だけでなく、保守・整備という産業機能の蓄積として読むことができる。'
+    },
+    {
+      photoId:'photo-onomichi-ferry',
+      title:'尾道――海を消さず都市内交通に残す',
+      caption:'尾道水道を渡る短距離渡船。鉄道や道路が加わっても、水上交通が都市内部の日常移動として残っている。',
+      insight:'鞆・御手洗・多度津・尾道は、同じ港町でも交通摩擦への適応方法が違った。その違いを写真で比較できる。'
+    }
+  ],
+
+  'faith-as-transport-map': [
+    {
+      photoId:'photo-mitarai-townscape',
+      title:'御手洗――神も人も海から来た港町',
+      caption:'港に沿って町家が連なる御手洗。神社の勧請や寄進を考えるとき、その背後には船・商人・職人が行き交った町の密度がある。',
+      insight:'信仰の分布を「神社の点」だけで見ず、人が滞在し関係を結んだ港町の空間と重ねることでネットワークが見えやすくなる。'
+    },
+    {
+      photoId:'photo-shimotsui-port',
+      title:'下津井港――寄進者と港問屋が行き交った場所',
+      caption:'祇園神社の文書に残る寄進や港商業の記録は、眼下の港で動いた人と金の関係と切り離せない。',
+      insight:'宗教施設に残る文書を港の景観へ戻して読むことで、信仰史料が経済史料にもなる。'
+    },
+    {
+      photoId:'photo-tomonoura-port',
+      title:'鞆の浦――航海安全の信仰が港湾施設へ刻まれる',
+      caption:'潮待ちの港・鞆の浦。常夜燈などの港湾設備には航海安全への信仰が重ねられた。',
+      insight:'実用施設と信仰は別々ではなく、危険を伴う航海を支える同じ港湾文化の中で重なっていた。'
+    },
+    {
+      photoId:'photo-ushimado-yacht-harbor',
+      title:'牛窓――航路が変わっても海の入口は残る',
+      caption:'現在の牛窓ヨットハーバー。かつての外交・海運の寄港地は用途を変えながらも、海から町へ入る場所として残る。',
+      insight:'神社・寺院・寄進のネットワークを復元する際、現在の行政境界より旧航路と港の位置を基準に見る方が、かつての関係を捉えやすい。'
+    }
+  ]
+};
