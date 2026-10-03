@@ -1,0 +1,127 @@
+---
+const { photos = [], title = '写真で読む' } = Astro.props;
+---
+
+{photos.length > 0 && (
+  <section class="essay-photo-gallery" aria-label={title}>
+    <div class="essay-photo-gallery-head">
+      <div>
+        <span>PHOTO ESSAY</span>
+        <h2>{title}</h2>
+      </div>
+      <p>同じ場所を一枚だけで代表させず、町並み、産業、港、建築など異なる角度の写真を重ねて読みます。</p>
+    </div>
+    <div class="essay-photo-gallery-grid">
+      {photos.map((photo,index)=>(
+        <figure class:list={['essay-photo-card', index===0 && 'feature']}>
+          <a href={photo.sourcePage} target="_blank" rel="noreferrer">
+            <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
+          </a>
+          <figcaption>
+            <strong>{photo.title}</strong>
+            <span>{photo.caption}</span>
+            {photo.insight && <em>写真から考える：{photo.insight}</em>}
+            <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .essay-photo-gallery{
+    width:min(1180px,calc(100% - 40px));
+    margin:54px auto 64px;
+    padding:34px;
+    border:1px solid rgba(40,40,40,.12);
+    background:#f6f3ed;
+  }
+  .essay-photo-gallery-head{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);
+    gap:36px;
+    align-items:end;
+    margin-bottom:26px;
+  }
+  .essay-photo-gallery-head span{
+    display:block;
+    margin-bottom:8px;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    color:#666;
+  }
+  .essay-photo-gallery-head h2{
+    margin:0;
+    font-size:clamp(1.7rem,3vw,2.55rem);
+    line-height:1.15;
+  }
+  .essay-photo-gallery-head p{
+    margin:0;
+    color:#555;
+    line-height:1.85;
+    font-size:.94rem;
+  }
+  .essay-photo-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+  }
+  .essay-photo-card{
+    margin:0;
+    background:#fff;
+    min-width:0;
+  }
+  .essay-photo-card.feature{
+    grid-column:span 2;
+  }
+  .essay-photo-card a{
+    display:block;
+    overflow:hidden;
+    background:#ddd;
+  }
+  .essay-photo-card img{
+    display:block;
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    transition:transform .35s ease;
+  }
+  .essay-photo-card.feature img{
+    aspect-ratio:16/8.7;
+  }
+  .essay-photo-card a:hover img{
+    transform:scale(1.015);
+  }
+  .essay-photo-card figcaption{
+    display:grid;
+    gap:7px;
+    padding:16px 18px 18px;
+    line-height:1.65;
+  }
+  .essay-photo-card figcaption strong{
+    font-size:1.02rem;
+  }
+  .essay-photo-card figcaption span{
+    color:#444;
+    font-size:.9rem;
+  }
+  .essay-photo-card figcaption em{
+    font-style:normal;
+    color:#685f52;
+    font-size:.82rem;
+  }
+  .essay-photo-card figcaption small{
+    margin-top:3px;
+    color:#777;
+    font-size:.72rem;
+  }
+  .essay-photo-card figcaption small a{display:inline;background:none;color:inherit;text-decoration:underline;}
+  @media (max-width:760px){
+    .essay-photo-gallery{width:min(100% - 24px,1180px);padding:20px;margin:36px auto 46px;}
+    .essay-photo-gallery-head{grid-template-columns:1fr;gap:12px;}
+    .essay-photo-gallery-grid{grid-template-columns:1fr;gap:16px;}
+    .essay-photo-card.feature{grid-column:auto;}
+    .essay-photo-card.feature img,.essay-photo-card img{aspect-ratio:4/3;}
+  }
+</style>
