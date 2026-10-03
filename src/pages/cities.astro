@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { bookArticles, bookCities } from '../data/bookArticles.js';
+import { kadaEssays } from '../data/kadaEssays.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
+const allBookArticles=[...bookArticles,...kadaEssays];
 const aliases={
   '児島':['shimotsui'],'下津井':['shimotsui'],'倉敷':['shimotsui'],'井原':[],
   '今治':['imabari'],'波止浜':['imabari'],'来島海峡':['imabari'],
@@ -15,7 +17,8 @@ const aliases={
   '防府（三田尻）':['hofu'],'牛窓':['ushimado'],'日生':['hinase'],
   '加太':['kada'],'鳴門':['naruto'],'明石':['akashi']
 };
-const allCities=[...new Set([...allPlaces.map((p)=>p.name),...bookCities])].sort((a,b)=>a.localeCompare(b,'ja'));
+const essayCities=kadaEssays.flatMap((article)=>article.cities);
+const allCities=[...new Set([...allPlaces.map((p)=>p.name),...bookCities,...essayCities])].sort((a,b)=>a.localeCompare(b,'ja'));
 const placeById=Object.fromEntries(allPlaces.map((p)=>[p.id,p]));
 const placeFor=(city)=>{
   const exact=allPlaces.find((p)=>p.name===city);
@@ -32,7 +35,7 @@ const placeFor=(city)=>{
   </section>
   <section class="section alpha-index">
     {allCities.map((city)=>{
-      const related=bookArticles.filter((a)=>a.cities.includes(city));
+      const related=allBookArticles.filter((a)=>a.cities.includes(city));
       const place=placeFor(city);
       return (
         <article class="reverse-index-entry" id={city}>
@@ -42,7 +45,7 @@ const placeFor=(city)=>{
           </div>
           {related.length>0 ? (
             <div class="reverse-index-links">
-              {related.map((a)=><a href={`/setouchi-cultural-economic-atlas/book/${a.slug}/`}><span>第{a.number}回</span><strong>{a.title}</strong><small>{a.subtitle}</small></a>)}
+              {related.map((a)=><a href={`/setouchi-cultural-economic-atlas/book/${a.slug}/`}><span>{a.number ? `第${a.number}回` : 'ESSAY'}</span><strong>{a.title}</strong><small>{a.subtitle}</small></a>)}
             </div>
           ) : (
             <p class="index-coming">この地域を主題にした連載は準備中です。地域データ・写真・地図から先に辿れます。</p>
