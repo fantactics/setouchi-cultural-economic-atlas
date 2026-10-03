@@ -19,6 +19,7 @@ import { essayPhotoGalleriesMore4 } from '../../data/essayPhotoGalleriesMore4.js
 import { essayPhotoGalleriesMore5 } from '../../data/essayPhotoGalleriesMore5.js';
 import { essayPhotoGalleriesMore6 } from '../../data/essayPhotoGalleriesMore6.js';
 import { essayPhotoGalleriesMore7 } from '../../data/essayPhotoGalleriesMore7.js';
+import { essayPhotoGalleriesMore8 } from '../../data/essayPhotoGalleriesMore8.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
@@ -48,7 +49,8 @@ const rawEssayPhotos=[
   ...(essayPhotoGalleriesMore4[article.slug]||[]),
   ...(essayPhotoGalleriesMore5[article.slug]||[]),
   ...(essayPhotoGalleriesMore6[article.slug]||[]),
-  ...(essayPhotoGalleriesMore7[article.slug]||[])
+  ...(essayPhotoGalleriesMore7[article.slug]||[]),
+  ...(essayPhotoGalleriesMore8[article.slug]||[])
 ];
 const essayPhotos=rawEssayPhotos
   .map((entry)=>entry?.photoId ? {...photoById[entry.photoId],...entry} : entry)
