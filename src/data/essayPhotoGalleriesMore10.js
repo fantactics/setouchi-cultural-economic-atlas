@@ -1,4 +1,7 @@
+import { essayPhotoGalleriesMore11 } from './essayPhotoGalleriesMore11.js';
+
 export const essayPhotoGalleriesMore10 = {
+  ...essayPhotoGalleriesMore11,
   'oysters-taste-of-small-seas': [
     {
       photoId:'photo-hinase-bay',
