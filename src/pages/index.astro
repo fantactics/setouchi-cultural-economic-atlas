@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AtlasRegionMap from '../components/AtlasRegionMap.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { kadaEssays } from '../data/kadaEssays.js';
+import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
 import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
 import { photoEvidence } from '../data/photoEvidence.js';
@@ -13,7 +14,7 @@ import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const allEssays=[...orderedBookArticles,...kadaEssays,cycleTourismEssay,aiRegionalPlanningEssay];
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,aiRegionalPlanningEssay];
 const additionalPhotos=Object.entries(additionalPlacePhotos).flatMap(([placeId,items])=>
   items.map((photo)=>({...photo,placeId,theme:photo.theme || '地域'}))
 );
