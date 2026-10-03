@@ -2,14 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
+import { kadaEssays } from '../../data/kadaEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
-  const allBookArticles=[...orderedBookArticles,cycleTourismEssay];
+  const allBookArticles=[...orderedBookArticles,...kadaEssays,cycleTourismEssay];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
@@ -21,7 +23,8 @@ export function getStaticPaths(){
 }
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
-const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
+const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
+const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
@@ -57,7 +60,10 @@ const placeLinkByName = {
   '柳井':'yanai',
   '引田':'hiketa',
   '丸亀':'marugame',
-  '岩国':'iwakuni'
+  '岩国':'iwakuni',
+  '加太':'kada',
+  '鳴門':'naruto',
+  '明石':'akashi'
 };
 ---
 <BaseLayout title={`${article.title} | 地域エッセイ`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
