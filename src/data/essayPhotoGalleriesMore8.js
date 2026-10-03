@@ -29,15 +29,15 @@ export const essayPhotoGalleriesMore8 = {
       licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/'
     },
     {
-      title:'価値基準を変える――「乾燥させない」という選択',
-      caption:'急速冷凍された小魚の比較イメージ。伊吹島の商品写真ではないため、冷凍によって生鮮食品として別の価値経路へ移す考え方を示す比較資料として掲載する。',
-      insight:'脂イワシの再評価は、廃棄物を加工するのではなく、従来の「良いいりこ原料」という評価軸から離れ、脂の多さを食味として評価し直す転換である。',
-      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Frozen%20sardines.jpg?width=1200',
-      alt:'冷凍された小魚の比較資料',
-      author:'Wikimedia Commons contributor',
-      sourcePage:'https://commons.wikimedia.org/wiki/File:Frozen_sardines.jpg',
-      license:'Wikimedia Commons掲載ライセンス',
-      licenseUrl:'https://commons.wikimedia.org/wiki/File:Frozen_sardines.jpg'
+      title:'価値基準を変える――乾燥品の原料ではなく「食べる魚」として見る',
+      caption:'生鮮イワシの比較資料。伊吹島の脂イワシではないが、乾燥加工品になる前の魚を、鮮魚として味わう別の価値経路を示す。',
+      insight:'脂イワシの再評価は、廃棄物を加工するのではなく、「良いいりこ原料」という評価軸から離れ、脂の多さを生鮮食品の食味として評価し直す転換である。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Fresh%20Sardines.jpg?width=1200',
+      alt:'生鮮イワシの比較資料',
+      author:'Naotake Murayama',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Fresh_Sardines.jpg',
+      license:'CC BY 2.0',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.0/'
     }
   ],
 
