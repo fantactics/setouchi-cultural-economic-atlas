@@ -56,7 +56,7 @@ export const kojimaCircularEssay = {
     {
       heading:'海外の基準は、ジーンズを「解体できる製品」として見た',
       paragraphs:[
-        {text:'Jeans Redesignは2019年から2023年まで、ブランドやメーカーに共通の設計基準を示し、耐久性、素材、化学物質、解体しやすさを同じ製品設計の問題として扱った。2023年の総括では、循環設計が実装可能である一方、再生・認証素材の価格、伸縮性素材、リベットなどのディテールにはなお実装上の障害があると報告されている。',refs:[6,8]},
+        {text:'Jeans Redesignは2019年から2023年まで、ブランドやメーカーに共通の設計基準を示し、耐久性、素材、化学物質、解体しやすさを同じ製品設計の問題として扱った。2023年の総括では、参加企業の72%がガイドラインを満たすための設計課題を克服し、リベットをなくす技術などは実装可能とされた一方、非セルロース系繊維を2%以下に抑えながら伸縮性や着用感を実現することなどは、なお素材面の課題として残った。',refs:[6,8]},
         {text:'この考え方が興味深いのは、ジーンズの「表地」だけを環境配慮型にして終わらない点にある。ボタン、リベット、ファスナー、パッチまで含めて、一着を将来どう分解するかを見る。小さな副資材が、循環の成否を左右する設計変数になる。',refs:[]},
         {text:'児島の先行事例を見る限り、この論点に日本の産地が一方的に遅れているとは言えない。一方で、ヴィンテージ仕様そのものを価値とする商品も多い。循環設計とヘリテージ価値は、児島の中で並存している。',refs:[]}
       ],
@@ -81,7 +81,7 @@ export const kojimaCircularEssay = {
   sources:[
     {id:1,title:'世界一エシカルなデニムを作るってどういうこと？',publisher:'Begin',url:'https://www.e-begin.jp/article/113578/'},
     {id:2,title:'国産デニムの発祥の地から日本を盛り上げる！「JAPAN BLUE JEANS」のエシカルプロダクト',publisher:'MEN’S Precious',url:'https://precious.jp/articles/-/19373'},
-    {id:3,title:'バナナデニム「エシカルプロダクツ」',publisher:'JAPAN BLUE',url:'https://www.japanblue.co.jp/press/1687.html'},
+    {id:3,title:'世界初の「バナナデニム」を穿いてみたインプレッション!!',publisher:'Begin',url:'https://www.e-begin.jp/article/148639/'},
     {id:4,title:'廃棄デニムをゼロへ。完全循環型の「デニムTシャツ」を3月20日（金）より本格販売開始',publisher:'Betty Smith / PR TIMES',url:'https://prtimes.jp/main/html/rd/p/000000017.000075099.html'},
     {id:5,title:'繊維廃材のアップサイクルシステム「L∞PLUS」をスタート',publisher:'クラボウ',url:'https://www.kurabo.co.jp/news/newsrelease/20170519_722.html'},
     {id:6,title:'The Jeans Redesign: creating solutions for a world where jeans never become waste',publisher:'Ellen MacArthur Foundation',url:'https://www.ellenmacarthurfoundation.org/press-release-jeans-redesign-ellen-macarthur-foundation'},
