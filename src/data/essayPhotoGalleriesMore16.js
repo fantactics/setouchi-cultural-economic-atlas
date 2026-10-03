@@ -1,0 +1,154 @@
+export const essayPhotoGalleriesMore16 = {
+  'sakaide-salt-fields-to-industry': [
+    {
+      priority:100,
+      title:'基盤｜1955年の塩田――海辺はすでに巨大な生産装置だった',
+      caption:'東大浜の入浜式塩田。工場が来る以前から、沿岸の広い平坦面は堤防・水路・区画によって人工化され、塩をつくる生産空間として使われていた。',
+      insight:'坂出の戦後工業化は「何もない海辺に工場が来た」のではない。海を人工的な生産地へ変える土地利用の履歴が先にあった。',
+      imageUrl:'https://www.city.sakaide.lg.jp/uploaded/image/1528.jpg',
+      alt:'1955年頃の坂出東大浜入浜式塩田',
+      author:'坂出市',
+      sourcePage:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html',
+      license:'坂出市今昔写真集',
+      licenseUrl:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html'
+    },
+    {
+      priority:99,
+      title:'造成｜1964年の番の州――用途転換の前に土地そのものを作り替える',
+      caption:'番の州埋立地の造成途中。塩田廃止後、海岸線をさらに沖へ押し出し、大規模工業を載せられる土地へ再設計していく段階を見る。',
+      insight:'産業転換は製品の転換だけではない。土地の形・水深・岸壁・道路を次の産業に合わせて再構築する工程が必要だった。',
+      imageUrl:'https://www.city.sakaide.lg.jp/uploaded/image/1570.jpg',
+      alt:'1964年の坂出番の州埋立地',
+      author:'坂出市',
+      sourcePage:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html',
+      license:'坂出市今昔写真集',
+      licenseUrl:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html'
+    },
+    {
+      priority:98,
+      title:'転換｜形成期の臨海工業地――塩をつくる土地から工業製品をつくる土地へ',
+      caption:'昭和30年代後半の番の州工業地帯。塩田景観から重工業景観への変化が短期間に進んだ。',
+      insight:'同じ平坦な沿岸地でも、必要とされるインフラと企業集積が変われば、地域の生産機能は大きく組み替わる。',
+      imageUrl:'https://www.city.sakaide.lg.jp/uploaded/image/1575.jpg',
+      alt:'昭和30年代後半の坂出番の州工業地帯',
+      author:'坂出市',
+      sourcePage:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html',
+      license:'坂出市今昔写真集',
+      licenseUrl:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html'
+    },
+    {
+      priority:97,
+      title:'現在｜番の州――海を産業空間へ変える論理が最大化した',
+      caption:'国際宇宙ステーションから見た番の州。人工化された海岸線、港湾、工業用地が巨大な一体空間として見える。',
+      insight:'坂出に残ったのは塩という商品ではなく、海辺を大規模な生産空間へ作り替える能力と立地論理だったと読める。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Bannosu%20Coastal%20Industrial%20Park%20taken%20from%20ISS%20on%2020090409.jpg?width=1400',
+      alt:'国際宇宙ステーションから見た坂出市番の州臨海工業地',
+      author:'NASA',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Bannosu_Coastal_Industrial_Park_taken_from_ISS_on_20090409.jpg',
+      license:'Public Domain (NASA)',
+      licenseUrl:'https://www.nasa.gov/nasa-brand-center/images-and-media/'
+    }
+  ],
+
+  'ako-salt-fields-to-city': [
+    {
+      priority:100,
+      title:'起点｜製塩――沿岸低地そのものが生産設備だった',
+      caption:'赤穂「塩の国」の復元製塩施設。かつて広大な沿岸部が塩をつくるために区画・管理された人工海岸だったことを示す。',
+      insight:'赤穂の現在の住宅・公園・工業地を読むには、その土地がまず製塩設備として造成された履歴から始める必要がある。',
+      imageUrl:'https://www.city.ako.lg.jp/documents/sionokuni.jpg',
+      alt:'赤穂市の塩の国に復元された塩田',
+      author:'赤穂市',
+      sourcePage:'https://www.city.ako.lg.jp/shisetu.html',
+      license:'赤穂市フォトライブラリー',
+      licenseUrl:'https://www.city.ako.lg.jp/shisetu.html'
+    },
+    {
+      priority:99,
+      title:'技術更新｜枝条架――同じ製塩でも自然条件の使い方を変える',
+      caption:'海水を枝条へ流し、風で濃縮を進める設備。製塩産業が土地集約型の塩田から別の技術体系へ更新されたことを示す。',
+      insight:'産業の継続とは旧設備を保存することではない。同じ目的を、より適した技術へ組み替えながら続けることでもある。',
+      imageUrl:'https://www.city.ako.lg.jp/documents/dsc_9599-19.jpg',
+      alt:'赤穂市の製塩施設にある枝条架',
+      author:'赤穂市',
+      sourcePage:'https://www.city.ako.lg.jp/shisetu.html',
+      license:'赤穂市フォトライブラリー',
+      licenseUrl:'https://www.city.ako.lg.jp/shisetu.html'
+    },
+    {
+      priority:98,
+      title:'土地転用｜臨海工業――塩田跡の物理条件が別産業を受け入れる',
+      caption:'赤穂臨海部の大規模発電設備。低平で広い沿岸地は、製塩終了後も大型産業を載せられる土地ストックとして残った。',
+      insight:'赤穂では「製塩事業の継続」と「旧塩田土地の転用」が別々の経路で進んだ。産業と土地の継承を分けて見る必要がある。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/KEPCO%20Ako%20Power%20Plant.jpg?width=1400',
+      alt:'兵庫県赤穂市の関西電力赤穂発電所',
+      author:'KishujiRapid',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:KEPCO_Ako_Power_Plant.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+    },
+    {
+      priority:97,
+      title:'都市資産｜赤穂城――産業利益を受け止める城下町があった',
+      caption:'赤穂城跡。製塩地の背後には、藩政・商業・居住を束ねる城下町が形成されていた。',
+      insight:'赤穂を塩田だけで見ると、製塩利益を組織し消費し再投資した都市側の機能を見落とす。産業景観と都市景観は一体だった。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/141115%20Ako%20Castle%20Ako%20Hyogo%20pref%20Japan01bs3.jpg?width=1400',
+      alt:'兵庫県赤穂市の赤穂城',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg',
+      license:'CC BY 2.5',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.5/'
+    }
+  ],
+
+  'shodoshima-open-island': [
+    {
+      priority:100,
+      title:'加工基盤｜醤の郷――外から来た原料を島内で高付加価値化する',
+      caption:'苗羽地区に続く醤油蔵。大豆や小麦を外から受け入れても、発酵・熟成・貯蔵という価値形成の工程は島に蓄積した。',
+      insight:'小豆島の強みは自給ではなく、海上物流を前提に原料を受け入れ、加工技術によって地域内に付加価値を残す能力だった。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Hishio-no-sato%20Shodo%20Island%20Kagawa%20pref%20Japan00s5.jpg?width=1400',
+      alt:'香川県小豆島町の醤の郷',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Hishio-no-sato_Shodo_Island_Kagawa_pref_Japan00s5.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+    },
+    {
+      priority:99,
+      title:'産業景観｜現役の醤油蔵――生産活動そのものが町並みを維持する',
+      caption:'醤の郷の黒い板壁と蔵。保存のために残された景観ではなく、現在まで続く発酵食品の生産活動が建物と町並みを支えている。',
+      insight:'産業遺産が強いのは、過去の設備が残る時だけではない。現在の仕事が歴史的景観を使い続けることで、保存と生産が同時に成立する。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Hishio-no-sato%20Shodo%20Island%20Kagawa%20pref%20Japan38s3.jpg?width=1400',
+      alt:'香川県小豆島町の醤の郷にある醤油蔵',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Hishio-no-sato_Shodo_Island_Kagawa_pref_Japan38s3.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+    },
+    {
+      priority:98,
+      title:'新資源｜オリーブ――外来作物を土地固有の産業文化へ変える',
+      caption:'小豆島オリーブ公園。20世紀に外から導入されたオリーブが、試作・研究・加工・販売を経て現在は島を代表する景観になっている。',
+      insight:'地域資源は「昔からそこにあったもの」に限られない。導入された作物も、技術と市場が蓄積すれば地域固有の資産になりうる。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Shodoshima%20Olive%20Park%20Shodo%20Island%20Japan13s3.jpg?width=1400',
+      alt:'香川県小豆島町の小豆島オリーブ公園',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan13s3.jpg',
+      license:'CC BY 2.5',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.5/'
+    },
+    {
+      priority:97,
+      title:'開放性｜海を望むオリーブ園――島の産業は海上物流と切り離せない',
+      caption:'オリーブ公園の斜面から瀬戸内海を見る。農地・加工・港湾が近距離にあり、原料・人・商品を海から出し入れする島のスケールが分かる。',
+      insight:'小豆島は閉じた自給島ではなく、外部との交換を前提に加工能力を地域へ定着させてきた「開いた島」として読む方が実態に近い。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Shodoshima%20Olive%20Park%20Shodo%20Island%20Japan12bs3.jpg?width=1600',
+      alt:'小豆島オリーブ公園の斜面と瀬戸内海',
+      author:'663highland',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan12bs3.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+    }
+  ]
+};
