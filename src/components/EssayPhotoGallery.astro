@@ -2,10 +2,11 @@
 const { photos = [], title = '写真で読む' } = Astro.props;
 
 // Multiple gallery modules are intentionally merged at page level. Keep the
-// presentation editorial rather than exhaustive: remove duplicate source
-// images and show at most four distinct visual arguments per essay.
+// presentation editorial rather than exhaustive: explicitly curated photos
+// win, then duplicate source images are removed and the gallery is capped at 4.
 const seenPhotoKeys = new Set();
-const displayPhotos = photos
+const displayPhotos = [...photos]
+  .sort((a,b)=>(b?.priority || 0) - (a?.priority || 0))
   .filter((photo) => {
     const key = photo?.sourcePage || photo?.imageUrl || photo?.id;
     if (!key || seenPhotoKeys.has(key)) return false;
