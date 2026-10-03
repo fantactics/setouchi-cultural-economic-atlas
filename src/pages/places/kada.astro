@@ -2,8 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SimpleRegionalProfile from '../../components/SimpleRegionalProfile.astro';
 import { additionalPlaces } from '../../data/additionalPlaces.js';
+import { kadaEssays } from '../../data/kadaEssays.js';
 const place=additionalPlaces.find((p)=>p.id==='kada');
 ---
 <BaseLayout title={`${place.name} | SETOUCHI ATLAS`} description={place.subtitle}>
   <SimpleRegionalProfile place={place} />
+
+  <section class="section gene-section">
+    <div class="kicker">ESSAYS / KADA</div>
+    <h2>加太から、海の使い方を読む</h2>
+    <p class="lead">紀淡海峡の急潮を、漁師はどう読み、魚をどう地域の食へ変えてきたのか。加太単独の漁から、泉州・大阪湾へ続く海の勾配まで、二つのエッセイでたどります。</p>
+    <div class="chapter-related-grid">
+      {kadaEssays.map((article)=><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+        <strong>{article.title}</strong>
+        <span>{article.subtitle}</span>
+      </a>)}
+    </div>
+  </section>
 </BaseLayout>
