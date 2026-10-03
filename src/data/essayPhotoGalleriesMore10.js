@@ -148,5 +148,82 @@ export const essayPhotoGalleriesMore10 = {
       license:'CC BY-SA 3.0',
       licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
     }
+  ],
+
+  'kojima-from-cotton-to-jeans': [
+    {
+      priority:100,
+      title:'01｜干拓――まず海を農地へ変えた',
+      caption:'笠岡湾干拓地の比較資料。児島そのものではないが、瀬戸内・岡山で海面を締め切り、広い低平地をつくる土地改変の姿を示す。児島周辺でも近世以降の干拓地が綿作の基盤になった。',
+      insight:'児島の繊維産業の起点は工場ではなく土地改変にある。塩分を含む新田という条件が、稲ではなく綿という作物選択につながった。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/KASAOKA-%20Polders.jpg?width=1400',
+      alt:'岡山県笠岡市の笠岡湾干拓地の比較資料',
+      author:'melvil',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:KASAOKA-_Polders.jpg',
+      license:'CC BY-SA 4.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    {
+      priority:100,
+      title:'02｜綿――塩分の残る新田に適応した作物',
+      caption:'綿花の実（比較資料）。児島で撮影されたものではないが、干拓後の塩分を含む土地で綿が栽培され、地域の織物生産へ原料を供給した歴史を示す。',
+      insight:'自然条件は産業を直接決めないが、土地の制約に適応した作物選択が、その後の加工技能を蓄積する入口になった。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Cotton%20boll.jpg?width=1400',
+      alt:'開いた綿花の実の比較資料',
+      author:'ChriKo',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Cotton_boll.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+    },
+    {
+      priority:100,
+      title:'03｜縫製――原料が変わっても工程能力は地域に残る',
+      caption:'工業用ミシン（比較資料）。児島の工場ではないが、足袋・学生服・作業服からジーンズへ製品が変わっても引き継げる縫製工程を示す。',
+      insight:'地域産業の継承単位は商品名ではなく、裁つ・縫う・染める・仕上げるといった工程能力だと考えると、児島の長い連続性が見える。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Industrial%20sewing%20machine.jpg?width=1400',
+      alt:'工業用ミシンの比較資料',
+      author:'Haddybellz',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Industrial_sewing_machine.jpg',
+      license:'CC BY-SA 4.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    {
+      priority:100,
+      photoId:'photo-kojima-jeans',
+      title:'04｜ジーンズ――工程の蓄積が地域ブランドになる',
+      caption:'児島味野のジーンズストリート。工場内で蓄積した工程能力が、現在は製品ブランドだけでなく店舗・観光・街路空間へも表れている。',
+      insight:'「干拓→綿→繊維→ジーンズ」は同じ産業が不変に続いた歴史ではない。土地・技能・設備を次の商品へ組み替え続けた適応の歴史である。'
+    }
+  ],
+
+  'four-salt-fields': [
+    {
+      priority:100,
+      photoId:'photo-ako-shionokuni-official',
+      title:'企業｜赤穂――製塩事業そのものを次代へ残した',
+      caption:'復元された製塩施設。赤穂では塩田が消えた後も、製塩企業と「塩の産地」という認知が新しい技術体系へ引き継がれた。',
+      insight:'赤穂で強く残った資産は土地だけではなく、製塩を続ける企業・技術・市場との関係だった。'
+    },
+    {
+      priority:100,
+      photoId:'photo-takehara-town-official',
+      title:'建築｜竹原――塩の利益を町家へ固定した',
+      caption:'竹原の町並み保存地区。製塩・廻船などで蓄積した富が住宅・商家・酒造施設へ再投資され、産業が終わった後も都市景観として残った。',
+      insight:'竹原では塩業の継承を工場跡だけで測れない。利益の再投資先である建築が、別の形で産業史を保存している。'
+    },
+    {
+      priority:100,
+      photoId:'photo-sakaide-bannosu-aerial',
+      title:'土地｜坂出――海を産業用地へ変える能力を継承した',
+      caption:'上空から見た番の州。塩田という沿岸の人工地形は、戦後にはさらに大規模な埋立・港湾・工業用地へ作り替えられた。',
+      insight:'坂出で継承されたのは塩そのものより、「海を陸へ変え、大規模産業を載せる」土地造成の論理だったと読める。'
+    },
+    {
+      priority:100,
+      photoId:'photo-hofu-salt-official',
+      title:'記憶｜三田尻――製塩工程を文化資産として残した',
+      caption:'三田尻塩田記念産業公園。大規模製塩地だった記憶を、復元施設と展示を通じて現在の地域認識へつないでいる。',
+      insight:'四都市を並べると、同じ塩田の終焉後でも、残るものは企業・建築・土地・記憶と異なる。産業遺産とは一種類ではない。'
+    }
   ]
 };
