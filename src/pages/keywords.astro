@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { bookArticles, bookKeywords } from '../data/bookArticles.js';
-import { places } from '../data/places.js';
+import { kadaEssays } from '../data/kadaEssays.js';
+import { atlasPlaces } from '../data/additionalPlaces.js';
 import { concepts } from '../data/concepts.js';
 
+const allBookArticles=[...bookArticles,...kadaEssays];
 const extras=[
   {keyword:'自転車',links:[
     {label:'尾道（しまなみ海道の本州側）',href:'/setouchi-cultural-economic-atlas/places/onomichi/'},
@@ -16,14 +18,15 @@ const extras=[
   {keyword:'住吉神社',links:[{label:'第07回 神社を追うと、消えた航路が見えてくる',href:'/setouchi-cultural-economic-atlas/book/faith-as-transport-map/'}]},
   {keyword:'潮待ち',links:[{label:'第03回 船は、なぜそこで止まったのか',href:'/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/'}]}
 ];
-const tagKeywords=[...new Set(places.flatMap((p)=>p.tags||[]))];
+const newEssayKeywords=kadaEssays.flatMap((article)=>article.keywords||[]);
+const tagKeywords=[...new Set(atlasPlaces.flatMap((p)=>p.tags||[]))];
 const conceptKeywords=concepts.map((c)=>c.title);
-const allKeywords=[...new Set([...bookKeywords,...tagKeywords,...conceptKeywords,...extras.map((x)=>x.keyword)])].sort((a,b)=>a.localeCompare(b,'ja'));
+const allKeywords=[...new Set([...bookKeywords,...newEssayKeywords,...tagKeywords,...conceptKeywords,...extras.map((x)=>x.keyword)])].sort((a,b)=>a.localeCompare(b,'ja'));
 
 const linksFor=(keyword)=>{
   const links=[];
-  bookArticles.filter((a)=>a.keywords.includes(keyword)).forEach((a)=>links.push({label:`第${a.number}回 ${a.title}`,href:`/setouchi-cultural-economic-atlas/book/${a.slug}/`}));
-  places.filter((p)=>(p.tags||[]).includes(keyword)).forEach((p)=>links.push({label:`${p.name}・地域データ`,href:`/setouchi-cultural-economic-atlas/places/${p.id}/`}));
+  allBookArticles.filter((a)=>a.keywords.includes(keyword)).forEach((a)=>links.push({label:`${a.number ? `第${a.number}回 ` : ''}${a.title}`,href:`/setouchi-cultural-economic-atlas/book/${a.slug}/`}));
+  atlasPlaces.filter((p)=>(p.tags||[]).includes(keyword)).forEach((p)=>links.push({label:`${p.name}・地域データ`,href:`/setouchi-cultural-economic-atlas/places/${p.id}/`}));
   concepts.filter((c)=>c.title===keyword).forEach((c)=>links.push({label:`概念辞典：${c.title}`,href:`/setouchi-cultural-economic-atlas/concepts/#${c.id}`}));
   (extras.find((x)=>x.keyword===keyword)?.links||[]).forEach((x)=>links.push(x));
   return [...new Map(links.map((x)=>[x.href,x])).values()];
