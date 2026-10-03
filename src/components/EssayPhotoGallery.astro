@@ -1,18 +1,31 @@
 ---
 const { photos = [], title = '写真で読む' } = Astro.props;
+
+// Multiple gallery modules are intentionally merged at page level. Keep the
+// presentation editorial rather than exhaustive: remove duplicate source
+// images and show at most four distinct visual arguments per essay.
+const seenPhotoKeys = new Set();
+const displayPhotos = photos
+  .filter((photo) => {
+    const key = photo?.sourcePage || photo?.imageUrl || photo?.id;
+    if (!key || seenPhotoKeys.has(key)) return false;
+    seenPhotoKeys.add(key);
+    return true;
+  })
+  .slice(0, 4);
 ---
 
-{photos.length > 0 && (
+{displayPhotos.length > 0 && (
   <section class="essay-photo-gallery" aria-label={title}>
     <div class="essay-photo-gallery-head">
       <div>
         <span>PHOTO ESSAY</span>
         <h2>{title}</h2>
       </div>
-      <p>同じ場所を一枚だけで代表させず、町並み、産業、港、建築など異なる角度の写真を重ねて読みます。</p>
+      <p>同じ対象を繰り返すのではなく、自然条件、空間、仕事、技術、暮らしなど異なるレイヤーを4枚まで選び、本文の因果を写真から読み直します。</p>
     </div>
     <div class="essay-photo-gallery-grid">
-      {photos.map((photo,index)=>(
+      {displayPhotos.map((photo,index)=>(
         <figure class:list={['essay-photo-card', index===0 && 'feature']}>
           <a href={photo.sourcePage} target="_blank" rel="noreferrer">
             <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
