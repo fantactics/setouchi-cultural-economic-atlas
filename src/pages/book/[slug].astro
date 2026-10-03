@@ -14,6 +14,7 @@ import { essayPhotoGalleries } from '../../data/essayPhotoGalleries.js';
 import { essayPhotoGalleriesMore } from '../../data/essayPhotoGalleriesMore.js';
 import { essayPhotoGalleriesExpansion } from '../../data/essayPhotoGalleriesExpansion.js';
 import { essayPhotoGalleriesMore2 } from '../../data/essayPhotoGalleriesMore2.js';
+import { essayPhotoGalleriesMore3 } from '../../data/essayPhotoGalleriesMore3.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
@@ -34,7 +35,10 @@ const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
-const essayPhotos=[...(essayPhotoGalleries[article.slug]||[]),...(essayPhotoGalleriesMore[article.slug]||[]),...(essayPhotoGalleriesExpansion[article.slug]||[]),...(essayPhotoGalleriesMore2[article.slug]||[])];
+const rawEssayPhotos=[...(essayPhotoGalleries[article.slug]||[]),...(essayPhotoGalleriesMore[article.slug]||[]),...(essayPhotoGalleriesExpansion[article.slug]||[]),...(essayPhotoGalleriesMore2[article.slug]||[]),...(essayPhotoGalleriesMore3[article.slug]||[])];
+const essayPhotos=rawEssayPhotos
+  .map((entry)=>entry?.photoId ? {...photoById[entry.photoId],...entry} : entry)
+  .filter((entry)=>entry?.imageUrl);
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
   .map((entry)=>entry.photoId ? photoById[entry.photoId] : entry)
