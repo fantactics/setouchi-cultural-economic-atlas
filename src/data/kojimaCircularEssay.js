@@ -79,8 +79,8 @@ export const kojimaCircularEssay = {
   provisionalConclusion:'児島には、リベットレス設計、代替パッチ、アップサイクル、反毛・再紡績など、循環型ジーンズへ向かう技術と実践がすでに複数存在する。ただし、それらは現時点で産地全体を閉じた循環系にしていると確認できる段階ではない。むしろ面白いのは、ヴィンテージの記号を磨いて高付加価値化してきた産地が、その記号の一部をあえて外し、製品の「終わり」まで設計対象にし始めていることだ。児島の次の産業転換は、新しい製品をつくることより、製品が戻ってくる仕組みをつくることなのかもしれない。',
   openQuestions:['児島地域で発生する裁断くず・残反・使用済みデニムの量と、そのうち反毛・再紡績・アップサイクルへ回る比率はどの程度か','リベットや革パッチを残したまま容易に分離できる設計と、最初から使わない設計では、耐久性・修理性・ブランド価値・再資源化コストにどのような差が出るか','児島の染色・洗い加工まで含めた水、薬剤、エネルギー使用量を製品単位で比較できるデータはあるか','回収から再紡績までを産地横断でつなぐには、誰が回収・分別・品質保証・費用負担を担うのが現実的か'],
   sources:[
-    {id:1,title:'地球環境に配慮したジャパンブルージーンズの「エシカルプロダクト」',publisher:'Begin',url:'https://www.e-begin.jp/article/113578/'},
-    {id:2,title:'服を選ぶ基準は、環境に優しいかどうか。ジャパンブルージーンズの新たな取り組み',publisher:'MEN’S Precious',url:'https://precious.jp/articles/-/18592'},
+    {id:1,title:'世界一エシカルなデニムを作るってどういうこと？',publisher:'Begin',url:'https://www.e-begin.jp/article/113578/'},
+    {id:2,title:'国産デニムの発祥の地から日本を盛り上げる！「JAPAN BLUE JEANS」のエシカルプロダクト',publisher:'MEN’S Precious',url:'https://precious.jp/articles/-/19373'},
     {id:3,title:'バナナデニム「エシカルプロダクツ」',publisher:'JAPAN BLUE',url:'https://www.japanblue.co.jp/press/1687.html'},
     {id:4,title:'廃棄デニムをゼロへ。完全循環型の「デニムTシャツ」を3月20日（金）より本格販売開始',publisher:'Betty Smith / PR TIMES',url:'https://prtimes.jp/main/html/rd/p/000000017.000075099.html'},
     {id:5,title:'繊維廃材のアップサイクルシステム「L∞PLUS」をスタート',publisher:'クラボウ',url:'https://www.kurabo.co.jp/news/newsrelease/20170519_722.html'},
