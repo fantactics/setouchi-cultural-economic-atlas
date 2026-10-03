@@ -6,11 +6,12 @@ import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
+import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
@@ -38,6 +39,7 @@ const coverSlugs=[
   'ports-that-needed-waiting',
   'shimotsui-tako-meshi',
   'shimotsui-hijiki-peperoncino',
+  'kojima-jeans-circular-economy',
   'oysters-taste-of-small-seas',
   'shodoshima-open-island'
 ];
