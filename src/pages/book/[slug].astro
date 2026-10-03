@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
+import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
@@ -11,7 +12,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
-  const allBookArticles=[...orderedBookArticles,...kadaEssays,cycleTourismEssay];
+  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
