@@ -4,11 +4,12 @@ import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
+import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,cycleTourismEssay,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
