@@ -2,6 +2,7 @@ import { essayPhotoGalleriesMore12 } from './essayPhotoGalleriesMore12.js';
 import { essayPhotoGalleriesMore14 } from './essayPhotoGalleriesMore14.js';
 import { essayPhotoGalleriesMore15 } from './essayPhotoGalleriesMore15.js';
 import { essayPhotoGalleriesMore16 } from './essayPhotoGalleriesMore16.js';
+import { essayPhotoGalleriesMore17 } from './essayPhotoGalleriesMore17.js';
 
 export const essayPhotoGalleriesMore11 = {
   ...essayPhotoGalleriesMore12,
@@ -48,5 +49,6 @@ export const essayPhotoGalleriesMore11 = {
       caption:'牛窓オリーブ園から見た錦海塩田跡のメガソーラー。かつて海を陸へ変えた巨大な平坦面が、今度は太陽光を受ける発電面へ転換された。',
       insight:'用途は「海→塩→遊休地→電力」と大きく変わったが、広大で平坦な人工地盤という土地の物理条件は、世代を越えて次の産業選択を規定し続けている。'
     }
-  ]
+  ],
+  ...essayPhotoGalleriesMore17
 };
