@@ -5,11 +5,12 @@ import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
+import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
@@ -36,6 +37,7 @@ const coverSlugs=[
   'tai-meshi-two-seas',
   'ports-that-needed-waiting',
   'shimotsui-tako-meshi',
+  'shimotsui-hijiki-peperoncino',
   'oysters-taste-of-small-seas',
   'shodoshima-open-island'
 ];
@@ -57,7 +59,7 @@ const coverStories=coverSlugs
 const featureStory=coverStories[0];
 const coverSide=coverStories.slice(1,3);
 
-const visualEssays=['kitan-strait-tai-to-shirasu','shimotsui-tako-meshi','oysters-taste-of-small-seas']
+const visualEssays=['kitan-strait-tai-to-shirasu','shimotsui-hijiki-peperoncino','shimotsui-tako-meshi']
   .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
 const visualFallback=allBookArticles.filter((a)=>!visualEssays.includes(a)).slice(0,3-visualEssays.length);
 const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
