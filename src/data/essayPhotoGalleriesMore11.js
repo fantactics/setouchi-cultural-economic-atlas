@@ -1,9 +1,9 @@
 import { essayPhotoGalleriesMore12 } from './essayPhotoGalleriesMore12.js';
-import { essayPhotoGalleriesMore13 } from './essayPhotoGalleriesMore13.js';
+import { essayPhotoGalleriesMore14 } from './essayPhotoGalleriesMore14.js';
 
 export const essayPhotoGalleriesMore11 = {
   ...essayPhotoGalleriesMore12,
-  ...essayPhotoGalleriesMore13,
+  ...essayPhotoGalleriesMore14,
   'kinkai-salt-field-to-solar': [
     {
       title:'錦海湾を干拓する――海を生産空間へ変える途中',
