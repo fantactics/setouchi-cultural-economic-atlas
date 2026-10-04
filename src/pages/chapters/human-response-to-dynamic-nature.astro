@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const responses = [
+  {
+    verb:'待つ・読む',
+    subtitle:'自然の時間に、人間の時間を合わせる',
+    mechanism:'潮、風、波、季節などを消去せず、変動を読み、行動の時刻や順序を調整する。',
+    examples:[
+      ['鞆の浦','潮待ち・風待ちが滞留と港町機能を生んだ'],
+      ['御手洗','風・潮による待機時間を宿泊・商業へ変えた'],
+      ['今治','来島海峡の潮を読み、待ち、避泊し、修繕する技能を蓄積した'],
+      ['引田','季節風・潮流に応じて漁業と港利用を組み合わせた'],
+      ['下関','強潮流を航路管理・運航判断によって扱った']
+    ],
+    tradeoff:'自然変動への適応力を高める一方、技術進歩で「待つ必要」が減ると、その応答に依存した都市機能は意味を失うことがある。'
+  },
+  {
+    verb:'貯める・配る',
+    subtitle:'変動を時間的に平準化する',
+    mechanism:'少雨や流量変動を前提に、水・食料・資源を貯留し、必要な時期と場所へ配分する。',
+    examples:[
+      ['高松','少雨をため池・水利・広域用水で緩衝した'],
+      ['丸亀','ため池と水利慣行によって農業・生活用水を安定化した'],
+      ['小豆島','限られた水を管理し、乾燥・斜面条件に応じた土地利用を組み立てた']
+    ],
+    tradeoff:'自然変動への耐性を高めるが、維持管理・配分制度・上流下流関係など新しい社会的依存も生む。'
+  },
+  {
+    verb:'固定する・陸に変える',
+    subtitle:'動く海陸境界を、人間の利用に合わせて止める',
+    mechanism:'堤防、干拓、塩田、排水、埋立によって、潮汐・漂砂・洪水で動く境界を固定し、生産・居住・工業の土地へ変える。',
+    examples:[
+      ['赤穂','浅海・河口低地を塩田・臨海工業地へ変えた'],
+      ['下津井・児島','浅海・干潟を干拓し、農地・繊維産地へつないだ'],
+      ['竹原','干拓・塩田造成が製塩・交易・町並み形成を支えた'],
+      ['坂出','塩田から大規模な臨海工業地へ再転換した'],
+      ['防府（三田尻）','遠浅海岸を塩田・港・工業地へ変えた']
+    ],
+    tradeoff:'新しい土地利用を可能にする一方、干潟・浅海・洪水調節など元の生態系機能を失い、固定した土地を守り続ける費用も発生する。'
+  },
+  {
+    verb:'渡る・つなぐ',
+    subtitle:'自然がつくる分断を、接続へ変える',
+    mechanism:'川、海峡、島、急斜面などの分断を、橋、渡船、港、航路、鉄道、道路で越え、異なる生活圏や市場を接続する。',
+    examples:[
+      ['岩国','錦川の分断を前提に、錦帯橋で城下の両岸を結んだ'],
+      ['三原','河口・島・海峡の接点を、港・鉄道・道路へ更新した'],
+      ['尾道','水道・斜面・島嶼を渡船と坂道で一つの生活圏に組み込んだ'],
+      ['下関','海峡を港・鉄道・トンネル・橋梁で横断した'],
+      ['松山','城下・温泉・港という異なる地域システムを交通で束ねた']
+    ],
+    tradeoff:'移動可能性を広げる一方、旧来の港・渡船・徒歩圏の価値を下げ、交通集中や災害時の依存点を新たにつくる。'
+  },
+  {
+    verb:'取り出す',
+    subtitle:'地中・海中・森林などに蓄積された資源を利用可能にする',
+    mechanism:'鉱床、森林、水産資源などを採取し、運搬・加工・エネルギー供給の仕組みと結びつける。',
+    examples:[
+      ['新居浜','別子銅山の鉱床を採鉱・製錬し、機械・電力・化学へ能力を広げた'],
+      ['日生','海の生産力を漁業・養殖によって所得と食文化へ変えた']
+    ],
+    tradeoff:'資源を所得や技術へ変換できる一方、資源量・再生速度を超えれば自然資本そのものを毀損する。再生可能資源と非再生資源を同じ論理で扱わないことが重要。'
+  },
+  {
+    verb:'育てる・手入れする',
+    subtitle:'利用しながら、自然資本の再生産へ働きかける',
+    mechanism:'養殖、漁場管理、藻場再生、水利管理、里山管理などを通じ、人間の利用を自然資本の状態変化へフィードバックさせる。',
+    examples:[
+      ['日生','カキ養殖・漁場管理・アマモ場再生を同じ海域で重ねる'],
+      ['高松・丸亀','ため池群を維持すること自体が地域の水循環を支える'],
+      ['小豆島','段畑・農地・水管理など継続的な手入れが土地利用を成立させる']
+    ],
+    tradeoff:'「自然保護」と「利用」を二項対立にしない一方、どの状態を維持するかという価値判断と継続的な管理コストが不可避になる。'
+  },
+  {
+    verb:'取り込み・変換して返す',
+    subtitle:'土地の不足を、外部ネットワークと加工能力で補う',
+    mechanism:'地域内にない原料・人・情報を外から受け入れ、地域の技能や設備で別の価値へ変換し、再び外へ送り出す。',
+    examples:[
+      ['小豆島','大豆・小麦・ごま等を海運で受け入れ、発酵・製麺・製油で価値化した'],
+      ['尾道','交易で人・物・信用を集め、商業・金融・海事能力へ変えた'],
+      ['柳井','内海交易を商業資本・町家・蔵へ固定した'],
+      ['多度津','海上交通で集まる流動を鉄道・物流へ接続した'],
+      ['牛窓','海から物資だけでなく人・文化を受け入れ、港町の機能へ変えた']
+    ],
+    tradeoff:'局地的な自然資源の乏しさを補える一方、外部市場・物流・制度への依存を強める。土地固有性は「原料の地産性」だけでは測れない。'
+  }
+];
+
+const principles = [
+  ['複数回答','一つの地域は一つの応答類型に属するのではない。今治は「待つ」と「取り込み・変換」が重なり、小豆島は「貯める」「育てる」「変換する」を併用する。'],
+  ['時代で変わる','同じ土地でも、帆船時代には「待つ」が合理的でも、動力船・橋梁・高速交通の時代には「つなぐ」「速く通す」へ重心が移る。'],
+  ['善悪ではない','固定・採取・接続は可能性を広げると同時に別の自然機能や生活可能性を狭める。応答を成功／失敗で単純評価しない。'],
+  ['自然も動く','人間が応答している間にも、潮汐、気候、地殻、河川、生態系は動き続ける。応答は一度完成して終わるものではない。'],
+  ['応答も自然資本へ返る','ため池、干拓地、人工林、養殖海域、港湾などは長期の相互作用を通じ、次世代の自然・人工複合基盤になる。']
+];
+---
+<BaseLayout title="変動する自然への人間の応答｜研究ノート | SETOUCHI ATLAS" description="22地域を、産業ではなく、変動する自然に対して人間がどのように待ち、貯め、固定し、つなぎ、取り出し、育て、変換してきたかという行動様式から比較する。">
+  <section class="section chapter-hero">
+    <div class="kicker">HUMAN RESPONSE TO DYNAMIC NATURE</div>
+    <h1>変動する自然への人間の応答</h1>
+    <p class="lead">瀬戸内の地域差を、産業分類ではなく、<strong>変わり続ける自然に対して人間が何をしたか</strong>という動詞から読み直します。これは地域を固定的な型へ分類する表ではなく、同じ地域が複数の応答を重ね、時代によって組み替えてきた履歴を比較するためのレンズです。</p>
+  </section>
+
+  <section class="section">
+    <div class="program-section-head">
+      <div><div class="kicker">POSITION</div><h2>自然資本は条件、人間の応答は選択</h2></div>
+      <p>自然資本は可能性と制約を与えますが、同じ条件に対する人間の応答は一つではありません。技術、制度、市場、人口、文化によって、待つ・固定する・移動する・管理するといった異なる選択が生まれます。</p>
+    </div>
+    <div class="region-natural-principle">
+      <strong>基本式</strong>
+      <span>Natural Change → Possibilities / Constraints → Human Response → Lifestyle & Livelihood → Feedback → Natural Capital(t+1)</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="program-section-head">
+      <div><div class="kicker">SEVEN RESPONSES</div><h2>7つの動詞で読む</h2></div>
+      <p>類型名を名詞化しすぎると地域を固定してしまうため、行動を示す動詞として置きます。</p>
+    </div>
+    <div class="comparison-insight-grid">
+      {responses.map((item,index)=>(
+        <article class="insight-card">
+          <div class="natural-system-step">{String(index+1).padStart(2,'0')}</div>
+          <h3>{item.verb}</h3>
+          <strong>{item.subtitle}</strong>
+          <p>{item.mechanism}</p>
+          <div class="regional-world-list">
+            {item.examples.map(([place,body])=><div><strong>{place}</strong><small>{body}</small></div>)}
+          </div>
+          <p><b>交換条件：</b>{item.tradeoff}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="program-section-head">
+      <div><div class="kicker">READING RULES</div><h2>類型を固定的に使わない</h2></div>
+      <p>この整理は地域の性格を決めるラベルではなく、自然と人間の関係がどのように変化したかを比較するための補助線です。</p>
+    </div>
+    <div class="comparison-insight-grid">
+      {principles.map(([title,body])=>(
+        <article class="insight-card"><h3>{title}</h3><p>{body}</p></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="program-section-head">
+      <div><div class="kicker">WHAT THIS REVEALS</div><h2>同じ自然条件から、違う暮らしが生まれる</h2></div>
+    </div>
+    <p class="lead">この比較から見たいのは、「海があるから造船」「少雨だからため池」といった単線的な説明ではありません。同じ浅海でも、塩田にする地域、干拓して農地にする地域、養殖海域として維持する地域がある。同じ潮流でも、待つ地域、航路管理する地域、橋やトンネルで横断する地域がある。<strong>自然資本が選択肢の幅をつくり、人間の応答がそのうちの一部を現実の暮らしへ変える</strong>、という関係を比較します。</p>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/">動的自然資本 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-dynamic-natural-capital/">22地域の時間軸比較 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+</BaseLayout>
