@@ -26,6 +26,7 @@ const categories = [
       ]},
       {title:'食文化',items:[
         {title:'瀬戸内食文化の自然環境基盤',description:'海域、魚介、農産物、漁法、加工、流通、調理の因果鎖を地域横断で読む。',href:'/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/'},
+        {title:'沿岸食資源の価値形成',description:'自然資源が漁法・養殖・加工・市場・料理を通じて地域価値へ変わる過程を、加太・泉州・下関・下津井・牡蠣産地等で比較する。',href:'/setouchi-cultural-economic-atlas/chapters/coastal-food-value-formation/'},
         {title:'食文化の再生産構造',description:'資源、担い手、加工、食べる場、記憶、所得が地域の食文化を支える関係を追う。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/'}
       ]}
     ]
@@ -36,10 +37,11 @@ const categories = [
     groups:[
       {title:'港・海運・交易',items:[
         {title:'瀬戸内の港・交通・交易',description:'潮待ち、風待ち、積替え、参詣、修船、交易が港町と広域市場を結ぶ構造を読む。',href:'/setouchi-cultural-economic-atlas/chapters/ports-trade/'},
-        {title:'潮待ち港の近代化と機能転換',description:'鞆・御手洗・多度津・尾道で、帆船時代の蓄積が近代交通へどう接続したかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'}
+        {title:'潮待ち港の近代化と機能転換',description:'鞆・御手洗・多度津・尾道で、帆船時代の蓄積が近代交通へどう接続したかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
+        {title:'港湾結節機能と都市資産の転換',description:'交通摩擦が滞留・商業・資本蓄積を生み、交通転換後に建築・金融・文化・次の交通結節へどう変わったかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/port-node-urban-assets/'}
       ]},
       {title:'シクロツーリズム',items:[
-        {title:'シクロツーリズムの地域影響と時系列比較',description:'来訪、滞在、消費、移住、創業、景観、インフラへの影響を、地域比較と整備前後の時系列で統合して読む。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/',modules:[
+        {title:'シクロツーリズムの地域影響と時系列比較',description:'来訪、停止、滞在、消費、関係人口、移住、創業、景観、インフラへの影響を地域比較と時系列で統合して読む。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/',modules:[
           ['地域影響の詳細','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'],
           ['時系列データ','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'],
           ['評価プロトコル','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'],
@@ -50,14 +52,14 @@ const categories = [
   },
   {
     no:'04', title:'産業・技術・資源循環',
-    description:'産業の形成と転換、技能・設備・資本の継承、企業間連鎖、副産物循環、新しい技術基盤を扱う。',
+    description:'産業の形成と転換、技能・設備・資本の継承、企業間連鎖、循環設計、新しい技術基盤を扱う。',
     groups:[
       {title:'産業転換・能力継承',items:[
-        {title:'瀬戸内産業の転換と能力継承',description:'商品が変わっても残る技能、設備、企業、取引関係、教育、問題解決能力を横断的に読む。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'},
+        {title:'瀬戸内産業の転換と能力継承',description:'自然資源、修理需要、企業技術、制度変更など複数の起点から生まれた能力が、次の市場へどう再結合されるかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'},
         {title:'塩田産業の地域資産継承',description:'赤穂・竹原・坂出・三田尻で、能力、土地、港湾、資本がどう残ったかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'}
       ]},
       {title:'造船・海事産業',items:[
-        {title:'瀬戸内造船産業の形成・集積・再生産構造',description:'海運需要、技能、資本、設備、企業間分業が形成され、ショック後に次の需要へ再結合されるまでを一つの研究として扱う。',href:'/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/',modules:[
+        {title:'瀬戸内造船産業の形成・集積・再生産構造',description:'海運需要、修繕、技能、船主資本、設備、企業間分業が形成され、次の需要へ再結合されるまでを扱う。',href:'/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/',modules:[
           ['形成・集積の詳細','/setouchi-cultural-economic-atlas/chapters/setouchi-shipbuilding-cluster/'],
           ['再生産モデル','/setouchi-cultural-economic-atlas/chapters/shipbuilding-reproduction-models/'],
           ['今治','/setouchi-cultural-economic-atlas/chapters/imabari-maritime-cluster/'],
@@ -74,11 +76,11 @@ const categories = [
         {title:'塩業から化学工業への産業転換',description:'塩田・港からソーダ、石油化学、高機能材料へ続く系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'},
         {title:'別子銅山から化学工業への産業系譜',description:'鉱山・製錬・煙害・硫黄回収から化学産業へ至る過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'}
       ]},
-      {title:'資源循環・副産物利用',items:[
-        {title:'瀬戸内の地域資源循環',description:'牡蠣殻、魚の鱗・残渣、オリーブ粕、醤油粕、柑橘残渣・剪定枝を比較し、副産物が次の生産系の資源へ変わる条件を整理する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/'}
+      {title:'資源循環・循環設計',items:[
+        {title:'瀬戸内の地域資源循環',description:'食品副産物から児島デニムまでを比較し、用途適合、カスケード利用、物流、循環速度、Design for Recyclingの成立条件を整理する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/'}
       ]},
       {title:'デジタル・AIインフラ',items:[
-        {title:'AIデータセンターの立地・地域接続・適地比較',description:'電力、通信、冷却、土地、災害条件と地域産業への接続を一体で評価し、瀬戸内の地域類型を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/',modules:[
+        {title:'AIデータセンターの立地・地域接続・適地比較',description:'電力、通信、冷却、土地、災害条件に加え、雇用・地域企業・計算資源利用への接続まで一体で評価する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/',modules:[
           ['立地条件・エコシステム','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/'],
           ['瀬戸内適地比較','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/']
         ]},
@@ -94,6 +96,7 @@ const categories = [
         {title:'瀬戸内の都市・集落形成',description:'港、企業、藩、商人、地形、交通の違いが都市形態をどう分けたかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/cities/'}
       ]},
       {title:'土地利用・再自然化',items:[
+        {title:'土地利用転換と出口設計',description:'塩田跡、干拓地、農地、太陽光発電所を、土地履歴、残存負担、可逆性、終了後の次用途から比較する。',href:'/setouchi-cultural-economic-atlas/chapters/land-use-transition-exit-design/'},
         {title:'瀬戸内ネイチャーポジティブ／戦略的再自然化',description:'人口減少、土地利用、生態系、防災を重ね、維持・低密度管理・生態系復元・自然遷移を比較する統合研究。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/',modules:[
           ['スクリーニング設計','/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/'],
           ['パイロット分析単位','/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-pilot-fields/']
@@ -127,17 +130,19 @@ const categories = [
 const relatedResources = [
   {group:'データ',title:'瀬戸内食資源マトリクス',description:'魚介・食資源を地域横断で比較するデータページ。',href:'/setouchi-cultural-economic-atlas/gastronomy-matrix/'},
   {group:'データ',title:'食文化ダッシュボード',description:'食資源と地域文化を比較するための指標・可視化。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/'},
-  {group:'方法',title:'エッセイ→研究ノート更新フロー',description:'新しいエッセイで得た知見を、関連研究ノートへ追記・修正・再構成する編集ルール。',href:'/setouchi-cultural-economic-atlas/research-workflow/'}
+  {group:'方法',title:'シクロツーリズム評価プロトコル',description:'シクロツーリズムの地域影響を測る評価手順。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'},
+  {group:'方法',title:'シクロツーリズム反実仮想KPI',description:'整備がなかった場合との比較に使う評価指標。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-counterfactual-kpi/'},
+  {group:'方法',title:'エッセイ→研究ノート更新フロー',description:'エッセイで得た新事実・比較・仮説を研究ノートへ蓄積する編集ルール。',href:'/setouchi-cultural-economic-atlas/research-workflow/'}
 ];
 
 const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap((group)=>group.items.map((item)=>item.href)))).size;
 ---
-<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内を7つの分析軸から読む研究ノート。重複する研究は統合研究ノートを正本とし、詳細分析をモジュールとして接続する。">
+<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内を7つの分析軸から読む研究ノート。自然環境、生業、交通、産業、都市、社会、文化を大カテゴリ・中カテゴリ・個別研究の3層で整理する。">
   <section class="research-index-hero">
     <div class="research-index-kicker">RESEARCH NOTES / STRUCTURED INDEX</div>
     <h1>研究ノート</h1>
-    <p class="research-index-lead">研究対象ごとに知見を蓄積する正本です。内容が重なる研究は統合研究ノートへまとめ、既存の詳細ページは分析モジュール・地域ケースとして残します。</p>
-    <div class="research-index-meta"><strong>{categories.length}</strong><span>大カテゴリ</span><strong>{noteCount}</strong><span>統合・個別研究ノート</span></div>
+    <p class="research-index-lead">エッセイで生まれた問い・データ・仮説を、比較可能な知見として蓄積する場所です。大カテゴリ、中カテゴリ、個別研究ノートの3層で整理し、エッセイの追加に合わせて更新します。</p>
+    <div class="research-index-meta"><strong>{categories.length}</strong><span>大カテゴリ</span><strong>{noteCount}</strong><span>個別ノート</span></div>
   </section>
 
   <nav class="research-major-nav" aria-label="研究ノート大カテゴリ">
@@ -145,20 +150,29 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
   </nav>
 
   <section class="research-index-guide">
-    <strong>研究ノートの統合ルール</strong>
-    <p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、カードは知見を蓄積する正本です。理論編・時系列・適地比較・地域ケースなどは、同じ研究テーマなら正本の下に分析モジュールとして束ねます。新しいエッセイから得た知見は、まず正本を更新します。</p>
+    <strong>分類とタイトルのルール</strong>
+    <p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、個別ノートは具体的な研究テーマです。データ集・ダッシュボード・評価手法は研究対象と分け、下部の「関連データ・方法」に置きます。研究ノートのタイトルは問い型を避け、対象・構造・分析内容が一目で分かる名称にします。</p>
   </section>
 
   <div class="research-category-list">
     {categories.map((category)=><section class="research-category" id={`research-${category.no}`}>
-      <header class="research-category-head"><span>{category.no}</span><div><h2>{category.title}</h2><p>{category.description}</p></div></header>
+      <header class="research-category-head">
+        <span>{category.no}</span>
+        <div><h2>{category.title}</h2><p>{category.description}</p></div>
+      </header>
       <div class="research-middle-list">
         {category.groups.map((group)=><section class="research-middle">
           <h3>{group.title}</h3>
           <div class="research-note-grid">
-            {group.items.map((item)=><article class="research-note-card">
-              <a class="research-note-main" href={item.href}><strong>{item.title}</strong><p>{item.description}</p><span>研究ノートを開く →</span></a>
-              {item.modules && <div class="research-modules"><small>詳細分析</small>{item.modules.map(([label,href])=><a href={href}>{label}</a>)}</div>}
+            {group.items.map((item)=><article class="research-note-card-wrap">
+              <a class="research-note-card" href={item.href}>
+                <strong>{item.title}</strong>
+                <p>{item.description}</p>
+                <span>研究ノートを開く →</span>
+              </a>
+              {item.modules && <div class="research-module-links">
+                {item.modules.map((module)=><a href={module[1]}>{module[0]} →</a>)}
+              </div>}
             </article>)}
           </div>
         </section>)}
@@ -166,11 +180,21 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
     </section>)}
 
     <section class="research-category related-resources" id="research-resources">
-      <header class="research-category-head"><span>＋</span><div><h2>関連データ・方法</h2><p>研究対象そのものではなく、比較・検証・更新を支えるデータページと編集方法をまとめます。</p></div></header>
+      <header class="research-category-head">
+        <span>＋</span>
+        <div><h2>関連データ・方法</h2><p>研究対象そのものではなく、比較・検証・更新を支えるデータページと方法論をまとめます。</p></div>
+      </header>
       <div class="research-middle-list">
-        {['データ','方法'].map((groupName)=><section class="research-middle"><h3>{groupName}</h3><div class="research-note-grid">
-          {relatedResources.filter((item)=>item.group===groupName).map((item)=><article class="research-note-card"><a class="research-note-main" href={item.href}><strong>{item.title}</strong><p>{item.description}</p><span>{groupName}を見る →</span></a></article>)}
-        </div></section>)}
+        {['データ','方法'].map((groupName)=><section class="research-middle">
+          <h3>{groupName}</h3>
+          <div class="research-note-grid">
+            {relatedResources.filter((item)=>item.group===groupName).map((item)=><a class="research-note-card" href={item.href}>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+              <span>{groupName}を見る →</span>
+            </a>)}
+          </div>
+        </section>)}
       </div>
     </section>
   </div>
@@ -178,15 +202,31 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
   <style>
     .research-index-hero{max-width:1180px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line,#ddd)}
     .research-index-kicker{font-size:.72rem;letter-spacing:.18em;font-weight:700;opacity:.6;margin-bottom:1.2rem}
-    .research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}.research-index-lead{max-width:780px;font-size:1.12rem;line-height:1.9;margin:0}
-    .research-index-meta{display:flex;gap:.7rem 1.2rem;align-items:baseline;flex-wrap:wrap;margin-top:2rem}.research-index-meta strong{font-size:2rem}.research-index-meta span{font-size:.82rem;opacity:.65;margin-right:1rem}
-    .research-major-nav{max-width:1180px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem}.research-major-nav a{display:flex;gap:.8rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;background:var(--surface,#fff)}.research-major-nav span{font-size:.72rem;opacity:.5}
-    .research-index-guide{max-width:1120px;margin:1rem auto 3rem;padding:1.2rem 1.4rem;background:rgba(120,120,120,.07)}.research-index-guide strong{display:block;margin-bottom:.35rem}.research-index-guide p{margin:0;line-height:1.7}
-    .research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}.research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd);scroll-margin-top:5rem}
-    .research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2.4rem}.research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18;line-height:1}.research-category-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:0 0 .8rem;line-height:1.15}.research-category-head p{margin:0;max-width:760px;line-height:1.8;opacity:.75}
-    .research-middle-list{display:grid;gap:2.8rem;margin-left:90px}.research-middle h3{font-size:1.25rem;margin:0 0 1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line,#ddd)}
-    .research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem}.research-note-card{border:1px solid var(--line,#ddd);background:var(--surface,#fff);display:flex;flex-direction:column}.research-note-main{display:flex;flex-direction:column;min-height:165px;padding:1.25rem;text-decoration:none;color:inherit}.research-note-main strong{font-size:1.08rem;line-height:1.45}.research-note-main p{font-size:.9rem;line-height:1.65;opacity:.72;flex:1}.research-note-main span{font-size:.8rem;font-weight:700}
-    .research-modules{border-top:1px solid var(--line,#ddd);padding:.9rem 1.1rem;display:flex;gap:.45rem .8rem;flex-wrap:wrap;align-items:center}.research-modules small{width:100%;font-size:.68rem;letter-spacing:.12em;opacity:.5}.research-modules a{font-size:.8rem;text-decoration:none;border-bottom:1px solid currentColor;color:inherit;opacity:.78}.research-modules a:hover{opacity:1}.related-resources{margin-top:1rem}
+    .research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}
+    .research-index-lead{max-width:760px;font-size:1.12rem;line-height:1.9;margin:0}
+    .research-index-meta{display:flex;gap:.7rem 1.2rem;align-items:baseline;flex-wrap:wrap;margin-top:2rem}
+    .research-index-meta strong{font-size:2rem}.research-index-meta span{font-size:.82rem;opacity:.65;margin-right:1rem}
+    .research-major-nav{max-width:1180px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem}
+    .research-major-nav a{display:flex;gap:.8rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;background:var(--surface,#fff)}
+    .research-major-nav span{font-size:.72rem;opacity:.5}
+    .research-index-guide{max-width:1120px;margin:1rem auto 3rem;padding:1.2rem 1.4rem;background:rgba(120,120,120,.07)}
+    .research-index-guide strong{display:block;margin-bottom:.35rem}.research-index-guide p{margin:0;line-height:1.7}
+    .research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}
+    .research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd);scroll-margin-top:5rem}
+    .research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2.4rem}
+    .research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18;line-height:1}
+    .research-category-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:0 0 .8rem;line-height:1.15}
+    .research-category-head p{margin:0;max-width:760px;line-height:1.8;opacity:.75}
+    .research-middle-list{display:grid;gap:2.8rem;margin-left:90px}
+    .research-middle h3{font-size:1.25rem;margin:0 0 1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line,#ddd)}
+    .research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:.8rem}
+    .research-note-card-wrap{border:1px solid var(--line,#ddd);background:var(--surface,#fff)}
+    .research-note-card{display:flex;flex-direction:column;min-height:175px;padding:1.25rem;text-decoration:none;color:inherit;background:var(--surface,#fff)}
+    a.research-note-card{border:1px solid var(--line,#ddd)}.research-note-card-wrap>a.research-note-card{border:0}
+    .research-note-card strong{font-size:1.08rem;line-height:1.45}.research-note-card p{font-size:.9rem;line-height:1.65;opacity:.72;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}
+    .research-module-links{display:flex;gap:.45rem;flex-wrap:wrap;padding:0 1.25rem 1.1rem}.research-module-links a{font-size:.76rem;text-decoration:none;border-bottom:1px solid currentColor;color:inherit;opacity:.7}
+    .research-note-card:hover{transform:translateY(-2px);transition:.15s ease}
+    .related-resources{margin-top:1rem}
     @media(max-width:720px){.research-category-head{grid-template-columns:1fr}.research-category-head>span{font-size:1.2rem}.research-middle-list{margin-left:0}.research-index-hero{padding-top:3.5rem}}
   </style>
 </BaseLayout>
