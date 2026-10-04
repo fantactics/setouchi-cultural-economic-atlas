@@ -1,5 +1,59 @@
 ---
-const { items = [] } = Astro.props;
+import { orderedBookArticles } from '../data/bookArticles.js';
+import { kadaEssays } from '../data/kadaEssays.js';
+import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
+import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
+import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
+import { places } from '../data/places.js';
+import { hinasePlace } from '../data/hinasePlace.js';
+import { additionalPlaces } from '../data/additionalPlaces.js';
+import { researchChapters } from '../data/researchChapters.js';
+import { transportResearchChapters } from '../data/transportResearchChapters.js';
+
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
+const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
+
+const specialResearch=[
+  ['動的自然資本――変わり続ける土地と、人間の応答','土地は、そこにあるのではない。変わり続けている。','/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/','自然資本 地殻変動 海面変動 気候変動 生態系 人間の適応 改変 暮らし'],
+  ['少雨地域の水貯留と配分制度','自然制約への応答が地域能力をどう形成するか。','/setouchi-cultural-economic-atlas/chapters/water-storage-allocation/','讃岐 ため池 水利 香川用水 少雨 水資源 貯留 配分 制度'],
+  ['シクロツーリズムの地域影響と時系列比較','移動が地域の中で何へ変換されたかを追う。','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/','しまなみ とびしま ゆめしま 鴻島 自転車 観光 停止 滞在 消費 関係人口 移住 創業'],
+  ['瀬戸内造船産業の形成・集積・再生産構造','船主・修繕・舶用工業・技能・金融から造船集積を読む。','/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/','造船 今治 尾道 因島 船主 修繕 舶用工業 海運 技能 金融'],
+  ['AIデータセンターの立地・地域接続・適地比較','立地できるかと、地域に何が残るかを分けて評価する。','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/','AI データセンター DC 電力 通信 冷却 GPU 地域接続 Physical AI 立地'],
+  ['小規模離島の利用強度','人口だけでなく、所有・滞在・消費・移動・公共負担から島を測る。','/setouchi-cultural-economic-atlas/chapters/island-use-intensity/','離島 鴻島 人口 別荘 所有 滞在 公共インフラ 空き家 利用強度'],
+  ['地域資産の再生産構造','地域資産が利用されながら維持・更新される条件を比較する。','/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/','地域資産 再生産 利用 維持 更新 空き家 町並み 観光 産業'],
+  ['瀬戸内の土地利用ライフサイクル','形成・利用・転換・退出・再利用という時間軸で土地利用を比較する。','/setouchi-cultural-economic-atlas/chapters/land-use-lifecycle/','土地利用 塩田 干拓 農地 太陽光 別荘地 再利用 退出'],
+  ['沿岸食資源の価値形成','自然資源が漁法・養殖・加工・市場・料理を通じて地域価値へ変わる過程を比較する。','/setouchi-cultural-economic-atlas/chapters/coastal-food-value-formation/','食文化 魚介 漁法 養殖 加工 市場 料理 鯛 タコ 穴子'],
+  ['食文化の再生産構造','資源、担い手、加工、食べる場、記憶、所得が食文化を支える関係を追う。','/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/','食文化 再生産 担い手 加工 飲食店 記憶 所得 地域料理']
+];
+
+const items=[
+  ...allEssays.map((article)=>({
+    type:'エッセイ',
+    title:article.title || '',
+    subtitle:article.subtitle || '',
+    href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,
+    region:article.place || article.region || '',
+    text:JSON.stringify(article)
+  })),
+  ...allResearch.map((chapter)=>({
+    type:'研究ノート',
+    title:chapter.title || '',
+    subtitle:chapter.subtitle || chapter.thesis || '',
+    href:`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`,
+    region:'',
+    text:JSON.stringify(chapter)
+  })),
+  ...specialResearch.map((item)=>({type:'研究ノート',title:item[0],subtitle:item[1],href:item[2],region:'',text:item[3]})),
+  ...allPlaces.map((place)=>({
+    type:'地域別',
+    title:place.name || '',
+    subtitle:place.subtitle || '',
+    href:`/setouchi-cultural-economic-atlas/places/${place.id}/`,
+    region:place.prefecture || '',
+    text:JSON.stringify(place)
+  }))
+];
 ---
 <section class="section atlas-search" data-atlas-search data-search-items={JSON.stringify(items)}>
   <div class="atlas-search-head">
@@ -31,58 +85,27 @@ const { items = [] } = Astro.props;
     const status=root.querySelector('.atlas-search-status');
     const results=root.querySelector('.atlas-search-results');
     if(!input || !results) return;
-
     const normalize=(value)=>String(value || '').toLowerCase().normalize('NFKC');
-    const escapeHtml=(value)=>String(value || '').replace(/[&<>'"]/g,(char)=>({
-      '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
-    }[char]));
-    const prepared=items.map((item)=>({
-      ...item,
-      _title:normalize(item.title),
-      _subtitle:normalize(item.subtitle),
-      _text:normalize(item.text)
-    }));
-
+    const escapeHtml=(value)=>String(value || '').replace(/[&<>'"]/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    const prepared=items.map((item)=>({...item,_title:normalize(item.title),_subtitle:normalize(item.subtitle),_text:normalize(item.text)}));
     const search=()=>{
-      const raw=input.value.trim();
-      const terms=normalize(raw).split(/\s+/).filter(Boolean);
-      if(!terms.length){
-        results.innerHTML='';
-        status.textContent='キーワードを入力してください。';
-        return;
-      }
+      const terms=normalize(input.value.trim()).split(/\s+/).filter(Boolean);
+      if(!terms.length){ results.innerHTML=''; status.textContent='キーワードを入力してください。'; return; }
       const matched=prepared.map((item)=>{
         const haystack=`${item._title} ${item._subtitle} ${item._text}`;
         if(!terms.every((term)=>haystack.includes(term))) return null;
         let score=0;
-        terms.forEach((term)=>{
-          if(item._title.includes(term)) score+=8;
-          if(item._subtitle.includes(term)) score+=4;
-          if(item._text.includes(term)) score+=1;
-        });
+        terms.forEach((term)=>{ if(item._title.includes(term)) score+=8; if(item._subtitle.includes(term)) score+=4; if(item._text.includes(term)) score+=1; });
         return {...item,score};
       }).filter(Boolean).sort((a,b)=>b.score-a.score || a.title.localeCompare(b.title,'ja')).slice(0,20);
-
       status.textContent=matched.length ? `${matched.length}件表示しています。` : '該当する記事は見つかりませんでした。';
-      results.innerHTML=matched.map((item)=>`
-        <a class="atlas-search-result" href="${escapeHtml(item.href)}">
-          <div class="atlas-search-result-meta"><span>${escapeHtml(item.type)}</span>${item.region ? `<em>${escapeHtml(item.region)}</em>` : ''}</div>
-          <strong>${escapeHtml(item.title)}</strong>
-          ${item.subtitle ? `<p>${escapeHtml(item.subtitle)}</p>` : ''}
-          <small>開く →</small>
-        </a>
-      `).join('');
+      results.innerHTML=matched.map((item)=>`<a class="atlas-search-result" href="${escapeHtml(item.href)}"><div class="atlas-search-result-meta"><span>${escapeHtml(item.type)}</span>${item.region ? `<em>${escapeHtml(item.region)}</em>` : ''}</div><strong>${escapeHtml(item.title)}</strong>${item.subtitle ? `<p>${escapeHtml(item.subtitle)}</p>` : ''}<small>開く →</small></a>`).join('');
     };
-
     input.addEventListener('input',search);
-    clear?.addEventListener('click',()=>{
-      input.value='';
-      search();
-      input.focus();
-    });
+    clear?.addEventListener('click',()=>{ input.value=''; search(); input.focus(); });
   })();
 </script>
 
 <style>
-  .atlas-search{max-width:1120px;margin:0 auto}.atlas-search-head h2{font-size:clamp(2rem,4vw,3rem);margin:.25rem 0 .6rem}.atlas-search-head p{margin:0;max-width:720px;line-height:1.8;opacity:.72}.atlas-search-box{margin-top:1.5rem}.atlas-search-box label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;margin-bottom:.5rem;opacity:.65}.atlas-search-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem}.atlas-search-input{width:100%;min-height:3.4rem;padding:.85rem 1rem;border:1px solid rgba(0,0,0,.18);border-radius:.25rem;background:#fff;font:inherit;font-size:1rem}.atlas-search-input:focus{outline:2px solid rgba(48,80,70,.28);outline-offset:2px}.atlas-search-clear{padding:.7rem 1rem;border:1px solid rgba(0,0,0,.18);background:transparent;cursor:pointer;font:inherit}.atlas-search-status{margin:.7rem 0 0;font-size:.82rem;opacity:.58}.atlas-search-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;margin-top:1.4rem}.atlas-search-result{display:flex;flex-direction:column;min-height:150px;padding:1rem 1.05rem;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.76);color:inherit;text-decoration:none}.atlas-search-result:hover{background:#fff;transform:translateY(-1px)}.atlas-search-result-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.7rem}.atlas-search-result-meta span,.atlas-search-result-meta em{font-size:.7rem;font-style:normal;letter-spacing:.06em;opacity:.58}.atlas-search-result strong{font-size:1.05rem;line-height:1.45}.atlas-search-result p{margin:.55rem 0 1rem;font-size:.87rem;line-height:1.65;opacity:.72;flex:1}.atlas-search-result small{margin-top:auto;font-weight:700;font-size:.76rem}@media(max-width:640px){.atlas-search-input-row{grid-template-columns:1fr}.atlas-search-clear{justify-self:start}.atlas-search-results{grid-template-columns:1fr}}
+  .atlas-search{max-width:1120px;margin:0 auto}.atlas-search-head h2{font-size:clamp(2rem,4vw,3rem);margin:.25rem 0 .6rem}.atlas-search-head p{margin:0;max-width:720px;line-height:1.8;opacity:.72}.atlas-search-box{margin-top:1.5rem}.atlas-search-box label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;margin-bottom:.5rem;opacity:.65}.atlas-search-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem}.atlas-search-input{width:100%;min-height:3.4rem;padding:.85rem 1rem;border:1px solid rgba(0,0,0,.18);border-radius:.25rem;background:#fff;font:inherit;font-size:1rem}.atlas-search-input:focus{outline:2px solid rgba(48,80,70,.28);outline-offset:2px}.atlas-search-clear{padding:.7rem 1rem;border:1px solid rgba(0,0,0,.18);background:transparent;cursor:pointer;font:inherit}.atlas-search-status{margin:.7rem 0 0;font-size:.82rem;opacity:.58}.atlas-search-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;margin-top:1.4rem}.atlas-search-result{display:flex;flex-direction:column;min-height:150px;padding:1rem 1.05rem;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.76);color:inherit;text-decoration:none;transition:transform .15s ease,background .15s ease}.atlas-search-result:hover{background:#fff;transform:translateY(-1px)}.atlas-search-result-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.7rem}.atlas-search-result-meta span,.atlas-search-result-meta em{font-size:.7rem;font-style:normal;letter-spacing:.06em;opacity:.58}.atlas-search-result strong{font-size:1.05rem;line-height:1.45}.atlas-search-result p{margin:.55rem 0 1rem;font-size:.87rem;line-height:1.65;opacity:.72;flex:1}.atlas-search-result small{margin-top:auto;font-weight:700;font-size:.76rem}@media(max-width:640px){.atlas-search-input-row{grid-template-columns:1fr}.atlas-search-clear{justify-self:start}.atlas-search-results{grid-template-columns:1fr}}
 </style>
