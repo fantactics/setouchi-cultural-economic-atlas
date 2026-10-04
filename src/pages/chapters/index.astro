@@ -1,113 +1,121 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const categories = [
-  {no:'01',title:'自然環境・生態系',description:'自然資本を固定的な背景ではなく、地殻変動・気候変動・水・海況・生態系の変化を含む動的な基盤として扱う。',method:'形成・変動・人為改変・再編を時間軸で追い、現在の自然条件だけでなく、自然資本そのものがどう変わってきたかを見る。',groups:[
-    {title:'動的自然資本',items:[{title:'動的自然資本――変わり続ける土地と、人間の応答',description:'地殻変動、海面変動、気候変動、生態系遷移によって変化する自然資本と、人間の適応・改変・暮らしの再編を読む。',href:'/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/'}]},
-    {title:'瀬戸内の地形・地理構造',items:[{title:'瀬戸内の地形・地理構造',description:'灘・湾・瀬戸・海峡、島嶼、地質、河川、平野、海底地形を地域差の基盤として読む。',href:'/setouchi-cultural-economic-atlas/chapters/geography/'}]},
-    {title:'瀬戸内の気候・水循環',items:[
-      {title:'瀬戸内の気候・水循環',description:'降水、風、河川、地下水、ため池、陸から海への水と物質の移動を読む。',href:'/setouchi-cultural-economic-atlas/chapters/climate-water/'},
-      {title:'少雨地域の水貯留と配分制度',description:'讃岐のため池、水利慣行、香川用水から、少雨という自然制約を貯留・配分・連結によって組み替える仕組みを読む。',href:'/setouchi-cultural-economic-atlas/chapters/water-storage-allocation/'}
-    ]},
-    {title:'海と陸のエコシステム',items:[{title:'海と陸のエコシステム',description:'砂底・干潟・藻場・岩礁、森林・里山・段畑など、自然条件と人間利用が重なる生態系を読む。',href:'/setouchi-cultural-economic-atlas/chapters/ecosystems/'}]}
-  ]},
-  {no:'02',title:'生業・食文化',description:'自然資源を採取・栽培・加工し、商品や料理へ変換する人間の営みを扱う。',method:'資源の存在だけでなく、採取・栽培、加工、保存、流通、調理、消費、担い手の再生産までを一続きの系として見る。',groups:[
-    {title:'生業・資源利用',items:[{title:'自然資源の生業化',description:'塩、魚、柑橘、石、鉱物などを、技術・労働・制度・交易によって生業へ変換する過程を読む。',href:'/setouchi-cultural-economic-atlas/chapters/livelihoods/'}]},
-    {title:'食文化',items:[
-      {title:'瀬戸内食文化の自然環境基盤',description:'海域、魚介、農産物、漁法、加工、流通、調理の因果鎖を地域横断で読む。',href:'/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/'},
-      {title:'沿岸食資源の価値形成',description:'自然資源が漁法・養殖・加工・市場・料理を通じて地域価値へ変わる過程を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/coastal-food-value-formation/'},
-      {title:'食文化の再生産構造',description:'資源、担い手、加工、食べる場、記憶、所得が地域の食文化を支える関係を追う。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/'}
-    ]}
-  ]},
-  {no:'03',title:'交通・交易・移動',description:'海運、港、鉄道、道路、自転車など、人・物・情報の移動と地域の結節構造を扱う。',method:'移動の速さだけでなく、自然が生む摩擦、結節点での停止・滞留・積替え、地域内への経済的・関係的な捕捉を見る。',groups:[
-    {title:'港・海運・交易',items:[
-      {title:'瀬戸内の港・交通・交易',description:'潮待ち、風待ち、積替え、参詣、修船、交易が港町と広域市場を結ぶ構造を読む。',href:'/setouchi-cultural-economic-atlas/chapters/ports-trade/'},
-      {title:'潮待ち港の近代化と機能転換',description:'鞆・御手洗・多度津・尾道で、帆船時代の蓄積が近代交通へどう接続したかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
-      {title:'港湾結節機能と都市資産の転換',description:'交通摩擦が滞留・資本蓄積・都市形成を生み、交通転換後に何へ変わったかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/port-node-urban-assets/'}
-    ]},
-    {title:'シクロツーリズム',items:[{title:'シクロツーリズムの地域影響と時系列比較',description:'来訪、停止、滞在、消費、関係人口、移住、創業、景観、インフラへの影響を統合して読む。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/',modules:[['地域影響','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'],['時系列','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'],['経済・関係捕捉','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-capture/'],['評価方法','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'],['反実仮想KPI','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-counterfactual-kpi/']]}]}
-  ]},
-  {no:'04',title:'産業・技術・資源循環',description:'自然資本と暮らしの上に形成された産業の転換、技能・設備・資本の継承、企業間連鎖、循環設計、新しい技術基盤を扱う。',method:'産業を単独で起点にせず、自然資本と暮らしを基層に置き、技能・設備・資本・制度・市場がどう蓄積され、別の用途へ再結合されたかを見る。',groups:[
-    {title:'産業転換・能力継承',items:[
-      {title:'瀬戸内産業の転換と能力継承',description:'自然資本を基層に置き、修理需要、企業技術、制度変更、市場などが能力形成をどう促し、次市場へ再結合されるかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'},
-      {title:'塩田産業の地域資産継承',description:'赤穂・竹原・坂出・三田尻で、能力、土地、港湾、資本がどう残ったかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'}
-    ]},
-    {title:'造船・海事産業',items:[{title:'瀬戸内造船産業の形成・集積・再生産構造',description:'海峡・潮流・港湾条件が航海生活と修繕需要を生み、技能・船主資本・設備・企業間分業へつながる過程を扱う。',href:'/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/',modules:[['自然資本と航海生活','/setouchi-cultural-economic-atlas/chapters/shipbuilding-natural-capital/'],['形成・集積','/setouchi-cultural-economic-atlas/chapters/setouchi-shipbuilding-cluster/'],['再生産モデル','/setouchi-cultural-economic-atlas/chapters/shipbuilding-reproduction-models/']]}]},
-    {title:'繊維・衣料',items:[
-      {title:'児島繊維産業の系譜',description:'干拓・綿作・紡績・学生服・ジーンズへ続く産業系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'},
-      {title:'福山デニム産業の系譜',description:'備後絣・藍染・織布の技能がデニムへ接続する過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'}
-    ]},
-    {title:'資源・化学・素材',items:[
-      {title:'塩業から化学工業への産業転換',description:'塩田・港からソーダ、石油化学、高機能材料へ続く系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'},
-      {title:'別子銅山から化学工業への産業系譜',description:'鉱山・製錬・煙害・硫黄回収から化学産業へ至る過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'}
-    ]},
-    {title:'資源循環・循環設計',items:[{title:'瀬戸内の地域資源循環',description:'食品副産物から児島デニムまで、用途適合、カスケード利用、物流、循環速度、循環設計を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/'}]},
-    {title:'デジタル・AIインフラ',items:[
-      {title:'AIデータセンターの立地・地域接続・適地比較',description:'自然資本、水・電力・土地・災害条件と地域生活との競合・補完を含め、通信・計算資源・地域接続まで評価する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/',modules:[['立地条件','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/'],['自然資本・暮らしとの関係','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-natural-capital/'],['適地比較','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/']]},
-      {title:'瀬戸内Physical AIエコシステム',description:'GPU/DC、電力、通信、現場企業、制御、SI、大学・高専の接続を読む。',href:'/setouchi-cultural-economic-atlas/chapters/physical-ai-player-ecosystem/'}
-    ]}
-  ]},
-  {no:'05',title:'都市・集落・土地利用',description:'都市・集落の形成と、干拓・埋立・再自然化など空間と土地利用の変化を扱う。',method:'地形と交通条件を起点に、土地の形成・改変・所有・用途転換・低密度化・退出までを時間軸で追い、空間がどう再編されたかを見る。',groups:[
-    {title:'都市・集落形成',items:[{title:'瀬戸内の都市・集落形成',description:'港、企業、藩、商人、地形、交通の違いが都市形態をどう分けたかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/cities/'}]},
-    {title:'土地利用・再自然化',items:[
-      {title:'瀬戸内の土地利用ライフサイクル',description:'塩田、干拓地、農地、太陽光、別荘地を、形成・利用・終了・再利用・退出までの時間軸で読む。',href:'/setouchi-cultural-economic-atlas/chapters/land-use-lifecycle/'},
-      {title:'瀬戸内ネイチャーポジティブ／戦略的再自然化',description:'人口減少、土地利用、生態系、防災を重ね、維持・低密度管理・生態系復元・自然遷移を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/',modules:[['スクリーニング','/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/'],['パイロット分析','/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-pilot-fields/']]}
-    ]}
-  ]},
-  {no:'06',title:'社会・暮らし・制度',description:'人口、居住、所有、公共サービス、地域経済など、人が地域を使い続ける社会的条件を扱う。',method:'人口だけを代理指標にせず、居住・滞在・所有・利用・消費・公共負担・関係形成などを分け、地域を使い続ける条件を見る。',groups:[
-    {title:'人口・居住・地域利用',items:[{title:'小規模離島の利用強度',description:'常住人口だけでなく、所有、居住、滞在、消費、移動、公共負担、外部不経済を分解して島を測る。',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'}]},
-    {title:'地域経済・資産再生産',items:[{title:'地域資産の再生産構造',description:'産業、食文化、町並み、観光などの地域資産が、利用されながら維持・更新される条件を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/'}]}
-  ]},
-  {no:'07',title:'文化・信仰・地域認識',description:'信仰、祭礼、生活文化、景観、地域記憶など、人が土地に与えてきた意味と文化的蓄積を扱う。',method:'文化を独立した装飾要素として扱わず、自然条件・生業・移動・共同体・制度との関係から、意味や実践がどう形成・継承されたかを見る。',groups:[
-    {title:'信仰・祭礼・文化景観',items:[{title:'瀬戸内の信仰・生活文化',description:'神社ネットワーク、祭礼、生活技術、文化景観が地域社会に定着する過程を読む。',href:'/setouchi-cultural-economic-atlas/chapters/culture/'}]}
-  ]}
+const coreResearch = [
+  {
+    no:'01', title:'自然制約への応答は、地域能力をどう形成するか',
+    insight:'自然条件そのものだけでなく、制約への長期的な応答が、技術・制度・共同管理能力として地域に蓄積する可能性を検証する。',
+    items:[
+      ['少雨地域の水貯留と配分制度','讃岐の少雨条件に対し、ため池・水利慣行・広域用水がどのように生活可能性を組み替えたかを比較する。','/setouchi-cultural-economic-atlas/chapters/water-storage-allocation/'],
+      ['地域別・動的自然資本の比較','自然資本の変化と人間の応答を22地域で比較し、同じ自然条件でも異なる地域構造が生まれる理由を探る。','/setouchi-cultural-economic-atlas/chapters/regional-dynamic-natural-capital/']
+    ]
+  },
+  {
+    no:'02', title:'移動量ではなく「停止と滞留」が地域価値を生むのではないか',
+    insight:'交通量や来訪者数が増えても、停止・滞在・消費・関係継続へ変換されなければ地域内に価値は残らない、という仮説を港と観光の双方から検証する。',
+    items:[
+      ['潮待ち港の近代化と機能転換','鞆・御手洗・多度津・尾道を比較し、交通条件の変化後に港町の蓄積が何へ転換されたかを見る。','/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'],
+      ['港湾結節機能と都市資産の転換','交通摩擦が生んだ滞留・資本蓄積・都市形成が、交通高速化後にどう再利用されたかを比較する。','/setouchi-cultural-economic-atlas/chapters/port-node-urban-assets/'],
+      ['シクロツーリズムの地域影響と時系列比較','走行者数ではなく、停止・宿泊・消費・再訪・所有・移住・創業への変換を比較する。','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/']
+    ]
+  },
+  {
+    no:'03', title:'産業は「工場」ではなく、能力の再結合によって継続するのではないか',
+    insight:'産業転換を企業名や製品の交代としてではなく、技能・設備・資本・土地・港湾・顧客・制度が別用途へ再結合される過程として読む。',
+    items:[
+      ['瀬戸内産業の転換と能力継承','複数産業を横断し、何が失われ、何が次産業へ持ち越されたかを比較する。','/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'],
+      ['塩田産業の地域資産継承','赤穂・竹原・坂出・三田尻で、塩業後に土地・港・資本・技術がどう残ったかを比較する。','/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'],
+      ['瀬戸内造船産業の形成・集積・再生産構造','造船所単体ではなく、船主・修繕・舶用工業・技能・金融の相互依存から産業集積の再生産を読む。','/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/'],
+      ['瀬戸内の地域資源循環','副産物・廃材・技能・物流を含め、地域内で資源価値が何段階に再利用されるかを比較する。','/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/']
+    ]
+  },
+  {
+    no:'04', title:'食文化は「名物」ではなく、資源と担い手の再生産系ではないか',
+    insight:'料理名の分布ではなく、海・農地・漁法・加工・流通・調理・食べる場・所得が連結して初めて食文化が継続する、という見方を地域比較で検証する。',
+    items:[
+      ['沿岸食資源の価値形成','自然資源が漁法・養殖・加工・市場・料理を経て地域価値へ変わる経路を比較する。','/setouchi-cultural-economic-atlas/chapters/coastal-food-value-formation/'],
+      ['食文化の再生産構造','資源、担い手、加工、食べる場、記憶、所得が食文化を維持する条件を整理・比較する。','/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/']
+    ]
+  },
+  {
+    no:'05', title:'人口減少下では「人口」より地域の利用強度を見るべきではないか',
+    insight:'常住人口だけでは地域の実態を捉えられない。所有・滞在・消費・移動・公共負担・外部不経済を分解して、地域がどのように使われているかを測る。',
+    items:[
+      ['小規模離島の利用強度','鴻島等を念頭に、人口の少なさと利用の少なさを分け、別荘・滞在・公共負担を含めて測る。','/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'],
+      ['地域資産の再生産構造','資産価格ではなく、利用・維持・外部性・再利用可能性から地域資産が持続する条件を比較する。','/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/'],
+      ['瀬戸内の土地利用ライフサイクル','形成・利用・転換・退出・再利用という時間軸で土地利用を比較する。','/setouchi-cultural-economic-atlas/chapters/land-use-lifecycle/']
+    ]
+  },
+  {
+    no:'06', title:'巨大投資が地域価値を生む条件は「地域接続」にあるのではないか',
+    insight:'投資額や立地件数そのものではなく、地元調達・人材・既存産業・計算資源利用・インフラ外部効果への接続度が地域効果を左右するという仮説を検証する。',
+    items:[
+      ['AIデータセンターの立地・地域接続・適地比較','「立地できるか」と「地域に何が残るか」を分け、瀬戸内の適地性と接続性を比較する。','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/'],
+      ['瀬戸内Physical AIエコシステム','計算資源と製造・物流・港湾等の現場需要がどこで接続し得るかを整理する。','/setouchi-cultural-economic-atlas/chapters/physical-ai-player-ecosystem/']
+    ]
+  }
 ];
 
-const sharedMethods=[
-  ['動的自然資本','自然資本を固定値として扱わず、Natural Capital(t) として形成・変動・改変・継承を時間軸で見る。'],
-  ['環境決定論に立たない','自然条件は可能性と制約を与えるが、人間の選択、技術、制度、市場によって結果は変わると考える。'],
-  ['暮らしを産業より先に置く','人がどう住み、食べ、働き、移動し、資源を使ったかを先に読み、産業や都市をその表出として捉える。'],
-  ['事実・解釈・仮説を分ける','確認できる事実と、比較から導く解釈、まだ検証を要する仮説を明示的に分ける。'],
-  ['地域間比較を行う','同じ自然条件でも異なる選択があり、異なる自然条件でも似た仕組みが生まれることを比較から検証する。'],
-  ['可能性と制約の変化を見る','人口増加や産業成長を自動的に善とせず、何が可能になり、何が難しくなったかを両面から記述する。']
+const sourceNotes=[
+  ['地形・地理構造','/setouchi-cultural-economic-atlas/chapters/geography/'],
+  ['気候・水循環','/setouchi-cultural-economic-atlas/chapters/climate-water/'],
+  ['海と陸のエコシステム','/setouchi-cultural-economic-atlas/chapters/ecosystems/'],
+  ['自然資源の生業化','/setouchi-cultural-economic-atlas/chapters/livelihoods/'],
+  ['瀬戸内食文化の自然環境基盤','/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/'],
+  ['瀬戸内の港・交通・交易','/setouchi-cultural-economic-atlas/chapters/ports-trade/'],
+  ['児島繊維産業の系譜','/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'],
+  ['福山デニム産業の系譜','/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'],
+  ['塩業から化学工業への産業転換','/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'],
+  ['別子銅山から化学工業への産業系譜','/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'],
+  ['瀬戸内の都市・集落形成','/setouchi-cultural-economic-atlas/chapters/cities/'],
+  ['瀬戸内の信仰・生活文化','/setouchi-cultural-economic-atlas/chapters/culture/']
 ];
 
-const noteCount=new Set(categories.flatMap(c=>c.groups.flatMap(g=>g.items.map(i=>i.href)))).size;
+const methods=[
+  ['地域研究の方法論','/setouchi-cultural-economic-atlas/methodology/'],
+  ['動的自然資本','/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/'],
+  ['自然資本と暮らしの共通分析フレーム','/setouchi-cultural-economic-atlas/chapters/natural-capital-lifestyle-framework/'],
+  ['シクロツーリズム評価プロトコル','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'],
+  ['産業研究の自然資本監査','/setouchi-cultural-economic-atlas/chapters/industry-natural-capital-audit/']
+];
 ---
-<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="変わり続ける瀬戸内の自然資本と、人間の暮らし・生業・産業・文化・都市の関係を比較研究するノート。">
+<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内の地域比較から、新しい説明・仮説・知見を導く研究ノート。">
   <section class="research-index-hero">
-    <div class="research-index-kicker">RESEARCH PROGRAM</div>
+    <div class="research-index-kicker">RESEARCH FINDINGS</div>
     <h1>研究ノート</h1>
-    <p class="research-index-lead">SETOUCHI ATLASの研究は、変わり続ける土地と、その変化に応答しながら生き方を組み替えてきた人間との関係を読むことを目的とします。</p>
-    <div class="research-index-meta"><strong>{categories.length}</strong><span>研究テーマ</span><strong>{noteCount}</strong><span>個別ノート</span></div>
+    <p class="research-index-lead">ここでは「どう見るか」ではなく、比較と証拠から<strong>何がわかったか</strong>を主役にします。方法論や基礎情報は研究を支える別レイヤーへ分離し、研究ノートには問い・比較・発見・仮説があるものを置きます。</p>
   </section>
 
   <section class="research-program-intro">
-    <article><div class="research-program-no">01</div><div><div class="research-program-label">研究目的</div><h2>この研究が明らかにしたいこと</h2><p>自然環境を背景として固定せず、それ自体が変動する自然資本として捉えます。その上で、人間が自然の変化や制約にどう適応し、改変し、暮らしや生業を組み替え、その結果として産業・文化・集落・都市・制度がどう形成されてきたかを読みます。さらに、人間の営みが次の時代の自然資本へどのような条件を残したかまで追います。</p></div></article>
-    <article><div class="research-program-no">02</div><div><div class="research-program-label">研究対象</div><h2>何を対象にするか</h2><p>対象は「瀬戸内」という地理範囲だけではありません。地形・地質・気候・水・海況・生態系と、それに接続する暮らし、生業、移動、産業、土地利用、都市・集落、制度、信仰、食文化を扱います。現在の姿だけでなく、それらが形成され、変化し、受け継がれてきた過程そのものを研究対象とします。</p></div></article>
-    <article><div class="research-program-no">03</div><div><div class="research-program-label">共通方法論</div><h2>どのように読むか</h2><div class="research-program-chain"><span>自然資本(t)</span><b>→</b><span>人間の適応・改変</span><b>→</b><span>暮らし・生業</span><b>→</b><span>産業・文化・集落・都市</span><b>→</b><span>自然資本(t+1)</span></div><p>この因果関係を基本線としつつ、単純な一方向モデルにはしません。自然と人間の双方が時間とともに変化し、互いに次の条件をつくる循環として読みます。</p><div class="shared-method-grid">{sharedMethods.map(m=><div><strong>{m[0]}</strong><p>{m[1]}</p></div>)}</div><div class="research-program-links"><a href="/setouchi-cultural-economic-atlas/methodology/">地域研究の方法論 →</a><a href="/setouchi-cultural-economic-atlas/chapters/natural-capital-lifestyle-framework/">共通分析フレーム →</a></div></div></article>
+    <article><div class="research-program-no">01</div><div><div class="research-program-label">研究目的</div><h2>瀬戸内の地域差から、説明可能な知見を導く</h2><p>個別地域の紹介を積み上げるだけでなく、複数地域・複数時点を比較し、自然条件、人間の応答、暮らし、生業、産業、交通、制度の関係から、他地域にも検証可能な説明や仮説を導きます。</p></div></article>
+    <article><div class="research-program-no">02</div><div><div class="research-program-label">研究ノートの基準</div><h2>「情報がある」ではなく「比較から何かを言える」こと</h2><p>研究ノートでは、①研究上の問い、②比較対象、③根拠、④分析、⑤新しい知見または検証可能な仮説、⑥どこまで言えるか、を明示します。視点や方法論だけのページは研究方法へ、既知情報の整理は資料ノートへ置きます。</p></div></article>
   </section>
 
-  <section class="research-themes-head"><div class="research-index-kicker">RESEARCH THEMES</div><h2>研究内容</h2><p>以下では、共通方法論を各テーマへ適用します。各テーマには、その領域で特に何を見るかという「テーマ別の見方」を置き、その下に個別研究ノートを配置します。</p></section>
-  <nav class="research-major-nav" aria-label="研究テーマ">{categories.map(c=><a href={`#research-${c.no}`}><span>{c.no}</span>{c.title}</a>)}</nav>
+  <section class="research-themes-head"><div class="research-index-kicker">CORE RESEARCH</div><h2>現在の中核研究</h2><p>現時点で比較分析以上まで進んでいるテーマです。各ブロックの冒頭には、現在検証している「知見候補」を置いています。</p></section>
 
   <div class="research-category-list">
-    {categories.map(c=><section class="research-category" id={`research-${c.no}`}>
-      <header class="research-category-head"><span>{c.no}</span><div><h2>{c.title}</h2><p>{c.description}</p></div></header>
-      <div class="research-theme-method"><strong>このテーマの見方</strong><p>{c.method}</p></div>
-      <div class="research-middle-list">{c.groups.map(g=><section class="research-middle"><h3>{g.title}</h3><div class="research-note-grid">{g.items.map(i=><article class="research-note-card-wrap"><a class="research-note-card" href={i.href}><strong>{i.title}</strong><p>{i.description}</p><span>研究ノートを開く →</span></a>{i.modules&&<div class="research-module-links">{i.modules.map(m=><a href={m[1]}>{m[0]} →</a>)}</div>}</article>)}</div></section>)}</div>
+    {coreResearch.map(group=><section class="research-category" id={`research-${group.no}`}>
+      <header class="research-category-head"><span>{group.no}</span><div><h2>{group.title}</h2><p>{group.insight}</p></div></header>
+      <div class="research-note-grid core-grid">{group.items.map(item=><a class="research-note-card" href={item[2]}><strong>{item[0]}</strong><p>{item[1]}</p><span>分析を見る →</span></a>)}</div>
     </section>)}
 
-    <section class="research-category research-support-section editorial-section">
-      <header class="research-category-head"><span>E</span><div><h2>アトラスの編集方法</h2><p>ここから先は研究内容ではなく、エッセイ・研究ノート・地域ページをどう編集・更新するかという編集者向けの備忘録です。</p></div></header>
-      <div class="research-middle-list"><section class="research-middle"><h3>編集者向け</h3><div class="research-note-grid">
-        <a class="research-note-card" href="/setouchi-cultural-economic-atlas/editorial-methodology/"><strong>アトラスの編集方法</strong><p>ページ種別の役割分担、知見の蓄積先、更新レベル、公開時チェックなどの内部ルール。</p><span>編集方法を見る →</span></a>
-        <a class="research-note-card" href="/setouchi-cultural-economic-atlas/research-workflow/"><strong>エッセイ→研究ノート更新フロー</strong><p>エッセイで得た新事実・比較・仮説を研究ノートへ戻す具体的な同期手順。</p><span>編集フローを見る →</span></a>
-      </div></section></div>
+    <section class="research-category support-block">
+      <header class="research-category-head"><span>B</span><div><h2>資料ノート</h2><p>研究の材料となる既知情報・地域史・自然条件・産業系譜の整理です。これ自体を研究成果とは扱いません。</p></div></header>
+      <div class="support-links">{sourceNotes.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
+    </section>
+
+    <section class="research-category support-block">
+      <header class="research-category-head"><span>A</span><div><h2>研究の方法</h2><p>何をどう見るか、どう比較・評価するかを定める方法論です。研究成果とは分離して扱います。</p></div></header>
+      <div class="support-links">{methods.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
+    </section>
+
+    <section class="research-category support-block editorial-block">
+      <header class="research-category-head"><span>E</span><div><h2>アトラスの編集方法</h2><p>研究内容ではなく、サイトの編集・更新・同期のための内部運用です。</p></div></header>
+      <div class="support-links"><a href="/setouchi-cultural-economic-atlas/editorial-methodology/">アトラスの編集方法 →</a><a href="/setouchi-cultural-economic-atlas/research-workflow/">エッセイ→研究ノート更新フロー →</a></div>
     </section>
   </div>
 
   <style>
-    .research-index-hero{max-width:1180px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line,#ddd)}.research-index-kicker{font-size:.72rem;letter-spacing:.18em;font-weight:700;opacity:.6;margin-bottom:1.2rem}.research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}.research-index-lead{max-width:820px;font-size:1.18rem;line-height:1.9}.research-index-meta{display:flex;gap:.7rem 1.2rem;align-items:baseline;flex-wrap:wrap;margin-top:2rem}.research-index-meta strong{font-size:2rem}.research-index-meta span{font-size:.82rem;opacity:.65;margin-right:1rem}.research-program-intro{max-width:1120px;margin:0 auto;padding:2rem 1.5rem 4rem}.research-program-intro>article{display:grid;grid-template-columns:70px 1fr;gap:1.25rem;padding:3rem 0;border-bottom:1px solid var(--line,#ddd)}.research-program-no{font-size:2.2rem;font-weight:800;opacity:.16}.research-program-label{font-size:.72rem;letter-spacing:.14em;font-weight:700;opacity:.55}.research-program-intro h2,.research-themes-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:.3rem 0 1rem}.research-program-intro p,.research-themes-head p{max-width:860px;line-height:1.9}.research-program-chain{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:1.4rem 0 1rem;padding:1rem;border:1px solid var(--line,#ddd);background:rgba(80,100,90,.045)}.research-program-chain span{padding:.5rem .7rem;background:#fff;border:1px solid var(--line,#ddd);font-size:.88rem;font-weight:700}.research-program-chain b{opacity:.35}.shared-method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.8rem;margin:1.5rem 0}.shared-method-grid>div{padding:1.1rem;border:1px solid var(--line,#ddd);background:rgba(255,255,255,.72)}.shared-method-grid p{font-size:.9rem;line-height:1.7;margin:.45rem 0 0}.research-program-links{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}.research-program-links a{padding:.65rem .85rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;font-size:.85rem;font-weight:700}.research-themes-head{max-width:1120px;margin:0 auto;padding:4rem 1.5rem 1rem}.research-major-nav{max-width:1180px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(8px)}.research-major-nav a{display:flex;gap:.8rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit}.research-major-nav span{font-size:.72rem;opacity:.5}.research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}.research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd);scroll-margin-top:6rem}.research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:1.4rem}.research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18}.research-category-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:0 0 .8rem}.research-category-head p{max-width:760px;line-height:1.8;opacity:.75}.research-theme-method{margin:0 0 2.5rem 90px;padding:1rem 1.2rem;border-left:4px solid rgba(66,93,85,.25);background:rgba(66,93,85,.045)}.research-theme-method p{margin:.35rem 0 0;max-width:820px;line-height:1.75}.research-middle-list{display:grid;gap:2.8rem;margin-left:90px}.research-middle h3{font-size:1.25rem;padding-bottom:.7rem;border-bottom:1px solid var(--line,#ddd)}.research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:.8rem}.research-note-card-wrap{border:1px solid var(--line,#ddd)}.research-note-card{display:flex;flex-direction:column;min-height:170px;padding:1.25rem;text-decoration:none;color:inherit;border:1px solid var(--line,#ddd)}.research-note-card-wrap>.research-note-card{border:0}.research-note-card p{font-size:.9rem;line-height:1.65;opacity:.72;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}.research-module-links{display:flex;gap:.5rem;flex-wrap:wrap;padding:0 1.25rem 1rem}.research-module-links a{font-size:.76rem;color:inherit;opacity:.7}.research-support-section{margin-top:2rem}.editorial-section{--support-tone:111,88,69}.research-support-section .research-category-head>span{color:rgb(var(--support-tone));opacity:1!important}@media(max-width:720px){.research-program-intro>article,.research-category-head{grid-template-columns:1fr}.research-theme-method,.research-middle-list{margin-left:0}.research-index-hero{padding-top:3.5rem}.research-major-nav{position:static}.research-program-chain{align-items:stretch;flex-direction:column}.research-program-chain b{transform:rotate(90deg);align-self:center}}
+    .research-index-hero{max-width:1180px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line,#ddd)}.research-index-kicker{font-size:.72rem;letter-spacing:.18em;font-weight:700;opacity:.6;margin-bottom:1.2rem}.research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}.research-index-lead{max-width:860px;font-size:1.18rem;line-height:1.9}.research-program-intro{max-width:1120px;margin:0 auto;padding:2rem 1.5rem 4rem}.research-program-intro>article{display:grid;grid-template-columns:70px 1fr;gap:1.25rem;padding:3rem 0;border-bottom:1px solid var(--line,#ddd)}.research-program-no{font-size:2.2rem;font-weight:800;opacity:.16}.research-program-label{font-size:.72rem;letter-spacing:.14em;font-weight:700;opacity:.55}.research-program-intro h2,.research-themes-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:.3rem 0 1rem}.research-program-intro p,.research-themes-head p{max-width:860px;line-height:1.9}.research-themes-head{max-width:1120px;margin:0 auto;padding:4rem 1.5rem 1rem}.research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}.research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd)}.research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2rem}.research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18}.research-category-head h2{font-size:clamp(1.8rem,3.6vw,3rem);margin:0 0 .8rem;max-width:900px}.research-category-head p{max-width:850px;line-height:1.8;opacity:.78}.research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin-left:90px}.research-note-card{display:flex;flex-direction:column;min-height:190px;padding:1.3rem;text-decoration:none;color:inherit;border:1px solid var(--line,#ddd);background:rgba(255,255,255,.76)}.research-note-card p{font-size:.92rem;line-height:1.7;opacity:.73;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}.support-block{padding-top:3rem}.support-links{display:flex;gap:.6rem;flex-wrap:wrap;margin-left:90px}.support-links a{padding:.7rem .9rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;font-size:.86rem}.editorial-block{opacity:.82}@media(max-width:720px){.research-program-intro>article,.research-category-head{grid-template-columns:1fr}.research-note-grid,.support-links{margin-left:0}.research-index-hero{padding-top:3.5rem}}
   </style>
 </BaseLayout>
