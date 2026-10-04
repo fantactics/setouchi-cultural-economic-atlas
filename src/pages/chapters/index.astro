@@ -64,11 +64,11 @@ const categories = [
         {title:'児島繊維産業の系譜',description:'干拓・綿作・紡績・学生服・ジーンズへ続く産業系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'},
         {title:'福山デニム産業の系譜',description:'備後絣・藍染・織布の技能がデニムへ接続する過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'}
       ]},
-      {title:'鉱山・化学・素材',items:[
+      {title:'資源・化学・素材',items:[
         {title:'塩業から化学工業への産業転換',description:'塩田・港からソーダ、石油化学、高機能材料へ続く系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'},
         {title:'別子銅山から化学工業への産業系譜',description:'鉱山・製錬・煙害・硫黄回収から化学産業へ至る過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'}
       ]},
-      {title:'AI・データセンター・Physical AI',items:[
+      {title:'デジタル・AIインフラ',items:[
         {title:'AIデータセンターの立地条件',description:'電力、通信、冷却、水、土地、計算資源、需要を重ねて立地条件を整理する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/'},
         {title:'AIデータセンター立地適性',description:'学習・推論用途の違いを踏まえて瀬戸内の立地適性を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/'},
         {title:'瀬戸内Physical AIエコシステム',description:'GPU/DC、電力、通信、現場企業、制御、SI、大学・高専の接続を読む。',href:'/setouchi-cultural-economic-atlas/chapters/physical-ai-player-ecosystem/'}
@@ -136,6 +136,7 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
   <section class="research-index-guide">
     <strong>分類とタイトルのルール</strong>
     <p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、個別ノートは具体的な研究テーマです。データ集・ダッシュボード・評価手法は研究対象と分け、下部の「関連データ・方法」に置きます。研究ノートのタイトルは問い型を避け、対象・構造・分析内容が一目で分かる名称にします。</p>
+    <p><a href="/setouchi-cultural-economic-atlas/research-workflow/"><strong>エッセイから研究ノートへ知見を戻す更新運用 →</strong></a></p>
   </section>
 
   <div class="research-category-list">
@@ -189,7 +190,8 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
     .research-major-nav a{display:flex;gap:.8rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;background:var(--surface,#fff)}
     .research-major-nav span{font-size:.72rem;opacity:.5}
     .research-index-guide{max-width:1120px;margin:1rem auto 3rem;padding:1.2rem 1.4rem;background:rgba(120,120,120,.07)}
-    .research-index-guide strong{display:block;margin-bottom:.35rem}.research-index-guide p{margin:0;line-height:1.7}
+    .research-index-guide strong{display:block;margin-bottom:.35rem}.research-index-guide p{margin:.4rem 0 0;line-height:1.7}
+    .research-index-guide a{color:inherit}
     .research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}
     .research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd);scroll-margin-top:5rem}
     .research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2.4rem}
