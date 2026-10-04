@@ -6,6 +6,14 @@ export const setouchiShrimpEssay = {
   cities:['瀬戸内海','岡山','香川','広島'],
   keywords:['エビ','小エビ','干潟','浅海','食物網','サルエビ','アカエビ','トラエビ','クルマエビ','干しエビ','出汁','食文化'],
   heroPhotoId:null,
+  heroPhoto:{
+    imageUrl:'https://upload.wikimedia.org/wikipedia/commons/a/a0/Metapenaeus_ensis_Gobius.jpg',
+    alt:'砂地の上にいるヨシエビ',
+    title:'ヨシエビ',
+    author:'Totti',
+    license:'CC BY-SA 4.0',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Metapenaeus_ensis_Gobius.jpg'
+  },
   lead:'瀬戸内の名物といえば、鯛、タコ、アナゴ、牡蠣が先に浮かぶ。エビはそれほど目立たない。だが海の中では、小型エビ類が底生生物や有機物を取り込み、魚やタコへエネルギーを渡している。人間にとっても、かき揚げ、干しエビ、出汁といった食文化の基盤になってきた。主役ではないが、海の仕組みをつなぐ中間層としてのエビを見てみる。',
   sections:[
     {
