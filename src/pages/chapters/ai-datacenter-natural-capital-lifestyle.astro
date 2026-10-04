@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="AIデータセンターを自然資本と暮らしから読む | SETOUCHI ATLAS" description="AIデータセンター立地を、電力・通信だけでなく、水、土地、災害、エネルギー、暮らし、既存産業、自然資本へのフィードバックから評価する研究ノート。">
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">NATURAL CAPITAL / LIFESTYLE / AI INFRASTRUCTURE</p>
+    <h1>AIデータセンターを、自然資本と暮らしから読む</h1>
+    <p class="subtitle">ワットとビットの前に、水・土地・気候・災害・地域生活がある。</p>
+    <p class="lead">AIデータセンターはデジタル産業に見えるが、実体は極めて物理的である。大量の電力、土地、冷却、設備、通信、防災を必要とし、その立地は地域の自然資本と直接競合・補完する。ATLASでは、設備容量や投資額ではなく、その土地で人が何をできるようになり、何を失い、自然資本がどう変わるかまで見る。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜AIインフラにも土地固有のSWOTがある</h2>
+    <p>気温、水資源、地盤、洪水・津波・地震、土地造成条件、再生可能エネルギー賦存量は、AI/DCにとって直接の自然条件である。これらは固定的なStrength/Weaknessではなく、冷却方式、電源構成、防災設計、系統接続によって意味が変わる。</p>
+    <div class="research-chain"><span>自然資本</span><b>→</b><span>電力・冷却・防災条件</span><b>→</b><span>設備設計</span><b>→</b><span>立地可能性</span></div>
+  </section>
+
+  <section class="section">
+    <h2>02｜「水を使うか」ではなく、地域の水循環の中で読む</h2>
+    <p>DCの冷却方式によって水使用量は大きく異なる。したがって、単純に「少雨地域だから不適」「空冷だから問題なし」とは言えない。見るべきなのは、地域全体の利用可能水量、渇水時の優先順位、既存の農業・工業・生活用水との競合、排熱処理である。</p>
+    <div class="research-note-role-grid">
+      <article><strong>生活用水</strong><p>渇水時にも住民供給を圧迫しないか。</p></article>
+      <article><strong>農業用水</strong><p>既存の水利・ため池・用水制度と競合しないか。</p></article>
+      <article><strong>工業用水</strong><p>既存産業の操業余力を奪わないか。</p></article>
+      <article><strong>生態系</strong><p>取水・排熱・土地造成が河川・沿岸環境に与える影響は何か。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>03｜電力も「余っている資源」ではない</h2>
+    <p>AI/DCは大口需要家であり、系統増強や発電投資を促す一方、地域の電力価格、送電容量、脱炭素電源の配分に影響し得る。評価すべきはDCが電力を消費すること自体ではなく、地域のエネルギーシステムをどう変えるかである。</p>
+    <p>再エネ導入、蓄電池、系統強化、非常用電源、排熱利用などが地域側へ還元されるなら、DCは新しいエネルギー基盤形成の契機になり得る。逆に、外部資本が電力だけを吸収し地域企業や住民に便益が戻らなければ、飛び地化する。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜土地利用との競合を見る</h2>
+    <p>大規模DCは、広い敷地、変電設備、道路、送電・通信接続を必要とする。候補地が農地、森林、沿岸低地、既存工業団地、未利用埋立地のどこにあるかで意味は異なる。</p>
+    <div class="research-chain"><span>土地の既存利用</span><b>→</b><span>DC立地</span><b>→</b><span>地価・土地利用転換</span><b>→</b><span>雇用・税収・インフラ</span><b>→</b><span>次の土地利用条件</span></div>
+    <p>ATLASでは「空いている土地」とは書かず、現在誰がどう使い、どんな生態系・景観・将来選択肢を持つ土地なのかを確認する。</p>
+  </section>
+
+  <section class="section">
+    <h2>05｜暮らしへの影響を、投資額から切り離して測る</h2>
+    <div class="research-note-role-grid">
+      <article><strong>雇用</strong><p>建設期と運用期を分け、恒常雇用・専門職・地元採用の実態を見る。</p></article>
+      <article><strong>教育</strong><p>大学・高専・高校・企業研修へ計算資源や技能が接続するか。</p></article>
+      <article><strong>地域企業</strong><p>保守・電気・冷却・AI利用・SIなどへ地元企業が参加できるか。</p></article>
+      <article><strong>生活コスト</strong><p>電力・土地・住宅・交通などに負担増が生じないか。</p></article>
+      <article><strong>サービス</strong><p>医療・行政・教育・製造・交通など、住民が使うAIサービスへ還元されるか。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>06｜学習DCと推論DCでは、土地との関係も違う</h2>
+    <p>大規模学習DCは、電力・系統・土地・冷却を優先しやすく、需要地から離れた場所でも成立しやすい。一方、推論DCは低遅延性や現場接続が重要になり、製造、港湾、物流、医療、モビリティなど地域のPhysical AI需要との近接性が価値を持つ。</p>
+    <p>したがって、同じ「DC誘致」でも、土地へ要求する条件と地域へ返せる価値が異なる。</p>
+  </section>
+
+  <section class="section">
+    <h2>07｜地域価値は「資源投入」と「地域還元」の両側で測る</h2>
+    <div class="table-wrap"><table><thead><tr><th>資源投入・負荷</th><th>地域還元</th></tr></thead><tbody>
+      <tr><td>電力需要・系統占有</td><td>系統強化・再エネ投資・蓄電</td></tr>
+      <tr><td>水利用・排熱</td><td>高効率冷却・排熱利用・水循環改善</td></tr>
+      <tr><td>土地占有</td><td>既存遊休地再利用・インフラ更新</td></tr>
+      <tr><td>資本集約・雇用の少なさ</td><td>専門人材・教育・関連企業形成</td></tr>
+      <tr><td>外部所有</td><td>地域調達・税収・地域AI利用</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>08｜AI/DC研究の共通モデル</h2>
+    <div class="process-chain"><span>自然資本</span><b>→</b><span>土地・水・電力条件</span><b>→</b><span>設備設計</span><b>→</b><span>DC立地</span><b>→</b><span>地域接続</span><b>→</b><span>暮らし・産業への還元</span><b>→</b><span>自然資本へのFeedback</span></div>
+    <p>計算資源は土地から離れた「クラウド」ではない。サーバーの背後には、電源、水、冷却、土地、災害、労働、道路、通信がある。ATLASでは、AIインフラも土地と人間の関係の一形態として読む。</p>
+  </section>
+
+  <section class="section">
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/">AI/DCエコシステム研究 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/industrial-transformation-natural-capital-framework/">産業転換の共通フレーム →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+</BaseLayout>
