@@ -24,13 +24,9 @@ const categories = [
       {title:'生業・資源利用',items:[
         {title:'自然資源の生業化',description:'塩、魚、柑橘、石、鉱物などを、技術・労働・制度・交易によって生業へ変換する過程を読む。',href:'/setouchi-cultural-economic-atlas/chapters/livelihoods/'}
       ]},
-      {title:'食資源・食文化',items:[
+      {title:'食文化',items:[
         {title:'瀬戸内食文化の自然環境基盤',description:'海域、魚介、農産物、漁法、加工、流通、調理の因果鎖を地域横断で読む。',href:'/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/'},
-        {title:'瀬戸内食資源マトリクス',description:'鯛・タコ・サワラ・穴子・牡蠣・いりこなどを地域横断で比較する。',href:'/setouchi-cultural-economic-atlas/gastronomy-matrix/'}
-      ]},
-      {title:'食文化の再生産',items:[
-        {title:'食文化の再生産構造',description:'資源、担い手、加工、食べる場、記憶、所得が地域の食文化を支える関係を追う。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/'},
-        {title:'食文化ダッシュボード',description:'食資源と地域文化を比較可能な指標群として整理する。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/'}
+        {title:'食文化の再生産構造',description:'資源、担い手、加工、食べる場、記憶、所得が地域の食文化を支える関係を追う。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/'}
       ]}
     ]
   },
@@ -44,9 +40,7 @@ const categories = [
       ]},
       {title:'シクロツーリズム',items:[
         {title:'シクロツーリズムの地域影響',description:'しまなみ・とびしま・ゆめしまを比較し、経済、滞在、移住、景観、インフラへの変化を追う。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'},
-        {title:'シクロツーリズム導入前後の時系列比較',description:'人口、観光、消費、移住・創業を時系列で比較する。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'},
-        {title:'シクロツーリズム評価プロトコル',description:'来訪者数だけでなく、滞在、消費、地域捕捉力、再訪まで含めて評価する。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'},
-        {title:'シクロツーリズム反実仮想KPI',description:'整備がなかった場合との比較から、地域への追加効果を検討する。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-counterfactual-kpi/'}
+        {title:'シクロツーリズム導入前後の時系列比較',description:'人口、観光、消費、移住・創業を時系列で比較する。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'}
       ]}
     ]
   },
@@ -83,12 +77,12 @@ const categories = [
   },
   {
     no:'05', title:'都市・集落・土地利用',
-    description:'都市・集落の形成と、干拓・埋立・再自然化など土地の使われ方の変化を扱う。',
+    description:'都市・集落の形成と、干拓・埋立・再自然化など空間と土地利用の変化を扱う。',
     groups:[
       {title:'都市・集落形成',items:[
         {title:'瀬戸内の都市・集落形成',description:'港、企業、藩、商人、地形、交通の違いが都市形態をどう分けたかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/cities/'}
       ]},
-      {title:'土地改変・土地利用転換',items:[
+      {title:'土地利用・再自然化',items:[
         {title:'瀬戸内ネイチャーポジティブ',description:'人口減少、土地利用、生態系、防災を重ね、土地管理の選択肢を考える。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/'},
         {title:'戦略的再自然化スクリーニング',description:'人口、土地利用、災害、自然資本から再自然化候補地を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/'},
         {title:'戦略的再自然化の地域類型',description:'島嶼斜面、斜面市街地、里海、河川低地、旧工業地を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-pilot-fields/'}
@@ -99,11 +93,11 @@ const categories = [
     no:'06', title:'社会・暮らし・制度',
     description:'人口、居住、所有、公共サービス、地域経済など、人が地域を使い続ける社会的条件を扱う。',
     groups:[
-      {title:'人口・居住・島嶼利用',items:[
+      {title:'人口・居住・地域利用',items:[
         {title:'小規模離島の利用強度',description:'常住人口だけでなく、所有、居住、滞在、消費、移動、公共負担を分解して島の利用実態を測る。',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'}
       ]},
-      {title:'地域資産・地域経済',items:[
-        {title:'地域資産の再生産構造',description:'産業、食文化、町並み、観光が利用されながら次世代へ残る条件を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/'}
+      {title:'地域経済・資産再生産',items:[
+        {title:'地域資産の再生産構造',description:'産業、食文化、町並み、観光などの地域資産が、利用されながら維持・更新される条件を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/'}
       ]}
     ]
   },
@@ -111,11 +105,18 @@ const categories = [
     no:'07', title:'文化・信仰・地域認識',
     description:'信仰、祭礼、生活文化、景観、地域記憶など、人が土地に与えてきた意味と文化的蓄積を扱う。',
     groups:[
-      {title:'信仰・祭礼・生活文化',items:[
+      {title:'信仰・祭礼・文化景観',items:[
         {title:'瀬戸内の信仰・生活文化',description:'神社ネットワーク、祭礼、生活技術、文化景観が地域社会に定着する過程を読む。',href:'/setouchi-cultural-economic-atlas/chapters/culture/'}
       ]}
     ]
   }
+];
+
+const relatedResources = [
+  {group:'データ',title:'瀬戸内食資源マトリクス',description:'魚介・食資源を地域横断で比較するデータページ。',href:'/setouchi-cultural-economic-atlas/gastronomy-matrix/'},
+  {group:'データ',title:'食文化ダッシュボード',description:'食資源と地域文化を比較するための指標・可視化。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/'},
+  {group:'方法',title:'シクロツーリズム評価プロトコル',description:'シクロツーリズムの地域影響を測る評価手順。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'},
+  {group:'方法',title:'シクロツーリズム反実仮想KPI',description:'整備がなかった場合との比較に使う評価指標。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-counterfactual-kpi/'}
 ];
 
 const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap((group)=>group.items.map((item)=>item.href)))).size;
@@ -134,7 +135,7 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
 
   <section class="research-index-guide">
     <strong>分類とタイトルのルール</strong>
-    <p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、個別ノートは具体的な研究テーマです。研究ノートのタイトルは問い型を避け、対象・構造・分析内容が一目で分かる名称にします。複数領域に関係するテーマも、一覧では主たる分析対象に一度だけ配置します。</p>
+    <p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、個別ノートは具体的な研究テーマです。データ集・ダッシュボード・評価手法は研究対象と分け、下部の「関連データ・方法」に置きます。研究ノートのタイトルは問い型を避け、対象・構造・分析内容が一目で分かる名称にします。</p>
   </section>
 
   <div class="research-category-list">
@@ -156,6 +157,25 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
         </section>)}
       </div>
     </section>)}
+
+    <section class="research-category related-resources" id="research-resources">
+      <header class="research-category-head">
+        <span>＋</span>
+        <div><h2>関連データ・方法</h2><p>研究対象そのものではなく、比較・検証・評価を支えるデータページと方法論をまとめます。</p></div>
+      </header>
+      <div class="research-middle-list">
+        {['データ','方法'].map((groupName)=><section class="research-middle">
+          <h3>{groupName}</h3>
+          <div class="research-note-grid">
+            {relatedResources.filter((item)=>item.group===groupName).map((item)=><a class="research-note-card" href={item.href}>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+              <span>{groupName}を見る →</span>
+            </a>)}
+          </div>
+        </section>)}
+      </div>
+    </section>
   </div>
 
   <style>
@@ -182,6 +202,7 @@ const noteCount = new Set(categories.flatMap((category)=>category.groups.flatMap
     .research-note-card{display:flex;flex-direction:column;min-height:175px;padding:1.25rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;background:var(--surface,#fff)}
     .research-note-card strong{font-size:1.08rem;line-height:1.45}.research-note-card p{font-size:.9rem;line-height:1.65;opacity:.72;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}
     .research-note-card:hover{transform:translateY(-2px);transition:.15s ease}
+    .related-resources{margin-top:1rem}
     @media(max-width:720px){.research-category-head{grid-template-columns:1fr}.research-category-head>span{font-size:1.2rem}.research-middle-list{margin-left:0}.research-index-hero{padding-top:3.5rem}}
   </style>
 </BaseLayout>
