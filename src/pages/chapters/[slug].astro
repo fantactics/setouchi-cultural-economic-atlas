@@ -13,6 +13,19 @@ export function getStaticPaths() {
 const { chapter } = Astro.props;
 const labels={fact:'事実',interpretation:'解釈',hypothesis:'仮説'};
 const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').includes(chapter.number));
+const dataHrefPrefixes=[
+  '/setouchi-cultural-economic-atlas/climate/',
+  '/setouchi-cultural-economic-atlas/wind-tide/',
+  '/setouchi-cultural-economic-atlas/transect/',
+  '/setouchi-cultural-economic-atlas/land-use/',
+  '/setouchi-cultural-economic-atlas/transport/',
+  '/setouchi-cultural-economic-atlas/industry/',
+  '/setouchi-cultural-economic-atlas/gastronomy-matrix/',
+  '/setouchi-cultural-economic-atlas/photos/',
+  '/setouchi-cultural-economic-atlas/compare/',
+  '/setouchi-cultural-economic-atlas/data/'
+];
+const relatedPages=(chapter.related || []).filter((item)=>!dataHrefPrefixes.some((prefix)=>item.href.startsWith(prefix)));
 ---
 <BaseLayout title={`${chapter.title} | 研究ノート | SETOUCHI ATLAS`} description={chapter.subtitle}>
   <section class="place-hero chapter-hero research-note-hero">
@@ -80,9 +93,9 @@ const relatedReasoning=reasoningEssays.filter((essay)=>essay.chapter.split('-').
   )}
 
   <section class="section chapter-related">
-    <h2>地図・データ・地域ページへ</h2>
+    <h2>関連する地域・概念へ</h2>
     <div class="chapter-related-grid">
-      {chapter.related.map((item)=><a class="compare-button" href={item.href}>{item.label} →</a>)}
+      {relatedPages.map((item)=><a class="compare-button" href={item.href}>{item.label} →</a>)}
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/concepts/">概念辞典 →</a>
       <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 →</a>
     </div>
