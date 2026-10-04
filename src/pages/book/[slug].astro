@@ -7,6 +7,7 @@ import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
+import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
@@ -28,7 +29,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
-  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay];
+  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,...kojimaIslandEssays];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{
@@ -67,39 +68,7 @@ const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
   .map(applyPhotoMetadataCorrection)
   .filter(Boolean);
 const placeLinkByName = {
-  '赤穂':'ako',
-  '竹原':'takehara',
-  '坂出':'sakaide',
-  '防府（三田尻）':'hofu',
-  '三田尻':'hofu',
-  '児島':'shimotsui',
-  '下津井':'shimotsui',
-  '倉敷':'shimotsui',
-  '鞆の浦':'tomonoura',
-  '鞆':'tomonoura',
-  '御手洗':'mitarai',
-  '多度津':'tadotsu',
-  '尾道':'onomichi',
-  '今治':'imabari',
-  '波止浜':'imabari',
-  '来島海峡':'imabari',
-  '大三島':'imabari',
-  '新居浜':'niihama',
-  '別子':'niihama',
-  '東平':'niihama',
-  '小豆島':'shodoshima',
-  '牛窓':'ushimado',
-  '高松':'takamatsu',
-  '松山':'matsuyama',
-  '三原':'mihara',
-  '下関':'shimonoseki',
-  '柳井':'yanai',
-  '引田':'hiketa',
-  '丸亀':'marugame',
-  '岩国':'iwakuni',
-  '加太':'kada',
-  '鳴門':'naruto',
-  '明石':'akashi'
+  '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','丸亀':'marugame','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi','鴻島':'kojima-island','日生':'hinase'
 };
 ---
 <BaseLayout title={`${article.title} | 地域エッセイ`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
@@ -110,52 +79,18 @@ const placeLinkByName = {
       <p class="book-article-subtitle">{article.subtitle}</p>
       <p class="book-article-dek">{article.lead}</p>
       <div class="book-meta-row">
-        <div>{article.cities.map((x)=>{
-          const placeId=placeLinkByName[x];
-          return <a href={placeId ? `/setouchi-cultural-economic-atlas/places/${placeId}/` : `/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(x)}`}>{x}</a>;
-        })}</div>
+        <div>{article.cities.map((x)=>{ const placeId=placeLinkByName[x]; return <a href={placeId ? `/setouchi-cultural-economic-atlas/places/${placeId}/` : `/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(x)}`}>{x}</a>; })}</div>
         <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
       </div>
     </header>
 
-    {hero && (
-      <figure class="book-hero-photo">
-        <img src={hero.imageUrl} alt={hero.alt} />
-        <figcaption>
-          <strong>{hero.title}</strong>　{hero.caption}
-          <span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>
-        </figcaption>
-      </figure>
-    )}
-
-    {essayPhotos.length>0 && (
-      <EssayPhotoGallery photos={essayPhotos} title={`${article.cities?.[0] || '地域'}を写真で読む`} />
-    )}
+    {hero && (<figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>)}
+    {essayPhotos.length>0 && (<EssayPhotoGallery photos={essayPhotos} title={`${article.cities?.[0] || '地域'}を写真で読む`} />)}
 
     {isGastronomy && gastronomyPhotos.length>0 && (
       <section class="gastronomy-photo-atlas" aria-label="料理と食材の写真">
-        <div class="gastronomy-photo-head">
-          <div>
-            <span>FOOD / INGREDIENTS</span>
-            <h2>料理と食材から読む</h2>
-          </div>
-          <p>風景だけでなく、食材そのもの、料理の完成形、生産・加工の場を並べます。土地の自然条件が、人の仕事と調理を介してどのような「食べられる形」へ変わったのかを写真から追います。</p>
-        </div>
-        <div class="gastronomy-photo-mosaic">
-          {gastronomyPhotos.map((photo,index)=>(
-            <figure class:list={['gastronomy-photo-card',index===0&&'feature']}>
-              <a href={photo.sourcePage} target="_blank" rel="noreferrer">
-                <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
-              </a>
-              <figcaption>
-                <strong>{photo.title}</strong>
-                <span>{photo.caption}</span>
-                {photo.insight && <em>写真から考える：{photo.insight}</em>}
-                <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <div class="gastronomy-photo-head"><div><span>FOOD / INGREDIENTS</span><h2>料理と食材から読む</h2></div><p>風景だけでなく、食材そのもの、料理の完成形、生産・加工の場を並べます。土地の自然条件が、人の仕事と調理を介してどのような「食べられる形」へ変わったのかを写真から追います。</p></div>
+        <div class="gastronomy-photo-mosaic">{gastronomyPhotos.map((photo,index)=>(<figure class:list={['gastronomy-photo-card',index===0&&'feature']}><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span>{photo.insight && <em>写真から考える：{photo.insight}</em>}<small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>))}</div>
         <p class="gastronomy-photo-note">「比較資料」と記した写真は、当該地域で撮影されたものではなく、食材・料理法・作業形態を比較するために掲載しています。</p>
       </section>
     )}
@@ -163,93 +98,20 @@ const placeLinkByName = {
     <div class="book-reading-column">
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
-          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
-          <h2>{section.heading}</h2>
-          {section.paragraphs.slice(0, Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(
-            <p>
-              {p.text}
-              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
-            </p>
-          ))}
-          {section.photoIds?.length>0 && (() => {
-            const photo=photoById[section.photoIds[0]];
-            if(!photo) return null;
-            return (
-              <figure class="book-photo-break">
-                <a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a>
-                <figcaption>
-                  <strong>{photo.title}</strong>
-                  <span>{photo.caption}</span>
-                  <em>写真から考える：{photo.insight}</em>
-                  <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
-                </figcaption>
-              </figure>
-            );
-          })()}
-          {section.paragraphs.slice(Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(
-            <p>
-              {p.text}
-              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
-            </p>
-          ))}
-          {section.photoIds?.length>1 && (
-            <div class:list={['book-inline-photos',section.photoIds.length===2&&'single']}>
-              {section.photoIds.slice(1).map((id)=>{
-                const photo=photoById[id];
-                if(!photo) return null;
-                return (
-                  <figure>
-                    <a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a>
-                    <figcaption>
-                      <strong>{photo.title}</strong>
-                      <span>{photo.caption}</span>
-                      <em>写真から考える：{photo.insight}</em>
-                      <small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small>
-                    </figcaption>
-                  </figure>
-                )
-              })}
-            </div>
-          )}
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div><h2>{section.heading}</h2>
+          {section.paragraphs.slice(0, Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
+          {section.photoIds?.length>0 && (() => { const photo=photoById[section.photoIds[0]]; if(!photo) return null; return (<figure class="book-photo-break"><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>); })()}
+          {section.paragraphs.slice(Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
+          {section.photoIds?.length>1 && (<div class:list={['book-inline-photos',section.photoIds.length===2&&'single']}>{section.photoIds.slice(1).map((id)=>{ const photo=photoById[id]; if(!photo) return null; return (<figure><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>) })}</div>)}
         </section>
       ))}
 
-      {article.researchLinks?.length>0 && (
-        <section class="book-open-questions">
-          <div class="kicker">もっと深く知りたくなったら</div>
-          <p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p>
-          <div class="chapter-related-grid">
-            {article.researchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}
-          </div>
-        </section>
-      )}
-
-      <section class="book-small-conclusion">
-        <div class="kicker">暫定的なまとめ</div>
-        <p>{article.provisionalConclusion}</p>
-      </section>
-
-      <section class="book-open-questions">
-        <div class="kicker">まだ分からないこと</div>
-        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
-      </section>
-
-      <section class="book-sources">
-        <div class="kicker">出典・参照資料</div>
-        <ol>
-          {article.sources.map((source)=>(
-            <li id={`source-${source.id}`}>
-              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
-              <span>{source.publisher}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {article.researchLinks?.length>0 && (<section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{article.researchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>)}
+      <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>
+      <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>
+      <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=>(<li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>))}</ol></section>
     </div>
 
-    <nav class="book-pager">
-      {prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前の記事</small><strong>{prev.title}</strong></a> : <span></span>}
-      {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
-    </nav>
+    <nav class="book-pager">{prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前の記事</small><strong>{prev.title}</strong></a> : <span></span>}{next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}</nav>
   </article>
 </BaseLayout>
