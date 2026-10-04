@@ -5,13 +5,15 @@ import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
 import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
 import { shimotsuiHijikiEssay } from '../data/shimotsuiHijikiEssay.js';
+import { setouchiSushiEssay } from '../data/setouchiSushiEssay.js';
+import { setouchiShrimpEssay } from '../data/setouchiShrimpEssay.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
 import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,setouchiSushiEssay,setouchiShrimpEssay,aiRegionalPlanningEssay].filter(Boolean);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
 
