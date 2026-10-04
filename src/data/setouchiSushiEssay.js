@@ -6,6 +6,16 @@ export const setouchiSushiEssay = {
   cities:['岡山','香川','広島','松山'],
   keywords:['寿司','押し寿司','ばら寿司','松山鮓','ママカリ','サワラ','食文化','保存食','共同体'],
   heroPhotoId:null,
+  heroPhoto:{
+    imageUrl:'https://upload.wikimedia.org/wikipedia/commons/5/52/BarazushiC042501.jpg',
+    alt:'ばら寿司。酢飯にエビ、卵、野菜など多様な具材を合わせた寿司',
+    title:'ばら寿司',
+    author:'完全処方マニュアル',
+    credit:'完全処方マニュアル / CC BY-SA 3.0',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:BarazushiC042501.jpg',
+    license:'CC BY-SA 3.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
+  },
   lead:'寿司と聞けば、多くの人は握り寿司を思い浮かべる。しかし瀬戸内には、ばら寿司、押し抜きずし、角寿司、松山鮓など、握らない寿司が各地に残る。そこでは魚を酢で締め、焼き、煮て、大量の米と合わせ、祭りや祝いの日に大勢で分ける。なぜ瀬戸内の寿司はこの形になったのか。寿司をたどると、魚の保存技術だけでなく、米作、魚の回遊、農業暦、家族と共同体の構造まで見えてくる。',
   sections:[
     {
