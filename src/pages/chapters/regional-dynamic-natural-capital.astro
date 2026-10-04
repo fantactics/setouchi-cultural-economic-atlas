@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { regionalDynamicNaturalCapital } from '../../data/regionalDynamicNaturalCapital.js';
+
+const order = ['ako','onomichi','imabari','shimotsui','tomonoura','mitarai','shodoshima','niihama','matsuyama'];
+const labels = {
+  ako:'赤穂', onomichi:'尾道', imabari:'今治', shimotsui:'下津井・児島', tomonoura:'鞆の浦',
+  mitarai:'御手洗', shodoshima:'小豆島', niihama:'新居浜', matsuyama:'松山'
+};
+const entries = order.map((id)=>({ id, label:labels[id], ...regionalDynamicNaturalCapital[id] }));
+---
+<BaseLayout
+  title="地域別・動的自然資本――土地の変動と暮らしの応答 | SETOUCHI ATLAS"
+  description="赤穂、尾道、今治、下津井・児島、鞆の浦、御手洗、小豆島、新居浜、松山を、自然資本の形成・変動、人間の応答、暮らし、現在の自然資本という共通軸で比較する研究ノート。"
+>
+  <section class="place-hero chapter-hero">
+    <p class="eyebrow">DYNAMIC NATURAL CAPITAL / REGIONAL COMPARISON</p>
+    <h1>地域別・動的自然資本</h1>
+    <p class="subtitle">土地は違う。変わり方も違う。人間の応答も違う。</p>
+    <p class="lead">地域ページを「現在の自然条件」の紹介で終わらせないため、各地域を同じ5つの問いで読み直す。自然資本の形成、自然そのものの変動、人間の応答、暮らしへの定着、そして現在の自然資本である。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜地域を読む5つの問い</h2>
+    <div class="research-note-role-grid">
+      <article><strong>形成</strong><p>現在の地形・水系・海岸・生態系は、どのような長期過程で形成されたか。</p></article>
+      <article><strong>自然変動</strong><p>地殻変動、侵食・堆積、潮汐、海況、気候、生態系はどう動いてきたか。</p></article>
+      <article><strong>人間の応答</strong><p>人はその変動に、適応・移動・技術・制度・土地改変でどう応じたか。</p></article>
+      <article><strong>暮らし</strong><p>その応答のうち何が、住む・働く・食べる・移動するという生活様式として定着したか。</p></article>
+      <article><strong>現在の自然資本</strong><p>自然変動と人為改変を経て、現在どんな地形・水・生態系・人工基盤が残っているか。</p></article>
+    </div>
+    <p class="lead">重要なのは、この5段階を「自然→産業」という一方向の因果にしないことである。暮らしと産業が土地を改変し、その改変された土地が次の可能性と制約をつくる。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜9地域を同じ文法で比較する</h2>
+    <div class="comparison-insight-grid">
+      {entries.map((entry)=>(
+        <article class="insight-card">
+          <h3>{entry.label}</h3>
+          <p>{entry.title}</p>
+          <p><strong>中心問い：</strong>{entry.question}</p>
+          <a href={`/setouchi-cultural-economic-atlas/places/${entry.id}/`}>地域ページを見る →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {entries.map((entry, index)=>(
+    <section class="section gene-section" id={`place-${entry.id}`}>
+      <div class="kicker">{String(index + 1).padStart(2,'0')} / {entry.label}</div>
+      <h2>{entry.title}</h2>
+      <div class="research-note-role-grid">
+        {entry.stages.map(([stage, text])=>(
+          <article>
+            <strong>{stage}</strong>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+      <div class="region-natural-principle">
+        <strong>この地域で残る問い</strong>
+        <span>{entry.question}</span>
+      </div>
+      <p><a class="compare-button secondary" href={`/setouchi-cultural-economic-atlas/places/${entry.id}/`}>{entry.label}の地域ページへ →</a></p>
+    </section>
+  ))}
+
+  <section class="section">
+    <h2>12｜比較して見えること</h2>
+    <div class="research-note-role-grid">
+      <article><strong>同じ自然条件でも意味は固定されない</strong><p>強潮流、少雨、急斜面、島嶼性、浅海は、技術・交通・制度・需要によってStrengthにもWeaknessにもなる。</p></article>
+      <article><strong>自然変動と人為改変は別の変数</strong><p>潮汐や堆積のような自然変動と、干拓・埋立・港湾整備のような人為改変を分けて記述する。</p></article>
+      <article><strong>暮らしが中間層にある</strong><p>産業は自然資本から直接生まれない。航海、漁、農、製塩、湯治、港湾生活などの暮らしを経て技術・制度・産業が形成される。</p></article>
+      <article><strong>現在の自然資本は履歴の結果</strong><p>人工海岸、干拓地、斜面住宅地、港湾、工業地帯、放棄農地も、自然変動と人為改変が重なった現在の土地条件として扱う。</p></article>
+      <article><strong>保存も固定ではない</strong><p>景観や生態系を維持する場合も、自然遷移や人口・利用変化の中で何を維持するのかを明示する必要がある。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>13｜地域ページへの実装ルール</h2>
+    <p class="lead">今後の地域ページでは、自然環境欄に単なる現況説明を置くだけでなく、少なくとも一つの「時間の鎖」を置く。</p>
+    <div class="process-chain"><span>形成</span><b>→</b><span>自然変動</span><b>→</b><span>人間の応答</span><b>→</b><span>暮らし</span><b>→</b><span>現在の自然資本</span></div>
+    <p>その後に産業、文化、都市を読む。これにより、産業の系譜は主役ではなく、土地と人間の関係が生んだ一つの表出として位置づけられる。</p>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/">動的自然資本 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/dynamic-natural-systems/">自然系3章への適用 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+    </div>
+  </section>
+</BaseLayout>
