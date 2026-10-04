@@ -1,0 +1,98 @@
+---
+const {
+  pathname = '',
+  title = '',
+  description = '',
+  meta = null
+} = Astro.props;
+
+const cleanTitle=title.replace(/\s*\|.*$/,'').trim();
+const cleanDescription=description.replace(/研究ノート。?$/,'').replace(/。$/,'').trim();
+const has=(...terms)=>terms.some((term)=>pathname.includes(term));
+
+const theme = has('cycle-tourism')
+  ? {
+      target:'しまなみ・とびしま・ゆめしま等のサイクルルートと沿線地域を対象に、来訪、停止、滞在、消費、再訪、関係形成、公共空間・景観への影響を扱う。',
+      method:'来訪者数だけで評価せず、来訪→停止→滞在→消費→地域内残存という経済的捕捉と、再訪・参加・二地域居住・所有・創業・居住という関係的捕捉を分けて追う。整備前後比較では他要因を分離し、可能な場合は反実仮想も置く。',
+      content:'走行環境、停止・滞在環境、地域消費、関係継続、景観・インフラ、負の外部性を比較し、サイクルルートが地域で何へ変換されたかを検討する。'
+    }
+  : has('datacenter','physical-ai','watt-bit','ai-cluster')
+    ? {
+        target:'瀬戸内のAIデータセンター、電力・通信・冷却・土地、製造業・物流・港湾などのAI需要側、関連企業・大学・高専・自治体との接続を対象とする。',
+        method:'立地可能性と地域接続性を分け、自然・災害、電力、通信、冷却、土地、需要、地域企業との接続を複数軸で比較する。投資額や雇用人数だけでなく、地域で新たに何が可能になるかを評価する。',
+        content:'学習DC・推論DC・Physical AIの立地条件、地域別適地性、既存産業との接続、人材・調達・インフラ外部効果、地域への還流を検討する。'
+      }
+    : has('shipbuilding','imabari-maritime','onomichi-innoshima','tamano-company-town','kure-state-led')
+      ? {
+          target:'瀬戸内の造船・海事産業と、その背景となる海峡・港湾・航海、船主、修繕需要、技能、設備、企業間分業、都市形成を対象とする。',
+          method:'現在の産業集積から遡るのではなく、自然資本→航海生活・需要→技能・設備・資本の蓄積→企業間分業→次世代への再生産という因果を地域間比較で追う。',
+          content:'造船集積の形成、技能生態系、企業・地域ごとの形成経路、能力の継承と再結合、今後の再生産条件を扱う。'
+        }
+      : has('industrial','industry-','textile','denim','chemical','niihama','resource-circulation','salt-fields')
+        ? {
+            target:'瀬戸内の産業形成・転換を、自然資本、暮らし、生業、技能、設備、土地、港湾、企業、制度、市場の連関として対象とする。',
+            method:'産業を単独の起点に置かず、自然資本と暮らしを基層に、技術・資本・制度・需要がどう能力を形成し、用途転換後に何が継承・再結合されたかを時系列と地域比較で読む。',
+            content:'産業の形成条件、転換点、残存した能力・土地・設備・組織、別産業への再結合、地域内循環と自然資本へのフィードバックを検討する。'
+          }
+        : has('gastronomy','coastal-food','food-culture','livelihood')
+          ? {
+              target:'瀬戸内の魚介・農産物などの自然資源と、採取・栽培、加工、保存、流通、調理、飲食、担い手、地域の記憶を対象とする。',
+              method:'「名物」を結果として並べるのではなく、自然環境→資源→生業・技術→加工・流通→料理・市場→担い手の再生産という連鎖を追い、地域間・季節間で比較する。',
+              content:'資源の地域差、価値形成の経路、料理への変換、流通と鮮度、担い手・所得・食べる場を含む食文化の再生産条件を扱う。'
+            }
+          : has('waiting-ports','ports-trade','port-node')
+            ? {
+                target:'瀬戸内の港、海峡、潮流・風、航路、積替え、修船、商業、都市資産と、交通体系の転換を対象とする。',
+                method:'移動量だけでなく、自然が生む移動摩擦→停止・滞留→交易・修船・サービス→資本・都市資産の蓄積という経路を追い、帆船期から近代交通への変化を比較する。',
+                content:'潮待ち・風待ち、港湾結節、滞留価値、近代化による機能転換、旧来資産が別用途へどう継承されたかを検討する。'
+              }
+            : has('townscape','land-use','nature-positive','renaturing','cities')
+              ? {
+                  target:'瀬戸内の都市・集落、干拓・埋立・塩田跡・農地・工業用地・住宅地・歴史的町並みなど、長期に蓄積された土地利用と空間を対象とする。',
+                  method:'現在の用途だけでなく、形成→利用→改変→用途転換→低利用・退出→再利用・再自然化までを時間軸で追う。保存・開発・自然回復を自明の善悪とせず、機能と外部性を比較する。',
+                  content:'都市・集落の形成、土地利用の履歴、町並みの維持・再生産、低利用地の管理、再自然化の条件と選択肢を扱う。'
+                }
+              : has('island-use-intensity','regional-asset-reproduction')
+                ? {
+                    target:'人口規模だけでは捉えにくい地域利用、居住、所有、滞在、消費、公共サービス、地域資産の維持・更新を対象とする。',
+                    method:'常住人口や資産価格を単独指標とせず、利用強度、維持負担、外部不経済、再利用、関係の継続を分解する。人口増・価格上昇を自動的な成功指標とはしない。',
+                    content:'誰がどのように地域を使うか、何が維持されるか、負担を誰が担うか、地域資産が利用されながら再生産される条件を検討する。'
+                  }
+                : has('dynamic-natural','geography','climate-water','water-storage','ecosystems','regional-dynamic','human-response','natural-capital-lifestyle')
+                  ? {
+                      target:'瀬戸内の地形・地質、気候、水、海況、生態系と、それらの自然変動・人為改変、人間の暮らしへの影響を対象とする。',
+                      method:'自然資本を固定的背景ではなく Natural Capital(t) として時間変数で捉え、自然起源の変動・人為改変・複合変化を区別する。人間の適応と改変、その結果としての暮らし・生業・都市・産業への波及と自然へのフィードバックを追う。',
+                      content:'自然資本の形成と変動、人間の応答、可能性と制約の組み替え、現在の自然資本へ至る時間軸を検討する。'
+                    }
+                  : has('culture')
+                    ? {
+                        target:'瀬戸内の信仰、祭礼、神社ネットワーク、生活技術、景観、地域記憶など、土地に付与され蓄積された文化的意味を対象とする。',
+                        method:'文化を土地から切り離された象徴として扱わず、自然条件、生業、移動、交易、共同体との関係をたどり、地域間の分布・伝播・定着を比較する。',
+                        content:'信仰・祭礼・生活文化の形成、ネットワーク、景観への定着、社会条件の変化に伴う継承・変容を検討する。'
+                      }
+                    : {
+                        target:`「${cleanTitle}」に関係する地域・自然条件・暮らし・制度・産業・文化の相互関係を対象とする。`,
+                        method:'事実・解釈・仮説を区別し、時間軸と地域比較を用いる。自然資本を固定条件とせず、人間の適応・改変と、その結果生じた可能性と制約の変化を追う。',
+                        content:`「${cleanTitle}」を構成する主要な要素と因果関係を分解し、地域差・時間変化・現在への継承を検討する。`
+                      };
+
+const overview={
+  purpose: meta?.purpose || (cleanDescription ? `${cleanDescription}ことを目的とする。` : `「${cleanTitle}」の形成・変化と地域との関係を明らかにする。`),
+  target: meta?.target || theme.target,
+  method: meta?.method || theme.method,
+  content: meta?.content || theme.content
+};
+---
+<section class="section research-note-overview" aria-labelledby="research-design-heading">
+  <div class="research-overview-heading">
+    <div class="kicker">RESEARCH DESIGN</div>
+    <h2 id="research-design-heading">この研究ノートの設計</h2>
+    <p>詳細に入る前に、何を明らかにするための研究か、何を対象にし、どの方法で読むのかを明示します。</p>
+  </div>
+  <div class="research-overview-grid">
+    <article><span>01</span><h3>目的</h3><p>{overview.purpose}</p></article>
+    <article><span>02</span><h3>対象</h3><p>{overview.target}</p></article>
+    <article><span>03</span><h3>方法論</h3><p>{overview.method}</p></article>
+    <article><span>04</span><h3>内容</h3><p>{overview.content}</p></article>
+  </div>
+</section>
