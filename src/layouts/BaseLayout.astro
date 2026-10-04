@@ -3,6 +3,7 @@ import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
 import RegionalDynamicNaturalCapital from '../components/RegionalDynamicNaturalCapital.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
+import ResearchRelatedData from '../components/ResearchRelatedData.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import { regionalDynamicNaturalCapital } from '../data/regionalDynamicNaturalCapital.js';
 import { essayResearchSynthesis } from '../data/essayResearchSynthesis.js';
@@ -18,7 +19,7 @@ import '../styles/research-detail-refresh.css';
 
 const {
   title = 'SETOUCHI ATLAS',
-  description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノート、地図・統計・写真データを行き来しながら読むアトラス。',
+  description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノートと、その根拠となる地図・統計・写真を往復しながら読むアトラス。',
   image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
   imageAlt = '瀬戸内の町並み',
   structuredData = null
@@ -165,6 +166,7 @@ const jsonLd = structuredData || defaultStructuredData;
           </div>
         </section>
       )}
+      {isResearchDetail && <ResearchRelatedData pathname={pathname} />}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
       {dynamicNaturalCapitalProfile && <RegionalDynamicNaturalCapital profile={dynamicNaturalCapitalProfile} />}
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
