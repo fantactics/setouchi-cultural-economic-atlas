@@ -1,6 +1,8 @@
 ---
 import { places } from '../data/places.js';
 import { regionalPossibilityTimelines } from '../data/regionalPossibilityTimelines.js';
+import { regionalDynamicNaturalCapitalExpansion } from '../data/regionalDynamicNaturalCapitalExpansion.js';
+import RegionalDynamicNaturalCapital from './RegionalDynamicNaturalCapital.astro';
 import '../styles/regional-adaptive.css';
 
 const { placeId } = Astro.props;
@@ -8,6 +10,7 @@ const place = places.find((item)=>item.id===placeId);
 const placeName = place?.name || 'この地域';
 const section = (index) => place?.sections?.[index] || null;
 const timeline = regionalPossibilityTimelines[placeId] || [];
+const expandedDynamicNaturalCapital = regionalDynamicNaturalCapitalExpansion[placeId] || null;
 
 const possibilityDimensions = [
   {
@@ -49,6 +52,8 @@ const possibilityProfile = possibilityDimensions.map((dimension,index)=>({
   change:dimension.items[1]?.[0] || dimension.items[0]?.[0] || '変化を観察'
 }));
 ---
+{expandedDynamicNaturalCapital && <RegionalDynamicNaturalCapital profile={expandedDynamicNaturalCapital} />}
+
 <section class="section regional-adaptive" id="region-possibilities">
   <div class="regional-adaptive-head">
     <div>
