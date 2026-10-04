@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AtlasRegionMap from '../components/AtlasRegionMap.astro';
+import SiteSearch from '../components/SiteSearch.astro';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { kadaEssays } from '../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
@@ -115,6 +116,8 @@ const initialPhotoFeatures=photoPool.slice(0,6);
     <p>瀬戸内の町を歩く。港を見る。魚を食べる。工場の向こうに、かつての塩田を想像する。SETOUCHI ATLASは、そんな小さな発見から、土地と人の暮らしの関係をたどる読み物です。</p>
     <a href="/setouchi-cultural-economic-atlas/about/">このアトラスについて →</a>
   </section>
+
+  <SiteSearch />
 
   <section class="section home-magazine-section" data-random-essays data-essay-pool={JSON.stringify(essayPool)}>
     <div class="home-magazine-section-header">
