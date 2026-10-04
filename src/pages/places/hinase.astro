@@ -9,6 +9,12 @@ const photoById=Object.fromEntries(photoEvidence.map((p)=>[p.id,p]));
 const hero=photoById['photo-hinase-bay'];
 const oysterPhoto=photoById['photo-hinase-oysters'];
 const sourceById=Object.fromEntries(place.sources.map((s)=>[s.id,s]));
+const kojimaEssays=[
+  ['公共インフラ','人口52人の島に、道路と水道をどこまで残すのか','/setouchi-cultural-economic-atlas/book/kojima-island-infrastructure-per-capita/'],
+  ['シクロツーリズム','自転車で島を一周しても、島に一円も落ちないとしたら','/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/'],
+  ['別荘ストック','1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-new-users/'],
+  ['空き家・退出','誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-ruins-without-externalities/']
+];
 ---
 <BaseLayout title={`${place.name} | SETOUCHI ATLAS`} description={place.subtitle}>
   <article class="hinase-page">
@@ -41,7 +47,7 @@ const sourceById=Object.fromEntries(place.sources.map((s)=>[s.id,s]));
       <div class="hinase-kicker">REGIONAL PROFILE</div>
       <div class="hinase-grid">
         {place.sections.map((section,index)=><article class="hinase-section-card">
-          <small>{String(index+1).padStart(2,'0')} / {section[2]==='fact'?'事実':section[2]==='interpretation'?'解釈':'仮説'}</small>
+          <small>{`${index+1}`.padStart(2,'0')} / {section[2]==='fact'?'事実':section[2]==='interpretation'?'解釈':'仮説'}</small>
           <h3>{section[0]}</h3>
           <p>{section[1]}</p>
         </article>)}
@@ -79,6 +85,24 @@ const sourceById=Object.fromEntries(place.sources.map((s)=>[s.id,s]));
           <h3>{axis.axis}</h3>
           <dl><dt>支える条件</dt><dd>{axis.basis}</dd><dt>変化</dt><dd>{axis.change}</dd></dl>
         </article>)}
+      </div>
+    </section>
+
+    <section class="hinase-links">
+      <div class="hinase-kicker">KOJIMA ISLAND SERIES</div>
+      <h2>鴻島を、4つの問いから読む</h2>
+      <p class="hinase-profile-note">日生港の沖にある鴻島を、公共インフラ、シクロツーリズム、別荘ストック、空き家・退出という異なる角度から読みます。</p>
+      <div class="hinase-link-grid">
+        {kojimaEssays.map((item)=><a class="hinase-link" href={item[2]}><small>{item[0]}</small><strong>{item[1]}</strong><span>鴻島シリーズを読む →</span></a>)}
+      </div>
+    </section>
+
+    <section class="hinase-links">
+      <div class="hinase-kicker">RESEARCH NOTES</div>
+      <h2>日生・鴻島から、分析枠組みへ戻る</h2>
+      <div class="hinase-link-grid">
+        <a class="hinase-link" href="/setouchi-cultural-economic-atlas/chapters/island-use-intensity/"><small>ISLAND USE</small><strong>人口ではなく、島の利用強度を測る</strong><span>所有・居住・滞在・消費・公共負担を分けて読む →</span></a>
+        <a class="hinase-link" href="/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/"><small>CYCLE TOURISM</small><strong>自転車は、島を変えたか</strong><span>来訪を地域所得へ変える条件を比較する →</span></a>
       </div>
     </section>
 
