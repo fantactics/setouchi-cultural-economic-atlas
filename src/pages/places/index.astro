@@ -5,15 +5,17 @@ import { places } from '../../data/places.js';
 import { hinasePlace } from '../../data/hinasePlace.js';
 import { additionalPlaces } from '../../data/additionalPlaces.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
 const mainlandOrder=['kada','akashi','ako','hinase','ushimado','shimotsui','tomonoura','onomichi','mihara','takehara','mitarai','iwakuni','yanai','hofu','shimonoseki'];
 const shikokuOrder=['naruto','hiketa','shodoshima','takamatsu','sakaide','tadotsu','niihama','imabari','matsuyama'];
 const mainlandPlaces=mainlandOrder.map((id)=>allPlaces.find((p)=>p.id===id)).filter(Boolean);
 const shikokuPlaces=shikokuOrder.map((id)=>allPlaces.find((p)=>p.id===id)).filter(Boolean);
-const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
-const regionCoverPhotoIds={ako:'photo-ako-salt-terrace',hinase:'photo-hinase-bay',ushimado:'photo-ushimado-islands',shimotsui:'photo-shimotsui-geography',tomonoura:'photo-tomonoura-port',onomichi:'photo-onomichi-panorama',mihara:'photo-mihara-castle-station',takehara:'photo-takehara-view',mitarai:'photo-mitarai-panorama',iwakuni:'photo-iwakuni-kintai',yanai:'photo-yanai-whitewall',hofu:'photo-hofu-salt-official',shimonoseki:'photo-shimonoseki-kanmon',hiketa:'photo-hiketa-townscape',shodoshima:'photo-shodoshima-olive-sea',takamatsu:'photo-takamatsu-seawater-moat',sakaide:'photo-sakaide-bannosu-aerial',tadotsu:'photo-tadotsu-station',niihama:'photo-niihama-tonaru',imabari:'photo-imabari-kurushima',matsuyama:'photo-matsuyama-city-view'};
-const coverPhotoFor=(place)=>photoById[regionCoverPhotoIds[place.id]] || null;
+const allRegionPhotos=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
+const photoById=Object.fromEntries(allRegionPhotos.map((photo)=>[photo.id,photo]));
+const regionCoverPhotoIds={kada:'photo-kada-kitan-strait',akashi:'photo-akashi-strait-bridge',ako:'photo-ako-salt-terrace',hinase:'photo-hinase-bay',ushimado:'photo-ushimado-islands',shimotsui:'photo-shimotsui-geography',tomonoura:'photo-tomonoura-port',onomichi:'photo-onomichi-panorama',mihara:'photo-mihara-castle-station',takehara:'photo-takehara-view',mitarai:'photo-mitarai-panorama',iwakuni:'photo-iwakuni-kintai',yanai:'photo-yanai-whitewall',hofu:'photo-hofu-salt-official',shimonoseki:'photo-shimonoseki-kanmon',naruto:'photo-naruto-whirlpool',hiketa:'photo-hiketa-townscape',shodoshima:'photo-shodoshima-olive-sea',takamatsu:'photo-takamatsu-seawater-moat',sakaide:'photo-sakaide-bannosu-aerial',tadotsu:'photo-tadotsu-station',niihama:'photo-niihama-tonaru',imabari:'photo-imabari-kurushima',matsuyama:'photo-matsuyama-city-view'};
+const coverPhotoFor=(place)=>photoById[regionCoverPhotoIds[place.id]] || additionalPlacePhotos[place.id]?.[0] || null;
 const leadPhoto=photoById['photo-onomichi-panorama'];
 const groups=[{title:'近畿・中国地方',note:'東 → 西',items:mainlandPlaces},{title:'四国地方',note:'東 → 西',items:shikokuPlaces}];
 ---
