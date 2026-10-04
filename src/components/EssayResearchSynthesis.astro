@@ -1,0 +1,31 @@
+---
+const { synthesis } = Astro.props;
+const base='/setouchi-cultural-economic-atlas/book/';
+---
+{synthesis && <section class="section essay-research-synthesis">
+  <div class="program-section-head">
+    <div><div class="kicker">ESSAY → RESEARCH UPDATE</div><h2>{synthesis.title}</h2></div>
+    <p>既存エッセイで得た事実・比較・仮説を、研究ノートの分析枠組みへ戻して統合しています。最終更新：{synthesis.updated}</p>
+  </div>
+  <div class="essay-synthesis-grid">
+    {synthesis.points.map((point)=><article class="essay-synthesis-card">
+      <h3>{point.heading}</h3>
+      <p>{point.text}</p>
+    </article>)}
+  </div>
+  {synthesis.essays?.length>0 && <div class="essay-synthesis-sources">
+    <strong>この更新に反映した主なエッセイ</strong>
+    <div class="chapter-related-grid">
+      {synthesis.essays.map((essay,index)=><a class:list={['compare-button',index>0&&'secondary']} href={`${base}${essay[1]}/`}>{essay[0]} →</a>)}
+    </div>
+  </div>}
+</section>}
+
+<style>
+  .essay-research-synthesis{border-top:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd);background:rgba(70,100,80,.035)}
+  .essay-synthesis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem;margin-top:1.5rem}
+  .essay-synthesis-card{padding:1.25rem;border:1px solid var(--line,#ddd);background:var(--surface,#fff)}
+  .essay-synthesis-card h3{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+  .essay-synthesis-card p{margin:0;line-height:1.8;font-size:.93rem}
+  .essay-synthesis-sources{margin-top:1.8rem}.essay-synthesis-sources>strong{display:block;margin-bottom:.8rem;font-size:.85rem;letter-spacing:.04em}
+</style>
