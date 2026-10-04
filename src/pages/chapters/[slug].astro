@@ -26,8 +26,15 @@ const dataHrefPrefixes=[
   '/setouchi-cultural-economic-atlas/data/'
 ];
 const relatedPages=(chapter.related || []).filter((item)=>!dataHrefPrefixes.some((prefix)=>item.href.startsWith(prefix)));
+const sectionTitles=(chapter.sections || []).map((section)=>section.title);
+const researchMeta={
+  purpose: chapter.thesis,
+  target: `${chapter.subtitle}。主に「${sectionTitles.slice(0,3).join('」「')}」を手掛かりに、関係する地域・自然条件・暮らし・制度・産業を対象として扱う。`,
+  method: '事実・解釈・仮説を明示的に分け、複数地域と時間軸を比較する。個別事象を単独で説明せず、自然資本、人間の適応・改変、暮らし・生業、産業・文化・都市への波及という因果関係の中で検討する。',
+  content: sectionTitles.length ? `本文では、${sectionTitles.map((title)=>`「${title}」`).join('、')}の順に論点を展開する。` : `本文では「${chapter.title}」を構成する主要論点を順に検討する。`
+};
 ---
-<BaseLayout title={`${chapter.title} | 研究ノート | SETOUCHI ATLAS`} description={chapter.subtitle}>
+<BaseLayout title={`${chapter.title} | 研究ノート | SETOUCHI ATLAS`} description={chapter.subtitle} researchMeta={researchMeta}>
   <section class="place-hero chapter-hero research-note-hero">
     <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
     <h1>{chapter.title}</h1>
