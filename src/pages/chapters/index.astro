@@ -73,11 +73,15 @@ const researchMethods=[
 ];
 
 const dataResources=[
-  {title:'データ索引',description:'気候、海況、土地利用、交通、産業、写真など、ATLASで扱うデータ群への入口。',href:'/setouchi-cultural-economic-atlas/data/'},
+  {title:'気候データ',description:'月別気温・降水量・日照時間などから、地域ごとの気候条件を比較する。',href:'/setouchi-cultural-economic-atlas/climate/'},
+  {title:'潮・風データ',description:'潮流・潮汐・卓越風・季節風から、港・航海・海峡条件を確認する。',href:'/setouchi-cultural-economic-atlas/wind-tide/'},
+  {title:'地形断面',description:'山地から河川・平野・干拓地・沿岸部までの地形構成を確認する。',href:'/setouchi-cultural-economic-atlas/transect/'},
+  {title:'土地利用',description:'干拓、塩田跡、工業用地、住宅地、港湾造成など土地利用の変化を見る。',href:'/setouchi-cultural-economic-atlas/land-use/'},
+  {title:'交通・港湾',description:'港湾・航路・鉄道・道路・架橋・サイクルルートなどの交通条件を見る。',href:'/setouchi-cultural-economic-atlas/transport/'},
+  {title:'産業分布',description:'造船・化学・製鉄・機械・製塩・繊維など、瀬戸内の産業空間を確認する。',href:'/setouchi-cultural-economic-atlas/industry/'},
   {title:'瀬戸内食資源マトリクス',description:'魚介・食資源を地域横断で比較し、海域・季節・料理・流通との関係を見る。',href:'/setouchi-cultural-economic-atlas/gastronomy-matrix/'},
-  {title:'食文化ダッシュボード',description:'食資源と地域文化を比較するための指標と可視化。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/'},
-  {title:'写真データ',description:'地域ごとの景観・港・町並み・産業・食などを、現地写真と出典から確認する。',href:'/setouchi-cultural-economic-atlas/photos/'},
-  {title:'地域比較',description:'複数地域の条件や特徴を横断的に見比べるための比較ページ。',href:'/setouchi-cultural-economic-atlas/compare/'}
+  {title:'写真資料',description:'港・海岸・地形・町並み・工場・食などを、現地写真と出典から確認する。',href:'/setouchi-cultural-economic-atlas/photos/'},
+  {title:'地域比較',description:'複数地域の条件や特徴を横断的に見比べる。',href:'/setouchi-cultural-economic-atlas/compare/'}
 ];
 
 const noteCount=new Set(categories.flatMap(c=>c.groups.flatMap(g=>g.items.map(i=>i.href)))).size;
@@ -95,7 +99,7 @@ const noteCount=new Set(categories.flatMap(c=>c.groups.flatMap(g=>g.items.map(i=
     </section>
 
     <section class="research-category research-support-section data-section">
-      <header class="research-category-head"><span>D</span><div><h2>データを見る</h2><p>研究ノートの根拠となる地図・統計・写真・比較データへ移動します。考察と根拠を往復するための入口です。</p></div></header>
+      <header class="research-category-head"><span>D</span><div><h2>データを見る</h2><p>研究ノートの根拠となる個別データへ直接移動します。独立したデータ索引は置かず、研究テーマから必要な根拠へ降りていく構成です。</p></div></header>
       <div class="research-middle-list"><section class="research-middle"><h3>地図・統計・写真・比較</h3><div class="research-note-grid">{dataResources.map(i=><a class="research-note-card" href={i.href}><strong>{i.title}</strong><p>{i.description}</p><span>データを見る →</span></a>)}</div></section></div>
     </section>
 
