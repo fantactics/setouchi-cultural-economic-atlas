@@ -4,6 +4,7 @@ import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import { essayResearchSynthesis } from '../data/essayResearchSynthesis.js';
+import { essayResearchSynthesisExpansion } from '../data/essayResearchSynthesisExpansion.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
@@ -22,7 +23,18 @@ const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
-const researchSynthesis = essayResearchSynthesis[pathname] || null;
+const baseResearchSynthesis = essayResearchSynthesis[pathname] || null;
+const extraResearchSynthesis = essayResearchSynthesisExpansion[pathname] || null;
+const researchSynthesis = baseResearchSynthesis && extraResearchSynthesis
+  ? {
+      ...baseResearchSynthesis,
+      ...extraResearchSynthesis,
+      title: extraResearchSynthesis.title || baseResearchSynthesis.title,
+      updated: extraResearchSynthesis.updated || baseResearchSynthesis.updated,
+      points: [...(baseResearchSynthesis.points || []), ...(extraResearchSynthesis.points || [])],
+      essays: [...(baseResearchSynthesis.essays || []), ...(extraResearchSynthesis.essays || [])]
+    }
+  : (extraResearchSynthesis || baseResearchSynthesis);
 const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
 const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
