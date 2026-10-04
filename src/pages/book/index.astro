@@ -8,11 +8,12 @@ import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
+import { setouchiSushiEssay } from '../../data/setouchiSushiEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,...kojimaIslandEssays,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
