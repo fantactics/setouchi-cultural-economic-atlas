@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchChapters } from '../../data/researchChapters.js';
 
 const featuredResearch=[
+  {tag:'島嶼・人口・利用',title:'人口ではなく、島の利用強度を測る',subtitle:'鴻島をケースに、所有・居住・滞在・消費・公共インフラ負担を分けて、小規模離島の実際の使われ方を測る。',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'},
   {tag:'自然・土地利用',title:'瀬戸内ネイチャーポジティブ論',subtitle:'人口、災害、生態系、土地利用の変化を重ね、瀬戸内の土地がどのように使われ、管理され、自然へ戻りうるのかを調べる。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/'},
   {tag:'交通・港湾',title:'潮待ち港は、なぜ近代化後に別々の道を歩んだのか',subtitle:'鞆・御手洗・多度津・尾道を、後背地、商人資本、鉄道接続、技能転換から比較する。',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
   {tag:'産業・土地利用',title:'塩田は、地域に何を残したのか',subtitle:'赤穂・竹原・坂出・三田尻で、企業、商人資本、土地、港湾、追加投資を分けて比較する。',href:'/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'},
@@ -14,6 +15,9 @@ const featuredResearch=[
 ];
 
 const programs=[
+  {title:'島嶼・人口・利用',desc:'常住人口だけでは見えない、島の所有・居住・滞在・消費・公共負担を分けて測る研究。',items:[
+    ['人口ではなく、島の利用強度を測る','鴻島をケースに、住宅ストック、季節人口、観光、インフラ負担、未利用資産を一つの分析枠組みに整理する。','/setouchi-cultural-economic-atlas/chapters/island-use-intensity/']
+  ]},
   {title:'自然・土地利用',desc:'海、地形、生態系、人口、災害、土地利用の変化を扱う研究。',items:[
     ['瀬戸内ネイチャーポジティブ論','人口減少と土地利用、生態系、防災の関係を広域で考える。','/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/'],
     ['戦略的再自然化 スクリーニング・マップ v0.1','人口・土地利用・災害・自然資本から候補地を比較する。','/setouchi-cultural-economic-atlas/chapters/strategic-renaturing-screening-map/'],
