@@ -7,11 +7,12 @@ import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
+import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,...kojimaIslandEssays,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
@@ -48,156 +49,46 @@ const coverStories=coverSlugs
   .filter(Boolean)
   .map((article)=>{
     const photo=articlePhoto(article);
-    return photo ? {
-      imageUrl:photo.imageUrl,
-      alt:photo.alt,
-      part:article.part,
-      title:article.title,
-      subtitle:article.subtitle,
-      href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`
-    } : null;
+    return photo ? {imageUrl:photo.imageUrl,alt:photo.alt,part:article.part,title:article.title,subtitle:article.subtitle,href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`} : null;
   })
   .filter(Boolean);
 const featureStory=coverStories[0];
 const coverSide=coverStories.slice(1,3);
-
-const visualEssays=['kitan-strait-tai-to-shirasu','shimotsui-hijiki-peperoncino','shimotsui-tako-meshi']
-  .map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
+const visualEssays=['kitan-strait-tai-to-shirasu','shimotsui-hijiki-peperoncino','shimotsui-tako-meshi'].map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
 const visualFallback=allBookArticles.filter((a)=>!visualEssays.includes(a)).slice(0,3-visualEssays.length);
 const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 ---
 <BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
   <main class="essay-magazine">
-    <section class="essay-magazine-intro">
-      <div>
-        <div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div>
-        <h2>瀬戸内には、<br/>理由のある風景がある。</h2>
-      </div>
-      <p>港町の路地、海峡を渡る船、皿の上の鯛やタコ、海辺に並ぶ工場。何気なく見える風景にも、その土地の自然と人の営みが積み重なっています。気になるところから、自由に読んでください。</p>
-    </section>
+    <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div><h2>瀬戸内には、<br/>理由のある風景がある。</h2></div><p>港町の路地、海峡を渡る船、皿の上の鯛やタコ、海辺に並ぶ工場。何気なく見える風景にも、その土地の自然と人の営みが積み重なっています。気になるところから、自由に読んでください。</p></section>
 
     <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
-      {featureStory && (
-        <a class="essay-cover-main js-essay-main" href={featureStory.href}>
-          <img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" />
-          <div class="essay-cover-copy">
-            <small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small>
-            <h1 class="js-essay-main-title">{featureStory.title}</h1>
-            <p class="js-essay-main-subtitle">{featureStory.subtitle}</p>
-          </div>
-        </a>
-      )}
-      <div class="essay-cover-side">
-        {coverSide.map((story,index)=>(
-          <a class={`essay-cover-side-card js-essay-side js-essay-side-${index}`} href={story.href}>
-            <img class="js-essay-side-image" src={story.imageUrl} alt={story.alt} loading="eager" />
-            <div class="essay-card-copy"><small class="js-essay-side-kicker">{story.part}</small><h2 class="js-essay-side-title">{story.title}</h2></div>
-          </a>
-        ))}
-      </div>
+      {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h1 class="js-essay-main-title">{featureStory.title}</h1><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
+      <div class="essay-cover-side">{coverSide.map((story,index)=>(<a class={`essay-cover-side-card js-essay-side js-essay-side-${index}`} href={story.href}><img class="js-essay-side-image" src={story.imageUrl} alt={story.alt} loading="eager" /><div class="essay-card-copy"><small class="js-essay-side-kicker">{story.part}</small><h2 class="js-essay-side-title">{story.title}</h2></div></a>))}</div>
     </section>
 
     <script is:inline>
       (() => {
-        const cover=document.querySelector('[data-random-cover="essays"]');
-        if (!cover) return;
-        let stories=[];
-        try { stories=JSON.parse(cover.dataset.coverStories || '[]'); } catch (_) { return; }
+        const cover=document.querySelector('[data-random-cover="essays"]'); if (!cover) return;
+        let stories=[]; try { stories=JSON.parse(cover.dataset.coverStories || '[]'); } catch (_) { return; }
         if (stories.length<3) return;
-        const key='setouchi-essay-cover-last';
-        const previous=Number(sessionStorage.getItem(key));
-        const indices=stories.map((_,i)=>i);
-        for (let i=indices.length-1;i>0;i--) {
-          const j=Math.floor(Math.random()*(i+1));
-          [indices[i],indices[j]]=[indices[j],indices[i]];
-        }
-        if (indices.length>1 && Number.isInteger(previous) && indices[0]===previous) {
-          const swapWith=1+Math.floor(Math.random()*(indices.length-1));
-          [indices[0],indices[swapWith]]=[indices[swapWith],indices[0]];
-        }
-        sessionStorage.setItem(key,String(indices[0]));
-        const chosen=indices.slice(0,3).map((i)=>stories[i]);
-        const main=chosen[0];
-        const mainLink=cover.querySelector('.js-essay-main');
-        const mainImage=cover.querySelector('.js-essay-main-image');
-        const mainKicker=cover.querySelector('.js-essay-main-kicker');
-        const mainTitle=cover.querySelector('.js-essay-main-title');
-        const mainSubtitle=cover.querySelector('.js-essay-main-subtitle');
-        if (mainLink) mainLink.href=main.href;
-        if (mainImage) { mainImage.src=main.imageUrl; mainImage.alt=main.alt || ''; }
-        if (mainKicker) mainKicker.textContent=`FEATURE / ${main.part || ''}`;
-        if (mainTitle) mainTitle.textContent=main.title || '';
-        if (mainSubtitle) mainSubtitle.textContent=main.subtitle || '';
-        chosen.slice(1).forEach((story,index)=>{
-          const card=cover.querySelector(`.js-essay-side-${index}`);
-          if (!card) return;
-          card.href=story.href;
-          const image=card.querySelector('.js-essay-side-image');
-          const kicker=card.querySelector('.js-essay-side-kicker');
-          const title=card.querySelector('.js-essay-side-title');
-          if (image) { image.src=story.imageUrl; image.alt=story.alt || ''; }
-          if (kicker) kicker.textContent=story.part || '';
-          if (title) title.textContent=story.title || '';
-        });
+        const key='setouchi-essay-cover-last'; const previous=Number(sessionStorage.getItem(key)); const indices=stories.map((_,i)=>i);
+        for (let i=indices.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [indices[i],indices[j]]=[indices[j],indices[i]]; }
+        if (indices.length>1 && Number.isInteger(previous) && indices[0]===previous) { const swapWith=1+Math.floor(Math.random()*(indices.length-1)); [indices[0],indices[swapWith]]=[indices[swapWith],indices[0]]; }
+        sessionStorage.setItem(key,String(indices[0])); const chosen=indices.slice(0,3).map((i)=>stories[i]); const main=chosen[0];
+        const mainLink=cover.querySelector('.js-essay-main'); const mainImage=cover.querySelector('.js-essay-main-image'); const mainKicker=cover.querySelector('.js-essay-main-kicker'); const mainTitle=cover.querySelector('.js-essay-main-title'); const mainSubtitle=cover.querySelector('.js-essay-main-subtitle');
+        if (mainLink) mainLink.href=main.href; if (mainImage) { mainImage.src=main.imageUrl; mainImage.alt=main.alt || ''; } if (mainKicker) mainKicker.textContent=`FEATURE / ${main.part || ''}`; if (mainTitle) mainTitle.textContent=main.title || ''; if (mainSubtitle) mainSubtitle.textContent=main.subtitle || '';
+        chosen.slice(1).forEach((story,index)=>{ const card=cover.querySelector(`.js-essay-side-${index}`); if (!card) return; card.href=story.href; const image=card.querySelector('.js-essay-side-image'); const kicker=card.querySelector('.js-essay-side-kicker'); const title=card.querySelector('.js-essay-side-title'); if (image) { image.src=story.imageUrl; image.alt=story.alt || ''; } if (kicker) kicker.textContent=story.part || ''; if (title) title.textContent=story.title || ''; });
       })();
     </script>
 
-    <section>
-      <div class="essay-magazine-heading">
-        <h2>写真から、旅を始める。</h2>
-        <p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p>
-      </div>
-      <div class="essay-feature-strip">
-        {visualFeatures.map((article)=>(
-          <a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            {articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}
-            <div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div>
-          </a>
-        ))}
-      </div>
-    </section>
+    <section><div class="essay-magazine-heading"><h2>写真から、旅を始める。</h2><p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p></div><div class="essay-feature-strip">{visualFeatures.map((article)=>(<a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}<div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div></a>))}</div></section>
 
     <section>
-      <div class="essay-magazine-heading">
-        <h2>気になるテーマをめくる。</h2>
-        <p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p>
-      </div>
-
-      {parts.map((part)=>(
-        <section class="essay-theme">
-          <div class="essay-theme-head">
-            <h3>{part}</h3>
-            <p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p>
-          </div>
-          <div class="essay-theme-grid">
-            {allBookArticles.filter((a)=>a.part===part).map((article)=>{
-              const photo=articlePhoto(article);
-              return (
-                <a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-                  {photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}
-                  <div class="essay-theme-card-body">
-                    <h4>{article.title}</h4>
-                    <p>{article.subtitle}</p>
-                    <span>{article.cities?.join(' / ')}</span>
-                  </div>
-                </a>
-              )
-            })}
-          </div>
-        </section>
-      ))}
+      <div class="essay-magazine-heading"><h2>気になるテーマをめくる。</h2><p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p></div>
+      {parts.map((part)=>(<section class="essay-theme"><div class="essay-theme-head"><h3>{part}</h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{article.subtitle}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
     </section>
 
-    <section class="essay-deeper">
-      <div>
-        <h2>もっと深く知りたくなったら。</h2>
-        <p>エッセイの背景にある史料、比較、統計や地図は、研究ノートとデータのページにまとめています。読んでいて気になったところから、もう一段深くたどれます。</p>
-      </div>
-      <div class="essay-deeper-links">
-        <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
-        <a href="/setouchi-cultural-economic-atlas/data/">データ</a>
-        <a href="/setouchi-cultural-economic-atlas/places/">地域から見る</a>
-      </div>
-    </section>
+    <section class="essay-deeper"><div><h2>もっと深く知りたくなったら。</h2><p>エッセイの背景にある史料、比較、統計や地図は、研究ノートとデータのページにまとめています。読んでいて気になったところから、もう一段深くたどれます。</p></div><div class="essay-deeper-links"><a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a><a href="/setouchi-cultural-economic-atlas/data/">データ</a><a href="/setouchi-cultural-economic-atlas/places/">地域から見る</a></div></section>
   </main>
 </BaseLayout>
