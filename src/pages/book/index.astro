@@ -18,6 +18,7 @@ const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cy
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
+  if(article?.heroPhoto?.imageUrl) return article.heroPhoto;
   const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find(Boolean) || null;
 };
