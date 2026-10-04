@@ -1,22 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="AIデータセンターの立地・地域接続・適地比較 | SETOUCHI ATLAS" description="瀬戸内のAIデータセンターを、立地条件、電力・通信・冷却、地域産業との接続、地域別適地比較まで一体で扱う統合研究ノート。">
+<BaseLayout title="AIデータセンターの立地・地域接続・適地比較 | SETOUCHI ATLAS" description="瀬戸内のAIデータセンターを、立地条件、電力・通信・冷却、地域産業との接続、雇用構造、地域別適地比較まで一体で扱う統合研究ノート。">
   <section class="place-hero chapter-hero">
     <p class="eyebrow">INTEGRATED RESEARCH / AI INFRASTRUCTURE</p>
     <h1>AIデータセンターの立地・地域接続・適地比較</h1>
-    <p class="subtitle">電力・通信・冷却・土地・災害条件と、地域産業への接続を一つの分析枠組みに統合する。</p>
-    <p class="lead">これまで「立地条件・エコシステム」と「瀬戸内の適地比較」を別ページで扱ってきたが、実際には同じ研究の理論編と比較編である。本ノートを統合研究の入口とし、詳細な立地原理と地域別スクリーニングを分析モジュールとして接続する。</p>
+    <p class="subtitle">「立地できるか」と「地域に何が残るか」を分けて評価する。</p>
+    <p class="lead">AIデータセンターは電力・通信・冷却・土地を大量に使うが、従来の巨大工場と同じ形で地域社会へ波及するとは限らない。加太・和歌山のエッセイで、製鉄所とDCを同じ「大型投資」として比較すると、産業立地の地域接続が労働集約型からインフラ・資本集約型へ変わる可能性が見えてきた。本ノートでは適地評価と地域効果を一体で扱う。</p>
   </section>
 
   <section class="section">
-    <h2>統合した分析枠組み</h2>
-    <div class="process-chain"><span>自然・災害条件</span><b>×</b><span>電力</span><b>×</b><span>通信</span><b>×</b><span>冷却</span><b>×</b><span>土地</span><b>×</b><span>計算需要</span><b>×</b><span>地域産業</span></div>
-    <p>AIデータセンターは、電力だけでも通信だけでも立地しない。さらに、立地したDCが地域経済へ接続するかどうかは別の問題である。このため、適地評価と地域効果を同じフレームで扱う。</p>
+    <h2>01｜二段階評価｜適地性と地域接続性</h2>
+    <div class="process-chain"><span>自然・災害</span><b>×</b><span>電力</span><b>×</b><span>通信</span><b>×</b><span>冷却</span><b>×</b><span>土地</span><b>→</b><span>立地可能性</span><b>→</b><span>地域接続</span></div>
+    <p>DCが建設できることと、それが地域の所得・雇用・企業能力・生活可能性を増やすことは別である。したがって第一段階で物理的立地条件を、第二段階で地域接続を評価する。</p>
   </section>
 
   <section class="section">
-    <h2>立地評価の7軸</h2>
+    <h2>02｜立地評価の7軸</h2>
     <div class="research-note-role-grid">
       <article><strong>自然・災害</strong><p>地震、津波、洪水、地盤、気温、水資源。</p></article>
       <article><strong>電力</strong><p>受電可能容量、系統余力、受電電圧、接続時期、冗長性。</p></article>
@@ -24,23 +24,53 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <article><strong>冷却</strong><p>空冷・液冷・水冷、PUE、WUE、廃熱利用。</p></article>
       <article><strong>土地</strong><p>大規模用地、造成条件、工業インフラ、拡張余地。</p></article>
       <article><strong>AI需要</strong><p>学習・推論、大学、製造業、行政、地域企業の計算需要。</p></article>
-      <article><strong>地域接続</strong><p>設備・保守企業、人材、地元調達、研究、AI利用企業への波及。</p></article>
+      <article><strong>地域接続</strong><p>設備・保守、人材、地元調達、研究、AI利用企業への波及。</p></article>
     </div>
   </section>
 
   <section class="section">
-    <h2>瀬戸内で比較する地域類型</h2>
-    <div class="table-wrap"><table><thead><tr><th>類型</th><th>例</th><th>研究上の論点</th></tr></thead><tbody>
+    <h2>03｜製鉄所とDCは、同じ大型投資ではない</h2>
+    <div class="table-wrap"><table><thead><tr><th>論点</th><th>大規模製造業・製鉄所型</th><th>AIデータセンター型</th></tr></thead><tbody>
+      <tr><td><strong>主要投入</strong></td><td>原料、港、設備、多数の労働</td><td>電力、通信、計算設備、冷却、土地</td></tr>
+      <tr><td><strong>日常雇用</strong></td><td>大きくなりやすい</td><td>設備投資額に比べ限定的になり得る</td></tr>
+      <tr><td><strong>都市波及</strong></td><td>住宅、鉄道、学校、商店まで生活圏形成</td><td>自動的には生活圏を形成しない</td></tr>
+      <tr><td><strong>地域接続の鍵</strong></td><td>雇用・調達・関連工場</td><td>計算資源利用、設備保守、電力通信増強、AI導入、人材</td></tr>
+    </tbody></table></div>
+    <p>和歌山北西部では、製鉄所が雇用→住宅→鉄道→学校→商店という生活圏を形成した。一方、コスモパーク加太のDC計画が同じ波及を生むとは限らない。地域効果は投資額ではなく、地域との<strong>接続経路</strong>で評価する必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜地域接続性を測る6項目</h2>
+    <div class="research-note-role-grid">
+      <article><strong>地元調達</strong><p>建設、受変電、冷却、保守、警備、通信などを地域企業が担えるか。</p></article>
+      <article><strong>計算資源アクセス</strong><p>地域企業、大学、高専、自治体がGPU・推論基盤へ接続できるか。</p></article>
+      <article><strong>既存産業との連携</strong><p>製造、物流、港湾、エネルギーの現場データをAIへ接続できるか。</p></article>
+      <article><strong>人材形成</strong><p>設備、通信、AI、制御の人材育成と地域内キャリアが生まれるか。</p></article>
+      <article><strong>インフラ外部効果</strong><p>系統増強、光回線、再エネ、蓄電等が他産業・住民にも使えるか。</p></article>
+      <article><strong>地域への還流</strong><p>税収だけでなく、新規事業、企業立地、研究、教育へ再投資されるか。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>05｜学習DC・推論DC・Physical AI</h2>
+    <p>大規模学習用途は大容量電力と計算密度が支配的になりやすく、都市中心部から距離を取れる。一方、推論用途では利用者への遅延と現場近接性が重要になる。製造業・港湾・物流・ロボットと接続するPhysical AIでは、地域の工業集積が<strong>需要側の立地資産</strong>になる。</p>
+    <div class="process-chain"><span>現実の工場・物流</span><b>→</b><span>センサー・データ</span><b>→</b><span>推論計算</span><b>→</b><span>制御</span><b>→</b><span>現場改善</span></div>
+  </section>
+
+  <section class="section">
+    <h2>06｜瀬戸内の地域類型</h2>
+    <div class="table-wrap"><table><thead><tr><th>類型</th><th>例</th><th>主要な研究問い</th></tr></thead><tbody>
       <tr><td><strong>実装先行型</strong></td><td>香川</td><td>DC・通信・政策・AI利用をクラスター化できるか。</td></tr>
       <tr><td><strong>大型アンカー型</strong></td><td>三原</td><td>大規模投資から関連企業・人材・需要が派生するか。</td></tr>
-      <tr><td><strong>工業基盤転用型</strong></td><td>水島、周南、新居浜・西条</td><td>既存の電力・用水・設備人材を通信・計算資源へ再結合できるか。</td></tr>
+      <tr><td><strong>工業基盤転用型</strong></td><td>水島、周南、新居浜・西条</td><td>電力・用水・設備人材を通信・計算資源へ再結合できるか。</td></tr>
+      <tr><td><strong>新規大規模用地型</strong></td><td>和歌山・コスモパーク加太</td><td>既存製鉄生活圏とは別の丘陵用地への立地が、地域産業とどう接続するか。</td></tr>
       <tr><td><strong>分散GPU型</strong></td><td>愛媛南予など</td><td>再エネ・既存施設・地域需要と小規模計算資源をどう結ぶか。</td></tr>
     </tbody></table></div>
   </section>
 
   <section class="section">
-    <h2>学習DCと推論DCは分けて読む</h2>
-    <p>大規模学習用途は大容量電力と計算密度が支配的になりやすく、都市中心部から距離を取れる。一方、推論用途では利用者への遅延、地域産業・ロボット・製造現場との近接性が重要になる。Physical AIを考える場合、後者の立地論は工業集積との結びつきが強くなる。</p>
+    <h2>07｜評価軸｜「地域の可能性集合」を広げるか</h2>
+    <p>DC誘致を雇用人数だけで評価する必要はない。しかし、土地・電力・固定資産税だけで地域と接続する施設なら、巨額投資でも「デジタル版の飛び地工場」になり得る。見るべきは、DCによって地域の人・企業が<strong>何を新たにできるようになったか</strong>である。</p>
   </section>
 
   <section class="section">
@@ -53,7 +83,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <section class="section">
-    <h2>今後の更新単位</h2>
-    <p>新しいDC計画、系統情報、通信網、冷却技術、AI需要が判明した場合は、まず本ページの比較軸と地域類型を更新する。詳細な設備・地域データは各モジュールへ追記し、学習DC／推論DC／Physical AIの違いが立地評価へどう効くかを継続して検証する。</p>
+    <div class="kicker">ESSAY FEEDBACK</div>
+    <h2>今回反映したエッセイ</h2>
+    <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/kada-steel-data-center-transition/">海辺の高炉、丘の上のサーバー →</a>
   </section>
 </BaseLayout>
