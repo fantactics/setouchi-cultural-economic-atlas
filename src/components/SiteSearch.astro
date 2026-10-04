@@ -4,13 +4,14 @@ import { kadaEssays } from '../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
 import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
+import { shimotsuiHijikiEssay } from '../data/shimotsuiHijikiEssay.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
 import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,aiRegionalPlanningEssay].filter(Boolean);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
 
@@ -86,7 +87,7 @@ const items=[
     const results=root.querySelector('.atlas-search-results');
     if(!input || !results) return;
     const normalize=(value)=>String(value || '').toLowerCase().normalize('NFKC');
-    const escapeHtml=(value)=>String(value || '').replace(/[&<>'"]/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    const escapeHtml=(value)=>String(value || '').replace(/[&<>'\"]/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[char]));
     const prepared=items.map((item)=>({...item,_title:normalize(item.title),_subtitle:normalize(item.subtitle),_text:normalize(item.text)}));
     const search=()=>{
       const terms=normalize(input.value.trim()).split(/\s+/).filter(Boolean);
