@@ -22,6 +22,7 @@ import { essayPhotoGalleriesMore7 } from '../../data/essayPhotoGalleriesMore7.js
 import { essayPhotoGalleriesMore8 } from '../../data/essayPhotoGalleriesMore8.js';
 import { essayPhotoGalleriesMore9 } from '../../data/essayPhotoGalleriesMore9.js';
 import { essayPhotoGalleriesMore10 } from '../../data/essayPhotoGalleriesMore10.js';
+import { applyPhotoMetadataCorrection } from '../../data/photoMetadataCorrections.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import '../../styles/gastronomy-gallery.css';
@@ -39,7 +40,7 @@ export function getStaticPaths(){
 }
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
-const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
+const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
 const rawEssayPhotos=[
@@ -58,10 +59,12 @@ const rawEssayPhotos=[
 ];
 const essayPhotos=rawEssayPhotos
   .map((entry)=>entry?.photoId ? {...photoById[entry.photoId],...entry} : entry)
+  .map(applyPhotoMetadataCorrection)
   .filter((entry)=>entry?.imageUrl);
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
   .map((entry)=>entry.photoId ? photoById[entry.photoId] : entry)
+  .map(applyPhotoMetadataCorrection)
   .filter(Boolean);
 const placeLinkByName = {
   '赤穂':'ako',
