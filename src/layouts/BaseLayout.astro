@@ -1,7 +1,9 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
+import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
+import { essayResearchSynthesis } from '../data/essayResearchSynthesis.js';
 import '../styles/global.css';
 import '../styles/about-projects.css';
 import '../styles/preservation.css';
@@ -20,6 +22,7 @@ const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
+const researchSynthesis = essayResearchSynthesis[pathname] || null;
 const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
 const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
@@ -41,15 +44,15 @@ const contextualEssayLinks = pathname.endsWith('/chapters/island-use-intensity/'
   ? [
       ['公共インフラ｜人口52人の島に、道路と水道をどこまで残すのか','/setouchi-cultural-economic-atlas/book/kojima-island-infrastructure-per-capita/'],
       ['シクロツーリズム｜自転車で島を一周しても、島に一円も落ちないとしたら','/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/'],
-      ['別荘ストック｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-new-users/'],
-      ['空き家・退出｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-ruins-without-externalities/']
+      ['別荘ストック｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-second-life/'],
+      ['空き家・退出｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-when-ruins-are-not-a-problem/']
     ]
-  : pathname.endsWith('/chapters/cycle-tourism-regional-impact/')
+  : pathname.endsWith('/chapters/cycle-tourism-regional-impact/') || pathname.endsWith('/chapters/cycle-tourism-system/')
     ? [['鴻島ケース｜自転車で島を一周しても、島に一円も落ちないとしたら','/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/']]
     : pathname.endsWith('/chapters/regional-asset-reproduction/')
       ? [
-          ['鴻島ケース｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-new-users/'],
-          ['鴻島ケース｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-ruins-without-externalities/']
+          ['鴻島ケース｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-second-life/'],
+          ['鴻島ケース｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-when-ruins-are-not-a-problem/']
         ]
       : [];
 
@@ -134,6 +137,7 @@ const jsonLd = structuredData || defaultStructuredData;
     </header>
     <main>
       <slot />
+      {researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
       {contextualEssayLinks.length>0 && (
         <section class="section">
           <div class="program-section-head">
