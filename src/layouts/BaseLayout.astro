@@ -4,6 +4,7 @@ import RegionalDynamicNaturalCapital from '../components/RegionalDynamicNaturalC
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
 import ResearchRelatedData from '../components/ResearchRelatedData.astro';
+import ResearchNoteOverview from '../components/ResearchNoteOverview.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
 import { regionalDynamicNaturalCapital } from '../data/regionalDynamicNaturalCapital.js';
 import { essayResearchSynthesis } from '../data/essayResearchSynthesis.js';
@@ -22,7 +23,8 @@ const {
   description = '瀬戸内のまち、海、産業、食、文化を、エッセイ、地域ページ、研究ノートと、その根拠となる地図・統計・写真を往復しながら読むアトラス。',
   image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
   imageAlt = '瀬戸内の町並み',
-  structuredData = null
+  structuredData = null,
+  researchMeta = null
 } = Astro.props;
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const pathname = Astro.url.pathname;
@@ -139,7 +141,7 @@ const jsonLd = structuredData || defaultStructuredData;
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <title>{title}</title>
   </head>
-  <body class={`page-type-${pageType}`} data-page-type={pageType}>
+  <body class:list={[`page-type-${pageType}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
     <header class="site-header">
       <a class="brand-wrap" href={baseUrl}>
         <span class="brand">SETOUCHI ATLAS</span>
@@ -154,6 +156,7 @@ const jsonLd = structuredData || defaultStructuredData;
     </header>
     <main>
       <slot />
+      {isResearchDetail && <ResearchNoteOverview pathname={pathname} title={title} description={description} meta={researchMeta} />}
       {researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
       {contextualEssayLinks.length>0 && (
         <section class="section">
