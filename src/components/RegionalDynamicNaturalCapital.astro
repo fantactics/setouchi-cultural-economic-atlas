@@ -1,0 +1,37 @@
+---
+const { profile } = Astro.props;
+---
+
+{profile && (
+  <section class="section region-dynamic-natural-capital" aria-labelledby="dynamic-natural-capital-heading">
+    <div class="region-layer-label research">研究ノート</div>
+    <h2 id="dynamic-natural-capital-heading">動的自然資本の時間軸</h2>
+    <p class="lead">自然環境を現在の特徴として固定せず、形成・自然変動・人間の応答・暮らし・現在地の順に読みます。</p>
+
+    <div class="comparison-insight-grid dynamic-natural-capital-grid">
+      {profile.stages.map(([label, body], index)=>(
+        <article class="insight-card dynamic-natural-capital-card">
+          <div class="natural-system-step">{String(index + 1).padStart(2,'0')}</div>
+          <h3>{label}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="region-natural-principle dynamic-natural-capital-question">
+      <strong>この地域を読む問い</strong>
+      <span>{profile.question}</span>
+    </div>
+
+    <div class="chapter-related-grid">
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/">動的自然資本の方法論 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/regional-dynamic-natural-capital/">地域比較を見る →</a>
+    </div>
+  </section>
+)}
+
+<style>
+  .dynamic-natural-capital-grid { margin-top:1.25rem; }
+  .dynamic-natural-capital-card { position:relative; }
+  .dynamic-natural-capital-question { margin-top:1.25rem; }
+</style>
