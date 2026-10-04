@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const dimensions=[
+  {no:'01',name:'所有',question:'誰が土地・住宅を持っているか',measure:'住宅戸数、別荘戸数、空き家戸数、所有者居住地、固定資産税'},
+  {no:'02',name:'居住',question:'誰が日常生活をしているか',measure:'住民票人口、世帯数、年齢構成、通年居住率'},
+  {no:'03',name:'滞在',question:'一年を通じて、何人が何日いるか',measure:'年間滞在人日、季節人口、二地域居住、宿泊者数'},
+  {no:'04',name:'消費',question:'島内でどの程度の取引が生じるか',measure:'宿泊・飲食・小売・体験・交通支出、地域内残存率'},
+  {no:'05',name:'移動',question:'島と本土を何人・何台が往来するか',measure:'航路利用者、自転車持込、自動車・貨物、季節変動'},
+  {no:'06',name:'公共負担',question:'利用を支える固定費はいくらか',measure:'道路、水道、港、航路、防災、廃棄物、公共施設の維持更新費'},
+  {no:'07',name:'外部不経済',question:'未利用資産が他者へ損失を与えているか',measure:'倒壊危険、火災、衛生、景観、安全、行政代執行リスク'}
+];
+
+const cases=[
+  ['常住型の小島','居住人口は少ないが、住宅利用率が高く、生活インフラ依存も高い。','人口と公共負担の関係が比較的直接的。'],
+  ['別荘型の小島','常住人口より住宅ストックがはるかに大きく、季節人口が変動する。','鴻島に近い。人口だけでは道路・水道・港の実需要を過小評価する。'],
+  ['観光型の小島','住民は少なくても日帰り客・宿泊客が多い。','滞在人口と消費は大きいが、廃棄物・交通・公衆トイレ等の負担も増える。'],
+  ['低利用・退出型の小島','住宅や土地は残るが、人の利用が急減する。','外部不経済が小さければ「使わないこと」自体を問題視する必要はない。']
+];
+
+const sources=[
+  ['備前市｜水道事業経営戦略','https://www.city.bizen.okayama.jp/uploaded/attachment/19404.pdf'],
+  ['東洋経済オンライン｜島全体が別荘地・バブル遺産350軒','https://toyokeizai.net/articles/-/954518'],
+  ['岡山観光WEB｜鴻島','https://www.okayama-kanko.jp/spot/detail_11035.html'],
+  ['BIZEN CREATIVE FARM｜別荘がつなぐ島・鴻島','https://note.com/bizen_farm/n/nfa9b900c54ba']
+];
+---
+<BaseLayout title="人口ではなく、島の利用強度を測る | 研究ノート | SETOUCHI ATLAS" description="鴻島をケースに、常住人口だけでは見えない所有・居住・滞在・消費・公共インフラ負担を分解し、小規模離島の利用強度を測る分析枠組みを考える。">
+  <section class="island-hero">
+    <div class="island-hero-copy">
+      <a href="/setouchi-cultural-economic-atlas/chapters/" class="back">研究ノート一覧 ←</a>
+      <span class="kicker">RESEARCH NOTE / ISLAND USE INTENSITY</span>
+      <h1>人口ではなく、<br/>島の利用強度を測る。</h1>
+      <p>住民が52人でも、別荘が数百軒ある島は「52人の島」なのか。所有、居住、季節滞在、観光、消費、公共サービス負担を分けて測ると、小規模離島の別の姿が見えてくる。</p>
+    </div>
+    <div class="thesis">
+      <span>中心仮説</span>
+      <strong>人口は島の一側面でしかない。</strong>
+      <p>地域の維持可能性を考えるには、住民票人口ではなく「人・住宅・資本・インフラが年間を通じてどれだけ使われるか」を見る必要がある。</p>
+    </div>
+  </section>
+
+  <section class="section intro">
+    <span class="region-layer-label research">問題設定</span>
+    <h2>「人口52人」という数字が隠してしまうもの</h2>
+    <div class="prose">
+      <p>鴻島のような小島を見るとき、最初に参照される数字は常住人口です。しかし、道路や水道を使うのは住民票を置く人だけではありません。別荘所有者、季節利用者、二地域居住者、民泊利用者、日帰り客も同じ港や道路を使います。</p>
+      <p>逆に、住宅戸数が多くてもほとんど利用されていなければ、実際のサービス需要は小さい。人口・住宅・所有・利用を一つの数字へまとめると、何にコストがかかり、何が地域に価値を生んでいるのかが見えなくなります。</p>
+      <p>本ノートでは、島の状態を「人口増減」で評価せず、複数の利用レイヤーへ分解します。これは鴻島だけでなく、別荘島、観光島、高齢化した有人島、低利用化した島を比較するための共通フレームです。</p>
+    </div>
+  </section>
+
+  <section class="section formula-section">
+    <span class="region-layer-label data">分析概念</span>
+    <h2>島の「利用強度」を7つに分解する</h2>
+    <div class="dimension-grid">
+      {dimensions.map((d)=><article><span>{d.no}</span><h3>{d.name}</h3><strong>{d.question}</strong><p>{d.measure}</p></article>)}
+    </div>
+    <div class="formula">
+      <span>島の利用強度</span><b>=</b><span>居住</span><b>＋</b><span>滞在</span><b>＋</b><span>移動</span><b>＋</b><span>経済利用</span>
+    </div>
+    <p class="note">※「利用強度」は本アトラスの分析概念であり、現時点では単一の合成指数ではありません。各変数を別々に観察し、必要に応じて指数化します。</p>
+  </section>
+
+  <section class="section">
+    <span class="region-layer-label interpretation">鴻島から見えること</span>
+    <h2>住宅ストックの規模と常住人口が大きくずれている</h2>
+    <div class="prose">
+      <p>鴻島は、常住人口が小さい一方で、バブル期に形成された大規模な別荘ストックを持つ点が特徴です。このため、「住民一人あたりの道路延長」「住民一人あたりの水道維持費」だけを見ると、島の利用構造を誤解する可能性があります。</p>
+      <p>別荘の所有者が年に数日しか来ない場合と、夏季に長く滞在する場合では、水需要も航路需要も大きく異なります。また、固定資産税を負担する所有者と、日常的な生活サービスを必要とする住民も一致しません。</p>
+      <p>したがって鴻島では、人口ではなく「住宅ストック × 利用率 × 滞在日数」という別の観察軸が必要になります。</p>
+    </div>
+  </section>
+
+  <section class="section contrast">
+    <span class="region-layer-label hypothesis">比較仮説</span>
+    <h2>同じ「人口50人の島」でも、政策課題はまったく違う</h2>
+    <div class="case-grid">
+      {cases.map((c)=><article><h3>{c[0]}</h3><p>{c[1]}</p><strong>{c[2]}</strong></article>)}
+    </div>
+  </section>
+
+  <section class="section burden">
+    <span class="region-layer-label research">公共インフラ</span>
+    <h2>重要なのは、一人あたりコストではなく「最低固定費」と「代替可能性」</h2>
+    <div class="prose">
+      <p>水道や道路には、利用者数が減ってもゼロにはならない最低固定費があります。配水管、ポンプ、港湾施設、道路、消防・救急対応などは、人口に比例して縮小できません。</p>
+      <p>だからといって「有人島だから現状水準を永久維持する」という結論にもなりません。道路の規格、給水方式、公共施設数、航路頻度など、サービス水準を段階的に変更する余地があります。</p>
+      <p>ここで見るべきなのは、①生命・安全に不可欠か、②代替手段があるか、③利用者は誰か、④負担者は誰か、⑤将来更新費はいくらか、の五点です。</p>
+    </div>
+  </section>
+
+  <section class="section exit">
+    <span class="region-layer-label interpretation">未利用資産</span>
+    <h2>使われていない住宅は、それだけで公共問題ではない</h2>
+    <div class="prose">
+      <p>空き家や廃墟はしばしば「解決すべき地域課題」と一括されます。しかし、私有建物が使われていないこと自体は、必ずしも公共問題ではありません。</p>
+      <p>倒壊、火災、衛生、犯罪、安全、隣地への影響、行政コストといった外部不経済が発生して初めて、公共介入の理由が明確になります。逆に、周囲への影響が小さければ、所有者が利用せず、資産価値が下落し、最終的に自然へ戻っていくことも一つの退出経路です。</p>
+      <p>この視点を持つと、地域政策の目的は「すべての空き家を活用する」ことではなく、「外部不経済を抑えながら、利用したい人には再利用の余地を開く」ことへ変わります。</p>
+    </div>
+  </section>
+
+  <section class="section matrix-section">
+    <span class="region-layer-label data">今後集めるデータ</span>
+    <h2>鴻島を「人口」以外で測るための観測表</h2>
+    <div class="matrix-wrap"><table><thead><tr><th>領域</th><th>最低限ほしいデータ</th><th>何が分かるか</th></tr></thead><tbody>
+      <tr><td>人口</td><td>常住人口・世帯・年齢</td><td>生活サービスの基礎需要</td></tr>
+      <tr><td>住宅</td><td>総戸数・別荘・空き家・年間利用日数</td><td>住宅ストックの実利用率</td></tr>
+      <tr><td>滞在</td><td>季節別滞在人日・宿泊者数</td><td>実質的な島内人口</td></tr>
+      <tr><td>航路</td><td>月別乗船客・自転車・貨物</td><td>島と本土の接続強度</td></tr>
+      <tr><td>経済</td><td>島内売上・固定資産税・自治会負担</td><td>地域内に残る所得と負担</td></tr>
+      <tr><td>公共費</td><td>道路・給水・港・廃棄物・防災</td><td>維持に必要な固定費</td></tr>
+      <tr><td>外部不経済</td><td>危険空き家・苦情・撤去費</td><td>未利用資産の社会的コスト</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="section conclusion">
+    <span class="region-layer-label research">暫定的な結論</span>
+    <h2>島を「何人住んでいるか」だけで評価しない</h2>
+    <div class="prose">
+      <p>人口は重要ですが、それだけで島の存続可能性や公共負担を説明することはできません。鴻島のように、住宅ストック、季節人口、別荘利用、観光、公共インフラが重なった地域では、所有・居住・滞在・消費を分離して測る必要があります。</p>
+      <p>そして重要なのは、利用強度を高めること自体を目的化しないことです。利用が減ることにも、静けさ、自然回復、管理負担の低下という側面があります。問うべきなのは「活性化できるか」ではなく、どの利用状態を選び、その状態をどの費用で支えるのか、です。</p>
+    </div>
+  </section>
+
+  <section class="section sources">
+    <span class="region-layer-label data">参照資料</span>
+    <h2>Sources</h2>
+    <ol>{sources.map((s)=><li><a href={s[1]} target="_blank" rel="noreferrer">{s[0]}</a></li>)}</ol>
+  </section>
+
+  <style>
+    .island-hero{padding:7rem max(5vw,2rem) 4rem;background:linear-gradient(135deg,#17312f,#3c655d);color:white;display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:end}.back{color:#dce8e4;text-decoration:none}.kicker{display:block;margin:2rem 0 1rem;font-size:.78rem;letter-spacing:.14em}.island-hero h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.95;margin:.5rem 0 1.5rem}.island-hero-copy>p{max-width:48rem;font-size:1.1rem;line-height:1.9}.thesis{padding:2rem;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}.thesis span{font-size:.75rem;letter-spacing:.12em}.thesis strong{display:block;font-size:1.6rem;margin:.7rem 0}.thesis p{line-height:1.7}.section{padding:5rem max(5vw,2rem);max-width:1280px;margin:auto}.section h2{font-size:clamp(2rem,4vw,3.6rem);line-height:1.15;max-width:850px}.prose{max-width:820px}.prose p{font-size:1.05rem;line-height:2;margin:1.3rem 0}.dimension-grid,.case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}.dimension-grid article,.case-grid article{padding:1.5rem;border:1px solid #d7ddd9;background:#fff}.dimension-grid article>span{font-size:.75rem;color:#64756f}.dimension-grid h3,.case-grid h3{font-size:1.5rem;margin:.5rem 0}.dimension-grid strong,.case-grid strong{display:block;line-height:1.5}.dimension-grid p,.case-grid p{line-height:1.7;color:#57635f}.formula{margin:3rem 0 1rem;padding:2rem;background:#edf3f0;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;font-size:1.15rem}.formula span:first-child{font-weight:700}.note{font-size:.9rem;color:#68736f}.contrast,.exit{background:#f7f4ed;max-width:none}.contrast>* , .exit>*{max-width:1180px;margin-left:auto;margin-right:auto}.matrix-wrap{overflow-x:auto;margin-top:2rem}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:1rem;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}th{background:#edf3f0}.sources ol{line-height:2}.sources a{color:inherit}@media(max-width:900px){.island-hero{grid-template-columns:1fr;padding-top:5rem}.dimension-grid,.case-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.dimension-grid,.case-grid{grid-template-columns:1fr}.section{padding:3.5rem 1.25rem}.island-hero{padding-left:1.25rem;padding-right:1.25rem}.island-hero h1{font-size:3.2rem}}
+  </style>
+</BaseLayout>
