@@ -1,0 +1,88 @@
+---
+const { items = [] } = Astro.props;
+---
+<section class="section atlas-search" data-atlas-search data-search-items={JSON.stringify(items)}>
+  <div class="atlas-search-head">
+    <div>
+      <div class="kicker">SEARCH THE ATLAS</div>
+      <h2>アトラスを検索</h2>
+      <p>エッセイ、研究ノート、地域別ページを横断して検索します。</p>
+    </div>
+  </div>
+  <div class="atlas-search-box">
+    <label for="atlas-search-input">キーワード</label>
+    <div class="atlas-search-input-row">
+      <input id="atlas-search-input" class="atlas-search-input" type="search" placeholder="例：塩田、タコ、造船、ため池、住吉神社" autocomplete="off" />
+      <button class="atlas-search-clear" type="button">クリア</button>
+    </div>
+    <p class="atlas-search-status" aria-live="polite">キーワードを入力してください。</p>
+  </div>
+  <div class="atlas-search-results" aria-live="polite"></div>
+</section>
+
+<script is:inline>
+  (()=>{
+    const root=document.querySelector('[data-atlas-search]');
+    if(!root) return;
+    let items=[];
+    try{ items=JSON.parse(root.dataset.searchItems || '[]'); }catch(_){ items=[]; }
+    const input=root.querySelector('.atlas-search-input');
+    const clear=root.querySelector('.atlas-search-clear');
+    const status=root.querySelector('.atlas-search-status');
+    const results=root.querySelector('.atlas-search-results');
+    if(!input || !results) return;
+
+    const normalize=(value)=>String(value || '').toLowerCase().normalize('NFKC');
+    const escapeHtml=(value)=>String(value || '').replace(/[&<>'"]/g,(char)=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
+    }[char]));
+    const prepared=items.map((item)=>({
+      ...item,
+      _title:normalize(item.title),
+      _subtitle:normalize(item.subtitle),
+      _text:normalize(item.text)
+    }));
+
+    const search=()=>{
+      const raw=input.value.trim();
+      const terms=normalize(raw).split(/\s+/).filter(Boolean);
+      if(!terms.length){
+        results.innerHTML='';
+        status.textContent='キーワードを入力してください。';
+        return;
+      }
+      const matched=prepared.map((item)=>{
+        const haystack=`${item._title} ${item._subtitle} ${item._text}`;
+        if(!terms.every((term)=>haystack.includes(term))) return null;
+        let score=0;
+        terms.forEach((term)=>{
+          if(item._title.includes(term)) score+=8;
+          if(item._subtitle.includes(term)) score+=4;
+          if(item._text.includes(term)) score+=1;
+        });
+        return {...item,score};
+      }).filter(Boolean).sort((a,b)=>b.score-a.score || a.title.localeCompare(b.title,'ja')).slice(0,20);
+
+      status.textContent=matched.length ? `${matched.length}件表示しています。` : '該当する記事は見つかりませんでした。';
+      results.innerHTML=matched.map((item)=>`
+        <a class="atlas-search-result" href="${escapeHtml(item.href)}">
+          <div class="atlas-search-result-meta"><span>${escapeHtml(item.type)}</span>${item.region ? `<em>${escapeHtml(item.region)}</em>` : ''}</div>
+          <strong>${escapeHtml(item.title)}</strong>
+          ${item.subtitle ? `<p>${escapeHtml(item.subtitle)}</p>` : ''}
+          <small>開く →</small>
+        </a>
+      `).join('');
+    };
+
+    input.addEventListener('input',search);
+    clear?.addEventListener('click',()=>{
+      input.value='';
+      search();
+      input.focus();
+    });
+  })();
+</script>
+
+<style>
+  .atlas-search{max-width:1120px;margin:0 auto}.atlas-search-head h2{font-size:clamp(2rem,4vw,3rem);margin:.25rem 0 .6rem}.atlas-search-head p{margin:0;max-width:720px;line-height:1.8;opacity:.72}.atlas-search-box{margin-top:1.5rem}.atlas-search-box label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;margin-bottom:.5rem;opacity:.65}.atlas-search-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem}.atlas-search-input{width:100%;min-height:3.4rem;padding:.85rem 1rem;border:1px solid rgba(0,0,0,.18);border-radius:.25rem;background:#fff;font:inherit;font-size:1rem}.atlas-search-input:focus{outline:2px solid rgba(48,80,70,.28);outline-offset:2px}.atlas-search-clear{padding:.7rem 1rem;border:1px solid rgba(0,0,0,.18);background:transparent;cursor:pointer;font:inherit}.atlas-search-status{margin:.7rem 0 0;font-size:.82rem;opacity:.58}.atlas-search-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;margin-top:1.4rem}.atlas-search-result{display:flex;flex-direction:column;min-height:150px;padding:1rem 1.05rem;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.76);color:inherit;text-decoration:none}.atlas-search-result:hover{background:#fff;transform:translateY(-1px)}.atlas-search-result-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.7rem}.atlas-search-result-meta span,.atlas-search-result-meta em{font-size:.7rem;font-style:normal;letter-spacing:.06em;opacity:.58}.atlas-search-result strong{font-size:1.05rem;line-height:1.45}.atlas-search-result p{margin:.55rem 0 1rem;font-size:.87rem;line-height:1.65;opacity:.72;flex:1}.atlas-search-result small{margin-top:auto;font-weight:700;font-size:.76rem}@media(max-width:640px){.atlas-search-input-row{grid-template-columns:1fr}.atlas-search-clear{justify-self:start}.atlas-search-results{grid-template-columns:1fr}}
+</style>
