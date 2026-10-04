@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const cases = [
+  {place:'錦海湾',sequence:'浅海・干潟 → 塩田 → 塩田廃止・管理地 → 大規模太陽光',asset:'広大な平坦地、堤防・排水という人工的土地条件',point:'利用が終わっても干拓地の管理責任は消えない。次用途は「空いた土地」ではなく前用途が作った人工基盤の上に成立する。',href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'},
+  {place:'坂出',sequence:'浅海 → 塩田 → 廃止 → 番の州埋立・工業・港湾・住宅・緑地',asset:'土地、港湾条件、交通結節、産業用地',point:'塩業終了後に一つの用途へ継承されたのではなく、土地ストックが複数用途へ分岐した。',href:'/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/'},
+  {place:'赤穂',sequence:'塩田 → 工業・市街地・公園・記憶装置',asset:'土地、企業、塩業記憶、都市基盤',point:'文化記憶を残すことも土地利用の選択であり、産業継承と空間継承は別に設計できる。',href:'/setouchi-cultural-economic-atlas/book/ako-salt-fields-to-city/'},
+  {place:'竹原',sequence:'塩田・塩業 → 酒造・商業・町家／塩田跡の別用途',asset:'商人資本と土地が別系統に継承',point:'同じ産業の遺産でも、資本は町並みへ、土地は別用途へと異なる経路を取る。',href:'/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/'},
+  {place:'農地・太陽光',sequence:'農地 → 低利用・耕作放棄 → 太陽光／営農型太陽光／農地復帰',asset:'日照、接道、系統接続、農地としての将来選択肢',point:'現在使われていないことと、将来の利用価値がないことは同じではない。土地利用は可逆性とオプション価値で評価する必要がある。',href:'/setouchi-cultural-economic-atlas/book/farmland-or-solar/'},
+  {place:'太陽光発電所',sequence:'造成・設置 → 20〜30年の発電利用 → 更新・撤去 → 再利用／原状回復',asset:'造成地、系統接続、道路、所有・賃貸契約',point:'再生可能エネルギーも恒久用途ではない。事業開始時から撤去・廃棄・土地の次用途を設計すべきである。',href:'/setouchi-cultural-economic-atlas/book/after-the-solar-farm/'},
+  {place:'鴻島',sequence:'島嶼居住地 → バブル期別荘地 → 低価格化・低利用 → 再利用／退出',asset:'住宅350軒規模のストック、道路、港、水道、眺望',point:'利用停止は直ちに公共問題ではない。再利用可能性と外部不経済を分けて判断する。',href:'/setouchi-cultural-economic-atlas/book/kojima-island-when-ruins-are-not-a-problem/'}
+];
+
+const dimensions = [
+ ['形成','何を埋め、造成し、建て、接続して現在の土地を作ったか','自然地形だけでなく、前用途による人工的な適地化を記録する。'],
+ ['利用','誰が何の目的で、どの強度で利用しているか','名目用途ではなく実利用率・滞在人日・生産量を見る。'],
+ ['固定費','利用が減っても何が残るか','堤防、排水、道路、水道、護岸、撤去義務などの固定負担を把握する。'],
+ ['残存資産','前用途から次用途へ何が持ち越せるか','土地、港、電力、道路、建物、権利、記憶を分けて見る。'],
+ ['可逆性','現在用途から別用途へ戻せるか','農地復帰、自然遷移、設備撤去の難易度と費用を測る。'],
+ ['外部不経済','未利用・退出が誰へ損失を与えるか','倒壊、火災、汚染、災害、景観、管理費など。'],
+ ['次用途','終了時に何へ転換できるか','再利用、低密度管理、生態系復元、自然遷移を同じ選択肢として置く。']
+];
+---
+<BaseLayout title="瀬戸内の土地利用ライフサイクル | 研究ノート | SETOUCHI ATLAS" description="塩田、干拓地、農地、太陽光、別荘地を横断し、土地利用を形成・利用・終了・再利用までのライフサイクルとして読む。">
+  <section class="place-hero chapter-hero">
+    <div class="kicker">LAND USE / PATH DEPENDENCE / EXIT</div>
+    <h1>瀬戸内の土地利用ライフサイクル</h1>
+    <p class="subtitle">土地は空白にならない。前の用途が、次の用途の可能性と負担を残す。</p>
+    <p class="lead">塩田跡、干拓地、農地、太陽光発電所、別荘地を横断すると、土地利用は「何に使うか」だけでは理解できない。土地は前用途によって造成され、道路・排水・港・電力・権利関係を持ち、その利用が終わった後にも固定費と選択肢を残す。本ノートでは土地を、形成→利用→低利用→終了→転換という時間軸で読む。</p>
+  </section>
+
+  <section class="section">
+    <h2>01｜基本モデル｜土地利用は一回限りの用途選択ではない</h2>
+    <div class="process-chain"><span>自然地形</span><b>→</b><span>造成・適地化</span><b>→</b><span>主用途</span><b>→</b><span>低利用・終了</span><b>→</b><span>残存資産・負担</span><b>→</b><span>次用途</span></div>
+    <p><strong>中心仮説：</strong>土地の次用途は、現在の需要だけでなく、前用途が残した物理資産・管理負担・権利関係・文化記憶と、次用途への可逆性によって規定される。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜エッセイから見える土地利用の継承パターン</h2>
+    <div class="table-wrap"><table><thead><tr><th>地域・対象</th><th>利用の系列</th><th>残るもの</th><th>研究上の知見</th></tr></thead><tbody>
+      {cases.map((c)=><tr><td><a href={c.href}><strong>{c.place}</strong></a></td><td>{c.sequence}</td><td>{c.asset}</td><td>{c.point}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>03｜土地利用を7つの軸で記録する</h2>
+    <div class="research-note-role-grid">
+      {dimensions.map(([title,q,body])=><article><strong>{title}</strong><p>{q}</p><p>{body}</p></article>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>04｜重要な区別｜「空いている土地」と「自由な土地」は違う</h2>
+    <p>塩田跡や干拓地は平坦で大規模利用しやすく見えるが、排水・堤防管理が必要な人工地盤である。旧工業地には土壌・護岸・巨大設備が残り、別荘地には道路・水道と多数の所有関係が残る。利用者が減っても、これらの条件は消えない。</p>
+    <p>したがって「未利用地があるから新用途を入れる」という評価ではなく、<strong>土地を自由に使える状態へするまでの費用</strong>と、前用途からそのまま利用できる資産を両方計上する必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>05｜終了を設計する</h2>
+    <p>農地転用や太陽光発電では、事業開始時の収益性だけでなく、20年後・30年後に設備を撤去できるか、土壌をどの状態で返すか、系統接続や道路を次用途へ使うかまでを土地利用契約の一部として扱う必要がある。</p>
+    <p>これは「撤退を促す」議論ではない。むしろ終了条件を明確にすることで、現在の利用を選びやすくし、将来世代の選択肢を残す考え方である。</p>
+  </section>
+
+  <section class="section">
+    <h2>06｜再自然化研究との接続</h2>
+    <p>戦略的再自然化は、この土地利用ライフサイクルの出口の一つである。すべての低利用地を自然へ戻すのではなく、将来需要、固定費、災害リスク、生態系価値、文化・生産価値、可逆性を比較し、維持・低密度管理・再利用・生態系復元・自然遷移を分ける。</p>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/setouchi-nature-positive/">戦略的再自然化の研究へ →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/island-use-intensity/">小規模離島の利用強度 →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">ESSAY FEEDBACK</div>
+    <h2>この研究ノートへ統合したエッセイ</h2>
+    <div class="chapter-related-grid">
+      {cases.map((c)=><a class="compare-button secondary" href={c.href}>{c.place} →</a>)}
+    </div>
+  </section>
+</BaseLayout>
