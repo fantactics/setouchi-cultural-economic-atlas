@@ -1,3 +1,5 @@
+import { regionalDynamicNaturalCapitalExpansion2 } from './regionalDynamicNaturalCapitalExpansion2.js';
+
 export const regionalDynamicNaturalCapitalExpansion = {
   takehara:{
     title:'竹原｜潮間帯と塩田を、町並みと酒造へつないだ地域',
@@ -64,5 +66,6 @@ export const regionalDynamicNaturalCapitalExpansion = {
       ['現在の自然資本','治水・道路・橋梁によって川との関係は変わったが、錦川の流域地形・景観・水環境は都市構造と観光価値をなお強く規定する。']
     ],
     question:'川を制御して渡れるようになった後も、錦川は地域の可能性と制約をどこまで決め続けているか。'
-  }
+  },
+  ...regionalDynamicNaturalCapitalExpansion2
 };
