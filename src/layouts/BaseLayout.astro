@@ -1,8 +1,10 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
+import RegionalDynamicNaturalCapital from '../components/RegionalDynamicNaturalCapital.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
 import { naturalSystemProfiles } from '../data/naturalSystems.js';
+import { regionalDynamicNaturalCapital } from '../data/regionalDynamicNaturalCapital.js';
 import { essayResearchSynthesis } from '../data/essayResearchSynthesis.js';
 import { essayResearchSynthesisExpansion } from '../data/essayResearchSynthesisExpansion.js';
 import { essayResearchSynthesisAudit } from '../data/essayResearchSynthesisAudit.js';
@@ -24,6 +26,7 @@ const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
 const naturalSystemProfile = placeId ? naturalSystemProfiles[placeId] : null;
+const dynamicNaturalCapitalProfile = placeId ? regionalDynamicNaturalCapital[placeId] : null;
 const synthesisLayers = [essayResearchSynthesis[pathname], essayResearchSynthesisExpansion[pathname], essayResearchSynthesisAudit[pathname]].filter(Boolean);
 const researchSynthesis = synthesisLayers.length
   ? synthesisLayers.reduce((merged, layer)=>({
@@ -162,6 +165,7 @@ const jsonLd = structuredData || defaultStructuredData;
         </section>
       )}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
+      {dynamicNaturalCapitalProfile && <RegionalDynamicNaturalCapital profile={dynamicNaturalCapitalProfile} />}
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
     <footer id="about">
