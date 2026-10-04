@@ -1,45 +1,64 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="シクロツーリズムの地域影響と時系列比較 | SETOUCHI ATLAS" description="しまなみ・とびしま・ゆめしま等を対象に、来訪、滞在、消費、移住、創業、景観、インフラへの影響を時系列と地域比較で統合する研究ノート。">
+<BaseLayout title="シクロツーリズムの地域影響と時系列比較 | SETOUCHI ATLAS" description="しまなみ・とびしま・ゆめしま・鴻島等を対象に、来訪、滞在、消費、関係人口、移住、創業、景観、インフラへの影響を統合する研究ノート。">
   <section class="place-hero chapter-hero">
     <p class="eyebrow">INTEGRATED RESEARCH / CYCLE TOURISM</p>
     <h1>シクロツーリズムの地域影響と時系列比較</h1>
-    <p class="subtitle">ルート整備によって何が増え、地域の中で何が変わったかを、人数だけでなく滞在・消費・移住・投資まで追う。</p>
-    <p class="lead">これまで地域影響の比較と、整備前後の時系列データを別ページで扱ってきた。本ノートでは両者を統合し、シクロツーリズムを「観光客数」ではなく、地域内での滞在・消費・事業・景観・インフラの変化として評価する。</p>
+    <p class="subtitle">「何人走ったか」ではなく、「移動が地域の中で何へ変換されたか」を追う。</p>
+    <p class="lead">しまなみ・とびしま・ゆめしまに加え、鴻島のエッセイまで横断すると、サイクルルートの価値は来訪者数だけでは捉えられない。重要なのは、来訪が停止・滞在・消費・再訪・所有・移住・創業へどこまで変換され、その価値が地域内に残ったかである。</p>
   </section>
 
   <section class="section">
-    <h2>統合した評価フレーム</h2>
-    <div class="process-chain"><span>来訪</span><b>→</b><span>滞在</span><b>→</b><span>立寄り</span><b>→</b><span>消費</span><b>→</b><span>再訪・関係人口</span><b>→</b><span>移住・創業</span><b>→</b><span>地域投資</span></div>
-    <p>サイクリストが増えても、島内に飲食・宿泊・小売・体験の受け皿がなければ地域所得にはつながりにくい。一方、人口が減り続けても、新しい宿、飲食、移住創業、空き家活用、景観投資が増える場合がある。人口総数だけでは評価できない。</p>
+    <h2>01｜地域捕捉力｜来訪者数と地域所得を分ける</h2>
+    <div class="process-chain"><span>来訪</span><b>→</b><span>停止</span><b>→</b><span>滞在</span><b>→</b><span>消費</span><b>→</b><span>地域内残存</span><b>→</b><span>再投資</span></div>
+    <p><strong>地域捕捉力 ≒ 来訪者 × 滞在時間 × 立寄率 × 1人当たり支出 × 地域内残存率</strong></p>
+    <p>同じ33万人が走っても、日帰りで通過するのか、島で昼食を取り、宿泊し、地元事業者から買うのかで効果は大きく異なる。「サイクリストはお金を落とさない」は属性の問題ではなく、旅程と地域側の受け皿の問題として分解する。</p>
   </section>
 
   <section class="section">
-    <h2>比較する主要指標</h2>
+    <h2>02｜「走らせる」から「止める・泊める」へ</h2>
+    <p>エッセイ群からは、走行環境の整備だけでは地域消費が増えないことが繰り返し確認できる。飲食、宿泊、休憩、給水、荷物配送、体験、文化資産などの<strong>停止点</strong>をルートへ重ねることが、地域経済への変換装置になる。</p>
     <div class="research-note-role-grid">
-      <article><strong>来訪</strong><p>通行量、レンタサイクル、フェリー利用、ルート別利用者。</p></article>
-      <article><strong>滞在</strong><p>滞在時間、宿泊率、連泊、立寄り地点。</p></article>
-      <article><strong>消費</strong><p>飲食、小売、宿泊、体験、修理、荷物配送など地域内支出。</p></article>
-      <article><strong>移住・創業</strong><p>観光を入口とした移住、店舗開業、宿泊事業、空き家転用。</p></article>
-      <article><strong>景観・インフラ</strong><p>道路、港、案内、トイレ、休憩所、景観整備、安全対策。</p></article>
-      <article><strong>地域内残存</strong><p>地元雇用、仕入、修繕発注、税収、地域団体への還流。</p></article>
+      <article><strong>走行環境</strong><p>橋、道路、ブルーライン、フェリー、自転車積載。</p></article>
+      <article><strong>停止環境</strong><p>飲食、休憩、トイレ、給水、修理、案内。</p></article>
+      <article><strong>滞在環境</strong><p>宿泊、荷物配送、夜間体験、翌朝の目的。</p></article>
+      <article><strong>関係継続</strong><p>再訪、知人交流、別荘利用、二地域居住、移住・創業。</p></article>
     </div>
   </section>
 
   <section class="section">
-    <h2>地域比較の読み方</h2>
-    <div class="table-wrap"><table><thead><tr><th>地域</th><th>見るべき特徴</th><th>主な問い</th></tr></thead><tbody>
-      <tr><td><strong>しまなみ海道</strong></td><td>国際ブランド、宿泊・飲食・民間投資の厚み</td><td>来訪増が滞在価値と地域事業へどこまで波及したか。</td></tr>
-      <tr><td><strong>とびしま海道</strong></td><td>高品質景観と歴史資産、受け皿の薄さ</td><td>ルートの魅力を地域消費へ変換できているか。</td></tr>
-      <tr><td><strong>ゆめしま海道</strong></td><td>橋梁整備後の新規来訪</td><td>来訪増が宿泊・創業・関係人口へ接続するか。</td></tr>
-      <tr><td><strong>小規模離島</strong></td><td>店舗・宿泊・物流制約</td><td>日帰り通過型になった場合、地域に何が残るか。</td></tr>
+    <h2>03｜鴻島が示す「消費のないサイクリング」</h2>
+    <p>鴻島では景観体験は成立しても、商店・飲食・宿泊の受け皿が薄ければ島内消費はほとんど発生しない。このケースは、優れた走行体験と地域所得が自動的には連動しないことを端的に示す。</p>
+    <p>一方、自転車で島を知った人が後に宿泊、別荘利用、二地域居住へ進むなら、自転車は観光商品ではなく<strong>地域との最初の接点</strong>になる。したがって短期支出だけでなく、来訪後の関係継続率を追う必要がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜効果は観光消費だけではない</h2>
+    <div class="research-note-role-grid">
+      <article><strong>民間事業</strong><p>宿、飲食、カフェ、修理、体験、荷物配送、空き家転用。</p></article>
+      <article><strong>公共空間</strong><p>道路、港、案内、トイレ、休憩所、安全対策。住民にも便益が及び得る。</p></article>
+      <article><strong>景観再評価</strong><p>漁港、石垣、柑橘畑、路地など、自動車では通過される風景が観光資源化する。</p></article>
+      <article><strong>人口・人材</strong><p>初回来訪から再訪、事業機会発見、移住・創業へ進む長期経路。</p></article>
+      <article><strong>負の外部性</strong><p>混雑、事故、マナー、地価・家賃、住民負担も同じ評価表へ置く。</p></article>
+      <article><strong>地域内循環</strong><p>地元雇用、仕入、修繕、税収、地域団体、景観保全への再投資。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>05｜地域比較</h2>
+    <div class="table-wrap"><table><thead><tr><th>地域</th><th>特徴</th><th>主要な研究問い</th></tr></thead><tbody>
+      <tr><td><strong>しまなみ海道</strong></td><td>国際ブランド、宿泊・飲食・民間投資の厚み</td><td>来訪増が滞在価値、移住・創業、空き家利用へどこまで波及したか。</td></tr>
+      <tr><td><strong>とびしま海道</strong></td><td>高品質景観・歴史資産、受け皿の薄さ</td><td>ルートの魅力を停止・宿泊・地域消費へ変換できているか。</td></tr>
+      <tr><td><strong>ゆめしま海道</strong></td><td>橋梁整備後の新規来訪</td><td>来訪増が宿泊、創業、関係人口へ接続するか。</td></tr>
+      <tr><td><strong>鴻島</strong></td><td>景観は強いが店舗・宿泊機能が薄い小規模離島</td><td>短期消費が小さい場合、所有・滞在・二地域居住への入口として意味を持つか。</td></tr>
     </tbody></table></div>
   </section>
 
   <section class="section">
-    <h2>時系列比較で確認すること</h2>
-    <p>整備前後を比較するときは、人口減少、コロナ禍、橋梁開通、宿泊施設投資など他の要因を分ける必要がある。単純な「整備前／整備後」では因果を断定せず、人口、観光、消費、移住・創業、空き家利用など複数の中間指標を重ねる。</p>
+    <h2>06｜時系列比較と因果の注意</h2>
+    <p>整備前後を比較するときは、人口減少、コロナ禍、橋梁開通、宿泊投資、移住政策など他要因を分ける。人口総数が減り続けても、店舗構成、客単価、移住創業、空き家利用が変わる場合があるため、中間指標を重ねる。</p>
+    <p>サイクルルートの効果を「人口を増やしたか」で単純判定せず、<strong>地域の可能性集合をどう変えたか</strong>を見る。</p>
   </section>
 
   <section class="section">
@@ -53,7 +72,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <section class="section">
-    <h2>今後の更新単位</h2>
-    <p>新しい地域エッセイ、現地観察、店舗・宿泊・交通データが得られた場合は、まず本ページの比較枠組みと地域類型を更新する。個別数値は時系列モジュール、評価設計は方法論モジュールへ反映する。</p>
+    <div class="kicker">ESSAY FEEDBACK</div>
+    <h2>今回反映したエッセイ</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/what-cyclists-leave-behind/">自転車で人は来た。では、地域に何が残ったのか →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/">鴻島｜消費のないサイクリング →</a>
+    </div>
   </section>
 </BaseLayout>
