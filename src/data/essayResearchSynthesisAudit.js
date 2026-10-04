@@ -31,7 +31,7 @@ export const essayResearchSynthesisAudit = {
       {heading:'生産者が作るのは商品だけでなく用途ポートフォリオである',text:'同じ魚・果実・副産物でも、鮮魚、乾燥、冷凍、加工、高付加価値素材、肥料等へ用途を分けることで資源の価値回収率が変わる。単一の主力商品の収益だけで生業の持続性を評価しない。'}
     ],
     essays:[
-      ['なぜ宇和海の斜面には、これほど多くのみかんが並ぶのか','uwa-citrus-variety-calendar'],
+      ['なぜ宇和海の斜面には、これほど多くのみかんが並ぶのか','mikan-slope-and-varieties'],
       ['脂が多すぎるイワシは、なぜ「いりこ」になれないのか','ibuki-fat-sardines-revalued'],
       ['潮を釣る町――加太の真鯛は、なぜ一本の糸で獲られるのか','kada-sea-bream-one-line']
     ]
@@ -56,7 +56,7 @@ export const essayResearchSynthesisAudit = {
       {heading:'巨大投資の都市形成効果は産業ごとに異なる',text:'製鉄所は大量雇用・住宅・鉄道・学校・商店を伴った一方、データセンターは電力・通信・税収の比重が高く、日常雇用は相対的に小さくなり得る。投資額だけで都市波及を推定しない。'}
     ],
     essays:[
-      ['塩田跡は、なぜ工業都市になったのか','sakaide-salt-fields-to-industrial-city'],
+      ['塩田が消えたあと、坂出はなぜ工業都市になったのか','sakaide-salt-fields-to-industry'],
       ['塩の町は、塩田を失ったあと何を建てたのか','ako-salt-fields-to-city'],
       ['海辺の高炉、丘の上のサーバー――加太の隣で産業は何を地域に残すのか','kada-steel-data-center-transition']
     ]
@@ -81,7 +81,7 @@ export const essayResearchSynthesisAudit = {
       {heading:'新しい料理は古い素材の再生産回路になり得る',text:'下津井ヒジキの新しい料理利用のように、伝統食材を別の料理文脈へ接続することで需要が増え、生産継続へ所得が戻る可能性がある。継承を同一レシピの保存に限定しない。'}
     ],
     essays:[
-      ['なぜ宇和海の斜面には、これほど多くのみかんが並ぶのか','uwa-citrus-variety-calendar'],
+      ['なぜ宇和海の斜面には、これほど多くのみかんが並ぶのか','mikan-slope-and-varieties'],
       ['鯛は、港で時間を与えられる――加太の真鯛を運ぶ流通の生態系','kada-sea-bream-distribution-ecosystem'],
       ['タコの海には、ひじきも育つ','shimotsui-hijiki-peperoncino']
     ]
@@ -120,7 +120,7 @@ export const essayResearchSynthesisAudit = {
       {heading:'機能を失ったインフラが別の価値へ転換する',text:'錦帯橋、町家、蔵、港湾施設等は、当初の生産・交通機能が弱まった後に文化・観光・教育価値を持つ。資産再生産を同一用途の存続率ではなく、機能間の価値転換として測る。'}
     ],
     essays:[
-      ['塩田跡は、なぜ工業都市になったのか','sakaide-salt-fields-to-industrial-city'],
+      ['塩田が消えたあと、坂出はなぜ工業都市になったのか','sakaide-salt-fields-to-industry'],
       ['塩の町は、塩田を失ったあと何を建てたのか','ako-salt-fields-to-city'],
       ['1億円の別荘が200万円になったあと、誰がそこへ来たのか','kojima-island-bubble-villas-second-life'],
       ['川で二つに分かれた町に、なぜ錦帯橋が必要だったのか','iwakuni-river-city']
