@@ -1,0 +1,62 @@
+---
+const { pathname = '' } = Astro.props;
+const base='/setouchi-cultural-economic-atlas';
+
+const data = {
+  climate:['気候データ',`${base}/climate/`],
+  windTide:['潮・風データ',`${base}/wind-tide/`],
+  transect:['地形断面',`${base}/transect/`],
+  landUse:['土地利用',`${base}/land-use/`],
+  transport:['交通・港湾',`${base}/transport/`],
+  industry:['産業分布',`${base}/industry/`],
+  food:['食資源マトリクス',`${base}/gastronomy-matrix/`],
+  photos:['写真資料',`${base}/photos/`],
+  compare:['地域比較',`${base}/compare/`],
+  waitingPorts:['潮待ち港比較',`${base}/data/waiting-ports/`],
+  saltFields:['塩田4地域比較',`${base}/data/salt-fields/`]
+};
+
+const has=(...terms)=>terms.some((term)=>pathname.includes(term));
+let keys=[];
+
+if(has('climate-water','water-storage-allocation')) {
+  keys=['climate','transect','compare'];
+} else if(has('geography','dynamic-natural-capital','dynamic-natural-systems','regional-dynamic-natural-capital','human-response-to-dynamic-nature','natural-capital-lifestyle-framework')) {
+  keys=['transect','climate','windTide','landUse','compare'];
+} else if(has('ecosystems','nature-positive','strategic-renaturing')) {
+  keys=['landUse','climate','photos','compare'];
+} else if(has('gastronomy','coastal-food','food-culture','livelihoods')) {
+  keys=['food','photos','compare'];
+} else if(has('waiting-ports','ports-trade','port-node')) {
+  keys=['windTide','transport','waitingPorts','compare'];
+} else if(has('cycle-tourism')) {
+  keys=['transport','photos','compare'];
+} else if(has('salt-fields')) {
+  keys=['saltFields','landUse','industry','transport','compare'];
+} else if(has('shipbuilding','imabari-maritime','onomichi-innoshima','tamano-company-town','kure-state-led')) {
+  keys=['industry','transport','windTide','photos','compare'];
+} else if(has('textile','denim')) {
+  keys=['industry','landUse','photos','compare'];
+} else if(has('industrial','industry-','chemical','niihama','resource-circulation','physical-ai','datacenter','watt-bit')) {
+  keys=['industry','landUse','transport','photos','compare'];
+} else if(has('cities','townscape','land-use')) {
+  keys=['landUse','transport','photos','compare'];
+} else if(has('island-use-intensity','regional-asset-reproduction')) {
+  keys=['landUse','transport','photos','compare'];
+} else if(has('culture')) {
+  keys=['photos','compare'];
+}
+
+const links=[...new Set(keys)].map((key)=>data[key]).filter(Boolean);
+---
+{links.length > 0 && (
+  <section class="section research-related-data">
+    <div class="program-section-head">
+      <div><div class="kicker">RELATED DATA</div><h2>この研究ノートの関連データ</h2></div>
+      <p>このテーマの分析に直接関係する地図・統計・写真・比較データへ移動します。データは独立した閲覧カテゴリではなく、研究内容を確かめるための根拠として配置しています。</p>
+    </div>
+    <div class="chapter-related-grid">
+      {links.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item[1]}>{item[0]} →</a>)}
+    </div>
+  </section>
+)}
