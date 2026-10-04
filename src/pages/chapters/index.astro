@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const categories = [
-  {no:'01',title:'自然環境・生態系',description:'人間の利用や政策判断に先立つ、地形・気候・水・海況・生態系という基盤条件を扱う。',groups:[
+  {no:'01',title:'自然環境・生態系',description:'自然資本を固定的な背景ではなく、地殻変動・気候変動・水・海況・生態系の変化を含む動的な基盤として扱う。',groups:[
+    {title:'動的自然資本',items:[{title:'動的自然資本――変わり続ける土地と、人間の応答',description:'地殻変動、海面変動、気候変動、生態系遷移によって変化する自然資本と、人間の適応・改変・暮らしの再編を読む。',href:'/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/'}]},
     {title:'瀬戸内の地形・地理構造',items:[{title:'瀬戸内の地形・地理構造',description:'灘・湾・瀬戸・海峡、島嶼、地質、河川、平野、海底地形を地域差の基盤として読む。',href:'/setouchi-cultural-economic-atlas/chapters/geography/'}]},
     {title:'瀬戸内の気候・水循環',items:[
       {title:'瀬戸内の気候・水循環',description:'降水、風、河川、地下水、ため池、陸から海への水と物質の移動を読む。',href:'/setouchi-cultural-economic-atlas/chapters/climate-water/'},
@@ -26,12 +27,12 @@ const categories = [
     ]},
     {title:'シクロツーリズム',items:[{title:'シクロツーリズムの地域影響と時系列比較',description:'来訪、停止、滞在、消費、関係人口、移住、創業、景観、インフラへの影響を統合して読む。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/',modules:[['地域影響','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'],['時系列','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-timeseries/'],['経済・関係捕捉','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-capture/'],['評価方法','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/']]}]}
   ]},
-  {no:'04',title:'産業・技術・資源循環',description:'産業の形成と転換、技能・設備・資本の継承、企業間連鎖、循環設計、新しい技術基盤を扱う。',groups:[
+  {no:'04',title:'産業・技術・資源循環',description:'自然資本と暮らしの上に形成された産業の転換、技能・設備・資本の継承、企業間連鎖、循環設計、新しい技術基盤を扱う。',groups:[
     {title:'産業転換・能力継承',items:[
-      {title:'瀬戸内産業の転換と能力継承',description:'自然資源、修理需要、企業技術、制度変更など複数の起点から生まれた能力が、次市場へどう再結合されるかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'},
+      {title:'瀬戸内産業の転換と能力継承',description:'自然資本を基層に置き、修理需要、企業技術、制度変更、市場などが能力形成をどう促し、次市場へ再結合されるかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'},
       {title:'塩田産業の地域資産継承',description:'赤穂・竹原・坂出・三田尻で、能力、土地、港湾、資本がどう残ったかを比較する。',href:'/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'}
     ]},
-    {title:'造船・海事産業',items:[{title:'瀬戸内造船産業の形成・集積・再生産構造',description:'海運需要、修繕、技能、船主資本、設備、企業間分業が形成され、次の需要へ再結合されるまでを扱う。',href:'/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/',modules:[['形成・集積','/setouchi-cultural-economic-atlas/chapters/setouchi-shipbuilding-cluster/'],['再生産モデル','/setouchi-cultural-economic-atlas/chapters/shipbuilding-reproduction-models/']]}]},
+    {title:'造船・海事産業',items:[{title:'瀬戸内造船産業の形成・集積・再生産構造',description:'海峡・潮流・港湾条件が航海生活と修繕需要を生み、技能・船主資本・設備・企業間分業へつながる過程を扱う。',href:'/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/',modules:[['自然資本と航海生活','/setouchi-cultural-economic-atlas/chapters/shipbuilding-natural-capital/'],['形成・集積','/setouchi-cultural-economic-atlas/chapters/setouchi-shipbuilding-cluster/'],['再生産モデル','/setouchi-cultural-economic-atlas/chapters/shipbuilding-reproduction-models/']]}]},
     {title:'繊維・衣料',items:[
       {title:'児島繊維産業の系譜',description:'干拓・綿作・紡績・学生服・ジーンズへ続く産業系譜を追う。',href:'/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'},
       {title:'福山デニム産業の系譜',description:'備後絣・藍染・織布の技能がデニムへ接続する過程を追う。',href:'/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'}
@@ -42,7 +43,7 @@ const categories = [
     ]},
     {title:'資源循環・循環設計',items:[{title:'瀬戸内の地域資源循環',description:'食品副産物から児島デニムまで、用途適合、カスケード利用、物流、循環速度、循環設計を比較する。',href:'/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/'}]},
     {title:'デジタル・AIインフラ',items:[
-      {title:'AIデータセンターの立地・地域接続・適地比較',description:'電力、通信、冷却、土地、災害条件に加え、雇用・地域企業・計算資源利用への接続まで評価する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/',modules:[['立地条件','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/'],['適地比較','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/']]},
+      {title:'AIデータセンターの立地・地域接続・適地比較',description:'自然資本、水・電力・土地・災害条件と地域生活との競合・補完を含め、通信・計算資源・地域接続まで評価する。',href:'/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/',modules:[['立地条件','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-ecosystem/'],['自然資本・暮らしとの関係','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-natural-capital/'],['適地比較','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-suitability-map/']]},
       {title:'瀬戸内Physical AIエコシステム',description:'GPU/DC、電力、通信、現場企業、制御、SI、大学・高専の接続を読む。',href:'/setouchi-cultural-economic-atlas/chapters/physical-ai-player-ecosystem/'}
     ]}
   ]},
@@ -63,7 +64,9 @@ const categories = [
 ];
 
 const relatedResources=[
-  {group:'方法',title:'自然資本と暮らしから地域を読む',description:'自然資本を基層に、適応・改変、暮らし、生業、流動と捕捉、再生産、自然へのフィードバックを一つの循環として読む共通分析フレーム。',href:'/setouchi-cultural-economic-atlas/chapters/natural-capital-lifestyle-framework/'},
+  {group:'方法',title:'SETOUCHI ATLAS 共通分析フレーム',description:'自然資本を基層、暮らしを中心、Flow/Capture/Reproductionを二次的レンズとして位置づける。',href:'/setouchi-cultural-economic-atlas/chapters/atlas-common-framework/'},
+  {group:'方法',title:'産業研究の自然資本監査',description:'産業系ノートを自然資本→適応・改変→暮らし→産業化→自然へのフィードバックで再監査する。',href:'/setouchi-cultural-economic-atlas/chapters/industry-natural-capital-audit/'},
+  {group:'方法',title:'産業形成を自然資本から読む',description:'自然資本を起点の一類型ではなく基層として扱い、企業・制度・市場との関係を整理する。',href:'/setouchi-cultural-economic-atlas/chapters/industry-dynamic-foundation/'},
   {group:'データ',title:'瀬戸内食資源マトリクス',description:'魚介・食資源を地域横断で比較するデータページ。',href:'/setouchi-cultural-economic-atlas/gastronomy-matrix/'},
   {group:'データ',title:'食文化ダッシュボード',description:'食資源と地域文化を比較する指標・可視化。',href:'/setouchi-cultural-economic-atlas/chapters/food-culture-dashboard/'},
   {group:'方法',title:'シクロツーリズム評価プロトコル',description:'地域影響を測る評価手順。',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'},
@@ -72,10 +75,10 @@ const relatedResources=[
 ];
 const noteCount=new Set(categories.flatMap(c=>c.groups.flatMap(g=>g.items.map(i=>i.href)))).size;
 ---
-<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内を7つの分析軸から読む研究ノート。エッセイで得た知見を比較・統合して更新する。">
-  <section class="research-index-hero"><div class="research-index-kicker">RESEARCH NOTES / STRUCTURED INDEX</div><h1>研究ノート</h1><p class="research-index-lead">エッセイで生まれた問い・データ・仮説を、比較可能な知見として蓄積する場所です。大カテゴリ、中カテゴリ、個別研究ノートの3層で整理し、エッセイの追加に合わせて更新します。</p><div class="research-index-meta"><strong>{categories.length}</strong><span>大カテゴリ</span><strong>{noteCount}</strong><span>個別ノート</span></div></section>
+<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内を7つの分析軸から読む研究ノート。動的自然資本を基層に、エッセイで得た知見を比較・統合して更新する。">
+  <section class="research-index-hero"><div class="research-index-kicker">RESEARCH NOTES / STRUCTURED INDEX</div><h1>研究ノート</h1><p class="research-index-lead">エッセイで生まれた問い・データ・仮説を、比較可能な知見として蓄積する場所です。自然資本そのものも時間とともに変動するという前提に立ち、土地と人間の暮らしの関係から各テーマを読みます。</p><div class="research-index-meta"><strong>{categories.length}</strong><span>大カテゴリ</span><strong>{noteCount}</strong><span>個別ノート</span></div></section>
   <nav class="research-major-nav" aria-label="研究ノート大カテゴリ">{categories.map(c=><a href={`#research-${c.no}`}><span>{c.no}</span>{c.title}</a>)}</nav>
-  <section class="research-index-guide"><strong>分類とタイトルのルール</strong><p>大カテゴリは分析領域、中カテゴリは研究対象のまとまり、個別ノートは具体的な研究テーマです。自然資本を各分析の基層に置き、産業・交通・都市などは土地と人間の関係から読むことを共通原則とします。データ・評価手法は下部へ分け、研究タイトルは対象・構造・分析内容が一目で分かる名詞句を原則とします。</p></section>
+  <section class="research-index-guide"><strong>分類とタイトルのルール</strong><p>自然資本を各分析の基層、暮らしと生業を中心に置きます。産業・交通・都市・文化は土地と人間の関係の表出として扱い、自然変動・人為改変・可能性と制約の変化を区別して記述します。</p></section>
   <div class="research-category-list">
     {categories.map(c=><section class="research-category" id={`research-${c.no}`}><header class="research-category-head"><span>{c.no}</span><div><h2>{c.title}</h2><p>{c.description}</p></div></header><div class="research-middle-list">{c.groups.map(g=><section class="research-middle"><h3>{g.title}</h3><div class="research-note-grid">{g.items.map(i=><article class="research-note-card-wrap"><a class="research-note-card" href={i.href}><strong>{i.title}</strong><p>{i.description}</p><span>研究ノートを開く →</span></a>{i.modules&&<div class="research-module-links">{i.modules.map(m=><a href={m[1]}>{m[0]} →</a>)}</div>}</article>)}</div></section>)}</div></section>)}
     <section class="research-category related-resources"><header class="research-category-head"><span>＋</span><div><h2>関連データ・方法</h2><p>比較・検証・更新を支えるデータページと方法論。</p></div></header><div class="research-middle-list">{['データ','方法'].map(name=><section class="research-middle"><h3>{name}</h3><div class="research-note-grid">{relatedResources.filter(i=>i.group===name).map(i=><a class="research-note-card" href={i.href}><strong>{i.title}</strong><p>{i.description}</p><span>{name}を見る →</span></a>)}</div></section>)}</div></section>
