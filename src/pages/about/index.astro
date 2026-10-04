@@ -5,59 +5,60 @@ const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]))
 const heroPhoto=photoById['photo-onomichi-panorama'] || photoEvidence[0];
 const atlasPhotos=[photoById['photo-shimotsui-geography'],photoById['photo-niihama-tonaru'],photoById['photo-shodoshima-hishio-yamasan']].filter(Boolean);
 ---
-<BaseLayout title="このアトラスについて | SETOUCHI ATLAS" description="SETOUCHI ATLASは、瀬戸内のまち、海、産業、食、文化を、自然環境と人々の営みの関係からたどり、地域ごとの固有性とその変化を記録・研究するアトラスです。">
+<BaseLayout title="このアトラスについて | SETOUCHI ATLAS" description="SETOUCHI ATLASは、瀬戸内の土地と人の関係を、エッセイ、比較研究、地域別の逆引き、根拠データを往復しながら読むアトラスです。">
   <section class="atlas-about-cover">
     {heroPhoto && <img src={heroPhoto.imageUrl} alt={heroPhoto.alt} fetchpriority="high" />}
     <div class="atlas-about-cover-scrim"></div>
     <div class="atlas-about-cover-copy">
       <span>ABOUT THE ATLAS</span>
       <h1>瀬戸内を、<br/>土地と人の関係から読む。</h1>
-      <p>SETOUCHI ATLASは、瀬戸内のまち、海、島、産業、食、文化を、自然環境と人々の営みの関係からたどるアトラスです。風景の背後にある地形や海況、技術、交易、生業、産業のつながりを探りながら、この土地ならではの暮らしと文化がどのように形づくられてきたのかを記録していきます。</p>
+      <p>SETOUCHI ATLASは、瀬戸内のまち、海、島、産業、食、文化を、自然環境と人々の営みの関係から読み直すアトラスです。現地で出会う風景や暮らしから問いを立て、複数地域を比較し、その背後にある仕組みや地域差を考えます。</p>
     </div>
   </section>
 
   <section class="section atlas-about-definition">
     <div class="atlas-about-eyebrow">WHY THIS ATLAS</div>
-    <h2>散らばっている瀬戸内の知識を、一つのアトラスに。</h2>
+    <h2>分野ごとに散らばる知識を、土地と人の関係としてつなぎ直す。</h2>
     <div class="atlas-about-lead-grid">
       <p>地域を知ろうとすると、地形や気候は自然科学、港や交通は交通史、産業は企業史、町並みは建築史、食は郷土史や観光情報というように、知識は分野ごとに分かれています。しかし実際の地域では、それらは互いに切り離されて存在しているわけではありません。</p>
-      <p>このサイトは、現地で見た風景、地域の歴史、産業の記録、統計、地図、写真、食文化などを横断して集め、地域を一つの生態系として読み直すための知識基盤をつくることを目的としています。読み物として楽しめるエッセイから、地域ページ、研究ノート、データまでを同じアトラスの中で行き来できる形にしています。</p>
+      <p>このアトラスでは、現地で見た風景、歴史資料、統計、地図、写真、産業、食文化などを横断し、土地の条件と人の応答がどのように重なって地域を形づくってきたのかを読みます。既知の情報を並べるだけでなく、比較を通じて新しい説明や仮説を見つけることを目指します。</p>
     </div>
   </section>
 
   <section class="section atlas-about-principle-section">
     <div class="atlas-about-section-head">
-      <div><div class="atlas-about-eyebrow">RESEARCH PURPOSE</div><h2>なぜ、この土地に、この暮らし・産業・文化が生まれたのか。</h2></div>
-      <p>本アトラスの研究目的は、地域の特徴を列挙することではなく、その土地の自然条件と、人々が積み重ねてきた働きかけとの関係を明らかにすることです。</p>
+      <div><div class="atlas-about-eyebrow">RESEARCH PURPOSE</div><h2>この土地で、人は何を得られ、何ができたのか。</h2></div>
+      <p>本アトラスの研究目的は、地域の特徴を列挙することではありません。変わり続ける自然条件と、それに対する人間の適応・改変・選択が、暮らし、生業、産業、文化、集落、都市をどう形づくってきたかを明らかにすることです。</p>
     </div>
     <div class="research-pillar-grid">
-      <article class="research-pillar"><span>01 / LAND</span><h3>自然環境が何を可能にしたのか</h3><p>地形、地質、気候、水、海況、生態系など、その土地に与えられた条件を読みます。自然がすべてを決めるとは考えませんが、人の営みが始まる前提として重視します。</p></article>
-      <article class="research-pillar"><span>02 / HUMAN ACTION</span><h3>人はその条件をどう利用し、変えてきたのか</h3><p>漁撈、農業、製塩、航海、港湾、工業、交通、都市形成などを通じて、人が自然条件に適応し、ときに改変しながら、新しい技術や産業を生み出してきた過程を追います。</p></article>
-      <article class="research-pillar"><span>03 / CHANGE</span><h3>その結果、地域と暮らしはどう変わったのか</h3><p>生業、産業、食、文化、集落、都市、制度、移動の変化をたどり、それによって人が得られるもの、できること、難しくなったことがどう変化したのかを考えます。</p></article>
+      <article class="research-pillar"><span>01 / LAND</span><h3>土地の条件と変化を見る</h3><p>地形、地質、気候、水、海況、生態系などを固定的な背景とは捉えず、時間とともに変化する自然資本として扱います。</p></article>
+      <article class="research-pillar"><span>02 / HUMAN RESPONSE</span><h3>人がどう応答したかを見る</h3><p>暮らし、生業、技術、制度、交易、土地改変などを通じて、人が自然条件をどう利用し、組み替え、ときに制約を乗り越えてきたかを追います。</p></article>
+      <article class="research-pillar"><span>03 / FINDINGS</span><h3>比較から新しい説明を探る</h3><p>複数地域や時代を比較し、共通する仕組みと地域固有の差を分けます。そのうえで、従来の説明だけでは見えにくかった関係や、新しい知見・仮説を提示します。</p></article>
     </div>
-    <div class="atlas-about-causal-line"><span>自然環境</span><b>→</b><span>生態系</span><b>→</b><span>生業・技術</span><b>→</b><span>産業・文化</span><b>→</b><span>集落・都市・制度</span><b>→</b><span>人の暮らしと可能性</span></div>
+    <div class="atlas-about-causal-line"><span>自然資本(t)</span><b>→</b><span>人間の適応・改変</span><b>→</b><span>暮らし・生業</span><b>→</b><span>産業・文化・集落・都市</span><b>→</b><span>自然資本(t+1)</span></div>
   </section>
 
   <section class="section atlas-about-research">
     <div class="atlas-about-eyebrow">WHAT WE WANT TO UNDERSTAND</div>
-    <h2>瀬戸内という地域は、どのようにできてきたのか。</h2>
+    <h2>瀬戸内という地域は、どのように形づくられてきたのか。</h2>
     <div class="atlas-about-copy-column">
-      <p>瀬戸内海は、単なる内海ではありません。潮流と風、島々と狭い海峡、穏やかな海域と沿岸平野、塩田や漁場、港、航路、造船所、工場、商都が重なりながら、人と物と技術が行き交う一つの大きな地域圏を形づくってきました。</p>
-      <p>このアトラスでは、行政区域ごとに地域を見るだけでなく、海と陸をまたいでつながる生態系、物流、産業、文化のネットワークを追います。ある町だけを見ていると偶然に見える出来事が、複数の地域を並べることで、瀬戸内全体に共通する仕組みとして見えてくることがあります。</p>
-      <p>一方で、同じ瀬戸内でも条件は均一ではありません。潮流、地形、水資源、港の形、都市への距離、産業集積などの違いが、それぞれの地域に異なる道筋を生みました。共通性と土地固有性の両方を描くことが、この研究の中心です。</p>
+      <p>瀬戸内海は、単なる内海ではありません。潮流と風、島々と狭い海峡、穏やかな海域と沿岸平野、塩田や漁場、港、航路、造船所、工場、商都が重なりながら、人と物と技術が行き交う地域圏を形づくってきました。</p>
+      <p>ある町だけを見ると固有の出来事に見えるものも、複数地域を並べることで、より大きな構造として見えてくることがあります。一方、同じ瀬戸内でも、潮流、地形、水資源、港の形、都市への距離、産業集積は異なります。</p>
+      <p>本アトラスでは、その共通性と土地固有性を比較しながら、単なる地域紹介ではなく「なぜそうなったのか」を説明することを目指します。</p>
     </div>
   </section>
 
   <section class="section atlas-about-principle-section">
     <div class="atlas-about-section-head">
-      <div><div class="atlas-about-eyebrow">HOW TO READ</div><h2>読み物、地域、研究、データを行き来する。</h2></div>
-      <p>このサイトには一つの正しい読み順はありません。気になる写真や食べ物から入っても、地域名から入っても、研究テーマやデータから入っても構いません。</p>
+      <div><div class="atlas-about-eyebrow">HOW TO READ</div><h2>エッセイから入り、研究ノートで掘り下げ、地域別から逆引きする。</h2></div>
+      <p>このサイトには一つの正しい読み順はありませんが、それぞれのページには異なる役割があります。</p>
     </div>
     <div class="research-pillar-grid">
-      <article class="research-pillar"><span>ESSAYS</span><h3>エッセイ</h3><p>港、魚、料理、町並み、工場、島など、現地で出会う具体的な風景から瀬戸内を読み始めます。</p></article>
-      <article class="research-pillar"><span>PLACES</span><h3>地域</h3><p>各地域の自然条件、生業、産業、文化、都市形成を重ね、その土地の成り立ちと変化をたどります。</p></article>
-      <article class="research-pillar"><span>RESEARCH & DATA</span><h3>研究ノート・データ</h3><p>地域を横断するテーマを掘り下げ、地図、統計、写真、比較データなどを参照できるようにします。</p></article>
+      <article class="research-pillar"><span>ESSAYS</span><h3>エッセイ</h3><p>港、魚、料理、町並み、工場、島など、具体的な風景や出来事から問いを立てる入口です。</p></article>
+      <article class="research-pillar"><span>RESEARCH NOTES</span><h3>研究ノート</h3><p>地域や時代を比較し、根拠を確かめながら、説明仮説や新しい知見を組み立てます。方法論そのものは研究内容と分けて扱います。</p></article>
+      <article class="research-pillar"><span>PLACES</span><h3>地域別</h3><p>都市・地域名から、関連する地域ページ、エッセイ、研究ノートへたどるための逆引きです。独立した研究方法論は置きません。</p></article>
     </div>
+    <p class="lead">地図、統計、写真、比較表などのデータは、独立した読み物ではなく、研究ノートや地域記述を確かめるための根拠として、それぞれの文脈から参照できるようにします。</p>
   </section>
 
   <section class="section atlas-about-visual-method">
@@ -72,23 +73,23 @@ const atlasPhotos=[photoById['photo-shimotsui-geography'],photoById['photo-niiha
 
   <section class="section atlas-about-research">
     <div class="atlas-about-eyebrow">AN OPEN ATLAS</div>
-    <h2>完成させるのではなく、少しずつ厚くしていく。</h2>
+    <h2>結論を固定せず、証拠と比較によって更新する。</h2>
     <div class="atlas-about-copy-column">
-      <p>SETOUCHI ATLASは、完成した百科事典ではありません。地域を歩き、新しい資料を読み、比較する地域やテーマが増えるたびに、エッセイ、研究ノート、データ、写真を追加していきます。</p>
-      <p>瀬戸内の過去を保存するだけでなく、現在進行している産業や交通、環境、暮らしの変化も記録し、あとから時間をさかのぼって読み直せるアトラスにしていくことを目指しています。</p>
+      <p>SETOUCHI ATLASは、完成した百科事典ではありません。現地を歩き、新しい資料を読み、比較対象が増えるたびに、既存の説明や仮説を見直します。</p>
+      <p>エッセイで生まれた問いを研究ノートへ戻し、研究から得た知見を地域の読み方へ反映し、必要な根拠データへつなぐ。その往復によって、瀬戸内の過去と現在を少しずつ解像度高く読むことを目指します。</p>
     </div>
     <div class="chapter-related-grid">
-      <a class="compare-button" href="/setouchi-cultural-economic-atlas/places/">地域から読む →</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/">エッセイを読む →</a>
-      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/methodology/">研究方法について →</a>
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">エッセイを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/">研究ノートを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/">地域別から探す →</a>
     </div>
   </section>
 
   <section class="section atlas-about-research">
-    <div class="atlas-about-eyebrow">SITE OWNER</div>
-    <h2>運営</h2>
+    <div class="atlas-about-eyebrow">EDITOR</div>
+    <h2>責任編集</h2>
     <div class="atlas-about-copy-column">
-      <p><strong>サイトオーナー　藤崎壮滋（ぴあぴあ株式会社）</strong></p>
+      <p><strong>藤崎壮滋（ぴあぴあ株式会社）</strong></p>
     </div>
   </section>
 </BaseLayout>
