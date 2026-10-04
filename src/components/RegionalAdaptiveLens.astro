@@ -8,67 +8,28 @@ import '../styles/regional-adaptive.css';
 const { placeId } = Astro.props;
 const place = places.find((item)=>item.id===placeId);
 const placeName = place?.name || 'この地域';
-const section = (index) => place?.sections?.[index] || null;
 const timeline = regionalPossibilityTimelines[placeId] || [];
 const expandedDynamicNaturalCapital = regionalDynamicNaturalCapitalExpansion[placeId] || null;
-
-const possibilityDimensions = [
-  {
-    id:'living', number:'01', title:'生活可能性', subtitle:'住む・移動する・日常生活を営む',
-    question:'地形、交通、住宅、災害リスク、生活サービスは、どのような暮らしを可能にし、何を難しくしているか。',
-    items:[section(12),section(4),section(14)].filter(Boolean)
-  },
-  {
-    id:'livelihood', number:'02', title:'生業可能性', subtitle:'働く・つくる・商う・技能を継ぐ',
-    question:'この土地では、どのような仕事や技能が成立してきたか。産業の変化によって、何が失われ、何が別の形で残ったか。',
-    items:[section(6),section(8),section(10)].filter(Boolean)
-  },
-  {
-    id:'nature', number:'03', title:'自然享受可能性', subtitle:'海・山・水・食・景観から恩恵を得る',
-    question:'自然環境や生態系から何を得られるか。開発、人口変化、土地利用の変化は、そのアクセスと恩恵をどう変えたか。',
-    items:[section(2),section(5),section(14)].filter(Boolean)
-  },
-  {
-    id:'culture', number:'04', title:'文化実践可能性', subtitle:'祭る・食べる・つくる・記憶を継ぐ',
-    question:'文化を「残っている物」としてではなく、今も実践できる行為として見る。誰が担い、どの条件によって継続可能になっているか。',
-    items:[section(13),section(16),section(3)].filter(Boolean)
-  },
-  {
-    id:'economic', number:'05', title:'経済的可能性', subtitle:'所得を得る・起業する・市場とつながる',
-    question:'地域の企業、設備、技能、取引網、市場接続は、どのような経済活動を可能にしているか。成長だけでなく依存や外部不経済も含めて見る。',
-    items:[section(10),section(11),section(9)].filter(Boolean)
-  },
-  {
-    id:'choice', number:'06', title:'選択可能性', subtitle:'残る・出る・戻る・別の使い方を選ぶ',
-    question:'現在の変化によって、人や地域が選べる生き方・土地利用・産業の幅は広がっているか、狭まっているか。',
-    items:[section(15),section(17),section(12)].filter(Boolean)
-  }
-];
-
-const possibilityProfile = possibilityDimensions.map((dimension,index)=>({
-  ...dimension,
-  position:`p${index + 1}`,
-  anchor:dimension.items[0]?.[0] || '地域の基盤',
-  change:dimension.items[1]?.[0] || dimension.items[0]?.[0] || '変化を観察'
-}));
 ---
+
 {expandedDynamicNaturalCapital && <RegionalDynamicNaturalCapital profile={expandedDynamicNaturalCapital} />}
 
-<section class="section regional-adaptive" id="region-possibilities">
-  <div class="regional-adaptive-head">
-    <div>
-      <div class="kicker">HUMAN POSSIBILITIES / CONSTRAINTS</div>
-      <h2>{placeName}で、人は何を得られ、何ができるのか</h2>
+{timeline.length > 0 && (
+  <section class="section regional-adaptive" id="region-possibilities">
+    <div class="regional-adaptive-head">
+      <div>
+        <div class="kicker">CHANGE OVER TIME</div>
+        <h2>この土地で、人ができることはどう変わったか</h2>
+      </div>
+      <p>人口や産業の増減だけで地域を評価せず、自然条件への適応、技術、交通、制度、土地利用の変化によって、<strong>何が可能になり、同時に何が難しくなったのか</strong>を時系列で読みます。</p>
     </div>
-    <p>人口、産業、観光、土地利用の増減そのものを評価しません。それらの変化によって、<strong>人が得られるもの・できること・できなくなったこと</strong>がどう変わったのかを読みます。</p>
-  </div>
 
-  {timeline.length > 0 && (
     <div class="regional-possibility-timeline-wrap">
       <div class="regional-possibility-timeline-head">
-        <div><span>CHANGE OVER TIME</span><h3>可能性の変遷</h3></div>
-        <p>同じ土地でも、人ができることは一定ではありません。自然条件への適応、交通、技術、産業、制度の変化によって、可能性と制約の組み合わせそのものが変わります。</p>
+        <div><span>{placeName}</span><h3>可能性と制約の変遷</h3></div>
+        <p>同じ土地でも、人ができることは一定ではありません。ある変化が新しい選択肢を生む一方で、以前可能だった暮らしや利用を難しくすることがあります。</p>
       </div>
+
       <div class="regional-possibility-timeline">
         {timeline.map((phase,index)=>(
           <article class="regional-possibility-phase">
@@ -76,82 +37,29 @@ const possibilityProfile = possibilityDimensions.map((dimension,index)=>({
             <div class="regional-phase-body">
               <h4>{phase.era}</h4>
               <div class="regional-phase-pair">
-                <div><span class="regional-phase-label enabled">可能になったこと</span><p>{phase.enabled}</p></div>
-                <div><span class="regional-phase-label constrained">同時にあった制約</span><p>{phase.constrained}</p></div>
+                <div>
+                  <span class="regional-phase-label enabled">可能になったこと</span>
+                  <p>{phase.enabled}</p>
+                </div>
+                <div>
+                  <span class="regional-phase-label constrained">同時に難しくなったこと・残った制約</span>
+                  <p>{phase.constrained}</p>
+                </div>
               </div>
             </div>
           </article>
         ))}
       </div>
-      <p class="regional-timeline-note">この時系列は、既存資料と地域ページの記述を「人間の可能性」という観点から再構成した編集上の解釈です。時代を成功／衰退の順序として並べるものではありません。</p>
-    </div>
-  )}
 
-  <div class="regional-possibility-profile-wrap">
-    <div class="regional-possibility-profile-head">
-      <div><span>POSSIBILITY PROFILE</span><h3>現在の可能性を、構造として見る</h3></div>
-      <p>レーダーチャートや点数評価は使いません。6つの可能性は相互依存しており、ある可能性の拡大が別の可能性を狭めることもあるためです。ここでは、各領域を支える基盤と、変化を観察する論点を同時に置きます。</p>
+      <p class="regional-timeline-note">この時系列は、既存資料と地域ページの記述をもとに、土地と人間の関係の変化を編集上再構成したものです。時代を成功／衰退の順序として評価するものではありません。</p>
     </div>
-    <div class="regional-possibility-profile" aria-label={`${placeName}の可能性プロファイル`}>
-      <div class="regional-profile-center">
-        <small>NO SCORE / NO RANKING</small>
-        <strong>{placeName}</strong>
-        <span>人間の可能性の構造</span>
-        <p>6領域の大きさを競うのではなく、どの関係が支え合い、どこに緊張や交換条件があるかを読む。</p>
-      </div>
-      {possibilityProfile.map((dimension)=>(
-        <article class={`regional-profile-node ${dimension.position} ${dimension.id}`}>
-          <span>{dimension.number}</span>
-          <h4>{dimension.title}</h4>
-          <p>{dimension.subtitle}</p>
-          <dl>
-            <div><dt>基盤を見る</dt><dd>{dimension.anchor}</dd></div>
-            <div><dt>変化を見る</dt><dd>{dimension.change}</dd></div>
-          </dl>
-        </article>
-      ))}
+
+    <div class="regional-adaptive-links">
+      <a href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
+      <a href="/setouchi-cultural-economic-atlas/about/">このアトラスの立場 →</a>
     </div>
-    <p class="regional-profile-note">この図は優劣や充足度を示すものではありません。同じ地域でも、住民、来訪者、事業者、世代によって享受する可能性と制約は異なります。</p>
-  </div>
-
-  <div class="regional-possibility-dimensions-head">
-    <div><span>SIX DIMENSIONS</span><h3>6つの可能性を詳しく読む</h3></div>
-    <p>構造図で全体を見たうえで、生活・生業・自然・文化・経済・選択の各側面を、既存の地域データから読み直します。</p>
-  </div>
-
-  <div class="regional-adaptive-grid">
-    {possibilityDimensions.map((dimension)=>(
-      <article class={`regional-adaptive-card ${dimension.id}`}>
-        <span>{dimension.number} / POSSIBILITY</span>
-        <h3>{dimension.title}</h3>
-        <strong>{dimension.subtitle}</strong>
-        <p>{dimension.question}</p>
-        <div class="regional-world-list">
-          {dimension.items.map(([title,body])=>(
-            <div><strong>{title}</strong><small>{body}</small></div>
-          ))}
-        </div>
-      </article>
-    ))}
-  </div>
-
-  <div class="regional-learning-loop">
-    <div class="regional-learning-chain" aria-label="regional possibility reading cycle">
-      <span>何が可能だったか</span><b>→</b><span>何が難しくなったか</span><b>→</b><span>何が新しく可能になったか</span><b>→</b><span>誰が利得・損失を受けるか</span>
-    </div>
-    <div class="regional-learning-copy">
-      <small>NO PRESET ANSWER</small>
-      <strong>「課題」は、分析の前提ではなく分析の結果として現れる。</strong>
-      <p>人口減少、産業成長、観光化、自然回復などを、最初から善悪で分類しません。同じ変化でも、公共サービス、所得、土地、静けさ、生態系、文化、移動などへの影響は異なります。SETOUCHI ATLASはその交換関係を記述し、どの可能性を重視するかという価値判断はその先に置きます。</p>
-    </div>
-  </div>
-
-  <div class="regional-adaptive-links">
-    <a href="/setouchi-cultural-economic-atlas/methodology/">方法論 →</a>
-    <a href="/setouchi-cultural-economic-atlas/about/">このアトラスの立場 →</a>
-    <a href="/setouchi-cultural-economic-atlas/data/">根拠データ →</a>
-  </div>
-</section>
+  </section>
+)}
 
 <script is:inline>
   (()=>{
@@ -159,7 +67,7 @@ const possibilityProfile = possibilityDimensions.map((dimension,index)=>({
     if(!nav || nav.querySelector('a[href="#region-possibilities"]')) return;
     const link=document.createElement('a');
     link.href='#region-possibilities';
-    link.innerHTML='<small>05</small><strong>人間の可能性</strong><span>何を得られ、何ができるのか</span>';
+    link.innerHTML='<small>05</small><strong>可能性の変遷</strong><span>できることはどう変わったか</span>';
     nav.appendChild(link);
   })();
 </script>
