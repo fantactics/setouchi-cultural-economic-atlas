@@ -37,6 +37,22 @@ const pageType = pathname.startsWith(`${baseUrl}places`)
         ? 'data'
         : 'default';
 
+const contextualEssayLinks = pathname.endsWith('/chapters/island-use-intensity/')
+  ? [
+      ['公共インフラ｜人口52人の島に、道路と水道をどこまで残すのか','/setouchi-cultural-economic-atlas/book/kojima-island-infrastructure-per-capita/'],
+      ['シクロツーリズム｜自転車で島を一周しても、島に一円も落ちないとしたら','/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/'],
+      ['別荘ストック｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-new-users/'],
+      ['空き家・退出｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-ruins-without-externalities/']
+    ]
+  : pathname.endsWith('/chapters/cycle-tourism-regional-impact/')
+    ? [['鴻島ケース｜自転車で島を一周しても、島に一円も落ちないとしたら','/setouchi-cultural-economic-atlas/book/kojima-island-cycling-without-consumption/']]
+    : pathname.endsWith('/chapters/regional-asset-reproduction/')
+      ? [
+          ['鴻島ケース｜1億円の別荘が200万円になったあと、誰がそこへ来たのか','/setouchi-cultural-economic-atlas/book/kojima-island-bubble-villas-new-users/'],
+          ['鴻島ケース｜誰も困っていない廃墟を、なぜ「地域課題」と呼ぶのか','/setouchi-cultural-economic-atlas/book/kojima-island-ruins-without-externalities/']
+        ]
+      : [];
+
 const siteOrigin = Astro.site?.origin || Astro.url.origin;
 const siteRoot = new URL(baseUrl, siteOrigin).href;
 const canonicalUrl = new URL(pathname, siteOrigin).href;
@@ -118,6 +134,17 @@ const jsonLd = structuredData || defaultStructuredData;
     </header>
     <main>
       <slot />
+      {contextualEssayLinks.length>0 && (
+        <section class="section">
+          <div class="program-section-head">
+            <div><div class="kicker">RELATED ESSAYS</div><h2>この研究ノートを、地域のエッセイで読む</h2></div>
+            <p>研究ノートの分析枠組みを、具体的な地域ケースへ戻して読みます。</p>
+          </div>
+          <div class="chapter-related-grid">
+            {contextualEssayLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item[1]}>{item[0]} →</a>)}
+          </div>
+        </section>
+      )}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
