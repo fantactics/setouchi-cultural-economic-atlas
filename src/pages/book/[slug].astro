@@ -39,11 +39,28 @@ export function getStaticPaths(){
     }
   }));
 }
+
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=photoById[article.heroPhotoId];
+const formatSectionNo=(index)=>`${index+1}`.padStart(2,'0');
+const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
+const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({
+  title:item.title,
+  href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,
+  current:item.slug===article.slug
+}));
+const contextualResearchLinks=isKojimaIslandEssay
+  ? [
+      {label:'研究ノート｜人口ではなく、島の利用強度を測る',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'},
+      ...(article.slug==='kojima-island-cycling-without-consumption'
+        ? [{label:'研究ノート｜自転車は、島を変えたか',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'}]
+        : [])
+    ]
+  : (article.researchLinks||[]);
+
 const rawEssayPhotos=[
   ...(essayPhotoGalleries[article.slug]||[]),
   ...(essayPhotoGalleriesMore[article.slug]||[]),
@@ -67,14 +84,14 @@ const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[])
   .map((entry)=>entry.photoId ? photoById[entry.photoId] : entry)
   .map(applyPhotoMetadataCorrection)
   .filter(Boolean);
-const placeLinkByName = {
-  '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','丸亀':'marugame','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi'
+const placeLinkByName={
+  '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','丸亀':'marugame','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi','鴻島':'hinase','日生':'hinase'
 };
 ---
 <BaseLayout title={`${article.title} | 地域エッセイ`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
   <article class="book-article">
     <header class="book-article-header">
-      <div class="book-article-series">{article.part}</div>
+      <div class="book-article-series">{isKojimaIslandEssay ? '鴻島シリーズ' : article.part}</div>
       <h1>{article.title}</h1>
       <p class="book-article-subtitle">{article.subtitle}</p>
       <p class="book-article-dek">{article.lead}</p>
@@ -89,6 +106,17 @@ const placeLinkByName = {
         <img src={hero.imageUrl} alt={hero.alt} />
         <figcaption><strong>{hero.title}</strong>　{hero.caption}<span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption>
       </figure>
+    )}
+
+    {isKojimaIslandEssay && (
+      <section class="book-open-questions">
+        <div class="kicker">鴻島シリーズ</div>
+        <p>別荘地として開発された小島を、公共インフラ、観光、住宅ストック、所有と利用の変化から読みます。</p>
+        <div class="chapter-related-grid">
+          {kojimaSeriesLinks.map((item)=><a class:list={['compare-button',item.current&&'secondary']} href={item.href}>{item.current?'現在の記事｜':''}{item.title} →</a>)}
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/hinase/">地域ページ｜日生・鴻島 →</a>
+        </div>
+      </section>
     )}
 
     {essayPhotos.length>0 && <EssayPhotoGallery photos={essayPhotos} title={`${article.cities?.[0] || '地域'}を写真で読む`} />}
@@ -111,25 +139,33 @@ const placeLinkByName = {
     <div class="book-reading-column">
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
-          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <div class="book-section-no">{formatSectionNo(sectionIndex)}</div>
           <h2>{section.heading}</h2>
-          {section.paragraphs.slice(0, Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
-          {section.photoIds?.length>0 && (() => {
+          {section.paragraphs.slice(0,Math.max(1,Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
+          {section.photoIds?.length>0 && (()=>{
             const photo=photoById[section.photoIds[0]];
             if(!photo) return null;
-            return (<figure class="book-photo-break"><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>);
+            return <figure class="book-photo-break"><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>;
           })()}
-          {section.paragraphs.slice(Math.max(1, Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
+          {section.paragraphs.slice(Math.max(1,Math.ceil(section.paragraphs.length/2))).map((p)=>(<p>{p.text}{p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>))}
           {section.photoIds?.length>1 && (
             <div class:list={['book-inline-photos',section.photoIds.length===2&&'single']}>
-              {section.photoIds.slice(1).map((id)=>{ const photo=photoById[id]; if(!photo) return null; return (<figure><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>) })}
+              {section.photoIds.slice(1).map((id)=>{
+                const photo=photoById[id];
+                if(!photo) return null;
+                return <figure><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span><em>写真から考える：{photo.insight}</em><small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>;
+              })}
             </div>
           )}
         </section>
       ))}
 
-      {article.researchLinks?.length>0 && (
-        <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{article.researchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>
+      {contextualResearchLinks.length>0 && (
+        <section class="book-open-questions">
+          <div class="kicker">もっと深く知りたくなったら</div>
+          <p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p>
+          <div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div>
+        </section>
       )}
       <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>
       <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>
