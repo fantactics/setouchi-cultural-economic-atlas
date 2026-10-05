@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { setouchiLifeYearEssay as article } from '../../data/setouchiLifeYearEssay.js';
+---
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
+  <article class="book-article">
+    <header class="book-article-header">
+      <div class="book-article-series">{article.part}</div>
+      <h1>{article.title}</h1>
+      <p class="book-article-subtitle">{article.subtitle}</p>
+      <p class="book-article-dek">{article.lead}</p>
+      <div class="book-meta-row">
+        <div>{article.cities.join('・')}</div>
+        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+      </div>
+    </header>
+
+    <div class="book-reading-column">
+      <section class="life-year-figure" aria-label="瀬戸内海・生命の一年の概念図">
+        <div class="life-year-title">瀬戸内海・生命の一年</div>
+        <div class="life-year-grid">
+          <div class="life-season winter"><strong>冬</strong><span>産卵・孵化</span><small>イカナゴなど</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-season spring"><strong>春</strong><span>産卵回遊</span><small>サワラ・マダイなど</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-season summer"><strong>初夏〜夏</strong><span>幼魚の成長</span><small>藻場・干潟・浅海</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-season autumn"><strong>秋</strong><span>成長・移動</span><small>深場・外海へ</small></div>
+        </div>
+        <div class="life-network">
+          <span>河口・干潟</span><b>→</b><span>藻場</span><b>→</b><span>浅海・砂底</span><b>→</b><span>瀬・水道</span><b>→</b><span>沖合</span>
+        </div>
+        <p>産卵場、仔魚の輸送経路、育成場、餌場、成魚の生活圏は別々の場所にある。それらを潮流と生物の移動が結び、一つの世代をつくる。</p>
+      </section>
+
+      {article.sections.map((section,sectionIndex)=>(
+        <section class="book-prose-section">
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <h2>{section.heading}</h2>
+          {section.paragraphs.map((p)=>(
+            <p>
+              {p.text}
+              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+            </p>
+          ))}
+        </section>
+      ))}
+
+      <section class="book-small-conclusion">
+        <div class="kicker">暫定的なまとめ</div>
+        <p>{article.provisionalConclusion}</p>
+      </section>
+
+      <section class="book-open-questions">
+        <div class="kicker">まだ分からないこと</div>
+        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
+      </section>
+
+      <section class="book-sources">
+        <div class="kicker">出典・参照資料</div>
+        <ol>
+          {article.sources.map((source)=>(
+            <li id={`source-${source.id}`}>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+              <span>{source.publisher}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section" style="padding-left:0;padding-right:0;">
+        <div class="chapter-related-grid">
+          <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/setouchi-shrimp-middle-layer/">海の中間層――小さなエビたち →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/setouchi-sushi-not-nigiri/">瀬戸内の寿司 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.life-year-figure{margin:0 0 4rem;padding:2rem;border:1px solid rgba(24,60,84,.18);border-radius:18px;background:linear-gradient(180deg,#f7fbfc,#fff);box-shadow:0 12px 36px rgba(35,64,83,.06)}
+.life-year-title{font-family:serif;font-size:1.6rem;font-weight:700;color:#153d5a;margin-bottom:1.3rem}
+.life-year-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:.5rem;align-items:stretch}
+.life-season{padding:1rem .8rem;border-radius:12px;display:flex;flex-direction:column;gap:.28rem;min-height:112px}.life-season strong{font-size:1.1rem}.life-season span{font-weight:700}.life-season small{opacity:.72;line-height:1.4}.winter{background:#e8f3fa}.spring{background:#fdecef}.summer{background:#eaf5e9}.autumn{background:#faf0d9}.life-arrow{display:flex;align-items:center;color:#72828e;font-size:1.4rem}.life-network{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;justify-content:center;margin:1.5rem 0 1rem;padding:1rem;border-top:1px solid rgba(24,60,84,.12);border-bottom:1px solid rgba(24,60,84,.12)}.life-network span{font-weight:700;color:#274e66}.life-network b{color:#7e929e}.life-year-figure p{margin:.9rem 0 0;line-height:1.85;color:#415563}
+@media(max-width:760px){.life-year-grid{grid-template-columns:1fr}.life-arrow{justify-content:center;transform:rotate(90deg)}.life-season{min-height:auto}.life-year-figure{padding:1.25rem}}
+</style>
