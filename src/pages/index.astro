@@ -9,6 +9,7 @@ import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
 import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
 import { setouchiSushiEssay } from '../data/setouchiSushiEssay.js';
 import { setouchiShrimpEssay } from '../data/setouchiShrimpEssay.js';
+import { setouchiLifeYearEssay } from '../data/setouchiLifeYearEssay.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 import { places } from '../data/places.js';
@@ -17,7 +18,7 @@ import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,setouchiSushiEssay,setouchiShrimpEssay,aiRegionalPlanningEssay];
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,aiRegionalPlanningEssay];
 const additionalPhotos=Object.entries(additionalPlacePhotos).flatMap(([placeId,items])=>
   items.map((photo)=>({...photo,placeId,theme:photo.theme || '地域'}))
 );
