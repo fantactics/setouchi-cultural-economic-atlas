@@ -10,6 +10,7 @@ import { tomoTwoActPortEssay } from '../../data/tomoTwoActPortEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
+import { tomoTwoActPortPhotos } from '../../data/tomoTwoActPortPhotos.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import { gastronomyPhotoSets } from '../../data/gastronomyPhotos.js';
 import { essayPhotoGalleries } from '../../data/essayPhotoGalleries.js';
@@ -39,9 +40,9 @@ export function getStaticPaths(){
 
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
-const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
+const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
-const hero=photoById[article.heroPhotoId];
+const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
 const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
 const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({title:item.title,href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,current:item.slug===article.slug}));
 const contextualResearchLinks=isKojimaIslandEssay
