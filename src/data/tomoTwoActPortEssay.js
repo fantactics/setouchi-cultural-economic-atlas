@@ -5,6 +5,17 @@ export const tomoTwoActPortEssay = {
   subtitle:'東西から船が集まり、去り、また集まる――潮待ち港の「時間」を読む',
   cities:['鞆の浦','福山'],
   keywords:['鞆の浦','潮待ち','潮汐','港町','雁木','潮汐時間','パルス型港湾経済','船宿','保命酒','港湾労働'],
+  heroPhoto:{
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Tomonoura%20viewed%20from%20Taishiden.jpg?width=1800',
+    alt:'医王寺太子殿から見下ろした鞆の浦。町と港、島々が一体に見える',
+    title:'鞆の浦全景',
+    caption:'医王寺太子殿から見た鞆の浦。東西から来た船が集まり、潮が変われば再び散っていく。その舞台となった港と町のまとまりが一望できる。',
+    author:'Saigen Jiro',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Tomonoura_viewed_from_Taishiden.jpg',
+    license:'CC0 1.0',
+    licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',
+    credit:'Saigen Jiro / CC0 1.0'
+  },
   lead:'朝、鞆の港はまだ静かだった。しかし港で働く人々には、次に何が起きるかがおおよそ分かっていたはずである。潮が変われば、東からも西からも船が来る。数時間だけ町が一斉に動き、潮が反転すると船は東西へ散っていく。鞆の一日は、そんなふうに「幕」が開き、閉じるように進んでいたのではないだろうか。',
   sections:[
     {
@@ -41,7 +52,7 @@ export const tomoTwoActPortEssay = {
         {text:'そして潮が変わる。船が出ていく。幕が下りる。町には再び静かな時間が訪れる。しかし数時間後、また幕が開く。一日に二幕の日もあれば、一幕だけの日もあっただろう。天候や風によって幕が開かない日も、逆に船が出られず幕が閉じない日もあったはずだ。',refs:[]},
         {text:'鞆の商売は、朝から夕方まで均等に客が来る世界ではなかった可能性がある。潮汐が営業時間を決めていたのである。',refs:[]}
       ],
-      photoIds:[]
+      photoIds:['photo-tomo-port-2024']
     },
     {
       heading:'大きな雁木は、繁栄の証だけだったのか',
@@ -50,7 +61,7 @@ export const tomoTwoActPortEssay = {
         {text:'なかでも雁木は、潮の高さが変わっても荷役できるよう階段状につくられた施設で、中仕と呼ばれる港湾労働者が船と雁木の間に板を渡して荷を運んだ。鞆には大規模な雁木が残る。',refs:[3]},
         {text:'なぜ、これほどの設備が必要だったのだろう。「鞆が大きな港だったから」という説明に加えて、船が一定時間に集中する港だったからではないか、と考える余地がある。同じ年間寄港船数でも、一日中均等に来る港と、潮に合わせて集中する港では必要な岸壁能力が違う。鞆には平均交通量ではなく、一潮汐あたりの最大処理能力が求められていた可能性がある。',refs:[]}
       ],
-      photoIds:[]
+      photoIds:['photo-tomo-gangi-2009']
     },
     {
       heading:'食べ物にも「幕」があったのか',
