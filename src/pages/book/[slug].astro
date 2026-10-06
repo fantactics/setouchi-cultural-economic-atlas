@@ -6,6 +6,7 @@ import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
+import { tomoTwoActPortEssay } from '../../data/tomoTwoActPortEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
@@ -29,7 +30,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
-  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,kojimaCircularEssay,...kojimaIslandEssays];
+  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,kojimaCircularEssay,...kojimaIslandEssays];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{article,prev:index>0?allBookArticles[index-1]:null,next:index<allBookArticles.length-1?allBookArticles[index+1]:null}
