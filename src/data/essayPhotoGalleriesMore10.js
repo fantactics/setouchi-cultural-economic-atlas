@@ -2,6 +2,58 @@ import { essayPhotoGalleriesMore11 } from './essayPhotoGalleriesMore11.js';
 
 export const essayPhotoGalleriesMore10 = {
   ...essayPhotoGalleriesMore11,
+  'gangi-tide-port-functions': [
+    {
+      title:'三之瀬――島の海駅を上空から見る',
+      caption:'下蒲刈島・三之瀬周辺の航空写真。長雁木そのものの細部ではなく、島の沿岸に港と町が集まる空間構造を確認する比較資料。',
+      insight:'雁木の機能は石段だけでは完結しない。背後の本陣、町路、泊地と一体で「海の玄関」を構成していた。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Sannose%202009.jpg?width=1400',
+      alt:'2009年の広島県呉市下蒲刈町三之瀬周辺の航空写真',
+      author:'国土地理院',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Sannose_2009.jpg',
+      license:'国土画像情報・出典明示条件',
+      licenseUrl:'https://commons.wikimedia.org/wiki/File:Sannose_2009.jpg'
+    },
+    {
+      title:'牛窓港――大雁木が置かれた海の玄関',
+      caption:'現在の牛窓港。西国大名や朝鮮通信使の公式上陸に使われた大雁木を、港町全体の空間の中で考える。',
+      insight:'同じ船着き場でも、一般荷役だけでなく「誰を迎えるか」という制度的機能によって意味が変わる。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Ushimado%20Port%2C%20gaikan.jpg?width=1400',
+      alt:'岡山県瀬戸内市の牛窓港',
+      author:'Saigen Jiro',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Ushimado_Port,_gaikan.jpg',
+      license:'CC0 1.0',
+      licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'
+    },
+    {
+      photoId:'photo-mitarai-townscape',
+      title:'御手洗――港の背後に残る町の厚み',
+      caption:'船が止まることで生まれた商家・船宿の町並み。複数の雁木と埋立による水際の更新を、背後の都市空間と一緒に読む。',
+      insight:'港湾施設は海側だけの設備ではなく、船の滞留を受け止める町の商業・宿泊空間と一体だった。'
+    }
+  ],
+
+  'jinori-okinori-navigation-system': [
+    {
+      photoId:'photo-onomichi-panorama',
+      title:'尾道――地乗りの沿岸ネットワークを支えた港',
+      caption:'狭い尾道水道と市街地。沿岸や島を目印に進む航海では、こうした港が連続する「海の道」の節点になった。',
+      insight:'港の価値は良港であることだけでなく、その時代の航路ネットワーク上に位置することによって生まれる。'
+    },
+    {
+      photoId:'photo-tomonoura-port',
+      title:'鞆――沿岸航路と潮待ちが交わる場所',
+      caption:'現在の鞆港。地乗り航路の重要港であると同時に、潮流の切り替わりを待つ場所でもあった。',
+      insight:'航路、潮汐、泊地という複数条件が重なることで、単なる中継点以上の港湾機能が形成された。'
+    },
+    {
+      photoId:'photo-mitarai-townscape',
+      title:'御手洗――沖乗りが新しい港町を必要とした',
+      caption:'大崎下島・御手洗の町並み。沖乗りの発達によって島嶼部の泊地が広域航路の中に組み込まれた。',
+      insight:'海岸線は変わらなくても、船の性能と航法が変わることで「便利な場所」は変わる。'
+    }
+  ],
+
   'oysters-taste-of-small-seas': [
     {
       photoId:'photo-hinase-bay',
