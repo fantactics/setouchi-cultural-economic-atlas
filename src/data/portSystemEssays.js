@@ -95,7 +95,7 @@ export const portSystemEssays = [
     title:'海の道が、港を選び直す',
     subtitle:'地乗りと沖乗り――航海技術が変わると、同じ瀬戸内でも「便利な場所」が変わる',
     cities:['鞆の浦','尾道','御手洗','三之瀬'],
-    keywords:['地乗り','沖乗り','航路','帆船','御手洗','鞆の浦','尾道','芸予諸島','潮待ち','風待ち','西廻り航路'],
+    keywords:['地乗り','沖乗り','航路','帆船','弁才船','木綿帆','御手洗','鞆の浦','尾道','芸予諸島','潮待ち','風待ち','西廻り航路'],
     heroPhoto:{
       imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Osaki-shimojima%20Mitarai%20Panoramic%20View%202013-08.JPG?width=1800',
       alt:'大崎下島・御手洗の港と町並みを俯瞰した景観',
@@ -132,6 +132,15 @@ export const portSystemEssays = [
           {text:'これは、自然地理そのものが変化したという話ではない。人間の技術が、同じ海の上に別のネットワークを描いたのである。沿岸に近いことの価値が相対的に下がる一方、沖乗り航路上にあり、安全に停泊できる島嶼部の泊地へ新しい価値が生まれた。',refs:[]}
         ],
         photoIds:['photo-tomo-port-2024']
+      },
+      {
+        heading:'弁才船――沖乗りを可能にした「航海継続能力」',
+        paragraphs:[
+          {text:'沖乗りの広がりを航路図だけで見ると、船頭がある日から沿岸を離れて近道を選び始めたように見える。しかし、その前提には船そのものの改良があった。近世に発達した弁才船は、一人の発明家が完成させた船ではなく、大板を組む船体構造、木綿帆、船尾や舵、甲板の耐波性、帆を扱う滑車や轆轤などを長い時間をかけて改良した貨物船の体系だった。',refs:[6,7]},
+          {text:'重要なのは最高速度だけではない。大きな一枚帆で風を利用し、大型化した船体に多くの荷を積み、波の打込みを抑え、大きな舵を使い、比較的少人数で帆を操作できるようになる。すると多少条件が悪くても、すぐ近くの港へ逃げ込まず航海を続けられる時間が長くなる。ここではこの能力を「航海継続能力」と呼んでおきたい。',refs:[6,7]},
+          {text:'航海継続能力が上がれば、沿岸の港を一つずつ踏む必要は小さくなる。沖合を直接進み、寄港回数を減らし、より長い航程を一度に走れる。弁才船の発達は「船が速くなった」というより、「止まらずに進める範囲を広げた」という点で、沖乗りの拡大と結びついた。船の改良が航路を変え、その航路変更が御手洗のような新しい寄港地の価値を高めたのである。',refs:[8]}
+        ],
+        photoIds:[]
       },
       {
         heading:'御手洗――航路が町を生んだ',
@@ -171,7 +180,7 @@ export const portSystemEssays = [
       {label:'研究ノート｜潮待ち港の近代化と機能転換',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
       {label:'地域ページ｜御手洗',href:'/setouchi-cultural-economic-atlas/places/mitarai/'}
     ],
-    provisionalConclusion:'地乗りから沖乗りへの展開は、海岸線を変えずに港町の相対的な立地価値を変えた。航海技術が選べる経路を増やすと、沿岸港だけでなく島嶼部の泊地が新しい航路ネットワークへ組み込まれる。港町の形成は自然条件だけでなく、その時代の船・航法・物流ネットワークとの組み合わせとして読む必要がある。',
+    provisionalConclusion:'地乗りから沖乗りへの展開は、海岸線を変えずに港町の相対的な立地価値を変えた。その背景には、弁才船の船体・帆装・舵・耐波性・省力操船の改良による「航海継続能力」の向上があった。航海技術が選べる経路を増やすと、沿岸港だけでなく島嶼部の泊地が新しい航路ネットワークへ組み込まれる。港町の形成は自然条件だけでなく、その時代の船・航法・物流ネットワークとの組み合わせとして読む必要がある。',
     openQuestions:[
       '地乗り・沖乗りの利用比率が時代ごとにどう変化したかを、航海日記や入港記録から数量化できるか。',
       '船型・帆装・積載量の変化と、寄港地の移動を同じ時間軸で比較できるか。',
@@ -182,7 +191,10 @@ export const portSystemEssays = [
       {id:2,title:'御手洗港',publisher:'ひろしま文化大百科',url:'https://www.hiroshima-bunka.jp/modules/newdb/detail.php?id=727'},
       {id:3,title:'瀬戸内を生きた人びと―地乗りと沖乗り',publisher:'日本財団図書館「自然と文化」第62号',url:'https://nippon.zaidan.info/seikabutsu/1999/00240/contents/026.htm'},
       {id:4,title:'呉市の歴史文化―御手洗と沖乗り航路',publisher:'呉市',url:'https://www.city.kure.lg.jp/uploaded/attachment/86453.pdf'},
-      {id:5,title:'「北前船とその時代」展 図録―地乗り・沖乗りの航路と港町',publisher:'日本財団図書館',url:'https://nippon.zaidan.info/seikabutsu/2004/00084/contents/0039.htm'}
+      {id:5,title:'「北前船とその時代」展 図録―地乗り・沖乗りの航路と港町',publisher:'日本財団図書館',url:'https://nippon.zaidan.info/seikabutsu/2004/00084/contents/0039.htm'},
+      {id:6,title:'弁才船の構造と発達',publisher:'日本財団図書館・船の科学館資料',url:'https://nippon.zaidan.info/seikabutsu/2002/00033/contents/032.htm'},
+      {id:7,title:'弁才船の帆装と操船',publisher:'日本財団図書館・船の科学館資料',url:'https://nippon.zaidan.info/seikabutsu/2002/00033/contents/028.htm'},
+      {id:8,title:'和船の発達と近世海運',publisher:'日本財団図書館・船の科学館資料',url:'https://nippon.zaidan.info/seikabutsu/2002/01046/contents/003.htm'}
     ]
   }
 ];
