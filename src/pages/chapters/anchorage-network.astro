@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const waitingExamples=[
+  {date:'1850/5/20',place:'津和地',record:'潮掛り',type:'港・島嶼泊地',meaning:'潮が変わるまで待つ'},
+  {date:'1850/5/21',place:'松山沖',record:'潮掛り',type:'沖掛り',meaning:'港内に入らず沖で潮待ち'},
+  {date:'1850/5/22',place:'宮崎の岬',record:'掛る',type:'岬沖の仮泊',meaning:'昼潮に乗るため一時待機'},
+  {date:'1850/5/22',place:'御手洗',record:'掛',type:'港沖・泊地',meaning:'夕潮まで待ち、夜11時ごろ再出帆'},
+  {date:'1850/5/23',place:'忠海',record:'潮掛り',type:'港・泊地',meaning:'夕刻に待ち、同夜出帆'},
+  {date:'1850/5/24',place:'糸崎',record:'潮待ち',type:'港・泊地',meaning:'朝に待ち、夜出帆'}
+];
+
+const layers=[
+  {title:'港町',text:'雁木・波止・問屋・宿・補給・修船など、船の停止が都市機能に接続する場所。'},
+  {title:'泊・浦',text:'風波を避けて安全に停泊できる入り江や島陰。町が小さくても航海上は重要。'},
+  {title:'沖掛り・錨地',text:'港内へ入らず、岬沖や島の風下側などで碇を入れて次の潮・風を待つ水域。'},
+  {title:'緊急の投錨',text:'凪、逆潮、逆風、荒天などで航海継続が難しくなったとき、その場に近い安全水域で船を止める。'}
+];
+---
+<BaseLayout
+  title="港ではなく、錨地――潮待ち航海を支えた「見えない港」 | SETOUCHI ATLAS"
+  description="瀬戸内の潮待ち航海を、港町だけでなく沖掛り・泊・浦・錨地まで含む停泊可能地ネットワークとして読み直す研究ノート。"
+>
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <p class="eyebrow">ANCHORAGE / TIDE WAITING / NAVIGATION</p>
+    <h1>港ではなく、錨地</h1>
+    <p class="subtitle">潮待ち航海を支えた「見えない港」を探す。</p>
+    <div class="chapter-thesis">瀬戸内の航海ネットワークは、港町だけを結んだ線ではなかった。船は港内、島陰、岬沖、沖合の錨地を使い分け、潮と風に合わせて「止まれる海」を連続的に選んでいた可能性が高い。</div>
+  </section>
+
+  <section class="section">
+    <h2>研究上の問い</h2>
+    <p>「一潮五里」の検証では、約20kmごとに次の港を探してきた。しかし帆船に本当に必要だったのは、毎回町へ上陸できる港だったのだろうか。</p>
+    <p>航海日記を読むと、船はしばしば「○○沖に潮掛り」「岬に掛る」と記される。そこで本ノートでは、港を点として結ぶのではなく、<strong>碇を下ろして安全に待てる水域そのもの</strong>を航海インフラとして扱う。</p>
+    <div class="process-chain">
+      <span>順潮・順風</span><b>→</b><span>航行</span><b>→</b><span>逆潮・凪・逆風</span><b>→</b><span>投錨</span><b>→</b><span>次の潮・風</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>01｜「潮掛り」は、必ずしも港へ入ることではなかった</h2>
+    <p>嘉永3年（1850）の北前船「伊勢丸」の航海記録は、この点を具体的に示す。下関から兵庫へ向かう途中、津和地だけでなく「松山沖に潮掛り」「宮崎の岬に掛る」「御手洗港沖にて潮待ち」といった記述が現れる。船は潮が合えば夜中でも再出帆している。</p>
+    <div class="table-wrap"><table class="anchorage-table"><thead><tr><th>日</th><th>場所</th><th>記録</th><th>類型</th><th>意味</th></tr></thead><tbody>
+      {waitingExamples.map((x)=><tr><td>{x.date}</td><td><strong>{x.place}</strong></td><td>{x.record}</td><td>{x.type}</td><td>{x.meaning}</td></tr>)}
+    </tbody></table></div>
+    <p>この記録から分かるのは、潮待ちの単位が「港町」より細かいことである。港内へ入って上陸する場合もあれば、沖合で碇を入れて数時間待つだけの場合もある。航海者にとって重要なのは町の有無ではなく、<strong>次の潮まで船を安全に止められるか</strong>だった。</p>
+  </section>
+
+  <section class="section">
+    <h2>02｜別の航海記でも、風と潮に応じて「沖」と「港」を使い分けている</h2>
+    <p>江戸後期の航海記『旅泊のすさみ・海中日記』にも、鞆を出た後、風がなく潮も不利なため淡路・洲本沖で碇泊し、翌日も条件が整わず待機する記録がある。その後、風が変わって進みにくくなると大崎という港へ入っている。</p>
+    <p>つまり船頭は、①その場の沖で待つ、②島陰・岬陰へ寄る、③港内へ避難する、を連続的に使い分けていた。これは「港か海上か」という二択ではなく、危険度と待ち時間に応じて停泊場所を選ぶ運用だった。</p>
+    <div class="research-chain"><span>沖掛り → 島陰・岬陰 → 港内碇泊 → 上陸・補給</span></div>
+  </section>
+
+  <section class="section">
+    <h2>03｜弁才船は、碇を一つではなく七、八個積んだ</h2>
+    <p>神戸大学海事資料館の研究によれば、千石積級の弁才船は鉄製の四爪碇を7～8個搭載し、その総重量は約450貫、約1.2トンに達した。四爪碇は長さ約1.5m程度のものも確認される。</p>
+    <p>これは錨が単なる非常用品ではなく、日常的な航海運用の中核装備だったことを示す。船内の轆轤や滑車は、帆や伝馬船とともに碇の積み卸しにも使われた。複数の碇を持つことで、泊地、風、潮、船の向き、荒天などに応じた運用が可能になったと考えられる。</p>
+    <div class="anchor-schematic" aria-label="四爪碇と碇泊の概念図">
+      <div class="anchor-icon"><span>○</span><i></i><b>╲</b><b>╱</b><em>╲</em><em>╱</em></div>
+      <div class="anchor-copy"><strong>四爪碇</strong><p>鉄の軸の先端を四方へ曲げた爪で海底をつかむ。弁才船では複数個を搭載した。</p></div>
+      <div class="anchor-line"></div>
+      <div class="seabed">海底　―― 水深・底質・潮流で「掛かりやすさ」が変わる ――</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>04｜「止まれる海」には条件がある</h2>
+    <div class="research-note-role-grid">
+      <article><strong>水深</strong><p>深すぎれば長い碇綱が必要になり、揚収も難しくなる。浅すぎれば大型船は入れない。</p></article>
+      <article><strong>底質</strong><p>碇の爪が保持力を得やすい海底か。岩礁・暗礁域では投錨そのものが危険になり得る。</p></article>
+      <article><strong>潮流</strong><p>流れが強すぎると走錨や大きな振れ回りの危険が増す。潮流の弱まる位置・時間が重要になる。</p></article>
+      <article><strong>風波の遮蔽</strong><p>島・岬・湾が風波を遮るか。同じ水深でも風向が変われば安全性が変化する。</p></article>
+      <article><strong>振れ回り空間</strong><p>碇を中心に船が潮・風で向きを変えるため、周囲の浅瀬や他船との距離が必要になる。</p></article>
+    </div>
+    <p>したがって、碇泊適地は港湾施設だけでは決まらない。<strong>海底地形と底質、島の配置、風向、潮流という自然資本そのもの</strong>が、航海者にとっての「一時的な港」をつくっていた。</p>
+  </section>
+
+  <section class="section">
+    <h2>05｜鞆―尾道間にも、港より細かな選択肢があった</h2>
+    <p>鞆と尾道は直線で約17kmと、一潮五里の範囲内にある。しかし中世の航路を見ると、この短い区間にも複数の停泊・通航ノードが存在した。</p>
+    <p>鞆と尾道のほぼ中間、常石側には古代から「敷名の泊」があり、『平家物語』にも高倉上皇が厳島詣の帰路に停泊した場所として登場する。敷名は田島との狭い海峡に面し、鞆―尾道間の交通要衝だった。また15世紀の遣明船関係史料では、鞆・尾道と並んで田島にも500石～2,500石級の船が配置されていたことが確認できる。</p>
+    <div class="route-strip">
+      <div><strong>鞆</strong><small>大港・潮待ち港</small></div><b>→</b>
+      <div><strong>敷名</strong><small>泊・狭水道</small></div><b>↔</b>
+      <div><strong>田島</strong><small>中世の船舶拠点</small></div><b>→</b>
+      <div><strong>尾道</strong><small>大港・集散地</small></div>
+    </div>
+    <p>このため、鞆―尾道を「17kmの一航程」とだけ見るより、途中に泊・浦・島陰・沖掛り可能地を持つ<strong>冗長な航海回廊</strong>として見る方が実態に近い可能性がある。</p>
+  </section>
+
+  <section class="section">
+    <h2>06｜近代海図は「港」ではなく「錨地」を測り始めた</h2>
+    <p>明治初期の日本の水路測量では、1870年に鞆が測量され、後に海図第130号「鞆津錨地／姫島碇泊所」として刊行された。名称そのものが、航海者に必要な情報単位が行政上の「港」だけではなく、<strong>どこへ錨を下ろせるか</strong>だったことを示している。</p>
+    <p>現在の尾道糸崎港でも、港湾区域内には岸壁とは別に木原沖・糸崎沖の複数の錨地が指定され、水深10～24m程度の水域が船舶の待機場所として管理されている。もちろん現代の錨地を近世へそのまま遡らせることはできない。しかし「町の前の岸壁」と「海上で船を止める場所」が別の空間であることは、航海を考えるうえで重要である。</p>
+  </section>
+
+  <section class="section">
+    <h2>新しい仮説｜一潮五里ネットワークの正体は「碇泊可能地ネットワーク」ではないか</h2>
+    <p>これまで「一潮五里」を、約20kmごとに港が配置されたという仮説として検討してきた。しかし航海日記を加えると、より適切なモデルが見えてくる。</p>
+    <div class="process-chain">
+      <span>港町</span><b>＋</b><span>泊・浦</span><b>＋</b><span>島陰・岬陰</span><b>＋</b><span>沖掛り</span><b>＝</b><span>碇泊可能地ネットワーク</span>
+    </div>
+    <p>船は必ずしも20kmごとに町へ入ったのではない。約20kmを基本的な航海レンジとしながら、その途中に存在する複数の「止まれる海」を選択していた。その選択肢の密度こそが、瀬戸内航海の安全性と柔軟性を支えた可能性がある。</p>
+    <p>この見方を採ると、地乗りから沖乗りへの変化も、単に寄港地を減らしたのではなく、<strong>利用可能な碇泊地の集合が変わった</strong>と理解できる。沿岸の細かな泊を使う航海から、島嶼部の広い泊地や沖掛りを組み合わせる航海へ、停止の地理そのものが変化したのである。</p>
+  </section>
+
+  <section class="section">
+    <h2>どこまで言えるか</h2>
+    <p>伊勢丸などの航海記録から、港外・岬沖で潮待ちする運用が実在したことは確認できる。一方、どの海域が恒常的な「碇泊適地」と認識されていたかを面的に復元するには、まだ資料が不足している。</p>
+    <p>次段階では、古海図・近代初期海図・現在の海底地形を重ね、①水深、②底質、③卓越風に対する島陰、④潮流、⑤航海日記の「掛り」地点を照合する必要がある。これができれば、港町の地図とは別の、<strong>「船頭から見た瀬戸内海」</strong>を描ける可能性がある。</p>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究・エッセイ</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/one-tide-five-ri-port-network/">一潮五里――港湾ネットワークを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/chapters/disappeared-ports-network/">消えた瀬戸内の港 →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/jinori-okinori-navigation-system/">海の道が、港を選び直す →</a>
+    </div>
+  </section>
+
+  <section class="section book-sources">
+    <div class="kicker">主な出典・参照資料</div>
+    <ol>
+      <li><a href="https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/45/view/5879" target="_blank" rel="noreferrer">南海瀬戸日記にみる北前船「伊勢丸」の航海</a><span>愛媛県生涯学習センター「えひめの記憶」</span></li>
+      <li><a href="https://www.library-archives.pref.fukui.lg.jp/fukui/08/2020bulletin/images/all.pdf" target="_blank" rel="noreferrer">『旅泊のすさみ・海中日記』翻刻・研究</a><span>福井県文書館研究紀要18</span></li>
+      <li><a href="https://da.lib.kobe-u.ac.jp/da/kernel/81005779/81005779.pdf" target="_blank" rel="noreferrer">杉田英昭「江戸海運を支えた弁才船」</a><span>神戸大学海事資料館研究年報31</span></li>
+      <li><a href="https://minamichita-museum.com/wasen/ship.html" target="_blank" rel="noreferrer">船内について―四爪碇と轆轤</a><span>南知多町 和船文化</span></li>
+      <li><a href="https://kotobank.jp/word/%E6%95%B7%E5%90%8D-3089769" target="_blank" rel="noreferrer">敷名</a><span>日本歴史地名大系</span></li>
+      <li><a href="https://www.uminet.jp/know/detail.php?id=22" target="_blank" rel="noreferrer">瀬戸内海の歴史―地乗り・沖乗りと寄港地</a><span>瀬戸内・海の路ネットワーク推進協議会</span></li>
+      <li><a href="https://www.jstage.jst.go.jp/article/jjca/59/4/59_27/_pdf" target="_blank" rel="noreferrer">河村克典「明治初期日本の水路測量に関する基礎的調査」</a><span>日本地図学会『地図』59巻4号</span></li>
+      <li><a href="https://www.kaiho.mlit.go.jp/06kanku/onomichi/byoutikizyun%5B1%5D.pdf" target="_blank" rel="noreferrer">尾道糸崎港錨地一覧</a><span>尾道海上保安部</span></li>
+    </ol>
+  </section>
+
+  <style>
+    .anchorage-table{min-width:840px}.anchor-schematic{margin:2rem 0;padding:1.4rem;border:1px solid var(--line,#ddd);display:grid;grid-template-columns:140px 1fr;gap:1.2rem;align-items:center;background:rgba(255,255,255,.7)}.anchor-icon{position:relative;width:120px;height:150px;margin:auto}.anchor-icon span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:2rem}.anchor-icon i{position:absolute;left:58px;top:30px;width:4px;height:82px;background:currentColor}.anchor-icon b,.anchor-icon em{position:absolute;top:92px;font-size:3rem;font-style:normal;font-weight:400}.anchor-icon b:nth-of-type(1){left:23px}.anchor-icon b:nth-of-type(2){right:23px}.anchor-icon em:nth-of-type(1){left:40px;top:106px}.anchor-icon em:nth-of-type(2){right:40px;top:106px}.anchor-copy p{margin:.4rem 0 0;line-height:1.8}.anchor-line{grid-column:1/-1;border-top:2px dashed rgba(0,0,0,.25)}.seabed{grid-column:1/-1;text-align:center;font-size:.78rem;opacity:.65}.route-strip{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border:1px solid var(--line,#ddd)}.route-strip div{display:flex;flex-direction:column;gap:.25rem;padding:.7rem .9rem;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}.route-strip small{opacity:.6}.route-strip>b{opacity:.35}@media(max-width:720px){.anchor-schematic{grid-template-columns:1fr}.route-strip{align-items:stretch}.route-strip>b{align-self:center}.anchorage-table{font-size:.82rem}}
+  </style>
+</BaseLayout>
