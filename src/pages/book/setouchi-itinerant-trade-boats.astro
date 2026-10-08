@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { setouchiItinerantTradeBoatsEssay as article } from '../../data/setouchiItinerantTradeBoatsEssay.js';
+const hero=article.heroPhoto;
+---
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
+  <article class="book-article">
+    <header class="book-article-header">
+      <div class="book-article-series">{article.part}</div>
+      <h1>{article.title}</h1>
+      <p class="book-article-subtitle">{article.subtitle}</p>
+      <p class="book-article-dek">{article.lead}</p>
+      <div class="book-meta-row">
+        <div>{article.cities.join('・')}</div>
+        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+      </div>
+    </header>
+
+    {hero && <figure class="book-hero-photo">
+      <a href={hero.sourcePage} target="_blank" rel="noreferrer"><img src={hero.imageUrl} alt={hero.alt} /></a>
+      <figcaption><strong>{hero.title}</strong><span>Image: {hero.author} / <a href={hero.licenseUrl || hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption>
+    </figure>}
+
+    <div class="book-reading-column">
+      {article.sections.map((section,sectionIndex)=>(
+        <section class="book-prose-section">
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <h2>{section.heading}</h2>
+          {section.paragraphs.map((p)=>(
+            <p>
+              {p.text}
+              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+            </p>
+          ))}
+        </section>
+      ))}
+
+      <section class="book-small-conclusion">
+        <div class="kicker">暫定的なまとめ</div>
+        <p>{article.provisionalConclusion}</p>
+      </section>
+
+      <section class="book-open-questions">
+        <div class="kicker">まだ分からないこと</div>
+        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
+      </section>
+
+      <section class="book-sources">
+        <div class="kicker">出典・参照資料</div>
+        <ol>
+          {article.sources.map((source)=>(
+            <li id={`source-${source.id}`}>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+              <span>{source.publisher}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section" style="padding-left:0;padding-right:0;">
+        <div class="chapter-related-grid">
+          <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/transport/">交通・航路を読む →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/wind-tide/">風と潮を読む →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
