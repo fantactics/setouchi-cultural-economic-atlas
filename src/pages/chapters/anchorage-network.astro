@@ -49,7 +49,9 @@ const layers=[
 
   <section class="section">
     <h2>02｜別の航海記でも、風と潮に応じて「沖」と「港」を使い分けている</h2>
-    <p>江戸後期の航海記『旅泊のすさみ・海中日記』にも、鞆を出た後、風がなく潮も不利なため淡路・洲本沖で碇泊し、翌日も条件が整わず待機する記録がある。その後、風が変わって進みにくくなると大崎という港へ入っている。</p>
+    <p>安政6年（1859）の航海記『旅泊のすさみ』では、兵庫に滞在した翌朝に係留を解いて出帆し、風が弱く潮に流されながら進んだのち、夕方に風が出ても十分に進めず、夜に淡路・洲本沖で碇泊している。翌朝も無風かつ上げ潮のためそのまま碇泊し、夕方に追風と下げ潮がそろうと再出帆した。</p>
+    <p>さらに加太瀬戸を抜けた後、約五里進んだところで風向が変わり雨も降り始めると、「大崎といふ湊」に入っている。すなわち、条件が悪いときに沖で短時間待つ場合と、天候悪化時に港内へ入る場合を使い分けていた。</p>
+    <p class="research-caution"><strong>史料読解上の注意：</strong>翻刻・OCRでは「同三日朝未明鞆を解たり」と見えるが、直前が兵庫滞在、直後が洲本沖まで六里という航程なので、ここを地名「鞆の浦から出帆」と読むのは不適切である。本ノートでは兵庫からの出帆文脈として扱う。</p>
     <p>つまり船頭は、①その場の沖で待つ、②島陰・岬陰へ寄る、③港内へ避難する、を連続的に使い分けていた。これは「港か海上か」という二択ではなく、危険度と待ち時間に応じて停泊場所を選ぶ運用だった。</p>
     <div class="research-chain"><span>沖掛り → 島陰・岬陰 → 港内碇泊 → 上陸・補給</span></div>
   </section>
@@ -108,6 +110,21 @@ const layers=[
   </section>
 
   <section class="section">
+    <h2>07｜二つの航海記から見える「停止判断」</h2>
+    <div class="table-wrap"><table class="anchorage-table"><thead><tr><th>史料</th><th>停止場所</th><th>停止理由</th><th>停止方法</th><th>再出帆条件</th></tr></thead><tbody>
+      <tr><td>南海瀬戸日記 1850</td><td>津和地</td><td>潮待ち</td><td>潮掛り</td><td>次の順潮</td></tr>
+      <tr><td>南海瀬戸日記 1850</td><td>松山沖</td><td>潮待ち</td><td>沖掛り</td><td>次の潮</td></tr>
+      <tr><td>南海瀬戸日記 1850</td><td>宮崎岬沖</td><td>昼潮を待つ</td><td>岬沖で仮泊</td><td>夕潮</td></tr>
+      <tr><td>南海瀬戸日記 1850</td><td>御手洗港沖</td><td>潮待ち</td><td>港外碇泊</td><td>夜の潮・風</td></tr>
+      <tr><td>南海瀬戸日記 1850</td><td>忠海・糸崎</td><td>潮待ち</td><td>港・泊地</td><td>夜の潮</td></tr>
+      <tr><td>旅泊のすさみ 1859</td><td>洲本沖</td><td>無風・潮不利</td><td>沖で碇泊</td><td>追風＋下げ潮</td></tr>
+      <tr><td>旅泊のすさみ 1859</td><td>大崎の湊</td><td>風向変化・雨</td><td>港内へ避難</td><td>天候回復</td></tr>
+    </tbody></table></div>
+    <p>ここから、船頭の停止判断は「港まで行く／行かない」ではなく、待ち時間と危険度に応じて段階的だったと考えられる。数時間の潮待ちなら沖掛り、風雨が強まり安全余裕が減れば港内へ入る、といった使い分けである。</p>
+    <div class="research-chain"><span>短い待機＝沖掛り　→　条件悪化＝島陰・港内　→　長期停泊＝補給・上陸</span></div>
+  </section>
+
+  <section class="section">
     <h2>どこまで言えるか</h2>
     <p>伊勢丸などの航海記録から、港外・岬沖で潮待ちする運用が実在したことは確認できる。一方、どの海域が恒常的な「碇泊適地」と認識されていたかを面的に復元するには、まだ資料が不足している。</p>
     <p>次段階では、古海図・近代初期海図・現在の海底地形を重ね、①水深、②底質、③卓越風に対する島陰、④潮流、⑤航海日記の「掛り」地点を照合する必要がある。これができれば、港町の地図とは別の、<strong>「船頭から見た瀬戸内海」</strong>を描ける可能性がある。</p>
@@ -137,6 +154,6 @@ const layers=[
   </section>
 
   <style>
-    .anchorage-table{min-width:840px}.anchor-schematic{margin:2rem 0;padding:1.4rem;border:1px solid var(--line,#ddd);display:grid;grid-template-columns:140px 1fr;gap:1.2rem;align-items:center;background:rgba(255,255,255,.7)}.anchor-icon{position:relative;width:120px;height:150px;margin:auto}.anchor-icon span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:2rem}.anchor-icon i{position:absolute;left:58px;top:30px;width:4px;height:82px;background:currentColor}.anchor-icon b,.anchor-icon em{position:absolute;top:92px;font-size:3rem;font-style:normal;font-weight:400}.anchor-icon b:nth-of-type(1){left:23px}.anchor-icon b:nth-of-type(2){right:23px}.anchor-icon em:nth-of-type(1){left:40px;top:106px}.anchor-icon em:nth-of-type(2){right:40px;top:106px}.anchor-copy p{margin:.4rem 0 0;line-height:1.8}.anchor-line{grid-column:1/-1;border-top:2px dashed rgba(0,0,0,.25)}.seabed{grid-column:1/-1;text-align:center;font-size:.78rem;opacity:.65}.route-strip{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border:1px solid var(--line,#ddd)}.route-strip div{display:flex;flex-direction:column;gap:.25rem;padding:.7rem .9rem;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}.route-strip small{opacity:.6}.route-strip>b{opacity:.35}@media(max-width:720px){.anchor-schematic{grid-template-columns:1fr}.route-strip{align-items:stretch}.route-strip>b{align-self:center}.anchorage-table{font-size:.82rem}}
+    .anchorage-table{min-width:840px}.research-caution{margin:1.2rem 0;padding:1rem 1.1rem;border-left:3px solid rgba(90,70,50,.55);background:rgba(120,95,60,.06);font-size:.92rem}.anchor-schematic{margin:2rem 0;padding:1.4rem;border:1px solid var(--line,#ddd);display:grid;grid-template-columns:140px 1fr;gap:1.2rem;align-items:center;background:rgba(255,255,255,.7)}.anchor-icon{position:relative;width:120px;height:150px;margin:auto}.anchor-icon span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:2rem}.anchor-icon i{position:absolute;left:58px;top:30px;width:4px;height:82px;background:currentColor}.anchor-icon b,.anchor-icon em{position:absolute;top:92px;font-size:3rem;font-style:normal;font-weight:400}.anchor-icon b:nth-of-type(1){left:23px}.anchor-icon b:nth-of-type(2){right:23px}.anchor-icon em:nth-of-type(1){left:40px;top:106px}.anchor-icon em:nth-of-type(2){right:40px;top:106px}.anchor-copy p{margin:.4rem 0 0;line-height:1.8}.anchor-line{grid-column:1/-1;border-top:2px dashed rgba(0,0,0,.25)}.seabed{grid-column:1/-1;text-align:center;font-size:.78rem;opacity:.65}.route-strip{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border:1px solid var(--line,#ddd)}.route-strip div{display:flex;flex-direction:column;gap:.25rem;padding:.7rem .9rem;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}.route-strip small{opacity:.6}.route-strip>b{opacity:.35}@media(max-width:720px){.anchor-schematic{grid-template-columns:1fr}.route-strip{align-items:stretch}.route-strip>b{align-self:center}.anchorage-table{font-size:.82rem}}
   </style>
 </BaseLayout>
