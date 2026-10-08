@@ -44,6 +44,27 @@ const layers=[
     <div class="table-wrap"><table class="anchorage-table"><thead><tr><th>日</th><th>場所</th><th>記録</th><th>類型</th><th>意味</th></tr></thead><tbody>
       {waitingExamples.map((x)=><tr><td>{x.date}</td><td><strong>{x.place}</strong></td><td>{x.record}</td><td>{x.type}</td><td>{x.meaning}</td></tr>)}
     </tbody></table></div>
+    <div class="ise-route" aria-label="1850年伊勢丸の瀬戸内航海における潮待ち地点の概念図">
+      <div class="ise-route-head"><strong>1850｜伊勢丸の「止まる海」</strong><span>下関 → 糸崎 / 概念図・縮尺なし</span></div>
+      <div class="ise-route-line">
+        <div class="ise-stop transit"><i></i><b>下関</b><small>出帆</small></div>
+        <span>→</span>
+        <div class="ise-stop transit"><i></i><b>上関沖</b><small>通過</small></div>
+        <span>→</span>
+        <div class="ise-stop port"><i></i><b>津和地</b><small>潮掛り</small></div>
+        <span>→</span>
+        <div class="ise-stop offshore"><i></i><b>松山沖</b><small>沖で潮掛り</small></div>
+        <span>→</span>
+        <div class="ise-stop cape"><i></i><b>宮崎岬</b><small>岬沖で仮泊</small></div>
+        <span>→</span>
+        <div class="ise-stop offshore"><i></i><b>御手洗沖</b><small>港外で潮待ち</small></div>
+        <span>→</span>
+        <div class="ise-stop port"><i></i><b>忠海</b><small>潮掛り</small></div>
+        <span>→</span>
+        <div class="ise-stop port"><i></i><b>糸崎</b><small>潮待ち</small></div>
+      </div>
+      <div class="ise-route-legend"><span><i class="port"></i>港・泊地</span><span><i class="offshore"></i>沖掛り</span><span><i class="cape"></i>岬沖</span><span><i class="transit"></i>通過</span></div>
+    </div>
     <p>この記録から分かるのは、潮待ちの単位が「港町」より細かいことである。港内へ入って上陸する場合もあれば、沖合で碇を入れて数時間待つだけの場合もある。航海者にとって重要なのは町の有無ではなく、<strong>次の潮まで船を安全に止められるか</strong>だった。</p>
   </section>
 
@@ -78,6 +99,7 @@ const layers=[
       <article><strong>振れ回り空間</strong><p>碇を中心に船が潮・風で向きを変えるため、周囲の浅瀬や他船との距離が必要になる。</p></article>
     </div>
     <p>したがって、碇泊適地は港湾施設だけでは決まらない。<strong>海底地形と底質、島の配置、風向、潮流という自然資本そのもの</strong>が、航海者にとっての「一時的な港」をつくっていた。</p>
+    <p class="research-caution"><strong>分析上の扱い：</strong>現在の海上保安庁・国土交通省も錨地選定で、遮蔽性、水深、底質、海底傾斜、潮流・波浪、周囲の余裕を重視している。本ノートでは、この一般的な力学条件を歴史的碇泊地を探すための分析軸として用いる。ただし現代船の推奨水深や錨鎖長を、そのまま弁才船へ適用するものではない。</p>
   </section>
 
   <section class="section">
@@ -168,10 +190,11 @@ const layers=[
       <li><a href="https://www.kaiho.mlit.go.jp/06kanku/onomichi/byoutikizyun%5B1%5D.pdf" target="_blank" rel="noreferrer">尾道糸崎港錨地一覧</a><span>尾道海上保安部</span></li>
       <li><a href="https://www.i-manabi.jp/system/regionals/regionals/ecode%3A1/1/view/166" target="_blank" rel="noreferrer">睦月・野忽那の行商――沖売りの開始</a><span>愛媛県生涯学習センター「えひめの記憶」</span></li>
       <li><a href="https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/49/view/6510" target="_blank" rel="noreferrer">睦月の縞売り</a><span>愛媛県史／えひめの記憶</span></li>
+      <li><a href="https://www.kaiho.mlit.go.jp/08kanku/news/30topics/30.12-5.pdf" target="_blank" rel="noreferrer">錨地選定基準</a><span>第八管区海上保安本部</span></li>
     </ol>
   </section>
 
   <style>
-    .anchorage-table{min-width:840px}.research-caution{margin:1.2rem 0;padding:1rem 1.1rem;border-left:3px solid rgba(90,70,50,.55);background:rgba(120,95,60,.06);font-size:.92rem}.anchor-schematic{margin:2rem 0;padding:1.4rem;border:1px solid var(--line,#ddd);display:grid;grid-template-columns:140px 1fr;gap:1.2rem;align-items:center;background:rgba(255,255,255,.7)}.anchor-icon{position:relative;width:120px;height:150px;margin:auto}.anchor-icon span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:2rem}.anchor-icon i{position:absolute;left:58px;top:30px;width:4px;height:82px;background:currentColor}.anchor-icon b,.anchor-icon em{position:absolute;top:92px;font-size:3rem;font-style:normal;font-weight:400}.anchor-icon b:nth-of-type(1){left:23px}.anchor-icon b:nth-of-type(2){right:23px}.anchor-icon em:nth-of-type(1){left:40px;top:106px}.anchor-icon em:nth-of-type(2){right:40px;top:106px}.anchor-copy p{margin:.4rem 0 0;line-height:1.8}.anchor-line{grid-column:1/-1;border-top:2px dashed rgba(0,0,0,.25)}.seabed{grid-column:1/-1;text-align:center;font-size:.78rem;opacity:.65}.route-strip{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border:1px solid var(--line,#ddd)}.route-strip div{display:flex;flex-direction:column;gap:.25rem;padding:.7rem .9rem;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}.route-strip small{opacity:.6}.route-strip>b{opacity:.35}@media(max-width:720px){.anchor-schematic{grid-template-columns:1fr}.route-strip{align-items:stretch}.route-strip>b{align-self:center}.anchorage-table{font-size:.82rem}}
+    .anchorage-table{min-width:840px}.research-caution{margin:1.2rem 0;padding:1rem 1.1rem;border-left:3px solid rgba(90,70,50,.55);background:rgba(120,95,60,.06);font-size:.92rem}.anchor-schematic{margin:2rem 0;padding:1.4rem;border:1px solid var(--line,#ddd);display:grid;grid-template-columns:140px 1fr;gap:1.2rem;align-items:center;background:rgba(255,255,255,.7)}.anchor-icon{position:relative;width:120px;height:150px;margin:auto}.anchor-icon span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:2rem}.anchor-icon i{position:absolute;left:58px;top:30px;width:4px;height:82px;background:currentColor}.anchor-icon b,.anchor-icon em{position:absolute;top:92px;font-size:3rem;font-style:normal;font-weight:400}.anchor-icon b:nth-of-type(1){left:23px}.anchor-icon b:nth-of-type(2){right:23px}.anchor-icon em:nth-of-type(1){left:40px;top:106px}.anchor-icon em:nth-of-type(2){right:40px;top:106px}.anchor-copy p{margin:.4rem 0 0;line-height:1.8}.anchor-line{grid-column:1/-1;border-top:2px dashed rgba(0,0,0,.25)}.seabed{grid-column:1/-1;text-align:center;font-size:.78rem;opacity:.65}.route-strip{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border:1px solid var(--line,#ddd)}.route-strip div{display:flex;flex-direction:column;gap:.25rem;padding:.7rem .9rem;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}.route-strip small{opacity:.6}.route-strip>b{opacity:.35}.ise-route{margin:1.5rem 0 2rem;padding:1.1rem;border:1px solid var(--line,#ddd);background:rgba(255,255,255,.72)}.ise-route-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:1rem}.ise-route-head span{font-size:.72rem;opacity:.55}.ise-route-line{display:flex;align-items:center;gap:.45rem;overflow-x:auto;padding:.3rem 0 1rem}.ise-route-line>span{opacity:.35;flex:0 0 auto}.ise-stop{min-width:92px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.18rem;flex:0 0 auto}.ise-stop i{width:12px;height:12px;border-radius:50%;background:#777;box-shadow:0 0 0 3px rgba(0,0,0,.05)}.ise-stop small{font-size:.67rem;opacity:.62}.ise-stop.port i,.ise-route-legend i.port{background:#526b62}.ise-stop.offshore i,.ise-route-legend i.offshore{background:#507b91}.ise-stop.cape i,.ise-route-legend i.cape{background:#9a7448}.ise-stop.transit i,.ise-route-legend i.transit{background:#aaa}.ise-route-legend{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.72rem}.ise-route-legend span{display:flex;gap:.35rem;align-items:center}.ise-route-legend i{display:inline-block;width:9px;height:9px;border-radius:50%}@media(max-width:720px){.anchor-schematic{grid-template-columns:1fr}.route-strip{align-items:stretch}.route-strip>b{align-self:center}.anchorage-table{font-size:.82rem}.ise-route-head{display:block}.ise-route-head span{display:block;margin-top:.25rem}}
   </style>
 </BaseLayout>
