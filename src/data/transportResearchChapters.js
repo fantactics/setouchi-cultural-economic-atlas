@@ -185,6 +185,7 @@ export const transportResearchChapters = [
       }
     ],
     related:[
+      {label:'消えた瀬戸内の港――失われたノードを探す',href:'/setouchi-cultural-economic-atlas/chapters/disappeared-ports-network/'},
       {label:'エッセイ「海の道が、港を選び直す」',href:'/setouchi-cultural-economic-atlas/book/jinori-okinori-navigation-system/'},
       {label:'エッセイ「海へ下りる階段」',href:'/setouchi-cultural-economic-atlas/book/gangi-tide-port-functions/'},
       {label:'潮待ち港の近代化と機能転換',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
