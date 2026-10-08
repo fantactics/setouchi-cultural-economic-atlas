@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const ports = [
+  {name:'難波津',period:'古代',status:'推定・都市化',type:'ghost',mechanism:'旧海岸線・河内湖の変化、都市化',note:'王権の外港。現在は港湾景観を失い、位置は古地理・遺跡から復元される。'},
+  {name:'河尻泊',period:'古代',status:'推定・移動',type:'ghost',mechanism:'神崎川河口と海岸線の南進',note:'今福付近に比定。のち神崎・大物・尼崎など河口港へ重心が移る。'},
+  {name:'大輪田泊→兵庫津',period:'古代→中世',status:'継承',type:'survive',mechanism:'継続的な修築・国際港化',note:'港の位置と都市機能を更新しながら兵庫津、神戸港へつながる対照例。'},
+  {name:'魚住泊',period:'古代',status:'推定地化',type:'trace',mechanism:'河口地形・海岸線変化',note:'赤根川河口・江井ヶ島周辺が有力。港湾遺構は発掘・推定によって読み直される。'},
+  {name:'韓泊',period:'古代',status:'機能移動',type:'ghost',mechanism:'堆積・浅海化',note:'的形付近。堆積で衰え、西隣の福泊へ港湾機能を譲ったとされる。'},
+  {name:'福泊',period:'中世',status:'縮小・旧港埋積',type:'ghost',mechanism:'港内への砂の堆積',note:'13～14世紀に大規模築港され繁栄。大船が入りにくくなり衰退。現在も古港の位置を調査中。'},
+  {name:'室津',period:'古代→近世',status:'現存',type:'survive',mechanism:'天然泊地＋継続利用',note:'五泊の一つ。港町景観と港湾機能が現在まで比較的連続する対照例。'},
+  {name:'牛窓',period:'古代→近世',status:'現存',type:'survive',mechanism:'良港＋広域航路',note:'古代・中世から港町として継続し、近世には朝鮮通信使の寄港地となる。'},
+  {name:'日比',period:'中世',status:'再編',type:'trace',mechanism:'港湾・産業構造の変化',note:'15世紀の兵庫北関入船納帳に船籍が現れる備前の要港。現在は歴史港の輪郭が見えにくい。'},
+  {name:'下津井',period:'古代→近世',status:'現存',type:'survive',mechanism:'海峡交通＋近世海運',note:'奈良・平安期から記録があり、近世の商家・回船問屋の景観も残る対照例。'},
+  {name:'津宇の港（津之郷）',period:'古代',status:'内陸化',type:'ghost',mechanism:'芦田川の堆積・海岸線前進',note:'現在は低湿地・内陸。発掘から物資集積港を伴う集落の存在が想定される。'},
+  {name:'草戸千軒',period:'中世',status:'遺跡化',type:'ghost',mechanism:'河川環境変化・都市消失',note:'13世紀中頃～16世紀初頭の港町・市場町。現在は芦田川中州の遺跡として知られる。'},
+  {name:'鞆',period:'古代→近世',status:'現存',type:'survive',mechanism:'潮待ち＋港湾投資',note:'古代から港として機能し、近世港湾施設と町並みを現在まで残す対照例。'}
+];
+
+const mapPoints=[
+  {name:'難波津',x:88,y:72,type:'ghost'},
+  {name:'河尻',x:82,y:89,type:'ghost'},
+  {name:'大輪田',x:72,y:105,type:'survive'},
+  {name:'魚住',x:62,y:116,type:'trace'},
+  {name:'韓泊',x:51,y:109,type:'ghost'},
+  {name:'福泊',x:48,y:112,type:'ghost'},
+  {name:'室津',x:40,y:119,type:'survive'},
+  {name:'牛窓',x:29,y:163,type:'survive'},
+  {name:'日比',x:23,y:211,type:'trace'},
+  {name:'下津井',x:18,y:199,type:'survive'},
+  {name:'津宇',x:9,y:177,type:'ghost'},
+  {name:'草戸',x:7,y:194,type:'ghost'},
+  {name:'鞆',x:8,y:230,type:'survive'}
+];
+---
+<BaseLayout
+  title="消えた瀬戸内の港――地乗り航路の失われたノードを探す | SETOUCHI ATLAS"
+  description="難波津から鞆まで、古代・中世の港を現存・移動・内陸化・遺跡化・所在推定に分類し、港湾ネットワークが時間とともに移動する仕組みを検証する研究ノート。"
+>
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <p class="eyebrow">TRANSPORT / LOST PORTS / HISTORICAL GEOGRAPHY</p>
+    <h1>消えた瀬戸内の港</h1>
+    <p class="subtitle">地乗り航路の「失われたノード」を、古代・中世の海岸線から探す。</p>
+    <div class="chapter-thesis">現在残る港だけを結ぶと、過去の航海ネットワークを見誤る。港は土砂堆積、河道・海岸線の変化、船舶技術、航路選択によって移動・縮小・消失し、ときには数km先に別の港として再生した。</div>
+  </section>
+
+  <section class="section">
+    <h2>研究上の問い</h2>
+    <p>「一潮五里」の検証では、現在残る港だけを使って港間距離を測ると30～70kmの空白が生じる。しかし、その時代に存在した港・浦・泊を復元すれば、空白の中に失われたノードが現れる可能性がある。</p>
+    <div class="process-chain">
+      <span>旧海岸線</span><b>＋</b><span>津・泊・浦</span><b>＋</b><span>航法</span><b>＋</b><span>土砂移動</span><b>→</b><span>港湾網の復元</span>
+    </div>
+    <p>そこで第一段階として、大阪湾から鞆までの代表的な古代・中世港を、現在の状態によって「現存」「推定地化」「移動」「内陸化」「遺跡化」に分類した。</p>
+  </section>
+
+  <section class="section lost-map-section">
+    <div class="kicker">SCHEMATIC MAP / NOT TO SCALE</div>
+    <h2>港は、同じ場所に居続けない</h2>
+    <p class="lead">位置関係を簡略化した概念図。東から西へ、消えた港と生き残った港を同じ航路上に置く。</p>
+    <div class="lost-map" role="img" aria-label="難波津から鞆までの古代中世港湾の概念図">
+      <svg viewBox="0 0 1000 330" preserveAspectRatio="none" aria-hidden="true">
+        <path class="coast" d="M950 45 C860 70 800 85 725 92 C650 100 590 120 515 122 C430 124 370 150 305 170 C250 190 220 220 160 210 C115 202 95 222 72 255" />
+        <path class="route" d="M880 72 L820 89 L720 105 L620 116 L510 109 L480 112 L400 119 L290 163 L230 211 L180 199 L90 177 L70 194 L80 230" />
+      </svg>
+      {mapPoints.map((p)=><div class:list={['map-port',p.type]} style={'left:'+p.x+'%;top:'+p.y+'px'}><i></i><span>{p.name}</span></div>)}
+    </div>
+    <div class="lost-map-legend"><span><i class="survive"></i>現存・継承</span><span><i class="trace"></i>再編・推定地化</span><span><i class="ghost"></i>移動・内陸化・遺跡化</span></div>
+    <p class="map-note">※地理的な位置関係を理解するための概念図で、縮尺・航路線・海岸線は厳密な復元図ではない。</p>
+  </section>
+
+  <section class="section">
+    <h2>第一段階の分類</h2>
+    <div class="table-wrap"><table class="lost-port-table"><thead><tr><th>港</th><th>主な時代</th><th>現在の状態</th><th>変化の主要因</th><th>読み取り</th></tr></thead><tbody>
+      {ports.map((p)=><tr><td><strong>{p.name}</strong></td><td>{p.period}</td><td><span class:list={['status-chip',p.type]}>{p.status}</span></td><td>{p.mechanism}</td><td>{p.note}</td></tr>)}
+    </tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>01｜河尻泊――港の名前が消え、河口そのものが移った</h2>
+    <p>古代の河尻泊は神崎川河口、現在の尼崎市今福付近に比定する説が有力である。785年に神崎川と淀川がつながると、京から瀬戸内へ出る水運の起点として重要性を増した。</p>
+    <p>しかし尼崎平野では、沿岸潮流と武庫川・猪名川・神崎川が運ぶ土砂によって海岸線が長期的に南へ進んだ。平安後期には神崎・浜崎・今福・杭瀬が港として栄え、その後さらに南に大物・尼崎という新しい港町が形成される。これは「河尻泊が突然消えた」というより、河口地形の変化に合わせて港湾ノードが南へ移動した例と考えられる。</p>
+    <div class="research-chain"><span>河口港 → 土砂堆積・海岸線南進 → 神崎等の港 → 大物・尼崎</span></div>
+  </section>
+
+  <section class="section">
+    <h2>02｜魚住泊――港は残らず、推定地だけが残った</h2>
+    <p>魚住泊は摂播五泊の一つで、現在の明石市江井ヶ島・赤根川河口周辺が有力な推定地とされる。赤根川河口の発掘では石積み遺構が確認され、周辺の寺院分布とあわせて古代港の存在が検討されている。</p>
+    <p>明石沿岸では河川の洪水、砂嘴形成、侵食によって港位置が移動・縮小したことが市史資料でも指摘されている。現在の江井ヶ島港は存在するが、「魚住泊」という古代港湾都市の輪郭がそのまま残るわけではない。ここでは「消滅」と「継承」の中間にある、推定地化した港として扱う。</p>
+  </section>
+
+  <section class="section">
+    <h2>03｜韓泊から福泊へ――港そのものが横へ移動した</h2>
+    <p>韓泊は姫路市的形付近に比定される古代港で、摂播五泊の一つだった。歴史地名資料では、堆積によって次第に衰微し、西隣の福泊へ港湾機能を譲ったとされる。</p>
+    <p>福泊では13世紀末から14世紀初頭に大規模な築港が行われ、二町余り沖へ石を積み出し、「兵庫島にも劣らぬ湊」と評されるほど繁栄した。ところが今度は福泊自身が港内への砂の堆積によって浅くなり、大船の出入りが難しくなって衰退する。</p>
+    <div class="research-chain"><span>韓泊 → 堆積・浅海化 → 福泊へ移動 → 大規模築港 → 再び堆積・縮小</span></div>
+    <p>現在、神戸大学等の海洋文化遺産プロジェクトが福泊で潜水・海岸調査を行い、中世港の位置と古い海岸線の痕跡を探している。つまり福泊は「歴史書にある港を、現地からもう一度探す」段階にある。</p>
+  </section>
+
+  <section class="section">
+    <h2>04｜残った室津――消えた港を考えるための対照例</h2>
+    <p>室津は五泊の一つでありながら、現在も天然の入江と港町景観を残す。近世には海駅として西国大名、朝鮮通信使、オランダ商館長一行などを迎え、港湾機能を更新し続けた。</p>
+    <p>韓泊・福泊と室津を比べると、古代に重要だったという事実だけでは港の寿命は決まらないことが分かる。埋積しにくい泊地、時代ごとの航路上の位置、新しい利用者を受け入れる港湾投資が重なることで、同じノードを長期に使い続けることができる。</p>
+  </section>
+
+  <section class="section">
+    <h2>05｜津宇の港――いま歩けば「内陸」にしか見えない</h2>
+    <p>現在の福山市津之郷谷には、かつて東側から海が深く入り込んでいた。福山市の発掘調査では、湯伝遺跡が物資を集積する港を持つ遺跡と考えられており、古代の官衙跡や各種遺物も確認されている。</p>
+    <p>しかし芦田川の堆積が進むと港湾条件は変わり、港の中心はより南へ移動していった。現在の低湿地・道路・内陸景観だけを見ても、ここが海上交通と陸路の接点だったことはほとんど読み取れない。</p>
+    <div class="research-chain"><span>入り海 → 津宇の港 → 芦田川の堆積 → 海岸線前進 → 港を南へ移す</span></div>
+  </section>
+
+  <section class="section">
+    <h2>06｜草戸千軒――町そのものが考古学になった</h2>
+    <p>草戸千軒は13世紀中頃から16世紀初頭まで栄えた港町・市場町である。井戸、墓、陶磁器、貨幣など大量の遺物が出土し、中世瀬戸内交易を復元する代表的遺跡となっている。</p>
+    <p>現在の景観から中世港町を直接見ることはできない。港町は河川環境の変化とともに失われ、その後は芦田川中州の遺跡として発見された。「港が衰退する」だけでなく、「都市そのものが地表から消える」ケースが実在することを示す。</p>
+  </section>
+
+  <section class="section">
+    <h2>分析｜「幻の港」は少なくとも五つの消え方をする</h2>
+    <div class="research-note-role-grid">
+      <article><strong>内陸化</strong><p>土砂堆積で海岸線が前進し、旧港が内陸になる。河尻、津宇など。</p></article>
+      <article><strong>横移動</strong><p>湾内の埋積などで、隣接するより使いやすい場所へ港湾機能が移る。韓泊→福泊。</p></article>
+      <article><strong>縮小・推定地化</strong><p>港名・都市機能は失われ、発掘・地名・地形から場所を復元する。魚住泊など。</p></article>
+      <article><strong>遺跡化</strong><p>都市そのものが消失し、考古学によって再発見される。草戸千軒。</p></article>
+      <article><strong>継承・更新</strong><p>同じ港域に投資と機能更新を重ねて生き残る。大輪田泊→兵庫津、室津、牛窓、下津井、鞆。</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>新しい仮説｜港は「点」ではなく、海岸線に沿って移動する機能である</h2>
+    <p>第一段階の調査から強く見えるのは、港を地図上の固定点として扱うことの危険性である。同じ地域の港湾機能が、数十年から数百年の時間軸で数百メートルから数km移動する例がある。</p>
+    <p>現段階では、幻の港の存在そのものはかなり確かである。一方、「地乗りから沖乗りへの変化だけで港が消えた」と確認できる例はまだ少ない。むしろ土砂堆積・海岸線変化が港を物理的に移動させ、航法・船舶性能・政治制度の変化が「移動先のどの港が選ばれるか」を決めた、と考える方が資料との整合性が高い。</p>
+    <div class="process-chain">
+      <span>自然地形(t₁)</span><b>→</b><span>港A</span><b>→</b><span>堆積・侵食</span><b>→</b><span>自然地形(t₂)</span><b>×</b><span>航法・船舶</span><b>→</b><span>港B</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>次の検証</h2>
+    <ul>
+      <li>古代・中世史料に現れる「津・泊・浦」を大阪湾～鞆で網羅的に抽出する。</li>
+      <li>各港を「現存／移動／内陸化／遺跡化／所在推定」に分類し、年代別に地図化する。</li>
+      <li>旧版地形図、発掘成果、古地理復元から、各時代の海岸線を重ねる。</li>
+      <li>一潮五里の20km行動圏を各時代の港湾網に重ね、失われたノードを含めて港間距離を再計算する。</li>
+      <li>地乗り→沖乗りの変化で「物理的には使えるが航路から外れた港」を特定し、自然地形変化による消失と区別する。</li>
+    </ul>
+  </section>
+
+  <section class="section chapter-related">
+    <h2>関連する研究・エッセイ</h2>
+    <div class="chapter-related-grid">
+      <a class="compare-button" href="/setouchi-cultural-economic-atlas/chapters/one-tide-five-ri-port-network/">一潮五里――港湾ネットワークを読む →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/jinori-okinori-navigation-system/">海の道が、港を選び直す →</a>
+      <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/gangi-tide-port-functions/">海へ下りる階段――雁木から読む港 →</a>
+    </div>
+  </section>
+
+  <section class="section book-sources">
+    <div class="kicker">主な出典・参照資料</div>
+    <ol>
+      <li><a href="https://www.city.osaka.lg.jp/keizaisenryaku/cmsfiles/contents/0000626/626612/2syou.pdf" target="_blank" rel="noreferrer">特別史跡大坂城跡をとりまく環境 第2章</a><span>大阪市</span></li>
+      <li><a href="https://www.city.amagasaki.hyogo.jp/shisei/sogo_annai/history/022gensi.html" target="_blank" rel="noreferrer">原始・古代の尼崎</a><span>尼崎市</span></li>
+      <li><a href="https://www.city.kobe.lg.jp/a09222/kosodate/lifelong/toshokan/furusato/kiyomori_kobe/index.html" target="_blank" rel="noreferrer">平清盛と神戸―大輪田泊と経ヶ島</a><span>神戸市</span></li>
+      <li><a href="https://adeac.jp/akashi-lib/texthtml/d100110/mp000010-100110/ht230030" target="_blank" rel="noreferrer">あかし文化遺産―古代の港</a><span>明石市立図書館 ADEAC</span></li>
+      <li><a href="https://www.kkr.mlit.go.jp/himeji/kaigan/touban_history/index.html" target="_blank" rel="noreferrer">東播海岸の歴史</a><span>国土交通省 姫路河川国道事務所</span></li>
+      <li><a href="https://kotobank.jp/word/%E9%9F%93%E6%B3%8A-1293361" target="_blank" rel="noreferrer">韓泊</a><span>日本歴史地名大系／日本大百科全書</span></li>
+      <li><a href="https://kotobank.jp/word/%E7%A6%8F%E6%B3%8A-865360" target="_blank" rel="noreferrer">福泊</a><span>日本歴史地名大系／日本大百科全書</span></li>
+      <li><a href="https://www.ckuh-kobe.com/hyogo" target="_blank" rel="noreferrer">兵庫県海洋文化遺産調査</a><span>海洋文化遺産プロジェクト</span></li>
+      <li><a href="https://www.city.tatsuno.lg.jp/soshiki/1008/gyomu/5/1/4085.html" target="_blank" rel="noreferrer">室津港</a><span>たつの市</span></li>
+      <li><a href="https://www.city.setouchi.lg.jp/uploaded/attachment/115589.pdf" target="_blank" rel="noreferrer">瀬戸内市の歴史文化資源の概要</a><span>瀬戸内市</span></li>
+      <li><a href="https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007818/1007890/1011524.html" target="_blank" rel="noreferrer">下津井保存地区について</a><span>倉敷市</span></li>
+      <li><a href="https://www.city.fukuyama.hiroshima.jp/koho-detail50/koho-202109/235522.html" target="_blank" rel="noreferrer">瀬戸内の水運2 津之郷谷</a><span>福山市</span></li>
+      <li><a href="https://www.pref.hiroshima.lg.jp/site/rekishih/materials.html" target="_blank" rel="noreferrer">草戸千軒町遺跡</a><span>広島県立歴史博物館</span></li>
+      <li><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179011.html" target="_blank" rel="noreferrer">鞆町の歴史（古代から中世）</a><span>福山市</span></li>
+    </ol>
+  </section>
+
+  <style>
+    .lost-map-section{overflow:hidden}.lost-map{position:relative;height:290px;margin:1.8rem 0 .8rem;border:1px solid var(--line,#ddd);background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(245,247,246,.9));overflow:hidden}.lost-map svg{position:absolute;inset:0;width:100%;height:100%}.coast{fill:none;stroke:rgba(30,45,40,.18);stroke-width:28;stroke-linecap:round}.route{fill:none;stroke:rgba(30,45,40,.38);stroke-width:2.5;stroke-dasharray:7 7}.map-port{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:.25rem;z-index:2}.map-port i{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.18);background:#5f756d}.map-port.ghost i{background:#7a4f45}.map-port.trace i{background:#9a7a45}.map-port span{font-size:.7rem;white-space:nowrap;background:rgba(255,255,255,.86);padding:.05rem .2rem}.lost-map-legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem}.lost-map-legend span{display:flex;align-items:center;gap:.35rem}.lost-map-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;background:#5f756d}.lost-map-legend i.ghost{background:#7a4f45}.lost-map-legend i.trace{background:#9a7a45}.map-note{font-size:.78rem;opacity:.6;margin-top:.6rem}.lost-port-table{min-width:980px}.status-chip{display:inline-block;padding:.22rem .45rem;border:1px solid rgba(0,0,0,.14);font-size:.74rem;white-space:nowrap}.status-chip.ghost{background:rgba(122,79,69,.1)}.status-chip.trace{background:rgba(154,122,69,.1)}.status-chip.survive{background:rgba(95,117,109,.1)}@media(max-width:720px){.lost-map{height:330px}.map-port span{font-size:.62rem}.lost-port-table{font-size:.82rem}}
+  </style>
+</BaseLayout>
