@@ -179,6 +179,7 @@ export const portSystemEssays = [
     researchLinks:[
       {label:'関連エッセイ｜海へ下りる階段――雁木から読む港',href:'/setouchi-cultural-economic-atlas/book/gangi-tide-port-functions/'},
       {label:'研究ノート｜一潮五里――港湾ネットワークを読む',href:'/setouchi-cultural-economic-atlas/chapters/one-tide-five-ri-port-network/'},
+      {label:'研究ノート｜港ではなく、錨地――見えない停泊網',href:'/setouchi-cultural-economic-atlas/chapters/anchorage-network/'},
       {label:'研究ノート｜潮待ち港の近代化と機能転換',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
       {label:'地域ページ｜御手洗',href:'/setouchi-cultural-economic-atlas/places/mitarai/'}
     ],
