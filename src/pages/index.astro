@@ -12,6 +12,7 @@ import { aiRegionalPlanningEssay } from '../data/aiRegionalPlanningEssay.js';
 import { setouchiSushiEssay } from '../data/setouchiSushiEssay.js';
 import { setouchiShrimpEssay } from '../data/setouchiShrimpEssay.js';
 import { setouchiLifeYearEssay } from '../data/setouchiLifeYearEssay.js';
+import { setouchiItinerantTradeBoatsEssay } from '../data/setouchiItinerantTradeBoatsEssay.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 import { places } from '../data/places.js';
@@ -20,7 +21,7 @@ import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,aiRegionalPlanningEssay];
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,aiRegionalPlanningEssay];
 const additionalPhotos=Object.entries(additionalPlacePhotos).flatMap(([placeId,items])=>
   items.map((photo)=>({...photo,placeId,theme:photo.theme || '地域'}))
 );
