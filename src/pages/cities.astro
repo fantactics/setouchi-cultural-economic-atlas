@@ -6,9 +6,10 @@ import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
 import { setouchiItinerantTradeBoatsEssay } from '../data/setouchiItinerantTradeBoatsEssay.js';
+import { setouchiShipMaterialsEssay } from '../data/setouchiShipMaterialsEssay.js';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const allBookArticles=[...bookArticles,...kadaEssays,setouchiItinerantTradeBoatsEssay];
+const allBookArticles=[...bookArticles,...kadaEssays,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay];
 const aliases={
   '児島':['shimotsui'],'下津井':['shimotsui'],'倉敷':['shimotsui'],'井原':[],
   '今治':['imabari'],'波止浜':['imabari'],'来島海峡':['imabari'],
@@ -18,7 +19,7 @@ const aliases={
   '防府（三田尻）':['hofu'],'牛窓':['ushimado'],'日生':['hinase'],
   '加太':['kada'],'鳴門':['naruto'],'明石':['akashi']
 };
-const essayCities=[...kadaEssays,setouchiItinerantTradeBoatsEssay].flatMap((article)=>article.cities);
+const essayCities=[...kadaEssays,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay].flatMap((article)=>article.cities);
 const allCities=[...new Set([...allPlaces.map((p)=>p.name),...bookCities,...essayCities])].sort((a,b)=>a.localeCompare(b,'ja'));
 const placeById=Object.fromEntries(allPlaces.map((p)=>[p.id,p]));
 const placeFor=(city)=>{
