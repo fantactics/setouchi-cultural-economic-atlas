@@ -14,11 +14,12 @@ import { setouchiSushiEssay } from '../../data/setouchiSushiEssay.js';
 import { setouchiShrimpEssay } from '../../data/setouchiShrimpEssay.js';
 import { setouchiLifeYearEssay } from '../../data/setouchiLifeYearEssay.js';
 import { setouchiItinerantTradeBoatsEssay } from '../../data/setouchiItinerantTradeBoatsEssay.js';
+import { setouchiShipMaterialsEssay } from '../../data/setouchiShipMaterialsEssay.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,aiRegionalPlanningEssay];
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
@@ -46,6 +47,7 @@ const coverSlugs=[
   'tai-meshi-two-seas',
   'ports-that-needed-waiting',
   'setouchi-itinerant-trade-boats',
+  'setouchi-ship-materials',
   'gangi-tide-port-functions',
   'jinori-okinori-navigation-system',
   'tomo-two-act-tidal-port',
