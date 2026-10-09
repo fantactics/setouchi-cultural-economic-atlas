@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { setouchiShipMaterialsEssay as article } from '../../data/setouchiShipMaterialsEssay.js';
+const hero=article.heroPhoto;
+---
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
+  <article class="book-article">
+    <header class="book-article-header">
+      <div class="book-article-series">{article.part}</div>
+      <h1>{article.title}</h1>
+      <p class="book-article-subtitle">{article.subtitle}</p>
+      <p class="book-article-dek">{article.lead}</p>
+      <div class="book-meta-row">
+        <div>{article.cities.join('・')}</div>
+        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+      </div>
+    </header>
+
+    {hero && <figure class="book-hero-photo">
+      <a href={hero.sourcePage} target="_blank" rel="noreferrer"><img src={hero.imageUrl} alt={hero.alt} /></a>
+      <figcaption><strong>{hero.title}</strong><span>Image: {hero.author} / <a href={hero.licenseUrl || hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption>
+    </figure>}
+
+    <div class="book-reading-column">
+      <aside class="material-note">
+        <strong>この記事の読み方</strong>
+        <p>{article.note}</p>
+      </aside>
+
+      {article.sections.map((section,sectionIndex)=>(
+        <section class="book-prose-section">
+          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
+          <h2>{section.heading}</h2>
+          {section.paragraphs.map((p)=>(
+            <p>
+              {p.text}
+              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+            </p>
+          ))}
+          {section.materials?.length>0 && (
+            <div class="material-table-wrap">
+              <table class="material-table">
+                <thead><tr><th>部位・用途</th><th>素材</th><th>産地・経路</th><th>確認度</th></tr></thead>
+                <tbody>
+                  {section.materials.map((m)=>(
+                    <tr><th>{m.part}</th><td>{m.material}</td><td>{m.origin}</td><td>{m.certainty}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      ))}
+
+      <section class="book-small-conclusion">
+        <div class="kicker">暫定的なまとめ</div>
+        <p>{article.provisionalConclusion}</p>
+      </section>
+
+      <section class="book-open-questions">
+        <div class="kicker">まだ分からないこと</div>
+        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
+      </section>
+
+      <section class="book-sources">
+        <div class="kicker">出典・参照資料</div>
+        <ol>
+          {article.sources.map((source)=>(
+            <li id={`source-${source.id}`}>
+              <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+              <span>{source.publisher}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section" style="padding-left:0;padding-right:0;">
+        <div class="chapter-related-grid">
+          <a class="compare-button" href="/setouchi-cultural-economic-atlas/book/">エッセイ一覧 →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/book/setouchi-itinerant-trade-boats/">瀬戸内の行商船を読む →</a>
+          <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/transport/">交通・航路を読む →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .material-note{margin:0 0 3rem;padding:1.2rem 1.35rem;border-left:3px solid currentColor;background:rgba(127,127,127,.07)}
+  .material-note strong{display:block;margin-bottom:.45rem}
+  .material-note p{margin:0;line-height:1.85}
+  .material-table-wrap{overflow-x:auto;margin:1.8rem 0 2.6rem}
+  .material-table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.55}
+  .material-table th,.material-table td{padding:.72rem .8rem;border-bottom:1px solid rgba(127,127,127,.28);text-align:left;vertical-align:top}
+  .material-table thead th{font-size:.78rem;letter-spacing:.05em;white-space:nowrap}
+  .material-table tbody th{min-width:7.5rem;font-weight:650}
+  @media (max-width:720px){
+    .material-table{min-width:680px;font-size:.86rem}
+  }
+</style>
