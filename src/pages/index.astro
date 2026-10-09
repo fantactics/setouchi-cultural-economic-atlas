@@ -22,7 +22,7 @@ import { additionalPlaces } from '../data/additionalPlaces.js';
 import '../styles/home-magazine.css';
 
 const allPlaces=[...places,hinasePlace,...additionalPlaces];
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay;
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay];
 const additionalPhotos=Object.entries(additionalPlacePhotos).flatMap(([placeId,items])=>
   items.map((photo)=>({...photo,placeId,theme:photo.theme || '地域'}))
 );
