@@ -5,8 +5,9 @@ import { kadaEssays } from '../data/kadaEssays.js';
 import { atlasPlaces } from '../data/additionalPlaces.js';
 import { concepts } from '../data/concepts.js';
 import { setouchiItinerantTradeBoatsEssay } from '../data/setouchiItinerantTradeBoatsEssay.js';
+import { setouchiShipMaterialsEssay } from '../data/setouchiShipMaterialsEssay.js';
 
-const allBookArticles=[...bookArticles,...kadaEssays,setouchiItinerantTradeBoatsEssay];
+const allBookArticles=[...bookArticles,...kadaEssays,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay];
 const extras=[
   {keyword:'自転車',links:[
     {label:'尾道（しまなみ海道の本州側）',href:'/setouchi-cultural-economic-atlas/places/onomichi/'},
@@ -19,7 +20,7 @@ const extras=[
   {keyword:'住吉神社',links:[{label:'第07回 神社を追うと、消えた航路が見えてくる',href:'/setouchi-cultural-economic-atlas/book/faith-as-transport-map/'}]},
   {keyword:'潮待ち',links:[{label:'第03回 船は、なぜそこで止まったのか',href:'/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/'}]}
 ];
-const newEssayKeywords=[...kadaEssays,setouchiItinerantTradeBoatsEssay].flatMap((article)=>article.keywords||[]);
+const newEssayKeywords=[...kadaEssays,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay].flatMap((article)=>article.keywords||[]);
 const tagKeywords=[...new Set(atlasPlaces.flatMap((p)=>p.tags||[]))];
 const conceptKeywords=concepts.map((c)=>c.title);
 const allKeywords=[...new Set([...bookKeywords,...newEssayKeywords,...tagKeywords,...conceptKeywords,...extras.map((x)=>x.keyword)])].sort((a,b)=>a.localeCompare(b,'ja'));
