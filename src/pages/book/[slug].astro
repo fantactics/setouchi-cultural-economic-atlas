@@ -42,6 +42,7 @@ export function getStaticPaths(){
 
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
+const isTravelogue=article.narrativeMode==='travelogue';
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
@@ -111,7 +112,7 @@ const sections=article.sections.map((section,index)=>{
 
     <div class="book-reading-column">
       {sections.map((section)=><section class="book-prose-section">
-        <div class="book-section-no">{section.number}</div>
+        {!isTravelogue && <div class="book-section-no">{section.number}</div>}
         <h2>{section.heading}</h2>
         {section.paragraphs.slice(0,section.splitAt).map((p)=><p>{p.text}{p.refs && p.refs.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>)}
         {section.firstPhoto && <figure class="book-photo-break"><a href={section.firstPhoto.sourcePage} target="_blank" rel="noreferrer"><img src={section.firstPhoto.imageUrl} alt={section.firstPhoto.alt} loading="lazy" /></a><figcaption><strong>{section.firstPhoto.title}</strong><span>{section.firstPhoto.caption}</span>{section.firstPhoto.insight && <em>写真から考える：{section.firstPhoto.insight}</em>}<small>Photo: {section.firstPhoto.author} / <a href={section.firstPhoto.licenseUrl || section.firstPhoto.sourcePage} target="_blank" rel="noreferrer">{section.firstPhoto.license}</a></small></figcaption></figure>}
@@ -120,8 +121,8 @@ const sections=article.sections.map((section,index)=>{
       </section>)}
 
       {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
-      <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>
-      <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>
+      {!isTravelogue && article.provisionalConclusion && <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>}
+      {!isTravelogue && article.openQuestions?.length>0 && <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>}
       <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
     </div>
 
