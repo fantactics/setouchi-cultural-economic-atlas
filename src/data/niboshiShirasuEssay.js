@@ -79,7 +79,7 @@ export const niboshiShirasuEssay = {
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
     }
   ],
-  "lead": "大阪湾の南端、岬町の道の駅には、しらす丼がある。海を眺める場所で食べる白い小魚と、海を渡って讃岐うどんのだしになるいりこ。姿も食べ方も違うが、どちらも主にカタクチイワシから生まれた。しらす丼を入口に、小魚を追って海沿いを歩く。",
+  "lead": "しらす丼には魚の姿が残っているのに、讃岐うどんのだしには魚が見えない。主な原料は、どちらもカタクチイワシ。大阪湾の南端から和歌浦へ、そして燧灘の伊吹島へ。小さな魚の行き先をたどると、港ごとに違う釜の使い方と、食べ方に出会う。",
   "sections": [
     {
       "heading": "岬町の、白い丼",
@@ -216,7 +216,9 @@ export const niboshiShirasuEssay = {
         {
           "text": "煮干しの旅は讃岐だけで終わらない。長崎県や千葉県・九十九里浜にも生産の歴史がある。津軽へ行けば、煮干しの強い香りを生かした中華そばに出会う。味噌汁やそばつゆに使う町もある。魚が乾物になったことで、海のない土地でもその旨味を料理に取り込めるようになった。",
           "refs": [
-            6
+            6,
+            15,
+            16
           ]
         }
       ]
@@ -333,6 +335,18 @@ export const niboshiShirasuEssay = {
       "title": "伊吹島――いりこの加工場",
       "publisher": "観音寺市",
       "url": "https://www.city.kanonji.kagawa.jp/soshiki/21/23191.html"
+    },
+    {
+      "id": 15,
+      "title": "青森に来たら食べたい煮干しラーメンの魅力",
+      "publisher": "青森県観光情報サイト",
+      "url": "https://aomori-tourism.com/feature/detail_223.html"
+    },
+    {
+      "id": 16,
+      "title": "千葉県九十九里町における水産業の展開",
+      "publisher": "筑波大学地理学・水産業研究",
+      "url": "https://www.geoenv.tsukuba.ac.jp/~chicho/nenpo/28/07.pdf"
     }
   ],
   "narrativeMode": "travelogue"
