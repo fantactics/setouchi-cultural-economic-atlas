@@ -1,5 +1,5 @@
 ---
-const { photos = [], title = '写真で読む' } = Astro.props;
+const { photos = [], title = '写真で読む', description = '同じ対象を繰り返すのではなく、自然条件、空間、仕事、技術、暮らしなど異なるレイヤーを4枚まで選び、本文の因果を写真から読み直します。' } = Astro.props;
 
 // Multiple gallery modules are intentionally merged at page level. Keep the
 // presentation editorial rather than exhaustive: explicitly curated photos
@@ -27,7 +27,7 @@ const displayPhotos = [...photos]
         <span>PHOTO ESSAY</span>
         <h2>{title}</h2>
       </div>
-      <p>同じ対象を繰り返すのではなく、自然条件、空間、仕事、技術、暮らしなど異なるレイヤーを4枚まで選び、本文の因果を写真から読み直します。</p>
+      <p>{description}</p>
     </div>
     <div class="essay-photo-gallery-grid">
       {displayPhotos.map((photo,index)=>(
