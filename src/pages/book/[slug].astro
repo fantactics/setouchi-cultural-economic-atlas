@@ -102,7 +102,7 @@ const sections=article.sections.map((section,index)=>{
       </div>
     </section>}
 
-    {essayPhotos.length>0 && <EssayPhotoGallery photos={essayPhotos} title={`${article.cities[0] || '地域'}を写真で読む`} />}
+    {essayPhotos.length>0 && <EssayPhotoGallery photos={essayPhotos} title={isTravelogue ? "写真でたどる小魚の旅" : `${article.cities[0] || '地域'}を写真で読む`} description={isTravelogue ? "魚の姿、加工の仕事、食卓の一皿。海沿いの旅を、写真でもたどってみる。" : undefined} />}
 
     {isGastronomy && gastronomyPhotos.length>0 && <section class="gastronomy-photo-atlas" aria-label="料理と食材の写真">
       <div class="gastronomy-photo-head"><div><span>FOOD / INGREDIENTS</span><h2>料理と食材から読む</h2></div><p>風景だけでなく、食材そのもの、料理の完成形、生産・加工の場を並べます。土地の自然条件が、人の仕事と調理を介してどのような「食べられる形」へ変わったのかを写真から追います。</p></div>
