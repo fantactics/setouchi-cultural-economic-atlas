@@ -52,9 +52,9 @@ jobs:
             if (html.includes('暫定的なまとめ') || html.includes('まだ分からないこと')) {
               throw Error(`${slug}: research-only ending exposed`);
             }
-            const imgs = [...html.matchAll(/<img\\b[^>]*>/g)].map(x=>x[0]);
+            const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
             if (!imgs.length) throw Error(`${slug}: no rendered images`);
-            if (imgs.some(x=>!(/\\balt=/.test(x)))) throw Error(`${slug}: image without alt attribute`);
+            if (imgs.some(x=>!(/\balt=/.test(x)))) throw Error(`${slug}: image without alt attribute`);
             console.log(`${slug}: article content, sources, photos and narrative ending OK`);
           }
           EOF
