@@ -34,6 +34,7 @@ jobs:
           test -f dist/book/mihara-castle-to-multimodal-city/index.html
           test -f dist/book/kojima-jeans-circular-economy/index.html
           test -f dist/book/setouchi-ship-materials/index.html
+          test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
         run: |
           node --input-type=module <<'EOF'
@@ -41,7 +42,8 @@ jobs:
           const cases = [
             ['mihara-castle-to-multimodal-city','三原駅と城跡が重なる場所'],
             ['kojima-jeans-circular-economy','小さな金属の鋲'],
-            ['setouchi-ship-materials','1952年']
+            ['setouchi-ship-materials','1952年'],
+            ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
           for (const [slug,expected] of cases) {
             const file = `dist/book/${slug}/index.html`;
