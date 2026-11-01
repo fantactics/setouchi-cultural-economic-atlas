@@ -52,6 +52,8 @@ jobs:
               if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
             }
             if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
+              const i=html.indexOf('<div class="kicker">まだ分からないこと</div>');
+              console.error('Research section context:',html.slice(i-220,i+160));
               throw Error(`${slug}: research-only ending exposed`);
             }
             const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
