@@ -15,6 +15,8 @@ import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js'
       </div>
     </header>
 
+    {article.heroPhoto?.imageUrl && <figure class="book-hero-photo"><img src={article.heroPhoto.imageUrl} alt={article.heroPhoto.alt} /><figcaption><strong>{article.heroPhoto.title}</strong>　Photo: {article.heroPhoto.author} / <a href={article.heroPhoto.sourcePage} target="_blank" rel="noreferrer">{article.heroPhoto.license}</a></figcaption></figure>}
+
     <div class="book-reading-column">
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
@@ -28,16 +30,6 @@ import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js'
           ))}
         </section>
       ))}
-
-      <section class="book-small-conclusion">
-        <div class="kicker">暫定的なまとめ</div>
-        <p>{article.provisionalConclusion}</p>
-      </section>
-
-      <section class="book-open-questions">
-        <div class="kicker">まだ分からないこと</div>
-        <ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul>
-      </section>
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
