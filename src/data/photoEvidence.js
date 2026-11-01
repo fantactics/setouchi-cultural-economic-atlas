@@ -1262,7 +1262,7 @@ export const photoEvidence = [
     theme:'transport',
     title:'三原城天主台と三原駅',
     caption:'三原城の天主台から見た三原駅。城郭の中心部へ近代鉄道が入り込んだ都市構造を直接確認できる。',
-    insight:'「城下町の外に駅を置いた」のではなく、既存の城郭空間を切り込みながら鉄道を通したことが、三原の交通中心性を更新した強さを物語る。',
+    insight:'城郭の中心部と鉄道駅が同じ場所に重なっている。石垣は、近代の交通整備で新しい機能を得た場所に、失われた城の範囲を考える手がかりを残している。',
     claimType:'fact',
     imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Mihara%20Station%20from%20site%20of%20Tenshu%20of%20Mihara%20Castle%201.jpg?width=1400',
     alt:'三原城天主台から見た三原駅',
