@@ -36,6 +36,7 @@ jobs:
           test -f dist/book/setouchi-ship-materials/index.html
           test -f dist/book/niihama-after-copper/index.html
           test -f dist/book/shimonoseki-resource-made-by-market/index.html
+          test -f dist/book/port-shrines-and-maritime-trade/index.html
           test -f dist/book/faith-as-transport-map/index.html
           test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
@@ -48,6 +49,7 @@ jobs:
             ['setouchi-ship-materials','1952年'],
             ['niihama-after-copper','1927年、別子銅山の鉱石はあと17年分'],
             ['shimonoseki-resource-made-by-market','2016年に地理的表示'],
+            ['port-shrines-and-maritime-trade','尾道水道に向いた住吉神社'],
             ['faith-as-transport-map','下津井の祇園神社には'],
             ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
