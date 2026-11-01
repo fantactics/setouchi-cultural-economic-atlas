@@ -34,6 +34,7 @@ jobs:
           test -f dist/book/mihara-castle-to-multimodal-city/index.html
           test -f dist/book/kojima-jeans-circular-economy/index.html
           test -f dist/book/setouchi-ship-materials/index.html
+          test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
         run: |
           node --input-type=module <<'EOF'
@@ -41,7 +42,8 @@ jobs:
           const cases = [
             ['mihara-castle-to-multimodal-city','三原駅と城跡が重なる場所'],
             ['kojima-jeans-circular-economy','小さな金属の鋲'],
-            ['setouchi-ship-materials','1952年']
+            ['setouchi-ship-materials','1952年'],
+            ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
           for (const [slug,expected] of cases) {
             const file = `dist/book/${slug}/index.html`;
@@ -50,6 +52,8 @@ jobs:
               if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
             }
             if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
+              const i=html.indexOf('<div class="kicker">まだ分からないこと</div>');
+              console.error('Research section context:',html.slice(i-220,i+160));
               throw Error(`${slug}: research-only ending exposed`);
             }
             const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
