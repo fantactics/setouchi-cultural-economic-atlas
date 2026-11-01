@@ -1,0 +1,60 @@
+name: Editorial PR validation
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/editorial-pr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Check editorial language (advisory)
+        run: npm run lint:editorial
+      - name: Build site
+        run: npm run build
+      - name: Verify three flagship essay routes
+        run: |
+          test -f dist/book/mihara-castle-to-multimodal-city/index.html
+          test -f dist/book/kojima-jeans-circular-economy/index.html
+          test -f dist/book/setouchi-ship-materials/index.html
+      - name: Check built essays and source attributions
+        run: |
+          node --input-type=module <<'EOF'
+          import fs from 'node:fs';
+          const cases = [
+            ['mihara-castle-to-multimodal-city','三原駅と城跡が重なる場所'],
+            ['kojima-jeans-circular-economy','小さな金属の鋲'],
+            ['setouchi-ship-materials','1952年']
+          ];
+          for (const [slug,expected] of cases) {
+            const file = `dist/book/${slug}/index.html`;
+            const html = fs.readFileSync(file,'utf8');
+            for (const text of [expected,'出典・参照資料']) {
+              if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
+            }
+            if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
+              throw Error(`${slug}: research-only ending exposed`);
+            }
+            const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
+            if (!imgs.length) throw Error(`${slug}: no rendered images`);
+            if (imgs.some(x=>!(/\balt=/.test(x)))) throw Error(`${slug}: image without alt attribute`);
+            console.log(`${slug}: article content, sources, photos and narrative ending OK`);
+          }
+          EOF
