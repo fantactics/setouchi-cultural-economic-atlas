@@ -987,11 +987,21 @@ export const bookArticles = [
   {
     slug:'shimonoseki-resource-made-by-market',
     part:'食は、土地を語る',
-    title:'どこで獲れたか分からなくても、なぜ「下関ふく」なのか',
+    title:'下関で獲れたとは限らないのに、なぜ「下関ふく」なのか',
     subtitle:'南風泊の水槽と「みがき」の仕事――魚が地域の名前を持つまで',
     cities:['下関'],
     keywords:['関門海峡','下関港','唐戸市場','南風泊市場','ふく','水産加工','市場','国際港'],
-    heroPhotoId:'photo-shimonoseki-karato',
+    heroPhotoId:null,
+    heroPhoto:{
+      imageUrl:'https://upload.wikimedia.org/wikipedia/commons/5/59/Thin_sliced_fugu_sashimi_plate.jpg',
+      alt:'ふぐ刺しを大皿に盛り付けた料理の一例',
+      title:'ふぐ刺し（料理の一例）',
+      caption:'写真の料理がGI「下関ふく」の認定品であることを示すものではない。',
+      author:'Maria-Yamaguchi',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Thin_sliced_fugu_sashimi_plate.jpg',
+      license:'CC BY-SA 4.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
     lead:'トラフグが一尾、下関の南風泊市場に運ばれてくる。天然魚なら対馬周辺や瀬戸内海など、養殖魚なら九州・西日本各地から届くことがある。海の出身地は違うのに、なぜ「下関ふく」という名前が成り立つのだろう。実は、この名前は2016年に地理的表示（GI）として登録されている。ただし、市場を通った魚すべてがそう呼べるわけではない。水槽での「活かし込み」、目利き、そして有毒部位を取り除く「みがき」。魚を捕った場所とは別の場所で、何がその価値をつくるのかを追ってみる。',
     sections:[
       {
