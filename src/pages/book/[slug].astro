@@ -10,6 +10,7 @@ import { tomoTwoActPortEssay } from '../../data/tomoTwoActPortEssay.js';
 import { portSystemEssays } from '../../data/portSystemEssays.js';
 import { niboshiShirasuEssay } from '../../data/niboshiShirasuEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
+import { setouchiSushiEssay } from '../../data/setouchiSushiEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { tomoTwoActPortPhotos } from '../../data/tomoTwoActPortPhotos.js';
@@ -33,7 +34,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
-  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay];
+  const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay];
   return allBookArticles.map((article,index)=>({
     params:{slug:article.slug},
     props:{article,prev:index>0?allBookArticles[index-1]:null,next:index<allBookArticles.length-1?allBookArticles[index+1]:null}
