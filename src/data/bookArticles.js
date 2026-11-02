@@ -3,11 +3,11 @@ export const bookArticles = [
     slug:'four-salt-fields',
     part:'海と陸は、人がつくった',
     title:'塩田が消えた四つの町には、何が残ったのか',
-    subtitle:'赤穂・竹原・坂出・三田尻――塩田が消えたあと、ある町には塩が残り、ある町には町並みが残り、ある町には工場と港が残った',
+    subtitle:'赤穂の会社、竹原の家、坂出の造成地、三田尻の港――塩田の後を四つの時間で読む',
     cities:['赤穂','竹原','坂出','防府（三田尻）'],
     keywords:['塩田','製塩','入浜式塩田','流下式塩田','干拓','商人資本','酒造','港湾','臨海工業','北前船','都市形成','地域能力資本'],
     heroPhotoId:'photo-ako-salt-terrace',
-    lead:'赤穂、竹原、坂出、三田尻。四つの町では、かつて海沿いの広い土地を塩田として使っていた。だが、塩田が姿を消したあとの景色は同じではない。赤穂では製塩工場が塩をつくり、竹原では塩商人の家が町並みをつくり、坂出と三田尻では土地や港が別の産業を受け入れた。ここでは四つの町をそれぞれ詳しく語り直すのではなく、塩田の後に何が残ったかを見比べる。技術、建物、土地、港。同じ産業でも、その遺産は一つではなかった。',
+    lead:'赤穂には製塩工場、竹原には商人の家、坂出には工場と港、三田尻には工業用地が残った。だが竹原の家は塩田が動いている間に建ち、坂出の新たな埋立も塩田廃止より先に始まっていた。四つの町の次の時代は、同じ日に始まったわけではない。何が残ったかだけでなく、誰がいつ何を選んだかを比べてみたい。',
     sections:[
       {
         heading:'塩田が消えたあと、四つの町には別々のものが残った',
@@ -97,6 +97,13 @@ export const bookArticles = [
         photoIds:['photo-takehara-historic-district','photo-sakaide-bannosu-aerial','photo-hofu-mitajiri-port','photo-ako-salt-terrace']
       }
     ],
+    researchLinks:[
+      {label:'個別作品｜赤穂の製塩事業',href:'/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/'},
+      {label:'個別作品｜竹原の町並み',href:'/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/'},
+      {label:'個別作品｜坂出の番の州',href:'/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/'},
+      {label:'個別作品｜赤穂の土地利用',href:'/setouchi-cultural-economic-atlas/book/ako-salt-fields-to-city/'},
+      {label:'個別作品｜錦海の太陽光発電',href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}
+    ],
     provisionalConclusion:'赤穂・竹原・坂出・三田尻が別々の未来へ進んだのは、製塩という共通産業が消えたあとに、各地へ残った資産が異なったからだと考えられる。企業組織、商人資本、人工土地、港湾ネットワーク。産業の本当の遺産は、商品そのものよりも、地域内部に蓄積されたこうした能力にある。',
     openQuestions:['赤穂・竹原・坂出・三田尻で、塩業利益の再投資先を家・企業単位まで追えるか','塩田→市街地・工場・港への土地利用転換を旧版地形図と航空写真で同一縮尺比較できるか','塩商人・廻船・金融・藩政のネットワークを四地域で比較すると、土地以外の継承資産をどこまで可視化できるか'],
     sources:[
@@ -112,7 +119,8 @@ export const bookArticles = [
       {id:10,title:'竹原市竹原地区伝統的建造物群保存地区',publisher:'竹原市',url:'https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html'},
       {id:11,title:'今昔写真集（昭和30年から）',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html'},
       {id:12,title:'防府市の都市計画 令和7年度',publisher:'防府市',url:'https://www.city.hofu.yamaguchi.jp/uploaded/attachment/142611.pdf'},
-      {id:13,title:'赤穂市立海洋科学館・塩の国／赤穂かん水塩',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html'}
+      {id:13,title:'赤穂市立海洋科学館・塩の国／赤穂かん水塩',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html'},
+      {id:14,title:'坂出港の概要・各地区の姿',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'}
     ]
   },
   {
