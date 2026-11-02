@@ -40,6 +40,7 @@ jobs:
           test -f dist/book/sanuki-store-the-rain/index.html
           test -f dist/book/iwakuni-river-city/index.html
           test -f dist/book/mikan-slope-and-varieties/index.html
+          test -f dist/book/four-salt-fields/index.html
           test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
         run: |
@@ -55,12 +56,13 @@ jobs:
             ['sanuki-store-the-rain','線香が燃え尽きるまで'],
             ['iwakuni-river-city','1673年に完成した錦帯橋は'],
             ['mikan-slope-and-varieties','麦や芋を育てた場所でもあり'],
+            ['four-salt-fields','同じ塩をつくっていたのに、残ったものは違った'],
             ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
           for (const [slug,expected] of cases) {
             const file = `dist/book/${slug}/index.html`;
             const html = fs.readFileSync(file,'utf8');
-            for (const text of [expected,'出典・参照資料',...(slug==='mikan-slope-and-varieties'?['商標の使用許諾を受けた果実','柑橘栽培の段々畑と防風垣']:[])]) {
+            for (const text of [expected,'出典・参照資料',...(slug==='mikan-slope-and-varieties'?['商標の使用許諾を受けた果実','柑橘栽培の段々畑と防風垣']:[]),...(slug==='four-salt-fields'?['旧塩田を使い直すことと','個別作品｜坂出の番の州']:[])]) {
               if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
             }
             if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
