@@ -54,13 +54,13 @@ jobs:
             ['faith-as-transport-map','尾道の住吉神社には'],
             ['sanuki-store-the-rain','線香が燃え尽きるまで'],
             ['iwakuni-river-city','1673年に完成した錦帯橋は'],
-            ['mikan-slope-and-varieties','七戸の農家が始めたと伝わるみかん栽培'],
+            ['mikan-slope-and-varieties','麦や芋を育てた場所でもあり'],
             ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
           for (const [slug,expected] of cases) {
             const file = `dist/book/${slug}/index.html`;
             const html = fs.readFileSync(file,'utf8');
-            for (const text of [expected,'出典・参照資料']) {
+            for (const text of [expected,'出典・参照資料',...(slug==='mikan-slope-and-varieties'?['商標の使用許諾を受けた果実','柑橘栽培の段々畑と防風垣']:[])]) {
               if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
             }
             if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
