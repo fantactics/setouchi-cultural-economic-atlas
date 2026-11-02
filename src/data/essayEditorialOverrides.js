@@ -55,7 +55,11 @@ const essayOverrides = {
     ],
     researchLinks:[
       {label:'詳しい論証を研究ノートで読む',href:'/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'},
-      {label:'比較データを見る',href:'/setouchi-cultural-economic-atlas/data/waiting-ports/'}
+      {label:'比較データを見る',href:'/setouchi-cultural-economic-atlas/data/waiting-ports/'},
+      {label:'鞆｜潮汐がつくった一日の仕事',href:'/setouchi-cultural-economic-atlas/book/tomo-two-act-tidal-port/'},
+      {label:'御手洗｜待ち時間が生んだ商い',href:'/setouchi-cultural-economic-atlas/book/mitarai-economy-of-waiting/'},
+      {label:'雁木｜石段に刻まれた港の役割',href:'/setouchi-cultural-economic-atlas/book/gangi-tide-port-functions/'},
+      {label:'地乗り・沖乗り｜航法が選び直した港',href:'/setouchi-cultural-economic-atlas/book/jinori-okinori-navigation-system/'}
     ]
   }
 };
