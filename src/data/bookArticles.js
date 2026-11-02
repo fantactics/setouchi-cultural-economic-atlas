@@ -909,6 +909,9 @@ export const bookArticles = [
         photoIds:['photo-takehara-historic-district','photo-takehara-town-official']
       }
     ],
+    researchLinks:[
+      {label:"比較編｜塩田が消えた四つの町",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'}
+    ],
     provisionalConclusion:'竹原では、製塩の遺産が一つの形で残ったのではない。利益は町家・蔵へ固定され、塩田跡は新しい市街地へ転換された。産業終了後も、資本と土地という異なる資産が地域の次の用途を支えた。',
     openQuestions:['製塩商人ごとの酒造・廻船への投資関係を家単位で追えるか','旧塩田地と現市街地を旧版地図・航空写真で正確に重ねられるか','保存地区の観光収入が旧産業資産を再び経済化している規模を測れるか'],
     sources:[
@@ -1412,6 +1415,10 @@ export const bookArticles = [
         ],
         photoIds:['photo-ako-salt-terrace','photo-ako-power-plant']
       }
+    ],
+    researchLinks:[
+      {label:"比較編｜赤穂・竹原・坂出・三田尻",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"土地編｜赤穂の塩田跡地は何になったか",href:'/setouchi-cultural-economic-atlas/book/ako-salt-fields-to-city/'}
     ],
     provisionalConclusion:'赤穂で製塩が残ったのは、塩田という設備を保存したからではない。入浜式から流下式、さらにイオン交換膜法へ技術を更新し、必要なら塩田そのものを手放しながら、「赤穂で塩を作る事業」を残したからである。同時に旧塩田は工業・住宅用地へ転用され、古い産業の資産が複数の経路へ分かれて次代へ渡った。',
     openQuestions:['赤穂海水設立時の出資者・旧塩業者の連続性を企業史料で追えるか','塩田労働者が工場型製塩や他産業へどの程度移行したか','西浜・東浜の塩田跡地利用を時系列地図で比較できるか'],
@@ -2425,6 +2432,10 @@ export const bookArticles = [
         photoIds:['photo-kinkai-solar']
       }
     ],
+    researchLinks:[
+      {label:"比較編｜四つの塩田都市の異なるその後",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"考察編｜太陽光発電所の次の用途",href:'/setouchi-cultural-economic-atlas/book/after-the-solar-farm/'}
+    ],
     provisionalConclusion:'錦海塩田跡地は、海から人工的につくられた約500ヘクタールの土地が、製塩、産廃処分、遊休地、太陽光発電へと機能を変えた場所である。塩田と太陽光発電は、ともに日射と広大な平坦地を価値へ変える点で連続する。土地利用史とは、地面の上の施設が変わる歴史ではなく、その土地の条件を社会が何のために読み替えたかという歴史である。',
     openQuestions:['錦海塩田の土地利用を年代別GISで復元できるか','塩田・産廃処分場・湿地・太陽光という各時代の生態系機能を比較できるか','2038年前後の貸付期間終了後にこの土地はどのように利用されるのか'],
     sources:[
@@ -2489,6 +2500,10 @@ export const bookArticles = [
         ],
         photoIds:['photo-sakaide-bannosu-aerial']
       }
+    ],
+    researchLinks:[
+      {label:"比較編｜塩田が消えた四つの町",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"他地域の土地利用｜錦海の塩田跡",href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}
     ],
     provisionalConclusion:'坂出では塩田廃止と番の州埋立がほぼ同時期に進み、沿岸部に巨大な土地ストックが生まれた。その土地は工業・港湾・住宅・緑地へ振り分けられ、港湾工業都市という新しい都市構造を形成した。前の産業が残した土地の形が、次の産業と都市を規定した典型例である。',
     openQuestions:['坂出の旧塩田区画を現在の用途図へ重ねると何割が工業・住宅・道路・緑地になっているか','番の州埋立地と旧塩田跡地では企業立地の性格に違いがあるか','塩田跡地の地盤条件が現在の都市インフラ維持にどのような影響を残しているか'],
@@ -2555,6 +2570,10 @@ export const bookArticles = [
         ],
         photoIds:['photo-ako-castle']
       }
+    ],
+    researchLinks:[
+      {label:"比較編｜塩田が消えた四つの町",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"産業編｜赤穂で塩づくりが続く理由",href:'/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/'}
     ],
     provisionalConclusion:'赤穂の塩田跡地は一様に再開発されたのではない。西浜では工業地、旧塩田の一部では区画整理された市街地、東浜周辺では公園・教育・観光という用途へ分岐した。土地利用転換は、産業の需要だけでなく、都市との位置関係と「何を記憶として残すか」という政策選択によって決まる。',
     openQuestions:['旧東浜・西浜の塩田区画を現在の用途へGISで対応づけられるか','塩田跡地の住宅地と自然地盤上の住宅地で地盤・防災条件はどう異なるか','文化的景観として残された面積と産業転用された面積を比較できるか'],
