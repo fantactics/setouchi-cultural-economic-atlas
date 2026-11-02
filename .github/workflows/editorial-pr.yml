@@ -38,6 +38,7 @@ jobs:
           test -f dist/book/shimonoseki-resource-made-by-market/index.html
           test -f dist/book/faith-as-transport-map/index.html
           test -f dist/book/sanuki-store-the-rain/index.html
+          test -f dist/book/iwakuni-river-city/index.html
           test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
         run: |
@@ -51,6 +52,7 @@ jobs:
             ['shimonoseki-resource-made-by-market','2016年に地理的表示'],
             ['faith-as-transport-map','尾道の住吉神社には'],
             ['sanuki-store-the-rain','線香が燃え尽きるまで'],
+            ['iwakuni-river-city','1673年に完成した錦帯橋は'],
             ['setouchi-sushi-not-nigiri','人が集まる日に作り']
           ];
           for (const [slug,expected] of cases) {
