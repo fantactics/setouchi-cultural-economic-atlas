@@ -5,7 +5,7 @@ export const photoEvidence = [
     nodeKey:'culture',
     theme:'food',
     title:'下津井の干し蛸',
-    caption:'下津井で干されるタコ。2010年12月撮影の記録写真。たこめしそのものではなく、漁獲物が保存食・地域の食材へ変わる工程を示す。',
+    caption:'下津井で干されるタコ。2010年代初めの記録写真。たこめしそのものではなく、漁獲物が保存食・地域の食材へ変わる工程を示す。',
     insight:'「タコが獲れる」から「料理になる」までには、漁業だけでなく加工・保存・家庭の仕事がある。',
     claimType:'fact',
     imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/It%20seems%20to%20dry%20the%20octopus.JPG?width=1600',
@@ -15,7 +15,8 @@ export const photoEvidence = [
     license:'CC BY-SA 3.0',
     licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',
     sourceType:'Wikimedia Commons',
-    takenAt:'2010-12-24',
+    // Commons description says 2011-12, while the embedded Exif time says 2010-12-24.
+    takenAt:'2010年代初め（CommonsとExifで日付不一致）',
     verifiedAt:'2026-11-03'
   },
   {
