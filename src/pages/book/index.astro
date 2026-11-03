@@ -31,25 +31,8 @@ const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos)
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 // Use article photography first, then a place-matched or theme-matched image.
 // Fallback images are explicitly described as related scenery, never as the article location.
-const cityPlaceIds={
-  '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府':'hofu',
-  '引田':'hiketa','御手洗':'mitarai','尾道':'onomichi','今治':'imabari',
-  '加太':'kada','鳴門':'naruto','明石':'akashi','小豆島':'shodoshima',
-  '鴻島':'hinase','日生':'hinase'
-};
-const themeFallbackIds={
-  '海と陸は、人がつくった':'photo-sakaide-bannosu',
-  '土地は、何度でも使い直される':'photo-sakaide-bannosu',
-  'なぜ、船はここで止まったのか':'photo-mitarai-panorama',
-  '食は、土地を語る':'photo-akashi-uontana-octopus',
-  '捨てるものは、どこへ行くのか':'photo-ako-shionokuni-official',
-  '産業は、紡がれる':'photo-onomichi-channel-dock',
-  '富は、町に何を残したのか':'photo-takehara-town-official',
-  '町は、何度でもつくり直される':'photo-onomichi-panorama',
-  '移動は、地域を変える':'photo-imabari-kurushima',
-  '地域は、学習し続ける':'photo-onomichi-panorama'
-};
-const genericFallback=photoById['photo-onomichi-panorama'];
+// No generic coastal/town image is substituted for an unrelated essay.
+// Missing cover photos are intentional text-only states until sourced imagery is available.
 const articlePhoto=(article)=>{
   // Index-only overrides, then explicitly selected card photos, then article heroes.
   // Article hero images must not silently override reviewed cardPhotoId choices.
@@ -62,11 +45,14 @@ const articlePhoto=(article)=>{
   const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
   const articleSpecific=ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl);
   if(articleSpecific) return articleSpecific;
-  const matchedPlace=(article?.cities || []).map((city)=>Object.entries(cityPlaceIds).find(([name])=>city.includes(name))?.[1]).find(Boolean);
-  const placePhoto=matchedPlace ? allPhotoEvidence.find((photo)=>photo.placeId===matchedPlace && photo.imageUrl) : null;
-  const related=placePhoto || photoById[themeFallbackIds[article?.part]] || genericFallback;
-  return related ? {...related,alt:`関連風景：${related.alt || related.title || '瀬戸内の風景'}（記事の現地写真とは限りません）`} : null;
+  return null;
 };
+const photoMissingArticles=allBookArticles.filter((article)=>!articlePhoto(article));
+const expectedTextOnlySlugs=['ai-era-regional-planning-learning-velocity'];
+const unexpectedMissing=photoMissingArticles.filter((article)=>!expectedTextOnlySlugs.includes(article.slug));
+if(unexpectedMissing.length) {
+  throw new Error(`Review essay cover photo before publishing: ${unexpectedMissing.map((article)=>article.slug).join(', ')}`);
+}
 const categories=essayEntryCategories;
 const entranceId=(entry)=>`entrance-${entry.id}`;
 const essaysIn=(entry)=>essaysForEntrance(allBookArticles,entry.id);
