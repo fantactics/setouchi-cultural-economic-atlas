@@ -247,3 +247,18 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
 .essay-magazine .essay-theme-head h3 small{font-family:system-ui,sans-serif;font-size:.76rem;font-weight:500;color:#718679;white-space:nowrap;margin-left:.5rem}
 @media(max-width:650px){.reader-theme-shortcuts{top:0;display:block;padding:10px 12px;margin-bottom:22px}.reader-theme-shortcuts>span{display:block;margin-bottom:6px}.reader-theme-shortcuts a{padding:7px 10px;font-size:.78rem}.essay-magazine .essay-theme{scroll-margin-top:90px}}
 @media(prefers-reduced-transparency:reduce){.reader-theme-shortcuts{background:#fafbf7;backdrop-filter:none}}
+
+/* Quiet, complete text-only essay directory at the end of the index. */
+.reader-title-directory{margin:80px 0 38px;padding:42px 0 20px;border-top:1px solid #d8e0d8;color:#2c4640}
+.reader-title-directory-heading{margin-bottom:34px}
+.reader-title-directory-heading>span{font-size:.7rem;font-weight:700;letter-spacing:.16em;color:#788f82}
+.reader-title-directory-heading h2{font-family:var(--book-serif,serif);font-size:clamp(1.75rem,3vw,2.6rem);font-weight:500;margin:10px 0}
+.reader-title-directory-heading p{color:#657a70;margin:0;line-height:1.7}
+.reader-title-directory-group{padding:22px 0;border-top:1px solid #e1e7e0}
+.reader-title-directory-group h3{font-size:1.04rem;margin:0 0 15px;font-weight:650;color:#335c50}
+.reader-title-directory-group ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:38px;row-gap:10px}
+.reader-title-directory-group li{min-width:0}
+.reader-title-directory-group a{color:#344c46;text-decoration:none;font-size:.92rem;line-height:1.6;display:inline-block;padding:3px 0}
+.reader-title-directory-group a:hover{text-decoration:underline;text-underline-offset:4px;color:#1b6a57}
+.reader-title-directory-group a:focus-visible{outline:2px solid #87b8a5;outline-offset:3px}
+@media(max-width:650px){.reader-title-directory{margin-top:50px;padding-top:30px}.reader-title-directory-group ul{grid-template-columns:1fr;row-gap:8px}.reader-title-directory-group{padding:18px 0}}
