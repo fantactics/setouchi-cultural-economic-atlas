@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    id:'photo-matsuyama-zushi-shared-bowl',
+    placeId:'matsuyama',
+    nodeKey:'culture',
+    theme:'food',
+    title:'大桶に盛られた松山鮓',
+    caption:'松山の郷土寿司「松山鮓」。多くの魚介や具材を桶に盛り、人が集まる席で振る舞う姿を伝える。岡山ばら寿司ではありません。',
+    insight:'岡山ばら寿司と同一の料理ではないが、瀬戸内各地に残る「大きく作り、分け合う寿司」の文化を、実際の郷土料理の一例から見られる。',
+    claimType:'fact',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Matsuyamasushi.JPG?width=1400',
+    alt:'木桶にアナゴ、エビ、魚、野菜などを色鮮やかに盛り込んだ松山鮓',
+    author:'松山市中央卸売市場水産市場運営協議会',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Matsuyamasushi.JPG',
+    license:'CC BY 3.0',
+    licenseUrl:'https://creativecommons.org/licenses/by/3.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2007-10-05',
+    verifiedAt:'2026-11-03'
+  },
+  {
     id:'photo-sawara-specimen-reference',
     placeId:'setouchi-wide',
     nodeKey:'nature',
