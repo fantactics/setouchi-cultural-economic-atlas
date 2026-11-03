@@ -2506,6 +2506,11 @@ export const bookArticles = [
         "photoIds": []
       }
     ],
+    researchLinks:[
+      {label:'商品写真｜愛媛製紙 MaCSIEと採用商品',href:'https://www.ehimepaper.co.jp/products/development/macsie/'},
+      {label:'商品写真｜宝酒造「丸おろし夏みかん」（2023年）',href:'https://www.takarashuzo.co.jp/news/1188017_1999.html'},
+      {label:'工程写真｜えひめ飲料の搾汁粕利用',href:'https://www.ehime-inryo.co.jp/company/environmental.html'}
+    ],
     provisionalConclusion:"えひめ飲料の搾汁粕処理は、単なる再利用技術の成功ではなく、乾燥に必要だった燃料と設備の問題から、密封・発酵による保存と牛への供給へ方法を変えた物語でもある。愛媛製紙のセルロースナノファイバーは別の利用可能性を示すが、両社を単一の供給経路として描く根拠はまだない。大量利用と新素材開発、それぞれを支える人と施設を通じて、みかん産地の風景を読み直す。",
     openQuestions:['えひめ飲料の最新年度の搾汁粕量と飼料利用率はどのように変化したか','乾燥飼料とサイレージを比較した実際の燃料費・輸送費・CO2収支はどうか','MaCSIE等の素材用途が、県内の搾汁粕をどの程度利用しているか'],
     sources:[
