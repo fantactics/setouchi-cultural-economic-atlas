@@ -63,7 +63,7 @@ export const essayCardCopy = {
   },
   "shimotsui-tako-meshi": {
     "teaser": "潮の速い海で獲れるタコは、どうしてこの土地のご飯になったのか。",
-    "photoId": "photo-shimotsui-port"
+    "photoId": "photo-shimotsui-dried-octopus"
   },
   "oysters-taste-of-small-seas": {
     "teaser": "牡蠣の筏が浮かぶ海を、食卓からもう一度眺める。"
