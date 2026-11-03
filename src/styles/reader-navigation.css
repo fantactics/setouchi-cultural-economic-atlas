@@ -334,3 +334,25 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
   pointer-events:none;
 }
 @media(max-width:650px){.reader-category-photo-label{font-size:.68rem;bottom:8px;left:8px}}
+
+/* Photo-based primary-source links: useful where reproduction rights are not verified.
+   Keep them quiet, editorial and adjacent to (not inside) the hero photo. */
+body.page-type-essay .reader-photo-evidence{
+  max-width:880px;margin:-18px auto 38px;padding:0 24px 16px;
+  border-bottom:1px solid #dfe7e0;
+  color:#3b5049;
+}
+.reader-photo-evidence-heading{
+  display:block;margin-bottom:7px;color:#647970;font-size:.75rem;
+  font-weight:650;letter-spacing:.065em;
+}
+.reader-photo-evidence-item{font-size:.9rem;line-height:1.65}
+.reader-photo-evidence-item a{color:#285b50;text-decoration:underline;text-underline-offset:3px;font-weight:650}
+.reader-photo-evidence-item a:hover{color:#183d36}
+.reader-photo-evidence-item a:focus-visible{outline:2px solid #638c7b;outline-offset:3px}
+.reader-photo-evidence-publisher{margin-left:10px;font-size:.75rem;color:#6c7b72}
+.reader-photo-evidence-item p{margin:3px 0 0;font-size:.8rem;line-height:1.75;color:#6b766f}
+@media(max-width:650px){
+  body.page-type-essay .reader-photo-evidence{margin-top:-10px;margin-bottom:26px;padding:0 19px 13px}
+  .reader-photo-evidence-publisher{display:block;margin:1px 0}
+}
