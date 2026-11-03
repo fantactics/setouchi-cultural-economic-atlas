@@ -15,6 +15,32 @@ export const additionalPlacePhotos = {
   ],
   kada: [
     {
+      id:'photo-kada-harbor-2009-a',
+      title:'加太港に並ぶ漁船',
+      caption:'2009年4月撮影の加太港。港に集まる船と水辺の様子を記録した写真。一本釣りの操業そのものを写したものではない。',
+      insight:'加太の真鯛の物語を、友ヶ島の遠景だけでなく、実際に漁師が船を出す港から読み始める。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Kadako1.jpg?width=1600',
+      alt:'和歌山市の加太港。港に停泊する船と岸辺の様子',
+      author:'KENPEI',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Kadako1.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',
+      photoContext:'2009年の加太港'
+    },
+    {
+      id:'photo-kada-harbor-2009-b',
+      title:'加太港の岸壁と船',
+      caption:'2009年4月撮影の加太港。漁獲物の取引現場を直接示す写真ではなく、流通の出発点となる港の風景。',
+      insight:'船から陸へ移る接点を意識させる、加太港の記録写真。流通の仕組み自体は文章と一次資料で説明する。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Kadako2.jpg?width=1600',
+      alt:'和歌山市加太港の港湾景観と停泊中の船',
+      author:'KENPEI',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Kadako2.jpg',
+      license:'CC BY-SA 3.0',
+      licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',
+      photoContext:'2009年の加太港'
+    },
+    {
       id:'photo-kada-kitan-strait',
       title:'友ヶ島と紀淡海峡',
       caption:'大阪湾と紀伊水道をつなぐ紀淡海峡。加太は、この狭い海の通路の南岸に位置する。',
