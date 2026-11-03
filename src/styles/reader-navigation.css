@@ -1,0 +1,61 @@
+/* Reader-first navigation and approachable magazine landing page */
+.reader-home{max-width:1160px;margin:0 auto;padding:32px 24px 82px;color:#273b3c}
+.reader-home-intro{padding:72px 6px 56px;max-width:980px}
+.reader-eyebrow{margin:0 0 14px;font-size:.75rem;font-weight:700;letter-spacing:.18em;color:#668277}
+.reader-home-intro h1{font-family:var(--book-serif,serif);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:500;line-height:1.32;letter-spacing:-.045em;margin:0 0 25px;color:#223e40}
+.reader-home-lead{font-size:clamp(1rem,1.5vw,1.18rem);line-height:2.15;margin:0 0 32px;color:#526261}
+.reader-primary-link{display:inline-flex;gap:32px;align-items:center;border-radius:999px;background:#225c58;color:#fff!important;padding:14px 24px;text-decoration:none;font-weight:700}
+.reader-home-feature{display:block;position:relative;isolation:isolate;overflow:hidden;min-height:420px;border-radius:18px;background:#284649;color:#fff;text-decoration:none}
+.reader-home-feature:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,31,33,.88),rgba(9,31,33,.12));z-index:1}
+.reader-home-feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reader-home-feature-copy{position:relative;z-index:2;max-width:650px;padding:clamp(30px,6vw,76px)}
+.reader-home-feature-copy>span{font-size:.82rem;letter-spacing:.1em}
+.reader-home-feature-copy h2{font-family:var(--book-serif,serif);font-size:clamp(2rem,4.3vw,3.8rem);font-weight:500;line-height:1.25;margin:22px 0 16px}
+.reader-home-feature-copy p{line-height:1.9;color:rgba(255,255,255,.92)}
+.reader-home-feature-copy strong{display:inline-block;margin-top:12px}
+.reader-home-section,.reader-home-search{margin:82px 0 0}
+.reader-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}
+.reader-section-heading h2{font-family:var(--book-serif,serif);font-size:clamp(1.9rem,3vw,2.8rem);font-weight:500;margin:0 0 10px}
+.reader-section-heading p:not(.reader-eyebrow){margin:0;color:#627371}
+.reader-section-heading>a{white-space:nowrap;color:#245955;text-decoration:none;border-bottom:1px solid #65908a;padding-bottom:5px}
+.reader-essay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.reader-essay-card{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;border:1px solid #e2e4db;transition:transform .2s ease}
+.reader-essay-card:hover{transform:translateY(-4px)}
+.reader-essay-card>img{width:100%;height:205px;object-fit:cover;background:#e2e9e7}
+.reader-essay-card>div{padding:20px;display:flex;flex-direction:column;flex:1}
+.reader-essay-card span{color:#647b75;font-size:.78rem}
+.reader-essay-card h3{font-family:var(--book-serif,serif);font-weight:600;font-size:1.27rem;line-height:1.45;margin:10px 0}
+.reader-essay-card p{color:#667473;line-height:1.7;font-size:.88rem;margin:0 0 20px;flex:1}
+.reader-essay-card strong{font-size:.86rem;color:#28605a}
+.reader-home-search{background:#f4f6f0;padding:36px 40px;border-radius:18px}
+.reader-home-search .atlas-search{padding:0}
+.reader-home-search .atlas-search-head{display:none}
+.reader-home-search .atlas-search-box{margin-top:0}
+.reader-home-search .atlas-search-results{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reader-home-search .atlas-search-input{border-radius:10px}
+.reader-home-search .atlas-search-clear{border-radius:10px}
+.reader-essay-index-jumps{position:sticky;top:0;z-index:8;background:rgba(249,249,246,.97);backdrop-filter:blur(8px);border:1px solid #e3e5df;border-radius:14px;padding:18px 20px;margin:35px 0 42px}
+.reader-essay-index-jumps>strong{display:block;margin-bottom:12px;font-size:.85rem;color:#516561}
+.reader-essay-index-jumps>div{display:flex;flex-wrap:wrap;gap:9px}
+.reader-essay-index-jumps a{display:inline-block;padding:9px 13px;border-radius:999px;border:1px solid #d4dfd9;background:#fff;color:#29534e;text-decoration:none;font-size:.86rem;line-height:1.35}
+.reader-essay-index-jumps a:hover{background:#e6f2ee}
+.reader-essay-index-jumps a:focus-visible,.reader-primary-link:focus-visible,.reader-essay-card:focus-visible{outline:3px solid #a3d7c9;outline-offset:3px}
+.reader-essay-theme{scroll-margin-top:150px}
+.reader-essay-index-search{margin:0 0 50px;padding:26px;border-radius:16px;background:#f1f5f1}
+.reader-essay-index-search .atlas-search-head{display:none}
+.reader-essay-index-search .atlas-search-box{margin-top:0}
+.reader-essay-index-search .atlas-search-results{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reader-photo-appendix{margin:70px auto 45px;max-width:1200px;padding:25px 20px 0;border-top:1px solid #d9ded7}
+.reader-photo-appendix>h2{margin:0 0 9px;font-family:var(--book-serif,serif);font-size:clamp(1.6rem,3vw,2.25rem);font-weight:500}
+.reader-photo-appendix>p{margin:0 0 22px;color:#687674;line-height:1.8}
+.reader-photo-appendix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.reader-photo-appendix-grid figure{margin:0;min-width:0;background:#f5f5f1;border-radius:9px;overflow:hidden}
+.reader-photo-appendix-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.reader-photo-appendix-grid figcaption{padding:12px 14px;font-size:.85rem;line-height:1.65;color:#53605e}
+.reader-photo-appendix-grid strong{display:block;color:#2f4946;margin-bottom:5px}
+.reader-photo-appendix-grid small{display:block;font-size:.73rem;color:#707b78;margin-top:7px}
+.reader-photo-appendix-grid small a{color:inherit}
+.reader-book-back{max-width:850px;margin:26px auto 0;padding:0 20px}
+.reader-book-back a{font-size:.88rem;text-decoration:none;color:#34635f}
+@media(max-width:800px){.reader-home{padding:12px 16px 65px}.reader-home-intro{padding:48px 0}.reader-essay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-photo-appendix-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-section-heading{align-items:start;flex-direction:column}}
+@media(max-width:580px){.reader-home-intro h1{font-size:2.45rem}.reader-home-lead br{display:none}.reader-home-feature{min-height:390px}.reader-home-feature-copy{padding:28px}.reader-essay-grid,.reader-photo-appendix-grid{grid-template-columns:1fr}.reader-essay-card>img{height:220px}.reader-home-search{padding:24px 16px}.reader-home-search .atlas-search-results,.reader-essay-index-search .atlas-search-results{grid-template-columns:1fr}.reader-essay-index-jumps{position:relative;top:auto;padding:16px 12px}.reader-essay-index-jumps a{font-size:.8rem}}
