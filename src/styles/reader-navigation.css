@@ -356,3 +356,6 @@ body.page-type-essay .reader-photo-evidence{
   body.page-type-essay .reader-photo-evidence{margin-top:-10px;margin-bottom:26px;padding:0 19px 13px}
   .reader-photo-evidence-publisher{display:block;margin:1px 0}
 }
+
+/* Explain when a related-story card uses a comparative rather than on-location photo. */
+.reader-related-card .reader-related-photo-note{display:block;margin-top:-2px;font-size:.73rem;line-height:1.5;color:#72887d}
