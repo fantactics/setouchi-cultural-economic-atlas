@@ -101,8 +101,10 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
           ['産業は、紡がれる','ものづくり','造船、繊維、仕事の変化'],
           ['土地は、何度でも使い直される','変わる風景','塩田、干拓、海辺の土地'],
           ['捨てるものは、どこへ行くのか','ものの行き先','みかん、牡蠣、魚のその後'],
+          ['海と陸は、人がつくった','海と陸','干拓、塩田、変わった海岸線'],
           ['町は、何度でもつくり直される','町を歩く','駅、城、港が動かした町'],
-          ['移動は、地域を変える','旅と移動','自転車、船、渡っていく人']
+          ['移動は、地域を変える','旅と移動','自転車、船、渡っていく人'],
+          ['地域は、学習し続ける','これからの地域','変わり続ける町と未来の選び方']
         ].map(([part,label,description])=><a class="reader-discovery-tile" href={`#${themeId(part)}`}>
           <span>{String(allBookArticles.filter((item)=>item.part===part).length).padStart(2,'0')} ESSAYS</span>
           <strong>{label}</strong><small>{description}</small><em aria-hidden="true">↗</em>
@@ -114,6 +116,11 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
         <SiteSearch essaysOnly={true} />
       </div>
     </section>
+
+    <nav class="reader-theme-shortcuts" aria-label="エッセイのテーマへ移動">
+      <span>テーマへジャンプ</span>
+      <div>{parts.map((part)=><a href={`#${themeId(part)}`}>{themeLabels[part]||part}</a>)}</div>
+    </nav>
 
     <div class="reader-feature-heading"><span>EDITOR'S PICKS</span><h2>今日は、この一篇から。</h2><p>写真とタイトルに惹かれたら、気軽に開いてみてください。</p></div>
 
@@ -141,7 +148,7 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 
     <section id="essay-all-themes">
       <div class="essay-magazine-heading"><h2>すべてのエッセイをめくる。</h2><p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p></div>
-      {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{themeLabels[part] || part}</h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
+      {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{themeLabels[part] || part} <small>{allBookArticles.filter((a)=>a.part===part).length}篇</small></h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
     </section>
 
     <div class="reader-book-back"><a href="#reader-discovery-title">↑ テーマ選びへ戻る</a></div>
