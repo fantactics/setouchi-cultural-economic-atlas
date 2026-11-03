@@ -63,10 +63,6 @@ const articlePhoto=(article)=>{
   const related=placePhoto || photoById[themeFallbackIds[article?.part]] || genericFallback;
   return related ? {...related,alt:`関連風景：${related.alt || related.title || '瀬戸内の風景'}（記事の現地写真とは限りません）`} : null;
 };
-// A compact, source-linked credit list for licensed cover photos added in this revision.
-const editorialPhotoCredits=[...new Map(
-  Object.entries(essayIndexPhotoOverrides).map(([slug,photo])=>[photo.sourcePage,{...photo,slug}])
-).values()];
 const categories=essayEntryCategories;
 const entranceId=(entry)=>`entrance-${entry.id}`;
 const essaysIn=(entry)=>essaysForEntrance(allBookArticles,entry.id);
@@ -111,6 +107,21 @@ const coverStories=coverSlugs
   .filter(Boolean);
 const featureStory=coverStories[0];
 const coverSide=coverStories.slice(1,3);
+// Attribution for photos shown in the category highlights and rotating editor picks.
+// Deduplicate by source URL; include index-specific image overrides even below the fold.
+const creditedSlugs=[...new Set([
+  ...Object.values(essayFeaturedByEntrance).flat(),
+  ...coverSlugs,
+  ...Object.keys(essayIndexPhotoOverrides)
+])];
+const editorialPhotoCredits=[...new Map(
+  creditedSlugs
+    .map((slug)=>allBookArticles.find((item)=>item.slug===slug))
+    .filter(Boolean)
+    .map((article)=>({storyTitle:article.title,...articlePhoto(article)}))
+    .filter((photo)=>photo.sourcePage && photo.imageUrl)
+    .map((photo)=>[photo.sourcePage,photo])
+).values()];
 ---
 <BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
   <main class="essay-magazine">
@@ -206,11 +217,12 @@ const coverSide=coverStories.slice(1,3);
     </section>
 
     <details class="reader-cover-credits">
-      <summary>新しく追加した写真の出典・ライセンス</summary>
-      <p>写真は掲載作品の主題に合うものを選び、現地を撮ったものと参考写真を区別しています。</p>
+      <summary>写真の出典・撮影者・利用条件（{editorialPhotoCredits.length}点）</summary>
+      <p>代表エッセイや特集に使った写真の出典です。カードでは掲載枠に合わせて表示範囲を調整しています。参考写真は撮影場所をそのまま記事の場所とは扱いません。</p>
       <ul>{editorialPhotoCredits.map((photo)=><li>
-        <a href={photo.sourcePage} target="_blank" rel="noopener noreferrer">{photo.author}</a>
-        <span> / <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer">{photo.license}</a></span>
+        <a href={photo.sourcePage} target="_blank" rel="noopener noreferrer">{photo.storyTitle}</a>
+        <span> / 撮影・提供：{photo.author || '出典先参照'}</span>
+        <span> / {photo.licenseUrl ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer">{photo.license || '利用条件'}</a> : (photo.license || '利用条件は出典参照')}</span>
       </li>)}</ul>
     </details>
 
