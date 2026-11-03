@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteSearch from '../../components/SiteSearch.astro';
 import { essayEntryCategories, essayEntryBySlug, entryIdsForEssay, essaysForEntrance } from '../../data/essayEntryCategories.js';
 import { essayFeaturedByEntrance } from '../../data/essayFeaturedPicks.js';
-import { essayIndexPhotoOverrides } from '../../data/essayIndexPhotos.js';
+import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../data/essayIndexPhotos.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import '../../styles/reader-navigation.css';
 import { orderedBookArticles } from '../../data/bookArticles.js';
@@ -181,7 +181,10 @@ const editorialPhotoCredits=[...new Map(
           {galleryEssaysIn(entry).map((article)=>{
             const photo=articlePhoto(article);
             return <a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-              {photo && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
+              {photo && <div class="reader-category-photo">
+                <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />
+                {essayCardPhotoContext[article.slug] && <span class="reader-category-photo-label">{essayCardPhotoContext[article.slug]}</span>}
+              </div>}
               <div class="essay-theme-card-body">
                 <h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span>
               </div>
@@ -220,7 +223,7 @@ const editorialPhotoCredits=[...new Map(
       <summary>写真の出典・撮影者・利用条件（{editorialPhotoCredits.length}点）</summary>
       <p>代表エッセイや特集に使った写真の出典です。カードでは掲載枠に合わせて表示範囲を調整しています。参考写真は撮影場所をそのまま記事の場所とは扱いません。</p>
       <ul>{editorialPhotoCredits.map((photo)=><li>
-        <a href={photo.sourcePage} target="_blank" rel="noopener noreferrer">{photo.storyTitle}</a>
+        <span>{photo.storyTitle} / </span><a href={photo.sourcePage} target="_blank" rel="noopener noreferrer">写真の出典</a>
         <span> / 撮影・提供：{photo.author || '出典先参照'}</span>
         <span> / {photo.licenseUrl ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer">{photo.license || '利用条件'}</a> : (photo.license || '利用条件は出典参照')}</span>
       </li>)}</ul>
