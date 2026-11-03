@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    id:'photo-sawara-specimen-reference',
+    placeId:'setouchi-wide',
+    nodeKey:'nature',
+    theme:'food',
+    title:'サワラ（Scomberomorus niphonius）',
+    caption:'国内で撮影されたサワラの参考写真。瀬戸内の特定漁場・回遊時期を撮影したものではなく、魚種の姿を示す資料。',
+    insight:'春の食卓に登場するサワラの姿を確かめ、魚が瀬戸内の東西の入口から内海へ移動する背景を本文でたどる。',
+    claimType:'fact',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Scomberomorus%20niphonius.jpg?width=1400',
+    alt:'サワラの全身像。国内の記録写真で、瀬戸内の漁獲風景ではない',
+    author:'re_nebel',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Scomberomorus_niphonius.jpg',
+    license:'CC BY 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by/4.0/',
+    sourceType:'Wikimedia Commons / iNaturalist',
+    takenAt:'2019-12-07',
+    verifiedAt:'2026-11-03'
+  },
+  {
     id:'photo-karihama-citrus-terraces',
     placeId:'seiyo-karihama',
     nodeKey:'formation',
