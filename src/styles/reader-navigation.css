@@ -59,3 +59,75 @@
 .reader-book-back a{font-size:.88rem;text-decoration:none;color:#34635f}
 @media(max-width:800px){.reader-home{padding:12px 16px 65px}.reader-home-intro{padding:48px 0}.reader-essay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-photo-appendix-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-section-heading{align-items:start;flex-direction:column}}
 @media(max-width:580px){.reader-home-intro h1{font-size:2.45rem}.reader-home-lead br{display:none}.reader-home-feature{min-height:390px}.reader-home-feature-copy{padding:28px}.reader-essay-grid,.reader-photo-appendix-grid{grid-template-columns:1fr}.reader-essay-card>img{height:220px}.reader-home-search{padding:24px 16px}.reader-home-search .atlas-search-results,.reader-essay-index-search .atlas-search-results{grid-template-columns:1fr}.reader-essay-index-jumps{position:relative;top:auto;padding:16px 12px}.reader-essay-index-jumps a{font-size:.8rem}}
+
+/* Reader polish: magazine first, then compact thematic discovery. */
+.essay-magazine .essay-magazine-intro{padding-top:clamp(32px,5vw,64px);padding-bottom:28px;align-items:center}
+.essay-magazine .essay-magazine-intro h2{font-family:var(--book-serif,serif);font-weight:500;line-height:1.24}
+.essay-magazine .essay-magazine-intro p{font-family:var(--book-serif,serif);line-height:1.95}
+.essay-magazine .essay-magazine-cover{margin:20px 0 44px;gap:16px}
+.essay-magazine .essay-cover-main{min-height:470px}
+.essay-magazine .essay-cover-side{gap:16px}
+.essay-magazine .essay-cover-copy h1{font-family:var(--book-serif,serif);font-weight:500;line-height:1.25;font-size:clamp(2.05rem,4vw,3.85rem)}
+.essay-magazine .essay-cover-side-card h2{font-family:var(--book-serif,serif);line-height:1.35;font-weight:500}
+.essay-magazine .essay-theme-head h3{font-family:var(--book-serif,serif);font-weight:500}
+.essay-magazine .essay-theme-card-body h4{font-family:var(--book-serif,serif);font-size:1.17rem;font-weight:600;line-height:1.55}
+.essay-magazine .essay-theme-card{grid-template-rows:190px auto}
+.essay-magazine .essay-theme-card-body p{line-height:1.75}
+.essay-magazine .reader-essay-index-jumps{position:sticky;top:72px;z-index:7;margin:24px 0;padding:12px 16px;box-shadow:0 5px 20px rgba(35,61,51,.05)}
+.essay-magazine .reader-essay-index-jumps>strong{font-size:.76rem;margin-bottom:9px}
+.essay-magazine .reader-essay-index-jumps>div{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain;padding-bottom:3px}
+.essay-magazine .reader-essay-index-jumps a{flex:0 0 auto;white-space:nowrap;padding:7px 12px;font-size:.8rem}
+.reader-essay-index-search{scroll-margin-top:175px}
+body.page-type-essay .book-article-header{max-width:880px;padding:clamp(30px,5vw,65px) 24px 38px}
+body.page-type-essay .book-article-header h1{font-family:var(--book-serif,serif);font-size:clamp(2.25rem,5vw,4.45rem);line-height:1.29;letter-spacing:-.035em}
+body.page-type-essay .book-article-subtitle{font-size:clamp(1rem,1.45vw,1.22rem);line-height:1.85}
+body.page-type-essay .book-article-dek{font-size:clamp(1.03rem,1.3vw,1.15rem);line-height:2.05;margin-top:1.45rem}
+body.page-type-essay .book-hero-photo{max-width:1120px;margin-bottom:2.3rem}
+body.page-type-essay .book-hero-photo img{height:auto;aspect-ratio:16/9;max-height:620px;object-fit:cover}
+body.page-type-essay .book-hero-photo figcaption{line-height:1.7;overflow-wrap:anywhere}
+body.page-type-essay .book-hero-photo figcaption span{float:none;display:block;margin-top:4px}
+body.page-type-essay .book-reading-column{max-width:770px;padding:0 28px 3rem}
+body.page-type-essay .book-prose-section{padding:2.9rem 0;border-color:rgba(51,79,73,.12)}
+body.page-type-essay .book-prose-section h2{font-size:clamp(1.45rem,2.8vw,2.1rem);line-height:1.55;margin:.4rem 0 1.5rem}
+body.page-type-essay .book-prose-section>p{font-size:clamp(1.04rem,1.45vw,1.15rem);line-height:2.05;letter-spacing:.025em;text-align:start;overflow-wrap:anywhere}
+body.page-type-essay .book-small-conclusion,body.page-type-essay .book-open-questions{line-height:1.9}
+body.page-type-essay .book-sources{margin-top:2rem;border-top:1px solid #e2e7df}
+body.page-type-essay .book-sources li{font-size:.86rem;line-height:1.7}
+body.page-type-essay .book-pager>a{color:#29564f}
+body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
+.reader-photo-appendix{background:#f5f4ef;border-top:none;border-radius:16px;padding:28px;max-width:1120px}
+.reader-photo-appendix-grid figure{background:#fff}
+.reader-photo-appendix-grid figcaption{overflow-wrap:anywhere}
+.reader-home-feature-copy h2,.reader-home-intro h1{text-wrap:balance}
+@media(max-width:900px){
+  .essay-magazine .reader-essay-index-jumps{top:106px}
+  .essay-magazine .essay-cover-main{min-height:440px}
+}
+@media(max-width:600px){
+  .essay-magazine .essay-magazine-intro{padding:26px 0 18px;gap:16px}
+  .essay-magazine .essay-magazine-intro h2{font-size:2.15rem}
+  .essay-magazine .essay-magazine-intro p{font-size:.96rem}
+  .essay-magazine .essay-cover-main{min-height:385px}
+  .essay-magazine .essay-cover-copy{padding:23px}
+  .essay-magazine .essay-cover-copy h1{font-size:2.2rem}
+  .essay-magazine .essay-cover-side-card{min-height:190px}
+  .essay-magazine .essay-magazine-cover{margin-bottom:22px}
+  .essay-magazine .reader-essay-index-jumps{position:relative;top:auto;margin:16px 0;padding:14px 12px}
+  .essay-magazine .reader-essay-index-jumps>div{flex-wrap:nowrap}
+  .reader-essay-index-search{scroll-margin-top:20px;padding:17px}
+  .essay-magazine .essay-feature-strip{gap:14px;margin:28px 0 42px}
+  .essay-magazine .essay-photo-card,.essay-magazine .essay-photo-card:nth-child(3){min-height:310px}
+  .essay-magazine .essay-theme-card{grid-template-rows:180px auto}
+  body.page-type-essay .book-article-header{padding:23px 19px 27px}
+  body.page-type-essay .book-article-header h1{font-size:clamp(2rem,8vw,2.85rem)}
+  body.page-type-essay .book-article-dek{line-height:1.95}
+  body.page-type-essay .book-hero-photo{padding:0 12px;margin-bottom:16px}
+  body.page-type-essay .book-hero-photo img{aspect-ratio:4/3}
+  body.page-type-essay .book-reading-column{padding:0 19px 2rem}
+  body.page-type-essay .book-prose-section{padding:2.1rem 0}
+  body.page-type-essay .book-prose-section>p{font-size:1.055rem;line-height:2.05;letter-spacing:0;text-align:start}
+  body.page-type-essay .book-pager>a{padding:22px 16px;min-height:110px}
+  body.page-type-essay .book-pager strong{font-size:1rem;line-height:1.5}
+  .reader-photo-appendix{margin:36px 12px 26px;padding:22px 14px;border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){.reader-essay-card,.essay-cover-main img,.essay-cover-side-card img{transition:none!important}}
