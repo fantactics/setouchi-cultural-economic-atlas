@@ -39,6 +39,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import { relatedEssaysFor } from '../../data/relatedEssayRecommendations.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.js';
+import { essayIndexPhotoOverrides } from '../../data/essayIndexPhotos.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -73,9 +74,14 @@ const publishedReadingPool=[
 ].filter(Boolean);
 const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedReadingPool,3)
   .map((item)=>{
-    const image=item.heroPhoto?.imageUrl ? item.heroPhoto :
-      photoById[cardPhotoId(item)] || photoById[item.heroPhotoId] ||
-      (item.sections||[]).flatMap((section)=>section.photoIds||[]).map((id)=>photoById[id]).find(Boolean);
+    // Match editorial cover choices used on the essay-index page.
+    const card=photoById[cardPhotoId(item)];
+    const image=essayIndexPhotoOverrides[item.slug]?.imageUrl
+      ? essayIndexPhotoOverrides[item.slug]
+      : card?.imageUrl ? card
+      : item.heroPhoto?.imageUrl ? item.heroPhoto
+      : (item.sections||[]).flatMap((section)=>section.photoIds||[])
+          .map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
     return {...item,photo:image,teaser:cardTeaser(item)};
   });
 
