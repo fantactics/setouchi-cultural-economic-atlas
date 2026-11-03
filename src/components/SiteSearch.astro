@@ -15,6 +15,7 @@ import { additionalPlaces } from '../data/additionalPlaces.js';
 import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
+const { essaysOnly = false } = Astro.props;
 const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,setouchiSushiEssay,setouchiShrimpEssay,aiRegionalPlanningEssay].filter(Boolean);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
@@ -43,7 +44,7 @@ const items=[
     region:article.place || article.region || '',
     text:JSON.stringify(article)
   })),
-  ...allResearch.map((chapter)=>({
+  ...(!essaysOnly ? allResearch : []).map((chapter)=>({
     type:'研究ノート',
     title:chapter.title || '',
     subtitle:chapter.subtitle || chapter.thesis || '',
@@ -51,8 +52,8 @@ const items=[
     region:'',
     text:JSON.stringify(chapter)
   })),
-  ...specialResearch.map((item)=>({type:'研究ノート',title:item[0],subtitle:item[1],href:item[2],region:'',text:item[3]})),
-  ...allPlaces.map((place)=>({
+  ...(!essaysOnly ? specialResearch : []).map((item)=>({type:'研究ノート',title:item[0],subtitle:item[1],href:item[2],region:'',text:item[3]})),
+  ...(!essaysOnly ? allPlaces : []).map((place)=>({
     type:'地域別',
     title:place.name || '',
     subtitle:place.subtitle || '',
@@ -66,14 +67,14 @@ const items=[
   <div class="atlas-search-head">
     <div>
       <div class="kicker">SEARCH THE ATLAS</div>
-      <h2>アトラスを検索</h2>
-      <p>エッセイ、研究ノート、地域別ページを横断して検索します。</p>
+      <h2>{essaysOnly ? 'エッセイを検索' : 'アトラスを検索'}</h2>
+      <p>{essaysOnly ? '旅先や食べものなど、気になるキーワードを入力してください。' : 'エッセイ、研究ノート、地域別ページを横断して検索します。'}</p>
     </div>
   </div>
   <div class="atlas-search-box">
     <label for="atlas-search-input">キーワード</label>
     <div class="atlas-search-input-row">
-      <input id="atlas-search-input" class="atlas-search-input" type="search" placeholder="例：塩田、タコ、造船、ため池、住吉神社" autocomplete="off" />
+      <input id="atlas-search-input" class="atlas-search-input" type="search" placeholder="例：尾道、島、タコ、みかん、造船" autocomplete="off" />
       <button class="atlas-search-clear" type="button">クリア</button>
     </div>
     <p class="atlas-search-status" aria-live="polite">キーワードを入力してください。</p>
