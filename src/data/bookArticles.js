@@ -1649,7 +1649,7 @@ export const bookArticles = [
   {
     slug:'oysters-taste-of-small-seas',
     part:'食は、土地を語る',
-    title:'牡蠣の筏が浮かぶ海は、どこも同じなのだろうか',
+    title:'牡蠣の筏が浮かぶ海',
     subtitle:'日生と広島湾――島と川と潮がつくる、二つの養殖の風景',
     cities:['日生','広島湾'],
     keywords:['牡蠣','日生','広島湾','養殖','一年牡蠣','植物プランクトン','河川','海域差','ガストロノミー'],
