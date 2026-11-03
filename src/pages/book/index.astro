@@ -103,9 +103,6 @@ const coverStories=coverSlugs
   .filter(Boolean);
 const featureStory=coverStories[0];
 const coverSide=coverStories.slice(1,3);
-const visualEssays=['kitan-strait-tai-to-shirasu','shimotsui-hijiki-peperoncino','shimotsui-tako-meshi'].map((slug)=>allBookArticles.find((a)=>a.slug===slug)).filter(Boolean);
-const visualFallback=allBookArticles.filter((a)=>!visualEssays.includes(a)).slice(0,3-visualEssays.length);
-const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 ---
 <BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
   <main class="essay-magazine">
@@ -153,7 +150,6 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
       })();
     </script>
 
-    <section><div class="essay-magazine-heading"><h2>写真から、旅を始める。</h2><p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p></div><div class="essay-feature-strip">{visualFeatures.map((article)=>(<a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}<div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div></a>))}</div></section>
 
     <section id="essay-all-themes">
       <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>地域も話題も異なる3篇を、各カテゴリから選びました。ほかの作品はタイトルから探せます。</p></div>
