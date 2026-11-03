@@ -2878,7 +2878,7 @@ export const bookArticles = [
       {id:6,title:'会社概要',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/profile.html'},
       {id:7,title:'社長メッセージ',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/topmessage.html'}
     ]
-  }
+  },
   {
     slug:'sawara-spring-two-gates',
     part:'食は、土地を語る',
@@ -2908,8 +2908,8 @@ export const bookArticles = [
       {
         heading:'浅い瀬は、魚が次の世代を残す場所でもある',
         paragraphs:[
-          {text:'春の水温が上がるころ、サワラは播磨灘や備讃瀬戸、燧灘などの産卵場へ向かう。水産庁の資料では、瀬戸内海中央部の中層水温がおよそ14度になる四月下旬から五月上旬に、産卵群が来遊すると説明されている。',refs:[3]},
-          {text:'海図に記された浅い瀬や島の並びは、船乗りには航行の条件であり、魚にとっては生活史の一部を支える環境になる。同じ地形を、人も魚も別の理由で利用してきた。',refs:[3,4]}
+          {text:'春の水温が上がるころ、サワラは播磨灘や備讃瀬戸、燧灘などの産卵場へ向かう。水産庁の整理資料には、瀬戸内海中央部の中層水温が14℃前後になる4月下旬から5月上旬に産卵群が来遊するとの記述がある。これは特定の資料による目安で、毎年すべての海域に共通する境界値ではない。',refs:[3]},
+          {text:'播磨灘の鹿ノ瀬周辺や燧灘西北部など、瀬戸内の産卵場は一様ではない。どこでも同じ季節に同じだけ魚が集まるわけでもない。島や瀬の並びをひとまとめにせず、海域ごとの水温と産卵の時期に目を向けると、目には見えない海の違いが浮かび上がる。',refs:[3,4]}
         ],
         photoIds:[]
       },
@@ -2939,7 +2939,6 @@ export const bookArticles = [
       }
     ],
     researchLinks:[
-      {label:'関連エッセイ｜瀬戸内海・生命の一年',href:'/setouchi-cultural-economic-atlas/book/setouchi-life-year/'},
       {label:'関連エッセイ｜煮干しとしらす',href:'/setouchi-cultural-economic-atlas/book/niboshi-shirasu-two-food-cultures/'}
     ],
     provisionalConclusion:'春のサワラは単に春が最も脂ののる魚だから食べられるのではない。外海側から東西の水道を通って瀬戸内海の産卵場へ移動する生活史と、各地の漁期・食習慣が重なった季節の魚である。水温、海峡、浅い瀬、漁法、食文化を一つの風景として読む。',
