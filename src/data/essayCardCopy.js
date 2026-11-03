@@ -100,7 +100,8 @@ export const essayCardCopy = {
     "teaser": "かつて海だった錦海塩田。広い土地を太陽光に使い直す。"
   },
   "sakaide-salt-fields-to-industry": {
-    "teaser": "工場が立つ海辺は、昔の塩田か、新しく造った陸地か。"
+    "teaser": "工場が立つ海辺は、昔の塩田か、新しく造った陸地か。",
+    "photoId": "photo-sakaide-bannosu"
   },
   "ako-salt-fields-to-city": {
     "teaser": "塩田がなくなったあと、工場と住宅地と公園が生まれた。"
