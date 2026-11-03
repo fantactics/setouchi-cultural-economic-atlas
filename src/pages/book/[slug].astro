@@ -39,7 +39,7 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import { relatedEssaysFor } from '../../data/relatedEssayRecommendations.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.js';
-import { essayIndexPhotoOverrides } from '../../data/essayIndexPhotos.js';
+import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../data/essayIndexPhotos.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -82,7 +82,7 @@ const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publish
       : item.heroPhoto?.imageUrl ? item.heroPhoto
       : (item.sections||[]).flatMap((section)=>section.photoIds||[])
           .map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
-    return {...item,photo:image,teaser:cardTeaser(item)};
+    return {...item,photo:image,photoContext:essayCardPhotoContext[item.slug] || null,teaser:cardTeaser(item)};
   });
 
 const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
@@ -207,7 +207,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       <div class="reader-related-grid">
         {relatedEssays.map((item)=><a class="reader-related-card" href={`/setouchi-cultural-economic-atlas/book/${item.slug}/`}>
           {item.photo?.imageUrl && <img src={item.photo.imageUrl} alt={item.photo.alt||item.title} loading="lazy" />}
-          <div><span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span><h3>{item.title}</h3><p>{item.teaser}</p><strong>読む →</strong></div>
+          <div><span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span><h3>{item.title}</h3><p>{item.teaser}</p>{item.photoContext && <small class="reader-related-photo-note">写真：{item.photoContext}</small>}<strong>読む →</strong></div>
         </a>)}
       </div>
     </section>}
