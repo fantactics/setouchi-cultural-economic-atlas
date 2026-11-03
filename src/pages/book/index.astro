@@ -26,10 +26,35 @@ import '../../styles/essay-magazine.css';
 const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay];
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
+// Use article photography first, then a place-matched or theme-matched image.
+// Fallback images are explicitly described as related scenery, never as the article location.
+const cityPlaceIds={
+  '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府':'hofu',
+  '引田':'hiketa','御手洗':'mitarai','尾道':'onomichi','今治':'imabari',
+  '加太':'kada','鳴門':'naruto','明石':'akashi','小豆島':'shodoshima'
+};
+const themeFallbackIds={
+  '海と陸は、人がつくった':'photo-sakaide-bannosu',
+  '土地は、何度でも使い直される':'photo-sakaide-bannosu',
+  'なぜ、船はここで止まったのか':'photo-mitarai-panorama',
+  '食は、土地を語る':'photo-akashi-uontana-octopus',
+  '捨てるものは、どこへ行くのか':'photo-ako-shionokuni-official',
+  '産業は、紡がれる':'photo-onomichi-channel-dock',
+  '富は、町に何を残したのか':'photo-takehara-town-official',
+  '町は、何度でもつくり直される':'photo-onomichi-panorama',
+  '移動は、地域を変える':'photo-imabari-kurushima',
+  '地域は、学習し続ける':'photo-onomichi-panorama'
+};
+const genericFallback=photoById['photo-onomichi-panorama'];
 const articlePhoto=(article)=>{
   if(article?.heroPhoto?.imageUrl) return article.heroPhoto;
   const ids=[cardPhotoId(article),article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
-  return ids.map((id)=>photoById[id]).find(Boolean) || null;
+  const articleSpecific=ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl);
+  if(articleSpecific) return articleSpecific;
+  const matchedPlace=(article?.cities || []).map((city)=>Object.entries(cityPlaceIds).find(([name])=>city.includes(name))?.[1]).find(Boolean);
+  const placePhoto=matchedPlace ? allPhotoEvidence.find((photo)=>photo.placeId===matchedPlace && photo.imageUrl) : null;
+  const related=placePhoto || photoById[themeFallbackIds[article?.part]] || genericFallback;
+  return related ? {...related,alt:`関連風景：${related.alt || related.title || '瀬戸内の風景'}（記事の現地写真とは限りません）`} : null;
 };
 const parts=[...new Set(allBookArticles.map((a)=>a.part))];
 const themeLabels={
@@ -149,6 +174,18 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section id="essay-all-themes">
       <div class="essay-magazine-heading"><h2>すべてのエッセイをめくる。</h2><p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p></div>
       {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{themeLabels[part] || part} <small>{allBookArticles.filter((a)=>a.part===part).length}篇</small></h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
+    </section>
+
+    <section class="reader-title-directory" id="essay-directory" aria-labelledby="essay-directory-title">
+      <div class="reader-title-directory-heading">
+        <span>ALL STORIES / DIRECTORY</span>
+        <h2 id="essay-directory-title">タイトルから探す。</h2>
+        <p>すべてのエッセイを、写真なしのタイトル一覧から探せます。全{allBookArticles.length}篇。</p>
+      </div>
+      {parts.map((part)=>(<div class="reader-title-directory-group">
+        <h3>{themeLabels[part] || part}</h3>
+        <ul>{allBookArticles.filter((article)=>article.part===part).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
+      </div>))}
     </section>
 
     <div class="reader-book-back"><a href="#reader-discovery-title">↑ テーマ選びへ戻る</a></div>
