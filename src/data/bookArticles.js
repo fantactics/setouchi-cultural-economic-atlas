@@ -2703,6 +2703,10 @@ export const bookArticles = [
             ]
           },
           {
+            "text": "この発電所が将来も続くかどうかは、まだ決まっていない。市の公表では土地の貸付期間は2038年10月までで、更新も可能とされている。発電を続ける場合も設備を入れ替える場合も、排水ポンプの仕事はなくならない。",
+            "refs": [2]
+          },
+          {
             "text": "牛窓の近くで広がるパネルの風景を見ると、塩田から発電所への変化が目に入る。その下には、海を締め切った堤防があり、水をくみ出すポンプがある。海だった場所を使い続けるという、もう一つの仕事が今も続いている。",
             "refs": [
               1,
@@ -3339,7 +3343,7 @@ export const bookArticles = [
   },
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
