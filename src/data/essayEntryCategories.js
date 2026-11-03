@@ -258,10 +258,6 @@ export const essayEntryBySlug = {
     "tourism",
     "sea"
   ],
-  "kojima-island-when-ruins-are-not-a-problem": [
-    "tourism",
-    "urban"
-  ],
   "setouchi-sushi-not-nigiri": [
     "food",
     "townscape"
