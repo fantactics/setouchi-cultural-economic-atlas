@@ -157,7 +157,7 @@ const jsonLd = structuredData || defaultStructuredData;
     <main>
       <slot />
       {isResearchDetail && <ResearchNoteOverview pathname={pathname} title={title} description={description} meta={researchMeta} />}
-      {researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
+      {!isEssayDetail && researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
       {contextualEssayLinks.length>0 && (
         <section class="section">
           <div class="program-section-head">
