@@ -61,6 +61,9 @@ export const essayCardCopy = {
     "teaser": "海に開いた城下町から、四国の玄関口へ。高松の水辺を歩く。",
     "photoId": "photo-takamatsu-seawater-moat"
   },
+  "tai-meshi-two-seas": {
+    "teaser": "来島海峡の速い潮と、黒潮が届く宇和海。二つの海に二つの鯛めし。"
+  },
   "shimotsui-tako-meshi": {
     "teaser": "下津井の港に干しダコが並ぶ。その漁の先に、倉敷のたこめしがある。",
     "photoId": "photo-shimotsui-dried-octopus"
