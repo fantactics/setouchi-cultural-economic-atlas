@@ -91,7 +91,8 @@ export const essayEntryBySlug = {
   ],
   "mitarai-economy-of-waiting": [
     "townscape",
-    "ports"
+    "ports",
+    "tourism"
   ],
   "shimonoseki-resource-made-by-market": [
     "food",
