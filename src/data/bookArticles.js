@@ -2720,7 +2720,7 @@ export const bookArticles = [
     ],
     researchLinks:[
       {label:"比較編｜四つの塩田都市の異なるその後",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
-      {label:"考察編｜太陽光発電所の次の用途",href:'/setouchi-cultural-economic-atlas/book/after-the-solar-farm/'}
+      {label:"研究ノート｜2038年以降の土地と設備の管理",href:'/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/'}
     ],
     provisionalConclusion:"錦海塩田跡地は、海を締め切り、排水を続けることで生まれた土地である。塩づくりが終わり、産業廃棄物処分も終わっても、浸水を防ぐ管理の必要は残った。瀬戸内市は跡地を取得し、貸付と安全・安心施設の整備を組み合わせて太陽光発電所を誘致した。この作品の主題は、発電所がいつ終わるかではなく、人工の土地を維持しながら何に使い直したかという現在に至る選択である。",
     openQuestions:['錦海塩田の土地利用を年代別GISで復元できるか','塩田・産廃処分場・湿地・太陽光という各時代の生態系機能を比較できるか','2038年前後の貸付期間終了後にこの土地はどのように利用されるのか'],
