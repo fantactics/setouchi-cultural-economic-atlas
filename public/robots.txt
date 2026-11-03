@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fantactics.github.io/setouchi-cultural-economic-atlas/sitemap-index.xml
+Sitemap: https://fantactics.github.io/setouchi-cultural-economic-atlas/sitemap.xml
