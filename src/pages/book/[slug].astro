@@ -65,6 +65,7 @@ const archivedResearchHref={
   'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
 }[article.slug] || null;
 const isTravelogue=article.narrativeMode==='travelogue';
+const isNarrativeEssay=isTravelogue || article.narrativeMode==='sketch';
 const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
@@ -171,14 +172,14 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
 
     <div class="book-reading-column">
       {sections.map((section)=><section class="book-prose-section">
-        {!isTravelogue && <div class="book-section-no">{section.number}</div>}
+        {!isNarrativeEssay && <div class="book-section-no">{section.number}</div>}
         <h2>{section.heading}</h2>
         {section.paragraphs.map((p)=><p>{p.text}{p.refs && p.refs.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>)}
       </section>)}
 
       {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
-      {!isTravelogue && !usesNarrativeEnding && article.provisionalConclusion && <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>}
-      {!isTravelogue && !usesNarrativeEnding && article.openQuestions?.length>0 && <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>}
+      {!isNarrativeEssay && !usesNarrativeEnding && article.provisionalConclusion && <section class="book-small-conclusion"><div class="kicker">暫定的なまとめ</div><p>{article.provisionalConclusion}</p></section>}
+      {!isNarrativeEssay && !usesNarrativeEnding && article.openQuestions?.length>0 && <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>}
       <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
     </div>
 
