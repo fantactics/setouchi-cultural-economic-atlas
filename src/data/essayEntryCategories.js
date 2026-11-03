@@ -170,10 +170,6 @@ export const essayEntryBySlug = {
     "agriculture",
     "food"
   ],
-  "citrus-prunings-to-soil": [
-    "agriculture",
-    "food"
-  ],
   "kinkai-salt-field-to-solar": [
     "industry",
     "sea"
