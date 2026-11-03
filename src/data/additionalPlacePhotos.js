@@ -1,4 +1,18 @@
 export const additionalPlacePhotos = {
+  shodoshima: [
+    {
+      id:'photo-chomeiso-botanboufu-example',
+      title:'長命草（ボタンボウフウ）の葉',
+      caption:'長命草の葉の形を示す参考写真。2025年2月、沖縄県石垣市で撮影。小豆島の栽培風景ではない。',
+      insight:'醤油粕を肥料として使う相手は、海岸にも自生する塩に強い植物。土地固有の栽培の様子は本文と取材資料で確認する。',
+      imageUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Peucedanum_japonicum_Leaflets_with_obtuse_tip_and_obtuse_base_planted_on_the_field_in_Ishigaki%2C_Okinawa.jpg/960px-Peucedanum_japonicum_Leaflets_with_obtuse_tip_and_obtuse_base_planted_on_the_field_in_Ishigaki%2C_Okinawa.jpg',
+      alt:'長命草（ボタンボウフウ）の緑色の葉。小豆島ではなく石垣島で撮影された植物の参考写真',
+      author:'M108t',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Peucedanum_japonicum_Leaflets_with_obtuse_tip_and_obtuse_base_planted_on_the_field_in_Ishigaki,_Okinawa.jpg',
+      license:'CC BY 4.0',
+      licenseUrl:'https://creativecommons.org/licenses/by/4.0/'
+    }
+  ],
   kada: [
     {
       id:'photo-kada-kitan-strait',
