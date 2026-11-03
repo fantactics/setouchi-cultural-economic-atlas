@@ -62,7 +62,7 @@ export const essayCardCopy = {
     "photoId": "photo-takamatsu-seawater-moat"
   },
   "shimotsui-tako-meshi": {
-    "teaser": "夜明け前にタコ壺を上げる漁師。そのタコは船上のご飯から、児島の店の味へ。",
+    "teaser": "下津井の港に干しダコが並ぶ。その漁の先に、倉敷のたこめしがある。",
     "photoId": "photo-shimotsui-dried-octopus"
   },
   "oysters-taste-of-small-seas": {
