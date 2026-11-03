@@ -236,3 +236,14 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
 @media(max-width:780px){.reader-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-related-head{align-items:start;flex-direction:column}}
 @media(max-width:560px){.reader-related-essays{margin:28px auto 42px;padding:30px 15px 10px}.reader-related-grid{grid-template-columns:1fr;gap:12px}.reader-related-card{display:grid;grid-template-columns:36% minmax(0,1fr)}.reader-related-card>img{height:100%;min-height:155px;aspect-ratio:auto}.reader-related-card>div{padding:13px;gap:6px}.reader-related-card h3{font-size:1.05rem}.reader-related-card p{font-size:.78rem;line-height:1.6}.reader-related-head h2{font-size:1.75rem}}
 @media(prefers-reduced-motion:reduce){.reader-related-card{transition:none}}
+
+/* Complete, lightweight chapter navigation for the essay magazine. */
+.reader-theme-shortcuts{position:sticky;top:64px;z-index:9;display:flex;align-items:center;gap:18px;background:rgba(250,251,247,.97);border:1px solid #e0e8df;border-radius:13px;margin:0 0 33px;padding:12px 17px;box-shadow:0 5px 18px rgba(31,65,52,.06);backdrop-filter:blur(10px)}
+.reader-theme-shortcuts>span{flex:0 0 auto;color:#526c61;font-size:.77rem;font-weight:700}
+.reader-theme-shortcuts>div{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain;padding:2px 0 5px}
+.reader-theme-shortcuts a{white-space:nowrap;flex:0 0 auto;border:1px solid #d6e4d9;border-radius:99px;padding:7px 12px;background:#fff;color:#2e6050;font-size:.83rem;text-decoration:none}
+.reader-theme-shortcuts a:hover,.reader-theme-shortcuts a:focus-visible{background:#e8f3eb;outline-offset:2px}
+.essay-magazine .essay-theme{scroll-margin-top:153px}
+.essay-magazine .essay-theme-head h3 small{font-family:system-ui,sans-serif;font-size:.76rem;font-weight:500;color:#718679;white-space:nowrap;margin-left:.5rem}
+@media(max-width:650px){.reader-theme-shortcuts{top:0;display:block;padding:10px 12px;margin-bottom:22px}.reader-theme-shortcuts>span{display:block;margin-bottom:6px}.reader-theme-shortcuts a{padding:7px 10px;font-size:.78rem}.essay-magazine .essay-theme{scroll-margin-top:90px}}
+@media(prefers-reduced-transparency:reduce){.reader-theme-shortcuts{background:#fafbf7;backdrop-filter:none}}
