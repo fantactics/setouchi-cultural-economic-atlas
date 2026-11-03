@@ -60,6 +60,13 @@ const articlePhoto=(article)=>{
 const categories=essayEntryCategories;
 const entranceId=(entry)=>`entrance-${entry.id}`;
 const essaysIn=(entry)=>essaysForEntrance(allBookArticles,entry.id);
+const primaryEssaysIn=(entry)=>essaysIn(entry).filter((article)=>entryIdsForEssay(article)[0]===entry.id);
+const relatedEssaysIn=(entry)=>essaysIn(entry).filter((article)=>entryIdsForEssay(article)[0]!==entry.id);
+const galleryEssaysIn=(entry)=>primaryEssaysIn(entry).slice(0,3);
+const otherPrimaryEssaysIn=(entry)=>primaryEssaysIn(entry).slice(3);
+// A title appears once in the directory, under its primary entry category.
+const directoryCount=categories.reduce((total,entry)=>total+primaryEssaysIn(entry).length,0);
+if(directoryCount!==allBookArticles.length) throw new Error('Each essay needs one primary directory entry');
 const essayCategoryLabel=(article)=>categories.find((entry)=>entry.id===entryIdsForEssay(article)[0])?.label || '瀬戸内';
 const uncategorized=allBookArticles.filter((article)=>!essayEntryBySlug[article.slug] || entryIdsForEssay(article).some((id)=>!categories.some((entry)=>entry.id===id)));
 if(uncategorized.length) throw new Error(`Essay entrance categorization missing: ${uncategorized.map((article)=>article.slug).join(', ')}`);
@@ -97,7 +104,7 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div><h1>次の旅は、<br />どんな物語から？</h1></div><p>港町を歩く。島の味に出会う。海辺の工場を眺める。<br />瀬戸内の風景が、少し違って見えてくるエッセイを集めました。</p></section>
 
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><a href="#essay-all-themes">全カテゴリを見る ↓</a></div>
+      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="#essay-directory">全61篇のタイトル一覧 ↓</a></div></div>
       <div class="reader-discovery-grid">
         {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
           <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
@@ -111,9 +118,9 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
       </div>
     </section>
 
-    <nav class="reader-theme-shortcuts" aria-label="エッセイのテーマへ移動">
+    <nav class="reader-theme-shortcuts" aria-label="エッセイのカテゴリへ移動">
       <span>カテゴリへジャンプ</span>
-      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}</div>
+      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}<a class="reader-directory-jump" href="#essay-directory">タイトル一覧</a></div>
     </nav>
 
     <div class="reader-feature-heading"><span>EDITOR'S PICKS</span><h2>今日は、この一篇から。</h2><p>写真とタイトルに惹かれたら、気軽に開いてみてください。</p></div>
@@ -141,16 +148,35 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section><div class="essay-magazine-heading"><h2>写真から、旅を始める。</h2><p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p></div><div class="essay-feature-strip">{visualFeatures.map((article)=>(<a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}<div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div></a>))}</div></section>
 
     <section id="essay-all-themes">
-      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>一篇の物語には複数の入口があります。同じ作品が別のカテゴリにも登場します。</p></div>
+      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>まずは各カテゴリの3篇から。ほかの作品や、別の入口から読める作品はタイトルから探せます。</p></div>
       {categories.map((entry)=>(<section class="essay-theme reader-essay-theme" id={entranceId(entry)}>
-        <div class="essay-theme-head"><h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3><p>{entry.description}</p></div>
-        <div class="essay-theme-grid">{essaysIn(entry).map((article)=>{
-          const photo=articlePhoto(article);
-          return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            {photo && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
-            <div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div>
-          </a>);
-        })}</div>
+        <div class="essay-theme-head">
+          <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
+          <p>{entry.description}</p>
+        </div>
+        <div class="essay-theme-grid reader-category-featured">
+          {galleryEssaysIn(entry).map((article)=>{
+            const photo=articlePhoto(article);
+            return <a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+              {photo && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
+              <div class="essay-theme-card-body">
+                <h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span>
+              </div>
+            </a>;
+          })}
+        </div>
+        {otherPrimaryEssaysIn(entry).length>0 && (
+          <details class="reader-category-more">
+            <summary>このカテゴリのほかの作品 <span>{otherPrimaryEssaysIn(entry).length}篇</span></summary>
+            <ul>{otherPrimaryEssaysIn(entry).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
+          </details>
+        )}
+        {relatedEssaysIn(entry).length>0 && (
+          <details class="reader-category-more reader-category-related">
+            <summary>この風景からも読める作品 <span>{relatedEssaysIn(entry).length}篇</span></summary>
+            <ul>{relatedEssaysIn(entry).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
+          </details>
+        )}
       </section>))}
 
     </section>
@@ -159,11 +185,11 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
       <div class="reader-title-directory-heading">
         <span>ALL STORIES / DIRECTORY</span>
         <h2 id="essay-directory-title">タイトルから探す。</h2>
-        <p>全{allBookArticles.length}篇。複数のカテゴリに載る作品もあります。</p>
+        <p>全{allBookArticles.length}篇を重複なしで掲載。各作品は、その風景に最も近いカテゴリに一度だけ登場します。</p>
       </div>
       {categories.map((entry)=>(<div class="reader-title-directory-group">
-        <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
-        <ul>{essaysIn(entry).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
+        <h3>{entry.label} <small>{primaryEssaysIn(entry).length}篇</small></h3>
+        <ul>{primaryEssaysIn(entry).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
       </div>))}
     </section>
 
