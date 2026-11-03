@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteSearch from '../../components/SiteSearch.astro';
+import { essayEntryCategories, essayEntryBySlug, entryIdsForEssay, essaysForEntrance } from '../../data/essayEntryCategories.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import '../../styles/reader-navigation.css';
 import { orderedBookArticles } from '../../data/bookArticles.js';
@@ -56,33 +57,12 @@ const articlePhoto=(article)=>{
   const related=placePhoto || photoById[themeFallbackIds[article?.part]] || genericFallback;
   return related ? {...related,alt:`関連風景：${related.alt || related.title || '瀬戸内の風景'}（記事の現地写真とは限りません）`} : null;
 };
-const parts=[...new Set(allBookArticles.map((a)=>a.part))];
-const themeLabels={
-  '海と陸は、人がつくった':'海と陸',
-  '土地は、何度でも使い直される':'変わる風景',
-  'なぜ、船はここで止まったのか':'港と船',
-  '食は、土地を語る':'食べる・味わう',
-  '捨てるものは、どこへ行くのか':'ものの行き先',
-  '産業は、紡がれる':'仕事とものづくり',
-  '富は、町に何を残したのか':'古い町並み',
-  '町は、何度でもつくり直される':'町を歩く',
-  '移動は、地域を変える':'旅と移動',
-  '地域は、学習し続ける':'これからの地域'
-};
-const themeId=(part)=>'theme-'+parts.indexOf(part);
-
-const chapterDescriptions={
-  '海と陸は、人がつくった':'海岸線は、昔から同じ形だったわけではない。塩田、干拓、港、河川改修――人が海と陸の境界に手を入れてきた痕跡をたどる。',
-  '土地は、何度でも使い直される':'塩田が工場になり、工場が町になる。土地に積み重なった過去をたどると、今の風景が少し違って見えてくる。',
-  'なぜ、船はここで止まったのか':'潮を待ち、風を待ち、人と物が集まった港。船が「止まる」ことから生まれた町の時間を歩く。',
-  '食は、土地を語る':'鯛、タコ、牡蠣、柑橘、醤油。ひと皿の向こう側にある海、畑、漁、加工、商いを味わう。',
-  '捨てるものは、どこへ行くのか':'捨てられるはずのものが、別の生業を支えることがある。副産物から、土地の循環をのぞいてみる。',
-  '産業は、紡がれる':'造船、繊維、鉱山、化学。製品は変わっても、町に残った技術や人のつながりが次の仕事を生むことがある。',
-  '富は、町に何を残したのか':'商いで生まれた富は、家、庭、寺、学校、祭りへ姿を変える。町並みに刻まれた経済の記憶を読む。',
-  '町は、何度でもつくり直される':'駅ができ、港が移り、道が変わる。人の流れが変わるたび、町の中心も静かに動いてきた。',
-  '移動は、地域を変える':'橋、自転車、船、鉄道。移動の仕方が変わると、店も景色も、人と土地との距離も変わっていく。',
-  '地域は、学習し続ける':'変化の速い時代に、地域はどう考え続けるのか。未来を決め打ちせず、試し、比べ、考え直すことをめぐるエッセイ。'
-};
+const categories=essayEntryCategories;
+const entranceId=(entry)=>`entrance-${entry.id}`;
+const essaysIn=(entry)=>essaysForEntrance(allBookArticles,entry.id);
+const essayCategoryLabel=(article)=>categories.find((entry)=>entry.id===entryIdsForEssay(article)[0])?.label || '瀬戸内';
+const uncategorized=allBookArticles.filter((article)=>!essayEntryBySlug[article.slug] || entryIdsForEssay(article).some((id)=>!categories.some((entry)=>entry.id===id)));
+if(uncategorized.length) throw new Error(`Essay entrance categorization missing: ${uncategorized.map((article)=>article.slug).join(', ')}`);
 
 const coverSlugs=[
   'kojima-from-cotton-to-jeans',
@@ -103,7 +83,7 @@ const coverStories=coverSlugs
   .filter(Boolean)
   .map((article)=>{
     const photo=articlePhoto(article);
-    return photo ? {imageUrl:photo.imageUrl,alt:photo.alt,part:article.part,title:article.title,subtitle:cardTeaser(article),href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`} : null;
+    return photo ? {imageUrl:photo.imageUrl,alt:photo.alt,part:essayCategoryLabel(article),title:article.title,subtitle:cardTeaser(article),href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`} : null;
   })
   .filter(Boolean);
 const featureStory=coverStories[0];
@@ -117,22 +97,11 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div><h1>次の旅は、<br />どんな物語から？</h1></div><p>港町を歩く。島の味に出会う。海辺の工場を眺める。<br />瀬戸内の風景が、少し違って見えてくるエッセイを集めました。</p></section>
 
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">気になるテーマから、旅に出る。</h2><p>読む順番は自由。今の気分に合う入口を選んでください。</p></div><a href="#essay-all-themes">全テーマを見る ↓</a></div>
+      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><a href="#essay-all-themes">全カテゴリを見る ↓</a></div>
       <div class="reader-discovery-grid">
-        {[
-          ['食は、土地を語る','食べる・味わう','鯛、タコ、醤油。食卓から海へ'],
-          ['なぜ、船はここで止まったのか','港と船','潮待ちの港と海の道'],
-          ['富は、町に何を残したのか','古い町並み','寺、商家、白壁の路地'],
-          ['産業は、紡がれる','ものづくり','造船、繊維、仕事の変化'],
-          ['土地は、何度でも使い直される','変わる風景','塩田、干拓、海辺の土地'],
-          ['捨てるものは、どこへ行くのか','ものの行き先','みかん、牡蠣、魚のその後'],
-          ['海と陸は、人がつくった','海と陸','干拓、塩田、変わった海岸線'],
-          ['町は、何度でもつくり直される','町を歩く','駅、城、港が動かした町'],
-          ['移動は、地域を変える','旅と移動','自転車、船、渡っていく人'],
-          ['地域は、学習し続ける','これからの地域','変わり続ける町と未来の選び方']
-        ].map(([part,label,description])=><a class="reader-discovery-tile" href={`#${themeId(part)}`}>
-          <span>{String(allBookArticles.filter((item)=>item.part===part).length).padStart(2,'0')} ESSAYS</span>
-          <strong>{label}</strong><small>{description}</small><em aria-hidden="true">↗</em>
+        {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
+          <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
+          <strong>{entry.label}</strong><small>{entry.description}</small><em aria-hidden="true">↗</em>
         </a>)}
       </div>
       <div class="reader-discovery-search" id="essay-search">
@@ -143,8 +112,8 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     </section>
 
     <nav class="reader-theme-shortcuts" aria-label="エッセイのテーマへ移動">
-      <span>テーマへジャンプ</span>
-      <div>{parts.map((part)=><a href={`#${themeId(part)}`}>{themeLabels[part]||part}</a>)}</div>
+      <span>カテゴリへジャンプ</span>
+      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}</div>
     </nav>
 
     <div class="reader-feature-heading"><span>EDITOR'S PICKS</span><h2>今日は、この一篇から。</h2><p>写真とタイトルに惹かれたら、気軽に開いてみてください。</p></div>
@@ -172,22 +141,32 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section><div class="essay-magazine-heading"><h2>写真から、旅を始める。</h2><p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p></div><div class="essay-feature-strip">{visualFeatures.map((article)=>(<a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}<div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div></a>))}</div></section>
 
     <section id="essay-all-themes">
-      <div class="essay-magazine-heading"><h2>すべてのエッセイをめくる。</h2><p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p></div>
-      {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{themeLabels[part] || part} <small>{allBookArticles.filter((a)=>a.part===part).length}篇</small></h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
+      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>一篇の物語には複数の入口があります。同じ作品が別のカテゴリにも登場します。</p></div>
+      {categories.map((entry)=>(<section class="essay-theme reader-essay-theme" id={entranceId(entry)}>
+        <div class="essay-theme-head"><h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3><p>{entry.description}</p></div>
+        <div class="essay-theme-grid">{essaysIn(entry).map((article)=>{
+          const photo=articlePhoto(article);
+          return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
+            {photo && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
+            <div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div>
+          </a>);
+        })}</div>
+      </section>))}
+
     </section>
 
     <section class="reader-title-directory" id="essay-directory" aria-labelledby="essay-directory-title">
       <div class="reader-title-directory-heading">
         <span>ALL STORIES / DIRECTORY</span>
         <h2 id="essay-directory-title">タイトルから探す。</h2>
-        <p>すべてのエッセイを、写真なしのタイトル一覧から探せます。全{allBookArticles.length}篇。</p>
+        <p>全{allBookArticles.length}篇。複数のカテゴリに載る作品もあります。</p>
       </div>
-      {parts.map((part)=>(<div class="reader-title-directory-group">
-        <h3>{themeLabels[part] || part}</h3>
-        <ul>{allBookArticles.filter((article)=>article.part===part).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
+      {categories.map((entry)=>(<div class="reader-title-directory-group">
+        <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
+        <ul>{essaysIn(entry).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{article.title}</a></li>)}</ul>
       </div>))}
     </section>
 
-    <div class="reader-book-back"><a href="#reader-discovery-title">↑ テーマ選びへ戻る</a></div>
+    <div class="reader-book-back"><a href="#reader-discovery-title">↑ カテゴリ選びへ戻る</a></div>
   </main>
 </BaseLayout>
