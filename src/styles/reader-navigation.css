@@ -196,3 +196,17 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
  .reader-discovery-search h3{font-size:1.15rem}
  .reader-feature-heading{margin:38px 0 20px}
 }
+
+/* Featured essay is a card, not a second page-level heading. */
+.essay-magazine .essay-cover-copy h2.js-essay-main-title{
+  font-family:var(--book-serif,serif);
+  font-size:clamp(2.05rem,4vw,3.85rem);
+  font-weight:500;
+  line-height:1.25;
+  letter-spacing:-.035em;
+  max-width:920px;
+  margin:.35rem 0 .9rem;
+}
+@media(max-width:600px){
+ .essay-magazine .essay-cover-copy h2.js-essay-main-title{font-size:2.2rem}
+}
