@@ -33,16 +33,26 @@ import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.
 import '../../styles/gastronomy-gallery.css';
 
 export function getStaticPaths(){
+  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay];
   const archivedBookArticles=['tadano-shido-industrial-ecosystem','miura-matsuyama-small-boiler-revolution'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
-  const allBookArticles=[...orderedBookArticles,...archivedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay];
-  return allBookArticles.map((article,index)=>({
-    params:{slug:article.slug},
-    props:{article,prev:index>0?allBookArticles[index-1]:null,next:index<allBookArticles.length-1?allBookArticles[index+1]:null}
-  }));
+  return [
+    ...publishedBookArticles.map((article,index)=>({
+      params:{slug:article.slug},
+      props:{article,prev:index>0?publishedBookArticles[index-1]:null,next:index<publishedBookArticles.length-1?publishedBookArticles[index+1]:null}
+    })),
+    ...archivedBookArticles.map((article)=>({
+      params:{slug:article.slug},
+      props:{article,prev:null,next:null}
+    }))
+  ];
 }
 
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
+const archivedResearchHref={
+  'tadano-shido-industrial-ecosystem':'/setouchi-cultural-economic-atlas/chapters/tadano-shido-industrial-ecosystem-note/',
+  'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
+}[article.slug] || null;
 const isTravelogue=article.narrativeMode==='travelogue';
 const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
@@ -82,6 +92,11 @@ const sections=article.sections.map((section,index)=>{
 ---
 <BaseLayout title={`${article.title} | 地域エッセイ`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
   <article class="book-article">
+    {archivedResearchHref && <section class="book-open-questions">
+      <div class="kicker">資料保存版</div>
+      <p>この記事は、企業沿革と技術史の資料性を保つため旧URLに保存しています。現在の掲載区分は研究ノートです。</p>
+      <div class="chapter-related-grid"><a class="compare-button" href={archivedResearchHref}>研究ノート版を読む →</a></div>
+    </section>}
     <header class="book-article-header">
       <div class="book-article-series">{isKojimaIslandEssay ? '鴻島シリーズ' : article.part}</div>
       <h1>{article.title}</h1>
