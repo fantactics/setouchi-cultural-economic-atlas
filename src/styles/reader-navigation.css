@@ -302,3 +302,16 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
   .reader-category-more ul{grid-template-columns:1fr;gap:7px}
   .reader-title-directory{scroll-margin-top:55px}
 }
+
+/* Keep photo-source transparency available without adding visual noise to the essay directory. */
+.reader-cover-credits{margin:22px 0 32px;padding:13px 17px;border:1px solid #e3eae2;border-radius:11px;background:#f8faf6;color:#50675c}
+.reader-cover-credits summary{cursor:pointer;list-style:none;font-size:.8rem;font-weight:600;padding:5px 0}
+.reader-cover-credits summary::-webkit-details-marker{display:none}
+.reader-cover-credits summary::before{content:'+';display:inline-block;width:18px;color:#56786b;font-size:1rem}
+.reader-cover-credits[open] summary::before{content:'−'}
+.reader-cover-credits p{font-size:.79rem;line-height:1.7;margin:12px 0;color:#657970}
+.reader-cover-credits ul{margin:0;padding:5px 0 5px 24px;columns:2;column-gap:24px}
+.reader-cover-credits li{break-inside:avoid;margin-bottom:8px;font-size:.77rem;line-height:1.6}
+.reader-cover-credits a{color:#34645a;text-underline-offset:3px}
+.reader-cover-credits :is(summary,a):focus-visible{outline:2px solid #76b5a0;outline-offset:3px}
+@media(max-width:650px){.reader-cover-credits{padding:11px 13px}.reader-cover-credits ul{columns:1}}
