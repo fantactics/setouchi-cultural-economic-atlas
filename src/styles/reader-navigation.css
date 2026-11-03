@@ -131,3 +131,21 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
   .reader-photo-appendix{margin:36px 12px 26px;padding:22px 14px;border-radius:12px}
 }
 @media(prefers-reduced-motion:reduce){.reader-essay-card,.essay-cover-main img,.essay-cover-side-card img{transition:none!important}}
+
+/* Short descriptions stay editorially consistent across the magazine. */
+.reader-essay-card p,.essay-magazine .essay-theme-card-body p{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+  line-height:1.75;
+}
+.essay-magazine .essay-theme-card-body p{min-height:3.5em;margin-bottom:.65rem}
+.essay-magazine .essay-theme-card img,.reader-essay-card>img{object-position:center;transition:transform .35s ease}
+.essay-magazine .essay-theme-card:hover img,.reader-essay-card:hover>img{transform:scale(1.025)}
+.essay-magazine .essay-theme-card-body span{color:#777;font-size:.77rem}
+.essay-magazine .essay-theme-head h3{color:#294b49}
+.essay-magazine .essay-theme-head p{max-width:750px}
+.essay-magazine .essay-theme-card-body{display:flex;flex-direction:column}
+.essay-magazine .essay-theme-card-body span{margin-top:auto}
+@media(prefers-reduced-motion:reduce){.essay-magazine .essay-theme-card img,.reader-essay-card>img{transition:none!important}}
