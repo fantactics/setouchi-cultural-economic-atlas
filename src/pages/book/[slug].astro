@@ -9,6 +9,12 @@ import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { tomoTwoActPortEssay } from '../../data/tomoTwoActPortEssay.js';
 import { portSystemEssays } from '../../data/portSystemEssays.js';
 import { niboshiShirasuEssay } from '../../data/niboshiShirasuEssay.js';
+import { setouchiSushiEssay } from '../../data/setouchiSushiEssay.js';
+import { setouchiShrimpEssay } from '../../data/setouchiShrimpEssay.js';
+import { setouchiLifeYearEssay } from '../../data/setouchiLifeYearEssay.js';
+import { setouchiItinerantTradeBoatsEssay } from '../../data/setouchiItinerantTradeBoatsEssay.js';
+import { setouchiShipMaterialsEssay } from '../../data/setouchiShipMaterialsEssay.js';
+import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
@@ -36,7 +42,7 @@ import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
 export function getStaticPaths(){
-  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay];
+  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
   const archivedBookArticles=['tadano-shido-industrial-ecosystem','miura-matsuyama-small-boiler-revolution'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
   return [
     ...publishedBookArticles.map((article,index)=>({
@@ -62,7 +68,7 @@ const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.value
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const publishedReadingPool=[
   ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
-  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay
+  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay
 ].filter(Boolean);
 const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedReadingPool,3)
   .map((item)=>{
