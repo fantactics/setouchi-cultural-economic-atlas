@@ -93,10 +93,7 @@ export const essayCardCopy = {
     "teaser": "伊吹島のイワシは、脂がのったとき別の行き先を見つけた。"
   },
   "citrus-pomace-cascade": {
-    "teaser": "ジュースにならなかったみかんの皮は、牛の餌にもなる。"
-  },
-  "citrus-prunings-to-soil": {
-    "teaser": "みかんの木を剪定した枝は、石垣の畑でどう使われるのか。"
+    "teaser": "ジュースの搾りかすも、剪定した枝も。愛媛のみかんには、収穫後も仕事が続く。"
   },
   "kinkai-salt-field-to-solar": {
     "teaser": "かつて海だった錦海塩田。広い土地を太陽光に使い直す。"
