@@ -118,7 +118,7 @@ const editorialPhotoCredits=[...new Map(
     <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div><h1>次の旅は、<br />どんな物語から？</h1></div><p>港町を歩く。島の味に出会う。海辺の工場を眺める。<br />瀬戸内の風景が、少し違って見えてくるエッセイを集めました。</p></section>
 
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="#essay-directory">全61篇のタイトル一覧 ↓</a></div></div>
+      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
       <div class="reader-discovery-grid">
         {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
           <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
