@@ -56,7 +56,8 @@ export const essayCardCopy = {
     "teaser": "塩田はなくなった。それでも塩をつくり続ける赤穂の仕事。"
   },
   "takamatsu-sea-castle-to-gateway": {
-    "teaser": "海に開いた城下町から、四国の玄関口へ。高松の水辺を歩く。"
+    "teaser": "海に開いた城下町から、四国の玄関口へ。高松の水辺を歩く。",
+    "photoId": "photo-takamatsu-seawater-moat"
   },
   "shimotsui-tako-meshi": {
     "teaser": "潮の速い海で獲れるタコは、どうしてこの土地のご飯になったのか。",
