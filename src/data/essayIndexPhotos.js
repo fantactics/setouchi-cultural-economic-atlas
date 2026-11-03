@@ -59,3 +59,16 @@ export const essayIndexPhotoOverrides = {
     "sourcePage": "https://commons.wikimedia.org/wiki/File:%E9%B4%BB%E5%B3%B6.jpg"
   }
 };
+
+// Optional, restrained visual-source context on feature cards. Be explicit when
+// the scene is illustrative or the photograph is from another nearby region.
+export const essayCardPhotoContext = {
+  "setouchi-sushi-not-nigiri": "ちらし寿司の参考写真",
+  "oysters-taste-of-small-seas": "広島湾の養殖筏",
+  "hijiki-tidal-time": "ヒジキの生育姿",
+  "setouchi-shrimp-middle-layer": "ヨシエビの参考写真",
+  "mikan-slope-and-varieties": "松山市の柑橘園（比較景観）",
+  "tai-meshi-two-seas": "宇和島鯛めし",
+  "setouchi-itinerant-trade-boats": "1911年頃の絵画",
+  "kojima-island-bubble-villas-second-life": "鴻島の航空写真"
+};
