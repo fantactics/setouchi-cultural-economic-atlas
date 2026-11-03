@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteSearch from '../../components/SiteSearch.astro';
 import { essayEntryCategories, essayEntryBySlug, entryIdsForEssay, essaysForEntrance } from '../../data/essayEntryCategories.js';
+import { essayFeaturedByEntrance } from '../../data/essayFeaturedPicks.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import '../../styles/reader-navigation.css';
 import { orderedBookArticles } from '../../data/bookArticles.js';
@@ -32,7 +33,8 @@ const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const cityPlaceIds={
   '赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府':'hofu',
   '引田':'hiketa','御手洗':'mitarai','尾道':'onomichi','今治':'imabari',
-  '加太':'kada','鳴門':'naruto','明石':'akashi','小豆島':'shodoshima'
+  '加太':'kada','鳴門':'naruto','明石':'akashi','小豆島':'shodoshima',
+  '鴻島':'hinase','日生':'hinase'
 };
 const themeFallbackIds={
   '海と陸は、人がつくった':'photo-sakaide-bannosu',
@@ -61,9 +63,15 @@ const categories=essayEntryCategories;
 const entranceId=(entry)=>`entrance-${entry.id}`;
 const essaysIn=(entry)=>essaysForEntrance(allBookArticles,entry.id);
 const primaryEssaysIn=(entry)=>essaysIn(entry).filter((article)=>entryIdsForEssay(article)[0]===entry.id);
-const relatedEssaysIn=(entry)=>essaysIn(entry).filter((article)=>entryIdsForEssay(article)[0]!==entry.id);
-const galleryEssaysIn=(entry)=>primaryEssaysIn(entry).slice(0,3);
-const otherPrimaryEssaysIn=(entry)=>primaryEssaysIn(entry).slice(3);
+const featuredSlugsFor=(entry)=>essayFeaturedByEntrance[entry.id] || [];
+const galleryEssaysIn=(entry)=>featuredSlugsFor(entry).map((slug)=>allBookArticles.find((article)=>article.slug===slug)).filter(Boolean);
+const otherPrimaryEssaysIn=(entry)=>primaryEssaysIn(entry).filter((article)=>!featuredSlugsFor(entry).includes(article.slug));
+const relatedEssaysIn=(entry)=>essaysIn(entry).filter((article)=>entryIdsForEssay(article)[0]!==entry.id && !featuredSlugsFor(entry).includes(article.slug));
+const invalidFeatured=categories.filter((entry)=>{
+  const slugs=featuredSlugsFor(entry);
+  return slugs.length!==3 || new Set(slugs).size!==3 || slugs.some((slug)=>!essaysIn(entry).some((article)=>article.slug===slug));
+});
+if(invalidFeatured.length) throw new Error(`Invalid featured essays: ${invalidFeatured.map((entry)=>entry.id).join(', ')}`);
 // A title appears once in the directory, under its primary entry category.
 const directoryCount=categories.reduce((total,entry)=>total+primaryEssaysIn(entry).length,0);
 if(directoryCount!==allBookArticles.length) throw new Error('Each essay needs one primary directory entry');
@@ -148,7 +156,7 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <section><div class="essay-magazine-heading"><h2>写真から、旅を始める。</h2><p>食べもの、港、島、町並み。まず一枚の写真を眺めて、その向こう側にある土地の話へ。</p></div><div class="essay-feature-strip">{visualFeatures.map((article)=>(<a class="essay-photo-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{articlePhoto(article) && <img src={articlePhoto(article).imageUrl} alt={articlePhoto(article).alt} loading="lazy" />}<div class="essay-card-copy"><small>{article.cities?.join('・')}</small><h2>{article.title}</h2></div></a>))}</div></section>
 
     <section id="essay-all-themes">
-      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>まずは各カテゴリの3篇から。ほかの作品や、別の入口から読める作品はタイトルから探せます。</p></div>
+      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>地域も話題も異なる3篇を、各カテゴリから選びました。ほかの作品はタイトルから探せます。</p></div>
       {categories.map((entry)=>(<section class="essay-theme reader-essay-theme" id={entranceId(entry)}>
         <div class="essay-theme-head">
           <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
