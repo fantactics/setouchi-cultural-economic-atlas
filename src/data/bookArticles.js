@@ -2879,9 +2879,87 @@ export const bookArticles = [
       {id:7,title:'社長メッセージ',publisher:'三浦工業株式会社',url:'https://www.miuraz.co.jp/corporate/topmessage.html'}
     ]
   }
+  {
+    slug:'sawara-spring-two-gates',
+    part:'食は、土地を語る',
+    title:'春のサワラは、どこから瀬戸内海へ来るのか',
+    subtitle:'一皿の魚から、紀伊水道と豊後水道、産卵の瀬をたどる',
+    cities:['瀬戸内海','大阪湾','播磨灘','備讃瀬戸','燧灘','岡山'],
+    keywords:['サワラ','鰆','回遊','春','産卵','紀伊水道','豊後水道','播磨灘','備讃瀬戸','燧灘','水温','流し網','食文化'],
+    heroPhotoId:null,
+    lead:'春になると、瀬戸内の食卓にサワラがのぼる。「鰆」という字を見ると、春が旬なのだと思いたくなる。けれど、春のサワラが特別なのは、身の脂だけではない。冬を外海側で過ごした魚が、紀伊水道と豊後水道から内海へ入り、産卵する場所を目指す季節なのだ。皿の上の一切れから目を上げれば、海の東西に開いた入口と、島々の間に広がる浅い瀬が見えてくる。春の味は、どんな海の動きと結びついているのだろう。',
+    sections:[
+      {
+        heading:'一皿の向こうで、海の季節が動いている',
+        paragraphs:[
+          {text:'岡山ではサワラを春の魚として親しみ、卵や白子も味わってきた。一方、脂がのる時期としては冬が挙げられる。同じ魚でも、何をおいしさとするかによって「旬」の意味は違う。',refs:[1,2]},
+          {text:'春のサワラに土地らしさが宿る理由を探すなら、まず海の中へ目を向けたい。魚がいつ、どこから来て、何のためにその海域を通るのか。食卓の季節を決めているのは、暦の文字だけではない。',refs:[1,2]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'東西二つの水道が、春の入口になる',
+        paragraphs:[
+          {text:'瀬戸内海のサワラは、冬には東側で紀伊水道以南の太平洋沿岸、西側で伊予灘や豊後水道周辺などに分布する。春になると、産卵する成魚が東の紀伊水道、西の豊後水道を経て内海へ向かう。',refs:[1,3]},
+          {text:'瀬戸内海は、島に囲まれた一枚の静かな水面ではない。外の海とつながる二つの入口があり、魚はそこを通って季節ごとに姿を現す。海峡や水道は、人間の船だけでなく魚の移動にも関わる道なのだ。',refs:[1,3]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'浅い瀬は、魚が次の世代を残す場所でもある',
+        paragraphs:[
+          {text:'春の水温が上がるころ、サワラは播磨灘や備讃瀬戸、燧灘などの産卵場へ向かう。水産庁の資料では、瀬戸内海中央部の中層水温がおよそ14度になる四月下旬から五月上旬に、産卵群が来遊すると説明されている。',refs:[3]},
+          {text:'海図に記された浅い瀬や島の並びは、船乗りには航行の条件であり、魚にとっては生活史の一部を支える環境になる。同じ地形を、人も魚も別の理由で利用してきた。',refs:[3,4]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'漁師は、魚の通る季節に網を入れる',
+        paragraphs:[
+          {text:'サワラを獲る方法の一つが、流し網である。愛媛県は、潮の流れに合わせて長い網を流し、泳いできた魚を絡め取る漁法を紹介している。網の使い方にも、魚が通る場所と潮の動きへの理解が要る。',refs:[5]},
+          {text:'ただし、同じ瀬戸内海でも、漁期も漁法も地域によって一様ではない。春に来遊する魚を待つ海もあれば、秋の移動を利用する海もある。魚が一つの海を巡ることと、どの港でも同じ仕事が生まれることは別なのである。',refs:[3,5]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'春の魚を、春だけの魚にしない',
+        paragraphs:[
+          {text:'サワラは春に産卵のため来遊し、秋には外海へ向かう移動がみられる。春の食文化と、秋から冬に脂を楽しむ食文化は矛盾しない。人々は魚の異なる季節の姿を、それぞれの土地の味へ変えてきた。',refs:[1,2,5]},
+          {text:'一方で、その季節の恵みは当たり前に続くものではない。瀬戸内海のサワラは漁獲量が大きく落ち込んだ時期があり、各府県が協力して資源管理や種苗放流に取り組んできた。旬を楽しむことは、魚が次の世代を残せる海を考えることにもつながる。',refs:[5,6]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'皿の上から、二つの海の入口を思う',
+        paragraphs:[
+          {text:'春のサワラを前にすると、魚の名にある「春」の字に目がいく。けれど、その季節の背後では、冬の海から内海へ向かう移動があり、水温の変化があり、島々の間の産卵場がある。',refs:[1,3]},
+          {text:'次に瀬戸内の海を眺めるときは、波の下にも道があることを思い出したい。紀伊水道と豊後水道から入ってくる魚が、春の食卓と、土地ごとに違う漁の時間をつくってきた。目には見えない海の季節が、一皿の中に届いている。',refs:[1,3,5]}
+        ],
+        photoIds:[]
+      }
+    ],
+    researchLinks:[
+      {label:'関連エッセイ｜瀬戸内海・生命の一年',href:'/setouchi-cultural-economic-atlas/book/setouchi-life-year/'},
+      {label:'関連エッセイ｜煮干しとしらす',href:'/setouchi-cultural-economic-atlas/book/niboshi-shirasu-two-food-cultures/'}
+    ],
+    provisionalConclusion:'春のサワラは単に春が最も脂ののる魚だから食べられるのではない。外海側から東西の水道を通って瀬戸内海の産卵場へ移動する生活史と、各地の漁期・食習慣が重なった季節の魚である。水温、海峡、浅い瀬、漁法、食文化を一つの風景として読む。',
+    openQuestions:[
+      '備讃瀬戸・播磨灘・燧灘の産卵場と季節水温を一枚の図にできるか。',
+      '岡山の卵・白子を食べる文化と各海域の漁期の対応を史料で確かめられるか。',
+      '近年の資源評価に基づいて、産卵群の移動と漁獲状況がどの程度変わったか。'
+    ],
+    sources:[
+      {id:1,title:'サワラの紹介',publisher:'岡山県',url:'https://www.pref.okayama.jp/page/detail-22449.html'},
+      {id:2,title:'サワラ',publisher:'愛媛県 FISHERIES KINGDOM EHIME',url:'https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_sawara.html'},
+      {id:3,title:'サワラ瀬戸内海系群資源回復計画',publisher:'水産庁',url:'https://www.jfa.maff.go.jp/j/suisin/s_kouiki/setouti/pdf/s23-7.pdf'},
+      {id:4,title:'主要対象生物の発育段階の生態的知見の収集・整理',publisher:'水産庁',url:'https://www.jfa.maff.go.jp/j/gyoko_gyozyo/g_thema/attach/pdf/sub40-1.pdf'},
+      {id:5,title:'サワラの漁法と季節',publisher:'愛媛県',url:'https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_sawara.html'},
+      {id:6,title:'「サワラ」を増やす(1)',publisher:'大阪府立環境農林水産総合研究所',url:'https://www.knsk-osaka.jp/suisan/shien/sawara/sawara1.html'}
+    ]
+  },
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","tadano-shido-industrial-ecosystem","miura-matsuyama-small-boiler-revolution","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","tadano-shido-industrial-ecosystem","miura-matsuyama-small-boiler-revolution","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
