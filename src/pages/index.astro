@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteSearch from '../components/SiteSearch.astro';
+import { cardTeaser, cardPhotoId } from '../data/essayCardCopy.js';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { kadaEssays } from '../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
@@ -23,7 +24,7 @@ const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTou
 const photoById=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map((p)=>[p.id,p]));
 const essayPhoto=(article)=>{
   if(article.heroPhoto?.imageUrl) return article.heroPhoto;
-  const ids=[article.heroPhotoId,...(article.sections||[]).flatMap((section)=>section.photoIds||[])].filter(Boolean);
+  const ids=[cardPhotoId(article),article.heroPhotoId,...(article.sections||[]).flatMap((section)=>section.photoIds||[])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl);
 };
 const recommendedSlugs=['kojima-from-cotton-to-jeans','soy-sauce-lees-to-chomeiso','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island'];
@@ -42,7 +43,7 @@ const coverPhoto=coverArticle ? essayPhoto(coverArticle) : null;
 
     {coverArticle && <a class="reader-home-feature" href={`/setouchi-cultural-economic-atlas/book/${coverArticle.slug}/`}>
       {coverPhoto?.imageUrl && <img src={coverPhoto.imageUrl} alt={coverPhoto.alt || coverArticle.title} fetchpriority="high" />}
-      <div class="reader-home-feature-copy"><span>まずは、この一篇から</span><h2>{coverArticle.title}</h2><p>{coverArticle.subtitle}</p><strong>読む →</strong></div>
+      <div class="reader-home-feature-copy"><span>まずは、この一篇から</span><h2>{coverArticle.title}</h2><p>{cardTeaser(coverArticle)}</p><strong>読む →</strong></div>
     </a>}
 
     <section class="reader-home-section" aria-labelledby="home-picks">
@@ -52,7 +53,7 @@ const coverPhoto=coverArticle ? essayPhoto(coverArticle) : null;
           const photo=essayPhoto(article);
           return <a class="reader-essay-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
             {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
-            <div><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h3>{article.title}</h3><p>{article.subtitle}</p><strong>読む →</strong></div>
+            <div><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h3>{article.title}</h3><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
           </a>;
         })}
       </div>
