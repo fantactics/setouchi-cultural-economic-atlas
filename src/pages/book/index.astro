@@ -118,7 +118,7 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
     <div class="reader-feature-heading"><span>EDITOR'S PICKS</span><h2>今日は、この一篇から。</h2><p>写真とタイトルに惹かれたら、気軽に開いてみてください。</p></div>
 
     <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
-      {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h1 class="js-essay-main-title">{featureStory.title}</h1><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
+      {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h2 class="js-essay-main-title">{featureStory.title}</h2><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
       <div class="essay-cover-side">{coverSide.map((story,index)=>(<a class={`essay-cover-side-card js-essay-side js-essay-side-${index}`} href={story.href}><img class="js-essay-side-image" src={story.imageUrl} alt={story.alt} loading="eager" /><div class="essay-card-copy"><small class="js-essay-side-kicker">{story.part}</small><h2 class="js-essay-side-title">{story.title}</h2></div></a>))}</div>
     </section>
 
