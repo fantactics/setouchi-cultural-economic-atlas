@@ -58,14 +58,6 @@ export const essayIndexPhotoOverrides = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
     "sourcePage": "https://commons.wikimedia.org/wiki/File:Kou_island_in_Bizen,_Okayama,Japan_%E5%B2%A1%E5%B1%B1%E7%9C%8C%E5%82%99%E5%89%8D%E5%B8%82%E6%97%A5%E7%94%9F%E7%94%BA%E6%97%A5%E7%94%9F,%E9%B4%BB%E5%B3%B6_380.JPG"
-  },
-  "kojima-island-when-ruins-are-not-a-problem": {
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/%E9%B4%BB%E5%B3%B6.jpg?width=1280",
-    "alt": "鴻島の空中写真。個別の廃墟を撮影したものではなく、別荘群を含む島の土地利用を示す",
-    "author": "国土地理院（地図・空中写真閲覧サービス）",
-    "license": "出典明記（国土地理院）",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:%E9%B4%BB%E5%B3%B6.jpg",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:%E9%B4%BB%E5%B3%B6.jpg"
   }
 };
 
