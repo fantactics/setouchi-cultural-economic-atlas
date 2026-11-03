@@ -79,7 +79,7 @@ const contextualEssayLinks = pathname.endsWith('/chapters/island-use-intensity/'
 const siteOrigin = Astro.site?.origin || Astro.url.origin;
 const siteRoot = new URL(baseUrl, siteOrigin).href;
 const canonicalUrl = new URL(pathname, siteOrigin).href;
-const sitemapUrl = new URL(`${baseUrl}sitemap-index.xml`, siteOrigin).href;
+const sitemapUrl = new URL(`${baseUrl}sitemap.xml`, siteOrigin).href;
 const resolvedImage = image?.startsWith('http://') || image?.startsWith('https://')
   ? image
   : new URL(image || baseUrl, siteOrigin).href;
