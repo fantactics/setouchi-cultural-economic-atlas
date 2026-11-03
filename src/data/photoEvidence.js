@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    id:'photo-karihama-citrus-terraces',
+    placeId:'seiyo-karihama',
+    nodeKey:'formation',
+    theme:'agriculture',
+    title:'狩浜の石積み柑橘段畑と宇和海',
+    caption:'愛媛県西予市明浜町狩浜の石積み柑橘段畑。八幡浜・西宇和の個別農園ではなく、宇和海沿岸で共有される斜面農業の比較景観。',
+    insight:'海に向かって石積みの階段が続く様子から、平地の乏しい沿岸で土地を築き、柑橘を育てる人々の仕事を読み取れる。',
+    claimType:'fact',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Karihama%20Terrace%20Field%2003.jpg?width=1600',
+    alt:'愛媛県西予市狩浜、宇和海に向かう石積みの柑橘段畑',
+    author:'Indiana jo',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Karihama_Terrace_Field_03.jpg',
+    license:'CC BY-SA 4.0',
+    licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',
+    sourceType:'Wikimedia Commons',
+    takenAt:'2021-08-06',
+    verifiedAt:'2026-11-03'
+  },
+  {
     id:'photo-ako-shionokuni-official',
     placeId:'ako',
     nodeKey:'gene',
