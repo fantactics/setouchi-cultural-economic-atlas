@@ -178,7 +178,6 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       </section>)}
 
       {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
-      {!isNarrativeEssay && !usesNarrativeEnding && article.openQuestions?.length>0 && <section class="book-open-questions"><div class="kicker">まだ分からないこと</div><ul>{article.openQuestions.map((q)=><li>{q}</li>)}</ul></section>}
       <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
     </div>
 
