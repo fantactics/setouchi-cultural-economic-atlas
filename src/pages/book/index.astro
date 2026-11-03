@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteSearch from '../../components/SiteSearch.astro';
+import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import '../../styles/reader-navigation.css';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
@@ -27,7 +28,7 @@ const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos)
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const articlePhoto=(article)=>{
   if(article?.heroPhoto?.imageUrl) return article.heroPhoto;
-  const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
+  const ids=[cardPhotoId(article),article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find(Boolean) || null;
 };
 const parts=[...new Set(allBookArticles.map((a)=>a.part))];
@@ -79,7 +80,7 @@ const coverStories=coverSlugs
   .filter(Boolean)
   .map((article)=>{
     const photo=articlePhoto(article);
-    return photo ? {imageUrl:photo.imageUrl,alt:photo.alt,part:article.part,title:article.title,subtitle:article.subtitle,href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`} : null;
+    return photo ? {imageUrl:photo.imageUrl,alt:photo.alt,part:article.part,title:article.title,subtitle:cardTeaser(article),href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`} : null;
   })
   .filter(Boolean);
 const featureStory=coverStories[0];
@@ -124,7 +125,7 @@ const visualFeatures=[...visualEssays,...visualFallback].slice(0,3);
 
     <section id="essay-themes">
       <div class="essay-magazine-heading"><h2>気になるテーマをめくる。</h2><p>食から入っても、港から入っても、産業から入ってもいい。読み進めるうちに、別の風景へつながっていきます。</p></div>
-      {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{part}</h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{article.subtitle}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
+      {parts.map((part)=>(<section class="essay-theme reader-essay-theme" id={themeId(part)}><div class="essay-theme-head"><h3>{part}</h3><p>{chapterDescriptions[part] || '瀬戸内の風景と暮らしを、少し違う角度から眺めます。'}</p></div><div class="essay-theme-grid">{allBookArticles.filter((a)=>a.part===part).map((article)=>{ const photo=articlePhoto(article); return (<a class="essay-theme-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>{photo && <img src={photo.imageUrl} alt={photo.alt} loading="lazy" />}<div class="essay-theme-card-body"><h4>{article.title}</h4><p>{cardTeaser(article)}</p><span>{article.cities?.join(' / ')}</span></div></a>) })}</div></section>))}
     </section>
 
     <div class="reader-book-back"><a href="#essay-search">↑ キーワード検索へ戻る</a></div>
