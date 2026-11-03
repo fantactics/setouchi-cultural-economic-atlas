@@ -2718,7 +2718,7 @@ export const bookArticles = [
         heading:"撤去するなら、パネルの行き先も決める",
         paragraphs:[
           {text:'使用済み太陽光パネルにはガラスやアルミ、銀などの資源が含まれる一方、種類によって鉛、セレン、カドミウムなどを含む場合がある。適切な情報管理と処理が必要になる。',refs:[2]},
-          {text:'国は10kW以上の事業用太陽光設備について、原則として売電収入から廃棄等費用を差し引いて外部に積み立てる制度を設けている。さらに2026年5月には、使用済み太陽電池の再資源化を進める法律が成立した。だからといって、錦海の撤去費用が十分に確保されていると個別に確認できたわけではない。',refs:[3]},
+          {text:'国は10kW以上の事業用太陽光設備について、原則として売電収入から廃棄等費用を差し引いて外部に積み立てる制度を設けている。さらに2026年5月29日には、使用済み太陽電池の再資源化を進める法律が成立し、6月5日に公布された。だからといって、錦海の撤去費用が十分に確保されていると個別に確認できたわけではない。',refs:[3,4,5]},
           {text:'つまり太陽光発電そのものも、サーキュラーエコノミーの対象になる。土地の再利用と、設備素材の再利用を同時に考えなければならない。',refs:[]}
         ],
         photoIds:['photo-solar-sharing-comparative']
@@ -2738,7 +2738,9 @@ export const bookArticles = [
     sources:[
       {id:1,title:'錦海塩田跡地の活用について',publisher:'瀬戸内市',url:'https://www.city.setouchi.lg.jp/soshiki/21/3996.html'},
       {id:2,title:'2040年、太陽光パネルのゴミが大量に出てくる？',publisher:'資源エネルギー庁',url:'https://www.enecho.meti.go.jp/about/special/johoteikyo/taiyoukouhaiki.html'},
-      {id:3,title:'エネルギー白書2021 第3部第3章第2節',publisher:'資源エネルギー庁',url:'https://www.enecho.meti.go.jp/about/whitepaper/2021/html/3-3-2.html'}
+      {id:3,title:'エネルギー白書2025｜再生可能エネルギー設備の廃棄・リサイクル',publisher:'資源エネルギー庁',url:'https://www.enecho.meti.go.jp/about/whitepaper/2025/html/2-3-1.html'},
+      {id:4,title:'錦海塩田跡地の土地貸付と安全・安心事業',publisher:'瀬戸内市',url:'https://www.city.setouchi.lg.jp/soshiki/21/3996.html'},
+      {id:5,title:'太陽光パネルリサイクル関連｜2026年の法律成立・公布',publisher:'環境省',url:'https://www.env.go.jp/recycle/recycling/renewable/page_00345.html'}
     ]
   },
 
