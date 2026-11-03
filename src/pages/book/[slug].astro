@@ -88,7 +88,17 @@ const sectionPhotos=article.sections.flatMap((section)=>section.photoIds||[])
   .map((id)=>photoById[id]).filter((photo)=>photo?.imageUrl);
 const distinctPhotoKeys=new Set();
 const appendixPhotos=sectionPhotos.filter((photo)=>{
-  const key=photo.sourcePage||photo.imageUrl||photo.id;
+  const key=photo.imageUrl||photo.sourcePage||photo.id;
+  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
+  distinctPhotoKeys.add(key);return true;
+});
+const supplementaryPhotos=essayPhotos.filter((photo)=>{
+  const key=photo.imageUrl||photo.sourcePage||photo.id;
+  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
+  distinctPhotoKeys.add(key);return true;
+});
+const foodPhotos=gastronomyPhotos.filter((photo)=>{
+  const key=photo.imageUrl||photo.sourcePage||photo.id;
   if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
   distinctPhotoKeys.add(key);return true;
 });
@@ -136,19 +146,19 @@ const appendixPhotos=sectionPhotos.filter((photo)=>{
       <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
     </div>
 
-    {(appendixPhotos.length>0 || essayPhotos.length>0 || (isGastronomy && gastronomyPhotos.length>0)) && <section class="reader-photo-appendix" aria-label="記事の写真">
-      <h2>写真で、もう一度旅する。</h2>
+    {(appendixPhotos.length>0 || supplementaryPhotos.length>0 || (isGastronomy && foodPhotos.length>0)) && <section class="reader-photo-appendix" aria-label="記事の写真">
+      <h2>旅の写真帳</h2>
       <p>本文に登場した土地や仕事を、写真でたどります。比較用の写真には説明を添えています。</p>
       {appendixPhotos.length>0 && <div class="reader-photo-appendix-grid">{appendixPhotos.map((photo)=><figure>
         <a href={photo.sourcePage||photo.imageUrl} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt||photo.title} loading="lazy" /></a>
         <figcaption><strong>{photo.title}</strong>{photo.caption && <span>{photo.caption}</span>}{photo.insight && <span>写真から考える：{photo.insight}</span>}<small>Photo: {photo.author||'出典参照'} / <a href={photo.licenseUrl||photo.sourcePage||photo.imageUrl} target="_blank" rel="noreferrer">{photo.license||'出典'}</a></small></figcaption>
       </figure>)}</div>}
     </section>}
-        {essayPhotos.length>0 && <EssayPhotoGallery photos={essayPhotos} title={isTravelogue ? "写真でたどる小魚の旅" : `${article.cities[0] || '地域'}を写真で読む`} description={isTravelogue ? "魚の姿、加工の仕事、食卓の一皿。海沿いの旅を、写真でもたどってみる。" : undefined} />}
+        {supplementaryPhotos.length>0 && <EssayPhotoGallery photos={supplementaryPhotos} title={isTravelogue ? "写真でたどる小魚の旅" : `${article.cities[0] || '地域'}を写真で読む`} description={isTravelogue ? "魚の姿、加工の仕事、食卓の一皿。海沿いの旅を、写真でもたどってみる。" : undefined} />}
 
-    {isGastronomy && gastronomyPhotos.length>0 && <section class="gastronomy-photo-atlas" aria-label="料理と食材の写真">
+    {isGastronomy && foodPhotos.length>0 && <section class="gastronomy-photo-atlas" aria-label="料理と食材の写真">
       <div class="gastronomy-photo-head"><div><span>FOOD / INGREDIENTS</span><h2>料理と食材から読む</h2></div><p>風景だけでなく、食材そのもの、料理の完成形、生産・加工の場を並べます。土地の自然条件が、人の仕事と調理を介してどのような「食べられる形」へ変わったのかを写真から追います。</p></div>
-      <div class="gastronomy-photo-mosaic">{gastronomyPhotos.map((photo,index)=><figure class:list={['gastronomy-photo-card',index===0&&'feature']}><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span>{photo.insight && <em>写真から考える：{photo.insight}</em>}<small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>)}</div>
+      <div class="gastronomy-photo-mosaic">{foodPhotos.map((photo,index)=><figure class:list={['gastronomy-photo-card',index===0&&'feature']}><a href={photo.sourcePage} target="_blank" rel="noreferrer"><img src={photo.imageUrl} alt={photo.alt} loading="lazy" /></a><figcaption><strong>{photo.title}</strong><span>{photo.caption}</span>{photo.insight && <em>写真から考える：{photo.insight}</em>}<small>Photo: {photo.author} / <a href={photo.licenseUrl || photo.sourcePage} target="_blank" rel="noreferrer">{photo.license}</a></small></figcaption></figure>)}</div>
       <p class="gastronomy-photo-note">「比較資料」と記した写真は、当該地域で撮影されたものではなく、食材・料理法・作業形態を比較するために掲載しています。</p>
     </section>}
 
