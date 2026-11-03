@@ -2418,213 +2418,207 @@ export const bookArticles = [
     ]
   },
   {
-    slug:'citrus-pomace-cascade',
-    part:'捨てずに循環させる取り組み',
-    title:'みかんを搾ったあと、皮は何になる',
-    subtitle:'七味唐辛子、牛の飼料、新しい食品素材へ',
-    cities:['松山','愛媛'],
-    keywords:['サーキュラーエコノミー','みかん','搾汁粕','サイレージ','飼料','セルロースナノファイバー','MaCSIE','カスケード利用'],
-    heroPhotoId:'photo-ehime-beni-madonna',
-    lead:"愛媛のみかんは、果実のまま売られるだけでなく、ジュースにもなる。えひめ飲料によれば、みかんを搾ると重さのおよそ半分が皮や果肉などの「搾汁粕」として残る。2023年度には4,185トン。では、ジュースにならなかった半分はどこへ行くのだろう。乾燥させて七味唐辛子の原料になる皮があり、発酵させて牛の餌になる搾りかすもある。さらに、果皮から新しい食品素材をつくる会社も現れた。",
-    sections:[
-      {
-        "heading": "ジュースにならない、もう半分",
-        "paragraphs": [
-          {
-            "text": "愛媛の柑橘を搾る工場では、果汁のほかに皮や薄皮、果肉が残る。えひめ飲料が公表した2023年度の搾汁粕は4,185トン。みかんを搾ると、その重量のおよそ半分がこうした残りものになるという。",
-            "refs": [
-              1
-            ]
-          },
-          {
-            "text": "その一部は外皮を乾かして粉にした「陳皮」になり、七味唐辛子などに使われる。ジュースに入らない皮にも、香りを生かす仕事があった。",
-            "refs": [
-              1
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-ehime-beni-madonna"
-        ]
-      },
-      {
-        "heading": "乾かすのをやめ、牛の餌にする",
-        "paragraphs": [
-          {
-            "text": "残る搾汁粕も、以前から乾燥させて家畜の飼料にしていた。ただ、水分の多い皮や果肉を乾かすには大量の燃料が必要だった。そこでえひめ飲料は2011年に乾燥設備を廃止し、袋に密封して発酵させる「サイレージ方式」に切り替えた。",
-            "refs": [
-              1
-            ]
-          },
-          {
-            "text": "できた飼料は、主に四国や中国・九州の一部の畜産農家へ送られている。2023年度の搾汁粕のおよそ90％は飼料に利用されたという。ジュースの工場を出たみかんが、牛の食事にもなっている。",
-            "refs": [
-              1
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-ehime-citrus-orchard"
-        ]
-      },
-      {
-        "heading": "果皮の繊維が、新しい食品素材になる",
-        "paragraphs": [
-          {
-            "text": "愛媛製紙は、柑橘などの搾汁粕に残る植物繊維を細かく加工し、「MaCSIE（マクシー）」という素材を2021年に発売した。紙づくりで培った技術を生かし、食品や化粧品向けの材料にしている。",
-            "refs": [
-              2
-            ]
-          },
-          {
-            "text": "その使い道の一つが、果実の風味を生かす飲料だ。愛媛製紙の紹介には、宝酒造の「丸おろし夏みかん」にMaCSIEが採用された事例がある。果汁を搾ったあとに残る皮が、今度は果実の香りや風味を支える素材になる。ただし、えひめ飲料の搾汁粕がこの商品の原料になったと確認できたわけではない。",
-            "refs": [
-              2
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "一つの果実に、いくつもの行き先",
-        "paragraphs": [
-          {
-            "text": "外皮は七味唐辛子の陳皮に、搾りかすは発酵飼料になって牛舎へ、果皮の繊維は食品や化粧品の素材になる。いずれも愛媛で確かめられる取り組みだが、同じ工場の搾りかすがすべてこの順番で使われるという意味ではない。",
-            "refs": [
-              1,
-              2
-            ]
-          },
-          {
-            "text": "愛媛のジュースを飲むとき、瓶の中に入らなかった果実のことも考えてみたい。あの皮や果肉には、牛を育てたり、料理に香りを添えたり、別の飲み物の風味を支えたりする行き先がある。",
-            "refs": [
-              1,
-              2
-            ]
-          }
-        ],
-        "photoIds": []
-      }
-    ],
-    researchLinks:[
-      {label:'商品写真｜愛媛製紙 MaCSIEと採用商品',href:'https://www.ehimepaper.co.jp/products/development/macsie/'},
-      {label:'商品写真｜宝酒造「丸おろし夏みかん」（2023年）',href:'https://www.takarashuzo.co.jp/news/1188017_1999.html'},
-      {label:'工程写真｜えひめ飲料の搾汁粕利用',href:'https://www.ehime-inryo.co.jp/company/environmental.html'}
-    ],
-    provisionalConclusion:"えひめ飲料の搾汁粕処理は、単なる再利用技術の成功ではなく、乾燥に必要だった燃料と設備の問題から、密封・発酵による保存と牛への供給へ方法を変えた物語でもある。愛媛製紙のセルロースナノファイバーは別の利用可能性を示すが、両社を単一の供給経路として描く根拠はまだない。大量利用と新素材開発、それぞれを支える人と施設を通じて、みかん産地の風景を読み直す。",
-    openQuestions:['えひめ飲料の最新年度の搾汁粕量と飼料利用率はどのように変化したか','乾燥飼料とサイレージを比較した実際の燃料費・輸送費・CO2収支はどうか','MaCSIE等の素材用途が、県内の搾汁粕をどの程度利用しているか'],
-    sources:[
-      {id:1,title:'環境対策―搾汁粕の有効利用への取組み',publisher:'株式会社えひめ飲料',url:'https://www.ehime-inryo.co.jp/company/environmental.html'},
-      {id:2,title:'MaCSIE®',publisher:'愛媛製紙株式会社',url:'https://www.ehimepaper.co.jp/products/development/macsie/'}
-    ]
-  },
-  {
-    slug:'citrus-prunings-to-soil',
-    part:'捨てずに循環させる取り組み',
-    title:'みかんの石垣に残る枝',
-    subtitle:'切った枝を牛舎の床に、炭にして柑橘畑へ',
-    cities:['愛媛','佐田岬'],
-    keywords:['サーキュラーエコノミー','柑橘','剪定枝','敷料','堆肥','バイオ炭','炭素固定','土壌再生'],
-    heroPhotoId:'photo-karihama-citrus-terraces',
-    lead:"宇和海に面する愛媛の斜面には、石垣に支えられたみかん畑が広がる。果実を収穫したあとも、木の手入れは終わらない。剪定で切った枝はどうなるのだろう。愛媛県では、枝を細かくして牛舎の床に敷き、使い終えたら堆肥にする試験が行われた。さらに佐田岬半島の伊方町では、地元の農家が枝などを炭にし、柑橘畑の土へ戻す取り組みを始めている。みかんの木を離れた枝に、二つの行き先ができた。",
-    sections:[
-      {
-        "heading": "石垣の畑から、枝を運び出す",
-        "paragraphs": [
-          {
-            "text": "宇和海沿いの柑橘畑は、急な斜面に石垣を積んでつくられてきた。みかんの木は、日当たりや風通しを整えるために枝を切る。果実だけでなく、剪定枝も毎年生まれる。",
-            "refs": [
-              4
-            ]
-          },
-          {
-            "text": "坂の多い畑では、枝を集めて運ぶこと自体が一仕事だ。その枝を、捨てずに使える場所はないだろうか。",
-            "refs": [
-              1,
-              4
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-karihama-citrus-terraces"
-        ]
-      },
-      {
-        "heading": "細かくした枝が、牛の寝床になる",
-        "paragraphs": [
-          {
-            "text": "愛媛県畜産研究センターは、伊予柑、温州みかん、紅まどんなの剪定枝と葉を細かく粉砕し、おが粉の代わりに牛舎の床に敷く試験を行った。枝からつくった敷料にはクッション性があったが、水分が多くなると繊維が固まり、保水性が落ちる課題も見つかった。",
-            "refs": [
-              1,
-              3
-            ]
-          },
-          {
-            "text": "試験では、牛舎で使った剪定枝の敷料を積み、定期的に切り返して約80日後に堆肥にした。枝が牛の足元を支え、その後は土に使える材料になる。ただし、県の研究結果は、この方法が広く農家に普及したという意味ではない。",
-            "refs": [
-              1,
-              3
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "佐田岬では、枝を炭にして畑へ",
-        "paragraphs": [
-          {
-            "text": "佐田岬半島の伊方町名取地区では、柑橘農家「ユウギボウシ愛媛」が、剪定枝や防風林の間伐材を炭にする取り組みを進めている。2025年度の県事業で炭化炉の貸与を受け、地元農家4戸が炭づくりに参加していると、四国EPOは2026年2月に紹介した。",
-            "refs": [
-              2,
-              5
-            ]
-          },
-          {
-            "text": "つくったバイオ炭を柑橘畑に入れ、土の状態や炭素の貯留を調べている。近くの高校生は、炭を表面にまく場合と土の中に入れる場合の違いを試しているという。枝は、畑に戻るまでに人の手と研究を経ている。",
-            "refs": [
-              5
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "果実のない季節も、畑の仕事は続く",
-        "paragraphs": [
-          {
-            "text": "牛舎の敷料にしてから堆肥にする道と、炭にして畑に入れる道。どちらも、木を剪定して生まれた枝を別の材料に変える工夫だ。ただし前者は県の試験であり、後者も効果を確かめながら進めている取り組みで、すべての剪定枝が利用されているわけではない。",
-            "refs": [
-              1,
-              2,
-              5
-            ]
-          },
-          {
-            "text": "海に向かって重なるみかんの石垣を眺めると、目を引くのは実った果実だろう。けれども、その木を整えるために切った枝も、牛舎や畑へ向かう。実りの季節の外にも、みかん畑の物語は続いている。",
-            "refs": [
-              1,
-              4,
-              5
-            ]
-          }
-        ],
-        "photoIds": []
-      }
-    ],
-    researchLinks:[
-      {label:'実験写真｜愛媛県・剪定枝の粉砕と牛舎での敷料利用',href:'https://www.pref.ehime.jp/uploaded/attachment/2223.pdf'},
-      {label:'現地写真｜佐田岬の炭化炉と柑橘畑',href:'https://4epo.jp/information/shikoku-no-osusume/36299.html'}
-    ],
-    provisionalConclusion:'愛媛の柑橘剪定枝については、牛舎の敷料利用と堆肥化の試験、バイオ炭化を目指す事業が確認できる。いずれも広範な普及を示す根拠ではない。急傾斜の畑から枝を運び出す労力、粉砕・炭化の工程、使い手と運搬距離を確かめて初めて、地域に根づく利用かどうかが分かる。みかん畑の風景は、果実だけでなく、その管理で生まれる枝の行き先からも読み直せる。',
-    openQuestions:['愛媛県内で年間に発生する柑橘剪定枝量を推計できるか','敷料化・堆肥化・バイオ炭化のコストとCO2収支を比較できるか','急傾斜園地から剪定枝を搬出する労力が各ルートの採算性をどう左右するか'],
-    sources:[
-      {id:1,title:'柑橘剪定枝の畜産敷料利用と堆肥化の検討',publisher:'愛媛県農林水産研究所畜産研究センター',url:'https://www.pref.ehime.jp/uploaded/attachment/2223.pdf'},
-      {id:2,title:'令和7年度採択事業―バイオ炭を活用したゼロカーボン農業モデルの構築',publisher:'愛媛県',url:'https://www.pref.ehime.jp/site/nyusatsu/135661.html'},
-      {id:3,title:'畜産研究センター研究報告第7号',publisher:'愛媛県',url:'https://www.pref.ehime.jp/page/1300.html'},
-      {id:4,title:'農業遺産「愛媛・南予の柑橘農業システム」',publisher:'愛媛県',url:'https://www.pref.ehime.jp/page/1573.html'},
-      {id:5,title:'環境再生型農業＋バイオ炭活用により、循環を育む柑橘栽培へ',publisher:'四国EPO',url:'https://4epo.jp/information/shikoku-no-osusume/36299.html'}
-    ]
-  },
+      "slug": "citrus-pomace-cascade",
+      "part": "捨てずに循環させる取り組み",
+      "title": "みかんを搾ったあと、枝を切ったあと",
+      "subtitle": "愛媛の果実と剪定枝に生まれた、いくつもの行き先",
+      "cities": [
+        "愛媛",
+        "松山",
+        "宇和海",
+        "佐田岬"
+      ],
+      "keywords": [
+        "みかん",
+        "柑橘",
+        "搾汁粕",
+        "剪定枝",
+        "サイレージ",
+        "敷料",
+        "堆肥",
+        "バイオ炭",
+        "MaCSIE",
+        "循環"
+      ],
+      "heroPhotoId": "photo-karihama-citrus-terraces",
+      "lead": "愛媛の海に向かう斜面には、みかん畑が重なる。秋冬に実を収穫すればジュース工場へ向かう果実があり、木を育て続けるために切る枝もある。ジュースを搾ったあとの皮や果肉は、牛の餌や新しい食品素材に。畑で切った枝は、牛舎の床に敷いたり、炭にして土へ戻したりする試みがある。みかんの産地で、商品にならない部分はどんな役割を持つようになったのだろう。",
+      "sections": [
+        {
+          "heading": "実を搾れば、皮と果肉が残る",
+          "paragraphs": [
+            {
+              "text": "愛媛は、海に向かう斜面でも柑橘を育てる産地だ。収穫した果実には、そのまま出荷されるものも、ジュース工場へ向かうものもある。えひめ飲料によれば、みかんを搾ると重量のおよそ半分が皮や薄皮などの「搾汁粕」になる。2023年度の発生量は4,185トンだった。",
+              "refs": [
+                1,
+                3
+              ]
+            },
+            {
+              "text": "一部の外皮は乾燥させて陳皮となり、七味唐辛子などの香りを添える。だが、大量の水分を含む搾汁粕をすべて乾かすには燃料がかかる。えひめ飲料は2011年、従来の乾燥設備をやめ、密封して発酵させる方式へ切り替えた。",
+              "refs": [
+                1
+              ]
+            }
+          ],
+          "photoIds": [
+            "photo-ehime-beni-madonna"
+          ]
+        },
+        {
+          "heading": "ジュースにならなかったみかんが、牛の餌になる",
+          "paragraphs": [
+            {
+              "text": "密封・発酵させた飼料を「サイレージ」という。えひめ飲料では、2023年度の搾汁粕の約90％が飼料に使われ、主に四国と中国・九州の一部の畜産農家へ届けられたという。ジュースにならなかった果実が、牛を育てる材料になる。",
+              "refs": [
+                1
+              ]
+            },
+            {
+              "text": "さらに愛媛製紙は、柑橘などの搾汁粕から取り出す植物繊維を使い、食品・化粧品向けの素材「MaCSIE（マクシー）」を開発した。宝酒造の「丸おろし夏みかん」に使われた例もある。ただし、えひめ飲料から愛媛製紙へ原料が渡っていると確認できたわけではない。二つは別の取り組みだ。",
+              "refs": [
+                2
+              ]
+            }
+          ],
+          "photoIds": []
+        },
+        {
+          "heading": "木を手入れすれば、枝が残る",
+          "paragraphs": [
+            {
+              "text": "みかんづくりは収穫だけでは終わらない。枝が込み合えば、日当たりや風通しを整えるために剪定する。宇和海に面した石垣の畑では、切った枝を斜面から運び出すだけでも手間がかかる。",
+              "refs": [
+                3
+              ]
+            },
+            {
+              "text": "愛媛県畜産研究センターは、温州みかんや伊予柑などの剪定枝を細かく砕き、牛舎の床に敷く「敷料」にできないか試した。クッション性はあったが、水分が増えると保水性が落ちる課題も見つかった。",
+              "refs": [
+                4,
+                6
+              ]
+            }
+          ],
+          "photoIds": [
+            "photo-karihama-citrus-terraces"
+          ]
+        },
+        {
+          "heading": "枝は牛舎の床へ、あるいは炭になって土へ",
+          "paragraphs": [
+            {
+              "text": "県の試験では、牛舎で使った枝の敷料を家畜ふんとともに堆肥化した。一本の枝が、牛の足元を支えたあと、土に使える材料になる。ただし、試験結果は、この方法が広く普及したことを意味しない。",
+              "refs": [
+                4,
+                6
+              ]
+            },
+            {
+              "text": "佐田岬半島の伊方町名取地区では、農家が柑橘の剪定枝などを炭にして畑へ戻す取り組みも進む。四国EPOの2026年2月の紹介では、地元の農家4戸が炭づくりに参加していた。炭にするのは、枝に含まれる炭素を土に比較的長く残すためだが、その効果は確かめながら進めている段階にある。",
+              "refs": [
+                5,
+                7
+              ]
+            }
+          ],
+          "photoIds": []
+        },
+        {
+          "heading": "みかん畑から、いくつもの行き先へ",
+          "paragraphs": [
+            {
+              "text": "ジュース工場に残る皮や果肉は、七味唐辛子の陳皮、牛の飼料、食品素材へ。畑で切った枝は、牛舎の敷料や堆肥、炭へ。それぞれの用途には加工の工夫があり、実用化されたものと試験段階のものがある。みかんのすべてが循環しているという話ではない。",
+              "refs": [
+                1,
+                2,
+                4,
+                5,
+                7
+              ]
+            },
+            {
+              "text": "海を望むみかん畑を眺めると、どうしても橙色の果実に目が向く。けれど、果実を搾ったあとにも、枝を切ったあとにも、別の人の仕事が続いている。その仕事を知ると、みかん畑は収穫の季節だけの風景ではなくなる。",
+              "refs": [
+                1,
+                3,
+                5
+              ]
+            }
+          ],
+          "photoIds": [
+            "photo-ehime-citrus-orchard"
+          ]
+        }
+      ],
+      "researchLinks": [
+        {
+          "label": "商品・素材写真｜愛媛製紙 MaCSIE",
+          "href": "https://www.ehimepaper.co.jp/products/development/macsie/"
+        },
+        {
+          "label": "加工工程｜えひめ飲料の搾汁粕利用",
+          "href": "https://www.ehime-inryo.co.jp/company/environmental.html"
+        },
+        {
+          "label": "研究写真｜剪定枝の敷料化・堆肥化",
+          "href": "https://www.pref.ehime.jp/uploaded/attachment/2223.pdf"
+        },
+        {
+          "label": "現地写真｜佐田岬のバイオ炭",
+          "href": "https://4epo.jp/information/shikoku-no-osusume/36299.html"
+        }
+      ],
+      "provisionalConclusion": "愛媛の柑橘からは、搾汁後に果皮・果肉が残り、栽培管理では剪定枝が出る。搾汁粕は飼料等への実用利用がある一方、剪定枝の敷料化・炭化は研究や実証段階の例を含む。二つの発生源を一つの循環工程と誤認せず、みかん産地の複数の仕事として捉える。",
+      "openQuestions": [
+        "搾汁粕の最新飼料利用量を追跡できるか",
+        "剪定枝の利用は研究段階からどこまで普及したか",
+        "異なる利用方法の輸送・加工負荷を比較できるか"
+      ],
+      "sources": [
+        {
+          "id": 1,
+          "title": "環境対策―搾汁粕の有効利用への取組み",
+          "publisher": "えひめ飲料",
+          "url": "https://www.ehime-inryo.co.jp/company/environmental.html"
+        },
+        {
+          "id": 2,
+          "title": "MaCSIE®",
+          "publisher": "愛媛製紙",
+          "url": "https://www.ehimepaper.co.jp/products/development/macsie/"
+        },
+        {
+          "id": 3,
+          "title": "農業遺産「愛媛・南予の柑橘農業システム」",
+          "publisher": "愛媛県",
+          "url": "https://www.pref.ehime.jp/page/1573.html"
+        },
+        {
+          "id": 4,
+          "title": "柑橘剪定枝の畜産敷料利用と堆肥化の検討",
+          "publisher": "愛媛県農林水産研究所畜産研究センター",
+          "url": "https://www.pref.ehime.jp/uploaded/attachment/2223.pdf"
+        },
+        {
+          "id": 5,
+          "title": "令和7年度採択事業―バイオ炭を活用したゼロカーボン農業モデルの構築",
+          "publisher": "愛媛県",
+          "url": "https://www.pref.ehime.jp/site/nyusatsu/135661.html"
+        },
+        {
+          "id": 6,
+          "title": "畜産研究センター研究報告第7号",
+          "publisher": "愛媛県",
+          "url": "https://www.pref.ehime.jp/page/1300.html"
+        },
+        {
+          "id": 7,
+          "title": "環境再生型農業＋バイオ炭活用により、循環を育む柑橘栽培へ",
+          "publisher": "四国EPO",
+          "url": "https://4epo.jp/information/shikoku-no-osusume/36299.html"
+        }
+      ]
+    },
 
   {
     slug:'kinkai-salt-field-to-solar',
@@ -3219,7 +3213,7 @@ export const bookArticles = [
   },
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","citrus-prunings-to-soil","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","after-the-solar-farm","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
