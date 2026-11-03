@@ -1,3 +1,5 @@
+import { bookArticleBySlug } from './bookArticles.js';
+
 export const researchChapters = [
   {
     slug:'geography',
@@ -865,5 +867,50 @@ export const researchChapters = [
     ]
   }
 ];
+
+// Former general-interest essays are retained here as sourced research notes.
+// Data stays in bookArticles.js to preserve the original references and text.
+const landUseNoteSettings = [
+  {
+    original:'farmland-or-solar',
+    slug:'farmland-solar-land-use-note',
+    title:'農地転用と営農型太陽光の判断条件',
+    subtitle:'荒廃農地、農地法、営農継続と発電の両立を整理する資料ノート',
+    thesis:'農地の太陽光利用は、土地の現況だけでなく、営農を続ける主体、許可条件、収量、土地管理、撤去後の利用を分けて検討する必要がある。',
+    labels:['interpretation','fact','fact','fact','interpretation'],
+    related:[{label:'錦海の太陽光発電所と土地管理',href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}]
+  },
+  {
+    original:'after-the-solar-farm',
+    slug:'kinkai-solar-after-2038-note',
+    title:'錦海塩田跡地の2038年以降の管理課題',
+    subtitle:'土地貸付の更新、設備撤去、再資源化、排水施設の維持',
+    thesis:'2038年10月は土地貸付の契約上の節目であって、設備撤去が決定した日ではない。どの選択でも排水・堤防の管理が継続課題となる。',
+    labels:['fact','interpretation','fact','fact','interpretation'],
+    related:[{label:'エッセイ｜塩田が太陽光発電所になった理由',href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}]
+  }
+];
+
+const retiredLandUseNotes = landUseNoteSettings.map((settings)=>{
+  const source = bookArticleBySlug[settings.original];
+  if(!source) throw new Error(`Missing research source: ${settings.original}`);
+  return {
+    slug:settings.slug,
+    number:'L',
+    title:settings.title,
+    subtitle:settings.subtitle,
+    thesis:settings.thesis,
+    intro:[source.lead,'旧エッセイから移管した、根拠資料と検討事項を保持する研究ノートです。事実関係と一般的な制度の説明を、現地の取材に基づく描写とは区別します。'],
+    sections:source.sections.map((section,index)=>({
+      title:section.heading,
+      claim:settings.labels[index] || 'interpretation',
+      paragraphs:section.paragraphs.map((paragraph)=>paragraph.text + (paragraph.refs?.length ? `［資料 ${paragraph.refs.join('・')}］` : ''))
+    })),
+    sources:source.sources,
+    related:settings.related
+  };
+});
+
+researchChapters.push(...retiredLandUseNotes);
 
 export const chapterBySlug = Object.fromEntries(researchChapters.map((chapter)=>[chapter.slug,chapter]));
