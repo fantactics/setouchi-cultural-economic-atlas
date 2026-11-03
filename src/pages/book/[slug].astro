@@ -30,6 +30,8 @@ import { essayPhotoGalleriesMore10 } from '../../data/essayPhotoGalleriesMore10.
 import { applyPhotoMetadataCorrection } from '../../data/photoMetadataCorrections.js';
 import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
+import { relatedEssaysFor } from '../../data/relatedEssayRecommendations.js';
+import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -58,6 +60,18 @@ const isTravelogue=article.narrativeMode==='travelogue';
 const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
+const publishedReadingPool=[
+  ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
+  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay
+].filter(Boolean);
+const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedReadingPool,3)
+  .map((item)=>{
+    const image=item.heroPhoto?.imageUrl ? item.heroPhoto :
+      photoById[cardPhotoId(item)] || photoById[item.heroPhotoId] ||
+      (item.sections||[]).flatMap((section)=>section.photoIds||[]).map((id)=>photoById[id]).find(Boolean);
+    return {...item,photo:image,teaser:cardTeaser(item)};
+  });
+
 const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
 const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
 const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({title:item.title,href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,current:item.slug===article.slug}));
@@ -162,6 +176,19 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       <p class="gastronomy-photo-note">「比較資料」と記した写真は、当該地域で撮影されたものではなく、食材・料理法・作業形態を比較するために掲載しています。</p>
     </section>}
 
+
+    {relatedEssays.length>0 && <section class="reader-related-essays" aria-labelledby="reader-related-title">
+      <div class="reader-related-head">
+        <div><span>READ NEXT</span><h2 id="reader-related-title">次は、どの風景を旅する？</h2><p>今読んだ物語から、瀬戸内の別の一篇へ。</p></div>
+        <a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a>
+      </div>
+      <div class="reader-related-grid">
+        {relatedEssays.map((item)=><a class="reader-related-card" href={`/setouchi-cultural-economic-atlas/book/${item.slug}/`}>
+          {item.photo?.imageUrl && <img src={item.photo.imageUrl} alt={item.photo.alt||item.title} loading="lazy" />}
+          <div><span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span><h3>{item.title}</h3><p>{item.teaser}</p><strong>読む →</strong></div>
+        </a>)}
+      </div>
+    </section>}
 
     <nav class="book-pager">
       {prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前の記事</small><strong>{prev.title}</strong></a> : <span></span>}
