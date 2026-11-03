@@ -1608,12 +1608,26 @@ export const bookArticles = [
         ]
       },
       {
-        "heading": "潮の速い海で、タコ壺を上げる",
+        "heading": "潮の速さと岩場が、タコの海をつくる",
         "paragraphs": [
           {
-            "text": "下津井の沖は、本州と四国の間を潮が行き来する備讃瀬戸。農林水産省は、この海で育つタコが身の締まった歯ごたえで知られると紹介している。島々の間を走る潮の下には、漁師の仕掛けたタコ壺が沈んでいる。",
+            "text": "下津井の沖は、本州と四国の間を潮が行き来する備讃瀬戸。島や浅瀬が入り組み、流れの向きも速さも場所によって変わる。潮は海面だけを動くのではない。環境省の調査では、備讃瀬戸の中央部は潮流が速く、上と下の海水がよく混ざり、海底近くの酸素も比較的保たれている。",
             "refs": [
-              1
+              5
+            ]
+          },
+          {
+            "text": "その海底には岩場や砂地があり、マダコは岩穴や隙間を隠れ家にする。夜になると外へ出て、カニやエビ、二枚貝などを捕らえる。地元の漁師も、下津井のタコが貝やワタリガニ、エビを食べると語っている。速い潮だけでなく、身を隠せる場所と餌があることが、この海をタコの漁場にしている。",
+            "refs": [
+              6,
+              7
+            ]
+          },
+          {
+            "text": "下津井では、タコが潮に流されまいと岩場にしがみつくため、脚が太く身が締まると語られてきた。土地の人がタコの味を潮の速さに結びつけてきたのだ。ただし潮が速ければ、どこでもタコがよく育つというわけではない。海底の地形や餌生物もまた、この味を支える条件である。",
+            "refs": [
+              6,
+              8
             ]
           },
           {
@@ -1671,13 +1685,17 @@ export const bookArticles = [
       {label:'漁師と商品写真｜七福丸・タコ専門店 Nanahuku',href:'https://www.kurashiki-tabi.jp/rm_buy/rm-buy198/'},
       {label:'港の風景｜下津井のタコと干しダコ',href:'https://www.okayama-kanko.jp/spot/detail_10253.html'}
     ],
-    provisionalConclusion:'下津井の港に干されるタコを入口に、備讃瀬戸でのタコ壺漁、倉敷に伝わる船上の食事の由来、児島でのたこめしの販売へと順に描く。干しダコとたこめしは別の利用方法であり、干したタコをそのままたこめしに使うと断定しない。',
+    provisionalConclusion:'下津井の港に干されるタコを入口に、備讃瀬戸の潮流が生む海水の混合、岩場と砂地、マダコの隠れ家と餌生物という生態系をたどる。速い潮と食感の関係は地元に伝わる評価として示し、単純な因果と断定しない。そこからタコ壺漁、倉敷に伝わる船上の食事、児島での商いへと物語をつなぐ。',
     openQuestions:['たこめしの成立時期を地域史料でどこまで遡れるか','下津井ダコの漁獲量を長期時系列で復元できるか','水温・栄養塩・底質変化とマダコ資源の関係をどこまで説明できるか'],
     sources:[
       {id:1,title:'たこめし 岡山県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_10_okayama.html'},
       {id:2,title:'たこめし',publisher:'倉敷市',url:'https://www.city.kurashiki.okayama.jp/fukushi/health/1008531/1008534/1008610/1008613.html'},
       {id:3,title:'タコの加工品―漁師からの直行便 七福丸・Nanahuku',publisher:'倉敷観光WEB',url:'https://www.kurashiki-tabi.jp/rm_buy/rm-buy198/'},
-      {id:4,title:'下津井のたこ・干しだこ',publisher:'岡山観光WEB',url:'https://www.okayama-kanko.jp/spot/detail_10253.html'}
+      {id:4,title:'下津井のたこ・干しだこ',publisher:'岡山観光WEB',url:'https://www.okayama-kanko.jp/spot/detail_10253.html'},
+      {id:5,title:'中央環境審議会水環境部会・瀬戸内海環境保全小委員会第13回議事録（備讃瀬戸の海水混合と底質）',publisher:'環境省',url:'https://www.env.go.jp/council/09water/13_2.html'},
+      {id:6,title:'せとうちネット｜タコの生態',publisher:'環境省',url:'https://www.env.go.jp/water/heisa/heisa_net/setouchiNet/seto/g1/g1chapter1/ikimono/tako.html'},
+      {id:7,title:'日本の沿岸を歩く｜岡山・下津井（漁師による餌生物の証言）',publisher:'地球・人間環境フォーラム',url:'https://www.gef.or.jp/globalnet202008/globalnet202008-9/'},
+      {id:8,title:'潮流の速い瀬戸に育まれたタコ',publisher:'岡山観光WEB',url:'https://www.okayama-kanko.jp/feature/made_in_okayama/12'}
     ]
   },
 
