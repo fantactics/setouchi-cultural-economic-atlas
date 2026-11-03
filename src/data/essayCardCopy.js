@@ -105,12 +105,6 @@ export const essayCardCopy = {
   "ako-salt-fields-to-city": {
     "teaser": "塩田がなくなったあと、工場と住宅地と公園が生まれた。"
   },
-  "farmland-or-solar": {
-    "teaser": "畑で作物を育てるか、電気をつくるか。その土地の選択。"
-  },
-  "after-the-solar-farm": {
-    "teaser": "発電所の契約が終わる日、海を埋めた土地はどうなるのか。"
-  }
 };
 
 export const cardTeaser = (article) => essayCardCopy[article.slug]?.teaser || ((article.subtitle || article.lead || '').slice(0,65).replace(/[、。・\s]+$/u,'') + '。');
