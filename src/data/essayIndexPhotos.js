@@ -72,6 +72,8 @@ export const essayIndexPhotoOverrides = {
 // Optional, restrained visual-source context on feature cards. Be explicit when
 // the scene is illustrative or the photograph is from another nearby region.
 export const essayCardPhotoContext = {
+  "shimotsui-tako-meshi": "下津井の干し蛸（料理の完成写真ではありません）",
+  "kada-steel-data-center-transition": "2014年の和歌山製鉄所（データセンターではありません）",
   "setouchi-sushi-not-nigiri": "ちらし寿司の参考写真",
   "oysters-taste-of-small-seas": "広島湾の養殖筏",
   "hijiki-tidal-time": "干潮時の採集（沖縄の比較写真）",
