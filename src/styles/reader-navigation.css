@@ -210,3 +210,29 @@ body.page-type-essay .book-pager>a:hover{background:#e7ebe4}
 @media(max-width:600px){
  .essay-magazine .essay-cover-copy h2.js-essay-main-title{font-size:2.2rem}
 }
+
+/* A quiet second doorway after the story: three editorially related essays. */
+.reader-related-essays{
+  max-width:1160px;
+  margin:42px auto 68px;
+  padding:50px 22px 20px;
+  border-top:1px solid #d9dfd8;
+}
+.reader-related-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}
+.reader-related-head span{font-size:.73rem;font-weight:700;letter-spacing:.15em;color:#778e82}
+.reader-related-head h2{font-family:var(--book-serif,serif);font-weight:500;letter-spacing:-.025em;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.32;margin:9px 0 8px;color:#2b4843}
+.reader-related-head p{color:#667b73;line-height:1.8;margin:0}
+.reader-related-head>a{color:#2a655b;text-decoration:none;border-bottom:1px solid #84aa9b;padding-bottom:4px;white-space:nowrap;font-size:.85rem}
+.reader-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.reader-related-card{display:flex;flex-direction:column;text-decoration:none;color:#2f4640;border:1px solid #e0e5dd;border-radius:15px;overflow:hidden;background:#fff;transition:transform .2s ease,box-shadow .2s ease}
+.reader-related-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(30,58,52,.08)}
+.reader-related-card:focus-visible{outline:3px solid #94c7b6;outline-offset:3px}
+.reader-related-card>img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#e0e9e4}
+.reader-related-card>div{display:flex;flex-direction:column;flex:1;gap:10px;padding:21px}
+.reader-related-card span{font-size:.72rem;color:#748d81;line-height:1.5}
+.reader-related-card h3{font-family:var(--book-serif,serif);font-size:clamp(1.15rem,1.6vw,1.37rem);font-weight:600;line-height:1.55;margin:0}
+.reader-related-card p{font-size:.87rem;color:#667a73;line-height:1.8;margin:0 0 7px;flex:1}
+.reader-related-card strong{font-size:.86rem;color:#2c6358;margin-top:auto}
+@media(max-width:780px){.reader-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-related-head{align-items:start;flex-direction:column}}
+@media(max-width:560px){.reader-related-essays{margin:28px auto 42px;padding:30px 15px 10px}.reader-related-grid{grid-template-columns:1fr;gap:12px}.reader-related-card{display:grid;grid-template-columns:36% minmax(0,1fr)}.reader-related-card>img{height:100%;min-height:155px;aspect-ratio:auto}.reader-related-card>div{padding:13px;gap:6px}.reader-related-card h3{font-size:1.05rem}.reader-related-card p{font-size:.78rem;line-height:1.6}.reader-related-head h2{font-size:1.75rem}}
+@media(prefers-reduced-motion:reduce){.reader-related-card{transition:none}}
