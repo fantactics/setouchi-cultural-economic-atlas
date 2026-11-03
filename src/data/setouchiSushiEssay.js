@@ -6,13 +6,15 @@ export const setouchiSushiEssay = {
   cities:['岡山','香川','広島','松山'],
   keywords:['寿司','押し寿司','ばら寿司','松山鮓','ママカリ','サワラ','食文化','保存食','共同体'],
   heroPhotoId:null,
+  // Rights-cleared reference photo until a genuine Okayama bara-zushi photo is licensed.
   heroPhoto:{
-    imageUrl:'https://upload.wikimedia.org/wikipedia/commons/5/52/BarazushiC042501.jpg',
-    alt:'ばら寿司。酢飯にエビ、卵、野菜など多様な具材を合わせた寿司',
-    title:'ばら寿司',
-    author:'完全処方マニュアル',
-    credit:'完全処方マニュアル / CC BY-SA 3.0',
-    sourcePage:'https://commons.wikimedia.org/wiki/File:BarazushiC042501.jpg',
+    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Chirashi-zushi.jpg?width=1600',
+    alt:'大きな器に盛りつけたちらし寿司の参考写真。岡山ばら寿司そのものを撮影した写真ではない',
+    title:'大皿のちらし寿司（参考写真）',
+    caption:'取り分けて食べる寿司の参考写真。岡山ばら寿司そのものではありません。',
+    author:'Arashiyama',
+    credit:'Arashiyama / CC BY-SA 3.0',
+    sourcePage:'https://commons.wikimedia.org/wiki/File:Chirashi-zushi.jpg',
     license:'CC BY-SA 3.0',
     licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
   },
