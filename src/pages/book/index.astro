@@ -51,11 +51,15 @@ const themeFallbackIds={
 };
 const genericFallback=photoById['photo-onomichi-panorama'];
 const articlePhoto=(article)=>{
-  // Cover selection is independent from the article's main hero image.
+  // Index-only overrides, then explicitly selected card photos, then article heroes.
+  // Article hero images must not silently override reviewed cardPhotoId choices.
   const curated=essayIndexPhotoOverrides[article?.slug];
   if(curated?.imageUrl) return curated;
+  const cardId=cardPhotoId(article);
+  const cardImage=cardId ? photoById[cardId] : null;
+  if(cardImage?.imageUrl) return cardImage;
   if(article?.heroPhoto?.imageUrl) return article.heroPhoto;
-  const ids=[cardPhotoId(article),article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
+  const ids=[article?.heroPhotoId,...(article?.sections || []).flatMap((section)=>section.photoIds || [])].filter(Boolean);
   const articleSpecific=ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl);
   if(articleSpecific) return articleSpecific;
   const matchedPlace=(article?.cities || []).map((city)=>Object.entries(cityPlaceIds).find(([name])=>city.includes(name))?.[1]).find(Boolean);
