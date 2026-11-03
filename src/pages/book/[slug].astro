@@ -38,6 +38,7 @@ import { enhanceBookArticle } from '../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../data/essayEditorialOverrides.js';
 import { relatedEssaysFor } from '../../data/relatedEssayRecommendations.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
+import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -79,6 +80,7 @@ const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publish
   });
 
 const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
+const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
 const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
 const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({title:item.title,href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,current:item.slug===article.slug}));
 const contextualResearchLinks=isKojimaIslandEssay
@@ -143,6 +145,14 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </header>
 
     {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>}
+    {photoFieldReferences.length>0 && <nav class="reader-photo-evidence" aria-label="記事に登場する実物・史料の写真へのリンク">
+      <span class="reader-photo-evidence-heading">実物の写真も見る</span>
+      {photoFieldReferences.map((reference)=><div class="reader-photo-evidence-item">
+        <a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.label} <span aria-hidden="true">↗</span></a>
+        <span class="reader-photo-evidence-publisher">{reference.publisher}</span>
+        <p>{reference.note}</p>
+      </div>)}
+    </nav>}
 
     {isKojimaIslandEssay && <section class="book-open-questions">
       <div class="kicker">鴻島シリーズ</div>
