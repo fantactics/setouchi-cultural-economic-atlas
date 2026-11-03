@@ -20,7 +20,8 @@ export const essayCardCopy = {
     "teaser": "山の銅を掘る仕事は、どうして海辺の工場へ姿を変えたのか。"
   },
   "shodoshima-open-island": {
-    "teaser": "醤油、そうめん、オリーブ。島の味は海を渡ってきたものから生まれた。"
+    "teaser": "醤油、そうめん、オリーブ。島の味は海を渡ってきたものから生まれた。",
+    "photoId": "photo-shodoshima-hishio-yamasan"
   },
   "faith-as-transport-map": {
     "teaser": "海を渡って伝わった信仰をたどると、昔の航路が見えてくる。"
@@ -38,7 +39,8 @@ export const essayCardCopy = {
     "teaser": "塩づくりの富は、竹原の白壁と町家になって残った。"
   },
   "mitarai-economy-of-waiting": {
-    "teaser": "船が待つあいだ、人が泊まり、商いが生まれた島の港。"
+    "teaser": "船が待つあいだ、人が泊まり、商いが生まれた島の港。",
+    "photoId": "photo-mitarai-townscape"
   },
   "yanai-trade-profit-to-whitewalls": {
     "teaser": "白壁の商家が続く柳井。港の商いは町に何を残したのか。"
