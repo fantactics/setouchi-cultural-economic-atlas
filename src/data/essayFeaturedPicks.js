@@ -5,7 +5,7 @@ export const essayFeaturedByEntrance = {
   "food": [
     "setouchi-sushi-not-nigiri",
     "shodoshima-open-island",
-    "niboshi-shirasu-two-food-cultures"
+    "tai-meshi-two-seas"
   ],
   "townscape": [
     "takehara-salt-capital-to-townscape",
