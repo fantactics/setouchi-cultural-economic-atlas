@@ -43,15 +43,15 @@ const tagCount=natureGroups.length;
     <section class="nature-overview" aria-labelledby="nature-overview-title">
       <h2 id="nature-overview-title">自然条件を選ぶ <small>{tagCount}種類</small></h2>
       <div class="nature-chip-list">
-        {natureGroups.map(({tag,essays})=><a href={\`#nature-\${encodeURIComponent(tag)}\`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
+        {natureGroups.map(({tag,essays})=><a href={`#nature-${encodeURIComponent(tag)}`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
       </div>
     </section>
     <div class="nature-results">
       {natureGroups.map(({tag,essays})=>
-        <section class="nature-group" id={\`nature-\${tag}\`} aria-label={tag}>
+        <section class="nature-group" id={`nature-${tag}`} aria-label={tag}>
           <header><h2>{tag}</h2><span>{essays.length}篇の物語</span><a href="#nature-overview-title" aria-label="タグ一覧に戻る">↑</a></header>
           <ul>
-            {essays.map((article)=><li><a href={\`/setouchi-cultural-economic-atlas/book/\${article.slug}/\`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
+            {essays.map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
           </ul>
         </section>
       )}
