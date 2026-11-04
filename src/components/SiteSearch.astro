@@ -22,7 +22,7 @@ import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
 const { essaysOnly = false } = Astro.props;
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
 
