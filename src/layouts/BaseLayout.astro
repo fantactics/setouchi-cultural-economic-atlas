@@ -26,6 +26,7 @@ const {
   structuredData = null,
   researchMeta = null
 } = Astro.props;
+const siteTitle = 'SETOUCHI ATLAS - 私の瀬戸内地誌紀行';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
@@ -44,6 +45,7 @@ const researchSynthesis = synthesisLayers.length
     }), {points:[],essays:[]})
   : null;
 const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
+const pageTitle = isHome ? siteTitle : title.includes('SETOUCHI ATLAS') ? title.replaceAll('SETOUCHI ATLAS',siteTitle) : `${title} | ${siteTitle}`;
 const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
@@ -89,8 +91,8 @@ const defaultStructuredData = schemaType === 'WebSite'
   ? {
       '@context':'https://schema.org',
       '@type':'WebSite',
-      name:'SETOUCHI ATLAS',
-      alternateName:'瀬戸内自然文化経済アトラス',
+      name:siteTitle,
+      alternateName:'SETOUCHI ATLAS',
       url:siteRoot,
       description,
       inLanguage:'ja'
@@ -106,7 +108,7 @@ const defaultStructuredData = schemaType === 'WebSite'
       inLanguage:'ja',
       isPartOf:{
         '@type':'WebSite',
-        name:'SETOUCHI ATLAS',
+        name:siteTitle,
         url:siteRoot
       }
     };
@@ -124,9 +126,9 @@ const jsonLd = structuredData || defaultStructuredData;
     <link rel="sitemap" href={sitemapUrl} />
 
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:site_name" content="SETOUCHI ATLAS" />
+    <meta property="og:site_name" content={siteTitle} />
     <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={resolvedImage} />
@@ -139,13 +141,13 @@ const jsonLd = structuredData || defaultStructuredData;
     <meta name="twitter:image:alt" content={imageAlt} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body class:list={[`page-type-${pageType}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
     <header class="site-header">
       <a class="brand-wrap" href={baseUrl}>
         <span class="brand">SETOUCHI ATLAS</span>
-        <span class="brand-tagline">私の瀬戸内素描</span>
+        <span class="brand-tagline">私の瀬戸内地誌紀行</span>
       </a>
       <nav>
         <a class:list={['site-nav-link',isHome&&'active']} href="/setouchi-cultural-economic-atlas/">トップ</a>
@@ -174,7 +176,7 @@ const jsonLd = structuredData || defaultStructuredData;
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
     <footer id="about">
-      <strong>SETOUCHI ATLAS</strong>
+      <strong>{siteTitle}</strong>
       <p class="footer-thesis">風景の理由をたどる、私の瀬戸内素描。海と土地、人の営みがつくってきた物語を綴ります。</p>
       <div class="footer-atlas-links">
         <a href="/setouchi-cultural-economic-atlas/about/">このサイトについて</a>
