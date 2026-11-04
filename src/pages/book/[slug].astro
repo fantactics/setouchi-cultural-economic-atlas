@@ -204,6 +204,25 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </section>}
 
     <div class="book-reading-column">
+      {article.slug==='hiketa-castle-port-town' && (
+        <section class="reader-landscape-map" aria-labelledby="hiketa-landscape-map-title">
+          <div class="kicker">地図で見る自然条件</div>
+          <h2 id="hiketa-landscape-map-title">城山の岬が抱く、引田の港</h2>
+          <p>地図を動かすと、標高82メートルの城山が海へ突き出し、その西側に港と町が寄り添う様子が見えます。航空写真表示に切り替えると、岬の形がよりはっきりわかります。</p>
+          <div class="reader-landscape-map-frame">
+            <iframe
+              title="引田城跡・城山と引田港の位置関係を示すGoogleマップ"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3298.5594693697603!2d134.406110597845!3d34.234265102236975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355377d0222ea119:0x99a068599c9dce81!2z5byV55Sw5Z-O6Leh!5e0!3m2!1sja!2sjp!4v1652429091454!5m2!1sja!2sjp"
+              width="100%"
+              height="370"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="reader-landscape-map-source">地図：Google マップ（<a href="https://higashikagawa.net/sightseeing/hiketajo" target="_blank" rel="noopener noreferrer">東かがわ市観光情報サイト掲載の地図</a>を利用）</p>
+        </section>
+      )}
       {sections.map((section)=><section class="book-prose-section">
         {!isNarrativeEssay && <div class="book-section-no">{section.number}</div>}
         <h2>{section.heading}</h2>
@@ -250,6 +269,14 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </nav>
 
   <style>
+    .reader-landscape-map{margin:1rem 0 2.6rem;}
+    .reader-landscape-map h2{font-size:clamp(1.3rem,2.7vw,1.8rem);line-height:1.4;margin:.5rem 0 .75rem;}
+    .reader-landscape-map p{line-height:1.8;margin:0 0 1rem;}
+    .reader-landscape-map-frame{border-radius:12px;overflow:hidden;border:1px solid rgba(80,80,80,.18);background:#eee;}
+    .reader-landscape-map iframe{display:block;width:100%;border:0;min-height:330px;}
+    .reader-landscape-map-source{font-size:.77rem;color:var(--muted,#777);margin:.65rem 0 0!important;}
+    .reader-landscape-map-source a{color:inherit;text-decoration:underline;}
+    @media(max-width:600px){.reader-landscape-map iframe{height:300px;min-height:300px;}}
     .reader-nature-tags{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .55rem;max-width:100%;}
     .reader-nature-tags-label{font-size:.76rem;letter-spacing:.06em;color:var(--muted,#777);font-weight:600;margin-right:.1rem;}
     .reader-nature-tags a{display:inline-block;padding:.17rem .65rem;border-radius:999px;border:1px solid color-mix(in srgb, currentColor 19%, transparent);font-size:.8rem;text-decoration:none;line-height:1.7;}
