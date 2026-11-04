@@ -1,7 +1,7 @@
 export const setouchiShipMaterialsEssay = {
   slug:'setouchi-ship-materials',
   part:'産業は、紡がれる',
-  title:'伊予灘の船は、宮崎の杉でできていた',
+  title:'伊予灘の地引き網船は、宮崎の杉でできていた',
   subtitle:'双海に残る一隻からたどる、飫肥杉の山と瀬戸内の船大工たち',
   cities:['双海','伊予灘','飫肥','二神島','大崎上島','鞆の浦'],
   keywords:['伊予灘','双海','地引き網船','飫肥杉','宮崎','船大工','槇肌','船釘','二神島','大崎上島','木造船'],
