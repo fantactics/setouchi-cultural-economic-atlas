@@ -40,6 +40,7 @@ import { relatedEssaysFor } from '../../data/relatedEssayRecommendations.js';
 import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.js';
 import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../data/essayIndexPhotos.js';
+import { getNaturalConditionTags } from '../../data/naturalEnvironmentTags.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -60,6 +61,7 @@ export function getStaticPaths(){
 
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
+const naturalTags=getNaturalConditionTags(article);
 const archivedResearchHref={
   'tadano-shido-industrial-ecosystem':'/setouchi-cultural-economic-atlas/chapters/tadano-shido-industrial-ecosystem-note/',
   'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
@@ -147,7 +149,12 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       <p class="book-article-dek">{article.lead}</p>
       <div class="book-meta-row">
         <div>{cityLinks.map((item)=><a href={item.href}>{item.name}</a>)}</div>
-        <div>{article.keywords.slice(0,6).map((x)=><a href={`/setouchi-cultural-economic-atlas/keywords/#${encodeURIComponent(x)}`}>#{x}</a>)}</div>
+        <div class="reader-nature-tags" aria-label="このエッセイを貫く自然条件">
+          {naturalTags.length>0 ? (<>
+            <span class="reader-nature-tags-label">自然条件</span>
+            {naturalTags.map((tag)=><a href={`/setouchi-cultural-economic-atlas/book/nature/#nature-${encodeURIComponent(tag)}`}>#{tag}</a>)}
+          </>) : <a class="reader-nature-tags-index-link" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件からほかのエッセイを探す</a>}
+        </div>
       </div>
     </header>
 
@@ -244,6 +251,11 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </nav>
 
   <style>
+    .reader-nature-tags{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .55rem;max-width:100%;}
+    .reader-nature-tags-label{font-size:.76rem;letter-spacing:.06em;color:var(--muted,#777);font-weight:600;margin-right:.1rem;}
+    .reader-nature-tags a{display:inline-block;padding:.17rem .65rem;border-radius:999px;border:1px solid color-mix(in srgb, currentColor 19%, transparent);font-size:.8rem;text-decoration:none;line-height:1.7;}
+    .reader-nature-tags a:hover,.reader-nature-tags a:focus-visible{border-color:currentColor;text-decoration:underline;}
+    .reader-nature-tags .reader-nature-tags-index-link{border:none;border-radius:0;padding:0;text-decoration:underline;}
     .tai-meshi-photo-pair{max-width:1080px;margin:2.5rem auto 3rem;padding:0 1.5rem;}
     .tai-meshi-pair-heading{margin-bottom:1.3rem;}
     .tai-meshi-pair-heading>span{font-size:.74rem;letter-spacing:.12em;color:var(--muted,#777);}
