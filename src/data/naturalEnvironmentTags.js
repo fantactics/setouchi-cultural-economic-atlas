@@ -68,7 +68,7 @@ export const naturalConditionAnchors = {
   'onomichi-capital-to-culture-and-ships':['海峡','斜面'],
   'takehara-salt-capital-to-townscape':['日照','干潟','潮汐'],
   'mitarai-economy-of-waiting':['潮汐','季節風'],
-  'yanai-trade-profit-to-whitewalls':['潮汐','入り江'],
+  'yanai-trade-profit-to-whitewalls':['河口'],
   'mihara-castle-to-multimodal-city':['河口','斜面'],
   'matsuyama-three-centers-one-city':['砂嘴','遠浅','西風'],
   'hiketa-castle-port-town':['岬','入り江','潮汐'],
