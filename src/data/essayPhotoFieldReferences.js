@@ -2,6 +2,20 @@
 // open licenses. Never hotlink their image assets; readers can view the originals
 // on the source pages. Covers remain limited to separately licensed images.
 export const essayPhotoFieldReferences = {
+  'setouchi-shrimp-middle-layer': [
+    {
+      label:'庵治の小エビ・えびこぎ漁の写真を見る',
+      publisher:'香川県産品紹介',
+      url:'https://www.kensanpin.org/product/seafood/1141/',
+      note:'備讃瀬戸の漁獲物と漁の仕事を紹介する公式ページ。写真の転載はしていません。'
+    },
+    {
+      label:'えびこぎ網の漁法を図で見る',
+      publisher:'香川県漁業協同組合連合会',
+      url:'https://www.kagawa-gyoren.or.jp/local_fishery',
+      note:'小型底びき網のしくみを紹介する資料です。'
+    }
+  ],
   'setouchi-sushi-not-nigiri': [
     {
       label:'岡山ばらずしの本物の写真を見る',
