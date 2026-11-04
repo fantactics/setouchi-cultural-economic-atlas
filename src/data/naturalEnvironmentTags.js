@@ -72,6 +72,7 @@ export const naturalConditionAnchors = {
   'takamatsu-sea-castle-to-gateway':['潮汐','干潟'],
   'tai-meshi-two-seas':['急流','黒潮','リアス海岸'],
   'shimotsui-tako-meshi':['急流','岩礁'],
+  'shimonoseki-resource-made-by-market':['潮流','海峡'],
   'oysters-taste-of-small-seas':['河口','栄養塩','海水交換'],
   'hijiki-tidal-time':['潮汐','岩礁'],
   'mikan-slope-and-varieties':['斜面','日照','少雨'],
@@ -111,7 +112,6 @@ naturalConditionVocabulary.push('潮流');
 const excludedBySlug={
   'soy-sauce-lees-to-chomeiso':['塩分'],
   'fish-waste-to-feed-and-citrus':['海峡'],
-  'shimonoseki-resource-made-by-market':['海峡'],
   'kojima-jeans-circular-economy':['少雨']
 };
 
