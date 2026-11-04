@@ -27,7 +27,7 @@ export const essayCardCopy = {
     "teaser": "海を渡って伝わった信仰をたどると、昔の航路が見えてくる。"
   },
   "sanuki-store-the-rain": {
-    "teaser": "雨の少ない讃岐で、人々は水を貯め、分け合う方法を育ててきた。"
+    "teaser": "讃岐平野に散らばる小さな池。雨を逃す短い川と、水を分ける線香の約束。"
   },
   "iwakuni-river-city": {
     "teaser": "何度も流される橋を、なぜ架け続けたのか。錦帯橋から城下町を読む。"
