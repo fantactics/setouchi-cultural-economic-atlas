@@ -18,6 +18,7 @@ export const naturalConditionRules = [
   {tag:'急流', pattern:/急流|急潮|速い潮|潮が速|潮流が速|激しい潮流|速い流れ|川は短く.*急|急な川|川.{0,14}勾配が急/},
   {tag:'波浪', pattern:/波浪|波の強さ|打ち寄せる波|波を受け|波が荒い|波の影響/},
   {tag:'潮汐', pattern:/潮汐|干満|満潮|干潮|満ち潮|引き潮|潮の満ち引き|潮位|潮待ち|潮が引く|潮が満ちる/},
+  {tag:'西風', pattern:/西風|西から吹く風|強い西風/},
   {tag:'季節風', pattern:/季節風|冬の風|北西風|偏西風|風待ち|季節による風/},
   {tag:'干潟', pattern:/干潟|干出する砂泥|砂泥の浅瀬|干潮時の砂浜/},
   {tag:'遠浅', pattern:/遠浅|浅瀬|浅い海|浅い砂底|浅い磯/},
@@ -46,7 +47,9 @@ export const naturalConditionRules = [
   {tag:'塩分', pattern:/塩分|塩分濃度|汽水|汽水域/},
   {tag:'津波', pattern:/津波|津波浸水|津波被害|津波リスク/},
   {tag:'台風', pattern:/台風|暴風雨|高潮/},
-  {tag:'砂州', pattern:/砂州|砂嘴|州が伸び|砂が堆積/}
+  {tag:'砂州', pattern:/砂州|州が伸び|砂が堆積/},
+  {tag:'砂嘴', pattern:/砂嘴|海へ伸びた砂の土地|細長い砂の土地/},
+  {tag:'遠浅', pattern:/遠浅|浅い港|水深が浅い海/}
 ];
 export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 
@@ -68,7 +71,7 @@ export const naturalConditionAnchors = {
   'mitarai-economy-of-waiting':['潮汐','季節風'],
   'yanai-trade-profit-to-whitewalls':['潮汐','入り江'],
   'mihara-castle-to-multimodal-city':['河口','斜面'],
-  'matsuyama-three-centers-one-city':['河口','海峡'],
+  'matsuyama-three-centers-one-city':['砂嘴','遠浅','西風'],
   'hiketa-castle-port-town':['岬','入り江','潮汐'],
   'ako-after-salt-fields':['日照','干潟','潮汐'],
   'takamatsu-sea-castle-to-gateway':['河口','砂州','遠浅'],
