@@ -32,6 +32,26 @@ export const essayPhotoFieldReferences = {
       note:'小型貫流ボイラの実物。本文冒頭の松山市街は企業所在地の景観です。'
     }
   ],
+  'shodoshima-somen-to-sesame-oil': [
+    {
+      label:'白い素麺のカーテンが海風に揺れる写真を見る',
+      publisher:'香川県観光協会 うどん県旅ネット',
+      url:'https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e',
+      note:'冬の天日干しの実景と製造工程。本文の島の風景写真は素麺の写真ではないため、実際の門干しはこちらで確認できます。'
+    },
+    {
+      label:'小豆島の素麺の公式観光写真を見る',
+      publisher:'香川県観光協会 フォトダウンロード',
+      url:'https://www.my-kagawa.jp/photo/10000411',
+      note:'香川県の観光PR向けの写真提供ページ。利用条件に従った写真の利用が可能です。'
+    },
+    {
+      label:'土庄港に建つかどや製油工場の写真と創業の話を見る',
+      publisher:'本州四国連絡高速道路 瀬戸マーレ',
+      url:'https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html',
+      note:'製油所が素麺向けの油の需要から発達した経緯と、土庄港の工場の様子を紹介しています。'
+    }
+  ],
   'setouchi-itinerant-trade-boats': [
     {
       label:'睦月島の長屋門と町並みの実際の写真を見る',
