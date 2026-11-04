@@ -30,7 +30,7 @@ export const essayCardCopy = {
     "teaser": "讃岐平野に散らばる小さな池。雨を逃す短い川と、水を分ける線香の約束。"
   },
   "iwakuni-river-city": {
-    "teaser": "何度も流される橋を、なぜ架け続けたのか。錦帯橋から城下町を読む。"
+    "teaser": "城を守った錦川が町を分けた。流される橋を支えたのは、川底の石と人々の米。"
   },
   "onomichi-capital-to-culture-and-ships": {
     "teaser": "寺の屋根の向こうに造船所。港町の二つの歴史を眺める。"
