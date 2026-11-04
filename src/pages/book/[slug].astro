@@ -204,6 +204,25 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </section>}
 
     <div class="book-reading-column">
+      {article.slug==='takamatsu-sea-castle-to-gateway' && (
+        <section class="reader-landscape-map" aria-labelledby="takamatsu-landscape-map-title">
+          <div class="kicker">地図で見る自然条件</div>
+          <h2 id="takamatsu-landscape-map-title">城と港の間に生まれた土地</h2>
+          <p>航空写真に切り替え、玉藻公園の北側から高松港、JR高松駅、サンポートまでを見渡してみてください。現在は陸地ですが、城が築かれた頃は海に面していました。地図は現在の海岸線を示しており、江戸時代の海岸線ではありません。</p>
+          <div class="reader-landscape-map-frame">
+            <iframe
+              title="高松城跡と高松港の位置関係を示すGoogleマップ"
+              src="https://www.google.com/maps?q=34.352%2C134.052&z=15&t=k&output=embed"
+              width="100%"
+              height="370"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="reader-landscape-map-source">地図：Google マップ（現在の航空写真）。過去の海岸線の復元図ではありません。</p>
+        </section>
+      )}
       {article.slug==='hiketa-castle-port-town' && (
         <section class="reader-landscape-map" aria-labelledby="hiketa-landscape-map-title">
           <div class="kicker">地図で見る自然条件</div>
