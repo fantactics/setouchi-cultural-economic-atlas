@@ -261,6 +261,25 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
           <p class="reader-landscape-map-source">地図：Google マップ（航空写真）。<a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E6%B4%A5%E3%81%AE%E6%B8%A1%E3%81%97+%E6%9D%BE%E5%B1%B1" target="_blank" rel="noopener noreferrer">三津の渡し</a>／<a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E6%B5%9C%E6%B8%AF+%E6%9D%BE%E5%B1%B1" target="_blank" rel="noopener noreferrer">高浜港</a>を地図で開く</p>
         </section>
       )}
+      {article.slug==='yanai-trade-profit-to-whitewalls' && (
+        <section class="reader-landscape-map" aria-labelledby="yanai-town-river-map-title">
+          <div class="kicker">地図で見る自然条件</div>
+          <h2 id="yanai-town-river-map-title">柳井川と、二百メートルの商家町</h2>
+          <p>航空写真で古市・金屋の白壁の町並みを見つけ、南側を流れる柳井川との距離や、川へつながる小路をたどってみてください。現在の水路と道筋から、かつての港町の位置関係を読み取れます。</p>
+          <div class="reader-landscape-map-frame">
+            <iframe
+              title="柳井市古市・金屋の白壁の町並みと柳井川の航空写真（Googleマップ）"
+              src="https://maps.google.com/maps?q=%E6%9F%B3%E4%BA%95%E5%B8%82%E5%8F%A4%E5%B8%82%E9%87%91%E5%B1%8B&t=k&z=16&output=embed"
+              width="100%"
+              height="370"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="reader-landscape-map-source">地図：Google マップ（航空写真）。<a href="https://www.google.com/maps/search/?api=1&query=%E6%9F%B3%E4%BA%95%E5%B8%82%E5%8F%A4%E5%B8%82%E9%87%91%E5%B1%8B" target="_blank" rel="noopener noreferrer">大きな地図で見る</a></p>
+        </section>
+      )}
       {sections.map((section)=><section class="book-prose-section">
         {!isNarrativeEssay && <div class="book-section-no">{section.number}</div>}
         <h2>{section.heading}</h2>
