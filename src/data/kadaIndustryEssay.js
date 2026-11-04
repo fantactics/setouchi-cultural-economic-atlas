@@ -66,7 +66,7 @@ export const kadaIndustryEssay = {
     {id:7,title:'データセンター計画に関する県議会答弁',publisher:'和歌山県',url:'https://www.pref.wakayama.lg.jp/gijiroku/d00222251.html'},
     {id:8,title:'コスモパーク加太 データセンター候補地調査仕様書',publisher:'和歌山県',url:'https://www.pref.wakayama.lg.jp/prefg/062200/d00211665_d/fil/04_shiyousho.pdf'},
     {id:9,title:'GX戦略地域制度 有望地域選定',publisher:'経済産業省',url:'https://www.meti.go.jp/press/2026/04/20260424007/20260424007.html'},
-    {id:10,title:'GX戦略地域 脱炭素電源活用型資料',publisher:'経済産業省',url:'https://www.meti.go.jp/policy/energy_environment/global_warming/gx_strategy_area/gx_strategic_zone_type3_japanese_set2.pdf'}
+    {id:10,title:'GX戦略地域 脱炭素電源活用型資料',publisher:'経済産業省',url:'https://www.meti.go.jp/policy/energy_environment/global_warming/gx_strategy_area/gx_strategic_zone_type3_japanese_set2.pdf'},
     {id:11,title:'和歌山北港区の整備と主要取扱貨物',publisher:'国土交通省近畿地方整備局 和歌山港湾事務所',url:'https://www.pa.kkr.mlit.go.jp/wakayamaport/seibi/seibi_01.html'},
     {id:12,title:'和歌山の戦後工業化と大型専用船の港湾整備',publisher:'和歌山県教育センター学びの丘',url:'https://www.manabi.wakayama-c.ed.jp/wakayama_hakken/pdf/chapter/02-05.pdf'},
     {id:13,title:'和歌山下津港の開発と利用の変遷',publisher:'国土交通省近畿地方整備局',url:'https://www.pa.kkr.mlit.go.jp/public/port/guide-map/wakayama/content-e3537ed08851c02f2dfea6a.html'},
