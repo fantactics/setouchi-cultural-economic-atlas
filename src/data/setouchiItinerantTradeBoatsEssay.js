@@ -1,7 +1,7 @@
 export const setouchiItinerantTradeBoatsEssay = {
   slug:'setouchi-itinerant-trade-boats',
   part:'移動は、地域を変える',
-  title:'海に店を出した島は、長屋門の町になった',
+  title:'移動販売船が、島に長屋門の町をつくった',
   subtitle:'潮待ち船への沖売りが生んだ、睦月島の商家と海辺の町並み',
   cities:['睦月島','松山','忽那諸島','尾道','福山'],
   keywords:['睦月島','沖売り','縞売り','反物行商','潮待ち','風待ち','忽那諸島','長屋門','狭い農地','海上商業'],
