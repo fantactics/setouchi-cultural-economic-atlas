@@ -22,9 +22,9 @@ const hero=article.heroPhoto;
     </figure>}
 
     <div class="book-reading-column">
-      <aside class="material-note">
-        <strong>この記事の読み方</strong>
-        <p>{article.note}</p>
+      <aside class="ship-real-photo-note">
+        <strong>本文に登場する本物の船を見る</strong>
+        <p>伊予市指定文化財の「和船（地引き網船）」は、双海シーサイド公園に保存されています。<a href="https://www.city.iyo.lg.jp/shisetsu/shisetsu/bunka/bunka-085.html" target="_blank" rel="noopener noreferrer">伊予市公式ページで船の写真を見る</a>。冒頭の帆船画は時代の情景を示すもので、現存する漁船そのものではありません。</p>
       </aside>
 
       {article.sections.map((section,sectionIndex)=>(
@@ -37,18 +37,7 @@ const hero=article.heroPhoto;
               {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
             </p>
           ))}
-          {section.materials?.length>0 && (
-            <div class="material-table-wrap">
-              <table class="material-table">
-                <thead><tr><th>部位・用途</th><th>素材</th><th>産地・経路</th><th>確認度</th></tr></thead>
-                <tbody>
-                  {section.materials.map((m)=>(
-                    <tr><th>{m.part}</th><td>{m.material}</td><td>{m.origin}</td><td>{m.certainty}</td></tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+
         </section>
       ))}
 
@@ -76,15 +65,8 @@ const hero=article.heroPhoto;
 </BaseLayout>
 
 <style>
-  .material-note{margin:0 0 3rem;padding:1.2rem 1.35rem;border-left:3px solid currentColor;background:rgba(127,127,127,.07)}
-  .material-note strong{display:block;margin-bottom:.45rem}
-  .material-note p{margin:0;line-height:1.85}
-  .material-table-wrap{overflow-x:auto;margin:1.8rem 0 2.6rem}
-  .material-table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.55}
-  .material-table th,.material-table td{padding:.72rem .8rem;border-bottom:1px solid rgba(127,127,127,.28);text-align:left;vertical-align:top}
-  .material-table thead th{font-size:.78rem;letter-spacing:.05em;white-space:nowrap}
-  .material-table tbody th{min-width:7.5rem;font-weight:650}
-  @media (max-width:720px){
-    .material-table{min-width:680px;font-size:.86rem}
-  }
+  .ship-real-photo-note{margin:0 0 2.5rem;padding:1.1rem 1.35rem;border-left:3px solid currentColor;background:rgba(127,127,127,.07);}
+  .ship-real-photo-note strong{display:block;margin-bottom:.5rem;}
+  .ship-real-photo-note p{margin:0;line-height:1.9;}
+  .ship-real-photo-note a{text-decoration:underline;text-underline-offset:3px;}
 </style>
