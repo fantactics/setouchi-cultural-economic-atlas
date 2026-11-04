@@ -71,7 +71,7 @@ export const naturalConditionAnchors = {
   'matsuyama-three-centers-one-city':['河口','海峡'],
   'hiketa-castle-port-town':['岬','入り江','潮汐'],
   'ako-after-salt-fields':['日照','干潟','潮汐'],
-  'takamatsu-sea-castle-to-gateway':['潮汐','干潟'],
+  'takamatsu-sea-castle-to-gateway':['河口','砂州','遠浅'],
   'tai-meshi-two-seas':['急流','黒潮','リアス海岸'],
   'shimotsui-tako-meshi':['急流','岩礁'],
   'shimonoseki-resource-made-by-market':['砂礫底','潮流','海峡'],
