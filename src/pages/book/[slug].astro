@@ -45,7 +45,7 @@ import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
 export function getStaticPaths(){
-  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
+  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
   const archivedBookArticles=['tadano-shido-industrial-ecosystem','miura-matsuyama-small-boiler-revolution'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
   return [
     ...publishedBookArticles.map((article,index)=>({
@@ -73,7 +73,7 @@ const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.value
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const publishedReadingPool=[
   ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
-  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay
+  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay
 ].filter(Boolean);
 const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedReadingPool,3)
   .map((item)=>{
