@@ -57,11 +57,6 @@ export const kadaIndustryEssay = {
   provisionalConclusion:'和歌山の製鉄業は、紀の川河口に広い工業用地と港を整備し、大型船で鉄鉱石・石炭を受け入れて製品を出荷できる臨海立地と結びついて発展した。対してコスモパーク加太のデータセンター計画は、海抜約100mの丘陵造成地の津波リスクの低さと用地規模、近畿圏へのアクセスなどが立地上の利点となる。ただし実際の計画の成立には電力・通信・冷却条件の検証が必要で、近接性だけを決定理由と断定しない。二つの産業が同じ土地を継承したのではなく、必要とするインフラに応じて異なる地形を選んだ例として読む。',
   openQuestions:['旧住友金属・日本製鉄従業員の居住地分布を時系列で復元できるか','加太地区そのものがベッドタウンとしてどの程度機能したかを国勢調査・住宅地図・社史で検証できるか','製鉄所の雇用縮小が加太線利用・学校児童数・商業へ与えた影響を定量化できるか','コスモパーク加太のデータセンター計画が地域雇用・税収・電力網・地域企業取引へどのような効果を持つか','データセンターを既存製造業・港湾・物流・再エネと接続する地域計算基盤モデルは実現可能か'],
   sources:[
-    {id:11,title:'和歌山北港区の整備と主要取扱貨物',publisher:'国土交通省近畿地方整備局 和歌山港湾事務所',url:'https://www.pa.kkr.mlit.go.jp/wakayamaport/seibi/seibi_01.html'},
-    {id:12,title:'和歌山の戦後工業化と大型専用船の港湾整備',publisher:'和歌山県教育センター学びの丘',url:'https://www.manabi.wakayama-c.ed.jp/wakayama_hakken/pdf/chapter/02-05.pdf'},
-    {id:13,title:'和歌山下津港の開発と利用の変遷',publisher:'国土交通省近畿地方整備局',url:'https://www.pa.kkr.mlit.go.jp/public/port/guide-map/wakayama/content-e3537ed08851c02f2dfea6a.html'},
-    {id:14,title:'生産設備構造対策（和歌山地区第1高炉2021年休止）',publisher:'日本製鉄',url:'https://www.nipponsteel.com/ir/library/settlement/pdf/20240509_600.pdf'},
-    {id:15,title:'コスモパーク加太の立地、海抜と交通アクセス',publisher:'和歌山県',url:'https://www.pref.wakayama.lg.jp/prefg/020100/021300/cosmo.html'},
     {id:1,title:'関西製鉄所 和歌山地区 歴史',publisher:'日本製鉄',url:'https://www.nipponsteel.com/works/kansai/wakayama/history/'},
     {id:2,title:'日本製鉄ファクトブック・設備再編関連資料',publisher:'日本製鉄',url:'https://www.nipponsteel.com/factbook/05-01.html'},
     {id:3,title:'校区の状況',publisher:'和歌山市立木本小学校',url:'https://www.wakayama-wky.ed.jp/kimoto/%E6%A0%A1%E5%8C%BA%E3%81%AE%E7%8A%B6%E6%B3%81/'},
@@ -72,5 +67,10 @@ export const kadaIndustryEssay = {
     {id:8,title:'コスモパーク加太 データセンター候補地調査仕様書',publisher:'和歌山県',url:'https://www.pref.wakayama.lg.jp/prefg/062200/d00211665_d/fil/04_shiyousho.pdf'},
     {id:9,title:'GX戦略地域制度 有望地域選定',publisher:'経済産業省',url:'https://www.meti.go.jp/press/2026/04/20260424007/20260424007.html'},
     {id:10,title:'GX戦略地域 脱炭素電源活用型資料',publisher:'経済産業省',url:'https://www.meti.go.jp/policy/energy_environment/global_warming/gx_strategy_area/gx_strategic_zone_type3_japanese_set2.pdf'}
+    {id:11,title:'和歌山北港区の整備と主要取扱貨物',publisher:'国土交通省近畿地方整備局 和歌山港湾事務所',url:'https://www.pa.kkr.mlit.go.jp/wakayamaport/seibi/seibi_01.html'},
+    {id:12,title:'和歌山の戦後工業化と大型専用船の港湾整備',publisher:'和歌山県教育センター学びの丘',url:'https://www.manabi.wakayama-c.ed.jp/wakayama_hakken/pdf/chapter/02-05.pdf'},
+    {id:13,title:'和歌山下津港の開発と利用の変遷',publisher:'国土交通省近畿地方整備局',url:'https://www.pa.kkr.mlit.go.jp/public/port/guide-map/wakayama/content-e3537ed08851c02f2dfea6a.html'},
+    {id:14,title:'生産設備構造対策（和歌山地区第1高炉2021年休止）',publisher:'日本製鉄',url:'https://www.nipponsteel.com/ir/library/settlement/pdf/20240509_600.pdf'},
+    {id:15,title:'コスモパーク加太の立地、海抜と交通アクセス',publisher:'和歌山県',url:'https://www.pref.wakayama.lg.jp/prefg/020100/021300/cosmo.html'},
   ]
 };
