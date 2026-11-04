@@ -68,6 +68,11 @@ export const essayEntryBySlug = {
     "food",
     "agriculture"
   ],
+  "shodoshima-somen-to-sesame-oil": [
+    "food",
+    "agriculture",
+    "industry"
+  ],
   "faith-as-transport-map": [
     "ports",
     "townscape"
