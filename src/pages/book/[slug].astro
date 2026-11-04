@@ -242,6 +242,25 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
           <p class="reader-landscape-map-source">地図：Google マップ（<a href="https://higashikagawa.net/sightseeing/hiketajo" target="_blank" rel="noopener noreferrer">東かがわ市観光情報サイト掲載の地図</a>を利用）</p>
         </section>
       )}
+      {article.slug==='matsuyama-three-centers-one-city' && (
+        <section class="reader-landscape-map" aria-labelledby="matsuyama-harbors-map-title">
+          <div class="kicker">地図で見る自然条件</div>
+          <h2 id="matsuyama-harbors-map-title">三津浜の河口と、北の高浜港</h2>
+          <p>航空写真を拡大すると、三津浜の河口に沿って伸びる町と、北の高浜港が近い距離にありながら違う海岸の形をしていることがわかります。地図を動かし、汽船が寄る港が移った理由を地形から考えてみてください。</p>
+          <div class="reader-landscape-map-frame">
+            <iframe
+              title="三津浜・宮前川河口と高浜港の航空写真（Googleマップ）"
+              src="https://maps.google.com/maps?ll=33.8745,132.7075&z=13&t=k&output=embed"
+              width="100%"
+              height="370"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="reader-landscape-map-source">地図：Google マップ（航空写真）。<a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E6%B4%A5%E3%81%AE%E6%B8%A1%E3%81%97+%E6%9D%BE%E5%B1%B1" target="_blank" rel="noopener noreferrer">三津の渡し</a>／<a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E6%B5%9C%E6%B8%AF+%E6%9D%BE%E5%B1%B1" target="_blank" rel="noopener noreferrer">高浜港</a>を地図で開く</p>
+        </section>
+      )}
       {sections.map((section)=><section class="book-prose-section">
         {!isNarrativeEssay && <div class="book-section-no">{section.number}</div>}
         <h2>{section.heading}</h2>
