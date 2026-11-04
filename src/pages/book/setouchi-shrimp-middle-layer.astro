@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
+import { shrimpArticlePhotos } from '../../data/shrimpArticlePhotos.js';
 import { setouchiShrimpEssay as article } from '../../data/setouchiShrimpEssay.js';
 ---
 <BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
@@ -49,5 +51,6 @@ import { setouchiShrimpEssay as article } from '../../data/setouchiShrimpEssay.j
         </div>
       </section>
     </div>
+    <EssayPhotoGallery photos={shrimpArticlePhotos} title="小エビの料理と干しエビ" description="他地域で撮影された比較写真です。" />
   </article>
 </BaseLayout>
