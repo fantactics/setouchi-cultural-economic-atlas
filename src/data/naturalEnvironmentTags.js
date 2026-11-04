@@ -40,6 +40,7 @@ export const naturalConditionRules = [
   {tag:'鉱床', pattern:/鉱床|鉱脈|地下の銅|銅鉱石ができ|銅の鉱石/},
   {tag:'土壌', pattern:/土壌|土質|砂質土|粘土質|水はけのよい土/},
   {tag:'塩分', pattern:/塩分|塩分濃度|汽水|汽水域/},
+  {tag:'津波', pattern:/津波|津波浸水|津波被害|津波リスク/},
   {tag:'台風', pattern:/台風|暴風雨|高潮/},
   {tag:'砂州', pattern:/砂州|砂嘴|州が伸び|砂が堆積/}
 ];
@@ -85,7 +86,7 @@ export const naturalConditionAnchors = {
   'kada-sea-bream-one-line':['急流','海峡'],
   'kitan-strait-tai-to-shirasu':['急流','海峡'],
   'kada-sea-bream-distribution-ecosystem':['急流','海峡'],
-  'kada-steel-data-center-transition':['海峡','入り江'],
+  'kada-steel-data-center-transition':['津波','河口'],
   'shimotsui-hijiki-peperoncino':['岩礁','潮汐'],
   'tomo-two-act-tidal-port':['潮汐','季節風'],
   'gangi-tide-port-functions':['潮汐'],
