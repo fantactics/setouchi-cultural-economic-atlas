@@ -69,7 +69,7 @@ export const essayCardCopy = {
     "photoId": "photo-shimotsui-dried-octopus"
   },
   "oysters-taste-of-small-seas": {
-    "teaser": "牡蠣の筏が浮かぶ海を、食卓からもう一度眺める。"
+    "teaser": "日生へ届く二つの川と、広島湾の太田川。牡蠣筏の下の見えない水をたどる。"
   },
   "hijiki-tidal-time": {
     "teaser": "ひじきの暮らしは、満ち潮と引き潮のあいだにある。"
