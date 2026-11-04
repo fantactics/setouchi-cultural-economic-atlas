@@ -23,7 +23,7 @@ import { photoEvidence } from '../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 import '../styles/reader-navigation.css';
 
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean);
 const photoById=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map((p)=>[p.id,p]));
 const essayPhoto=(article)=>{
   const curated=essayIndexPhotoOverrides[article.slug];
