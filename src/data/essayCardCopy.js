@@ -36,7 +36,7 @@ export const essayCardCopy = {
     "teaser": "寺の屋根の向こうに造船所。港町の二つの歴史を眺める。"
   },
   "takehara-salt-capital-to-townscape": {
-    "teaser": "塩づくりの富は、竹原の白壁と町家になって残った。"
+    "teaser": "田畑にできなかった塩辛い干拓地が塩田になり、その富は竹原の白壁へ変わった。"
   },
   "mitarai-economy-of-waiting": {
     "teaser": "船が待つあいだ、人が泊まり、商いが生まれた島の港。",
