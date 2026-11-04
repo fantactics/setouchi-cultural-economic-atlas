@@ -76,7 +76,7 @@ export const naturalConditionAnchors = {
   'sea-bream-scales-to-collagen':['リアス海岸','黒潮'],
   'fish-waste-to-feed-and-citrus':['リアス海岸','斜面'],
   'olive-pomace-to-cattle':['少雨','日照'],
-  'soy-sauce-lees-to-chomeiso':['少雨','潮風'],
+  'soy-sauce-lees-to-chomeiso':['潮風'],
   'ibuki-fat-sardines-revalued':['潮流','栄養塩'],
   'citrus-pomace-cascade':['斜面','日照'],
   'kinkai-salt-field-to-solar':['干潟','晴天'],
@@ -91,12 +91,9 @@ export const naturalConditionAnchors = {
   'tomo-two-act-tidal-port':['潮汐','季節風'],
   'gangi-tide-port-functions':['潮汐'],
   'jinori-okinori-navigation-system':['潮汐','季節風'],
-  'kojima-jeans-circular-economy':['少雨'],
-  'setouchi-sushi-not-nigiri':['潮汐','入り江'],
   'setouchi-shrimp-middle-layer':['海水交換','栄養塩'],
   'setouchi-life-year':['水温','干潟','アマモ場'],
   'setouchi-itinerant-trade-boats':['潮汐','季節風'],
-  'setouchi-ship-materials':['潮汐'],
   'niboshi-shirasu-two-food-cultures':['海峡','水温'],
   'kojima-island-infrastructure-per-capita':['多島海'],
   'kojima-island-cycling-without-consumption':['多島海'],
@@ -105,6 +102,16 @@ export const naturalConditionAnchors = {
 // Older essays occasionally use 潮流 instead of 急流 (both are natural conditions).
 naturalConditionRules.push({tag:'潮流',pattern:/潮流|潮の流れ|海流|流れの速い海|激しい潮/});
 naturalConditionVocabulary.push('潮流');
+
+// Terms can appear in unrelated contexts: e.g. soy-sauce salinity is not
+// a marine salinity condition, and a fishing port's strait is not always a
+// causal natural condition for an essay about commercial branding.
+const excludedBySlug={
+  'soy-sauce-lees-to-chomeiso':['塩分'],
+  'fish-waste-to-feed-and-citrus':['海峡'],
+  'shimonoseki-resource-made-by-market':['海峡'],
+  'kojima-jeans-circular-economy':['少雨']
+};
 
 const articleParts = (article) => ({
   lead:String(article?.lead||'')+' '+String(article?.subtitle||''),
@@ -121,13 +128,14 @@ export const getNaturalConditionTags=(article, limit=3)=>{
   if(!article) return [];
   const parts=articleParts(article);
   const vocabulary=new Set(naturalConditionVocabulary);
-  const anchors=(naturalConditionAnchors[article.slug]||[]).filter((t)=>vocabulary.has(t));
+  const excluded=new Set(excludedBySlug[article.slug]||[]);
+  const anchors=(naturalConditionAnchors[article.slug]||[]).filter((t)=>vocabulary.has(t)&&!excluded.has(t));
   const candidates=naturalConditionRules.map(({tag,pattern},index)=>{
     const headingMatches=parts.headings.filter((x)=>pattern.test(x)).length;
     const paragraphMatches=parts.paragraphs.filter((x)=>pattern.test(x)).length;
     const score=(pattern.test(parts.lead)?4:0)+Math.min(headingMatches,2)*3+Math.min(paragraphMatches,5);
     return {tag,score,index};
-  }).filter((x)=>x.score>=4 && !anchors.includes(x.tag))
+  }).filter((x)=>x.score>=4 && !anchors.includes(x.tag) && !excluded.has(x.tag))
     .sort((a,b)=>b.score-a.score||a.index-b.index);
   return [...anchors,...candidates.map((x)=>x.tag)].slice(0,Math.max(0,limit));
 };
