@@ -152,6 +152,33 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </header>
 
     {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>}
+    {article.slug==='tai-meshi-two-seas' && (
+      <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
+        <div class="tai-meshi-pair-heading">
+          <span>二つのルーツ、二つの食卓</span>
+          <h2 id="tai-meshi-compare-heading">鯛を分け合う飯と、漁師の一膳</h2>
+          <p>同じ鯛と米でも、祝いの席と漁の現場に伝わる食べ方は、調理も盛り付けも違います。</p>
+        </div>
+        <div class="tai-meshi-photo-grid">
+          <figure>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E9%AF%9B%E3%82%81%E3%81%97%EF%BC%88%E4%BB%8A%E6%B2%BB%E9%A7%85%EF%BC%8920220111-P1300537.jpg?width=780" alt="今治駅で販売された炊き込み型の鯛めしの写真" loading="lazy" />
+            <figcaption>
+              <strong>今治・北条の鯛めし｜祝いの席にもつながる料理</strong>
+              <span>鯛を米と一緒に炊き、身をほぐして取り分ける。鯛を献上したという北条鹿島の伝承や、一尾を囲む食卓の文化につながる。写真は今治駅で販売された炊き込み型の一例。</span>
+              <small>写真：くろふね / <a href="https://commons.wikimedia.org/wiki/File:%E9%AF%9B%E3%82%81%E3%81%97%EF%BC%88%E4%BB%8A%E6%B2%BB%E9%A7%85%EF%BC%8920220111-P1300537.jpg" target="_blank" rel="noreferrer">Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>）</small>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Uwajima%20Taimeshi.jpg?width=780" alt="生の鯛の刺身とたれを白いご飯に合わせる宇和島鯛めしの写真" loading="lazy" />
+            <figcaption>
+              <strong>宇和島の鯛めし｜船上の漁師めしに由来する料理</strong>
+              <span>鯛の刺身を卵入りのたれにからめ、自分のご飯へかける。生魚の食感を生かす、一人分ずつの食べ方。写真は松山市の店舗で提供された宇和島式。</span>
+              <small>写真：Fred Cherrygarden / <a href="https://commons.wikimedia.org/wiki/File:Uwajima_Taimeshi.jpg" target="_blank" rel="noreferrer">Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>）</small>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    )}
     {photoFieldReferences.length>0 && <nav class="reader-photo-evidence" aria-label="記事に登場する実物・史料の写真へのリンク">
       <span class="reader-photo-evidence-heading">実物の写真も見る</span>
       {photoFieldReferences.map((reference)=><div class="reader-photo-evidence-item">
@@ -215,5 +242,22 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       {prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前の記事</small><strong>{prev.title}</strong></a> : <span></span>}
       {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
     </nav>
+
+  <style>
+    .tai-meshi-photo-pair{max-width:1080px;margin:2.5rem auto 3rem;padding:0 1.5rem;}
+    .tai-meshi-pair-heading{margin-bottom:1.3rem;}
+    .tai-meshi-pair-heading>span{font-size:.74rem;letter-spacing:.12em;color:var(--muted,#777);}
+    .tai-meshi-pair-heading h2{font-size:clamp(1.45rem,3.3vw,2.2rem);margin:.5rem 0 .7rem;line-height:1.35;}
+    .tai-meshi-pair-heading p{line-height:1.85;margin:0;max-width:720px;}
+    .tai-meshi-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;align-items:start;}
+    .tai-meshi-photo-grid figure{margin:0;min-width:0;}
+    .tai-meshi-photo-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;}
+    .tai-meshi-photo-grid figcaption{display:flex;flex-direction:column;gap:.65rem;padding:.9rem .1rem 0;line-height:1.75;}
+    .tai-meshi-photo-grid figcaption strong{font-size:1.05rem;line-height:1.5;}
+    .tai-meshi-photo-grid figcaption span{font-size:.94rem;}
+    .tai-meshi-photo-grid figcaption small{font-size:.75rem;color:var(--muted,#777);}
+    .tai-meshi-photo-grid figcaption small a{color:inherit;text-decoration:underline;}
+    @media(max-width:680px){.tai-meshi-photo-grid{grid-template-columns:1fr;gap:2rem;}}
+  </style>
   </article>
 </BaseLayout>
