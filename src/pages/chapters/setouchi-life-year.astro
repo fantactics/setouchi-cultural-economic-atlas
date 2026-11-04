@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { setouchiLifeYearEssay as article } from '../../data/setouchiLifeYearEssay.js';
+const sourcesById=Object.fromEntries(article.sources.map(s=>[s.id,s]));
+---
+<BaseLayout title={`${article.title} | 研究ノート`} description="イカナゴ、サワラ、藻場、干潟と潮流から、瀬戸内海の生物の生活史と海域間のつながりを整理する資料ノート。">
+  <section class="place-hero chapter-hero research-note-hero">
+    <a class="research-note-back" href="/setouchi-cultural-economic-atlas/chapters/">研究ノート一覧 ←</a>
+    <div class="kicker">資料ノート｜海洋生態系</div>
+    <h1>{article.title}</h1>
+    <p class="subtitle">{article.subtitle}</p>
+    <p>{article.lead}</p>
+  </section>
+  <section class="section chapter-body">
+    <h2>季節によって変わる海の役割</h2>
+    {article.sections.map((section,i)=>(
+      <article class="research-section" id={`section-${i+1}`}>
+        <h2>{section.heading}</h2>
+        <div class="research-copy">
+          {section.paragraphs.map(p=><p>{p.text}{p.refs?.length>0 && <small>　出典：{p.refs.map(id=>id).join('、')}</small>}</p>)}
+        </div>
+      </article>
+    ))}
+  </section>
+  <section class="section">
+    <h2>研究上の整理</h2>
+    <p>{article.provisionalConclusion}</p>
+    <h2>検証したいこと</h2>
+    <ul>{article.openQuestions.map(q=><li>{q}</li>)}</ul>
+  </section>
+  <section class="section book-sources">
+    <h2>出典・参考資料</h2>
+    <ol>{article.sources.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a><span>（{source.publisher}／出典 {source.id}）</span></li>)}</ol>
+  </section>
+</BaseLayout>
