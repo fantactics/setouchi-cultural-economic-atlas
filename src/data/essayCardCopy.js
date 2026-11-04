@@ -68,6 +68,9 @@ export const essayCardCopy = {
     "teaser": "下津井の港に干しダコが並ぶ。その漁の先に、倉敷のたこめしがある。",
     "photoId": "photo-shimotsui-dried-octopus"
   },
+  "sawara-spring-two-gates": {
+    "teaser": "日生の祝いのこうこずし。春のサワラは、二つの水道から海を渡ってくる。"
+  },
   "oysters-taste-of-small-seas": {
     "teaser": "日生へ届く二つの川と、広島湾の太田川。牡蠣筏の下の見えない水をたどる。"
   },
