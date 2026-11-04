@@ -34,6 +34,18 @@ export const essayPhotoFieldReferences = {
   ],
   'setouchi-itinerant-trade-boats': [
     {
+      label:'睦月島の長屋門と町並みの実際の写真を見る',
+      publisher:'愛媛県 中予地方局',
+      url:'https://www.pref.ehime.jp/site/chuyo/4784.html',
+      note:'睦月の古民家、長屋門が並ぶ港の朝、路地などを掲載した公式ページ。写真の転載許諾は未確認のため、画像は複製せず掲載元に案内します。'
+    },
+    {
+      label:'長屋門のある睦月の町を写真で歩く',
+      publisher:'愛媛県 中予地方局',
+      url:'https://www.pref.ehime.jp/site/chuyo/4734.html',
+      note:'島の路地や古民家の写真と、海からの風・波を避ける建物の造りを紹介しています。'
+    },
+    {
       label:'テグス行商船の記録写真を見る',
       publisher:'香川県立瀬戸内海歴史民俗資料館',
       url:'https://www.pref.kagawa.lg.jp/kmuseum/setorekishi/exhib/setonaikainokaijyouseikatu.html',
