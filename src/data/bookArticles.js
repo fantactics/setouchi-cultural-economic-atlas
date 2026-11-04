@@ -616,10 +616,20 @@ export const bookArticles = [
         "heading": "池の多い平野には、水の少ない川が流れる",
         "paragraphs": [
           {
-            "text": "讃岐平野の奥には讃岐山脈が連なり、山から流れる川のほとんどは北の瀬戸内海へ向かう。香川県の説明によると、川は短く勾配が急なため、雨が降っても短時間で海へ流れ下る。高松の年間降水量は平年値で約一一五〇ミリ。しかも梅雨や台風の時期に雨が偏り、田が水を欲しがる夏には不足しやすい。",
+            "text": "讃岐平野の北には瀬戸内海、その向こうには中国山地がある。南には讃岐山脈が連なり、さらに南には四国山地が広がる。冬、日本海から来た湿った季節風は中国山地で雪や雨を降らせ、瀬戸内海へ抜けるころには乾いている。夏、太平洋から吹き込む湿った空気も四国山地の南側に雨を落とし、その北の讃岐平野には届きにくい。北と南の山々が、季節ごとに雨雲を受け止めているのだ。",
+            "refs": [
+              10,
+              13,
+              14
+            ]
+          },
+          {
+            "text": "もちろん梅雨や台風のときには大雨も降る。それでも高松の年間降水量は平年値で約一一五〇ミリと少なめだ。しかも讃岐山脈から瀬戸内海へ向かう川は短く、勾配が急なため、降った雨も短時間で海へ流れ下る。雨が届きにくいうえ、降った雨も長くとどまらない。ため池のある風景は、この二つの事情から生まれた。",
             "refs": [
               1,
-              10
+              10,
+              13,
+              14
             ]
           },
           {
@@ -716,7 +726,7 @@ export const bookArticles = [
       {label:'道具の写真｜線香水の木箱と拍子木・太鼓',href:'https://www.pref.kagawa.lg.jp/tochikai/shiryoukan/document.html'},
       {label:'地域の景観｜ため池の役割と讃岐の田園',href:'https://www.pref.kagawa.lg.jp/tochikai/about_tameike/role.html'}
     ],
-    provisionalConclusion:'少雨と夏の降水不足だけでなく、讃岐山脈から海へ短く急勾配で流れる河川が、雨を貯めるため池網の必要を生んだ。2026年現在12,187か所で、約半数が小池。水ブニは田ごとに異なる権利であり、線香水は時間を管理する配水技術であった。香川用水通水後もため池は調整池として残り、景観の背景に見えない配水・水利の約束が重なる。',
+    provisionalConclusion:'冬に中国山地、夏に四国山地が湿った風を遮るため讃岐平野は雨陰となりやすく、しかも讃岐山脈から海へ短く急勾配で流れる河川が、雨を貯めるため池網の必要を生んだ。2026年現在12,187か所で、約半数が小池。水ブニは田ごとに異なる権利であり、線香水は時間を管理する配水技術であった。香川用水通水後もため池は調整池として残り、景観の背景に見えない配水・水利の約束が重なる。',
     openQuestions:['線香水の具体的な用水区・時代・当番制度を配水台帳や道具の所蔵情報で確認できるか','田ごとの水ブニが地主・耕作者・上流下流によってどの程度不均等だったか','香川用水以降の配水方法・水利組合の運営が地域ごとにどう変わったか','ため池管理者の高齢化と防災重点池の維持負担をどのように捉えるか'],
     sources:[
       {id:1,title:'水資源対策の歴史',publisher:'香川県',url:'https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_03.html'},
@@ -730,7 +740,9 @@ export const bookArticles = [
       {id:9,title:'香川用水土器川沿岸農業水利事業・水利慣行の変遷',publisher:'一般社団法人 農業農村整備情報総合センター「水土の礎」',url:'https://suido-ishizue.jp/kokuei/chushikoku/Prefectures/3702/3702.html'},
       {id:10,title:"地勢と気候――少雨と急流の川",publisher:"香川県",url:"https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_01.html"},
       {id:11,title:"香川用水資料館の所蔵資料・線香水",publisher:"香川県",url:"https://www.pref.kagawa.lg.jp/tochikai/shiryoukan/document.html"},
-      {id:12,title:"農業（線香水と水ブニの用水権）",publisher:"香川県立図書館",url:"https://www.library.pref.kagawa.lg.jp/know/local/local_0005-23"}
+      {id:12,title:"農業（線香水と水ブニの用水権）",publisher:"香川県立図書館",url:"https://www.library.pref.kagawa.lg.jp/know/local/local_0005-23"},
+      {id:13,title:"四国の天候（太平洋側の多雨と瀬戸内側の少雨）",publisher:"気象庁",url:"https://www.data.jma.go.jp/cpd/j_climate/shikoku/climate_shikoku_sub1.html"},
+      {id:14,title:"香川県と土砂災害：地形・地質・気候",publisher:"香川県",url:"https://www.pref.kagawa.lg.jp/kasensabo/sabo/outline.html"}
     ]
   },
   {
