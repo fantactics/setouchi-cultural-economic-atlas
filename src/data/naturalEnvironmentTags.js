@@ -49,7 +49,6 @@ export const naturalConditionRules = [
   {tag:'台風', pattern:/台風|暴風雨|高潮/},
   {tag:'砂州', pattern:/砂州|州が伸び|砂が堆積/},
   {tag:'砂嘴', pattern:/砂嘴|海へ伸びた砂の土地|細長い砂の土地/},
-  {tag:'遠浅', pattern:/遠浅|浅い港|水深が浅い海/}
 ];
 export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 
