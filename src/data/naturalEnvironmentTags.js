@@ -101,6 +101,7 @@ export const naturalConditionAnchors = {
   'setouchi-shrimp-middle-layer':['砂底','潮流'],
   'setouchi-life-year':['水温','干潟','アマモ場'],
   'setouchi-itinerant-trade-boats':['斜面','潮汐','季節風'],
+  'setouchi-ship-materials':['多島海'],
   'niboshi-shirasu-two-food-cultures':['海峡','水温'],
   'kojima-island-infrastructure-per-capita':['多島海'],
   'kojima-island-cycling-without-consumption':['多島海'],
