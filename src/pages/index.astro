@@ -57,12 +57,12 @@ const randomPickPool=[...new Map(allEssays.map((article)=>[article.slug,article]
   .filter((entry)=>entry.imageUrl);
 if(randomPickPool.length<6) throw new Error('Homepage needs at least six illustrated essays.');
 ---
-<BaseLayout title="SETOUCHI ATLAS | 風景の理由をたどる — 私の瀬戸内素描" description="港町の路地、島の食卓、海辺の工場。自然と人の営みが重なって生まれた風景の理由をたどる、私の瀬戸内素描。">
+<BaseLayout title="SETOUCHI ATLAS - 私の瀬戸内地誌紀行" description="港町の路地、島の食卓、海辺の工場。自然と人の営みが重なって生まれた風景の理由をたどる、私の瀬戸内素描。">
   <div class="reader-home">
     <section class="reader-home-intro">
       <p class="reader-eyebrow">SETOUCHI ATLAS</p>
       <h1>風景の理由をたどる</h1>
-      <p class="reader-home-subtitle">私の瀬戸内素描</p>
+      <p class="reader-home-subtitle">私の瀬戸内地誌紀行</p>
       <p class="reader-home-lead">港町の路地、島の食卓、海辺の工場。<br />見慣れた風景にも、そうなった理由がある。<br />自然と人の営みが重なって生まれた瀬戸内の姿を、旅先で見つけた問いからたどります。</p>
       <a class="reader-primary-link" href="/setouchi-cultural-economic-atlas/book/">エッセイを探す <span aria-hidden="true">→</span></a>
     </section>
