@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { orderedBookArticles } from '../../../data/bookArticles.js';
+import { kadaEssays } from '../../../data/kadaEssays.js';
+import { kadaIndustryEssay } from '../../../data/kadaIndustryEssay.js';
+import { cycleTourismEssay } from '../../../data/cycleTourismEssay.js';
+import { shimotsuiHijikiEssay } from '../../../data/shimotsuiHijikiEssay.js';
+import { tomoTwoActPortEssay } from '../../../data/tomoTwoActPortEssay.js';
+import { portSystemEssays } from '../../../data/portSystemEssays.js';
+import { kojimaCircularEssay } from '../../../data/kojimaCircularEssay.js';
+import { kojimaIslandEssays } from '../../../data/kojimaIslandEssays.js';
+import { setouchiSushiEssay } from '../../../data/setouchiSushiEssay.js';
+import { setouchiShrimpEssay } from '../../../data/setouchiShrimpEssay.js';
+import { setouchiLifeYearEssay } from '../../../data/setouchiLifeYearEssay.js';
+import { setouchiItinerantTradeBoatsEssay } from '../../../data/setouchiItinerantTradeBoatsEssay.js';
+import { setouchiShipMaterialsEssay } from '../../../data/setouchiShipMaterialsEssay.js';
+import { niboshiShirasuEssay } from '../../../data/niboshiShirasuEssay.js';
+import { aiRegionalPlanningEssay } from '../../../data/aiRegionalPlanningEssay.js';
+import { enhanceBookArticle } from '../../../data/articleEnhancements.js';
+import { applyEssayEditorialOverride } from '../../../data/essayEditorialOverrides.js';
+import { naturalConditionTagIndex } from '../../../data/naturalEnvironmentTags.js';
+
+const originalEssays=[
+  ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,
+  shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,
+  kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,
+  setouchiShrimpEssay,setouchiLifeYearEssay,setouchiItinerantTradeBoatsEssay,
+  setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay
+].filter(Boolean);
+const essays=originalEssays.map((a)=>applyEssayEditorialOverride(enhanceBookArticle(a)));
+const natureGroups=naturalConditionTagIndex(essays);
+const tagCount=natureGroups.length;
+---
+<BaseLayout title="自然条件から読む | SETOUCHI ATLAS" description="少雨、潮汐、干潟、急流。風景を生んだ見えない自然条件から、瀬戸内のエッセイをたどる。">
+  <main class="nature-index">
+    <nav class="nature-back"><a href="/setouchi-cultural-economic-atlas/book/">← エッセイ一覧へ</a></nav>
+    <header class="nature-intro">
+      <p class="nature-kicker">SETOUCHI ATLAS / NATURAL CONDITIONS</p>
+      <h1>風景の理由から、<br />物語を探す。</h1>
+      <p>同じ「少雨」でも、ある土地ではため池が生まれ、別の土地では塩づくりや果樹栽培へとつながりました。潮汐、干潟、急流、岩礁。目には見えにくい自然の条件を手がかりに、別々の風景をつないでみてください。</p>
+      <small>自然環境の条件だけをタグにしています。産業・料理・地名は含みません。本文から自動抽出した候補に、編集上の確認・補正を加えています。</small>
+    </header>
+    <section class="nature-overview" aria-labelledby="nature-overview-title">
+      <h2 id="nature-overview-title">自然条件を選ぶ <small>{tagCount}種類</small></h2>
+      <div class="nature-chip-list">
+        {natureGroups.map(({tag,essays})=><a href={\`#nature-\${encodeURIComponent(tag)}\`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
+      </div>
+    </section>
+    <div class="nature-results">
+      {natureGroups.map(({tag,essays})=>
+        <section class="nature-group" id={\`nature-\${tag}\`} aria-label={tag}>
+          <header><h2>{tag}</h2><span>{essays.length}篇の物語</span><a href="#nature-overview-title" aria-label="タグ一覧に戻る">↑</a></header>
+          <ul>
+            {essays.map((article)=><li><a href={\`/setouchi-cultural-economic-atlas/book/\${article.slug}/\`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
+          </ul>
+        </section>
+      )}
+    </div>
+    <p class="nature-end"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る</a></p>
+  </main>
+</BaseLayout>
+
+<style>
+  .nature-index{max-width:1140px;margin:0 auto;padding:2rem 1.4rem 5rem;}
+  .nature-back{font-size:.86rem;margin-bottom:2.5rem;}
+  .nature-back a,.nature-end a{text-decoration:underline;text-underline-offset:3px;}
+  .nature-intro{max-width:800px;margin-bottom:3.4rem;}
+  .nature-kicker{font-size:.75rem;letter-spacing:.16em;opacity:.7;font-weight:600;}
+  .nature-intro h1{font-size:clamp(2rem,5.5vw,3.5rem);line-height:1.36;letter-spacing:.015em;margin:1rem 0;}
+  .nature-intro>p:not(.nature-kicker){font-size:1.07rem;line-height:2;max-width:720px;}
+  .nature-intro small{display:block;opacity:.72;font-size:.8rem;line-height:1.8;margin-top:1rem;}
+  .nature-overview{border-top:1px solid color-mix(in srgb,currentColor 18%,transparent);padding-top:1.5rem;margin-bottom:4rem;}
+  .nature-overview h2{font-size:1.32rem;margin:0 0 1.25rem;}
+  .nature-overview h2 small{font-weight:400;opacity:.65;margin-left:.3rem;font-size:.85rem;}
+  .nature-chip-list{display:flex;flex-wrap:wrap;gap:.65rem;}
+  .nature-chip-list a{border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-radius:999px;display:inline-flex;align-items:center;gap:.65rem;padding:.45rem .85rem;text-decoration:none;line-height:1.55;}
+  .nature-chip-list a:hover,.nature-chip-list a:focus-visible{border-color:currentColor;text-decoration:underline;}
+  .nature-chip-list small{font-size:.76rem;opacity:.65;}
+  .nature-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3.3rem 2.5rem;}
+  .nature-group{scroll-margin-top:5rem;min-width:0;}
+  .nature-group header{display:flex;gap:.75rem;align-items:baseline;border-bottom:1px solid color-mix(in srgb,currentColor 17%,transparent);padding-bottom:.7rem;}
+  .nature-group header h2{font-size:1.4rem;margin:0;}
+  .nature-group header span{font-size:.8rem;opacity:.67;}
+  .nature-group header a{margin-left:auto;text-decoration:none;font-size:.9rem;}
+  .nature-group ul{list-style:none;margin:0;padding:0;}
+  .nature-group li{padding:.8rem 0;border-bottom:1px solid color-mix(in srgb,currentColor 9%,transparent);}
+  .nature-group li a{display:flex;flex-direction:column;gap:.25rem;text-decoration:none;line-height:1.6;}
+  .nature-group li a:hover strong{text-decoration:underline;text-underline-offset:3px;}
+  .nature-group li strong{font-weight:600;font-size:.96rem;}
+  .nature-group li small{font-size:.79rem;opacity:.66;}
+  .nature-end{margin-top:4rem;text-align:center;}
+  @media(max-width:700px){.nature-results{grid-template-columns:1fr;gap:2.5rem;}.nature-index{padding:1.3rem 1.1rem 4rem;}.nature-intro{margin-bottom:2rem;}}
+</style>
