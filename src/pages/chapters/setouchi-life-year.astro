@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { setouchiLifeYearEssay as article } from '../../data/setouchiLifeYearEssay.js';
-const sourcesById=Object.fromEntries(article.sources.map(s=>[s.id,s]));
 ---
 <BaseLayout title={`${article.title} | 研究ノート`} description="イカナゴ、サワラ、藻場、干潟と潮流から、瀬戸内海の生物の生活史と海域間のつながりを整理する資料ノート。">
   <section class="place-hero chapter-hero research-note-hero">
