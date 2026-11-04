@@ -525,6 +525,7 @@ export const bookArticles = [
           {text:'1828年12月、新しい波止を守る神として住吉の神が勧請された。住吉三神は古くから航海の守護神とされ、船が行き交う港にふさわしい信仰だった。ただし、幾つもある海の神の中から住吉を選んだ最終的な決定の経緯までは確認できない。',refs:[1,11]},
           {text:'神社の資金を出したのは、広島藩の蔵元を務めた大阪の豪商・鴻池善右衛門だった。呉市の記録には、広島藩の勘定奉行・筒井極人が寄進を持ちかけたところ、当主が厄年にあたっていたため応じた、という逸話が残る。藩との商取引が依頼の縁をつくり、個人の厄除けの願いも寄進を後押ししたという。',refs:[2,9,11]},
           {text:'本殿は大阪の住吉大社を半分の大きさで写し、大阪で部材をつくって船で運び、1830年に御手洗で組み立てたと伝わる。鴻池の寄進をきっかけに、地元の問屋だけでなく大阪や延岡の商人も灯籠や松を寄進した。島の港の風景をつくる資金と建築技術は、海の向こうからやって来た。',refs:[1]}
+          {text:'なお、鴻池家と住吉大社の関係は、後の時代にも確認できる。1908年、大阪の住吉大社には鴻池善右衛門と銀行・財界人約40人が青銅の大灯籠を奉納した。ただし御手洗の社殿寄進から78年後のことで、同じ善右衛門でも別の世代である。この記録は鴻池家が後年も住吉大社に寄進した事実を示すが、1830年の当主がそれ以前から住吉大社に寄進していた証拠ではない。',refs:[13]}
         ],
         photoIds:['photo-mitarai-townscape']
       },
@@ -560,7 +561,8 @@ export const bookArticles = [
       {id:8,title:'千砂子波止・高燈籠',publisher:'呉市',url:'https://www.city.kure.lg.jp/soshiki/67/m000253.html'},
       {id:9,title:'住吉神社（広島県重要文化財）',publisher:'呉市 日本遺産北前船',url:'https://www.city.kure.lg.jp/site/kitamae3/index-2.html'},
       {id:10,title:'千砂子波止の築造と富くじによる資金調達',publisher:'呉市',url:'https://www.city.kure.lg.jp/soshiki/53/shiseki4-yutaka.html'},
-      {id:11,title:'住吉神社と航海守護・鴻池寄進の経緯',publisher:'観光庁・国土交通省',url:'https://www.mlit.go.jp/tagengo-db/en/R2-01756.html'}
+      {id:11,title:'住吉神社と航海守護・鴻池寄進の経緯',publisher:'観光庁・国土交通省',url:'https://www.mlit.go.jp/tagengo-db/en/R2-01756.html'},
+      {id:13,title:'住吉公園歴史探訪 第16号――鴻池善右衛門らによる1908年の住吉大社奉納灯籠',publisher:'大阪府営公園ポータル',url:'https://www.toshi-kouen.jp/article.php/sumiyoshi_news20221024'}
     ]
   },
   {
