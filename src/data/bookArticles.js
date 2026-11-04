@@ -487,6 +487,93 @@ export const bookArticles = [
       {id:9,title:'小豆島の地質・降水・水資源',publisher:'香川県 小豆農業改良普及センター',url:'https://www.pref.kagawa.lg.jp/shozu/nogyo/gaiyo.html'}
     ]
   },
+
+  {
+    slug:'shodoshima-somen-to-sesame-oil',
+    part:'食は、土地を語る',
+    title:'小豆島の素麺が、ごま油の工場を生んだ',
+    subtitle:'少雨の畑で育った小麦、冬の寒風に揺れる白い麺、そして土庄港の製油工場へ',
+    cities:['小豆島','土庄','池田'],
+    keywords:['小豆島','手延べ素麺','小麦','少雨','湧水','寒風','天日干し','ごま油','かどや製油','土庄港','製粉','讃岐うどん'],
+    heroPhotoId:'photo-shodoshima-olive-sea',
+    lead:'冬の小豆島では、細く延ばした素麺が白いカーテンのように風に揺れる。海に囲まれた島の、雨の少ない季節の風景だ。この素麺をつくるために使われてきた油が、やがて土庄港に大きな製油工場を生む。けれど話の始まりは油ではない。雨が少なく、水の使い方を工夫してきた瀬戸内の農業と、そこで育った小麦にある。どうして麦が麺になり、島の冬の仕事が港の工業へつながっていったのだろう。',
+    sections:[
+      {
+        heading:'水の少ない土地に、小麦という選択があった',
+        paragraphs:[
+          {text:'讃岐の農村にはため池が多い。雨が少なく、河川が短いため、夏の稲作に必要な水を蓄える必要があったからだ。一方、稲刈りの後の田では、秋に小麦をまき、翌年の初夏に収穫する裏作が行われた。米を育てる季節と、麦を育てる季節をずらして、一枚の土地を使っていた。',refs:[1]},
+          {text:'小麦は水を必要としない作物ではない。ただ、冬から春に育つ麦作は、夏の田植え期に大量の水を必要とする稲作とは水の使い方が異なる。少雨の地域で麦作が広がった背景には、この季節の違いもあった。讃岐で小麦粉を使ううどん文化が育ったことと、麦作が結びついている。',refs:[1]},
+          {text:'小豆島でもかつて小麦やごまが栽培されていた。島は山がちで耕地が限られ、水不足に苦しむ一方、中山の「湯船の水」のように絶えず湧き出す水源もあった。湧水を使う千枚田と、小麦を育てる畑。島の農業を「水がなかったから米はつくらなかった」と単純に描くことはできない。場所ごとに水の条件を読み、異なる作物と仕事を組み合わせていたのである。',refs:[2,3,4]}
+        ],
+        photoIds:['photo-shodoshima-olive-sea']
+      },
+      {
+        heading:'麦を食べるだけでなく、冬の仕事に変えた',
+        paragraphs:[
+          {text:'小豆島の素麺づくりは、1598年に池田村の島民が伊勢参りの途中で奈良・三輪の製法を習い、持ち帰ったのが始まりと伝えられる。島の農家にとって魅力だったのは、収穫の忙しい時期を避け、冬の農閑期に家族でつくれることだった。',refs:[2,5]},
+          {text:'素麺の材料は小麦粉、水、塩、そして麺を延ばすための油。小豆島には小麦のほか、海辺の塩田、山からの湧水、ごまがあったと伝えられる。米や小麦をつくる農業と、冬に粉を加工する仕事が、一年の中でつながった。',refs:[2,3,5]},
+          {text:'水不足は畑の作物選びに影響したが、それだけでは素麺は生まれない。三輪から技術を持ち帰った人がいて、農閑期に家族で働く道を選び、麺を売る市場があった。自然条件を産業にしたのは、そこで暮らす人々の選択だった。',refs:[2,5]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'冬の寒風が、白いカーテンをつくった',
+        paragraphs:[
+          {text:'素麺は夏に食べるものなのに、伝統的な小豆島の製造は冬が盛りだ。小麦粉を塩水でこね、熟成させながら少しずつ延ばしていく。最後は細く長い麺を干し台に掛け、箸で一本ずつ離して乾燥させる。白い糸が風に揺れる風景は、乾かすという仕事から生まれた。',refs:[5,6,7]},
+          {text:'ここで瀬戸内の少雨が、もう一度役に立つ。冬は雨の少ない晴天の日が比較的多く、海から吹く冷たい風で麺をゆっくり乾かせる。島の製麺所の職人も、冬は空気が澄み、雨が少ないため、ゆっくり乾くのが良いと語っている。',refs:[2,7]},
+          {text:'雨が少ないことは、農業には水の制約になる。その同じ条件が、麺を天日干しする仕事には利点になる。小麦を育てる畑と、軒先で麺を干す台。その両方に、島の気候との付き合い方が現れている。',refs:[1,2,7]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'麺を長く延ばすために、ごま油が要った',
+        paragraphs:[
+          {text:'手延べ素麺は、打った生地を包丁で細く切るのではない。表面に油を塗り、熟成を繰り返しながら細く延ばす。油は麺がくっつくのを防ぎ、長い時間をかけて引き延ばす仕事を助ける。小豆島では、この油にごま油を使うことが特徴になった。',refs:[5,6]},
+          {text:'小豆島手延素麺協同組合は、現在もかどや製油の素麺用ごま油を使い、酸化しにくいという特徴を挙げている。つまり、ごま油は単に麺に風味を添える調味料ではなく、麺の製造に欠かせない材料でもあった。',refs:[6]},
+          {text:'素麺の生産が増えれば、麺を延ばす油も多く要る。小豆島ではかつて複数の製油業者が素麺向けの油をつくり、供給が追いつかないこともあったという。食べ物をつくる仕事が、その材料をつくる別の仕事を育てた。',refs:[8]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'1858年、素麺のための油から会社が生まれた',
+        paragraphs:[
+          {text:'1858年、小豆島に「加登屋製油所」が創業した。現在のかどや製油につながる工場である。当初、ごま油の大きな買い手は島の手延べ素麺のつくり手たちだった。小麦を延ばす工程が、ごまを搾る産業の需要をつくったのである。',refs:[8,9]},
+          {text:'製油にはごまを焙煎する火も要る。小豆島では、かつて島で採れた亜炭を焙煎燃料に使えたことも、製油業が育つ一つの条件だったと伝わる。麦畑、寒風だけでなく、地下の燃料までが新しい産業とつながっていた。',refs:[8]},
+          {text:'ただし、島でごまが栽培されていた歴史と、現在の原料事情は違う。かどや製油は現在、中南米やアフリカなど各地からごまを調達している。産業が島に残った理由を、原料の島内自給だけで説明することはできない。',refs:[10]}
+        ],
+        photoIds:[]
+      },
+      {
+        heading:'素麺の軒先から、土庄港の工場へ',
+        paragraphs:[
+          {text:'やがて、かどやのごま油は素麺用だけにとどまらず、天ぷら用など島外の市場へ販路を広げた。1957年には東日本の販売代理店との共同出資で会社組織を整え、1961年には土庄港に約3万9600平方メートルの工場用地を取得し、新工場を建てた。原料の輸入と製品の出荷に、港の立地が重要になっていく。',refs:[8,9]},
+          {text:'冬に小麦粉を延ばす家族の仕事から、ごま油をつくる工場が生まれた。その工場は、島の素麺需要を出発点にしながら、海を越えて全国へ売る企業になった。ただし、現在の巨大な工場がすべて素麺需要だけで成り立っているわけではない。',refs:[8,9,10]},
+          {text:'小豆島で素麺の天日干しを見かけたら、白い麺の向こうに、かつての麦畑と水の工夫を思い浮かべたい。そして土庄港で製油工場を見れば、その細い麺を延ばすための油が、どれほど遠くまで商いを広げたかが分かる。水の少ない島の冬の仕事が、港の風景までつくったのである。',refs:[2,8,9]}
+        ],
+        photoIds:['photo-shodoshima-olive-sea']
+      }
+    ],
+    researchLinks:[
+      {label:'関連作品｜醤油蔵の町に佃煮工場が生まれた',href:'/setouchi-cultural-economic-atlas/book/shodoshima-open-island/'},
+      {label:'実物写真｜小豆島の素麺を干す風景',href:'https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e'},
+      {label:'実物写真｜土庄港のかどや製油工場',href:'https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html'}
+    ],
+    provisionalConclusion:'少雨・短い河川という水制約の下、香川県では稲作と裏作の小麦が組み合わされた。小豆島にもかつて小麦・ごま栽培と湧水利用があり、冬の少雨と寒風は手延べ素麺の乾燥に適した。素麺製造の油需要を背景に1858年に加登屋製油所が創業し、島外市場へ進出したのち1961年に土庄港の新工場へと発展した。自然条件は産業を自動的に決めたのではなく、農業・加工技術・企業活動によって景観に転換された。',
+    openQuestions:['島内の小麦栽培と水田裏作の割合を近世村別に把握できるか','小豆島の製粉水車があった流域と製麺所の立地を旧地図で比較できるか','かどやの創業時に島内の素麺製造業者が占めていた売上比率を確かめられるか','土庄港の1961年工場用地の造成史と土地利用を地図で検証できるか'],
+    sources:[
+      {id:1,title:'香川県の郷土料理と農業――少雨・ため池・水田裏作の小麦',publisher:'農林水産省',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/kagawa.html'},
+      {id:2,title:'冬が最盛期！小豆島の素麺づくりを見に行ってきました',publisher:'香川県観光協会',url:'https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e'},
+      {id:3,title:'湯船の水と中山の千枚田',publisher:'小豆島町',url:'https://www.town.shodoshima.lg.jp/kanko/miru/nature/yufunenomizu.html'},
+      {id:4,title:'湯船の水――水不足の島の湧水',publisher:'環境省 名水百選',url:'https://water-pub.env.go.jp/water-pub/mizu-site/meisui/data/index.asp?info=76'},
+      {id:5,title:'小豆島の手延べ素麺と三輪からの製法伝来',publisher:'香川県観光協会',url:'https://www.my-kagawa.jp/shodoshima/feature/shodoshima/beauty4'},
+      {id:6,title:'そうめんができるまで――小麦粉・塩・ごま油・天日干し',publisher:'小豆島手延素麺協同組合',url:'https://shimanohikari.or.jp/process.html'},
+      {id:7,title:'冬の天日干しと少雨・寒風',publisher:'KSB瀬戸内海放送',url:'https://news.ksb.co.jp/article/16278122'},
+      {id:8,title:'小豆島の素麺とかどや製油の歴史',publisher:'本州四国連絡高速道路 瀬戸マーレ',url:'https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html'},
+      {id:9,title:'かどや製油 会社沿革――1858年創業、1961年土庄港新工場',publisher:'かどや製油株式会社',url:'https://www.kadoya.com/company/page03.html'},
+      {id:10,title:'かどや製油 会社概要――原料ごまの海外調達',publisher:'かどや製油株式会社',url:'https://www.kadoya.com/company/'}
+    ]
+  },
+
   {
     slug:'faith-as-transport-map',
     part:'なぜ、船はここで止まったのか',
@@ -3837,7 +3924,7 @@ export const bookArticles = [
   },
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
