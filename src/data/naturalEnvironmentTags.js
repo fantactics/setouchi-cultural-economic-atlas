@@ -62,7 +62,7 @@ export const naturalConditionAnchors = {
   'ports-that-needed-waiting':['潮汐','季節風'],
   'imabari-why-shipbuilding':['急流','入り江'],
   'niihama-after-copper':['鉱床','斜面'],
-  'shodoshima-open-island':['少雨','日照'],
+  'shodoshima-open-island':['多島海'],
   'faith-as-transport-map':['潮汐','季節風'],
   'iwakuni-river-city':['洪水','急流'],
   'onomichi-capital-to-culture-and-ships':['海峡','斜面'],
