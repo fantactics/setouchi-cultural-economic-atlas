@@ -72,7 +72,7 @@ export const essayCardCopy = {
     "teaser": "日生へ届く二つの川と、広島湾の太田川。牡蠣筏の下の見えない水をたどる。"
   },
   "hijiki-tidal-time": {
-    "teaser": "真冬の深夜、潮が引くと磯が現れる。ひじき漁師が従うのは潮の時計。"
+    "teaser": "周防大島の南、沖家室島。岩場に育つひじきが産地になる条件をたどる。"
   },
   "mikan-slope-and-varieties": {
     "teaser": "海へ向かう石垣の斜面に、みかんを育てる理由がある。"
