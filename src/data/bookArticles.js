@@ -473,6 +473,9 @@ export const bookArticles = [
         photoIds:['photo-shodoshima-hishio']
       }
     ],
+    researchLinks:[
+      {label:'続けて読む｜小豆島の素麺が、ごま油の工場を生んだ',href:'/setouchi-cultural-economic-atlas/book/shodoshima-somen-to-sesame-oil/'}
+    ],
     provisionalConclusion:'小豆島の醤の郷では、近世から続く醤油醸造の仕事が明治期の蔵や黒い板壁の景観を形成し、戦後の原料不足を契機に既存の醤油を利用した佃煮製造が始まった。1945年に武部吉次が芋の葉柄を醤油で煮た事業を始め、翌年には原料と事業者が増えた。景観は伝統技術の静的保存ではなく、新産業の追加によって生まれた。',
     openQuestions:['醤の郷の歴史的井戸の仕込み水について、鉄・カルシウム・マグネシウム・硬度の分析記録を確認できるか','1945年の最初の葉柄佃煮を製造した工場の位置を特定できるか','戦前の醤油醸造所と戦後の佃煮工場を年代別に地図化できるか','素麺とごま油、オリーブ加工は別の地形・産業連鎖として独立した作品にできるか'],
     sources:[
