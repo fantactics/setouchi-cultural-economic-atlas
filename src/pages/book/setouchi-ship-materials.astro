@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { setouchiShipMaterialsEssay as article } from '../../data/setouchiShipMaterialsEssay.js';
 const hero=article.heroPhoto;
@@ -29,19 +30,7 @@ const hero=article.heroPhoto;
         <p>伊予市指定文化財の「和船（地引き網船）」は、双海シーサイド公園に保存されています。<a href="https://www.city.iyo.lg.jp/shisetsu/shisetsu/bunka/bunka-085.html" target="_blank" rel="noopener noreferrer">伊予市公式ページで船の写真を見る</a>。冒頭の帆船画は時代の情景を示すもので、現存する漁船そのものではありません。</p>
       </aside>
 
-      {article.sections.map((section,sectionIndex)=>(
-        <section class="book-prose-section">
-          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
-          <h2>{section.heading}</h2>
-          {section.paragraphs.map((p)=>(
-            <p>
-              {p.text}
-              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
-            </p>
-          ))}
-
-        </section>
-      ))}
+      <EssayProseSections article={article} />
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
