@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { setouchiShipMaterialsEssay as article } from '../../data/setouchiShipMaterialsEssay.js';
 const hero=article.heroPhoto;
 ---
@@ -22,6 +23,7 @@ const hero=article.heroPhoto;
     </figure>}
 
     <div class="book-reading-column">
+      <EssayGoogleMap article={article} />
       <aside class="ship-real-photo-note">
         <strong>本文に登場する本物の船を見る</strong>
         <p>伊予市指定文化財の「和船（地引き網船）」は、双海シーサイド公園に保存されています。<a href="https://www.city.iyo.lg.jp/shisetsu/shisetsu/bunka/bunka-085.html" target="_blank" rel="noopener noreferrer">伊予市公式ページで船の写真を見る</a>。冒頭の帆船画は時代の情景を示すもので、現存する漁船そのものではありません。</p>
