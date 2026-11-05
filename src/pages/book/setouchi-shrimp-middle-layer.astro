@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { shrimpArticlePhotos } from '../../data/shrimpArticlePhotos.js';
@@ -20,18 +21,7 @@ import { setouchiShrimpEssay as article } from '../../data/setouchiShrimpEssay.j
 
     <div class="book-reading-column">
       <EssayGoogleMap article={article} />
-      {article.sections.map((section,sectionIndex)=>(
-        <section class="book-prose-section">
-          <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
-          <h2>{section.heading}</h2>
-          {section.paragraphs.map((p)=>(
-            <p>
-              {p.text}
-              {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
-            </p>
-          ))}
-        </section>
-      ))}
+      <EssayProseSections article={article} />
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
