@@ -1,0 +1,50 @@
+/* Reader-first visual cadence: restrained emphasis and sourced photographs. */
+body.page-type-essay .book-prose-section .essay-selective-emphasis {
+  color: #296456;
+  font-weight: 750;
+}
+body.page-type-essay .essay-inline-photo {
+  margin: 0.15rem auto 0.8rem;
+  max-width: 770px;
+}
+body.page-type-essay .essay-inline-photo > a { display: block; }
+body.page-type-essay .essay-inline-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 425px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+body.page-type-essay .essay-inline-photo figcaption {
+  display: block;
+  margin: 0.65rem 0.1rem 0;
+  color: #63736e;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+body.page-type-essay .essay-inline-photo figcaption strong {
+  display: inline;
+  margin-right: 0.4em;
+  color: #365650;
+  font-weight: 700;
+}
+body.page-type-essay .essay-inline-photo figcaption span { display: inline; }
+body.page-type-essay .essay-inline-photo figcaption small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+}
+body.page-type-essay .essay-inline-photo figcaption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (prefers-color-scheme: dark) {
+  body.page-type-essay .book-prose-section .essay-selective-emphasis { color:#83bbaa; }
+}
+@media (max-width: 600px) {
+  body.page-type-essay .essay-inline-photo { margin-bottom: 0.45rem; }
+  body.page-type-essay .essay-inline-photo img { max-height: 340px; }
+  body.page-type-essay .essay-inline-photo figcaption { font-size: 0.79rem; }
+}
