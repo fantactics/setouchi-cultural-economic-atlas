@@ -21,13 +21,13 @@ import '../styles/essay-reading-rhythm.css';
 
 const {
   title = 'SETOUCHI ATLAS',
-  description = '風景の理由をたどる、私の瀬戸内素描。海と土地、そこに暮らす人々の営みを読み解く瀬戸内のエッセイ集。',
+  description = 'ランドスケープ ＝ ネイチャー ｘ カルチャー。港町の路地、島の食卓、海辺の工場をめぐる瀬戸内のエッセイ集。',
   image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
   imageAlt = '瀬戸内の町並み',
   structuredData = null,
   researchMeta = null
 } = Astro.props;
-const siteTitle = 'SETOUCHI ATLAS - 私の瀬戸内地誌紀行';
+const siteTitle = 'SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー';
 const baseUrl = '/setouchi-cultural-economic-atlas/';
 const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
@@ -148,7 +148,7 @@ const jsonLd = structuredData || defaultStructuredData;
     <header class="site-header">
       <a class="brand-wrap" href={baseUrl}>
         <span class="brand">SETOUCHI ATLAS</span>
-        <span class="brand-tagline">私の瀬戸内地誌紀行</span>
+        <span class="brand-tagline">ランドスケープ ＝ ネイチャー ｘ カルチャー</span>
       </a>
       <nav>
         <a class:list={['site-nav-link',isHome&&'active']} href="/setouchi-cultural-economic-atlas/">トップ</a>
@@ -177,8 +177,8 @@ const jsonLd = structuredData || defaultStructuredData;
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
     <footer id="about">
-      <strong>{siteTitle}</strong>
-      <p class="footer-thesis">風景の理由をたどる、私の瀬戸内素描。海と土地、人の営みがつくってきた物語を綴ります。</p>
+      <strong>SETOUCHI ATLAS</strong>
+      <p class="footer-thesis">ランドスケープ ＝ ネイチャー ｘ カルチャー</p>
       <div class="footer-atlas-links">
         <a href="/setouchi-cultural-economic-atlas/about/">このサイトについて</a>
         <a href="/setouchi-cultural-economic-atlas/places/">地域別</a>
