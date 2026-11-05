@@ -2807,7 +2807,7 @@ export const bookArticles = [
       "MAZDA ICONIC SP",
       "循環"
     ],
-    "heroPhotoId": "photo-hiroshima-oyster-rafts",
+    "heroPhotoId": null,
     "lead": "広島の中心部、平和記念公園に近い店の壁に、海と人の願いが一緒に塗り込められている。柔らかな白の中に散らばる、小さな色紙。その白は広島の牡蠣の殻から、色紙は平和記念公園に寄せられた折り鶴から生まれたものだという。牡蠣の身は食卓に届き、殻は残る。願いを託した折り鶴も、贈られたあとには次の行き先がある。海で育ったものと、人の手で折られたものが、なぜ一枚の壁で出会ったのだろう。",
     "sections": [
       {
@@ -3032,7 +3032,17 @@ export const bookArticles = [
         "publisher": "広島市農林水産振興センター",
         "url": "https://www.haff.city.hiroshima.jp/info/suisansc/oyster/production/"
       }
-    ]
+    ],
+    "heroPhoto": {
+      "imageUrl": "/setouchi-cultural-economic-atlas/images/oyster-origami-wall-editorial.svg",
+      "kind": "illustration",
+      "title": "牡蠣殻の白と、折り鶴の色",
+      "alt": "左に大きく描かれた牡蠣殻、右の白い漆喰壁に散りばめられた色とりどりの折り鶴の紙片、空間を横切る折り鶴。テーマを描いたイラスト",
+      "caption": "広島の牡蠣殻と平和記念公園の折り鶴が壁材で出会う物語を表現した図案。実際の施工壁を撮影したものではありません。",
+      "author": "SETOUCHI ATLAS",
+      "sourcePage": "https://fantactics.github.io/setouchi-cultural-economic-atlas/images/oyster-origami-wall-editorial.svg",
+      "license": "オリジナルイラスト"
+    }
   },
   {
     slug:'sea-bream-scales-to-collagen',
