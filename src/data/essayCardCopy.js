@@ -58,7 +58,7 @@ export const essayCardCopy = {
     "teaser": "城のある岬を仰ぎながら、引田の港町の時間を歩く。"
   },
   "ako-after-salt-fields": {
-    "teaser": "塩田はなくなった。それでも塩をつくり続ける赤穂の仕事。"
+    "teaser": "赤穂は塩田を売って、塩づくりを続けた。土地を手放す産業の選択。"
   },
   "takamatsu-sea-castle-to-gateway": {
     "teaser": "海に開いた城下町から、四国の玄関口へ。高松の水辺を歩く。",
