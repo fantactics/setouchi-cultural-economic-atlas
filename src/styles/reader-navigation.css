@@ -403,3 +403,104 @@ body.page-type-essay .reader-photo-evidence{
   .reader-home-feature-grid .reader-home-feature-copy{padding:15px 17px 17px}
   .reader-home-featured+.reader-home-section{margin-top:50px}
 }
+
+
+/* SETOUCHI ATLAS essay index: playful, photo-first editorial finish */
+.essay-magazine .essay-magazine-intro{
+  padding:32px 0 24px;
+  gap:24px;
+  border-bottom:0;
+  align-items:center;
+}
+.essay-magazine .essay-magazine-intro .eyebrow{
+  display:inline-block;
+  font-family:system-ui,sans-serif;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  color:#d06447;
+}
+.essay-magazine .essay-magazine-intro h1{
+  margin:10px 0 0;
+  font-family:var(--book-serif,serif);
+  font-size:clamp(2rem,3.5vw,3.25rem);
+  line-height:1.26;
+  font-weight:600;
+  letter-spacing:-.035em;
+  color:#224d4a;
+}
+.essay-magazine .essay-magazine-intro p{
+  font-size:clamp(.93rem,1.35vw,1.04rem);
+  line-height:1.85;
+  color:#64766e;
+}
+.essay-magazine .reader-feature-heading{margin:13px 0 18px}
+.essay-magazine .reader-feature-heading span{color:#d06447;letter-spacing:.14em}
+.essay-magazine .reader-feature-heading h2{
+  font-size:clamp(1.42rem,2.5vw,2.15rem);
+  margin:6px 0;
+  font-weight:600;
+}
+.essay-magazine .essay-magazine-cover{gap:16px;margin:0 0 44px}
+.essay-magazine .essay-cover-main{min-height:435px;border-radius:17px}
+.essay-magazine .essay-cover-side{gap:16px}
+.essay-magazine .essay-cover-side-card{border-radius:17px}
+.essay-magazine .essay-cover-copy{padding:27px}
+.essay-magazine .essay-cover-copy h2.js-essay-main-title{
+  font-size:clamp(1.65rem,3.15vw,3rem);
+  font-weight:600;
+}
+.essay-magazine .essay-cover-side-card h2{font-size:clamp(1.12rem,1.85vw,1.65rem);font-weight:600}
+.essay-magazine .reader-discovery{
+  background:#f4f8f4;
+  border:1px solid #dce9df;
+  border-radius:18px;
+  padding:clamp(18px,3vw,34px);
+  margin:0 0 46px;
+}
+.essay-magazine .reader-discovery-head h2{
+  font-size:clamp(1.5rem,2.5vw,2.22rem);
+  font-weight:600;
+}
+.essay-magazine .reader-discovery-tile{
+  border-radius:13px;
+  border-color:#e5e9df;
+  min-height:138px;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.essay-magazine .reader-discovery-tile:nth-child(4n+1){background:#e7f2eb}
+.essay-magazine .reader-discovery-tile:nth-child(4n+2){background:#fff0df}
+.essay-magazine .reader-discovery-tile:nth-child(4n+3){background:#e9f3f8}
+.essay-magazine .reader-discovery-tile:nth-child(4n){background:#f5edf2}
+.essay-magazine .reader-discovery-tile:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 22px rgba(31,65,52,.09);
+}
+.essay-magazine .reader-discovery-tile strong{margin:11px 0 4px;font-size:1.22rem}
+.essay-magazine .reader-discovery-tile em{font-weight:800;color:#d06447}
+.essay-magazine .essay-theme-card{
+  border-radius:15px;
+  background:#fff;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.essay-magazine .essay-theme-card:hover{transform:translateY(-3px);box-shadow:0 9px 25px rgba(35,62,50,.1)}
+.essay-magazine .essay-theme-card:focus-visible,.essay-magazine .essay-cover-main:focus-visible,
+.essay-magazine .essay-cover-side-card:focus-visible{
+  outline:3px solid #e6a87f;outline-offset:3px
+}
+@media(max-width:900px){
+  .essay-magazine .essay-magazine-intro{grid-template-columns:1fr;gap:12px}
+  .essay-magazine .essay-cover-main{min-height:420px}
+}
+@media(max-width:600px){
+  .essay-magazine .essay-magazine-intro{padding:26px 0 18px}
+  .essay-magazine .essay-magazine-intro h1{font-size:2.15rem}
+  .essay-magazine .reader-feature-heading{margin:16px 0}
+  .essay-magazine .essay-cover-main{min-height:365px}
+  .essay-magazine .essay-cover-copy h2.js-essay-main-title{font-size:1.86rem}
+  .essay-magazine .reader-discovery-tile{min-height:132px}
+  .essay-magazine .reader-discovery-tile strong{font-size:1.09rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .essay-magazine .essay-theme-card,.essay-magazine .reader-discovery-tile{transition:none}
+}
