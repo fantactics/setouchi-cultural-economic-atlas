@@ -27,6 +27,7 @@ const {
   image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
   imageAlt = '瀬戸内の町並み',
   structuredData = null,
+  seoTitle = null,
   researchMeta = null
 } = Astro.props;
 const siteTitle = 'SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー';
@@ -48,7 +49,7 @@ const researchSynthesis = synthesisLayers.length
     }), {points:[],essays:[]})
   : null;
 const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
-const pageTitle = isHome ? siteTitle : title.includes('SETOUCHI ATLAS') ? title.replaceAll('SETOUCHI ATLAS',siteTitle) : `${title} | ${siteTitle}`;
+const pageTitle = seoTitle || (isHome ? siteTitle : title.includes('SETOUCHI ATLAS') ? title.replaceAll('SETOUCHI ATLAS',siteTitle) : `${title} | ${siteTitle}`);
 const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
