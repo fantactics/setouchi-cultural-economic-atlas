@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { essaySearchMeta } from '../../data/essaySeo.js';
 import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js';
+const seo=essaySearchMeta(article);
 ---
-<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
