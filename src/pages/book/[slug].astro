@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { orderedBookArticles, bookArticleBySlug } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
@@ -204,6 +205,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </section>}
 
     <div class="book-reading-column">
+      <EssayGoogleMap article={article} />
       {article.slug==='takamatsu-sea-castle-to-gateway' && (
         <section class="reader-landscape-map" aria-labelledby="takamatsu-landscape-map-title">
           <div class="kicker">地図で見る自然条件</div>
