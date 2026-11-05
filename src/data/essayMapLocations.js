@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'gangi-tide-port-functions': {
+    query: '瀬戸内海',
+    name: '四つの港で、雁木の位置を比べる',
+    zoom: 8,
+    description: '鞆の浦・下蒲刈島三之瀬・牛窓・大崎下島御手洗。地図を動かして港の位置と島影を見比べてください。現在の地形を示す地図で、往時の雁木を復元したものではありません。'
+  },
   'jinori-okinori-navigation-system': {
     query: '芸予諸島 広島県 愛媛県',
     name: '山陽沿岸と芸予諸島、二つの海の道',
