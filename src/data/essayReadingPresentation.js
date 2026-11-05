@@ -99,7 +99,7 @@ const curatedSingleEmphasis = {
   'setouchi-itinerant-trade-boats': '長屋門',
   'setouchi-ship-materials': '飫肥杉',
   'ai-era-regional-planning-learning-velocity': 'マスタープラン',
-  'niboshi-shirasu-two-food-cultures': 'カタクチイワシ',
+  'niboshi-shirasu-two-food-cultures': '百軒を超える煮干し加工場',
   'citrus-pomace-cascade': '搾汁粕',
 };
 
