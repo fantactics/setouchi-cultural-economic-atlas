@@ -6,11 +6,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="ランドスケープ ＝ ネイチャー ｘ カルチャー。自然と人の営みがつくる瀬戸内の風景を旅するエッセイ集。編集主幹：藤崎壮滋（ぴあぴあ株式会社）。"
 >
   <section class="reader-about-minimal" aria-labelledby="reader-about-title">
-    <p class="reader-about-kicker">ABOUT SETOUCHI ATLAS</p>
+    <p class="reader-about-kicker">HELLO, SETOUCHI! <span aria-hidden="true">✳</span></p>
     <h1 id="reader-about-title">このサイトについて</h1>
     <div class="reader-about-description">
-      <p>SETOUCHI ATLASの合言葉は、<strong>「ランドスケープ ＝ ネイチャー ｘ カルチャー」</strong>。</p>
+      <p class="reader-about-concept">合言葉は、<strong>ランドスケープ ＝ ネイチャー ｘ カルチャー</strong>。</p>
       <p>海や山、風や潮。そこに暮らす人の工夫や、受け継がれてきた仕事。二つが出会うと、いつもの風景がちょっと違って見えてきます。旅先で見つけた「なんで？」から、瀬戸内の物語をたどるエッセイ集です。</p>
+      <a class="reader-about-start" href="/setouchi-cultural-economic-atlas/book/">エッセイをのぞいてみる ↗</a>
     </div>
     <div class="reader-about-editor">
       <h2>編集主幹</h2>
@@ -18,17 +19,86 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
   <style>
-    .reader-about-minimal{max-width:790px;margin:0 auto;padding:clamp(70px,10vw,135px) 24px 145px;color:#2b413b}
-    .reader-about-kicker{margin:0 0 19px;color:#678579;font-size:.74rem;font-weight:700;letter-spacing:.17em}
-    .reader-about-minimal h1{margin:0 0 54px;font-family:var(--book-serif,serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.75rem);line-height:1.35;letter-spacing:-.04em}
-    .reader-about-description{max-width:700px}
-    .reader-about-description p{font-size:clamp(1rem,1.8vw,1.12rem);line-height:2.15;margin:0 0 20px;color:#4b6259}
-    .reader-about-description strong{color:#304f43;font-weight:600}
-    .reader-about-editor{margin-top:76px;padding-top:27px;border-top:1px solid #d9e2da}
-    .reader-about-editor h2{margin:0 0 13px;font-weight:600;font-size:.84rem;letter-spacing:.08em;color:#627b71}
-    .reader-about-editor p{margin:0;font-size:1.04rem;line-height:1.8}
-    .reader-about-editor strong{font-weight:600}
-    .reader-about-editor span{color:#5a6d64}
-    @media(max-width:600px){.reader-about-minimal{padding:60px 21px 100px}.reader-about-minimal h1{margin-bottom:35px}.reader-about-editor{margin-top:52px}}
+    .reader-about-minimal{
+      max-width:860px;margin:0 auto;
+      padding:clamp(42px,6.5vw,78px) 24px 100px;
+      color:#294b41;
+      font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    }
+    .reader-about-kicker{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:7px 13px;margin:0 0 17px;
+      border-radius:99px;background:#ffe9d9;color:#b75f42;
+      font-size:.71rem;line-height:1.4;font-weight:800;letter-spacing:.1em;
+    }
+    .reader-about-kicker span{font-size:1.02rem;color:#dd9960}
+    .reader-about-minimal h1{
+      margin:0 0 25px;
+      font-family:inherit;font-weight:800;
+      font-size:clamp(1.95rem,3.7vw,2.85rem);
+      line-height:1.4;letter-spacing:-.04em;
+      color:#274f44;
+    }
+    .reader-about-description{
+      max-width:none;
+      border:1px solid #e5e9dc;
+      border-radius:23px;
+      background:linear-gradient(125deg,#fff8eb 0%,#fffdf8 60%,#f0f8f1 100%);
+      padding:clamp(22px,4vw,38px);
+    }
+    .reader-about-description p{
+      font-size:clamp(.98rem,1.35vw,1.09rem);
+      line-height:1.95;
+      margin:0 0 17px;
+      color:#566c61;
+    }
+    .reader-about-description .reader-about-concept{
+      font-size:clamp(1.02rem,1.55vw,1.17rem);
+      color:#2c574a;
+      font-weight:700;
+      line-height:1.92;
+    }
+    .reader-about-description strong{
+      display:inline;
+      padding:.14em .28em;
+      background:#e2f2e9;
+      color:#2e715e;
+      font-weight:800;
+      border-radius:8px;
+      -webkit-box-decoration-break:clone;
+      box-decoration-break:clone;
+    }
+    .reader-about-start{
+      display:inline-flex;align-items:center;justify-content:center;
+      margin-top:8px;padding:11px 18px;
+      border-radius:99px;background:#2c7565;color:#fff!important;
+      text-decoration:none;font-size:.86rem;font-weight:800;
+      transition:transform .2s ease,background .2s ease;
+    }
+    .reader-about-start:hover{transform:translateY(-2px);background:#245a51}
+    .reader-about-start:focus-visible{outline:3px solid #e6a373;outline-offset:3px}
+    .reader-about-editor{
+      margin-top:27px;padding:19px 23px;
+      border:1px solid #e6e9e2;border-radius:17px;
+      background:#fffdf9;
+    }
+    .reader-about-editor h2{
+      display:inline-flex;align-items:center;gap:7px;
+      margin:0 0 9px;font-family:inherit;
+      font-size:.77rem;letter-spacing:.08em;
+      font-weight:800;color:#b56b4d;
+    }
+    .reader-about-editor h2::before{content:"✦";color:#dfaf67}
+    .reader-about-editor p{margin:0;font-size:.97rem;line-height:1.7;color:#536d61}
+    .reader-about-editor strong{font-weight:800;color:#2d4d44}
+    .reader-about-editor span{color:#87978c}
+    @media(max-width:600px){
+      .reader-about-minimal{padding:34px 17px 70px}
+      .reader-about-minimal h1{margin-bottom:20px}
+      .reader-about-description{border-radius:18px;padding:22px 18px}
+      .reader-about-description p{line-height:1.87}
+      .reader-about-editor{padding:17px 18px}
+    }
+    @media(prefers-reduced-motion:reduce){.reader-about-start{transition:none}}
   </style>
 </BaseLayout>
