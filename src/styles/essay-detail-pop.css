@@ -1,0 +1,442 @@
+/* Essay detail pages — playful at the edges, calm and readable in the body.
+   Shared by /book/[slug]/ and standalone /book/*.astro routes.
+   Keep all changes within article.book-article; the essay index has its own UI. */
+body.page-type-essay article.book-article{
+  --essay-coral:#c96d50;
+  --essay-mint:#e5f3eb;
+  --essay-teal:#2d6d5b;
+  --essay-ink:#294840;
+  --essay-text:#344a44;
+  --essay-muted:#6c8076;
+  background:#fdfcf9;
+  color:var(--essay-ink);
+  font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+body.page-type-essay .book-article>.reader-book-back{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 24px 0;
+}
+body.page-type-essay .book-article>.reader-book-back a{
+  display:inline-flex;
+  align-items:center;
+  padding:7px 12px;
+  border:1px solid #dcebe0;
+  border-radius:999px;
+  background:#f0f7f0;
+  color:#397762;
+  font-size:.79rem;
+  font-weight:750;
+  text-decoration:none;
+}
+body.page-type-essay .book-article .book-article-header{
+  max-width:920px;
+  padding:clamp(29px,4vw,52px) 24px 32px;
+}
+body.page-type-essay .book-article .book-article-series{
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  padding:6px 13px;
+  border-radius:999px;
+  background:#ffe9dc;
+  color:#ad5639;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  line-height:1.5;
+}
+body.page-type-essay .book-article .book-article-series::before{
+  content:"✳";
+  color:#d58d57;
+  font-size:.94rem;
+  line-height:1;
+  margin-right:8px;
+}
+body.page-type-essay .book-article .book-article-header h1{
+  margin:18px 0 15px;
+  font-family:inherit;
+  font-size:clamp(2.05rem,4.35vw,3.42rem);
+  font-weight:800;
+  line-height:1.35;
+  letter-spacing:-.045em;
+  color:#264e43;
+  text-wrap:pretty;
+  overflow-wrap:anywhere;
+}
+body.page-type-essay .book-article .book-article-subtitle{
+  margin:0;
+  font-family:inherit;
+  font-size:clamp(.98rem,1.55vw,1.17rem);
+  font-weight:650;
+  line-height:1.75;
+  color:#a06348;
+}
+body.page-type-essay .book-article .book-article-dek{
+  font-family:inherit;
+  max-width:780px;
+  margin:21px 0 0;
+  font-size:clamp(.99rem,1.35vw,1.12rem);
+  font-weight:450;
+  line-height:2.02;
+  color:#496159;
+  letter-spacing:.01em;
+}
+body.page-type-essay .book-article .book-meta-row{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px 18px;
+  flex-wrap:wrap;
+  margin-top:26px;
+  padding-top:17px;
+  border-top:1px solid #e8eae1;
+  color:var(--essay-muted);
+  font-size:.83rem;
+}
+body.page-type-essay .book-article .book-meta-row>div{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px;
+}
+body.page-type-essay .book-article .book-meta-row a{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:4px 11px;
+  border-radius:999px;
+  border:1px solid #d7e8de;
+  background:#edf7f0;
+  color:#357260;
+  font-size:.77rem;
+  line-height:1.5;
+  font-weight:700;
+  text-decoration:none;
+}
+body.page-type-essay .book-article .book-meta-row .reader-nature-tags{
+  gap:6px;
+}
+body.page-type-essay .book-article .reader-nature-tags-label{
+  color:#ab684e;
+  font-size:.73rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  margin-right:3px;
+}
+body.page-type-essay .book-article .book-meta-row .reader-nature-tags a{
+  background:#fff1e5;
+  border-color:#f3d9c6;
+  color:#9a5d42;
+}
+body.page-type-essay .book-article .book-meta-row .reader-nature-tags .reader-nature-tags-index-link{
+  background:transparent;
+  border:0;
+  padding:2px;
+  min-height:0;
+  text-decoration:underline;
+}
+body.page-type-essay .book-article .book-meta-row a:hover{
+  filter:brightness(.97);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+body.page-type-essay .book-article .book-hero-photo{
+  max-width:1160px;
+  padding:0 24px;
+  margin:0 auto 37px;
+}
+body.page-type-essay .book-article .book-hero-photo img{
+  width:100%;
+  height:auto;
+  max-height:590px;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:19px;
+  background:#dce9e3;
+}
+body.page-type-essay .book-article .book-hero-photo figcaption{
+  padding:11px 4px 0;
+  border:0;
+  font-family:inherit;
+  color:#75877e;
+  font-size:.76rem;
+  line-height:1.75;
+  overflow-wrap:anywhere;
+}
+body.page-type-essay .book-article .book-hero-photo figcaption strong{
+  font-weight:750;
+  color:#456b5d;
+}
+body.page-type-essay .book-article .book-hero-photo figcaption span{
+  display:block;
+  float:none;
+  margin-top:3px;
+  font-size:.7rem;
+  color:#83938a;
+}
+body.page-type-essay .book-article .book-reading-column{
+  max-width:800px;
+  margin:0 auto;
+  padding:0 26px 55px;
+}
+body.page-type-essay .book-article .book-prose-section{
+  padding:clamp(31px,4.4vw,50px) 0 23px;
+  border-color:#e6eae3;
+}
+body.page-type-essay .book-article .book-prose-section:first-child{
+  border-top:0;
+}
+body.page-type-essay .book-article .book-section-no{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:39px;
+  padding:5px 10px;
+  border-radius:999px;
+  font-family:inherit;
+  font-size:.77rem;
+  font-weight:800;
+  line-height:1.3;
+  color:#ac603e;
+  background:#ffebdc;
+}
+body.page-type-essay .book-article .book-prose-section h2{
+  margin:15px 0 24px;
+  padding-left:15px;
+  border-left:4px solid #e5a277;
+  font-family:inherit;
+  font-size:clamp(1.4rem,2.3vw,1.83rem);
+  line-height:1.52;
+  font-weight:800;
+  letter-spacing:-.027em;
+  color:#2c594b;
+  overflow-wrap:anywhere;
+  text-wrap:pretty;
+}
+body.page-type-essay .book-article .book-prose-section>p{
+  font-family:inherit;
+  font-size:clamp(1.04rem,1.3vw,1.12rem);
+  font-weight:400;
+  line-height:2.06;
+  letter-spacing:.005em;
+  text-align:left;
+  color:var(--essay-text);
+  margin:0 0 1.56em;
+  overflow-wrap:anywhere;
+}
+body.page-type-essay .book-article .book-prose-section .essay-selective-emphasis{
+  color:#277b61;
+  font-weight:750;
+}
+body.page-type-essay .book-article .book-footnotes a{
+  color:#327f6b;
+  text-decoration:underline;
+  text-decoration-color:#b2d4c7;
+  text-underline-offset:2px;
+}
+body.page-type-essay .book-article .essay-inline-photo{
+  margin:12px auto 30px;
+}
+body.page-type-essay .book-article .essay-inline-photo img{
+  border-radius:14px;
+}
+body.page-type-essay .book-article .book-sources{
+  font-family:inherit;
+  margin-top:28px;
+  padding:22px 0 29px;
+  border-top:1px solid #dce8de;
+}
+body.page-type-essay .book-article .book-sources>.kicker{
+  display:inline-flex;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#e8f4eb;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.035em;
+  color:#367866;
+}
+body.page-type-essay .book-article .book-sources li{
+  font-size:.84rem;
+  line-height:1.78;
+  color:#526d62;
+}
+body.page-type-essay .book-article .book-sources a{color:#397b69}
+body.page-type-essay .book-article .reader-related-essays{
+  max-width:1160px;
+  border-top:0;
+  padding:32px 24px 20px;
+  margin:0 auto 35px;
+}
+body.page-type-essay .book-article .reader-related-head>div>span{
+  display:inline-flex;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#ffe9da;
+  color:#b85f42;
+  font-size:.69rem;
+  font-weight:800;
+}
+body.page-type-essay .book-article .reader-related-head h2{
+  font-family:inherit;
+  font-size:clamp(1.45rem,2.45vw,2.1rem);
+  line-height:1.4;
+  font-weight:800;
+  color:#2d574a;
+}
+body.page-type-essay .book-article .reader-related-head>a{
+  display:inline-flex;
+  padding:9px 13px;
+  border:0;
+  border-radius:999px;
+  background:#e8f4ec;
+  color:#317561;
+  font-size:.8rem;
+  font-weight:750;
+  text-decoration:none;
+}
+body.page-type-essay .book-article .reader-related-card{
+  border-radius:17px;
+  border-color:#e4eae1;
+  background:#fffdfa;
+}
+body.page-type-essay .book-article .reader-related-card>div{
+  padding:18px;
+}
+body.page-type-essay .book-article .reader-related-card h3{
+  font-family:inherit;
+  font-weight:800;
+  color:#2c554a;
+}
+body.page-type-essay .book-article .reader-related-card span{
+  color:#b47353;
+  font-weight:700;
+}
+body.page-type-essay .book-article .reader-related-card strong{
+  color:#327962;
+  font-weight:800;
+}
+body.page-type-essay .book-article .reader-photo-appendix{
+  border-radius:19px;
+  background:#f3f8f2;
+}
+body.page-type-essay .book-article .reader-photo-appendix h2{
+  font-family:inherit;
+  font-size:clamp(1.42rem,2.3vw,1.9rem);
+  font-weight:800;
+  color:#2d5749;
+}
+body.page-type-essay .book-article .book-pager{
+  gap:12px;
+  padding:15px clamp(15px,4vw,55px) 25px;
+  background:transparent;
+  border-top:1px solid #dfe7de;
+}
+body.page-type-essay .book-article .book-pager>a{
+  display:block;
+  min-width:0;
+  min-height:110px;
+  padding:19px 22px;
+  border:1px solid #e1e9de;
+  border-radius:16px;
+  background:#f0f7f0;
+  color:#2c5b4d;
+  text-decoration:none;
+}
+body.page-type-essay .book-article .book-pager>a.next{
+  border-left:1px solid #e1e9de;
+  background:#fff5e9;
+}
+body.page-type-essay .book-article .book-pager small{
+  font-size:.76rem;
+  color:#a96a4f;
+  font-weight:750;
+}
+body.page-type-essay .book-article .book-pager strong{
+  font-family:inherit;
+  font-weight:800;
+  font-size:1.05rem;
+  line-height:1.58;
+}
+body.page-type-essay .book-article a:focus-visible{
+  outline:3px solid #e6a776;
+  outline-offset:3px;
+}
+@media(max-width:750px){
+  body.page-type-essay .book-article .book-article-header{
+    padding:26px 20px 27px;
+  }
+  body.page-type-essay .book-article .book-article-header h1{
+    font-size:clamp(1.9rem,6.5vw,2.6rem);
+  }
+  body.page-type-essay .book-article .book-hero-photo{
+    padding:0 16px;
+    margin-bottom:22px;
+  }
+  body.page-type-essay .book-article .book-reading-column{
+    padding:0 20px 37px;
+  }
+  body.page-type-essay .book-article .reader-related-essays{
+    padding:24px 16px 13px;
+  }
+}
+@media(max-width:560px){
+  body.page-type-essay .book-article>.reader-book-back{
+    margin:0 auto;
+    padding:18px 17px 0;
+  }
+  body.page-type-essay .book-article .book-article-header{
+    padding:22px 18px 25px;
+  }
+  body.page-type-essay .book-article .book-article-header h1{
+    margin-top:14px;
+    font-size:clamp(1.85rem,8vw,2.45rem);
+    line-height:1.4;
+  }
+  body.page-type-essay .book-article .book-article-dek{
+    margin-top:15px;
+    font-size:1.02rem;
+    line-height:1.95;
+  }
+  body.page-type-essay .book-article .book-meta-row{
+    gap:9px;margin-top:19px;
+  }
+  body.page-type-essay .book-article .book-hero-photo img{
+    aspect-ratio:4/3;
+    border-radius:14px;
+  }
+  body.page-type-essay .book-article .book-reading-column{
+    padding:0 18px 29px;
+  }
+  body.page-type-essay .book-article .book-prose-section{
+    padding:29px 0 12px;
+  }
+  body.page-type-essay .book-article .book-prose-section h2{
+    font-size:1.43rem;
+    line-height:1.55;
+    margin:12px 0 20px;
+    padding-left:12px;
+  }
+  body.page-type-essay .book-article .book-prose-section>p{
+    font-size:1.055rem;
+    line-height:2.02;
+    margin-bottom:1.45em;
+  }
+  body.page-type-essay .book-article .book-pager{
+    gap:9px;
+    padding:14px 12px 20px;
+  }
+  body.page-type-essay .book-article .book-pager>a{
+    padding:16px 14px;
+    min-height:105px;
+  }
+  body.page-type-essay .book-article .book-pager strong{
+    font-size:.93rem;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.page-type-essay .book-article .reader-related-card{
+    transition:none;
+  }
+}
