@@ -114,9 +114,9 @@ const editorialPhotoCredits=[...new Map(
 ---
 <BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港町を歩く。島の味に出会う。気になる風景から選んで読む、瀬戸内の旅エッセイ集。">
   <main class="essay-magazine">
-    <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / STORIES</div><h1>エッセイ、どれから読む？</h1></div><p>港へ、島へ、食卓へ。<br />写真を見て、気になった一篇からどうぞ。</p></section>
+    <section class="essay-magazine-intro"><div><div class="eyebrow">STORIES FROM SETOUCHI <span aria-hidden="true">✳</span></div><h1>今日は、どの瀬戸内へ？</h1></div><p>海の色、町の路地、おいしいもの。<br />気になる写真から、旅するように読んでみよう。</p></section>
 
-    <div class="reader-feature-heading"><span>LET'S READ!</span><h2>気になる景色を、ひとつ。</h2><p>写真の向こうに、どんな物語があるだろう。</p></div>
+    <div class="reader-feature-heading"><span>START HERE <span aria-hidden="true">✦</span></span><h2>まずは、この3篇。</h2></div>
 
     <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
       {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h2 class="js-essay-main-title">{featureStory.title}</h2><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
@@ -140,7 +140,7 @@ const editorialPhotoCredits=[...new Map(
 
 
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>PICK A THEME</span><h2 id="reader-discovery-title">どんな景色が好き？</h2><p>食べもの、町並み、畑、工場、港。ピンときたところから。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
+      <div class="reader-discovery-head"><div><span>PICK YOUR MOOD <span aria-hidden="true">✳</span></span><h2 id="reader-discovery-title">いま、何が気になる？</h2><p>食べたい、歩きたい、眺めたい。そんな気分から選ぼう。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
       <div class="reader-discovery-grid">
         {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
           <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
@@ -148,7 +148,7 @@ const editorialPhotoCredits=[...new Map(
         </a>)}
       </div>
       <div class="reader-discovery-search" id="essay-search">
-        <h3>ことばから探す</h3>
+        <h3>キーワードでひとっとび</h3>
         <p>「尾道」「タコ」「みかん」「造船」など、思いついた言葉で。</p>
         <SiteSearch essaysOnly={true} />
       </div>
@@ -160,7 +160,7 @@ const editorialPhotoCredits=[...new Map(
     </nav>
 
     <section id="essay-all-themes">
-      <div class="essay-magazine-heading"><h2>写真から、旅をめくる。</h2><p>各テーマのおすすめ3篇。気になる写真を見つけたら、開いてみてください。</p></div>
+      <div class="essay-magazine-heading"><h2>瀬戸内を、つまみ読み。</h2><p>テーマごとに3篇ずつ。好きな景色からどうぞ。</p></div>
       {categories.map((entry)=>(<section class="essay-theme reader-essay-theme" id={entranceId(entry)}>
         <div class="essay-theme-head">
           <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
@@ -199,7 +199,7 @@ const editorialPhotoCredits=[...new Map(
     <section class="reader-title-directory" id="essay-directory" aria-labelledby="essay-directory-title">
       <div class="reader-title-directory-heading">
         <span>ALL STORIES / DIRECTORY</span>
-        <h2 id="essay-directory-title">タイトルで、ざっと見る。</h2>
+        <h2 id="essay-directory-title">タイトルを、ずらり。</h2>
         <p>全{allBookArticles.length}篇。写真を見ずに探したいときはこちら。</p>
       </div>
       {categories.map((entry)=>(<div class="reader-title-directory-group">
