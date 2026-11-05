@@ -31,6 +31,12 @@ const essayMapOverrides = {
     zoom: 14,
     description: '常夜燈と雁木を起点に、港の前の仙酔島や半島の地形を確かめてください。潮が船を待たせた舞台が見えてきます。'
   },
+  'niboshi-shirasu-two-food-cultures': {
+    query: '瀬戸内海',
+    name: '泉州・和歌浦から伊吹島へ',
+    zoom: 8,
+    description: '大阪湾南部の岬町と和歌浦、瀬戸内海を西へ進んだ燧灘の伊吹島。海岸と小島の位置を比べながら、しらすといりこの二つの旅をたどれます。'
+  },
   'shimonoseki-resource-made-by-market': {
     query: '唐戸市場 山口県下関市',
     name: '関門海峡から彦島の南風泊へ',
