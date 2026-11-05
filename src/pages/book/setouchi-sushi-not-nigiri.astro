@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js';
 ---
 <BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
@@ -18,6 +19,7 @@ import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js'
     {article.heroPhoto?.imageUrl && <figure class="book-hero-photo"><img src={article.heroPhoto.imageUrl} alt={article.heroPhoto.alt} /><figcaption><strong>{article.heroPhoto.title}</strong>　Photo: {article.heroPhoto.author} / <a href={article.heroPhoto.sourcePage} target="_blank" rel="noreferrer">{article.heroPhoto.license}</a></figcaption></figure>}
 
     <div class="book-reading-column">
+      <EssayGoogleMap article={article} />
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
           <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
