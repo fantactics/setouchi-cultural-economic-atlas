@@ -146,6 +146,7 @@ export const kadaEssays = [
           }
         ],
         photoIds:[
+          "photo-kada-harbor-2009-b",
           "photo-kada-tomogashima-aerial"
         ]
       },
