@@ -1,0 +1,43 @@
+---
+import { publishedEssays } from '../data/publishedEssayList.js';
+import { relatedEssaysFor } from '../data/relatedEssayRecommendations.js';
+import { cardTeaser, cardPhotoId } from '../data/essayCardCopy.js';
+import { essayIndexPhotoOverrides } from '../data/essayIndexPhotos.js';
+import { photoEvidence } from '../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
+import '../styles/reader-navigation.css';
+
+const { article }=Astro.props;
+const photos=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map((photo)=>[photo.id,photo]));
+const recommendations=relatedEssaysFor(article,publishedEssays,3).map((item)=>{
+  const photo=photos[cardPhotoId(item)];
+  const image=essayIndexPhotoOverrides[item.slug]?.imageUrl
+    ? essayIndexPhotoOverrides[item.slug]
+    : photo?.imageUrl ? photo
+    : item.heroPhoto?.imageUrl ? item.heroPhoto
+    : (item.sections||[]).flatMap((section)=>section.photoIds||[])
+        .map((id)=>photos[id]).find((value)=>value?.imageUrl) || null;
+  return {...item,image,teaser:cardTeaser(item)};
+});
+---
+{recommendations.length>0 && <section class="reader-related-essays" aria-labelledby="standalone-essay-related-heading">
+  <div class="reader-related-head">
+    <div>
+      <span>READ NEXT</span>
+      <h2 id="standalone-essay-related-heading">次は、どの風景を旅する？</h2>
+      <p>今読んだ物語から、瀬戸内の別の一篇へ。</p>
+    </div>
+    <a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a>
+  </div>
+  <div class="reader-related-grid">
+    {recommendations.map((item)=><a class="reader-related-card" href={`/setouchi-cultural-economic-atlas/book/${item.slug}/`}>
+      {item.image?.imageUrl && <img src={item.image.imageUrl} alt={item.image.alt||item.title} loading="lazy" />}
+      <div>
+        <span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span>
+        <h3>{item.title}</h3>
+        <p>{item.teaser}</p>
+        <strong>読む →</strong>
+      </div>
+    </a>)}
+  </div>
+</section>}
