@@ -214,12 +214,6 @@ export const kojimaCircularEssay = {
       "url": "https://precious.jp/articles/-/19373"
     },
     {
-      "id": 3,
-      "title": "世界初の「バナナデニム」を穿いてみたインプレッション!!",
-      "publisher": "Begin",
-      "url": "https://www.e-begin.jp/article/148639/"
-    },
-    {
       "id": 4,
       "title": "廃棄デニムをゼロへ。完全循環型の「デニムTシャツ」を3月20日（金）より本格販売開始",
       "publisher": "Betty Smith / PR TIMES",
@@ -236,12 +230,6 @@ export const kojimaCircularEssay = {
       "title": "The Jeans Redesign: creating solutions for a world where jeans never become waste",
       "publisher": "Ellen MacArthur Foundation",
       "url": "https://www.ellenmacarthurfoundation.org/press-release-jeans-redesign-ellen-macarthur-foundation"
-    },
-    {
-      "id": 7,
-      "title": "rebear by Johnbull",
-      "publisher": "Johnbull",
-      "url": "https://johnbull.co.jp/rebear-by-johnbull/"
     },
     {
       "id": 8,
