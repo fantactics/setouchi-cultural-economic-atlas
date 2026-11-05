@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'jinori-okinori-navigation-system': {
+    query: '芸予諸島 広島県 愛媛県',
+    name: '山陽沿岸と芸予諸島、二つの海の道',
+    zoom: 9,
+    description: '鞆の浦・尾道・三之瀬に近い北側の海と、弓削瀬戸・鼻栗瀬戸・御手洗へ続く島々の間を見比べてください。現在の航空写真であり、歴史的な航路を線で復元した地図ではありません。'
+  },
   'shimonoseki-resource-made-by-market': {
     query: '唐戸市場 山口県下関市',
     name: '関門海峡から彦島の南風泊へ',
