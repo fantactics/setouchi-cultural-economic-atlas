@@ -99,3 +99,253 @@ const regionTeasers={
     <AtlasRegionMap places={allPlaces} kicker="MAP / 瀬戸内をひとめぐり" title="地図で、寄り道。" description="いま気になるのは、どの港？ どの島？ ピンを開けば、そこからまた物語が始まります。" actionHref="#place-directory" actionLabel="写真一覧に戻る ↑" />
   </div>
 </BaseLayout>
+<style>
+  /* A lighter, photo-first invitation to the region directory. */
+  .places-index-cover{
+    max-width:1280px;
+    margin:24px auto 0;
+    padding:0 24px;
+    background:transparent;
+  }
+  .places-index-cover-grid{
+    grid-template-columns:minmax(0,2fr) minmax(220px,.78fr);
+    min-height:375px;
+    gap:14px;
+  }
+  .places-index-main-photo{
+    min-height:375px;
+    border-radius:19px;
+    background:#24564f;
+  }
+  .places-index-photo-scrim{
+    background:linear-gradient(180deg,rgba(10,28,30,.02) 10%,rgba(12,35,34,.2) 38%,rgba(13,37,35,.79) 100%);
+  }
+  .places-index-cover-copy{
+    left:clamp(20px,3vw,43px);
+    bottom:clamp(22px,3vw,38px);
+    width:calc(100% - 60px);
+    max-width:670px;
+  }
+  .places-index-kicker{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:99px;
+    margin-bottom:15px;
+    color:#6a3d2a;
+    background:#ffe2cb;
+    font:800 .72rem/1.3 system-ui,sans-serif;
+    letter-spacing:.09em;
+  }
+  .places-index-kicker span{color:#bc624a;font-size:1rem}
+  .places-index-cover-copy h1{
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:clamp(2rem,3.5vw,3.45rem);
+    font-weight:800;
+    letter-spacing:-.045em;
+    line-height:1.24;
+    text-wrap:balance;
+  }
+  .places-index-thesis{
+    margin:12px 0 6px;
+    font-size:clamp(1.04rem,1.7vw,1.32rem);
+    line-height:1.5;
+    font-family:inherit;
+    font-weight:650;
+  }
+  .places-index-cover-copy>p:not(.places-index-thesis){
+    font-family:inherit;
+    font-size:.92rem;
+    line-height:1.75;
+    color:rgba(255,255,255,.94);
+  }
+  .places-index-cover-copy>a{
+    display:inline-flex;
+    align-items:center;
+    padding:9px 16px;
+    margin-top:18px;
+    border:0;
+    border-radius:99px;
+    background:#f9d99f;
+    color:#4b3b2c;
+    font-weight:750;
+    font-size:.86rem;
+    transition:background .2s ease,transform .2s ease;
+  }
+  .places-index-cover-copy>a:hover{background:#ffefcb;transform:translateY(-2px)}
+  .places-index-side-photos{
+    display:grid;
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:14px;
+    background:transparent;
+  }
+  .places-index-side-link{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    border-radius:17px;
+    background:#d5e5dc;
+    color:#fff;
+    text-decoration:none;
+  }
+  .places-index-side-link img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .25s ease;
+  }
+  .places-index-side-link:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,transparent 48%,rgba(15,42,39,.68));
+    pointer-events:none;
+  }
+  .places-index-side-link span{
+    position:absolute;z-index:1;bottom:13px;left:15px;
+    font-weight:800;font-size:1.03rem;letter-spacing:.025em;
+  }
+  .places-index-side-link b{font-size:.94rem;margin-left:5px}
+  .places-index-side-link:hover img{transform:scale(1.035)}
+  .places-index-side-link:focus-visible,.visual-region-card:focus-visible{
+    outline:3px solid #e4ab63;outline-offset:3px;
+  }
+
+  .region-directory{
+    scroll-margin-top:90px;
+    max-width:1220px;
+    padding-top:clamp(35px,5vw,58px);
+  }
+  .region-directory .place-index-intro{margin-bottom:18px}
+  .region-directory .place-index-intro .kicker{
+    color:#c46b4e;
+    font-weight:850;
+    letter-spacing:.085em;
+  }
+  .region-directory .place-index-intro h2{
+    margin:8px 0;
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:clamp(1.75rem,2.6vw,2.45rem);
+    line-height:1.3;
+    font-weight:800;
+    letter-spacing:-.045em;
+  }
+  .region-directory .place-index-intro p{
+    font-family:inherit;
+    font-size:.94rem;
+    line-height:1.75;
+  }
+  .region-directory .place-region-group{margin-top:34px}
+  .region-directory .place-region-group+.place-region-group{margin-top:51px}
+  .region-directory .place-region-group-head{
+    border-bottom:1px solid #d9e4dc;
+    padding-bottom:12px;
+    margin-bottom:18px;
+    align-items:center;
+  }
+  .region-directory .place-region-group-head h2{
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-weight:800;
+    font-size:clamp(1.25rem,2vw,1.65rem);
+    letter-spacing:-.025em;
+  }
+  .region-directory .place-region-group-head h2:before{
+    content:"✳";
+    color:#e69b64;
+    margin-right:9px;
+  }
+  .region-directory .place-region-group:nth-of-type(2) .place-region-group-head h2:before{color:#86af9d}
+  .region-directory .place-index-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+  }
+  .region-directory .visual-region-card{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    min-height:0;
+    padding:0;
+    border-radius:17px;
+    border:1px solid #e4e8df;
+    background:#fffdfa;
+    box-shadow:0 3px 12px rgba(28,67,54,.045);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .region-directory .visual-region-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 11px 24px rgba(28,67,54,.12);
+  }
+  .region-directory .visual-region-card-photo{
+    width:100%;
+    aspect-ratio:16/10;
+  }
+  .region-directory .visual-region-card-body{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:17px 19px 18px;
+  }
+  .region-directory .visual-region-card .place-index-prefecture{
+    font-size:.7rem;
+    color:#ba7257;
+  }
+  .region-directory .visual-region-card h2{
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-weight:800;
+    font-size:clamp(1.24rem,1.7vw,1.55rem);
+    line-height:1.3;
+    color:#294a40;
+    margin:7px 0;
+  }
+  .region-directory .visual-region-card .place-index-subtitle{
+    font-family:inherit;
+    font-size:.88rem;
+    line-height:1.7;
+    color:#586e67;
+    margin:1px 0 12px;
+    flex:1;
+  }
+  .region-directory .visual-region-card .place-index-read{
+    align-self:flex-start;
+    margin-top:auto;
+    padding:6px 11px;
+    border-radius:99px;
+    background:#eaf4ee;
+    color:#296b5d;
+    font-size:.77rem;
+    font-weight:800;
+  }
+  .places-map-after{margin-top:70px}
+  @media(max-width:950px){
+    .places-index-cover-grid{grid-template-columns:1fr;gap:12px}
+    .places-index-main-photo{min-height:385px}
+    .places-index-side-photos{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-rows:none;
+      height:165px;
+      min-height:0;
+      gap:12px;
+    }
+  }
+  @media(max-width:800px){
+    .region-directory .place-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media(max-width:580px){
+    .places-index-cover{margin-top:13px;padding:0 14px}
+    .places-index-main-photo{min-height:365px;border-radius:15px}
+    .places-index-cover-copy{left:19px;bottom:23px;width:calc(100% - 38px)}
+    .places-index-cover-copy h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
+    .places-index-cover-copy>p:not(.places-index-thesis){font-size:.86rem}
+    .places-index-side-photos{display:none}
+    .region-directory{padding:32px 17px 0}
+    .region-directory .place-index-grid{grid-template-columns:1fr;gap:16px}
+    .region-directory .visual-region-card-photo{aspect-ratio:16/9}
+    .region-directory .place-region-group+.place-region-group{margin-top:42px}
+    .places-map-after{margin-top:45px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .places-index-cover-copy>a,.places-index-side-link img,.region-directory .visual-region-card{transition:none}
+  }
+</style>
