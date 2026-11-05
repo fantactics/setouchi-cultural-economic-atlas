@@ -1,0 +1,47 @@
+---
+slug: "hiketa-castle-port-town"
+part: "なぜ、船はここで止まったのか"
+title: "港を抱く岬に、城が築かれた"
+subtitle: "風を避けられる入り江から始まった、引田の港と城と醤油蔵の物語"
+cities: ["引田"]
+keywords: ["引田","引田城","城山","岬","入り江","風待ち","潮待ち","商家町","醤油蔵","讃州井筒屋敷","東かがわ"]
+heroPhotoId: "photo-hiketa-townscape"
+lead: "引田の港から見上げると、緑の城山が海へ突き出している。その山の向こうは播磨灘。内側には船が身を寄せられる入り江があり、港の背後には醤油蔵や古い商家が並ぶ。岬と港と町がこんなに近いのは、偶然ではない。まず岬が風を避ける場所をつくり、船が寄る港の価値が城を呼んだ。城がなくなった後も、海から人と物が届く町は商いを続けた。"
+provisionalConclusion: "城山の岬がつくる入り江が風待ち・潮待ちに適した港となり、戦国末期にはそれを見下ろす城が整備された。1615年に城が廃止された後も港町は続き、江戸時代には醤油・酒造業などが栄えた。自然の港の条件が城と商業の立地を異なる時代に支えた。"
+openQuestions: ["城山による風浪の遮蔽が、季節風の風向ごとにどの程度異なるか","港の中世から近世への寄港船と取扱品の変遷を史料で追えるか","引田城の築城時期・軍事機能と港の支配に関する一次史料を確認できるか"]
+sources: [{"id":1,"title":"東かがわ市初! 国指定史跡「引田城跡」","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html"},{"id":2,"title":"市の名称・地勢・特産品","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/824/5487.html"},{"id":3,"title":"引田町並み保存活動","publisher":"風まちネット","url":"https://sites.google.com/view/kazemachi/%E5%BC%95%E7%94%B0%E7%94%BA%E4%B8%A6%E3%81%BF%E4%BF%9D%E5%AD%98%E6%B4%BB%E5%8B%95"},{"id":4,"title":"引田城跡・城山","publisher":"東かがわ市観光情報サイト","url":"https://higashikagawa.net/sightseeing/hiketajo"},{"id":5,"title":"讃州井筒屋敷と引田の歴史的町並みを巡る","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/blog/blog-20220316/blog-20220316"},{"id":6,"title":"歴史ある引田まち並み","publisher":"国土交通省 手づくり郷土賞","url":"https://www.mlit.go.jp/sogoseisaku/region/tedukuri/pdf/Part27_H24/H24_all.pdf"}]
+migration: {"status":"generated-copy","publicUrl":"/book/hiketa-castle-port-town/"}
+---
+## 岬の内側には、船を待たせる海がある
+
+引田城のある城山は、播磨灘へ向かって突き出した標高82メートルの岬だ。その内側に引田港がある。海へ出れば風や波を受ける日でも、岬の陰には船が身を寄せやすい水面がある。東かがわ市は、この港を風待ち・潮待ちに利用された瀬戸内海交通の要地と説明している。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+
+帆船の時代、船は好きな時刻に好きな方向へ走れなかった。風が変わるのを待ち、潮の具合を見て、次の港へ向かう。そんな船にとって、停泊できる入り江は遠くへ進むための大切な場所だった。引田が栄える理由は、城が築かれるより前から、海岸の形のなかにあった。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-3">[3]</a></sup>
+
+<!-- photoIds: photo-hiketa-townscape -->
+
+## 港を見下ろす山は、城にも向いていた
+
+城山の頂に登ると、港の入口と引田の町、その向こうの瀬戸内海が見渡せる。風を避ける船には岬が頼りになり、港へ入る船を見張る側には、その岬の高さが役立つ。同じ地形が、船の安全と城の守りという違う仕事を担った。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+
+引田城は戦国時代の終わりから江戸時代初めに整えられ、生駒氏の時代には東讃の支城として重視された。しかし1615年の一国一城令で廃城となる。港が城を必要とした時期は、長い港町の歴史の一部分にすぎない。<sup class="book-footnotes"><a href="#source-4">[4]</a></sup>
+
+いまも山には石垣が残る。そこから海を見れば、城が町の奥の山ではなく、港を抱く岬に置かれた理由が、地図を広げるより先に感じられる。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-4">[4]</a></sup>
+
+<!-- photoIds: photo-hiketa-townscape -->
+
+## 城がなくなっても、船は来た
+
+城が廃された後も、引田は瀬戸内の港町であり続けた。港のそばには商家が集まり、江戸時代には醤油や酒の醸造業が育つ。いま残る讃州井筒屋敷は、醤油・酒造業を営んだ佐野家の屋敷だ。港を行き来する人と物の流れが、町に商売の場をつくっていた。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>
+
+醤油蔵の大きさや商家の奥行きは、船が出入りするだけでは町は栄えないことを教えてくれる。商品を仕込み、蓄え、売り、遠くへ運ぶ。波を避けられる湾の背後に、そんな仕事を続ける町が育った。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>
+
+港を見下ろす城は、いつか役目を終える。だが船を迎えられる入り江の価値は、別の仕事に受け継がれていった。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-6">[6]</a></sup>
+
+<!-- photoIds: photo-hiketa-townscape -->
+
+## 城山から見ると、町の理由がわかる
+
+引田を歩くなら、港から城山を見上げ、それから古い町並みへ向かってみたい。海から入った船が、どこに着き、荷をどこへ運んだのか。赤壁の醤油蔵や讃州井筒屋敷を歩くと、港と商いの距離が近かったことに気づく。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>
+
+最後に城山へ上がれば、岬に抱かれた湾と、その後ろに広がる町が一つの景色に収まる。岬は船を風から守り、城は港を見張り、商家は船が運ぶ人と物を仕事にした。時代ごとに主役は変わっても、引田の暮らしは、この海岸の形から何度も始まっている。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-5">[5]</a></sup>

@@ -1,0 +1,57 @@
+---
+slug: "kada-steel-data-center-transition"
+part: "町は、何度でもつくり直される"
+title: "鉄をつくる工場は海辺に、AIのサーバーは丘の上に"
+subtitle: "大きな船を迎える紀の川河口と、津波を避ける加太の高台。産業が選ぶ土地の理由"
+cities: ["加太","和歌山"]
+keywords: ["加太","日本製鉄","住友金属","和歌山製鉄所","加太線","コスモパーク加太","データセンター","GX","地域産業","都市形成"]
+heroPhotoId: "photo-wakayama-steelworks-2014"
+lead: "加太の港から東へ進むと、紀の川河口に巨大な製鉄所が現れる。鉄鉱石や石炭を船で運び込める海辺に、工場と働く人の町が広がった。一方、加太の背後の丘には、新たなデータセンターの立地が計画されている。南海トラフ地震による津波が懸念される沿岸地域で、海抜約100メートルの高台は津波による浸水を避けられるという大きな利点がある。海の深さと丘の高さ。違う時代の産業は、なぜ同じ地域の違う場所を選んだのだろう。"
+provisionalConclusion: "和歌山の製鉄業は、紀の川河口に広い工業用地と港を整備し、大型船で鉄鉱石・石炭を受け入れて製品を出荷できる臨海立地と結びついて発展した。対してコスモパーク加太のデータセンター計画は、海抜約100mの丘陵造成地の津波リスクの低さと用地規模、近畿圏へのアクセスなどが立地上の利点となる。ただし実際の計画の成立には電力・通信・冷却条件の検証が必要で、近接性だけを決定理由と断定しない。二つの産業が同じ土地を継承したのではなく、必要とするインフラに応じて異なる地形を選んだ例として読む。"
+openQuestions: ["旧住友金属・日本製鉄従業員の居住地分布を時系列で復元できるか","加太地区そのものがベッドタウンとしてどの程度機能したかを国勢調査・住宅地図・社史で検証できるか","製鉄所の雇用縮小が加太線利用・学校児童数・商業へ与えた影響を定量化できるか","コスモパーク加太のデータセンター計画が地域雇用・税収・電力網・地域企業取引へどのような効果を持つか","データセンターを既存製造業・港湾・物流・再エネと接続する地域計算基盤モデルは実現可能か"]
+sources: [{"id":1,"title":"関西製鉄所 和歌山地区 歴史","publisher":"日本製鉄","url":"https://www.nipponsteel.com/works/kansai/wakayama/history/"},{"id":2,"title":"日本製鉄ファクトブック・設備再編関連資料","publisher":"日本製鉄","url":"https://www.nipponsteel.com/factbook/05-01.html"},{"id":3,"title":"校区の状況","publisher":"和歌山市立木本小学校","url":"https://www.wakayama-wky.ed.jp/kimoto/%E6%A0%A1%E5%8C%BA%E3%81%AE%E7%8A%B6%E6%B3%81/"},{"id":4,"title":"福利厚生・社宅","publisher":"日本製鉄 関西製鉄所和歌山地区","url":"https://www.nipponsteel.com/works/kansai/wakayama/recruit/benefit.html"},{"id":5,"title":"東松江駅・加太線の歴史","publisher":"南海電気鉄道","url":"https://www.nankai.co.jp/community/station/higashimatsue.html"},{"id":6,"title":"コスモパーク加太 企業立地資料","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/020100/021300/cosmo_d/fil/cosmoall.pdf"},{"id":7,"title":"データセンター計画に関する県議会答弁","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00222251.html"},{"id":8,"title":"コスモパーク加太 データセンター候補地調査仕様書","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/062200/d00211665_d/fil/04_shiyousho.pdf"},{"id":9,"title":"GX戦略地域制度 有望地域選定","publisher":"経済産業省","url":"https://www.meti.go.jp/press/2026/04/20260424007/20260424007.html"},{"id":10,"title":"GX戦略地域 脱炭素電源活用型資料","publisher":"経済産業省","url":"https://www.meti.go.jp/policy/energy_environment/global_warming/gx_strategy_area/gx_strategic_zone_type3_japanese_set2.pdf"},{"id":11,"title":"和歌山北港区の整備と主要取扱貨物","publisher":"国土交通省近畿地方整備局 和歌山港湾事務所","url":"https://www.pa.kkr.mlit.go.jp/wakayamaport/seibi/seibi_01.html"},{"id":12,"title":"和歌山の戦後工業化と大型専用船の港湾整備","publisher":"和歌山県教育センター学びの丘","url":"https://www.manabi.wakayama-c.ed.jp/wakayama_hakken/pdf/chapter/02-05.pdf"},{"id":13,"title":"和歌山下津港の開発と利用の変遷","publisher":"国土交通省近畿地方整備局","url":"https://www.pa.kkr.mlit.go.jp/public/port/guide-map/wakayama/content-e3537ed08851c02f2dfea6a.html"},{"id":14,"title":"生産設備構造対策（和歌山地区第1高炉2021年休止）","publisher":"日本製鉄","url":"https://www.nipponsteel.com/ir/library/settlement/pdf/20240509_600.pdf"},{"id":15,"title":"コスモパーク加太の立地、海抜と交通アクセス","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/020100/021300/cosmo.html"},{"id":16,"title":"令和8年公表 地震動予測及び津波浸水想定","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/011400/bousai/shinsui/r8sinsui.html"},{"id":17,"title":"加太地区津波避難計画","publisher":"和歌山市","url":"https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/067/097/kadatikutunamihinankeikaku.pdf"}]
+migration: {"status":"generated-copy","publicUrl":"/book/kada-steel-data-center-transition/"}
+---
+## 大きな船を迎えるために、海辺に工場ができた
+
+加太から東へ、紀の川の河口に近づくと、漁港の風景は巨大な工場と岸壁に変わる。旧住友金属工業の和歌山製鉄所は1942年に操業を始め、戦後、河口北岸の臨海部で拡張を重ねた。ここに鉄をつくる工場が集まった理由の一つは、海から原料を迎えられることだった。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-11">[11]</a></sup>
+
+高炉による製鉄には大量の鉄鉱石と石炭が要る。それらを遠方から運び、つくった鋼材を出荷するには、船を岸壁につけ、工場までの陸上輸送を短くできる土地が都合よい。国土交通省は紀の川右岸の和歌山北港区を、鉄鉱石・石炭・鉄鋼製品を扱う「鉄鋼港湾」と説明している。実際に戦後は工場の拡張とともに大型専用船のための港湾が整えられた。<sup class="book-footnotes"><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup>
+
+もっとも、大型船が入れる深い港が最初から完成していたわけではない。河口の臨海地形を使い、埋立てや岸壁整備によって原料と製品を運べる港をつくっていったのである。海に面した広い用地と港を整備できる条件は、大消費地の阪神地域にも近い和歌山の強みとなった。<sup class="book-footnotes"><a href="#source-12">[12]</a><a href="#source-13">[13]</a></sup>
+
+## 港の背後に、働く人の町が広がった
+
+原料を積んだ船が着き、工場が大きくなると、そこで働く人の住む場所も必要になる。和歌山市北西部では農地の一部が工業地や住宅地へ変わり、学校や商店が育った。木本地区の学校史には、旧住友金属の建設・拡張と人口増加の関係が記されている。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-4">[4]</a></sup>
+
+南海加太線の東松江駅からは、かつて製鉄所へ貨物専用線が延びていた。海からの大量輸送に加えて、陸の鉄道が工場と町を結んだ。ただし加太そのものを製鉄所のベッドタウンだったと断定することはできない。製鉄所がある湊・松江と漁港の加太は、同じ北西部でも異なる場所である。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+現在も日本製鉄の和歌山地区では鋼管などが製造されている。一方、第1高炉は2021年に休止し、設備の集約が進んだ。製鉄の仕事がなくなったのではなく、かつての巨大な一貫製鉄所の姿が変わりつつある。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-14">[14]</a></sup>
+
+## 今度は、海ではなく丘の上へ
+
+加太の背後には、木々に囲まれた広い造成地、コスモパーク加太がある。ここは紀の川河口の製鉄所跡地ではない。かつて工場が海へ向かったのに対して、新たにデータセンターの立地が検討されているのは丘陵上の別の土地だ。<sup class="book-footnotes"><a href="#source-6">[6]</a><a href="#source-7">[7]</a></sup>
+
+最もわかりやすい違いは、津波への備えだ。南海トラフ地震では加太の海辺の低地にも津波浸水が想定される。一方、コスモパーク加太は海抜約100メートルの丘陵地にあり、和歌山県自身が「津波による被害もなく地盤も強固」と立地上の利点を説明している。24時間稼働を求められ、浸水による設備停止を避けたいデータセンターにとって、津波リスクが低いことは重要な条件となる。ただし、標高の高さは地震の揺れ、斜面災害、停電、道路や通信の途絶まで防ぐものではない。<sup class="book-footnotes"><a href="#source-6">[6]</a><a href="#source-15">[15]</a><a href="#source-16">[16]</a><a href="#source-17">[17]</a></sup>
+
+大阪府境に近く、第二阪和国道や関西空港へのアクセスがあることも、建設・保守や人材の移動を考えると利点となり得る。関西の大都市圏から遠く離れすぎず、都市の中心部にはない大きな土地を使える。ただし通信の遅延や運用上の優位性は、実際の光回線ルートと接続条件を見なければ断定できない。<sup class="book-footnotes"><a href="#source-15">[15]</a></sup>
+
+<!-- photoIds: photo-kada-tomogashima-aerial -->
+
+## サーバーを動かすのは、船ではなく電気と回線
+
+2024年、コスモパーク加太の大規模区画はGoogle関連会社のAsa合同会社に売却された。県議会でもデータセンター計画の電力需要や冷却方式について説明が行われた。ただし土地取得は施設の完成を意味せず、建設・稼働状況は別に確認する必要がある。<sup class="book-footnotes"><a href="#source-7">[7]</a></sup>
+
+データセンターが必要とするのは、大量で安定した電力、通信回線、発熱する機器を冷やす設備、そして災害時にも運転を続けるための備えである。高台だけでは足りない。電力供給容量、回線の冗長性、冷却に要する水や電力、非常用電源などが立地の成否を左右する。かつて船のために岸壁を整えたように、今度は電力と通信のインフラを整える必要がある。<sup class="book-footnotes"><a href="#source-8">[8]</a></sup>
+
+国のGX戦略地域制度では、2026年4月、和歌山市と有田市が脱炭素電源活用型の有望地域に選ばれた。コスモパーク加太周辺でも太陽光発電や蓄電所などを活用した産業集積が構想されている。ただし有望地域への選定は、個々のデータセンターの電源調達や事業採算が確定したことを意味しない。<sup class="book-footnotes"><a href="#source-9">[9]</a><a href="#source-10">[10]</a></sup>
+
+## 同じ大きな投資でも、町への広がり方は違う
+
+製鉄所が大きくなった時代、船、岸壁、鉄道、工場のそばに、人の住む町が広がった。データセンターでも建設工事や設備保守の仕事は生まれ得るが、製鉄所と同じ規模の従業員や住宅地を必要とするとは限らない。立地に適した自然条件と、地域に残る仕事の多さは別の問題である。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-4">[4]</a></sup>
+
+海辺の製鉄所に必要だったのは、重いものを運べる水際の土地だった。丘の上のデータセンターに求められるのは、災害から設備を守り、電気と情報を途切れさせずに届けられる土地である。同じ和歌山市北西部でも、産業が変われば、選ばれる地形が変わる。<sup class="book-footnotes"><a href="#source-11">[11]</a><a href="#source-15">[15]</a></sup>
+
+加太の港に漁船が並び、少し東には鋼管をつくる工場があり、背後の丘では新たな計算施設の計画が進む。海の深さと丘の高さ。二つの風景を見比べると、土地の自然条件をどう使うかが、その時代の産業の形を決める一つの鍵だったことが見えてくる。
+
+<!-- photoIds: photo-kada-kitan-strait -->

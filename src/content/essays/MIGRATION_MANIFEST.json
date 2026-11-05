@@ -1,0 +1,341 @@
+{
+  "generatedAt": "repository migration",
+  "articleCount": 55,
+  "preservedPilotFiles": [
+    "setouchi-sushi-not-nigiri",
+    "setouchi-ship-materials",
+    "shimotsui-hijiki-peperoncino"
+  ],
+  "articles": [
+    {
+      "slug": "ai-era-regional-planning-learning-velocity",
+      "title": "AI時代の地域計画――完成形を描くことから、学習する地域をつくることへ",
+      "path": "src/content/essays/ai-era-regional-planning-learning-velocity.md",
+      "publicUrl": "/book/ai-era-regional-planning-learning-velocity/"
+    },
+    {
+      "slug": "ako-after-salt-fields",
+      "title": "塩田を売って、塩をつくり続けた",
+      "path": "src/content/essays/ako-after-salt-fields.md",
+      "publicUrl": "/book/ako-after-salt-fields/"
+    },
+    {
+      "slug": "ako-salt-fields-to-city",
+      "title": "赤穂の塩田跡に、工場と町と公園ができた",
+      "path": "src/content/essays/ako-salt-fields-to-city.md",
+      "publicUrl": "/book/ako-salt-fields-to-city/"
+    },
+    {
+      "slug": "citrus-pomace-cascade",
+      "title": "みかんを搾ったあと、枝を切ったあと",
+      "path": "src/content/essays/citrus-pomace-cascade.md",
+      "publicUrl": "/book/citrus-pomace-cascade/"
+    },
+    {
+      "slug": "faith-as-transport-map",
+      "title": "大阪の豪商と茶屋の女性が、島の神社を建てた",
+      "path": "src/content/essays/faith-as-transport-map.md",
+      "publicUrl": "/book/faith-as-transport-map/"
+    },
+    {
+      "slug": "fish-waste-to-feed-and-citrus",
+      "title": "魚のアラが、養殖魚とみかんを育てる",
+      "path": "src/content/essays/fish-waste-to-feed-and-citrus.md",
+      "publicUrl": "/book/fish-waste-to-feed-and-citrus/"
+    },
+    {
+      "slug": "four-salt-fields",
+      "title": "塩田のあとに残った四つの風景",
+      "path": "src/content/essays/four-salt-fields.md",
+      "publicUrl": "/book/four-salt-fields/"
+    },
+    {
+      "slug": "gangi-tide-port-functions",
+      "title": "海へ下りる石段は、誰のためにあったのか",
+      "path": "src/content/essays/gangi-tide-port-functions.md",
+      "publicUrl": "/book/gangi-tide-port-functions/"
+    },
+    {
+      "slug": "hijiki-tidal-time",
+      "title": "冬の夜、ひじきの磯が現れる",
+      "path": "src/content/essays/hijiki-tidal-time.md",
+      "publicUrl": "/book/hijiki-tidal-time/"
+    },
+    {
+      "slug": "hiketa-castle-port-town",
+      "title": "港を抱く岬に、城が築かれた",
+      "path": "src/content/essays/hiketa-castle-port-town.md",
+      "publicUrl": "/book/hiketa-castle-port-town/"
+    },
+    {
+      "slug": "ibuki-fat-sardines-revalued",
+      "title": "伊吹島、脂ののったイワシを干さない理由",
+      "path": "src/content/essays/ibuki-fat-sardines-revalued.md",
+      "publicUrl": "/book/ibuki-fat-sardines-revalued/"
+    },
+    {
+      "slug": "imabari-why-shipbuilding",
+      "title": "潮を待つ船を直して、造船の町になった",
+      "path": "src/content/essays/imabari-why-shipbuilding.md",
+      "publicUrl": "/book/imabari-why-shipbuilding/"
+    },
+    {
+      "slug": "iwakuni-river-city",
+      "title": "流された橋の修復と維持のために、岩国は毎年米を徴収した",
+      "path": "src/content/essays/iwakuni-river-city.md",
+      "publicUrl": "/book/iwakuni-river-city/"
+    },
+    {
+      "slug": "jinori-okinori-navigation-system",
+      "title": "同じ海に、二つの道があった",
+      "path": "src/content/essays/jinori-okinori-navigation-system.md",
+      "publicUrl": "/book/jinori-okinori-navigation-system/"
+    },
+    {
+      "slug": "kada-sea-bream-distribution-ecosystem",
+      "title": "鯛は、港で時間を与えられる――加太の真鯛を運ぶ流通の生態系",
+      "path": "src/content/essays/kada-sea-bream-distribution-ecosystem.md",
+      "publicUrl": "/book/kada-sea-bream-distribution-ecosystem/"
+    },
+    {
+      "slug": "kada-sea-bream-one-line",
+      "title": "指先で、海峡の鯛を釣る",
+      "path": "src/content/essays/kada-sea-bream-one-line.md",
+      "publicUrl": "/book/kada-sea-bream-one-line/"
+    },
+    {
+      "slug": "kada-steel-data-center-transition",
+      "title": "鉄をつくる工場は海辺に、AIのサーバーは丘の上に",
+      "path": "src/content/essays/kada-steel-data-center-transition.md",
+      "publicUrl": "/book/kada-steel-data-center-transition/"
+    },
+    {
+      "slug": "kinkai-salt-field-to-solar",
+      "title": "塩田が太陽光発電所になった、もう一つの理由",
+      "path": "src/content/essays/kinkai-salt-field-to-solar.md",
+      "publicUrl": "/book/kinkai-salt-field-to-solar/"
+    },
+    {
+      "slug": "kitan-strait-tai-to-shirasu",
+      "title": "友ヶ島の潮が、しらすを運ぶ",
+      "path": "src/content/essays/kitan-strait-tai-to-shirasu.md",
+      "publicUrl": "/book/kitan-strait-tai-to-shirasu/"
+    },
+    {
+      "slug": "kojima-from-cotton-to-jeans",
+      "title": "ジーンズの町は、綿花がなくても縫い続けた",
+      "path": "src/content/essays/kojima-from-cotton-to-jeans.md",
+      "publicUrl": "/book/kojima-from-cotton-to-jeans/"
+    },
+    {
+      "slug": "kojima-island-bubble-villas-second-life",
+      "title": "安くなった別荘に、新しい使い手が現れた",
+      "path": "src/content/essays/kojima-island-bubble-villas-second-life.md",
+      "publicUrl": "/book/kojima-island-bubble-villas-second-life/"
+    },
+    {
+      "slug": "kojima-island-cycling-without-consumption",
+      "title": "店のない島に、観光客が来たら",
+      "path": "src/content/essays/kojima-island-cycling-without-consumption.md",
+      "publicUrl": "/book/kojima-island-cycling-without-consumption/"
+    },
+    {
+      "slug": "kojima-island-infrastructure-per-capita",
+      "title": "人口52人の島に、道路と水道をどこまで残すのか",
+      "path": "src/content/essays/kojima-island-infrastructure-per-capita.md",
+      "publicUrl": "/book/kojima-island-infrastructure-per-capita/"
+    },
+    {
+      "slug": "kojima-jeans-circular-economy",
+      "title": "リベットを外す日",
+      "path": "src/content/essays/kojima-jeans-circular-economy.md",
+      "publicUrl": "/book/kojima-jeans-circular-economy/"
+    },
+    {
+      "slug": "matsuyama-three-centers-one-city",
+      "title": "砂嘴の港から、汽船は高浜へ移った",
+      "path": "src/content/essays/matsuyama-three-centers-one-city.md",
+      "publicUrl": "/book/matsuyama-three-centers-one-city/"
+    },
+    {
+      "slug": "mihara-castle-to-multimodal-city",
+      "title": "山と海に挟まれて、鉄道は城を横切った",
+      "path": "src/content/essays/mihara-castle-to-multimodal-city.md",
+      "publicUrl": "/book/mihara-castle-to-multimodal-city/"
+    },
+    {
+      "slug": "mikan-slope-and-varieties",
+      "title": "海へ向かうみかんの石垣",
+      "path": "src/content/essays/mikan-slope-and-varieties.md",
+      "publicUrl": "/book/mikan-slope-and-varieties/"
+    },
+    {
+      "slug": "mitarai-economy-of-waiting",
+      "title": "船が待つあいだに生まれた町",
+      "path": "src/content/essays/mitarai-economy-of-waiting.md",
+      "publicUrl": "/book/mitarai-economy-of-waiting/"
+    },
+    {
+      "slug": "niboshi-shirasu-two-food-cultures",
+      "title": "しらすは姿を残し、いりこは味を残す",
+      "path": "src/content/essays/niboshi-shirasu-two-food-cultures.md",
+      "publicUrl": "/book/niboshi-shirasu-two-food-cultures/"
+    },
+    {
+      "slug": "niihama-after-copper",
+      "title": "山の銅が、海辺の工場になった",
+      "path": "src/content/essays/niihama-after-copper.md",
+      "publicUrl": "/book/niihama-after-copper/"
+    },
+    {
+      "slug": "olive-pomace-to-cattle",
+      "title": "オリーブの搾りかすで、牛を育てる",
+      "path": "src/content/essays/olive-pomace-to-cattle.md",
+      "publicUrl": "/book/olive-pomace-to-cattle/"
+    },
+    {
+      "slug": "onomichi-capital-to-culture-and-ships",
+      "title": "尾道の寺から、造船所は見えるか",
+      "path": "src/content/essays/onomichi-capital-to-culture-and-ships.md",
+      "publicUrl": "/book/onomichi-capital-to-culture-and-ships/"
+    },
+    {
+      "slug": "oyster-shells-after-the-meal",
+      "title": "牡蠣の殻と折り鶴が、一枚の壁になった",
+      "path": "src/content/essays/oyster-shells-after-the-meal.md",
+      "publicUrl": "/book/oyster-shells-after-the-meal/"
+    },
+    {
+      "slug": "oysters-taste-of-small-seas",
+      "title": "牡蠣の筏が浮かぶ海",
+      "path": "src/content/essays/oysters-taste-of-small-seas.md",
+      "publicUrl": "/book/oysters-taste-of-small-seas/"
+    },
+    {
+      "slug": "ports-that-needed-waiting",
+      "title": "港に残った四つの時間",
+      "path": "src/content/essays/ports-that-needed-waiting.md",
+      "publicUrl": "/book/ports-that-needed-waiting/"
+    },
+    {
+      "slug": "sakaide-salt-fields-to-industry",
+      "title": "坂出の工場は、塩田の跡に建ったのか",
+      "path": "src/content/essays/sakaide-salt-fields-to-industry.md",
+      "publicUrl": "/book/sakaide-salt-fields-to-industry/"
+    },
+    {
+      "slug": "sanuki-store-the-rain",
+      "title": "線香が燃え尽きるまで、田に水を引く",
+      "path": "src/content/essays/sanuki-store-the-rain.md",
+      "publicUrl": "/book/sanuki-store-the-rain/"
+    },
+    {
+      "slug": "sawara-spring-two-gates",
+      "title": "春、サワラが海を渡る",
+      "path": "src/content/essays/sawara-spring-two-gates.md",
+      "publicUrl": "/book/sawara-spring-two-gates/"
+    },
+    {
+      "slug": "sea-bream-scales-to-collagen",
+      "title": "宇和海の鯛のウロコが、米子の歯みがきになる",
+      "path": "src/content/essays/sea-bream-scales-to-collagen.md",
+      "publicUrl": "/book/sea-bream-scales-to-collagen/"
+    },
+    {
+      "slug": "setouchi-itinerant-trade-boats",
+      "title": "移動販売船が、島に長屋門の町をつくった",
+      "path": "src/content/essays/setouchi-itinerant-trade-boats.md",
+      "publicUrl": "/book/setouchi-itinerant-trade-boats/"
+    },
+    {
+      "slug": "setouchi-ship-materials",
+      "title": "伊予灘の地引き網船は、宮崎の杉でできていた",
+      "path": "src/content/essays/setouchi-ship-materials.md",
+      "publicUrl": "/book/setouchi-ship-materials/"
+    },
+    {
+      "slug": "setouchi-shrimp-middle-layer",
+      "title": "小エビのかき揚げは、海の底から来る",
+      "path": "src/content/essays/setouchi-shrimp-middle-layer.md",
+      "publicUrl": "/book/setouchi-shrimp-middle-layer/"
+    },
+    {
+      "slug": "setouchi-sushi-not-nigiri",
+      "title": "瀬戸内の寿司は握らず、分ける",
+      "path": "src/content/essays/setouchi-sushi-not-nigiri.md",
+      "publicUrl": "/book/setouchi-sushi-not-nigiri/"
+    },
+    {
+      "slug": "shimonoseki-resource-made-by-market",
+      "title": "潮の速い海峡を離れて、ふぐが集まる港へ",
+      "path": "src/content/essays/shimonoseki-resource-made-by-market.md",
+      "publicUrl": "/book/shimonoseki-resource-made-by-market/"
+    },
+    {
+      "slug": "shimotsui-hijiki-peperoncino",
+      "title": "タコの海には、ひじきも育つ",
+      "path": "src/content/essays/shimotsui-hijiki-peperoncino.md",
+      "publicUrl": "/book/shimotsui-hijiki-peperoncino/"
+    },
+    {
+      "slug": "shimotsui-tako-meshi",
+      "title": "下津井の港にタコが干されるころ",
+      "path": "src/content/essays/shimotsui-tako-meshi.md",
+      "publicUrl": "/book/shimotsui-tako-meshi/"
+    },
+    {
+      "slug": "shodoshima-open-island",
+      "title": "黒い醤油蔵の町に、佃煮工場が生まれた",
+      "path": "src/content/essays/shodoshima-open-island.md",
+      "publicUrl": "/book/shodoshima-open-island/"
+    },
+    {
+      "slug": "shodoshima-somen-to-sesame-oil",
+      "title": "小豆島の素麺が、ごま油の工場を生んだ",
+      "path": "src/content/essays/shodoshima-somen-to-sesame-oil.md",
+      "publicUrl": "/book/shodoshima-somen-to-sesame-oil/"
+    },
+    {
+      "slug": "soy-sauce-lees-to-chomeiso",
+      "title": "醤油蔵から長命草の畑へ",
+      "path": "src/content/essays/soy-sauce-lees-to-chomeiso.md",
+      "publicUrl": "/book/soy-sauce-lees-to-chomeiso/"
+    },
+    {
+      "slug": "tai-meshi-two-seas",
+      "title": "二つの海、二つの鯛めし",
+      "path": "src/content/essays/tai-meshi-two-seas.md",
+      "publicUrl": "/book/tai-meshi-two-seas/"
+    },
+    {
+      "slug": "takamatsu-sea-castle-to-gateway",
+      "title": "海に面した城が、港から遠くなった",
+      "path": "src/content/essays/takamatsu-sea-castle-to-gateway.md",
+      "publicUrl": "/book/takamatsu-sea-castle-to-gateway/"
+    },
+    {
+      "slug": "takehara-salt-capital-to-townscape",
+      "title": "塩辛い土地が、竹原の白壁をつくった",
+      "path": "src/content/essays/takehara-salt-capital-to-townscape.md",
+      "publicUrl": "/book/takehara-salt-capital-to-townscape/"
+    },
+    {
+      "slug": "tomo-two-act-tidal-port",
+      "title": "一日二幕の港――潮汐がつくった鞆の仕事と暮らし",
+      "path": "src/content/essays/tomo-two-act-tidal-port.md",
+      "publicUrl": "/book/tomo-two-act-tidal-port/"
+    },
+    {
+      "slug": "what-cyclists-leave-behind",
+      "title": "自転車で人は来た。では、地域に何が残ったのか",
+      "path": "src/content/essays/what-cyclists-leave-behind.md",
+      "publicUrl": "/book/what-cyclists-leave-behind/"
+    },
+    {
+      "slug": "yanai-trade-profit-to-whitewalls",
+      "title": "川の港が、二百メートルの白壁の町をつくった",
+      "path": "src/content/essays/yanai-trade-profit-to-whitewalls.md",
+      "publicUrl": "/book/yanai-trade-profit-to-whitewalls/"
+    }
+  ]
+}

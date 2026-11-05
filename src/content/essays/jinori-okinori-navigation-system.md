@@ -1,0 +1,68 @@
+---
+slug: "jinori-okinori-navigation-system"
+part: "なぜ、船はここで止まったのか"
+title: "同じ海に、二つの道があった"
+subtitle: "山陽沿岸をたどる地乗り、島々の間を抜ける沖乗り。港の役割を変えた船の選択"
+cities: ["尾道","鞆の浦","三之瀬","御手洗","芸予諸島"]
+keywords: ["地乗り","沖乗り","芸予諸島","鼻栗瀬戸","弓削瀬戸","木綿帆","潮流","尾道水道","御手洗","三之瀬","西廻り航路"]
+heroPhoto: {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Onomichi.JPG?width=1400","alt":"向島側から望む尾道水道。山と島に挟まれた海に町と港が続く","title":"尾道水道――山陽沿岸をたどる海の道","caption":"狭い水道に港と町が重なる尾道。ここから島々の内側を通る航路へも目を向けてみる。","author":"Vickerman625","sourcePage":"https://commons.wikimedia.org/wiki/File:Onomichi.JPG","license":"Public Domain","licenseUrl":"https://creativecommons.org/publicdomain/mark/1.0/","credit":"Vickerman625 / Public Domain"}
+lead: "尾道の坂道から海を見下ろすと、山と向島の間を細い水道が通り、その両岸に町が寄り添っている。西へ進むと、今度は島々の間に開けた水面のそばに、御手洗という小さな港町がある。同じ瀬戸内海の港なのに、なぜ町の育ち方が違うのだろう。昔の船には、山陽側の港をたどる道と、島々の間を抜ける道があった。海岸線はほとんど変わらなくても、帆と船が改良されると、船乗りが選ぶ道が変わった。そこから、港の役割も変わっていった。"
+researchLinks: [{"label":"御手洗｜船が待つあいだに生まれた町","href":"/setouchi-cultural-economic-atlas/book/mitarai-economy-of-waiting/"},{"label":"比較｜港に残った四つの時間","href":"/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/"},{"label":"港の土木｜雁木が示す船と陸のつながり","href":"/setouchi-cultural-economic-atlas/book/gangi-tide-port-functions/"}]
+provisionalConclusion: "同じ芸予諸島の海でも、沿岸寄りの地乗りと島嶼間を抜ける沖乗りでは、船が頼りにする港が異なった。木綿帆・弁才船の改良と流通量の増加が航路の選択を広げ、御手洗のような島の港にも仕事を生んだ。一方、公用の海駅や陸との商業関係をもつ港は役割を保ち、両航路を組み合わせる船もあった。航路は一度の技術革新で完全に置き換わったのではなく、船と積荷、風潮流、港町の事情に応じて使い分けられた。"
+openQuestions: ["1842年『改正日本船路細見記』に示された両航路を、現在の地理情報と照合できるか","尾道・三之瀬・御手洗について船の寄港記録や積荷取引の差を比較できるか","弁才船の帆装改良と航路変更の実際の年代差を史料で検証できるか"]
+sources: [{"id":1,"title":"御手洗港と沖乗り航路","publisher":"ひろしま文化大百科","url":"https://www.hiroshima-bunka.jp/modules/newdb/detail.php?id=660"},{"id":2,"title":"御手洗港","publisher":"ひろしま文化大百科","url":"https://www.hiroshima-bunka.jp/modules/newdb/detail.php?id=727"},{"id":3,"title":"瀬戸内を生きた人びと―地乗りと沖乗り","publisher":"日本財団図書館「自然と文化」第62号","url":"https://nippon.zaidan.info/seikabutsu/1999/00240/contents/026.htm"},{"id":4,"title":"呉市の歴史文化―御手洗と沖乗り航路","publisher":"呉市","url":"https://www.city.kure.lg.jp/uploaded/attachment/86453.pdf"},{"id":5,"title":"北前船とその時代―芸州灘の地乗りと伊予路沖乗り","publisher":"日本財団図書館／広島大学 佐竹昭","url":"https://nippon.zaidan.info/seikabutsu/2004/00084/contents/0039.htm"},{"id":6,"title":"弁才船の構造と発達","publisher":"船の科学館資料／日本財団図書館","url":"https://nippon.zaidan.info/seikabutsu/2002/00033/contents/032.htm"},{"id":7,"title":"弁才船の帆装と操船","publisher":"船の科学館資料／日本財団図書館","url":"https://nippon.zaidan.info/seikabutsu/2002/00033/contents/028.htm"},{"id":8,"title":"和船の発達と近世海運","publisher":"船の科学館資料／日本財団図書館","url":"https://nippon.zaidan.info/seikabutsu/2002/01046/contents/003.htm"},{"id":9,"title":"瀬戸内海航路と御手洗","publisher":"JR西日本 Blue Signal","url":"https://www.westjr.co.jp/company/info/issue/bsignal/04_vol_94/feature01.html"},{"id":10,"title":"瀬戸内海の歴史","publisher":"瀬戸内・海の路ネットワーク推進協議会","url":"https://uminet.jp/know/detail.php?id=22"}]
+migration: {"status":"generated-copy","publicUrl":"/book/jinori-okinori-navigation-system/"}
+---
+## 尾道の細い水道から、島影の海へ
+
+尾道水道は、山が海に迫る尾道の市街地と、向島との間にある。海の道は細く、港に近いところまで家や寺が重なる。一方、芸予諸島の大崎下島にある御手洗では、島の斜面の下に小さな町が集まり、その前に船を休ませる水面が広がる。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-9">[9]</a></sup>
+
+どちらも自然の地形を生かした港だが、その便利さは港の深さや静けさだけでは決まらなかった。港に入るまでにどの海峡を通り、その先にどんな道が続くのか。海を行く船の側から見ると、同じ土地の価値が変わってくる。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-5">[5]</a></sup>
+
+瀬戸内の島々は、船にとって目印であると同時に、進む道を分ける壁でもあった。岬の外を回るのか、島と島の狭い間を抜けるのか。その選択が、船の立ち寄る町を変えていく。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-9">[9]</a></sup>
+
+<!-- photoIds: photo-onomichi-panorama -->
+
+## 北の道は、岸と港をつないでいた
+
+中世の瀬戸内では、山陽側の陸地や島を目印に進む航海が幹線の一つだった。櫓を漕ぐ力にも頼った船にとって、陸から遠く離れず、潮や風を見ながら次の泊地へ進むことには意味があった。尾道や竹原など、山陽沿岸の港はこうした海の道と結びついてきた。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-5">[5]</a><a href="#source-9">[9]</a></sup>
+
+江戸時代になると、公用の船が使う航路にも、牛窓、鞆の浦、蒲刈島の三之瀬、上関などの港が組み込まれていた。1842年の航路案内には、この北寄りの道が「芸州灘の地乗り」と記されている。ただし地乗りだからといって、船がいつも陸の縁をなぞったわけではない。尾道水道や広島湾へ入らずに進む場合もあった。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+船の大きさや旅の目的が違えば、必要な港も違う。公用の船団が立ち寄る海駅と、荷を売買しながら進む商船の寄港地は、必ずしも同じではなかった。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+## 南の道は、島々の間を抜けた
+
+もう一つの道は、鞆の浦から弓削瀬戸へ入り、岩城島の近くを通り、鼻栗瀬戸を抜けて御手洗、津和地、上関へ向かう。江戸時代の航路案内では「伊予路沖乗り」と呼ばれた、芸予諸島の内側を通る道である。「沖」といっても、何もない外洋をまっすぐ進むわけではない。島と島の間の水路を選んで進む。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-9">[9]</a><a href="#source-10">[10]</a></sup>
+
+島が密集するこの海では、狭い瀬戸に潮が集中して流れが速くなる。来島海峡や船折瀬戸のような難所がある一方、鼻栗瀬戸は比較的流れが穏やかで、東西を結ぶ道として選ばれたとされる。島の隙間ならどこでもよいのではない。海底と島の形がつくる流れを読む必要があった。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+この道を通ると、北側の港へ回り込まずに航海できる場合がある。その代わり、航路に面する島陰の泊地が重要になる。船にとっての近道ができると、以前は小さかった港にも、船を迎える理由が生まれる。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-5">[5]</a><a href="#source-10">[10]</a></sup>
+
+<!-- photoIds: photo-tomo-port-2024 -->
+
+## 帆が変わると、選べる航路が増えた
+
+この変化を支えたのは、船の速さだけではなかった。17世紀後半には、それまでの筵（むしろ）などの帆から木綿帆への転換が進み、風を受けて走る力が高まった。弁才船も改良され、櫓を漕ぐ人手に強く頼らずに、多くの荷を積んで長い距離を進みやすくなった。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-7">[7]</a><a href="#source-8">[8]</a></sup>
+
+風を生かせる船なら、多少の逆潮でも航海を続けられることがある。沿岸の港へ必ずしも寄らず、島々の内側を抜ける航程を選べるようになった。ただし風や潮の制約が消えたわけではない。沖乗りの船も、海峡の流れを待ち、荒天になれば避難する港を必要とした。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-7">[7]</a></sup>
+
+しかも船の性能だけで、新しい道は賑わわない。1672年に西廻り航路が整えられ、日本海側と大坂などの市場を結ぶ物資の輸送が拡大した。多くの船が荷を運ぶようになって初めて、短い航路と新しい寄港地の価値も大きくなった。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-5">[5]</a><a href="#source-9">[9]</a><a href="#source-10">[10]</a></sup>
+
+## 船の道が変わり、港の仕事が変わった
+
+御手洗は、大崎下島の東端にある。近世の初めにはまだ大きな町ではなかったが、沖乗りの船が立ち寄るようになり、島の人々が薪や水、野菜を供給する仕事を始めた。1666年には屋敷地を設けることが認められ、港を中心とする町が育っていく。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-4">[4]</a></sup>
+
+一方、山陽側の港が新しい道のために一斉に消えたわけではない。三之瀬は公用の船を迎える海駅として使われ、尾道や鞆には周辺の産物を集め、売りさばく仕事があった。港を支えたのは、航路との距離だけでなく、陸側の町や市場との結びつきでもあった。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+御手洗の船宿や茶屋が生まれた詳しい話は、この港をたどる別のエッセイに譲りたい。ここで見たいのは、同じ島影の海に北と南の道があり、船の選択が港の役割を分けていたということだ。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-5">[5]</a></sup>
+
+<!-- photoIds: photo-mitarai-townscape -->
+
+## 海は同じでも、道の地図は一枚ではない
+
+地乗りから沖乗りへ、すべての船が一度に切り替わったわけではない。航海日記や船路案内には両方の道が残る。鼻栗瀬戸を避けたいときには、北寄りの航路を進み、忠海の沖から南下して御手洗へ向かうような、二つを組み合わせた道もあった。船は積荷、風、潮、その日の海の様子を考えて進んでいた。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+
+その後、汽船や鉄道が広がると、また別の道が重要になった。港に寄る必要が減った場所もあれば、陸の交通と結びついて仕事を続けた町もある。自然の入り江は同じ場所に残っていても、港にどんな船が来るかは変わり続ける。<sup class="book-footnotes"><a href="#source-5">[5]</a><a href="#source-10">[10]</a></sup>
+
+尾道水道の両岸に続く家並みを眺め、御手洗の島陰の港を地図で探してみる。間にはいくつもの島と狭い瀬戸がある。かつては、その一つひとつをどう通るかが、船乗りにも、港に暮らす人にも大きな意味を持っていた。海の道は水面に残らない。それでも町の位置と形を見れば、船が選んだ道の記憶をたどることができる。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-5">[5]</a><a href="#source-9">[9]</a></sup>

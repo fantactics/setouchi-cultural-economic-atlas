@@ -1,0 +1,42 @@
+---
+slug: "setouchi-shrimp-middle-layer"
+part: "食は、土地を語る"
+title: "小エビのかき揚げは、海の底から来る"
+subtitle: "庵治のえびこぎ網から、備讃瀬戸の砂地と讃岐の食卓をたどる"
+cities: ["庵治","高松","備讃瀬戸","岡山","香川"]
+keywords: ["小エビ","庵治","備讃瀬戸","サルエビ","アカエビ","トラエビ","砂底","底びき網","えびこぎ","かき揚げ","干しエビ","そうめん","干潟"]
+heroPhotoId: null
+heroPhoto: {"imageUrl":"https://upload.wikimedia.org/wikipedia/commons/a/a0/Metapenaeus_ensis_Gobius.jpg","alt":"砂地にいるヨシエビの参考写真。庵治で漁獲された小エビの写真ではない。","title":"ヨシエビ（参考写真）","author":"Totti","license":"CC BY-SA 4.0","sourcePage":"https://commons.wikimedia.org/wiki/File:Metapenaeus_ensis_Gobius.jpg"}
+lead: "高松の東、庵治の港から漁船で30分ほど。島々が点在する備讃瀬戸の砂地では、サルエビ、トラエビ、アカエビなどが獲れる。漁師は海底に網を曳き、小さなエビと魚をより分ける。かき揚げに入り、干しエビになり、そうめんの出汁にもなる小エビは、こんな海と仕事を通って食卓へやって来る。"
+provisionalConclusion: "備讃瀬戸の砂地では、サルエビ・トラエビ・アカエビなどの小エビが漁獲される。底びき網漁は潮流と海底の条件に応じて行われ、漁師の選別を経て、かき揚げ・干しエビ・そうめん出汁などに使われる。小エビと呼ばれる種群を一つの生活史で説明せず、それぞれの生息場と漁場を区別する必要がある。"
+openQuestions: ["庵治・備讃瀬戸で漁獲される小エビの種類と季節変化を、漁協の水揚げ資料で確認できるか","サルエビ・アカエビ・トラエビについて、砂底・泥底・干潟への依存を種別に比較できるか","資源保護のための底びき網の網目規制が、小エビの漁獲と漁業経営にどのような影響を与えているか","かき揚げ・干しエビ・そうめん出汁の使われ方を、瀬戸内の地域ごとに比較できるか"]
+sources: [{"id":1,"title":"水産物の加工（干しエビ）","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/suisan/gyogyo/kakou/kakou.html"},{"id":2,"title":"クルマエビ資源減少の潜在的メカニズム","publisher":"水産研究・教育機構","url":"https://www.fra.go.jp/home/kenkyushokai/ronbun/2025/20250821.html"},{"id":3,"title":"岡山のえびなどの地方名（呼び名）あ行","publisher":"岡山県水産課","url":"https://www.pref.okayama.jp/page/detail-80870.html"},{"id":4,"title":"瀬戸内海の藻場・干潟","publisher":"環境省","url":"https://www.env.go.jp/water/heisa/heisa_net/setouchiNet/seto/g2/g2cat01/mobahigata/index.html"},{"id":5,"title":"大阪湾における小型エビ類の長期変化","publisher":"水産研究・教育機構","url":"https://fra-seika.fra.go.jp/~dbmngr/cgi-bin/search/search_detail.cgi?RESULT_ID=8362&YEAR=2019"},{"id":6,"title":"小エビ（庵治のエビこぎ漁と食文化）","publisher":"LOVEさぬきさん（香川県産品紹介）","url":"https://www.kensanpin.org/product/seafood/1141/"},{"id":7,"title":"香川の漁業（エビゴキ網）","publisher":"JF香川漁連","url":"https://www.kagawa-gyoren.or.jp/local_fishery"},{"id":8,"title":"小型機船底びき網漁業","publisher":"岡山県水産課","url":"https://www.pref.okayama.jp/page/detail-15552.html"}]
+migration: {"status":"generated-copy","publicUrl":"/book/setouchi-shrimp-middle-layer/"}
+---
+## 庵治の港から、エビのいる砂地へ
+
+高松市の庵治は、屋島の東側にある海辺の町だ。香川県の県産品紹介には、庵治の漁師が港から30分ほどの海で小エビを獲る様子が記されている。漁場は備讃瀬戸の砂地。サルエビ、トラエビ、アカエビなどが育つ。<sup class="book-footnotes"><a href="#source-6">[6]</a></sup>
+
+瀬戸内といえば、鯛やタコに目が向きやすい。けれども庵治の漁師が海底へ網を降ろすのは、ひと皿のかき揚げに入るような小さなエビを獲るためでもある。港からほんの少し離れるだけで、見えない海底にもう一つの漁場がある。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-6">[6]</a></sup>
+
+## 網は潮と同じ向きに、海底を進む
+
+香川県で「えびこぎ」と呼ばれる底びき網漁では、長い張り竿で網の口を広げ、海底に沿って曳く。香川県漁連の説明では、潮流と同じ向きに一時間から数時間曳いて、エビや底魚を袋網へ入れる。船が向かう方向まで、海の流れと無関係ではない。<sup class="book-footnotes"><a href="#source-7">[7]</a></sup>
+
+網を揚げても仕事は終わらない。県産品紹介では、エビ以外の魚などを手で選び分け、港に帰るまで選別が続くという。小エビの料理は、獲れた海の条件だけでなく、船の上の細かな手仕事にも支えられている。<sup class="book-footnotes"><a href="#source-6">[6]</a></sup>
+
+岡山側でも「えびこぎ網」は、小型底びき網の代表的な漁法だ。海底を曳く網にはエビのほか、カレイやアナゴ、タコなどが入ることがある。これは、それらがすべてエビを食べているという意味ではない。同じ海底近くに、さまざまな生きものと漁場が重なっているということだ。<sup class="book-footnotes"><a href="#source-8">[8]</a></sup>
+
+## 「小エビ」は、一種類のエビではない
+
+香川県がまとめて「小エビ」と呼ぶものには、サルエビ、アカエビ、トラエビなど、複数の種類が含まれる。岡山県の魚介の地方名を調べると、日生ではアカエビを「あか」、牛窓ではサルエビを「あび」と呼ぶ例もある。呼び名には、魚類図鑑とは違う暮らしの地図が残っている。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-3">[3]</a></sup>
+
+同じエビの仲間でも、育つ場所や一生の過ごし方まで同じではない。例えば高級種のクルマエビでは、沖で生まれた幼生が沿岸に移り、干潟を稚エビの成育場として利用する。だからといって、庵治で獲れる小エビすべてが干潟で育つと考えるのは早計だ。種類と場所を分けて見る必要がある。<sup class="book-footnotes"><a href="#source-2">[2]</a><a href="#source-4">[4]</a></sup>
+
+## 揚げて食べ、干して出汁にする
+
+香川では、小エビをかき揚げやエビせんべいに使うほか、干しエビにしてそうめんの出汁にも用いてきた。殻ごとの香ばしさを食べる料理もあれば、旨味を汁に移して食べる料理もある。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+
+小さなエビは、ときに名物の名前よりも、料理の材料として登場する。けれども一尾ずつをたどれば、庵治の港、潮に沿って進む網、砂地の海底、船上の選別作業がつながる。瀬戸内の食卓には、魚の姿が見えない料理にも、海の仕事が入り込んでいる。<sup class="book-footnotes"><a href="#source-6">[6]</a><a href="#source-7">[7]</a></sup>
+
+次に小エビのかき揚げを見かけたら、衣の向こうに備讃瀬戸の砂地を思い浮かべたい。海の中では小さくても、港と台所をつなぐ立派な主役なのだ。

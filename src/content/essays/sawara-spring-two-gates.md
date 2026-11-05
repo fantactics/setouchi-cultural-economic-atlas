@@ -1,0 +1,46 @@
+---
+slug: "sawara-spring-two-gates"
+part: "食は、土地を語る"
+title: "春、サワラが海を渡る"
+subtitle: "日生の祝いのすしから、二つの水道と産卵の海をたどる"
+cities: ["瀬戸内海","大阪湾","播磨灘","備讃瀬戸","燧灘","岡山"]
+keywords: ["サワラ","鰆","回遊","春","産卵","紀伊水道","豊後水道","播磨灘","備讃瀬戸","燧灘","水温","流し網","食文化"]
+heroPhotoId: "photo-sawara-specimen-reference"
+lead: "春の日生では、サワラの漁が始まると、豊漁を祝う「こうこずし」がつくられる。酢でしめたサワラに、古漬けのたくあんを刻んで混ぜる、港町の祝いの料理だ。けれど、なぜこの魚は春になると瀬戸内へ現れるのだろう。冬を外海側で過ごしたサワラは、海の東西の入口から戻り、暖かくなった灘や瀬で卵を産む。日生の一皿から、目に見えない魚の道をたどってみたい。"
+researchLinks: [{"label":"料理写真・レシピ｜日生の「さわらのこうこずし」","href":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_7_okayama.html"},{"label":"漁師の解説と写真｜日生町漁協の「こうこ寿司」","href":"https://www.hinase.net/?p=645"},{"label":"春の味｜岡山県観光サイトのサワラ写真","href":"https://www.okayama-kanko.jp/spot/detail_12014.html"}]
+provisionalConclusion: "日生の『さわらのこうこずし』は産卵期に来遊する魚を祝いの食卓へ迎えた文化。瀬戸内海の東西の水道からの回遊、春の中層水温、播磨灘・備讃瀬戸・燧灘の産卵場、稚魚の餌環境、流し網の漁の時期をつなげて記述する。『春が旬』は必ずしも最大脂肪量の季節を意味しない。2026年資源評価は食文化維持の留意事項として一段落に限定する。"
+openQuestions: ["備讃瀬戸・播磨灘・燧灘の産卵場と季節水温を一枚の図にできるか。","岡山の卵・白子を食べる文化と各海域の漁期の対応を史料で確かめられるか。","2026年度資源評価に示された親魚量の回復と、産卵場ごとの環境条件の変化をどこまで結びつけられるか。"]
+sources: [{"id":1,"title":"サワラの紹介","publisher":"岡山県","url":"https://www.pref.okayama.jp/page/detail-22449.html"},{"id":2,"title":"サワラ","publisher":"愛媛県 FISHERIES KINGDOM EHIME","url":"https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_sawara.html"},{"id":3,"title":"サワラ瀬戸内海系群資源回復計画","publisher":"水産庁","url":"https://www.jfa.maff.go.jp/j/suisin/s_kouiki/setouti/pdf/s23-7.pdf"},{"id":4,"title":"主要対象生物の発育段階の生態的知見の収集・整理","publisher":"水産庁","url":"https://www.jfa.maff.go.jp/j/gyoko_gyozyo/g_thema/attach/pdf/sub40-1.pdf"},{"id":5,"title":"サワラの漁法と季節","publisher":"愛媛県","url":"https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_sawara.html"},{"id":6,"title":"「サワラ」を増やす(1)","publisher":"大阪府立環境農林水産総合研究所","url":"https://www.knsk-osaka.jp/suisan/shien/sawara/sawara1.html"},{"id":7,"title":"令和8年度 サワラ瀬戸内海系群 資源評価（簡易版）","publisher":"水産研究・教育機構","url":"https://www.fra.go.jp/shigen/fisheries_resources/meeting/stock_assessment_meeting/2026/files/sa2026-sc04/k2026_59.pdf"},{"id":8,"title":"さわらのこうこずし 岡山県","publisher":"農林水産省「うちの郷土料理」","url":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_7_okayama.html"},{"id":9,"title":"郷土料理〜さわらのこうこ寿司〜","publisher":"日生町漁業協同組合","url":"https://www.hinase.net/?p=645"},{"id":10,"title":"大阪産（もん）魚介類の紹介：サワラ","publisher":"大阪府","url":"https://www.pref.osaka.lg.jp/o120130/suisan/fish/f01.html"},{"id":11,"title":"サワラの特徴・生活史","publisher":"Honda 釣り倶楽部","url":"https://www.honda.co.jp/fishing/picture-book/sawara/"},{"id":12,"title":"おかやまの農林水産物ハンドブック","publisher":"岡山県","url":"https://www.pref.okayama.jp/uploaded/life/552263_4396483_misc.pdf"}]
+migration: {"status":"generated-copy","publicUrl":"/book/sawara-spring-two-gates/"}
+---
+## 日生の春は、こうこずしから始まる
+
+岡山県備前市の日生では、サワラ漁が盛んになる春、祭りや船降ろしの席に「さわらのこうこずし」が並ぶ。豊漁と漁の安全を願って、明治時代の中ごろから作られるようになったと伝わる料理だ。塩と酢でしめたサワラをすし飯に合わせ、細く切った古漬けのたくあんを混ぜる。「こうこ」とは、たくあんのこと。<sup class="book-footnotes"><a href="#source-8">[8]</a><a href="#source-9">[9]</a></sup>
+
+岡山では春にサワラの刺身やたたきを食べ、真子を煮たり白子を汁にしたりする。ところが、身に脂がのる時期はむしろ冬ともいわれる。岡山の「春のサワラ」は、脂の多い時期というより、産卵のため魚が戻り、港と食卓がにぎわう季節なのだ。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-8">[8]</a><a href="#source-9">[9]</a></sup>
+
+## 東西二つの海の入口から、サワラがやって来る
+
+瀬戸内海の東に開く紀伊水道。冬を太平洋側で過ごしたサワラは、春になるとここから大阪湾へ入り、明石海峡や鳴門海峡を経て播磨灘などの産卵場へ向かう。大阪湾は、春に内海へ入る魚と、秋に外へ戻る魚が通る海でもある。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-3">[3]</a><a href="#source-10">[10]</a></sup>
+
+西からの道もある。豊後水道や伊予灘側で冬を過ごしたサワラは、春に瀬戸内海の西側から入り、燧灘などへ向かう。島々に囲まれた穏やかな海に見えても、その内側を魚は季節に合わせて移動している。海峡は船の道であるだけでなく、魚の道でもある。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-3">[3]</a><a href="#source-7">[7]</a></sup>
+
+## 春の水温が、海の中に産卵の季節をつくる
+
+春、瀬戸内海の水温が上がり始める。水産庁の資料では、中央部の中層水温が十四度前後になる四月下旬から五月上旬に、産卵する群れが東西から来遊するとされる。産卵場所として知られるのは播磨灘の鹿ノ瀬周辺、備讃瀬戸、燧灘など。島や瀬が続く海の中にも、魚の季節が異なる場所がある。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-4">[4]</a></sup>
+
+サワラの卵は岩や砂に貼りつくのではなく、水中に浮かぶ。ふ化した幼魚はイワシやアジなど小魚の子を盛んに食べ、急速に成長する。大きな親魚が通ってくるだけでなく、次の世代が育つ食べ物のある海であることも、春の瀬戸内の重要な条件だ。<sup class="book-footnotes"><a href="#source-10">[10]</a><a href="#source-11">[11]</a></sup>
+
+十四度という数字だけで、どの年も同じ日にサワラが来るわけではない。実際の来遊や産卵は海域ごとの水温、魚の年齢、年ごとの海況でも変わる。それでも海面を見ただけでは分からない水温の変化が、春の港のにぎわいにつながっている。<sup class="book-footnotes"><a href="#source-3">[3]</a><a href="#source-10">[10]</a></sup>
+
+## 魚の道を知る漁師が、網を流す
+
+サワラを獲る漁の一つが「さわら流し網」だ。大阪湾では夜、浮きをつけた長い網を海に流し、通りかかるサワラを絡め取る。大阪府の紹介では、その網は長さ約三キロにもなる。潮と魚の通る時期を読むことが、漁の仕事になる。<sup class="book-footnotes"><a href="#source-10">[10]</a></sup>
+
+サワラは身が傷みやすいため、獲ってからの鮮度管理も欠かせない。港に上がった魚は刺身やたたきとなり、日生ではこうこずしに使われる。海を渡る魚が、漁師の手を経て、祭りや船降ろしの食卓に届く。<sup class="book-footnotes"><a href="#source-8">[8]</a><a href="#source-9">[9]</a><a href="#source-12">[12]</a></sup>
+
+## 春の魚が、来年も戻ってくるために
+
+瀬戸内海のサワラは、かつて獲りすぎなどで大きく減った。1987年に約六千トンあった漁獲量は、1998年に約二百トンまで落ち込んだ。その後、休漁や網目の規制、稚魚の放流などが行われ、2025年の漁獲量は約二千三百トンになった。ただし、2026年の資源評価では親魚の量は目標水準案より少ない。<sup class="book-footnotes"><a href="#source-7">[7]</a><a href="#source-10">[10]</a></sup>
+
+日生の春のこうこずしには、冬を越して戻るサワラと、その魚を待つ人々の時間が重なっている。海に目を向ければ、東西の水道から入り、暖まった灘で卵を産み、小魚を食べて育つ、目に見えない道が続く。次の春もこの味を囲めるかどうかは、その道を魚が通り続けられるかにかかっている。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-7">[7]</a><a href="#source-8">[8]</a><a href="#source-10">[10]</a></sup>
