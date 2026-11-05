@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'faith-as-transport-map': {
+    query: '住吉神社 広島県呉市豊町御手洗',
+    name: '大崎下島・御手洗の住吉神社と千砂子波止',
+    zoom: 16,
+    description: '広島県呉市・大崎下島の御手洗港です。住吉神社と千砂子波止、高燈籠の位置関係を見てください。同名の地名と区別するため、呉市豊町御手洗を指定しています。'
+  },
   'kitan-strait-tai-to-shirasu': {
     query: '大阪湾南部',
     name: '友ヶ島から泉州・岸和田へ',
@@ -168,7 +174,9 @@ export function essayMapFor(article) {
   const override = essayMapOverrides[article?.slug] || {};
   const city = article?.cities?.find((name) => name && name !== '瀬戸内') || '瀬戸内海';
   const isWide = city === '瀬戸内海' || city === '瀬戸内' || /海$/.test(city);
-  const query = override.query || `${city} 日本`;
+  // Some Japanese place names repeat across prefectures: resolve ambiguous names explicitly.
+  const placeQueryByCity = { '御手洗': '広島県呉市豊町御手洗' };
+  const query = override.query || placeQueryByCity[city] || `${city} 日本`;
   const name = override.name || `${city}の位置`;
   const zoom = override.zoom || (isWide ? 9 : 12);
   return {
