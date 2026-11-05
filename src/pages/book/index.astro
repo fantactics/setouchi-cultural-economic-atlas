@@ -112,31 +112,11 @@ const editorialPhotoCredits=[...new Map(
     .map((photo)=>[photo.sourcePage,photo])
 ).values()];
 ---
-<BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港、海、食、産業、町並み。瀬戸内の風景の奥にある理由を、写真と文章でたどるエッセイ集。">
+<BaseLayout title="エッセイ | SETOUCHI ATLAS" description="港町を歩く。島の味に出会う。気になる風景から選んで読む、瀬戸内の旅エッセイ集。">
   <main class="essay-magazine">
-    <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / ESSAYS</div><h1>次の旅は、<br />どんな物語から？</h1></div><p>港町を歩く。島の味に出会う。海辺の工場を眺める。<br />瀬戸内の風景が、少し違って見えてくるエッセイを集めました。</p></section>
+    <section class="essay-magazine-intro"><div><div class="eyebrow">SETOUCHI ATLAS / STORIES</div><h1>エッセイ、どれから読む？</h1></div><p>港へ、島へ、食卓へ。<br />写真を見て、気になった一篇からどうぞ。</p></section>
 
-    <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>FIND YOUR STORY</span><h2 id="reader-discovery-title">見慣れた風景から、物語を探す。</h2><p>読む順番は自由。食卓、町並み、畑、工場、港。気になった風景から選んでください。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
-      <div class="reader-discovery-grid">
-        {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
-          <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
-          <strong>{entry.label}</strong><small>{entry.description}</small><em aria-hidden="true">↗</em>
-        </a>)}
-      </div>
-      <div class="reader-discovery-search" id="essay-search">
-        <h3>行きたい場所や、好きなものから探す。</h3>
-        <p>たとえば「尾道」「タコ」「みかん」「造船」。</p>
-        <SiteSearch essaysOnly={true} />
-      </div>
-    </section>
-
-    <nav class="reader-theme-shortcuts" aria-label="エッセイのカテゴリへ移動">
-      <span>カテゴリへジャンプ</span>
-      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}<a class="reader-directory-jump" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件</a><a class="reader-directory-jump" href="#essay-directory">タイトル一覧</a></div>
-    </nav>
-
-    <div class="reader-feature-heading"><span>EDITOR'S PICKS</span><h2>今日は、この一篇から。</h2><p>写真とタイトルに惹かれたら、気軽に開いてみてください。</p></div>
+    <div class="reader-feature-heading"><span>LET'S READ!</span><h2>気になる景色を、ひとつ。</h2><p>写真の向こうに、どんな物語があるだろう。</p></div>
 
     <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
       {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h2 class="js-essay-main-title">{featureStory.title}</h2><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
@@ -159,8 +139,28 @@ const editorialPhotoCredits=[...new Map(
     </script>
 
 
+    <section class="reader-discovery" aria-labelledby="reader-discovery-title">
+      <div class="reader-discovery-head"><div><span>PICK A THEME</span><h2 id="reader-discovery-title">どんな景色が好き？</h2><p>食べもの、町並み、畑、工場、港。ピンときたところから。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
+      <div class="reader-discovery-grid">
+        {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
+          <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
+          <strong>{entry.label}</strong><small>{entry.description}</small><em aria-hidden="true">↗</em>
+        </a>)}
+      </div>
+      <div class="reader-discovery-search" id="essay-search">
+        <h3>ことばから探す</h3>
+        <p>「尾道」「タコ」「みかん」「造船」など、思いついた言葉で。</p>
+        <SiteSearch essaysOnly={true} />
+      </div>
+    </section>
+
+    <nav class="reader-theme-shortcuts" aria-label="エッセイのカテゴリへ移動">
+      <span>カテゴリへジャンプ</span>
+      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}<a class="reader-directory-jump" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件</a><a class="reader-directory-jump" href="#essay-directory">タイトル一覧</a></div>
+    </nav>
+
     <section id="essay-all-themes">
-      <div class="essay-magazine-heading"><h2>風景から、エッセイをめくる。</h2><p>地域も話題も異なる3篇を、各カテゴリから選びました。ほかの作品はタイトルから探せます。</p></div>
+      <div class="essay-magazine-heading"><h2>写真から、旅をめくる。</h2><p>各テーマのおすすめ3篇。気になる写真を見つけたら、開いてみてください。</p></div>
       {categories.map((entry)=>(<section class="essay-theme reader-essay-theme" id={entranceId(entry)}>
         <div class="essay-theme-head">
           <h3>{entry.label} <small>{essaysIn(entry).length}篇</small></h3>
@@ -199,8 +199,8 @@ const editorialPhotoCredits=[...new Map(
     <section class="reader-title-directory" id="essay-directory" aria-labelledby="essay-directory-title">
       <div class="reader-title-directory-heading">
         <span>ALL STORIES / DIRECTORY</span>
-        <h2 id="essay-directory-title">タイトルから探す。</h2>
-        <p>全{allBookArticles.length}篇を重複なしで掲載。各作品は、その風景に最も近いカテゴリに一度だけ登場します。</p>
+        <h2 id="essay-directory-title">タイトルで、ざっと見る。</h2>
+        <p>全{allBookArticles.length}篇。写真を見ずに探したいときはこちら。</p>
       </div>
       {categories.map((entry)=>(<div class="reader-title-directory-group">
         <h3>{entry.label} <small>{primaryEssaysIn(entry).length}篇</small></h3>
