@@ -60,7 +60,7 @@ const curatedSingleEmphasis = {
   'mihara-castle-to-multimodal-city': '海城',
   'matsuyama-three-centers-one-city': '砂嘴',
   'hiketa-castle-port-town': '岬',
-  'ako-after-salt-fields': '入浜式塩田',
+  'ako-after-salt-fields': '住友セメント',
   'takamatsu-sea-castle-to-gateway': '三角州',
   'tai-meshi-two-seas': '黒潮',
   'shimotsui-tako-meshi': 'タコ',
