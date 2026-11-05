@@ -37,6 +37,12 @@ const essayMapOverrides = {
     zoom: 8,
     description: '大阪湾南部の岬町と和歌浦、瀬戸内海を西へ進んだ燧灘の伊吹島。海岸と小島の位置を比べながら、しらすといりこの二つの旅をたどれます。'
   },
+  'oyster-shells-after-the-meal': {
+    query: 'マザーハウス シミントひろしま 広島市中区',
+    name: '牡蠣の殻と折り鶴が出会った場所',
+    zoom: 13,
+    description: 'ひろしまゲートパークの店舗と平和記念公園、そして広島湾へ続く太田川の位置を見比べてください。広島の海と人々の願いが交わる場所です。'
+  },
   'shimonoseki-resource-made-by-market': {
     query: '唐戸市場 山口県下関市',
     name: '関門海峡から彦島の南風泊へ',
