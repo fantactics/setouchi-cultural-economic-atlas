@@ -25,6 +25,12 @@ const essayMapOverrides = {
     zoom: 9,
     description: '鞆の浦・尾道・三之瀬に近い北側の海と、弓削瀬戸・鼻栗瀬戸・御手洗へ続く島々の間を見比べてください。現在の航空写真であり、歴史的な航路を線で復元した地図ではありません。'
   },
+  'tomo-two-act-tidal-port': {
+    query: '鞆の浦 常夜燈 広島県福山市鞆町',
+    name: '鞆港の石段と島影',
+    zoom: 14,
+    description: '常夜燈と雁木を起点に、港の前の仙酔島や半島の地形を確かめてください。潮が船を待たせた舞台が見えてきます。'
+  },
   'shimonoseki-resource-made-by-market': {
     query: '唐戸市場 山口県下関市',
     name: '関門海峡から彦島の南風泊へ',
