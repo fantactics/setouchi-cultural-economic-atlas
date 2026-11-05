@@ -57,8 +57,8 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
 <BaseLayout title="SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー" description="ランドスケープ ＝ ネイチャー ｘ カルチャー。港町の路地、島の食卓、海辺の工場。瀬戸内を旅するエッセイ集。">
   <div class="reader-home">
     <h1 class="reader-home-screenreader">SETOUCHI ATLAS のエッセイ</h1>
-    <section class="reader-home-featured" aria-label="今日の三篇">
-      <p class="reader-home-feature-label">今日の三篇</p>
+    <section class="reader-home-featured" aria-label="今日の3篇">
+      <p class="reader-home-feature-label">今日の3篇</p>
       <div class="reader-home-feature-grid">
         {featuredArticles.map((article,index)=>{
           const photo=essayPhoto(article);
@@ -71,7 +71,7 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
     </section>
 
     <section class="reader-home-section" aria-labelledby="home-picks">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">PICK UP</p><h2 id="home-picks">こんな旅の話から。</h2><p>気になる風景から、気軽に一篇。</p></div><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a></div>
+      <div class="reader-section-heading"><div><p class="reader-eyebrow">MORE STORIES</p><h2 id="home-picks">ほかにも、こんな旅。</h2><p>気になる写真から、寄り道してみよう。</p></div><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a></div>
       <div class="reader-essay-grid">
         {recommended.slice(3).map((article)=>{
           const photo=essayPhoto(article);
@@ -84,7 +84,7 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
     </section>
 
     <section class="reader-home-search" aria-labelledby="reader-home-search-title">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">気になる言葉で、探す。</h2><p>町の名前、食べもの、港、島などからエッセイを検索できます。</p></div></div>
+      <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">ことばで、ひとっとび。</h2><p>町、食べもの、港、島。思いついた言葉で探してみよう。</p></div></div>
       <SiteSearch essaysOnly={true} />
     </section>
     <script id="home-random-picks" type="application/json" set:html={JSON.stringify(randomPickPool).replace(/</g,'\\u003c')}></script>
