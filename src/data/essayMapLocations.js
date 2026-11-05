@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'shimonoseki-resource-made-by-market': {
+    query: '唐戸市場 山口県下関市',
+    name: '関門海峡から彦島の南風泊へ',
+    zoom: 12,
+    description: '唐戸市場の前の関門海峡と、彦島西側の南風泊市場の位置関係を確認してください。ふぐ市場が移った理由を海岸線から眺められます。'
+  },
   'kojima-from-cotton-to-jeans': {
     query: '児島ジーンズストリート 岡山県倉敷市児島味野',
     name: '綿の土地からジーンズの町へ',
