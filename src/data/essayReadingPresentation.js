@@ -20,6 +20,10 @@ const curatedEmphasis = {
     3: '袋競り',
     4: '活かし込み'
   },
+  'kada-sea-bream-one-line': {
+    1: '右手人差し指',
+    4: '活け込み'
+  },
   'gangi-tide-port-functions': {
     2: '折れ目',
     3: '一般の人',
