@@ -146,3 +146,106 @@
 @media(prefers-reduced-motion:reduce){
   .essay-magazine .reader-discovery-tile,.essay-magazine .reader-category-featured .essay-theme-card{transition:none}
 }
+
+
+/* Light, playful editorial treatment — scoped to the essay index only. */
+.essay-magazine{
+  --story-coral:#d96c49;
+  --story-teal:#286a60;
+  --story-cream:#fff8ec;
+}
+.essay-magazine .essay-magazine-intro{
+  padding:26px 0 15px;
+  gap:20px;
+}
+.essay-magazine .essay-magazine-intro .eyebrow{
+  display:flex;align-items:center;gap:9px;
+  color:var(--story-coral);font-weight:800;letter-spacing:.13em;
+}
+.essay-magazine .essay-magazine-intro .eyebrow span{
+  color:#ecac4b;font-size:1.05rem;
+}
+.essay-magazine .essay-magazine-intro h1{
+  font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-size:clamp(1.8rem,3vw,2.55rem);
+  font-weight:800;letter-spacing:-.045em;
+}
+.essay-magazine .essay-magazine-intro p{font-size:.92rem;line-height:1.75}
+.essay-magazine .reader-feature-heading{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;margin:19px 0 13px;
+}
+.essay-magazine .reader-feature-heading h2{
+  font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-size:clamp(1.2rem,1.8vw,1.55rem);font-weight:750;
+  margin:0;color:#2a534c;
+}
+.essay-magazine .reader-feature-heading>span{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 12px;border-radius:99px;
+  background:#ffe9dc;color:#b35438;font-size:.7rem;letter-spacing:.09em;
+}
+.essay-magazine .reader-feature-heading>span span{font-size:.95rem}
+.essay-magazine .essay-cover-main,.essay-magazine .essay-cover-side-card{
+  border-radius:19px;
+  box-shadow:0 5px 16px rgba(36,62,52,.08);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.essay-magazine .essay-cover-main:hover,.essay-magazine .essay-cover-side-card:hover{
+  transform:translateY(-4px);box-shadow:0 12px 27px rgba(36,62,52,.16);
+}
+.essay-magazine .essay-cover-copy small,.essay-magazine .essay-card-copy small{
+  background:#fbe7d0;color:#713d2c;font-weight:800;
+  border-radius:99px;padding:5px 11px;
+}
+.essay-magazine .reader-discovery{
+  border-radius:24px;
+  background:linear-gradient(125deg,#fff8ed 0%,#fffdf7 57%,#f0f8f2 100%);
+  border:1px solid #efdfce;
+}
+.essay-magazine .reader-discovery-head h2,
+.essay-magazine .essay-magazine-heading h2{
+  font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-weight:800;letter-spacing:-.04em;
+}
+.essay-magazine .reader-discovery-tile{
+  border-radius:17px;
+  box-shadow:0 3px 9px rgba(36,62,52,.045);
+}
+.essay-magazine .reader-discovery-tile strong{font-weight:800}
+.essay-magazine .reader-discovery-head-links a,
+.essay-magazine .reader-theme-shortcuts a{
+  border-radius:99px;
+}
+.essay-magazine .essay-theme-head h3{
+  border-left:0;padding-left:0;
+}
+.essay-magazine .essay-theme-head h3::before{
+  content:"✳";display:inline-block;margin-right:10px;
+  font-family:system-ui,sans-serif;color:#dc875b;
+}
+.essay-magazine .essay-theme:nth-child(4n+2) .essay-theme-head h3::before{color:#79a18b}
+.essay-magazine .essay-theme:nth-child(4n+3) .essay-theme-head h3::before{color:#dda84f}
+.essay-magazine .essay-theme:nth-child(4n) .essay-theme-head h3::before{color:#92a9d4}
+.essay-magazine .reader-category-featured .essay-theme-card{
+  background:#fffdf9;border-color:#e4e9e1;border-radius:18px;
+}
+.essay-magazine .reader-category-featured .essay-theme-card-body h4{
+  font-size:clamp(1.06rem,1.35vw,1.27rem);
+}
+.essay-magazine .reader-title-directory-heading h2{
+  font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-weight:800;
+}
+@media(max-width:850px){
+  .essay-magazine .reader-feature-heading{justify-content:flex-start;flex-wrap:wrap}
+}
+@media(max-width:600px){
+  .essay-magazine .essay-magazine-intro{padding-top:21px}
+  .essay-magazine .essay-magazine-intro h1{font-size:1.85rem}
+  .essay-magazine .reader-feature-heading{margin:15px 0 12px}
+  .essay-magazine .reader-discovery{border-radius:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .essay-magazine .essay-cover-main,.essay-magazine .essay-cover-side-card{transition:none}
+}
