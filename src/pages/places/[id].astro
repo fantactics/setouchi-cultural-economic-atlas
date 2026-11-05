@@ -444,6 +444,13 @@ const regionMapPoints=[
     <div class="place-story-prose">
       {storyParagraphs.map((paragraph)=><p>{paragraph}</p>)}
     </div>
+    {place.id==='mitarai' && (
+      <aside class="region-story-pick" aria-label="御手洗の住吉神社についてのエッセイ">
+        <span>御手洗を、もう一篇 ✳</span>
+        <p>港を整えたのは、島の人だけではありません。住吉神社に残る、大阪の豪商と茶屋の女性たちの物語へ。</p>
+        <a href="/setouchi-cultural-economic-atlas/book/faith-as-transport-map/">大阪の豪商と茶屋の女性が、島の神社を建てた →</a>
+      </aside>
+    )}
     <div class="place-story-chains">
       {storyChains.map((chain) => (
         <div class="place-story-chain">
