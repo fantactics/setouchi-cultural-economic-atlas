@@ -2,11 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayRelatedLinks from '../../components/EssayRelatedLinks.astro';
 import { essaySearchMeta } from '../../data/essaySeo.js';
-import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
-import { setouchiShipMaterialsEssay as article } from '../../data/setouchiShipMaterialsEssay.js';
-const hero=article.heroPhoto;
-const seo=essaySearchMeta(article);
+import { Content, frontmatter } from '../../content/essays/setouchi-ship-materials.md';
+
+const article = frontmatter;
+const hero = article.heroPhoto;
+const seo = essaySearchMeta(article);
 ---
 <BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
   <article class="book-article">
@@ -33,7 +34,9 @@ const seo=essaySearchMeta(article);
         <p>伊予市指定文化財の「和船（地引き網船）」は、双海シーサイド公園に保存されています。<a href="https://www.city.iyo.lg.jp/shisetsu/shisetsu/bunka/bunka-085.html" target="_blank" rel="noopener noreferrer">伊予市公式ページで船の写真を見る</a>。冒頭の帆船画は時代の情景を示すもので、現存する漁船そのものではありません。</p>
       </aside>
 
-      <EssayProseSections article={article} />
+      <div class="markdown-essay-body">
+        <Content />
+      </div>
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
@@ -64,4 +67,6 @@ const seo=essaySearchMeta(article);
   .ship-real-photo-note strong{display:block;margin-bottom:.5rem;}
   .ship-real-photo-note p{margin:0;line-height:1.9;}
   .ship-real-photo-note a{text-decoration:underline;text-underline-offset:3px;}
+  .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
+  .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
 </style>
