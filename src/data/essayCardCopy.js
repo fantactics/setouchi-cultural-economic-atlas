@@ -93,7 +93,7 @@ export const essayCardCopy = {
     "teaser": "魚をさばいたあとに残るものが、みかん畑の土を支える。"
   },
   "olive-pomace-to-cattle": {
-    "teaser": "オリーブの実を搾ったあと、残りものは牛の牧場へ向かう。"
+    "teaser": "小豆島の陽ざしと水はけのよい土が育てた実は、牛肉の名産まで生んだ。"
   },
   "soy-sauce-lees-to-chomeiso": {
     "teaser": "小豆島の醤油蔵から長命草の畑へ。島の新しい挑戦。"
