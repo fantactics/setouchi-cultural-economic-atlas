@@ -44,6 +44,7 @@ import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.
 import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../data/essayIndexPhotos.js';
 import { getNaturalConditionTags } from '../../data/naturalEnvironmentTags.js';
 import { essaySearchMeta } from '../../data/essaySeo.js';
+import { publishedEssays } from '../../data/publishedEssayList.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -75,11 +76,7 @@ const isNarrativeEssay=isTravelogue || article.narrativeMode==='sketch';
 const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
-const publishedReadingPool=[
-  ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
-  tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay
-].filter(Boolean);
-const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedReadingPool,3)
+const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedEssays,3)
   .map((item)=>{
     // Match editorial cover choices used on the essay-index page.
     const card=photoById[cardPhotoId(item)];
