@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
+import EssayProseSections from '../../components/EssayProseSections.astro';
+import { selectEssayInlinePhotos } from '../../data/essayReadingPresentation.js';
 import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { orderedBookArticles, bookArticleBySlug } from '../../data/bookArticles.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
@@ -89,6 +91,8 @@ const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publish
   });
 
 const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
+const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
+const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
 const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
 const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({title:item.title,href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,current:item.slug===article.slug}));
@@ -120,17 +124,17 @@ const sectionPhotos=article.sections.flatMap((section)=>section.photoIds||[])
 const distinctPhotoKeys=new Set();
 const appendixPhotos=sectionPhotos.filter((photo)=>{
   const key=photo.imageUrl||photo.sourcePage||photo.id;
-  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
+  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl||inlinePhotoUrls.has(photo.imageUrl)) return false;
   distinctPhotoKeys.add(key);return true;
 });
 const supplementaryPhotos=essayPhotos.filter((photo)=>{
   const key=photo.imageUrl||photo.sourcePage||photo.id;
-  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
+  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl||inlinePhotoUrls.has(photo.imageUrl)) return false;
   distinctPhotoKeys.add(key);return true;
 });
 const foodPhotos=gastronomyPhotos.filter((photo)=>{
   const key=photo.imageUrl||photo.sourcePage||photo.id;
-  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl) return false;
+  if(!key||distinctPhotoKeys.has(key)||photo.imageUrl===hero?.imageUrl||inlinePhotoUrls.has(photo.imageUrl)) return false;
   distinctPhotoKeys.add(key);return true;
 });
 ---
@@ -301,11 +305,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
           <p class="reader-landscape-map-source">地図：Google マップ（現在の航空写真）。<a href="https://www.google.com/maps/search/?api=1&query=%E5%88%A5%E5%AD%90%E9%8A%85%E5%B1%B1%20%E6%9D%B1%E5%B9%B3" target="_blank" rel="noopener noreferrer">東平の貯鉱庫跡</a>／<a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%B1%85%E6%B5%9C%E6%B8%AF%E6%9C%AC%E6%B8%AF" target="_blank" rel="noopener noreferrer">新居浜港本港</a></p>
         </section>
       )}
-      {sections.map((section)=><section class="book-prose-section">
-        {!isNarrativeEssay && <div class="book-section-no">{section.number}</div>}
-        <h2>{section.heading}</h2>
-        {section.paragraphs.map((p)=><p>{p.text}{p.refs && p.refs.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}</p>)}
-      </section>)}
+      <EssayProseSections article={article} showNumbers={!isNarrativeEssay} inlinePhotos={inlinePhotos} />
 
       {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
       <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
