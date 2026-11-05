@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'kitan-strait-tai-to-shirasu': {
+    query: '大阪湾南部',
+    name: '友ヶ島から泉州・岸和田へ',
+    zoom: 9,
+    description: '加太・友ヶ島の海峡、岬町・阪南の漁港、岸和田地蔵浜の共同荷捌き場。大阪湾の南から北へ地図を動かし、しらすが運ばれる海と港を見比べてください。'
+  },
   'kada-sea-bream-one-line': {
     query: '加太漁港 和歌山県和歌山市',
     name: '加太の漁港と友ヶ島の海峡',
