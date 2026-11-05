@@ -162,7 +162,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       </div>
     </header>
 
-    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>Photo: {hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>}
+    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>}
     {article.slug==='tai-meshi-two-seas' && (
       <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
         <div class="tai-meshi-pair-heading">
