@@ -18,6 +18,7 @@ import { aiRegionalPlanningEssay } from '../../../data/aiRegionalPlanningEssay.j
 import { enhanceBookArticle } from '../../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../../data/essayEditorialOverrides.js';
 import { naturalConditionTagIndex } from '../../../data/naturalEnvironmentTags.js';
+import { photoEvidence } from '../../../data/photoEvidence.js';
 
 const originalEssays=[
   ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,
@@ -29,64 +30,137 @@ const originalEssays=[
 const essays=originalEssays.map((a)=>applyEssayEditorialOverride(enhanceBookArticle(a)));
 const natureGroups=naturalConditionTagIndex(essays);
 const tagCount=natureGroups.length;
+const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
+const featureDefs=[
+  {tag:'少雨',photoId:'photo-mannou-reservoir',question:'雨が少ないのに、池はいっぱい。',eyebrow:'RAIN & WATER'},
+  {tag:'潮汐',photoId:'photo-tomonoura-gangi',question:'潮の高さで、港の景色が変わる。',eyebrow:'TIDES & PORTS'},
+  {tag:'斜面',photoId:'photo-karihama-citrus-terraces',question:'海へ落ちる坂が、畑になった。',eyebrow:'HILLS & FIELDS'}
+];
+const natureFeatures=featureDefs.map((item)=>{
+  const group=natureGroups.find((entry)=>entry.tag===item.tag);
+  const photo=photoById[item.photoId];
+  return group && photo ? {...item,photo,count:group.essays.length} : null;
+}).filter(Boolean);
 ---
-<BaseLayout title="自然条件から読む | SETOUCHI ATLAS" description="少雨、潮汐、干潟、急流。風景を生んだ見えない自然条件から、瀬戸内のエッセイをたどる。">
+<BaseLayout title="自然条件から探す | SETOUCHI ATLAS" description="雨が少ないのに池が多い？ 潮が満ちると港が変わる？ 風景に隠れた自然のヒントから、瀬戸内の物語へ。">
   <main class="nature-index">
     <nav class="nature-back"><a href="/setouchi-cultural-economic-atlas/book/">← エッセイ一覧へ</a></nav>
     <header class="nature-intro">
-      <p class="nature-kicker">SETOUCHI ATLAS / NATURAL CONDITIONS</p>
-      <h1>風景の理由から、<br />物語を探す。</h1>
-      <p>同じ「少雨」でも、ある土地ではため池が生まれ、別の土地では塩づくりや果樹栽培へとつながりました。潮汐、干潟、急流、岩礁。目には見えにくい自然の条件を手がかりに、別々の風景をつないでみてください。</p>
-      <small>自然環境の条件だけをタグにしています。産業・料理・地名は含みません。本文から自動抽出した候補に、編集上の確認・補正を加えています。</small>
+      <p class="nature-kicker">NATURE × STORIES <span aria-hidden="true">✳</span></p>
+      <h1>風景の「なんで？」を探そう。</h1>
+      <p>雨が少ないのに、池がいっぱい。潮が満ちれば、港の景色が変わる。海へ落ちる斜面には、段々畑。<br />いつもの風景の裏にある、自然のヒントを探してみよう。</p>
     </header>
+    <section class="nature-featured" aria-labelledby="nature-featured-title">
+      <div class="nature-section-title"><span>START HERE <span aria-hidden="true">✦</span></span><h2 id="nature-featured-title">まずは、この3つ。</h2></div>
+      <div class="nature-feature-grid">
+        {natureFeatures.map(({tag,question,eyebrow,photo,count})=>
+          <a class="nature-feature-card" href={`#nature-${encodeURIComponent(tag)}`}>
+            <div class="nature-feature-image"><img src={photo.imageUrl} alt={photo.alt || photo.title} loading="eager" /></div>
+            <div class="nature-feature-copy"><small>{eyebrow}</small><h3>{question}</h3><span><b>{tag}</b> の物語 {count}篇 <span aria-hidden="true">↗</span></span></div>
+          </a>
+        )}
+      </div>
+    </section>
     <section class="nature-overview" aria-labelledby="nature-overview-title">
-      <h2 id="nature-overview-title">自然条件を選ぶ <small>{tagCount}種類</small></h2>
+      <div class="nature-section-title"><span>PICK A CLUE <span aria-hidden="true">✳</span></span><h2 id="nature-overview-title">気になる自然は、どれ？ <small>{tagCount}のヒント</small></h2></div>
+      <p>好きな言葉をタップ。まったく違う町の物語が、ひとつにつながるかも。</p>
       <div class="nature-chip-list">
         {natureGroups.map(({tag,essays})=><a href={`#nature-${encodeURIComponent(tag)}`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
       </div>
     </section>
-    <div class="nature-results">
+    <div class="nature-results" aria-label="自然条件ごとのエッセイ">
       {natureGroups.map(({tag,essays})=>
         <section class="nature-group" id={`nature-${tag}`} aria-label={tag}>
-          <header><h2>{tag}</h2><span>{essays.length}篇の物語</span><a href="#nature-overview-title" aria-label="タグ一覧に戻る">↑</a></header>
+          <header><h2>{tag}</h2><span>{essays.length}篇の物語</span><a href="#nature-overview-title" aria-label={`${tag}から自然条件一覧に戻る`}>↑</a></header>
           <ul>
-            {essays.map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
+            {essays.slice(0,4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
           </ul>
+          {essays.length>4 && <details class="nature-more">
+            <summary>ほかの物語も見る <span>{essays.length-4}篇</span></summary>
+            <ul>{essays.slice(4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}</ul>
+          </details>}
         </section>
       )}
     </div>
-    <p class="nature-end"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る</a></p>
+    <details class="nature-notes">
+      <summary>自然条件タグと写真について <span aria-hidden="true">＋</span></summary>
+      <p>自然環境の条件だけをタグにしています。産業・料理・地名は含みません。記事の本文をもとに抽出した候補に、編集上の確認と補正を加えています。</p>
+      <p>写真の出典・撮影者・ライセンス：</p>
+      <ul>{natureFeatures.map(({photo})=><li><a href={photo.sourcePage} target="_blank" rel="noreferrer">{photo.title}</a> / {photo.author||'出典先参照'} / {photo.license||'利用条件は出典参照'}{photo.licenseUrl&&<>（<a href={photo.licenseUrl} target="_blank" rel="noreferrer">利用条件</a>）</>}</li>)}</ul>
+    </details>
+    <p class="nature-end"><a href="/setouchi-cultural-economic-atlas/book/">ほかのエッセイも、のぞいてみる ↗</a></p>
   </main>
 </BaseLayout>
 
 <style>
-  .nature-index{max-width:1140px;margin:0 auto;padding:2rem 1.4rem 5rem;}
-  .nature-back{font-size:.86rem;margin-bottom:2.5rem;}
-  .nature-back a,.nature-end a{text-decoration:underline;text-underline-offset:3px;}
-  .nature-intro{max-width:800px;margin-bottom:3.4rem;}
-  .nature-kicker{font-size:.75rem;letter-spacing:.16em;opacity:.7;font-weight:600;}
-  .nature-intro h1{font-size:clamp(2rem,5.5vw,3.5rem);line-height:1.36;letter-spacing:.015em;margin:1rem 0;}
-  .nature-intro>p:not(.nature-kicker){font-size:1.07rem;line-height:2;max-width:720px;}
-  .nature-intro small{display:block;opacity:.72;font-size:.8rem;line-height:1.8;margin-top:1rem;}
-  .nature-overview{border-top:1px solid color-mix(in srgb,currentColor 18%,transparent);padding-top:1.5rem;margin-bottom:4rem;}
-  .nature-overview h2{font-size:1.32rem;margin:0 0 1.25rem;}
-  .nature-overview h2 small{font-weight:400;opacity:.65;margin-left:.3rem;font-size:.85rem;}
-  .nature-chip-list{display:flex;flex-wrap:wrap;gap:.65rem;}
-  .nature-chip-list a{border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-radius:999px;display:inline-flex;align-items:center;gap:.65rem;padding:.45rem .85rem;text-decoration:none;line-height:1.55;}
-  .nature-chip-list a:hover,.nature-chip-list a:focus-visible{border-color:currentColor;text-decoration:underline;}
-  .nature-chip-list small{font-size:.76rem;opacity:.65;}
-  .nature-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3.3rem 2.5rem;}
-  .nature-group{scroll-margin-top:5rem;min-width:0;}
-  .nature-group header{display:flex;gap:.75rem;align-items:baseline;border-bottom:1px solid color-mix(in srgb,currentColor 17%,transparent);padding-bottom:.7rem;}
-  .nature-group header h2{font-size:1.4rem;margin:0;}
-  .nature-group header span{font-size:.8rem;opacity:.67;}
-  .nature-group header a{margin-left:auto;text-decoration:none;font-size:.9rem;}
-  .nature-group ul{list-style:none;margin:0;padding:0;}
-  .nature-group li{padding:.8rem 0;border-bottom:1px solid color-mix(in srgb,currentColor 9%,transparent);}
-  .nature-group li a{display:flex;flex-direction:column;gap:.25rem;text-decoration:none;line-height:1.6;}
-  .nature-group li a:hover strong{text-decoration:underline;text-underline-offset:3px;}
-  .nature-group li strong{font-weight:600;font-size:.96rem;}
-  .nature-group li small{font-size:.79rem;opacity:.66;}
-  .nature-end{margin-top:4rem;text-align:center;}
-  @media(max-width:700px){.nature-results{grid-template-columns:1fr;gap:2.5rem;}.nature-index{padding:1.3rem 1.1rem 4rem;}.nature-intro{margin-bottom:2rem;}}
+  .nature-index{max-width:1210px;margin:0 auto;padding:21px 24px 70px;color:#2a4640}
+  .nature-back{margin:0 0 26px;font-size:.83rem}
+  .nature-back a{color:#55776b;text-decoration:none}
+  .nature-back a:hover{text-decoration:underline;text-underline-offset:4px}
+  .nature-intro{max-width:1000px;margin:0 0 32px}
+  .nature-kicker{display:inline-flex;align-items:center;gap:8px;margin:0;color:#c6694b;font-size:.74rem;letter-spacing:.12em;font-weight:800}
+  .nature-kicker span{font-size:1.15rem;color:#e0ac4d}
+  .nature-intro h1{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-weight:800;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.04em;line-height:1.35;margin:10px 0}
+  .nature-intro>p:not(.nature-kicker){font-size:.96rem;line-height:1.85;color:#667970;margin:0}
+  .nature-section-title{display:flex;align-items:center;flex-wrap:wrap;gap:12px 15px;margin-bottom:17px}
+  .nature-section-title>span{display:inline-flex;gap:7px;align-items:center;color:#ad5638;background:#ffeadc;border-radius:99px;font-size:.68rem;letter-spacing:.1em;font-weight:800;padding:7px 12px}
+  .nature-section-title>span span{font-size:.95rem}
+  .nature-section-title h2{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:clamp(1.19rem,2vw,1.58rem);font-weight:800;letter-spacing:-.03em;margin:0}
+  .nature-section-title h2 small{font-size:.75rem;font-weight:600;color:#87958c;white-space:nowrap}
+  .nature-featured{margin:0 0 43px}
+  .nature-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .nature-feature-card{min-width:0;display:flex;flex-direction:column;background:#fffdf8;border:1px solid #e6e9dd;border-radius:19px;overflow:hidden;color:inherit;text-decoration:none;box-shadow:0 4px 15px rgba(30,67,54,.055);transition:transform .2s ease,box-shadow .2s ease}
+  .nature-feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(30,67,54,.12)}
+  .nature-feature-image{overflow:hidden;aspect-ratio:16/10;background:#dfe9e2}
+  .nature-feature-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+  .nature-feature-card:hover img{transform:scale(1.035)}
+  .nature-feature-copy{padding:16px 19px 19px;display:flex;flex:1;flex-direction:column;gap:8px}
+  .nature-feature-copy>small{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:#c0784f}
+  .nature-feature-copy h3{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:clamp(1.08rem,1.55vw,1.4rem);line-height:1.47;margin:0;font-weight:800}
+  .nature-feature-copy>span{margin-top:auto;font-size:.78rem;font-weight:650;color:#427b69}
+  .nature-feature-copy>span b{font-weight:800}
+  .nature-overview{padding:29px clamp(18px,3vw,32px) 33px;background:linear-gradient(125deg,#fff7eb,#fffcf5 60%,#eff7ef);border:1px solid #f0e5d7;border-radius:24px;margin:0 0 34px}
+  .nature-overview .nature-section-title{margin-bottom:7px}
+  .nature-overview>p{margin:0 0 19px;color:#77837b;font-size:.86rem;line-height:1.75}
+  .nature-chip-list{display:flex;flex-wrap:wrap;gap:10px}
+  .nature-chip-list a{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:99px;background:#e3f1e8;border:1px solid #cae3d6;text-decoration:none;font-size:.85rem;font-weight:750;color:#28584d;transition:transform .18s ease,background .18s ease}
+  .nature-chip-list a:nth-child(4n+2){background:#ffeadd;border-color:#f8d9c9;color:#874b35}
+  .nature-chip-list a:nth-child(4n+3){background:#fff3d5;border-color:#f2e4b7;color:#806028}
+  .nature-chip-list a:nth-child(4n){background:#e8edfc;border-color:#d9e0f3;color:#495e88}
+  .nature-chip-list a:hover{transform:translateY(-2px);background:#fff}
+  .nature-chip-list small{font-size:.7rem;opacity:.7;font-weight:600}
+  .nature-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .nature-group{min-width:0;padding:19px 21px 17px;background:#fff;border:1px solid #e4e9e2;border-radius:17px;scroll-margin-top:100px;box-shadow:0 3px 12px rgba(43,75,60,.04)}
+  .nature-group:nth-child(4n+1){border-top:4px solid #77aa91}
+  .nature-group:nth-child(4n+2){border-top:4px solid #e7a07d}
+  .nature-group:nth-child(4n+3){border-top:4px solid #dec071}
+  .nature-group:nth-child(4n){border-top:4px solid #9baed7}
+  .nature-group>header{display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:1px solid #e8eee8}
+  .nature-group>header h2{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;margin:0;font-size:1.19rem;font-weight:800;letter-spacing:-.02em}
+  .nature-group>header span{font-size:.75rem;color:#82928a}
+  .nature-group>header a{margin-left:auto;text-decoration:none;color:#558779;font-size:.9rem}
+  .nature-group ul{list-style:none;margin:0;padding:0}
+  .nature-group li{border-bottom:1px solid #eff1ed;padding:11px 0}
+  .nature-group li:last-child{border-bottom:0}
+  .nature-group li a{display:flex;flex-direction:column;gap:3px;line-height:1.58;text-decoration:none;color:#294841}
+  .nature-group li a:hover strong{color:#be6b47}
+  .nature-group li strong{font-size:.93rem;font-weight:700}
+  .nature-group li small{color:#88968e;font-size:.76rem}
+  .nature-more{margin-top:10px}
+  .nature-more summary{color:#417b69;font-weight:750;font-size:.82rem;cursor:pointer;border-radius:10px;background:#eef7f1;padding:10px 12px}
+  .nature-more summary span{font-weight:500;margin-left:5px}
+  .nature-more ul{margin-top:4px}
+  .nature-notes{max-width:920px;margin:37px auto 0;color:#67796f;font-size:.83rem;line-height:1.78}
+  .nature-notes summary{cursor:pointer;font-weight:700;color:#537666;list-style:revert}
+  .nature-notes p{margin:12px 0 0}
+  .nature-notes ul{margin:7px 0 0;padding-left:18px}
+  .nature-notes a{color:#456f64}
+  .nature-end{text-align:center;margin:35px 0 0}
+  .nature-end a{display:inline-flex;padding:12px 22px;border-radius:99px;color:#fff;background:#2c7668;font-size:.87rem;font-weight:750;text-decoration:none}
+  .nature-end a:hover{background:#235e54}
+  .nature-index a:focus-visible,.nature-index summary:focus-visible{outline:3px solid #e4a36e;outline-offset:3px}
+  @media(max-width:850px){.nature-feature-grid{gap:13px}.nature-results{gap:14px}}
+  @media(max-width:700px){.nature-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nature-results{grid-template-columns:1fr}}
+  @media(max-width:530px){.nature-index{padding:17px 15px 54px}.nature-feature-grid{grid-template-columns:1fr;gap:14px}.nature-feature-image{aspect-ratio:16/9}.nature-intro>p:not(.nature-kicker) br{display:none}.nature-overview{padding:22px 16px;border-radius:18px}.nature-featured{margin-bottom:34px}.nature-section-title{gap:8px}.nature-chip-list{gap:7px}.nature-chip-list a{padding:8px 12px}}
+  @media(prefers-reduced-motion:reduce){.nature-feature-card,.nature-feature-image img,.nature-chip-list a{transition:none}}
 </style>
