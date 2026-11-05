@@ -3140,7 +3140,7 @@ export const bookArticles = [
     subtitle:'八幡浜の港から、もう一度海へ、そしてみかんの山へ',
     cities:['八幡浜','松山','西予','愛媛'],
     keywords:['サーキュラーエコノミー','魚残渣','魚粉','魚肥','みかん','八幡浜','松山','飼料','肥料'],
-    heroPhotoId:'photo-ehime-citrus-orchard',
+    heroPhotoId:'photo-karihama-citrus-terraces',
     lead:"八幡浜の港から山を見上げると、斜面にみかん畑が重なっている。下では魚が水揚げされ、上では果実が育つ。海に山が迫るこの土地で、二つの仕事はすぐ近くにある。けれど、隣り合っているだけではない。魚をさばいたあとに残る骨や内臓が、あるときは次の魚の餌になり、あるときはみかんを育てる肥料になる。港から山へ、目には見えないもう一本の道が延びている。",
     sections:[
       {
@@ -3196,9 +3196,7 @@ export const bookArticles = [
             ]
           }
         ],
-        "photoIds": [
-          "photo-uwa-coastal-terraces"
-        ]
+        "photoIds": []
       },
       {
         "heading": "循環をつくるのは、海でも山でもなく",
@@ -3221,9 +3219,7 @@ export const bookArticles = [
             ]
           }
         ],
-        "photoIds": [
-          "photo-ehime-citrus-orchard"
-        ]
+        "photoIds": []
       }
     ],
     provisionalConclusion:"八幡浜では魚の加工残渣を発酵させてみかん等の肥料へと変える仕組みが記録されている。県内には魚用飼料に加工する別の取り組みもある。循環を実現するのは、自然の近さだけでなく、回収と加工を担う人々の仕事である。",
