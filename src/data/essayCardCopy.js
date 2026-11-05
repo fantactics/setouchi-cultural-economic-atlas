@@ -1,6 +1,9 @@
 // Short reader-facing blurbs for cards. Keep article subtitles and source data unchanged.
 // A photoId here only changes discovery cards, never the article hero or credits.
 export const essayCardCopy = {
+  "niboshi-shirasu-two-food-cultures": {
+    "teaser": "しらすで知られる泉州は、かつて煮干しの浜だった。小魚の運び方が変えた食卓。"
+  },
   "four-salt-fields": {
     "teaser": "塩田が消えた四つの町。それぞれに残ったものは、なぜ違うのだろう。"
   },
