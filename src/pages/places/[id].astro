@@ -4,7 +4,7 @@ import { places } from '../../data/places.js';
 import { climateProfiles } from '../../data/climate.js';
 import { photosForPlace } from '../../data/photoEvidence.js';
 import PhotoEvidenceGallery from '../../components/PhotoEvidenceGallery.astro';
-import { orderedBookArticles } from '../../data/bookArticles.js';
+import { publishedEssays } from '../../data/publishedEssayList.js';
 import { researchChapters } from '../../data/researchChapters.js';
 
 export function getStaticPaths() {
@@ -42,7 +42,7 @@ const storyAliases = {
   marugame:['丸亀']
 };
 const relatedNames = storyAliases[place.id] || [place.name];
-const relatedStories = orderedBookArticles.filter((article)=>article.cities.some((city)=>relatedNames.includes(city)));
+const relatedStories = publishedEssays.filter((article)=>article.cities?.some((city)=>relatedNames.includes(city)));
 const claimLabelsJa = { fact:'事実', interpretation:'解釈', hypothesis:'仮説' };
 const storyById = {
   ako:{
