@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'kada-sea-bream-one-line': {
+    query: '加太漁港 和歌山県和歌山市',
+    name: '加太の漁港と友ヶ島の海峡',
+    zoom: 11,
+    description: '加太の港と友ヶ島、その間に広がる紀淡海峡を見比べてください。島が水路を分ける地形から、漁師が向き合う潮の道を思い浮かべられます。'
+  },
   'gangi-tide-port-functions': {
     query: '瀬戸内海',
     name: '四つの港で、雁木の位置を比べる',
