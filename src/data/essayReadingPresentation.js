@@ -67,7 +67,7 @@ const curatedSingleEmphasis = {
   'oysters-taste-of-small-seas': '筏',
   'hijiki-tidal-time': 'ひじき',
   'mikan-slope-and-varieties': '段畑',
-  'oyster-shells-after-the-meal': '牡蠣殻',
+  'oyster-shells-after-the-meal': '平和記念公園へ寄せられた折り鶴',
   'sea-bream-scales-to-collagen': 'ウロコ',
   'fish-waste-to-feed-and-citrus': '魚のアラ',
   'olive-pomace-to-cattle': '搾りかす',
