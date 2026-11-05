@@ -1,0 +1,42 @@
+---
+import { essayHasDedicatedMap, essayMapFor } from '../data/essayMapLocations.js';
+
+const { article } = Astro.props;
+const hasMap = article && !essayHasDedicatedMap(article.slug);
+const map = hasMap ? essayMapFor(article) : null;
+const embedUrl = map ? `https://maps.google.com/maps?q=${encodeURIComponent(map.query)}&z=${map.zoom}&t=k&output=embed` : null;
+const googleUrl = map ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(map.query)}` : null;
+const headingId = article ? `essay-google-map-${article.slug}` : 'essay-google-map';
+---
+{map && (
+  <section class="essay-google-map" aria-labelledby={headingId}>
+    <div class="kicker">地図で見る、物語の舞台</div>
+    <h2 id={headingId}>{map.name}</h2>
+    <p>{map.description}</p>
+    <div class="essay-google-map-frame">
+      <iframe
+        title={`${map.name}のGoogleマップ`}
+        src={embedUrl}
+        width="100%"
+        height="350"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p class="essay-google-map-credit">
+      地図：Google マップ（現在の地形・海岸線。歴史的な姿の復元図ではありません）。
+      <a href={googleUrl} target="_blank" rel="noopener noreferrer">Googleマップで開く ↗</a>
+    </p>
+  </section>
+)}
+<style>
+  .essay-google-map{margin:1rem 0 2.6rem;}
+  .essay-google-map h2{font-size:clamp(1.3rem,2.7vw,1.8rem);line-height:1.45;margin:.5rem 0 .75rem;}
+  .essay-google-map p{line-height:1.85;margin:0 0 1rem;}
+  .essay-google-map-frame{border:1px solid rgba(80,80,80,.18);border-radius:12px;overflow:hidden;background:#eee;}
+  .essay-google-map iframe{display:block;width:100%;height:350px;border:0;}
+  .essay-google-map-credit{font-size:.77rem;color:var(--muted,#777);margin:.65rem 0 0!important;}
+  .essay-google-map-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+  @media(max-width:600px){.essay-google-map iframe{height:295px;}}
+</style>
