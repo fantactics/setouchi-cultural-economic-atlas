@@ -1,6 +1,10 @@
 // Editorial rhythm: quiet, purposeful visual breaks — not a photo after every heading.
 // Only phrases chosen by the editor are emphasized. Never automatically bold all keywords.
 const curatedEmphasis = {
+  'kojima-from-cotton-to-jeans': {
+    1: '由加山',
+    3: 'キャントンミルズ'
+  },
   'takehara-salt-capital-to-townscape': {
     1: '入浜式塩田',
     2: '賀茂川の瀬替え',
