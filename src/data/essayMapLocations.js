@@ -61,6 +61,12 @@ const essayMapOverrides = {
     zoom: 14,
     description: '白壁の町並みが残る旧市街地を起点に、賀茂川や瀬戸内海との位置関係を確かめられます。'
   },
+  'ako-after-salt-fields': {
+    query: '赤穂海浜公園 塩の国 兵庫県赤穂市',
+    name: '塩田が残る景色と工場の海辺',
+    zoom: 12,
+    description: '「塩の国」の復元塩田を起点に、西浜の臨海工場地帯までを地図で見比べてください。現代の地図であり、1965年当時の塩田の境界を復元したものではありません。'
+  },
   'four-salt-fields': {
     query: '瀬戸内海',
     name: '瀬戸内海の塩田の町々',
