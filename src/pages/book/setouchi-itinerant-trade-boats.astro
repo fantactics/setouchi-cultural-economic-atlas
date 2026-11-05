@@ -2,9 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayRelatedLinks from '../../components/EssayRelatedLinks.astro';
 import { essaySearchMeta } from '../../data/essaySeo.js';
-import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
-import { setouchiItinerantTradeBoatsEssay as article } from '../../data/setouchiItinerantTradeBoatsEssay.js';
+import { Content, frontmatter as article } from '../../content/essays/setouchi-itinerant-trade-boats.md';
 const hero=article.heroPhoto;
 const seo=essaySearchMeta(article);
 ---
@@ -28,7 +27,7 @@ const seo=essaySearchMeta(article);
 
     <div class="book-reading-column">
       <EssayGoogleMap article={article} />
-      <EssayProseSections article={article} />
+      <div class="markdown-essay-body"><Content /></div>
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
@@ -53,3 +52,8 @@ const seo=essaySearchMeta(article);
     <EssayRelatedLinks article={article} />
   </article>
 </BaseLayout>
+
+<style>
+  .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
+  .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
+</style>
