@@ -313,6 +313,45 @@ body.page-type-region .sources-section .source-link{
   border-radius:12px;
 }
 
+/* An editorial doorway from Mitarai's regional history into the shrine story. */
+body.page-type-region .region-story-pick{
+  max-width:790px;
+  display:grid;
+  gap:10px;
+  margin:27px 0 15px;
+  padding:22px 24px;
+  border:1px solid #ecdcc9;
+  border-radius:17px;
+  background:linear-gradient(120deg,#fff7e9,#f1f8ed);
+}
+body.page-type-region .region-story-pick>span{
+  color:#b66645;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+body.page-type-region .region-story-pick>p{
+  margin:0;
+  color:#597568;
+  font-size:.92rem;
+  line-height:1.8;
+}
+body.page-type-region .region-story-pick>a{
+  font-weight:800;
+  font-size:.98rem;
+  color:#2e745d;
+  line-height:1.65;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+body.page-type-region .region-story-pick>a:hover{color:#ad6449}
+body.page-type-region .region-story-pick>a:focus-visible{
+  outline:3px solid #e6a777;outline-offset:3px;
+}
+@media(max-width:550px){
+  body.page-type-region .region-story-pick{padding:18px;margin:21px 0 10px}
+}
+
 /* Simple profiles: same brand, without hiding technical details. */
 body.page-type-region .regional-profile-page{
   background:#fdfcf9;
