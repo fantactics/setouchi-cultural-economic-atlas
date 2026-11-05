@@ -1,0 +1,50 @@
+---
+import { photoEvidence } from '../data/photoEvidence.js';
+import { tomoTwoActPortPhotos } from '../data/tomoTwoActPortPhotos.js';
+import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
+import { applyPhotoMetadataCorrection } from '../data/photoMetadataCorrections.js';
+import { essayEmphasisForSection, essayEmphasisRuns, selectEssayInlinePhotos } from '../data/essayReadingPresentation.js';
+
+const {article, showNumbers=true, inlinePhotos:providedInlinePhotos=null}=Astro.props;
+const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
+const photoById=Object.fromEntries(allPhotoEvidence.map((photo)=>[photo.id,photo]));
+const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
+const inlinePhotos=providedInlinePhotos || selectEssayInlinePhotos(article,photoById,hero);
+const sections=(article.sections||[]).map((section,index)=>{
+  const phrase=essayEmphasisForSection(article,index);
+  let used=false;
+  return {
+    ...section,
+    number:String(index+1).padStart(2,'0'),
+    inlinePhoto:inlinePhotos[index] || null,
+    paragraphs:section.paragraphs.map((p)=>{
+      const emphasize=!used && phrase && p.text.includes(phrase);
+      if(emphasize) used=true;
+      return {...p,runs:essayEmphasisRuns(p.text,emphasize?phrase:null)};
+    })
+  };
+});
+---
+{sections.map((section)=>(
+  <>
+    <section class="book-prose-section">
+      {showNumbers && <div class="book-section-no">{section.number}</div>}
+      <h2>{section.heading}</h2>
+      {section.paragraphs.map((p)=>(
+        <p>{p.runs.map((run)=>run.emph ? <strong class="essay-selective-emphasis">{run.text}</strong> : run.text)}
+          {p.refs?.length>0 && <sup class="book-footnotes">{p.refs.map((ref)=><a href={`#source-${ref}`}>[{ref}]</a>)}</sup>}
+        </p>
+      ))}
+    </section>
+    {section.inlinePhoto && <figure class="essay-inline-photo">
+      <a href={section.inlinePhoto.sourcePage} target="_blank" rel="noopener noreferrer" aria-label={`${section.inlinePhoto.title||'写真'}の出典を開く`}>
+        <img src={section.inlinePhoto.imageUrl} alt={section.inlinePhoto.alt || section.inlinePhoto.title} loading="lazy" decoding="async" />
+      </a>
+      <figcaption>
+        <strong>{section.inlinePhoto.title}</strong>
+        {section.inlinePhoto.caption && <span>{section.inlinePhoto.caption}</span>}
+        <small>写真：{section.inlinePhoto.author} ／ <a href={section.inlinePhoto.licenseUrl || section.inlinePhoto.sourcePage} target="_blank" rel="noopener noreferrer">{section.inlinePhoto.license}</a></small>
+      </figcaption>
+    </figure>}
+  </>
+))}
