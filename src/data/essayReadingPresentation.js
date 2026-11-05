@@ -14,6 +14,11 @@ const curatedEmphasis = {
     0: '海底の熱水活動',
     2: '二酸化硫黄',
     3: '過燐酸石灰'
+  },
+  'shimonoseki-resource-made-by-market': {
+    1: '砂礫',
+    3: '袋競り',
+    4: '活かし込み'
   }
 };
 
