@@ -37,6 +37,12 @@ const essayMapOverrides = {
     zoom: 12,
     description: '唐戸市場の前の関門海峡と、彦島西側の南風泊市場の位置関係を確認してください。ふぐ市場が移った理由を海岸線から眺められます。'
   },
+  'kojima-jeans-circular-economy': {
+    query: '児島ジーンズストリート 岡山県倉敷市児島味野',
+    name: '児島ジーンズストリートと工場の町',
+    zoom: 13,
+    description: 'ジーンズが並ぶ町の通りと、周辺の繊維産業の広がりを見渡せます。服のポケットの小さな鋲から、町の工場へ思いを巡らせてください。'
+  },
   'kojima-from-cotton-to-jeans': {
     query: '児島ジーンズストリート 岡山県倉敷市児島味野',
     name: '綿の土地からジーンズの町へ',
