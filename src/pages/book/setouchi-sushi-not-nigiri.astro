@@ -2,12 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayRelatedLinks from '../../components/EssayRelatedLinks.astro';
 import { essaySearchMeta } from '../../data/essaySeo.js';
-import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
-import { setouchiSushiEssay as article } from '../../data/setouchiSushiEssay.js';
-const seo=essaySearchMeta(article);
+import { Content, frontmatter } from '../../content/essays/setouchi-sushi-not-nigiri.md';
+
+const article = frontmatter;
+const seo = essaySearchMeta(article);
 ---
-<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description}>
+<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description} image={article.heroPhoto?.imageUrl} imageAlt={article.heroPhoto?.alt || article.title}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
@@ -20,11 +21,20 @@ const seo=essaySearchMeta(article);
       </div>
     </header>
 
-    {article.heroPhoto?.imageUrl && <figure class="book-hero-photo"><img src={article.heroPhoto.imageUrl} alt={article.heroPhoto.alt} /><figcaption><strong>{article.heroPhoto.title}</strong>　Photo: {article.heroPhoto.author} / <a href={article.heroPhoto.sourcePage} target="_blank" rel="noreferrer">{article.heroPhoto.license}</a></figcaption></figure>}
+    {article.heroPhoto?.imageUrl && <figure class="book-hero-photo">
+      <img src={article.heroPhoto.imageUrl} alt={article.heroPhoto.alt} />
+      <figcaption>
+        <strong>{article.heroPhoto.title}</strong>
+        <span>Photo: {article.heroPhoto.author} / <a href={article.heroPhoto.sourcePage} target="_blank" rel="noreferrer">{article.heroPhoto.license}</a></span>
+      </figcaption>
+    </figure>}
 
     <div class="book-reading-column">
       <EssayGoogleMap article={article} />
-      <EssayProseSections article={article} />
+
+      <div class="markdown-essay-body">
+        <Content />
+      </div>
 
       <section class="book-sources">
         <div class="kicker">出典・参照資料</div>
@@ -46,6 +56,20 @@ const seo=essaySearchMeta(article);
         </div>
       </section>
     </div>
+
     <EssayRelatedLinks article={article} />
   </article>
 </BaseLayout>
+
+<style>
+  .markdown-essay-body :global(h2){
+    margin:3.4rem 0 1.25rem;
+    font-size:clamp(1.45rem,2.6vw,2rem);
+    line-height:1.45;
+    letter-spacing:.02em;
+  }
+  .markdown-essay-body :global(p){
+    margin:0 0 1.4rem;
+    line-height:2.05;
+  }
+</style>
