@@ -33,14 +33,12 @@ const essayPhoto=(article)=>{
   const ids=[article.heroPhotoId,...(article.sections||[]).flatMap((section)=>section.photoIds||[])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
 };
-const recommendedSlugs=['kojima-from-cotton-to-jeans','soy-sauce-lees-to-chomeiso','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island'];
+const recommendedSlugs=['kojima-from-cotton-to-jeans','soy-sauce-lees-to-chomeiso','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island','sanuki-store-the-rain','setouchi-sushi-not-nigiri'];
 const recommended=recommendedSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
-const coverArticle=recommended[0];
-const coverPhoto=coverArticle ? essayPhoto(coverArticle) : null;
+const featuredArticles=recommended.slice(0,3);
 
-// Keep an ordinary server-rendered selection for crawlers and visitors without JS.
-// With JS enabled, six distinct essays are sampled on every homepage visit.
-// Never choose articles without an appropriate photo for image-led slots.
+// Render three feature essays and five more picks for visitors without JavaScript.
+// With JavaScript, choose eight distinct illustrated essays at each visit.
 const randomPickPool=[...new Map(allEssays.map((article)=>[article.slug,article])).values()]
   .map((article)=>{
     const photo=essayPhoto(article);
@@ -54,27 +52,28 @@ const randomPickPool=[...new Map(allEssays.map((article)=>[article.slug,article]
     };
   })
   .filter((entry)=>entry.imageUrl);
-if(randomPickPool.length<6) throw new Error('Homepage needs at least six illustrated essays.');
+if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illustrated essays.');
 ---
 <BaseLayout title="SETOUCHI ATLAS - 私の瀬戸内地誌紀行" description="港町の路地、島の食卓、海辺の工場。自然と人の営みが重なって生まれた風景の理由をたどる、私の瀬戸内素描。">
   <div class="reader-home">
-    <section class="reader-home-intro">
-      <p class="reader-eyebrow">SETOUCHI ATLAS</p>
-      <h1>風景の理由をたどる</h1>
-      <p class="reader-home-subtitle">私の瀬戸内地誌紀行</p>
-      <p class="reader-home-lead">港町の路地、島の食卓、海辺の工場。<br />見慣れた風景にも、そうなった理由がある。<br />自然と人の営みが重なって生まれた瀬戸内の姿を、旅先で見つけた問いからたどります。</p>
-      <a class="reader-primary-link" href="/setouchi-cultural-economic-atlas/book/">エッセイを探す <span aria-hidden="true">→</span></a>
+    <h1 class="reader-home-screenreader">SETOUCHI ATLAS のエッセイ</h1>
+    <section class="reader-home-featured" aria-label="今日の三篇">
+      <p class="reader-home-feature-label">今日の三篇</p>
+      <div class="reader-home-feature-grid">
+        {featuredArticles.map((article,index)=>{
+          const photo=essayPhoto(article);
+          return <a class="reader-home-feature" href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}>
+            {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'} />}
+            <div class="reader-home-feature-copy"><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h2>{article.title}</h2><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
+          </a>;
+        })}
+      </div>
     </section>
-
-    {coverArticle && <a class="reader-home-feature" href={`/setouchi-cultural-economic-atlas/book/${coverArticle.slug}/`}>
-      {coverPhoto?.imageUrl && <img src={coverPhoto.imageUrl} alt={coverPhoto.alt || coverArticle.title} fetchpriority="high" />}
-      <div class="reader-home-feature-copy"><span>まずは、この一篇から</span><h2>{coverArticle.title}</h2><p>{cardTeaser(coverArticle)}</p><strong>読む →</strong></div>
-    </a>}
 
     <section class="reader-home-section" aria-labelledby="home-picks">
       <div class="reader-section-heading"><div><p class="reader-eyebrow">PICK UP</p><h2 id="home-picks">こんな旅の話から。</h2><p>気になる風景から、気軽に一篇。</p></div><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a></div>
       <div class="reader-essay-grid">
-        {recommended.slice(1).map((article)=>{
+        {recommended.slice(3).map((article)=>{
           const photo=essayPhoto(article);
           return <a class="reader-essay-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
             {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
@@ -92,29 +91,33 @@ if(randomPickPool.length<6) throw new Error('Homepage needs at least six illustr
     <script is:inline>
       (() => {
         const data=document.getElementById('home-random-picks');
-        const feature=document.querySelector('.reader-home-feature');
+        const features=[...document.querySelectorAll('.reader-home-feature-grid .reader-home-feature')];
         const cards=[...document.querySelectorAll('.reader-home-section .reader-essay-card')];
-        if(!data || !feature || cards.length!==5) return;
+        if(!data || features.length!==3 || cards.length!==5) return;
         let options;
-        try { options=JSON.parse(data.textContent || '[]'); } catch { return; }
-        if(options.length<6) return;
-        // Fisher–Yates: each visit selects six distinct articles without a server rebuild.
+        try {options=JSON.parse(data.textContent || '[]');} catch {return;}
+        if(options.length<8) return;
+        // Select three different main essays and five additional stories, without repeats.
         for(let i=options.length-1;i>0;i--){
           const j=Math.floor(Math.random()*(i+1));
           [options[i],options[j]]=[options[j],options[i]];
         }
-        const selected=options.slice(0,6);
+        const selected=options.slice(0,8);
         const root='/setouchi-cultural-economic-atlas/book/';
-        const headline=selected[0];
-        feature.href=root+headline.slug+'/';
-        const featureImage=feature.querySelector('img');
-        if(featureImage){featureImage.src=headline.imageUrl;featureImage.alt=headline.alt;}
-        const featureTitle=feature.querySelector('.reader-home-feature-copy h2');
-        const featureText=feature.querySelector('.reader-home-feature-copy p');
-        if(featureTitle)featureTitle.textContent=headline.title;
-        if(featureText)featureText.textContent=headline.teaser;
+        features.forEach((feature,index)=>{
+          const story=selected[index];
+          feature.href=root+story.slug+'/';
+          const img=feature.querySelector('img');
+          if(img){img.src=story.imageUrl;img.alt=story.alt;}
+          const city=feature.querySelector('.reader-home-feature-copy>span');
+          const title=feature.querySelector('h2');
+          const teaser=feature.querySelector('p');
+          if(city)city.textContent=story.cities;
+          if(title)title.textContent=story.title;
+          if(teaser)teaser.textContent=story.teaser;
+        });
         cards.forEach((card,index)=>{
-          const story=selected[index+1];
+          const story=selected[index+3];
           card.href=root+story.slug+'/';
           const img=card.querySelector('img');
           if(img){img.src=story.imageUrl;img.alt=story.alt;}
