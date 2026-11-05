@@ -40,9 +40,6 @@ body.page-type-essay .essay-inline-photo figcaption a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-@media (prefers-color-scheme: dark) {
-  body.page-type-essay .book-prose-section .essay-selective-emphasis { color:#83bbaa; }
-}
 @media (max-width: 600px) {
   body.page-type-essay .essay-inline-photo { margin-bottom: 0.45rem; }
   body.page-type-essay .essay-inline-photo img { max-height: 340px; }
