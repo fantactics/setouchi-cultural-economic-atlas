@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayRelatedLinks from '../../components/EssayRelatedLinks.astro';
 import { essaySearchMeta } from '../../data/essaySeo.js';
 import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
@@ -45,5 +46,6 @@ const seo=essaySearchMeta(article);
         </div>
       </section>
     </div>
+    <EssayRelatedLinks article={article} />
   </article>
 </BaseLayout>
