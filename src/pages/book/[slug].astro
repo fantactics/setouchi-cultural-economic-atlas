@@ -63,6 +63,10 @@ export function getStaticPaths(){
 
 const { article:rawArticle, prev, next }=Astro.props;
 const article=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
+const faithSeo = article.slug==='faith-as-transport-map' ? {
+  title:'御手洗の住吉神社｜鴻池善右衛門と茶屋の女性たち - SETOUCHI ATLAS',
+  description:'広島県呉市・大崎下島の御手洗。千砂子波止のそばの住吉神社は、なぜ大阪の豪商・鴻池善右衛門の寄進で建てられたのか。茶屋の女性たちが残した名前から、潮待ち港の歴史をたどります。'
+} : null;
 const naturalTags=getNaturalConditionTags(article);
 const archivedResearchHref={
   'tadano-shido-industrial-ecosystem':'/setouchi-cultural-economic-atlas/chapters/tadano-shido-industrial-ecosystem-note/',
@@ -138,7 +142,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
   distinctPhotoKeys.add(key);return true;
 });
 ---
-<BaseLayout title={`${article.title} | 地域エッセイ`} description={article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
+<BaseLayout title={`${article.title} | 地域エッセイ`} seoTitle={faithSeo?.title} description={faithSeo?.description || article.subtitle} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
   <article class="book-article">
     {archivedResearchHref && <section class="book-open-questions">
       <div class="kicker">資料保存版</div>
