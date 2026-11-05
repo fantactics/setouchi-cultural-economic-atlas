@@ -19,6 +19,11 @@ const curatedEmphasis = {
     1: '砂礫',
     3: '袋競り',
     4: '活かし込み'
+  },
+  'jinori-okinori-navigation-system': {
+    1: '芸州灘の地乗り',
+    2: '伊予路沖乗り',
+    3: '木綿帆'
   }
 };
 
