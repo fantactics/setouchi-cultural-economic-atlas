@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { aiRegionalPlanningEssay as article } from '../../data/aiRegionalPlanningEssay.js';
 ---
 <BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
@@ -16,6 +17,7 @@ import { aiRegionalPlanningEssay as article } from '../../data/aiRegionalPlannin
     </header>
 
     <div class="book-reading-column">
+      <EssayGoogleMap article={article} />
       {article.sections.map((section,sectionIndex)=>(
         <section class="book-prose-section">
           <div class="book-section-no">{String(sectionIndex+1).padStart(2,'0')}</div>
