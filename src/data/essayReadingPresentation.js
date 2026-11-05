@@ -13,6 +13,67 @@ const curatedEmphasis = {
   }
 };
 
+
+// A single editorially chosen term per additional essay. No automatic tag-highlighting.
+const curatedSingleEmphasis = {
+  'four-salt-fields': '製塩工場',
+  'kojima-from-cotton-to-jeans': '干拓',
+  'ports-that-needed-waiting': '雁木',
+  'imabari-why-shipbuilding': '波止浜湾',
+  'shodoshima-open-island': '佃煮',
+  'shodoshima-somen-to-sesame-oil': '小麦',
+  'faith-as-transport-map': '千砂子波止',
+  'sanuki-store-the-rain': 'ため池',
+  'iwakuni-river-city': '錦川',
+  'onomichi-capital-to-culture-and-ships': '尾道水道',
+  'mitarai-economy-of-waiting': '風待ち',
+  'shimonoseki-resource-made-by-market': 'みがきふぐ',
+  'yanai-trade-profit-to-whitewalls': '柳井川',
+  'mihara-castle-to-multimodal-city': '海城',
+  'matsuyama-three-centers-one-city': '砂嘴',
+  'hiketa-castle-port-town': '岬',
+  'ako-after-salt-fields': '入浜式塩田',
+  'takamatsu-sea-castle-to-gateway': '三角州',
+  'tai-meshi-two-seas': '黒潮',
+  'shimotsui-tako-meshi': 'タコ',
+  'oysters-taste-of-small-seas': '筏',
+  'hijiki-tidal-time': 'ひじき',
+  'mikan-slope-and-varieties': '段畑',
+  'oyster-shells-after-the-meal': '牡蠣殻',
+  'sea-bream-scales-to-collagen': 'うろこ',
+  'fish-waste-to-feed-and-citrus': '魚のアラ',
+  'olive-pomace-to-cattle': '搾りかす',
+  'soy-sauce-lees-to-chomeiso': '長命草',
+  'ibuki-fat-sardines-revalued': 'いりこ',
+  'kinkai-salt-field-to-solar': '錦海塩田',
+  'sakaide-salt-fields-to-industry': '番の州',
+  'ako-salt-fields-to-city': '塩田',
+  'farmland-or-solar': '営農型太陽光',
+  'after-the-solar-farm': '排水ポンプ',
+  'tadano-shido-industrial-ecosystem': 'クレーン',
+  'miura-matsuyama-small-boiler-revolution': '小型貫流ボイラ',
+  'sawara-spring-two-gates': '産卵',
+  'kada-sea-bream-one-line': '一本釣り',
+  'kitan-strait-tai-to-shirasu': '紀淡海峡',
+  'kada-sea-bream-distribution-ecosystem': '生簀',
+  'kada-steel-data-center-transition': '鉄鉱石',
+  'gangi-tide-port-functions': '雁木',
+  'jinori-okinori-navigation-system': '地乗り',
+  'kojima-jeans-circular-economy': 'リベット',
+  'kojima-island-infrastructure-per-capita': '水道',
+  'kojima-island-cycling-without-consumption': '日帰り客',
+  'kojima-island-bubble-villas-second-life': '別荘',
+  'what-cyclists-leave-behind': 'しまなみ海道',
+  'tomo-two-act-tidal-port': '潮待ち',
+  'shimotsui-hijiki-peperoncino': 'ひじき',
+  'setouchi-sushi-not-nigiri': '押し抜きずし',
+  'setouchi-shrimp-middle-layer': 'えびこぎ',
+  'setouchi-itinerant-trade-boats': '長屋門',
+  'setouchi-ship-materials': '飫肥杉',
+  'ai-era-regional-planning-learning-velocity': 'マスタープラン',
+  'niboshi-shirasu-two-food-cultures': 'カタクチイワシ',
+};
+
 // The photograph must illuminate the section it follows, not merely decorate the page.
 const curatedPhotoStops = {
   'takehara-salt-capital-to-townscape': [
@@ -34,7 +95,14 @@ export function essayEmphasisForSection(article, index) {
   // At most three deliberate highlights per essay; no highlight if no editorial choice.
   const terms = article?.editorialEmphasis || curatedEmphasis[article?.slug] || {};
   const indexes = Object.keys(terms).map(Number).filter(Number.isFinite).sort((a,b)=>a-b).slice(0,3);
-  return indexes.includes(index) ? terms[index] : null;
+  if(indexes.length) return indexes.includes(index) ? terms[index] : null;
+
+  const phrase = curatedSingleEmphasis[article?.slug];
+  if(!phrase) return null;
+  // Only the first relevant section receives the highlight; never paint every mention.
+  const first = (article?.sections || []).findIndex((section)=>
+    (section.paragraphs || []).some((paragraph)=>paragraph.text?.includes(phrase)));
+  return first===index ? phrase : null;
 }
 
 export function essayEmphasisRuns(text, phrase) {
