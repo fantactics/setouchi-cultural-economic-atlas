@@ -24,6 +24,11 @@ const curatedEmphasis = {
     1: '右手人差し指',
     4: '活け込み'
   },
+  'kitan-strait-tai-to-shirasu': {
+    1: '友ヶ島反流',
+    2: 'バッチ網',
+    3: '約五分'
+  },
   'gangi-tide-port-functions': {
     2: '折れ目',
     3: '一般の人',
