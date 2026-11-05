@@ -20,6 +20,11 @@ const curatedEmphasis = {
     3: '袋競り',
     4: '活かし込み'
   },
+  'gangi-tide-port-functions': {
+    2: '折れ目',
+    3: '一般の人',
+    4: '海側へ位置を変えていった'
+  },
   'jinori-okinori-navigation-system': {
     1: '芸州灘の地乗り',
     2: '伊予路沖乗り',
