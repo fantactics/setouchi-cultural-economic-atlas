@@ -27,7 +27,7 @@ const curatedSingleEmphasis = {
   'iwakuni-river-city': '錦川',
   'onomichi-capital-to-culture-and-ships': '尾道水道',
   'mitarai-economy-of-waiting': '風待ち',
-  'shimonoseki-resource-made-by-market': 'みがきふぐ',
+  'shimonoseki-resource-made-by-market': '砂礫底',
   'yanai-trade-profit-to-whitewalls': '柳井川',
   'mihara-castle-to-multimodal-city': '海城',
   'matsuyama-three-centers-one-city': '砂嘴',
@@ -40,7 +40,7 @@ const curatedSingleEmphasis = {
   'hijiki-tidal-time': 'ひじき',
   'mikan-slope-and-varieties': '段畑',
   'oyster-shells-after-the-meal': '牡蠣殻',
-  'sea-bream-scales-to-collagen': 'うろこ',
+  'sea-bream-scales-to-collagen': 'ウロコ',
   'fish-waste-to-feed-and-citrus': '魚のアラ',
   'olive-pomace-to-cattle': '搾りかす',
   'soy-sauce-lees-to-chomeiso': '長命草',
@@ -60,7 +60,7 @@ const curatedSingleEmphasis = {
   'gangi-tide-port-functions': '雁木',
   'jinori-okinori-navigation-system': '地乗り',
   'kojima-jeans-circular-economy': 'リベット',
-  'kojima-island-infrastructure-per-capita': '水道',
+  'kojima-island-infrastructure-per-capita': '給水',
   'kojima-island-cycling-without-consumption': '日帰り客',
   'kojima-island-bubble-villas-second-life': '別荘',
   'what-cyclists-leave-behind': 'しまなみ海道',
@@ -72,6 +72,7 @@ const curatedSingleEmphasis = {
   'setouchi-ship-materials': '飫肥杉',
   'ai-era-regional-planning-learning-velocity': 'マスタープラン',
   'niboshi-shirasu-two-food-cultures': 'カタクチイワシ',
+  'citrus-pomace-cascade': '搾汁粕',
 };
 
 // The photograph must illuminate the section it follows, not merely decorate the page.
