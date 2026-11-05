@@ -84,7 +84,7 @@ export const essayCardCopy = {
     "teaser": "海へ向かう石垣の斜面に、みかんを育てる理由がある。"
   },
   "oyster-shells-after-the-meal": {
-    "teaser": "広島の牡蠣殻が、畑の肥料から白い壁や車の部品に変わる。"
+    "teaser": "牡蠣の殻と、平和への願いを込めた折り鶴。海と町の記憶が一枚の壁で出会う。"
   },
   "sea-bream-scales-to-collagen": {
     "teaser": "宇和海の鯛から取り除かれたウロコが、遠くの研究所へ渡る。"
