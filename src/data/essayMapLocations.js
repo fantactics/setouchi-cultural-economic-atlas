@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'kojima-from-cotton-to-jeans': {
+    query: '児島ジーンズストリート 岡山県倉敷市児島味野',
+    name: '綿の土地からジーンズの町へ',
+    zoom: 12,
+    description: 'ジーンズストリートと旧野﨑家住宅、南の下津井港、由加山の位置関係を地図で確かめてみてください。現在の地形を示す地図で、干拓以前の海岸線ではありません。'
+  },
   'takehara-salt-capital-to-townscape': {
     query: '広島県竹原市本町 竹原町並み保存地区',
     name: '竹原の町並み保存地区',
