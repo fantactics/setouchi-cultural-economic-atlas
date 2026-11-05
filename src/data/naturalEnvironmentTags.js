@@ -83,7 +83,7 @@ export const naturalConditionAnchors = {
   'mikan-slope-and-varieties':['斜面','日照','少雨'],
   'sea-bream-scales-to-collagen':['リアス海岸','黒潮'],
   'fish-waste-to-feed-and-citrus':['リアス海岸','斜面'],
-  'olive-pomace-to-cattle':['少雨','日照'],
+  'olive-pomace-to-cattle':['少雨','日照','土壌'],
   'soy-sauce-lees-to-chomeiso':['潮風'],
   'ibuki-fat-sardines-revalued':['潮流','栄養塩'],
   'citrus-pomace-cascade':['斜面','日照'],
