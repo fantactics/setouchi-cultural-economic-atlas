@@ -7,19 +7,9 @@ export const essayEntryCategories = [
     "description": "郷土料理、魚介、加工食品。食卓から土地の物語へ。"
   },
   {
-    "id": "townscape",
-    "label": "歴史的町並み",
-    "description": "伝建地区、商家、白壁、城下町。残された建物を歩く。"
-  },
-  {
     "id": "agriculture",
     "label": "農業景観",
     "description": "みかん畑、干拓地、ため池、農村。耕す風景の成り立ち。"
-  },
-  {
-    "id": "industry",
-    "label": "工業景観",
-    "description": "造船、製塩、繊維、工場。ものづくりの現場を眺める。"
   },
   {
     "id": "ports",
@@ -32,14 +22,24 @@ export const essayEntryCategories = [
     "description": "海峡、潮流、多島海、島の暮らし。自然の姿をたどる。"
   },
   {
-    "id": "tourism",
-    "label": "観光景観",
-    "description": "観光地、サイクリング、別荘地。旅人が訪れる風景。"
+    "id": "townscape",
+    "label": "歴史的町並み",
+    "description": "伝建地区、商家、白壁、城下町。残された建物を歩く。"
   },
   {
     "id": "urban",
     "label": "都市景観",
     "description": "駅、商店街、橋、市街地。町の形と変化を眺める。"
+  },
+  {
+    "id": "industry",
+    "label": "工業景観",
+    "description": "造船、製塩、繊維、工場。ものづくりの現場を眺める。"
+  },
+  {
+    "id": "tourism",
+    "label": "観光景観",
+    "description": "観光地、サイクリング、別荘地。旅人が訪れる風景。"
   }
 ];
 
