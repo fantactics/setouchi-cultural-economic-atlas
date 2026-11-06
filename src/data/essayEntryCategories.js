@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'tatara-bridge-citrus-seasons': ['agriculture', 'tourism'],
   "awaji-onion-rice-field": ["agriculture", "food"],
   "four-salt-fields": [
     "industry",
