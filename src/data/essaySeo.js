@@ -3,6 +3,7 @@
 // Manual, article-specific headlines avoid keyword-stuffed boilerplate.
 // Add a headline here when publishing a new essay; the fallback still remains valid.
 const searchHeadlines = {
+  'awaji-onion-rice-field':'淡路島の玉ねぎは田んぼで育つ｜紀の川・香川の水田裏作と玉ねぎ小屋',
   'four-salt-fields':'赤穂・竹原・坂出・三田尻｜塩田が残した4つの風景',
   'kojima-from-cotton-to-jeans':'児島ジーンズの歴史｜綿作・足袋・学生服からデニムへ',
   'ports-that-needed-waiting':'潮待ち港の歴史｜鞆の浦・御手洗・多度津・尾道',
