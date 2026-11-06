@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    "id": "photo-awaji-onion-rice-field",
+    "placeId": "minamiawaji",
+    "nodeKey": "agriculture",
+    "theme": "agriculture",
+    "title": "淡路島・南あわじ市の玉ねぎ畑と玉ねぎ小屋",
+    "caption": "南あわじ市山添で撮影された玉ねぎ畑と玉ねぎ小屋。2024年2月の写真のため、収穫や乾燥の最盛期を示すものではない。",
+    "insight": "同じ農地で玉ねぎと稲を季節ごとに作り分け、収穫後は風を利用する地域の仕組みを読む風景。",
+    "claimType": "fact",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20field%20Yamazoe%20ac%20%281%29.jpg?width=1600",
+    "alt": "兵庫県南あわじ市山添に広がる玉ねぎ畑と玉ねぎ小屋",
+    "author": "Asturio Cantabrio",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Onion_field_Yamazoe_ac_(1).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceType": "Wikimedia Commons",
+    "takenAt": "2024-02",
+    "verifiedAt": "2026-11-06"
+  },
+  {
     id:'photo-shimotsui-dried-octopus',
     placeId:'shimotsui',
     nodeKey:'culture',
