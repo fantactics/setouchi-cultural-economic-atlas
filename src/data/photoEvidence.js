@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    "id": "photo-tatara-cycling-ikuchijima",
+    "placeId": "ikuchijima",
+    "nodeKey": "agriculture",
+    "theme": "agriculture",
+    "title": "生口島から多々羅大橋へ向かう自転車道",
+    "caption": "生口島側の多々羅大橋と自転車道。2017年11月撮影。レモン谷の位置関係をたどる写真だが、写真に写る木がレモンであるとは断定しない。",
+    "insight": "自転車道から果樹園・橋・海を一緒に望めるという記事の視点を示す。",
+    "claimType": "fact",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Tatara%20Bridge%20from%20Ikuchijima.jpg?width=1600",
+    "alt": "生口島側から見た多々羅大橋と手前に曲がる自転車道",
+    "author": "Fabimaru",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Tatara_Bridge_from_Ikuchijima.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceType": "Wikimedia Commons",
+    "takenAt": "2017-11-10",
+    "verifiedAt": "2026-11-06"
+  },
+  {
     "id": "photo-awaji-onion-rice-field",
     "placeId": "minamiawaji",
     "nodeKey": "agriculture",
