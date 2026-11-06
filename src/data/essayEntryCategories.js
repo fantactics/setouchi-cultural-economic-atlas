@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  "awaji-onion-rice-field": ["agriculture", "food"],
   "four-salt-fields": [
     "industry",
     "townscape"
