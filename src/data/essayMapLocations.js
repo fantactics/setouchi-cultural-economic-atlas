@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'awaji-onion-rice-field': {
+    query: '兵庫県南あわじ市 三原平野',
+    name: '淡路島・三原平野の玉ねぎ畑',
+    zoom: 11,
+    description: '淡路島南部の水田と玉ねぎ畑の広がりを眺めてください。記事では紀の川や香川とも比較します。'
+  },
   'faith-as-transport-map': {
     query: '住吉神社 広島県呉市豊町御手洗',
     name: '大崎下島・御手洗の住吉神社と千砂子波止',
