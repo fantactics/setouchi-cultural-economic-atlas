@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'tatara-bridge-citrus-seasons': {
+    query: 'レモン谷 多々羅大橋 生口島 広島県尾道市瀬戸田町',
+    name: '生口島・レモン谷から大三島へ',
+    zoom: 11,
+    description: '生口島側のレモン谷から多々羅大橋を越え、大三島の柑橘畑へ。橋を境に県が変わることと、海を挟んだ果樹園のつながりを見てください。'
+  },
   'awaji-onion-rice-field': {
     query: '兵庫県南あわじ市 三原平野',
     name: '淡路島・三原平野の玉ねぎ畑',
