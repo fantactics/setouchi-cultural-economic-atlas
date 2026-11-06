@@ -56,6 +56,7 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'awaji-onion-rice-field':['少雨','日照'],
   'sanuki-store-the-rain':['少雨','急流','雨陰'],
   'four-salt-fields':['日照','干潟','潮汐'],
   'kojima-from-cotton-to-jeans':['干潟','少雨'],
