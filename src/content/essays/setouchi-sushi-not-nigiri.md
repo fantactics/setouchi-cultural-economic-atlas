@@ -3,21 +3,8 @@ slug: setouchi-sushi-not-nigiri
 part: 食は、土地を語る
 title: 瀬戸内の寿司は握らず、分ける
 subtitle: 岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓――ハレの日に人と人をつなぐ料理
-cities:
-  - 岡山
-  - 香川
-  - 広島
-  - 松山
-keywords:
-  - 寿司
-  - 押し寿司
-  - ばら寿司
-  - 松山鮓
-  - ママカリ
-  - サワラ
-  - 食文化
-  - 保存食
-  - 共同体
+cities: [岡山, 香川, 広島, 松山]
+keywords: [寿司, 押し寿司, ばら寿司, 松山鮓, ママカリ, サワラ, 食文化, 保存食, 共同体]
 lead: 岡山の祝いの席には、魚介と野菜で彩られた大皿のばら寿司が現れる。讃岐ではサワラの押し抜きずしが親類の家を行き来し、広島では木型で作った角寿司を隣近所にも分けた。松山でも、客を迎えるときに松山鮓を振る舞ってきた。形も味も違うのに、そこには共通する風景がある。一人前を注文して食べるのではなく、作り、盛り、取り分け、持っていく。瀬戸内の寿司を「誰と食べるか」から眺めると、ハレの日に人と人をつないできた、もう一つの役割が見えてくる。
 heroPhoto:
   imageUrl: https://commons.wikimedia.org/wiki/Special:FilePath/Chirashi-zushi.jpg?width=1600
@@ -29,89 +16,66 @@ heroPhoto:
   license: CC BY-SA 3.0
   licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
 sources:
-  - id: 1
-    title: 水産発酵食品―なれずし等
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/bunrui/suisan-hakkou.html
-  - id: 2
-    title: ばらずし 岡山県
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_1_okayama.html
-  - id: 3
-    title: 中国四国の郷土料理・ママカリ寿司等
-    publisher: 農林水産省 中国四国農政局
-    url: https://www.maff.go.jp/chushi/sesaku/export/attach/pdf/jouhou-52.pdf
-  - id: 4
-    title: 押し抜きずし 香川県
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/oshinuki_zushi_kagawa.html
-  - id: 5
-    title: 角寿司 広島県
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_16_hiroshima.html
-  - id: 6
-    title: 松山鮓 愛媛県
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/matsu_yama_zushi_ehime.html
-  - id: 7
-    title: 江戸前寿司 東京都
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_2_tokyo.html
+  - { id: 1, title: "水産発酵食品―なれずし等", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/bunrui/suisan-hakkou.html" }
+  - { id: 2, title: "ばらずし 岡山県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_1_okayama.html" }
+  - { id: 3, title: "中国四国の郷土料理・ママカリ寿司等", publisher: 農林水産省 中国四国農政局, url: "https://www.maff.go.jp/chushi/sesaku/export/attach/pdf/jouhou-52.pdf" }
+  - { id: 4, title: "押し抜きずし 香川県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/oshinuki_zushi_kagawa.html" }
+  - { id: 5, title: "角寿司 広島県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_16_hiroshima.html" }
+  - { id: 6, title: "松山鮓 愛媛県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/matsu_yama_zushi_ehime.html" }
+  - { id: 7, title: "江戸前寿司 東京都", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_2_tokyo.html" }
 migration:
   sourceFile: src/data/setouchiSushiEssay.js
   status: pilot-copy
   publicUrl: /book/setouchi-sushi-not-nigiri/
 ---
+
 ## 一貫ではなく、一皿を囲む
 
-寿司と聞けば、カウンターで一貫ずつ握られる姿を思い浮かべる。だが、岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓を眺めると、別の食べ方が見えてくる。大きく作り、集まった人に振る舞い、ときには別の家へ届ける寿司である。[[2][4][5][6]](#source-6)
+寿司と聞けば、カウンターで一貫ずつ握られる姿を思い浮かべる。だが、岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓を眺めると、別の食べ方が見えてくる。大きく作り、集まった人に振る舞い、ときには別の家へ届ける寿司である。<sup class="book-footnotes"><a href="#source-2">[2]</a><a href="#source-4">[4]</a><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>
 
-寿司の形は一つではない。発酵によって魚を保存するなれずしから、酢を使って早く食べられる寿司まで、異なる技法が育ってきた。けれど、この土地の寿司を形や技法だけで説明すると、大切なところを見落とす。[[1]](#source-1)
+寿司の形は一つではない。発酵によって魚を保存するなれずしから、酢を使って早く食べられる寿司まで、異なる技法が育ってきた。けれど、この土地の寿司を形や技法だけで説明すると、大切なところを見落とす。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
 
 祭りや祝いの日、誰を呼び、誰に配り、誰と食べるのか。寿司の大きさや作り方には、料理を食べる前後に人々が交わしてきたやりとりも表れている。
 
 ## 岡山――祝いの寿司を、おすそ分けする
 
-岡山のばら寿司には、サワラ、エビ、アナゴ、ママカリなど瀬戸内の魚介に、レンコン、シイタケ、タケノコ、豆、卵などが重なる。具材をそれぞれ調理し、酢飯と合わせて華やかに盛る。普段の食事よりも手間をかけるのは、祭りや祝いの日に人を迎える料理だからでもある。[[2]](#source-2)
+岡山のばら寿司には、サワラ、エビ、アナゴ、ママカリなど瀬戸内の魚介に、レンコン、シイタケ、タケノコ、豆、卵などが重なる。具材をそれぞれ調理し、酢飯と合わせて華やかに盛る。普段の食事よりも手間をかけるのは、祭りや祝いの日に人を迎える料理だからでもある。<sup class="book-footnotes"><a href="#source-2">[2]</a></sup>
 
-岡山藩主・池田光政の倹約政策「一汁一菜」に対し、具を飯に盛り込んで一菜としたという由来の伝承もある。伝承をそのまま史実とはできないが、ばら寿司がハレの日のごちそうとして親しまれてきたことは確かだ。[[2]](#source-2)
+岡山藩主・池田光政の倹約政策「一汁一菜」に対し、具を飯に盛り込んで一菜としたという由来の伝承もある。伝承をそのまま史実とはできないが、ばら寿司がハレの日のごちそうとして親しまれてきたことは確かだ。<sup class="book-footnotes"><a href="#source-2">[2]</a></sup>
 
-大きな器の寿司を家族や客と囲むだけでなく、作った寿司を近所へおすそ分けする風習もあった。寿司を渡すことは、祝いを伝え、日頃の付き合いを確かめることでもある。料理が食卓を離れて、家と家の間を行き来する。岡山ばら寿司の豊かさは、具材の数だけでは測れない。[[3]](#source-3)
+大きな器の寿司を家族や客と囲むだけでなく、作った寿司を近所へおすそ分けする風習もあった。寿司を渡すことは、祝いを伝え、日頃の付き合いを確かめることでもある。料理が食卓を離れて、家と家の間を行き来する。岡山ばら寿司の豊かさは、具材の数だけでは測れない。<sup class="book-footnotes"><a href="#source-3">[3]</a></sup>
 
 ## 讃岐――サワラが来ると、親類が集まる
 
-香川の「押し抜きずし」は、木型へ酢飯を詰め、サワラなどの具を載せて押し、型から抜く寿司である。サワラは春から初夏、産卵のため瀬戸内へ入ってくる。[[4]](#source-4)
+香川の「押し抜きずし」は、木型へ酢飯を詰め、サワラなどの具を載せて押し、型から抜く寿司である。サワラは春から初夏、産卵のため瀬戸内へ入ってくる。<sup class="book-footnotes"><a href="#source-4">[4]</a></sup>
 
-讃岐には、サワラを一本買って親類縁者を招く「春祝魚」という習慣があった。若い嫁が実家へサワラを持って帰り、そこで作った押し抜きずしを婚家への手土産にする例も伝えられている。寿司は実家と婚家の間を往復し、互いの家をつなぐ役を担った。[[4]](#source-4)
+讃岐には、サワラを一本買って親類縁者を招く「春祝魚」という習慣があった。若い嫁が実家へサワラを持って帰り、そこで作った押し抜きずしを婚家への手土産にする例も伝えられている。寿司は実家と婚家の間を往復し、互いの家をつなぐ役を担った。<sup class="book-footnotes"><a href="#source-4">[4]</a></sup>
 
-春から初夏にサワラが内海へ入る季節と、麦刈りや田植えを前にした農家の節目が重なる。押し抜きずしは春の味であると同時に、人を招き、里帰りし、贈り物を交わす機会を生む料理だったのである。[[4]](#source-4)
+春から初夏にサワラが内海へ入る季節と、麦刈りや田植えを前にした農家の節目が重なる。押し抜きずしは春の味であると同時に、人を招き、里帰りし、贈り物を交わす機会を生む料理だったのである。<sup class="book-footnotes"><a href="#source-4">[4]</a></sup>
 
 ## 広島――木型から、同じ大きさの寿司が現れる
 
-広島の角寿司は、大きな四角い木型へ酢飯を詰め、魚、卵、椎茸、かまぼこ、山菜などを載せて押す。正月、花見、盆、祭り、婚礼や葬儀など、多くの人が集まる場で作られてきた。[[5]](#source-5)
+広島の角寿司は、大きな四角い木型へ酢飯を詰め、魚、卵、椎茸、かまぼこ、山菜などを載せて押す。正月、花見、盆、祭り、婚礼や葬儀など、多くの人が集まる場で作られてきた。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
 
-木型から押し出すと、同じ大きさの四角い寿司がいくつもできる。祝いの席や来客のために多めに作り、隣近所へも木箱に入れて配る風習があったという。形をそろえる技法は、食べる人数が増えても分けやすいという暮らしの都合にかなっていた。[[5]](#source-5)
+木型から押し出すと、同じ大きさの四角い寿司がいくつもできる。祝いの席や来客のために多めに作り、隣近所へも木箱に入れて配る風習があったという。形をそろえる技法は、食べる人数が増えても分けやすいという暮らしの都合にかなっていた。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
 
 隣の家へ一箱届ける。受け取った家で、また食卓を囲む。角寿司には、人が集まる場だけでなく、集まれない人にまで祝いを届ける仕組みが見える。
 
 ## 松山――客をもてなす、松山鮓
 
-松山にも、祝い事や来客の際に大皿の寿司を振る舞う習慣がある。松山鮓は、アナゴやエビ、季節の野菜を盛り込む華やかな料理だ。エソやトラハゼなど瀬戸内の小魚で取った出汁を用いる酢飯にも土地の味がある。[[6]](#source-6)
+松山にも、祝い事や来客の際に大皿の寿司を振る舞う習慣がある。松山鮓は、アナゴやエビ、季節の野菜を盛り込む華やかな料理だ。エソやトラハゼなど瀬戸内の小魚で取った出汁を用いる酢飯にも土地の味がある。<sup class="book-footnotes"><a href="#source-6">[6]</a></sup>
 
-明治時代、夏目漱石が正岡子規の家を訪ねたとき、子規の母が松山鮓でもてなしたという逸話が残る。客を迎え、その土地ならではの寿司を食べてもらう。松山鮓は、そうした人付き合いを象徴する一皿でもあった。[[6]](#source-6)
+明治時代、夏目漱石が正岡子規の家を訪ねたとき、子規の母が松山鮓でもてなしたという逸話が残る。客を迎え、その土地ならではの寿司を食べてもらう。松山鮓は、そうした人付き合いを象徴する一皿でもあった。<sup class="book-footnotes"><a href="#source-6">[6]</a></sup>
 
-ここでは、同じ大皿を囲むことが、歓迎の言葉にもなる。祝い事や客の訪問を、特別な料理を作って迎える。その習慣の中に、松山鮓のもう一つの意味がある。[[6]](#source-6)
-
-
+ここでは、同じ大皿を囲むことが、歓迎の言葉にもなる。祝い事や客の訪問を、特別な料理を作って迎える。その習慣の中に、松山鮓のもう一つの意味がある。<sup class="book-footnotes"><a href="#source-6">[6]</a></sup>
+<!-- photoIds: photo-matsuyama-zushi-shared-bowl -->
 
 ## 分けることが、祝いの言葉になる
 
-江戸では巨大都市と外食文化が発達し、一人の客へその場ですぐ提供できる握り寿司が発展した。コハダを締め、アナゴを煮、エビを茹でるなど、江戸前寿司もまた保存と調理を両立させる技術体系だった。[[7]](#source-7)
+江戸では巨大都市と外食文化が発達し、一人の客へその場ですぐ提供できる握り寿司が発展した。コハダを締め、アナゴを煮、エビを茹でるなど、江戸前寿司もまた保存と調理を両立させる技術体系だった。<sup class="book-footnotes"><a href="#source-7">[7]</a></sup>
 
-岡山のばら寿司をおすそ分けし、讃岐の押し抜きずしを手土産にし、広島の角寿司を隣家へ配り、松山鮓で客を迎える。祭り、婚礼、農作業の節目など、ハレの日の寿司は、作った人の家の外へも届いた。[[2][4][5][6]](#source-6)
+岡山のばら寿司をおすそ分けし、讃岐の押し抜きずしを手土産にし、広島の角寿司を隣家へ配り、松山鮓で客を迎える。祭り、婚礼、農作業の節目など、ハレの日の寿司は、作った人の家の外へも届いた。<sup class="book-footnotes"><a href="#source-2">[2]</a><a href="#source-4">[4]</a><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>
 
 もちろん、瀬戸内でも握り寿司は食べられ、押し寿司や大皿の寿司は他地域にもある。「瀬戸内は握らない」という絶対的な境界ではない。それでも、この土地に伝わるいくつもの寿司には、食べ方を通じて人との関係を育てるという共通の顔がある。
 
-寿司を作れば、「寄っていきませんか」と声をかける理由ができる。ひと箱渡せば、「おめでとう」や「いつもありがとう」を言葉にしなくても伝えられる。瀬戸内の寿司は握らず、分ける。そこには、料理を通じて人と人の距離を縮めてきた、ハレの日の文化がある。[[4][5]](#source-5)
-
-CMS編集テスト
+寿司を作れば、「寄っていきませんか」と声をかける理由ができる。ひと箱渡せば、「おめでとう」や「いつもありがとう」を言葉にしなくても伝えられる。瀬戸内の寿司は握らず、分ける。そこには、料理を通じて人と人の距離を縮めてきた、ハレの日の文化がある。<sup class="book-footnotes"><a href="#source-4">[4]</a><a href="#source-5">[5]</a></sup>
