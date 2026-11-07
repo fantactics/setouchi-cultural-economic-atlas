@@ -69,6 +69,10 @@ jobs:
           ! grep -q 'この石と、温泉の熱は同じものだろうか' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           grep -q '白良浜の白い砂は、海を渡ってきた' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           grep -q '一粒一粒の砂' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q '催馬楽' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q '外国の砂で守る' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q '方針を切り替えた' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          ! grep -q '砂浜は、じっとしていない' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           grep -q '鳴き砂' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           grep -q 'カブトエビ' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           ! grep -q '砂浜は、じっとしていない' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
