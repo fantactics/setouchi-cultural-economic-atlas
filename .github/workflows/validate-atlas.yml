@@ -68,6 +68,9 @@ jobs:
           grep -q '土産店' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           ! grep -q 'この石と、温泉の熱は同じものだろうか' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           grep -q '白良浜の白い砂は、海を渡ってきた' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q '石英' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q '漂砂' dist-kii/nature/index.html
+          grep -q '波浪' dist-kii/nature/index.html
           grep -q 'みかん畑は、なぜ山を登ったのか' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           test -f dist-kii/robots.txt
           grep -q 'https://kii-atlas.pages.dev/' dist-kii/index.html
