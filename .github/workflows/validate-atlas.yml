@@ -28,6 +28,10 @@ jobs:
           test -f dist-kii/book/index.html
           test -f dist-kii/regions/index.html
           test -f dist-kii/nature/index.html
+          test -f dist-kii/about/index.html
+          grep -q 'ランドスケープ = ネイチャー x カルチャー' dist-kii/about/index.html
+          ! grep -q 'STORIES FROM THE KII PENINSULA' dist-kii/index.html
+          grep -q 'href="/about/"' dist-kii/index.html
           test -f dist-kii/book/hashiguiiwa-rocks-sunrise-and-legends/index.html
           test -f dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           test -f dist-kii/book/koyasan-mountain-top-basin-city/index.html
