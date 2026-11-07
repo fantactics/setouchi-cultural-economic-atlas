@@ -9,7 +9,7 @@
  * deliberately explicit: no fictional public destination is published.
  */
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { resolve, relative, join, dirname, extname } from 'node:path';
+import { resolve, relative, join, extname } from 'node:path';
 
 const source = resolve('dist');
 const input = join(source, 'kii');
@@ -37,6 +37,8 @@ const replaceUrls = (content) => {
   // Replace complete canonical / OpenGraph URLs before shortening paths.
   const oldHost = 'https://fantactics.github.io';
   let transformed = content.split(oldHost + kiiBase).join((origin || 'https://preview.invalid') + '/');
+  // Shared sitemap indexes the SETOUCHI domain; do not advertise it for KII.
+  transformed = transformed.replace(/<link\s+rel="sitemap"[^>]*>/g, '');
   // The KII-specific base must be replaced BEFORE the broader asset base.
   transformed = transformed.split(kiiBase).join('/');
   // Shared, fingerprinted Astro assets live at the site's own root.
