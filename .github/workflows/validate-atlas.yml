@@ -79,11 +79,13 @@ jobs:
           grep -q '石英' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           grep -q '漂砂' dist-kii/nature/index.html
           grep -q '波浪' dist-kii/nature/index.html
-          grep -q 'みかん畑は、なぜ山を登ったのか' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q 'つぎはぎの山肌に見る有田の時間' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '平地の少なさ' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '陽地' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '河原の丸石' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
-          grep -q '緑の畑に、白い畑が混じる理由' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '百年の時間' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '十年の時間' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '一年の時間' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q 'マルチシート' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '屋根かけ' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '急斜面' dist-kii/nature/index.html
@@ -99,7 +101,7 @@ jobs:
           grep -q 'reader-essay-card' dist/index.html
           grep -q '那智の滝の場所を決めた二種類の岩' dist/kii/index.html
           grep -q '白良浜の白い砂は、海を渡ってきた' dist/kii/index.html
-          grep -q 'みかん畑は、なぜ山を登ったのか' dist/kii/index.html
+          grep -q 'つぎはぎの山肌に見る有田の時間' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
           if grep -q 'rel="sitemap"' dist-kii/index.html; then echo 'Standalone KII references a foreign sitemap'; exit 1; fi
           test -f dist-kii/google9c35f2435ae15949.html
