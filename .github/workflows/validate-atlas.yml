@@ -38,6 +38,10 @@ jobs:
           grep -q '神になった滝には、地質の理由がある' dist-kii/regions/index.html
           grep -q '多雨' dist-kii/nature/index.html
           test -f dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/koyasan-mountain-top-basin-city/index.html
+          ! grep -q '<figcaption>' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q 'aria-label="自然条件タグ"' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           test -f dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           test -f dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '神になった滝には、地質の理由がある' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
