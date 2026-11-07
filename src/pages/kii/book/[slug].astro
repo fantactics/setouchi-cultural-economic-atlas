@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AtlasEssayDetail from '../../../components/AtlasEssayDetail.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+import { kiiArticles } from '../../../data/kiiArticles.js';
+
+export function getStaticPaths() {
+  return kiiArticles.map((article)=>({ params:{ slug:article.slug }, props:{ article } }));
+}
+const { article } = Astro.props;
+const site = atlasSites.kii;
+---
+<BaseLayout siteKey="kii" title={article.title} description={article.teaser || site.description} image={article.imageUrl || null} imageAlt={article.alt || article.title}>
+  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" />
+</BaseLayout>
