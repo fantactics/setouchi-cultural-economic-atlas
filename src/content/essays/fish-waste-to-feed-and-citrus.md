@@ -1,54 +1,16 @@
 ---
-slug: fish-waste-to-feed-and-citrus
-part: 捨てずに循環させる取り組み
-title: 魚のアラが、養殖魚とみかんを育てる
-subtitle: 八幡浜の港から、もう一度海へ、そしてみかんの山へ
-cities:
-  - 八幡浜
-  - 松山
-  - 西予
-  - 愛媛
-keywords:
-  - サーキュラーエコノミー
-  - 魚残渣
-  - 魚粉
-  - 魚肥
-  - みかん
-  - 八幡浜
-  - 松山
-  - 飼料
-  - 肥料
-heroPhotoId: photo-karihama-citrus-terraces
-lead: 八幡浜の港から山を見上げると、斜面にみかん畑が重なっている。下では魚が水揚げされ、上では果実が育つ。海に山が迫るこの土地で、二つの仕事はすぐ近くにある。けれど、隣り合っているだけではない。魚をさばいたあとに残る骨や内臓が、あるときは次の魚の餌になり、あるときはみかんを育てる肥料になる。港から山へ、目には見えないもう一本の道が延びている。
-provisionalConclusion: 八幡浜では魚の加工残渣を発酵させてみかん等の肥料へと変える仕組みが記録されている。県内には魚用飼料に加工する別の取り組みもある。循環を実現するのは、自然の近さだけでなく、回収と加工を担う人々の仕事である。
-openQuestions:
-  - 八幡浜蒲鉾協同組合の魚肥事業は現在どの程度稼働しているか
-  - 八幡浜・西予の魚肥を使うみかん農家と畑の分布を追えるか
-  - 回収・加工の運送費・臭気対策は地域経済にどう影響するか
-sources:
-  - id: 1
-    title: 令和6年度養殖業体質強化緊急総合対策事業
-    publisher: 水産庁
-    url: https://www.jfa.maff.go.jp/j/gyosei/supply/hozyo/12161216_se06.html
-  - id: 2
-    title: 産廃事業
-    publisher: 金井食品株式会社
-    url: https://www.kanaishokuhin.jp/%E7%94%A3%E5%BB%83%E4%BA%8B%E6%A5%AD-1/
-  - id: 3
-    title: 八幡浜蒲鉾協同組合 循環資源交換情報
-    publisher: 愛媛県
-    url: https://www.pref.ehime.jp/page/9475.html
-  - id: 4
-    title: 有限会社上田産業 循環資源交換情報
-    publisher: 愛媛県
-    url: https://www.pref.ehime.jp/page/9526.html
-  - id: 5
-    title: 愛媛県南予地域：愛媛・南予の柑橘農業システム
-    publisher: 農林水産省
-    url: https://www.maff.go.jp/j/nousin/kantai/giahs_3_231.html
-migration:
-  status: generated-copy
-  publicUrl: /book/fish-waste-to-feed-and-citrus/
+slug: "fish-waste-to-feed-and-citrus"
+part: "捨てずに循環させる取り組み"
+title: "魚のアラが、養殖魚とみかんを育てる"
+subtitle: "八幡浜の港から、もう一度海へ、そしてみかんの山へ"
+cities: ["八幡浜","松山","西予","愛媛"]
+keywords: ["サーキュラーエコノミー","魚残渣","魚粉","魚肥","みかん","八幡浜","松山","飼料","肥料"]
+heroPhotoId: "photo-karihama-citrus-terraces"
+lead: "八幡浜の港から山を見上げると、斜面にみかん畑が重なっている。下では魚が水揚げされ、上では果実が育つ。海に山が迫るこの土地で、二つの仕事はすぐ近くにある。けれど、隣り合っているだけではない。魚をさばいたあとに残る骨や内臓が、あるときは次の魚の餌になり、あるときはみかんを育てる肥料になる。港から山へ、目には見えないもう一本の道が延びている。"
+provisionalConclusion: "八幡浜では魚の加工残渣を発酵させてみかん等の肥料へと変える仕組みが記録されている。県内には魚用飼料に加工する別の取り組みもある。循環を実現するのは、自然の近さだけでなく、回収と加工を担う人々の仕事である。"
+openQuestions: ["八幡浜蒲鉾協同組合の魚肥事業は現在どの程度稼働しているか","八幡浜・西予の魚肥を使うみかん農家と畑の分布を追えるか","回収・加工の運送費・臭気対策は地域経済にどう影響するか"]
+sources: [{"id":1,"title":"令和6年度養殖業体質強化緊急総合対策事業","publisher":"水産庁","url":"https://www.jfa.maff.go.jp/j/gyosei/supply/hozyo/12161216_se06.html"},{"id":2,"title":"産廃事業","publisher":"金井食品株式会社","url":"https://www.kanaishokuhin.jp/%E7%94%A3%E5%BB%83%E4%BA%8B%E6%A5%AD-1/"},{"id":3,"title":"八幡浜蒲鉾協同組合 循環資源交換情報","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/9475.html"},{"id":4,"title":"有限会社上田産業 循環資源交換情報","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/9526.html"},{"id":5,"title":"愛媛県南予地域：愛媛・南予の柑橘農業システム","publisher":"農林水産省","url":"https://www.maff.go.jp/j/nousin/kantai/giahs_3_231.html"}]
+migration: {"status":"generated-copy","publicUrl":"/book/fish-waste-to-feed-and-citrus/"}
 ---
 ## 海を背に、みかんの山を見上げる
 
@@ -73,7 +35,3 @@ migration:
 骨や内臓は、港に置いておけば自然に肥料や飼料になるわけではない。集める人がいて、運ぶ人がいて、腐敗や臭いを抑えながら加工する人がいる。水分を調整し、発酵させ、乾燥させる。そうした地道な仕事があって初めて、扱いにくい残りものは別の生業に渡せる材料になる。 [2](#source-2) [3](#source-3) [4](#source-4)
 
 どの工場のアラがどの畑や養殖場へ届くのか、公開資料だけでは一つひとつ追い切れない。県の事業者紹介にも古い記載があり、現在の稼働量まで分かるわけではない。ただ、海と山のあいだで魚の行き先をつくってきた仕事は確かに記録されている。八幡浜でみかんの段々畑を見上げるとき、その向こうに広がる海だけでなく、港から畑へ続く見えない道にも思いを巡らせたくなる。 [2](#source-2) [3](#source-3) [4](#source-4) [5](#source-5)
-
-
-
-視覚編集テスト
