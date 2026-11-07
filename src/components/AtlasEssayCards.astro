@@ -1,0 +1,25 @@
+---
+// Reusable regional essay cards. Data and photography are supplied by each site,
+// not fetched from any other region. Empty collections have a readable state.
+const { stories = [], emptyMessage = 'エッセイは準備中です。' } = Astro.props;
+---
+{stories.length > 0 ? (
+  <div class="reader-essay-grid">
+    {stories.map((story)=>(
+      <a class="reader-essay-card" href={story.href}>
+        {story.imageUrl && <img src={story.imageUrl} alt={story.alt || story.title} loading="lazy" />}
+        <div>
+          <span>{story.region || ''}</span>
+          <h3>{story.title}</h3>
+          <p>{story.teaser || ''}</p>
+          <strong>読む →</strong>
+        </div>
+      </a>
+    ))}
+  </div>
+) : (
+  <p class="atlas-essay-empty">{emptyMessage}</p>
+)}
+<style>
+  .atlas-essay-empty{padding:24px 28px;border:1px solid #dfe6dc;border-radius:14px;background:#fff;line-height:1.9;color:#61756a}
+</style>
