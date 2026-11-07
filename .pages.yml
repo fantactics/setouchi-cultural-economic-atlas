@@ -57,6 +57,95 @@ content:
         options:
           format: markdown
 
+  # These three simple essays have no HTML footnotes; visual editor trial only.
+  - name: wysiwyg-chichibugahama-sky-in-tide
+    label: 視覚編集テスト｜父母ヶ浜
+    type: file
+    path: src/content/essays/chichibugahama-sky-in-tide.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文（視覚編集）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-ogushi-theatron-sea-as-stage
+    label: 視覚編集テスト｜大串半島
+    type: file
+    path: src/content/essays/ogushi-theatron-sea-as-stage.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文（視覚編集）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-tatsuno-water-castle-and-soy-sauce
+    label: 視覚編集テスト｜龍野
+    type: file
+    path: src/content/essays/tatsuno-water-castle-and-soy-sauce.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文（視覚編集）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+
 # Crucial: preserve existing frontmatter (sources, photo metadata, research links,
 # migration status and other fields) not exposed in this initial editor.
 settings:
