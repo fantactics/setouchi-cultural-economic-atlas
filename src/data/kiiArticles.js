@@ -189,11 +189,14 @@ export const kiiArticles = [
   {
     "slug": "arida-mikan-climbs-the-hillside",
     "title": "みかん畑は、なぜ山を登ったのか",
-    "teaser": "有田川の向こう、山肌に不揃いな緑の模様が広がる。急な斜面を畑に変えた人々の知恵は、流通の仕組みにまでつながっていた。",
+    "teaser": "有田川の両岸、みかんの畑が山を登っている。平地の少なさを引き受け、石を積んで日なたを耕してきた人々の400年をたどる。",
     "region": "有田・有田川流域",
     "category": "農業景観",
     "tags": [
-      "山地"
+      "急斜面",
+      "平地の少なさ",
+      "日照",
+      "水はけ"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2022/05/279711722_405172511411334_8156135131445673413_n.jpg?ssl=1&w=775",
     "alt": "有田川を挟んで望む、山腹の斜面に不揃いな緑の模様を描くみかんの段々畑",
@@ -241,16 +244,36 @@ export const kiiArticles = [
     ],
     "sources": [
       {
-        "label": "原研究ノート｜斜面がすごいことになってる 有田町だんだんミカン畑の山アート（クアトロのジオ紀行）",
+        "label": "原研究ノート｜有田町だんだんミカン畑の山アート",
         "url": "https://quageo.kyotrad.com/?p=775"
       },
       {
-        "label": "有田・下津地域の石積み階段園みかんシステム｜農林水産省",
+        "label": "農林水産省｜有田・下津地域石積み階段園みかんシステム",
         "url": "https://www.maff.go.jp/j/nousin/kantai/giahs_arida_shimotsu.html"
       },
       {
-        "label": "有田・下津地域の世界農業遺産認定｜農林水産省（2025年8月27日）",
+        "label": "農林水産省｜2025年世界農業遺産認定",
         "url": "https://www.maff.go.jp/j/press/nousin/kantai/250827.html"
+      },
+      {
+        "label": "農業遺産資料｜陽地・陰地と石積み技術",
+        "url": "https://www.maff.go.jp/j/nousin/kantai/attach/pdf/giahs_3_arida-1.pdf"
+      },
+      {
+        "label": "農業遺産資料｜山頂の雑木林と川の役割",
+        "url": "https://www.maff.go.jp/j/nousin/kantai/attach/pdf/giahs_3_arida-6.pdf"
+      },
+      {
+        "label": "和歌山県研究｜有田みかん産地の表層地質と土壌保水性",
+        "url": "https://www.pref.wakayama.lg.jp/prefg/070100/070109/kanko/3_1_3_11_kenpo_senter11_d/fil/11_kenhou_05.pdf"
+      },
+      {
+        "label": "和歌山県｜みかんのテロワール",
+        "url": "https://www.pref.wakayama.lg.jp/prefg/071700/kokunai/brandshien/R2/d00205865.html"
+      },
+      {
+        "label": "有田川町｜景観の成立と山地・平地のみかん畑",
+        "url": "https://www.town.aridagawa.lg.jp/material/files/group/30/1_1_outline.pdf"
       }
     ]
   },
