@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AtlasEssayCards from '../../components/AtlasEssayCards.astro';
+import { kiiArticles } from '../../data/kiiArticles.js';
 import { atlasSites } from '../../config/atlasSites.js';
 import '../../styles/reader-navigation.css';
 
 const site = atlasSites.kii;
+const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath}book/${article.slug}/` }));
 const themes = [
   { title: '山と森', detail: '紀伊山地の地形、雨、森林と人の暮らし。' },
   { title: '川と谷', detail: '急流と深い谷がつくる生業や道のかたち。' },
@@ -25,9 +28,10 @@ const themes = [
         <div>
           <p class="reader-eyebrow">EXPLORE KII</p>
           <h2 id="kii-essays-title">風景から、旅をはじめよう。</h2>
-          <p>エッセイは現在準備中です。自然条件を起点に、少しずつ公開していきます。</p>
+          <p>自然条件を起点に、少しずつエッセイを公開していきます。</p>
         </div>
       </div>
+      <AtlasEssayCards stories={stories} emptyMessage="最初のエッセイを準備中です。公開時にはここに掲載します。" />
       <div class="kii-topics">
         {themes.map((theme)=>(
           <article class="kii-topic">
