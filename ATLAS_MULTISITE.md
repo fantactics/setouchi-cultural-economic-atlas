@@ -13,7 +13,7 @@ Both SETOUCHI ATLAS and KII ATLAS live in this repository.
 - KII search is provided by `src/components/AtlasEssaySearch.astro`, scoped exclusively to `kiiArticles`. KII's natural-condition tag links prefill this search.
 - A shared content renderer is available in `src/components/AtlasEssayDetail.astro`, with KII routes at `src/pages/kii/book/[slug].astro`. No detail pages are generated until reviewed KII essays exist.
 - `scripts/check-kii-articles.mjs` enforces slug uniqueness, required sections, registered natural-condition tags and image credit requirements.
-- KII is accessible at `https://kii-atlas.pages.dev/`, but SEO launch remains separately gated (`indexable:false` and `noindex,follow`; shared sitemap excludes KII). Publishing essays on the site does not automatically submit them for search indexing.
+- KII is published at `https://kii-atlas.pages.dev/`, and its SEO indexing gate is enabled (`indexable:true`). Its standalone packaging outputs a KII-only `sitemap.xml` and crawlable `robots.txt`. The combined SETOUCHI sitemap continues to exclude KII routes.
 - `scripts/package-kii.mjs` turns `dist/kii/` plus the fingerprinted shared CSS/JS assets into a standalone site rooted at `dist-kii/`. It replaces KII preview links and canonicals without changing the SETOUCHI build output.
 - The validation workflow checks the isolated standalone KII bundle. Following merge, the existing main-branch deployment workflow uploads the KII bundle as a downloadable GitHub Actions artifact, while still deploying `dist/` to the original SETOUCHI GitHub Pages URL.
 - The bundle is deliberately **prelaunch** (`noindex`, `robots.txt: Disallow /`); setting a domain alone does NOT start public indexing. A later launch procedure must explicitly lift these protections after editorial review.
@@ -85,3 +85,9 @@ All three feature directly verified hero images from the owner's Quageo WordPres
 - `koyasan-mountain-top-basin-city`: original field notes `https://quageo.kyotrad.com/?p=2018` and `https://quageo.kyotrad.com/?p=2146`, original owner's valley-mist photo; plateau town, pilgrimage approaches and monastic settlement corroborated against Wakayama prefectural heritage and Forest Agency sources. The photo alone does not establish local fog frequency.
 
 KII articles now total nine; the new three are exposed through the essay directory, place browser, natural conditions and homepage's further-story selection. SEO noindex remains enabled until separate launch approval.
+
+## KII Search Console HTML verification
+
+- The uploaded Google HTML verification file is stored under `public/kii/google9c35f2435ae15949.html`, which Astro copies to `dist/kii/` and the KII packager places at the Cloudflare site root: `https://kii-atlas.pages.dev/google9c35f2435ae15949.html`.
+- The standalone package checks this verification file's exact content and emits `sitemap.xml` and permissive `robots.txt`, all for the Cloudflare origin. The file is intentionally excluded from SETOUCHI's published `dist/` by the post-packaging GitHub Pages pruning step.
+- The actual Search Console property must still be verified through Google's UI; code deployment does not automatically click Verify or submit the sitemap. Once the URL serves the expected line, verify ownership and submit `https://kii-atlas.pages.dev/sitemap.xml`.
