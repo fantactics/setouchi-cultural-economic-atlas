@@ -267,6 +267,297 @@ content:
           switcher: true
           media: false
 
+  # Batch-normalized HTML-free essays; safety-audited in GitHub Actions.
+  - name: wysiwyg-ai-era-regional-planning-learning-velocity
+    label: 視覚編集｜AI時代の地域計画
+    type: file
+    path: src/content/essays/ai-era-regional-planning-learning-velocity.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-kojima-island-bubble-villas-second-life
+    label: 視覚編集｜鴻島の別荘
+    type: file
+    path: src/content/essays/kojima-island-bubble-villas-second-life.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-kojima-island-cycling-without-consumption
+    label: 視覚編集｜鴻島のサイクル観光
+    type: file
+    path: src/content/essays/kojima-island-cycling-without-consumption.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-kojima-island-infrastructure-per-capita
+    label: 視覚編集｜鴻島のインフラ
+    type: file
+    path: src/content/essays/kojima-island-infrastructure-per-capita.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-niboshi-shirasu-two-food-cultures
+    label: 視覚編集｜しらすといりこ
+    type: file
+    path: src/content/essays/niboshi-shirasu-two-food-cultures.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-sawara-spring-two-gates
+    label: 視覚編集｜瀬戸内のサワラ
+    type: file
+    path: src/content/essays/sawara-spring-two-gates.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-setouchi-itinerant-trade-boats
+    label: 視覚編集｜瀬戸内の行商船
+    type: file
+    path: src/content/essays/setouchi-itinerant-trade-boats.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-setouchi-ship-materials
+    label: 視覚編集｜伊予灘の木造船
+    type: file
+    path: src/content/essays/setouchi-ship-materials.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-setouchi-shrimp-middle-layer
+    label: 視覚編集｜讃岐の小エビ
+    type: file
+    path: src/content/essays/setouchi-shrimp-middle-layer.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+  - name: wysiwyg-tatara-bridge-citrus-seasons
+    label: 視覚編集｜多々羅大橋の柑橘
+    type: file
+    path: src/content/essays/tatara-bridge-citrus-seasons.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
 # Crucial: preserve existing frontmatter (sources, photo metadata, research links,
 # migration status and other fields) not exposed in this initial editor.
 settings:
