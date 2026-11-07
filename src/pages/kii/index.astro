@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { atlasSites } from '../../config/atlasSites.js';
+import '../../styles/reader-navigation.css';
+
+const site = atlasSites.kii;
+const themes = [
+  { title: '山と森', detail: '紀伊山地の地形、雨、森林と人の暮らし。' },
+  { title: '川と谷', detail: '急流と深い谷がつくる生業や道のかたち。' },
+  { title: '海と港', detail: '熊野灘、紀伊水道の海と沿岸の町。' },
+  { title: '信仰と道', detail: '山を越え、祈りをつなぐ道と集落。' }
+];
+---
+<BaseLayout siteKey="kii" title={site.name} description={site.description} image={null} imageAlt="">
+  <div class="reader-home kii-home">
+    <section class="reader-home-intro">
+      <p class="reader-eyebrow">STORIES FROM THE KII PENINSULA</p>
+      <h1>山があり、雨が降る。<br />そこから、物語が始まる。</h1>
+      <p class="reader-home-subtitle">風景の理由をたどる、紀伊半島の旅。</p>
+      <p class="reader-home-lead">峰を越える道、谷あいの集落、海に向かう川。<br />紀伊半島の自然を入口に、人々の選択と土地の文化を見つめていきます。</p>
+    </section>
+
+    <section id="essays" class="reader-home-section" aria-labelledby="kii-essays-title">
+      <div class="reader-section-heading">
+        <div>
+          <p class="reader-eyebrow">EXPLORE KII</p>
+          <h2 id="kii-essays-title">風景から、旅をはじめよう。</h2>
+          <p>エッセイは現在準備中です。自然条件を起点に、少しずつ公開していきます。</p>
+        </div>
+      </div>
+      <div class="kii-topics">
+        {themes.map((theme)=>(
+          <article class="kii-topic">
+            <h3>{theme.title}</h3>
+            <p>{theme.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="about-kii" class="reader-home-section kii-about" aria-labelledby="kii-about-title">
+      <p class="reader-eyebrow">ABOUT THIS ATLAS</p>
+      <h2 id="kii-about-title">風景の向こうにある理由。</h2>
+      <p>このサイトは、地名や名所を並べる案内書ではありません。土地の気候や地形、生態系と、人々が生み出してきた生業や文化のつながりを、旅する人の視点からたどるエッセイ集です。</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .kii-home{--forest:#355d49;--forest-soft:#e9f0e7}
+  .kii-home .reader-home-intro h1{color:#2b4938}
+  .kii-home .reader-home-subtitle,.kii-home .reader-eyebrow{color:#52745c}
+  .kii-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .kii-topic{background:#fff;border:1px solid #dfe6dc;border-radius:16px;padding:clamp(22px,3vw,38px);min-height:170px}
+  .kii-topic h3{font-family:var(--book-serif,serif);font-size:clamp(1.45rem,2.5vw,2rem);font-weight:500;margin:0 0 12px;color:#355d49}
+  .kii-topic p{margin:0;color:#61756a;line-height:1.85}
+  .kii-about{padding:36px;border-radius:18px;background:var(--forest-soft);max-width:900px}
+  .kii-about h2{font-family:var(--book-serif,serif);font-weight:500;font-size:clamp(1.8rem,3vw,2.7rem)}
+  .kii-about>p:last-child{line-height:2;max-width:680px}
+  :global(body.atlas-theme-forest){--sea:#355d49;--paper:#f8f8f3}
+  @media(max-width:640px){.kii-topics{grid-template-columns:1fr}.kii-about{padding:24px}}
+</style>
