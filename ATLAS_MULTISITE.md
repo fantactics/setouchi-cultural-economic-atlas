@@ -43,3 +43,20 @@ node scripts/package-kii.mjs
 - A chosen HTTPS root origin can be supplied as `KII_PUBLIC_ORIGIN`, with explicit `KII_LAUNCH_APPROVED=1` required before packaging. This changes the canonical target only; it does not automatically publish, approve articles, or lift noindex/robots restrictions.
 - Do not point KII's domain at the existing SETOUCHI GitHub Pages source without configuring independent hosting: GitHub Pages grants one Pages site per repository.
 - Keep SETOUCHI canonical paths and build intact. Never alter the default `main` deployment destination merely to launch KII.
+
+## A single source repository, two hosted websites
+
+**Recommended hosting for the second site:** connect a *separate Cloudflare Pages project* to the SAME GitHub repository. This keeps only one source repository; Cloudflare Pages automatically builds and deploys KII when changes reach `main`. The existing GitHub Pages destination stays exclusively SETOUCHI. No second GitHub repository is needed.
+
+Cloudflare Pages setup:
+1. Create a new Pages project, connect the GitHub repository `fantactics/setouchi-cultural-economic-atlas`, select `main`.
+2. Set the root directory to the repository root, not `src/pages/kii`.
+3. Set build command to `npm ci && npm run build && node scripts/package-kii.mjs`.
+4. Set output directory to `dist-kii`, and environment Node version to `24`.
+5. During *prelaunch*, do **not** set `KII_PUBLIC_ORIGIN`: the build stays noindex, disallowed by robots, with placeholder canonical host `https://preview.invalid`. This is a technical testing state, not public publication.
+6. After the hosting origin is known and articles have passed editorial review, set `KII_PUBLIC_ORIGIN` to the actual HTTPS origin and `KII_LAUNCH_APPROVED=1`. Rebuild and verify canonical/OG routes. These variables intentionally **do not** remove noindex or robots.txt restrictions; public indexing requires a separate explicit SEO launch change.
+7. Only after confirming real articles, photography rights, page URLs, search and sitemap on the chosen domain, lift the noindex/robots safeguards and request indexing in Search Console.
+
+**Important:** The Cloudflare project is *not configured* by this PR and no credentials/domain are known. Creating or configuring it requires authorization and connection to the Cloudflare account.
+
+For code review without separate hosting, the PR validation workflow uploads `kii-atlas-pr-preview` from `dist-kii/`. Download from the GitHub Actions run artifacts. It is a static, root-relative bundle: serve at the site root when inspecting locally rather than opening `index.html` directly from a local file URL.
