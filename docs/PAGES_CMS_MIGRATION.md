@@ -41,3 +41,14 @@
 - JavaScriptからMarkdownへ移行していない記事は従来の情報を使用する。
 - 本文、写真ギャラリー、本文脚注、記事URLはこの変更の対象外。
 - GitHub Actionsの検証完了後にマージ可否を判断。
+
+## Markdown原稿の網羅状況（2026-11-07）
+- GitHubのリポジトリツリーを再調査し、作業前は `src/content/essays/` にMarkdownが57ファイルあることを確認。
+- `src/data/quageoSetouchiEssays.js` から次の3本をMarkdownへ転記：
+  - `chichibugahama-sky-in-tide.md`
+  - `ogushi-theatron-sea-as-stage.md`
+  - `tatsuno-water-castle-and-soy-sauce.md`
+- 作業ブランチでは合計60本。3記事は見出し・段落本文を移した。heroPhotoやoriginalPhotoSequenceは引き続き既存JavaScriptのメタデータを参照するため、写真は削除せず維持する。
+- 追加後の GitHub Actions（Validate ATLAS sites / Editorial PR validation）両方成功。
+- まだMarkdown化されていない記事は残る。特に `farmland-or-solar`, `after-the-solar-farm` や旧研究版の記事の取り扱いを区別して整理すること。
+- CMSのソース編集で本文中のHTML脚注を保持できるかは、修正後の実機保存テストを完了するまで未確認。
