@@ -25,8 +25,14 @@ jobs:
           test -f dist/index.html
           test -f dist/kii/index.html
           test -f dist-kii/index.html
+          test -f dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          test -f dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          test -f dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '神になった滝には、地質の理由がある' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          grep -q '白良浜の白い砂は、海を渡ってきた' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
+          grep -q 'みかん畑は、なぜ山を登ったのか' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           test -f dist-kii/robots.txt
-          grep -q 'https://preview.invalid/' dist-kii/index.html
+          grep -q 'https://kii-atlas.pages.dev/' dist-kii/index.html
           if grep -q 'https://fantactics.github.io/setouchi-cultural-economic-atlas/kii/' dist-kii/index.html; then echo 'Standalone KII canonical still points to SETOUCHI'; exit 1; fi
           grep -q 'SETOUCHI ATLAS' dist/index.html
           grep -q 'KII ATLAS' dist/kii/index.html
@@ -34,7 +40,9 @@ jobs:
           grep -q 'noindex,follow' dist/kii/index.html
           if grep -q 'noindex,follow' dist/index.html; then echo 'SETOUCHI must remain indexable'; exit 1; fi
           grep -q 'reader-essay-card' dist/index.html
-          grep -q '最初のエッセイを準備中です' dist/kii/index.html
+          grep -q '神になった滝には、地質の理由がある' dist/kii/index.html
+          grep -q '白良浜の白い砂は、海を渡ってきた' dist/kii/index.html
+          grep -q 'みかん畑は、なぜ山を登ったのか' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
           if grep -q 'rel="sitemap"' dist-kii/index.html; then echo 'Standalone KII references a foreign sitemap'; exit 1; fi
       - name: Upload KII standalone preview for review
