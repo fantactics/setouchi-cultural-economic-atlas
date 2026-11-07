@@ -35,13 +35,13 @@ export const atlasSites = {
     navigation: [
       { label: 'トップ', path: '' },
       { label: '一覧', path: 'book/' },
-      { label: '地域から', path: 'regions/' },
+      { label: '地名から', path: 'regions/' },
       { label: '自然条件から', path: 'nature/' }
     ],
     footer: [
       { label: 'トップ', path: '' },
       { label: 'エッセイ一覧', path: 'book/' },
-      { label: '地域から', path: 'regions/' },
+      { label: '地名から', path: 'regions/' },
       { label: '自然条件から', path: 'nature/' },
       { label: 'このサイトについて', path: '#about-kii' }
     ]
