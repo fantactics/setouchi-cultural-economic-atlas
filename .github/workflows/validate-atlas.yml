@@ -38,7 +38,15 @@ jobs:
           test -f dist-kii/regions/index.html
           grep -q 'data-atlas-region-map' dist-kii/regions/index.html
           grep -q 'data-fit-markers="true"' dist-kii/regions/index.html
-          grep -q 'MAP / 9 STORIES' dist-kii/regions/index.html
+          grep -q 'MAP / 9 PLACES' dist-kii/regions/index.html
+          grep -q 'kii-places-cover-grid' dist-kii/regions/index.html
+          grep -q 'LET.S GO, KII' dist-kii/regions/index.html
+          grep -q 'kii-places-side-photos' dist-kii/regions/index.html
+          grep -q 'kii-places-cards' dist-kii/regions/index.html
+          grep -q '紀北と有田' dist-kii/regions/index.html
+          grep -q '南紀の海' dist-kii/regions/index.html
+          grep -q '熊野の山と川' dist-kii/regions/index.html
+          grep -q 'この場所の物語を読む' dist-kii/regions/index.html
           grep -q 'エッセイを読む' dist-kii/regions/index.html
           grep -q 'nachi-waterfall-where-rock-meets-faith' dist-kii/regions/index.html
           grep -q 'shirarahama-white-sand-across-the-sea' dist-kii/regions/index.html

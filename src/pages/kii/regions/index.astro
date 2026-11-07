@@ -46,44 +46,167 @@ const mapPins=destinations.map((d)=>{
 });
 const listed=new Set(destinations.flatMap(d=>d.stories.map(a=>a.slug)));
 if(kiiArticles.some(a=>!listed.has(a.slug)))throw Error('KII region directory is missing an essay');
+const bySlug=Object.fromEntries(destinations.map(d=>[d.stories[0].slug,d]));
+const destinationGroups=[
+  {title:'紀北と有田',note:'山と海辺を行き来する',slugs:[
+    'saikazaki-blue-green-stone-garden',
+    'arida-mikan-climbs-the-hillside',
+    'koyasan-mountain-top-basin-city'
+  ]},
+  {title:'南紀の海',note:'白砂から岩の海岸へ',slugs:[
+    'shirarahama-white-sand-across-the-sea',
+    'hashiguiiwa-rocks-sunrise-and-legends',
+    'shichirimihama-pebbles-from-river-to-pilgrimage'
+  ]},
+  {title:'熊野の山と川',note:'川の流れと祈りの風景',slugs:[
+    'kawayu-hot-spring-river-as-a-bath',
+    'dorokyo-quiet-water-cutting-deep',
+    'nachi-waterfall-where-rock-meets-faith'
+  ]}
+].map(group=>({...group,items:group.slugs.map(slug=>bySlug[slug]).filter(Boolean)}));
+if(destinationGroups.flatMap(group=>group.items).length!==destinations.length) throw Error('KII places: every destination must have a card');
+const lead=bySlug['nachi-waterfall-where-rock-meets-faith'].stories[0];
+const sideStories=[
+  bySlug['shirarahama-white-sand-across-the-sea'].stories[0],
+  bySlug['arida-mikan-climbs-the-hillside'].stories[0]
+];
+
 ---
-<BaseLayout siteKey="kii" title="地名から" description="紀伊半島の地名からKII ATLASのエッセイを探す。">
-  <div class="reader-home kii-discovery">
-    <header class="kii-discovery-header"><p class="reader-eyebrow">PLACES & STORIES</p><h1>地名から</h1><p>行ったことのある町から、まだ知らない風景へ。地名を入口にエッセイをたどります。</p></header>
-    <div class="kii-destination-map" aria-label="紀伊半島のエッセイ地図">
+<BaseLayout siteKey="kii" title="地名から" description="山の寺町、川の温泉、海辺の白い浜。写真と地図から紀伊半島の風景をめぐるKII ATLASの地域ガイド。" image={lead.imageUrl} imageAlt={lead.alt}>
+  <main class="kii-places-page">
+    <section class="kii-places-cover" aria-labelledby="kii-places-cover-title">
+      <div class="kii-places-cover-grid">
+        <div class="kii-places-main-photo">
+          <img src={lead.imageUrl} alt={lead.alt||lead.title} fetchpriority="high" />
+          <div class="kii-places-cover-shade"></div>
+          <div class="kii-places-cover-copy">
+            <span class="kii-places-kicker">LET'S GO, KII! <span aria-hidden="true">✳</span></span>
+            <h1 id="kii-places-cover-title">次は、どの町へ？</h1>
+            <p class="kii-places-thesis">山の道も、海辺の町も。</p>
+            <p>気になる地名を見つけて、紀伊半島をひとめぐり。</p>
+            <a href="#kii-place-directory">まちと風景を見つける ↓</a>
+          </div>
+        </div>
+        <div class="kii-places-side-photos">
+          {sideStories.map(story=><a class="kii-places-side-photo" href={`${site.basePath}book/${story.slug}/`}>
+            <img src={story.imageUrl} alt={story.alt||story.title} loading="lazy" />
+            <span>{story.region.split('・')[0]} <b aria-hidden="true">↗</b></span>
+          </a>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="kii-places-directory" id="kii-place-directory" aria-labelledby="kii-directory-title">
+      <div class="kii-places-intro">
+        <div class="kii-places-eyebrow">PICK YOUR NEXT STOP <span aria-hidden="true">✦</span> / {destinations.length} PLACES</div>
+        <h2 id="kii-directory-title">地名から、旅に出よう。</h2>
+        <p>山も、川も、海も。まずは気になる写真をひとつ。</p>
+      </div>
+
+      {destinationGroups.map(group=><div class="kii-places-group">
+        <div class="kii-places-group-header"><h3>{group.title}</h3><span>{group.note}</span></div>
+        <div class="kii-places-cards">
+          {group.items.map(d=>{
+            const story=d.stories[0];
+            const loc=essayLocations[story.slug];
+            return <a class="kii-places-card" href={`${site.basePath}book/${story.slug}/`} id={`place-${story.slug}`}>
+              {story.imageUrl&&<div class="kii-places-card-photo"><img src={story.imageUrl} alt={story.alt||story.title} loading="lazy" /></div>}
+              <div class="kii-places-card-body">
+                <div class="kii-places-location">{loc.prefecture.split('・')[0]}</div>
+                <h4>{d.name}</h4>
+                <p>{d.description}</p>
+                <small class="kii-places-essay-title">{story.title}</small>
+                <span class="kii-places-read">この場所の物語を読む ↗</span>
+              </div>
+            </a>;
+          })}
+        </div>
+      </div>)}
+    </section>
+
+    <div class="kii-places-map" id="kii-places-map">
       <AtlasRegionMap
         places={mapPins}
         fitMarkers={true}
         headingLevel="h2"
-        kicker={`MAP / ${mapPins.length} STORIES`}
-        title="地図から、寄り道。"
-        description="那智の滝から高野山まで、紀伊半島の風景にピンを立てました。気になる場所を押すと、そこからエッセイへ飛べます。"
+        kicker={`MAP / ${mapPins.length} PLACES`}
+        title="地図で、寄り道。"
+        description="いま気になるのは、どの山？ どの海辺？ ピンを開けば、そこからまた物語が始まります。"
         actionHref="#kii-place-directory"
-        actionLabel="地名の一覧を見る ↓"
+        actionLabel="写真一覧に戻る ↑"
       />
     </div>
-    <nav class="kii-discovery-jumps" aria-label="地名で探す">
-      {destinations.map(d=><a href={`#place-${d.stories[0].slug}`}>{d.name}</a>)}
-    </nav>
-    <div class="kii-discovery-list" id="kii-place-directory">
-      {destinations.map(d=><section class="kii-discovery-section" id={`place-${d.stories[0].slug}`}>
-        <div class="kii-discovery-heading"><h2>{d.name}</h2><p>{d.description}</p></div>
-        <div class="kii-discovery-links">{d.stories.map(a=><a class="kii-discovery-link" href={`${site.basePath}book/${a.slug}/`}>
-          {a.imageUrl&&<img src={a.imageUrl} alt={a.alt||a.title} loading="lazy"/>}
-          <span><strong>{a.title}</strong><small>{a.teaser}</small></span><span class="kii-discovery-arrow" aria-hidden="true">↗</span>
-        </a>)}</div>
-      </section>)}
-    </div>
-  </div>
+  </main>
 </BaseLayout>
 <style>
-  .kii-destination-map{margin:20px 0 32px}
-  .kii-destination-map :global(.map-first-hero){border-radius:22px;overflow:hidden}
-  .kii-destination-map :global(.map-first-copy h2){font-family:inherit;font-weight:850;letter-spacing:-.035em}
-  .kii-destination-map :global(.home-atlas-map-canvas){min-height:380px}
-  @media(max-width:600px){
-    .kii-destination-map{margin:12px 0 24px}
-    .kii-destination-map :global(.map-first-hero){border-radius:16px}
-    .kii-destination-map :global(.home-atlas-map-canvas){min-height:330px}
+  .kii-places-page{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#294a40}
+  .kii-places-cover{max-width:1280px;margin:24px auto 0;padding:0 24px}
+  .kii-places-cover-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,.78fr);gap:14px;min-height:375px}
+  .kii-places-main-photo{position:relative;isolation:isolate;overflow:hidden;min-height:375px;border-radius:19px;background:#24564f;color:#fff}
+  .kii-places-main-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .kii-places-cover-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,28,30,.02) 10%,rgba(12,35,34,.2) 38%,rgba(13,37,35,.8) 100%)}
+  .kii-places-cover-copy{position:absolute;z-index:1;left:clamp(20px,3vw,43px);bottom:clamp(22px,3vw,38px);width:calc(100% - 60px);max-width:670px}
+  .kii-places-kicker{display:inline-block;padding:7px 12px;border-radius:99px;margin-bottom:15px;color:#6a3d2a;background:#ffe2cb;font-size:.72rem;font-weight:800;letter-spacing:.09em}
+  .kii-places-kicker span{color:#bc624a;font-size:1rem}
+  .kii-places-cover-copy h1{font-size:clamp(2rem,3.5vw,3.45rem);font-weight:800;letter-spacing:-.045em;line-height:1.24;margin:0;text-wrap:balance;color:#fff}
+  .kii-places-thesis{margin:12px 0 6px;font-size:clamp(1.04rem,1.7vw,1.32rem);font-weight:650;line-height:1.5}
+  .kii-places-cover-copy>p:not(.kii-places-thesis){font-size:.92rem;line-height:1.75;color:rgba(255,255,255,.94);margin:0}
+  .kii-places-cover-copy>a{display:inline-flex;align-items:center;padding:9px 16px;margin-top:18px;border:0;border-radius:99px;background:#f9d99f;color:#4b3b2c;font-weight:750;font-size:.86rem;text-decoration:none;transition:background .2s ease,transform .2s ease}
+  .kii-places-cover-copy>a:hover{background:#ffefcb;transform:translateY(-2px)}
+  .kii-places-side-photos{display:grid;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;min-height:0}
+  .kii-places-side-photo{position:relative;display:block;min-height:0;overflow:hidden;border-radius:17px;background:#d5e5dc;color:#fff;text-decoration:none}
+  .kii-places-side-photo>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .kii-places-side-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(15,42,39,.68));pointer-events:none}
+  .kii-places-side-photo span{position:absolute;z-index:1;bottom:13px;left:15px;font-size:1.03rem;font-weight:800}
+  .kii-places-side-photo b{font-size:.94rem;margin-left:5px}
+  .kii-places-side-photo:hover>img{transform:scale(1.035)}
+  .kii-places-directory{max-width:1220px;margin:0 auto;padding:clamp(35px,5vw,58px) 24px 0;scroll-margin-top:90px}
+  .kii-places-intro{margin-bottom:18px}
+  .kii-places-eyebrow{font-size:.77rem;color:#c46b4e;font-weight:850;letter-spacing:.085em}
+  .kii-places-intro h2{margin:8px 0;font-size:clamp(1.75rem,2.6vw,2.45rem);font-weight:800;letter-spacing:-.045em;line-height:1.3;color:#294a40}
+  .kii-places-intro p{font-size:.94rem;line-height:1.75;color:#586e67}
+  .kii-places-group{margin-top:34px}
+  .kii-places-group+.kii-places-group{margin-top:51px}
+  .kii-places-group-header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #d9e4dc;padding-bottom:12px;margin-bottom:18px}
+  .kii-places-group-header h3{margin:0;font-size:clamp(1.25rem,2vw,1.65rem);font-weight:800;letter-spacing:-.025em}
+  .kii-places-group-header h3:before{content:"✳";color:#e69b64;margin-right:9px}
+  .kii-places-group:nth-of-type(2) .kii-places-group-header h3:before{color:#86af9d}
+  .kii-places-group-header span{font-size:.78rem;color:#809287}
+  .kii-places-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .kii-places-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border-radius:17px;border:1px solid #e4e8df;background:#fffdfa;box-shadow:0 3px 12px rgba(28,67,54,.045);text-decoration:none;color:#294a40;transition:transform .2s ease,box-shadow .2s ease}
+  .kii-places-card:hover{transform:translateY(-4px);box-shadow:0 11px 24px rgba(28,67,54,.12)}
+  .kii-places-card-photo{width:100%;aspect-ratio:16/10;overflow:hidden;background:#dfe9df}
+  .kii-places-card-photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .kii-places-card-body{flex:1;display:flex;flex-direction:column;padding:17px 19px 18px}
+  .kii-places-location{font-size:.7rem;color:#ba7257}
+  .kii-places-card h4{margin:7px 0;font-size:clamp(1.24rem,1.7vw,1.55rem);font-weight:800;line-height:1.3;color:#294a40}
+  .kii-places-card-body p{margin:1px 0 12px;color:#586e67;font-size:.88rem;line-height:1.7}
+  .kii-places-essay-title{display:block;font-size:.81rem;color:#647d72;line-height:1.55;margin-bottom:15px}
+  .kii-places-read{align-self:flex-start;margin-top:auto;padding:6px 11px;border-radius:99px;background:#eaf4ee;color:#296b5d;font-size:.77rem;font-weight:800}
+  .kii-places-map{margin-top:70px}
+  .kii-places-map :global(.map-first-copy h2){font-family:inherit;font-weight:800;letter-spacing:-.035em}
+  .kii-places-main-photo a:focus-visible,.kii-places-side-photo:focus-visible,.kii-places-card:focus-visible{outline:3px solid #e4ab63;outline-offset:3px}
+  @media(max-width:950px){
+    .kii-places-cover-grid{grid-template-columns:1fr;gap:12px}
+    .kii-places-main-photo{min-height:385px}
+    .kii-places-side-photos{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;height:165px}
+  }
+  @media(max-width:800px){.kii-places-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:580px){
+    .kii-places-cover{margin-top:13px;padding:0 14px}
+    .kii-places-main-photo{min-height:365px;border-radius:15px}
+    .kii-places-cover-copy{left:19px;bottom:23px;width:calc(100% - 38px)}
+    .kii-places-cover-copy h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
+    .kii-places-cover-copy>p:not(.kii-places-thesis){font-size:.86rem}
+    .kii-places-side-photos{display:none}
+    .kii-places-directory{padding:32px 17px 0}
+    .kii-places-cards{grid-template-columns:1fr;gap:16px}
+    .kii-places-card-photo{aspect-ratio:16/9}
+    .kii-places-group+.kii-places-group{margin-top:42px}
+    .kii-places-map{margin-top:45px}
+    .kii-places-group-header{align-items:flex-start;flex-direction:column;gap:4px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .kii-places-cover-copy>a,.kii-places-side-photo>img,.kii-places-card{transition:none}
   }
 </style>
