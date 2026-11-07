@@ -74,6 +74,14 @@ jobs:
           grep -q 'みかん畑は、なぜ山を登ったのか' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
           if grep -q 'rel="sitemap"' dist-kii/index.html; then echo 'Standalone KII references a foreign sitemap'; exit 1; fi
+      - name: Validate SETOUCHI-only GitHub Pages publication
+        run: |
+          node scripts/prepare-setouchi-pages.mjs
+          test ! -e dist/kii
+          test -f dist/index.html
+          test -f dist/book/index.html
+          test -f dist-kii/index.html
+          test -f dist-kii/book/index.html
       - name: Upload KII standalone preview for review
         uses: actions/upload-artifact@v4
         with:
