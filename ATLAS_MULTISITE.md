@@ -68,3 +68,11 @@ For code review without separate hosting, the PR validation workflow uploads `ki
 - Arida: `arida-mikan-climbs-the-hillside` — source note URL `https://quageo.kyotrad.com/?p=775` could not be independently retrieved when drafted; factual checks use MAFF and Wakayama Prefecture background documents. The user-site photograph is NOT inserted until its actual image URL can be verified.
 
 User has authorized use of photos on the original quageo website. For future images, verify exact source and mark photography attribution. Original-website-hosted images are currently referenced via the owner's existing WordPress image CDN; a later migration can copy them into a managed local asset directory if needed for reliability.
+
+## KII second editorial set (2026-11)
+
+- `kawayu-hot-spring-river-as-a-bath`: riverbed hydrothermal water as a river-bathing landscape; original field note `https://quageo.kyotrad.com/?p=2095`.
+- `dorokyo-quiet-water-cutting-deep`: hard metamorphosed canyon rock, unusually deep/quiet pools and upstream rainfall; original field note `https://quageo.kyotrad.com/?p=2179`.
+- `shichirimihama-pebbles-from-river-to-pilgrimage`: river-supplied pebble beach, coastal drift and Kumano pilgrimage route; original field note `https://quageo.kyotrad.com/?p=2239`.
+
+All three feature directly verified hero images from the owner's Quageo WordPress image CDN. The Shichirimihama image includes a small toy dinosaur placed by the original photographer; its description/credit should not suggest it is wildlife. Keep source links and natural-condition tags checked via `scripts/check-kii-articles.mjs`. SEO noindex remains in effect pending explicit approval.
