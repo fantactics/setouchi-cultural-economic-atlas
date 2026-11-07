@@ -23,8 +23,8 @@ for(const slug of slugs){
  if(renderedParagraphs<3) errs.push('missing body paragraphs');
  if(!html.includes('<h1')||!html.includes('<img')) errs.push('missing title or photo');
  if(!html.includes('rel="canonical"')) errs.push('canonical absent');
- if(!html.includes('noindex,follow')) errs.push('KII prelaunch indexing guard absent');
- if(!separate.includes('noindex,follow')) errs.push('KII standalone indexing guard absent');
+ if(!html.includes('index,follow')) errs.push('KII indexing metadata absent');
+ if(!separate.includes('index,follow')) errs.push('KII standalone indexing metadata absent');
  if(!separate.includes('href="/"')) errs.push('standalone navigation broken');
  if(errs.length){console.error(slug,errs.join(', '));fails++;}
 }

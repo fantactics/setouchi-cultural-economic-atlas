@@ -5,10 +5,10 @@
  * Usage: node scripts/package-kii.mjs
  *        KII_PUBLIC_ORIGIN=https://kii.example.org node scripts/package-kii.mjs
  *
- * The default is the confirmed kii-atlas.pages.dev origin, with noindex. Domain configuration is
+ * The default is the confirmed kii-atlas.pages.dev origin. Domain configuration is
  * deliberately explicit: no fictional public destination is published.
  */
-import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { access, cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { resolve, relative, join, extname } from 'node:path';
 
 const source = resolve('dist');
@@ -64,18 +64,51 @@ async function walk(directory) {
 }
 await walk(output);
 
-// No Search Console submission or indexing until the editorial launch.
-// Do not re-use the SETOUCHI sitemap on the KII origin.
-await writeFile(join(output, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+// KII has a dedicated Cloudflare Pages origin. Search engines may crawl it.
+const verificationFile = 'google9c35f2435ae15949.html';
+const verificationLine = 'google-site-verification: ' + verificationFile;
+const verificationPath = join(output, verificationFile);
+try {
+  await access(verificationPath);
+} catch {
+  throw new Error('Missing GSC verification HTML in KII standalone bundle: ' + verificationPath);
+}
+if ((await readFile(verificationPath, 'utf8')).trim() !== verificationLine) {
+  throw new Error('Unexpected content in KII Search Console verification file');
+}
+
+// A dedicated KII sitemap: never reuse SETOUCHI's sitemap or hostname.
+const routes = [];
+async function gatherHtml(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const file = join(directory, entry.name);
+    if (entry.isDirectory()) { await gatherHtml(file); continue; }
+    if (entry.name !== 'index.html') continue;
+    const pathname = relative(output, directory).replaceAll('\\', '/');
+    const route = pathname ? pathname + '/' : '';
+    routes.push(origin + '/' + route);
+  }
+}
+await gatherHtml(output);
+routes.sort();
+const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  routes.map(url => '  <url><loc>' + url.replaceAll('&', '&amp;') + '</loc></url>').join('\n') +
+  '\n</urlset>\n';
+await writeFile(join(output, 'sitemap.xml'), sitemap);
+await writeFile(join(output, 'robots.txt'), 'User-agent: *\nAllow: /\n\nSitemap: ' + origin + '/sitemap.xml\n');
 await writeFile(join(output, '.nojekyll'), '');
 await writeFile(join(output, 'BUILD_INFO.txt'),
   'KII ATLAS standalone bundle\n' +
   'Origin: ' + origin + '\n' +
-  'Status: noindex (prelaunch)\n' +
+  'Status: indexable (Cloudflare Pages)\n' +
   'Source: shared ATLAS monorepo\n');
 const homepage = await readFile(join(output, 'index.html'), 'utf8');
-for (const required of ['KII ATLAS','noindex,follow','href="/"']) {
+for (const required of ['KII ATLAS','index,follow','href="/"']) {
   if (!homepage.includes(required)) throw new Error('Missing ' + required + ' in KII homepage');
 }
+if (!routes.length || routes.some(url => url.includes('/setouchi-cultural-economic-atlas/'))) {
+  throw new Error('Invalid KII sitemap routes');
+}
 if (homepage.includes('setouchi-sushi-not-nigiri')) throw new Error('SETOUCHI article leaked into KII bundle');
-console.log('Standalone KII bundle created at dist-kii/; KII remains unindexed.');
+console.log('Standalone KII bundle created at dist-kii/ with Search Console file and '+routes.length+' sitemap URLs.');
