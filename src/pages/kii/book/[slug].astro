@@ -11,5 +11,5 @@ const { article } = Astro.props;
 const site = atlasSites.kii;
 ---
 <BaseLayout siteKey="kii" title={article.title} description={article.teaser || site.description} image={article.imageUrl || null} imageAlt={article.alt || article.title}>
-  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" />
+  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" showCredits={false} showSources={false} />
 </BaseLayout>
