@@ -48,6 +48,8 @@ const index = stories.map(({ title, teaser, region, href, tags = [] })=>({
         results.append(link);
       }
     };
+    const preset = new URLSearchParams(window.location.search).get('q');
+    if (preset && !input.disabled) { input.value = preset; render(); }
     input.addEventListener('input', render);
   });
 </script>
