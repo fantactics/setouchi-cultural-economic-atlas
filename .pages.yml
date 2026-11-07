@@ -1,0 +1,39 @@
+# Pages CMS for SETOUCHI ATLAS
+# Stage 1: edit existing Markdown essays only.
+media:
+  input: public/images/essays
+  output: /setouchi-cultural-economic-atlas/images/essays
+  rename: safe
+  categories: [image]
+
+content:
+  - name: essays
+    label: エッセイ（Markdown）
+    type: collection
+    path: src/content/essays
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title, subtitle]
+    fields:
+      - name: title
+        label: タイトル
+        type: string
+        required: true
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
