@@ -1,0 +1,26 @@
+name: Validate ATLAS sites
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install
+      - run: npm run build
+      - name: Check generated SETOUCHI and KII entry points
+        run: |
+          test -f dist/index.html
+          test -f dist/kii/index.html
+          grep -q 'SETOUCHI ATLAS' dist/index.html
+          grep -q 'KII ATLAS' dist/kii/index.html
