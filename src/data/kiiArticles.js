@@ -131,7 +131,7 @@ export const kiiArticles = [
     "category": "農業景観",
     "tags": [
       "山地",
-      "多雨"
+      "少雨"
     ],
     "imageUrl": "",
     "alt": "",
