@@ -12,6 +12,7 @@ Both SETOUCHI ATLAS and KII ATLAS live in this repository.
 - KII search is provided by `src/components/AtlasEssaySearch.astro`, scoped exclusively to `kiiArticles`. KII's natural-condition tag links prefill this search.
 - A shared content renderer is available in `src/components/AtlasEssayDetail.astro`, with KII routes at `src/pages/kii/book/[slug].astro`. No detail pages are generated until reviewed KII essays exist.
 - `scripts/check-kii-articles.mjs` enforces slug uniqueness, required sections, registered natural-condition tags and image credit requirements.
+- KII is a pre-launch prototype (`indexable:false`), emits `noindex,follow`, and is excluded from the shared sitemap until real essays and its production destination are ready.
 - The PR build validates both entry points. No live changes should occur until review and merge.
 - The previous general editorial workflow fails on a SETOUCHI copy assertion; this is a distinct check from the ATLAS builds and must be reconciled before merge.
 
