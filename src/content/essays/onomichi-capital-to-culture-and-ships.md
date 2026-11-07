@@ -11,18 +11,31 @@ provisionalConclusion: "尾道の寺の屋根には港の商業で生まれた�
 openQuestions: ["近世豪商の資本が近代金融・海運へどこまで人的・家系的に接続したか","向島・因島の造船発展と旧尾道商都の金融機能の関係を企業史で追えるか","寺社寄進額や商家資産を時系列で可視化できるか"]
 sources: [{"id":1,"title":"尾道市の概要","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/soshiki/2/2977.html"},{"id":2,"title":"造船業をはじめ海事機能が集積する尾道市","publisher":"尾道市 海事都市尾道推進協議会","url":"https://www.city.onomichi.hiroshima.jp/kaijitoshi/development/prologue.html"},{"id":3,"title":"海に寄り添う町・尾道の歴史","publisher":"尾道市 海事都市尾道推進協議会","url":"https://www.city.onomichi.hiroshima.jp/kaijitoshi/history/index.html"},{"id":4,"title":"港町の成立と発展","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/uploaded/attachment/4686.pdf"},{"id":5,"title":"近代商業都市尾道の寺社祭礼行事にみる歴史的風致","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/uploaded/attachment/33514.pdf"},{"id":6,"title":"近代 造船のまち尾道","publisher":"尾道市 海事都市尾道推進協議会","url":"https://www.city.onomichi.hiroshima.jp/kaijitoshi/history/h05.pdf"}]
 migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-culture-and-ships/"}
+editorialPhotoPlacements:
+  - afterHeading: "坂を上がると、港が見える"
+    afterParagraph: 2
+    photoIds: ["photo-onomichi-panorama","photo-onomichi-ferry"]
+  - afterHeading: "水道の向こうに、別の仕事が育つ"
+    afterParagraph: 3
+    photoIds: ["photo-onomichi-channel-dock"]
+  - afterHeading: "同じ景色に見えて、資本の系譜は違う"
+    afterParagraph: 3
+    photoIds: ["photo-onomichi-panorama","photo-onomichi-channel-dock"]
+  - afterHeading: "寺の屋根越しに、船をつくる"
+    afterParagraph: 3
+    photoIds: ["photo-onomichi-panorama","photo-onomichi-ferry","photo-onomichi-channel-dock"]
 ---
 ## 坂を上がると、港が見える
 
-尾道は、山が海へ迫り、向島との間に細い尾道水道が通る。広い平地が乏しいため、港、商家、寺社、住宅、交通が狭い帯状の空間に重なった。尾道市は、1169年に備後大田荘の年貢米積出港として文書に現れて以降、対明貿易船や北前船、内海航行船の寄港地として発展したと整理している。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+尾道は、山が海へ迫り、向島との間に細い尾道水道が通る。広い平地が乏しいため、港、商家、寺社、住宅、交通が狭い帯状の空間に重なった。尾道市は、1169年に備後大田荘の年貢米積出港として文書に現れて以降、対明貿易船や北前船、内海航行船の寄港地として発展したと整理している。 [1](#source-1)
 
 つまり尾道では、港が町の外側にあるのではない。船着場のすぐ後ろに商家があり、その背後の斜面に寺社があり、さらに坂を上れば住宅がある。海上交通が増えるほど、その利益や人の動きが都市空間へ直接入り込む地形だった。
 
-<!-- photoIds: photo-onomichi-panorama, photo-onomichi-ferry -->
+
 
 ## 富は海辺だけに残らなかった
 
-尾道市は、港町・商都としての発展が豪商を生み、その富が神社仏閣への寄進や造営へ向かったと説明している。中世から近世にかけて、商人の寄進によって寺院が維持・整備された事例も確認できる。<sup class="book-footnotes"><a href="#source-1">[1]</a><a href="#source-4">[4]</a></sup>
+尾道市は、港町・商都としての発展が豪商を生み、その富が神社仏閣への寄進や造営へ向かったと説明している。中世から近世にかけて、商人の寄進によって寺院が維持・整備された事例も確認できる。 [1](#source-1) [4](#source-4)
 
 ここで面白いのは、交易利益が再び船や倉庫にだけ投資されたわけではないことだ。富は寺社、町家、庭園、公共的な施設へ固定され、都市景観の一部になった。海で稼いだ富が、山側の寺院景観へ姿を変えたのである。
 
@@ -30,19 +43,19 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 ## 港の信用が、町の建物になる
 
-近代になると、尾道は県内有数の商業都市へ成長し、銀行、商業会議所、旅館、鉄道など新しい都市機能が水際へ加わった。歴史的風致計画には、こうした近代商業都市の建築と機能が港周辺へ集積したことが記録されている。<sup class="book-footnotes"><a href="#source-5">[5]</a></sup>
+近代になると、尾道は県内有数の商業都市へ成長し、銀行、商業会議所、旅館、鉄道など新しい都市機能が水際へ加わった。歴史的風致計画には、こうした近代商業都市の建築と機能が港周辺へ集積したことが記録されている。 [5](#source-5)
 
 交易で培ったのは、商品を売買する力だけではない。信用、決済、情報、人脈を束ねる力も町に残る。海運の時代から鉄道の時代へ移っても、尾道が「人と物と信用が集まる場所」であり続けられたのは、その商業機能が別の制度へ組み替えられたからだと考えられる。
 
 ## 水道の向こうに、別の仕事が育つ
 
-因島土生では1896年、地元有志が土生船渠を設立し、近代的な船の修繕・建造へ踏み出した。ところが順調に成長し続けたわけではない。日露戦争期の好況のあと不況となり、1908年には因島船渠が工場を閉鎖した。海に船があるからといって、造船業の経営が安定するわけではなかった。<sup class="book-footnotes"><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-6">[6]</a></sup>
+因島土生では1896年、地元有志が土生船渠を設立し、近代的な船の修繕・建造へ踏み出した。ところが順調に成長し続けたわけではない。日露戦争期の好況のあと不況となり、1908年には因島船渠が工場を閉鎖した。海に船があるからといって、造船業の経営が安定するわけではなかった。 [2](#source-2) [3](#source-3) [6](#source-6)
 
 1911年には大阪鉄工所が因島船渠を買収し、因島での造船事業を引き継いだ。地元の人々が始めた事業を、のちに外から来た企業が担う。造船所という場所が残っても、経営主体まで同じとは限らない。
 
-尾道の港には廻船や商売があり、島々には船をつくり直す仕事があった。しかし尾道の豪商の資本が、そのまま因島の船渠へ流れたと断定する資料は確認できない。海を介して隣り合っていても、寺社を支えた人々と造船業を興した人々の経緯は、別々に追う必要がある。<sup class="book-footnotes"><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-6">[6]</a></sup>
+尾道の港には廻船や商売があり、島々には船をつくり直す仕事があった。しかし尾道の豪商の資本が、そのまま因島の船渠へ流れたと断定する資料は確認できない。海を介して隣り合っていても、寺社を支えた人々と造船業を興した人々の経緯は、別々に追う必要がある。 [2](#source-2) [3](#source-3) [6](#source-6)
 
-<!-- photoIds: photo-onomichi-channel-dock -->
+
 
 ## 同じ景色に見えて、資本の系譜は違う
 
@@ -52,7 +65,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 その重なりを見られることこそ、尾道の特徴だ。別々の歴史を無理に一本に結ばなくても、一つの眺めが複数の仕事の時間を含んでいる。
 
-<!-- photoIds: photo-onomichi-panorama, photo-onomichi-channel-dock -->
+
 
 ## 寺の屋根越しに、船をつくる
 
@@ -62,4 +75,4 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 坂道の寺から水道を見下ろすと、船のいる海と対岸の工場が視界に入る。何世紀も離れた仕事を、一つの眺めの中で読むことができる。だが、その間に一本の線を引くには、まだ調べるべきことがある。
 
-<!-- photoIds: photo-onomichi-panorama, photo-onomichi-ferry, photo-onomichi-channel-dock -->
+
