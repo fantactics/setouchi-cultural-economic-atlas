@@ -31,7 +31,7 @@ export const atlasSites = {
     // A dedicated public origin can be introduced later without moving article data.
     basePath: '/setouchi-cultural-economic-atlas/kii/',
     theme: 'forest',
-    indexable: false, // Keep the empty KII prototype out of search indexes until editorial launch.
+    indexable: true, // KII is published at kii-atlas.pages.dev; allow Google indexing.
     navigation: [
       { label: 'トップ', path: '' },
       { label: '一覧', path: 'book/' },
