@@ -4,8 +4,8 @@
 export const kiiArticles = [
   {
     "slug": "nachi-waterfall-where-rock-meets-faith",
-    "title": "神になった滝には、地質の理由がある",
-    "teaser": "鳥居の向こうに社殿はなく、滝がある。なぜ人は、流れ落ちる水そのものを神として拝んできたのだろう。",
+    "title": "鳥居の向こうに、社殿はなかった",
+    "teaser": "滝の場所を決めた二種類の岩。人はそこに神を見いだし、黒い石を土産にした。那智の風景を石から読み解く。",
     "region": "那智勝浦・那智山",
     "category": "信仰景観",
     "tags": [
@@ -54,12 +54,36 @@ export const kiiArticles = [
         "url": "https://quageo.kyotrad.com/?p=2183"
       },
       {
-        "label": "南紀熊野ジオパーク｜日本ジオパークネットワーク（那智の滝の地質）",
+        "label": "南紀熊野ジオパーク｜大地の成り立ち",
+        "url": "https://nankikumanogeo.jp/geo_theme/earth/"
+      },
+      {
+        "label": "南紀熊野ジオパーク｜那智の滝の地質境界",
+        "url": "https://nankikumanogeo.jp/geo_theme/heritage-and-geopark/"
+      },
+      {
+        "label": "日本ジオパークネットワーク｜南紀熊野",
         "url": "https://geopark.jp/geopark/nanki-kumano/"
       },
       {
-        "label": "飛瀧神社（那智御瀧）｜熊野那智大社",
-        "url": "https://kumanonachitaisha.or.jp/pavilion/waterfall/"
+        "label": "熊野三山協議会｜御由緒",
+        "url": "https://www.kumano-sanzan.jp/nachi/yuisyo.html"
+      },
+      {
+        "label": "日本原子力研究開発機構｜紀伊半島の非火山性温泉",
+        "url": "https://www.jaea.go.jp/04/tono/pressnews/040427_2/040427_2.pdf"
+      },
+      {
+        "label": "三重県総合博物館｜那智黒石",
+        "url": "https://www.bunka.pref.mie.lg.jp/MieMu/82987046674.htm"
+      },
+      {
+        "label": "特許庁｜那智黒石",
+        "url": "https://www.jpo.go.jp/system/trademark/gaiyo/chidan/shoukai/ichiran/6225396.html"
+      },
+      {
+        "label": "那智黒｜黒糖飴の由来（コトバンク）",
+        "url": "https://kotobank.jp/word/%E9%82%A3%E6%99%BA%E9%BB%92-346940"
       }
     ]
   },
