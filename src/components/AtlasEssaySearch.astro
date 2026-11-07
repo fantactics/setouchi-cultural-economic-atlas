@@ -1,0 +1,64 @@
+---
+/**
+ * Shared, region-scoped essay search interface.
+ * The caller supplies only its own published essays; no other site's data
+ * or routes are imported by this component.
+ */
+const { stories = [], label = 'エッセイを検索', placeholder = '地名、自然条件、食べものなど', inputId = 'atlas-essay-search' } = Astro.props;
+const index = stories.map(({ title, teaser, region, href, tags = [] })=>({
+  title, teaser:teaser || '', region:region || '', href, tags
+}));
+---
+<section class="atlas-region-search" data-atlas-region-search data-items={JSON.stringify(index)}>
+  <label for={inputId}>{label}</label>
+  <input id={inputId} type="search" placeholder={placeholder} autocomplete="off" disabled={index.length === 0} />
+  <p class="atlas-region-search-status" aria-live="polite">
+    {index.length ? 'キーワードを入力してください。' : 'エッセイ公開後に検索できます。'}
+  </p>
+  <div class="atlas-region-search-results" aria-live="polite"></div>
+</section>
+<script>
+  document.querySelectorAll('[data-atlas-region-search]').forEach((root)=>{
+    let items = [];
+    try { items = JSON.parse(root.getAttribute('data-items') || '[]'); } catch { return; }
+    const input = root.querySelector('input');
+    const status = root.querySelector('.atlas-region-search-status');
+    const results = root.querySelector('.atlas-region-search-results');
+    if (!input || !status || !results) return;
+    const normalize = (value) => String(value || '').normalize('NFKC').toLocaleLowerCase('ja');
+    const render = () => {
+      const query = normalize(input.value.trim());
+      results.replaceChildren();
+      if (!query) { status.textContent = 'キーワードを入力してください。'; return; }
+      const terms = query.split(/\s+/).filter(Boolean);
+      const matched = items.filter((item)=>{
+        const text = normalize([item.title,item.teaser,item.region,...item.tags].join(' '));
+        return terms.every((term)=>text.includes(term));
+      }).slice(0,30);
+      status.textContent = matched.length ? `${matched.length}件のエッセイが見つかりました。` : '該当するエッセイはありません。';
+      for (const item of matched) {
+        const link = document.createElement('a');
+        link.className = 'atlas-region-search-result';
+        link.href = item.href;
+        const title = document.createElement('strong');
+        title.textContent = item.title;
+        const region = document.createElement('small');
+        region.textContent = item.region;
+        link.append(title, region);
+        results.append(link);
+      }
+    };
+    input.addEventListener('input', render);
+  });
+</script>
+<style>
+  .atlas-region-search{background:#f2f5f0;border-radius:16px;padding:22px;margin:28px 0}
+  .atlas-region-search label{display:block;font-size:.85rem;font-weight:700;margin-bottom:12px}
+  .atlas-region-search input{display:block;width:100%;border:1px solid #c8d7cd;border-radius:9px;padding:13px 15px;font:inherit;background:white}
+  .atlas-region-search input:disabled{background:#f5f5f0;cursor:not-allowed}
+  .atlas-region-search-status{font-size:.82rem;color:#607368;margin:12px 0 0}
+  .atlas-region-search-results{display:grid;gap:9px;margin-top:14px}
+  .atlas-region-search-result{display:flex;justify-content:space-between;gap:12px;border:1px solid #d9e4da;border-radius:9px;background:#fff;padding:13px;text-decoration:none;color:inherit}
+  .atlas-region-search-result small{color:#5b7968}
+  @media(max-width:600px){.atlas-region-search-result{flex-direction:column}}
+</style>
