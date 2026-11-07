@@ -83,6 +83,9 @@ jobs:
           grep -q '平地の少なさ' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '陽地' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '河原の丸石' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '緑の畑に、白い畑が混じる理由' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q 'マルチシート' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '屋根かけ' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           grep -q '急斜面' dist-kii/nature/index.html
           grep -q '日照' dist-kii/nature/index.html
           test -f dist-kii/robots.txt
