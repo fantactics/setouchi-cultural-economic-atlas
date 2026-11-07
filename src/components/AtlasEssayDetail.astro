@@ -1,6 +1,6 @@
 ---
 /** Site-agnostic essay body: data belongs to the invoking region. */
-const { article, listingHref, listingLabel = 'エッセイ一覧へ' } = Astro.props;
+const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true } = Astro.props;
 ---
 <article class="atlas-shared-essay">
   <header>
@@ -8,7 +8,7 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ' } = Astro.p
     {article.region && <p class="atlas-essay-region"><span aria-hidden="true">✳</span> {article.category ? article.category + ' / ' : ''}{article.region}</p>}
     <h1>{article.title}</h1>
     {article.teaser && <p class="atlas-essay-lead">{article.teaser}</p>}
-    {article.imageUrl && <figure><img src={article.imageUrl} alt={article.alt || article.title} /><figcaption>{article.photoCredit || ''}</figcaption></figure>}
+    {article.imageUrl && <figure><img src={article.imageUrl} alt={article.alt || article.title} />{showCredits && article.photoCredit && <figcaption>{article.photoCredit}</figcaption>}</figure>}
     {article.tags?.length > 0 && <ul class="atlas-essay-tags" aria-label="自然条件タグ">{article.tags.map((tag)=><li>{tag}</li>)}</ul>}
   </header>
   <div class="atlas-essay-body">
@@ -19,7 +19,7 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ' } = Astro.p
       </section>
     ))}
   </div>
-  {article.sources?.length > 0 && <aside class="atlas-essay-sources">
+  {showSources && article.sources?.length > 0 && <aside class="atlas-essay-sources">
     <h2>出典・参照資料</h2>
     <ul>{article.sources.map((source)=><li><a href={source.url} rel="noopener noreferrer">{source.label}</a></li>)}</ul>
   </aside>}
