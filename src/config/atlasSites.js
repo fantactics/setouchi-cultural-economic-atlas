@@ -25,7 +25,7 @@ export const atlasSites = {
   kii: {
     id: 'kii',
     name: 'KII ATLAS',
-    tagline: '風景の理由をたどる、紀伊半島の旅。',
+    tagline: 'ランドスケープ = ネイチャー x カルチャー',
     description: '山、川、森、海。紀伊半島の風景から自然と文化のつながりをたどるエッセイ。',
     // First-stage preview within the existing GitHub Pages deployment.
     // A dedicated public origin can be introduced later without moving article data.
