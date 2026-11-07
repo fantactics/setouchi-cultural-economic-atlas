@@ -1,25 +1,29 @@
-# Pages CMS 編集移行メモ（SETOUCHI ATLAS）
+# SETOUCHI ATLAS: Pages CMS 導入・Markdown編集移行
 
-## 現在の仕組み
-- サイトは Astro + GitHub Pages。
-- 本文データの多くは `src/data/bookArticles.js` などの JavaScript にある。
-- `src/pages/book/[slug].astro` は `src/content/essays/*.md` を参照し、該当 slug の Markdown がある場合に本文を優先表示する。
-- `getStaticPaths()` は現在も JavaScript 側の既存記事を列挙している。
+## 2026-11-07 確認結果
+- サイトは Astro + GitHub Pages。現在の表示ルートは `src/pages/book/[slug].astro`。
+- `src/content/essays/*.md` を同名 slug の公開記事に重ねて表示する仕組みがすでにある。
+- `four-salt-fields.md`, `kojima-from-cotton-to-jeans.md`, `sanuki-store-the-rain.md`, `setouchi-sushi-not-nigiri.md` の既存Markdown原稿を実際に確認した。
+- したがって全記事をゼロから変換するのではなく、既存MarkdownのCMS編集対応を最優先し、未変換の記事だけを後で抽出する。
+- `getStaticPaths()` と記事一覧・関連記事などの基礎データはまだ JavaScript に依存している。Markdownを追加するだけで新規記事を公開できるとは限らない。
 
-## 第1段階（このブランチ）
-- `.pages.yml` で Markdown エッセイ編集メニューを設定。
-- 既存 URL とページデザインを変更しない。
-- 新規記事の作成、改名、削除は CMS 上で禁止。既存の JS 記事リストと乖離する事故を防ぐため。
-- 公開時には現在の GitHub Actions / Astro ビルドを使用する。
+## 第1段階（このドラフトPR）
+- `.pages.yml` に既存Markdown編集設定を置く。
+- `settings.content.merge: true` を必須とする。これがないとPages CMSは設定にないフィールド（写真・出典・調査リンクなど）を保存時に削除しうる。
+- 事故防止のため、作成・改名・削除は禁止。URL用 slug は編集不可。
+- 公開中の文章、URL、デザイン、記事ページの表示ロジックは変更しない。
 
-## 次の段階
-1. 全記事の最終的な原稿（編集オーバーライドを含む）を一記事ずつ確定する。
-2. slug が同じ Markdown を作り、ページ表示が JS 原稿と同等以上であることを検証する。
-3. タイトルや導入文が一覧・SEO・関連記事にも反映されるように、記事メタデータの単一ソース化を進める。
-4. 写真やキャプションは既存 ID を保持する。挿入画像のアップロード先は `public/images/essays`。
-5. すべての公開経路で動作を検証してから新規記事の作成を解禁する。
+## 検証事項（マージ前）
+1. Pages CMS で作業ブランチを選択し、記事一覧が出ることを確認。
+2. 既存のMarkdownの記事を1本開き、タイトル・本文を読み込めることを確認。
+3. **バックアップと差分検証を前提に** ダミー変更を保存・差分比較し、`sources`, `heroPhoto`, `heroPhotoId`, `researchLinks`, `migration` などが失われないことを確認。本文中のHTML脚注等も確認。
+4. Astroビルドでエラーがないこと、記事ページと一覧のリンク・写真・SEOが崩れないことを確認。
+5. 必要に応じて本文編集後のSEO・一覧側のタイトル同期の仕組みを追加。
 
-## 注意点
-- Markdown 本文だけ更新しても、現在の一覧表示や関連記事に使われる JS 側タイトルまで更新されるとは限らない。
-- JavaScript 側に残る記事は Pages CMS にまだ並ばない。
-- Astro ビルド、公開 URL、写真表示の実機確認を完了してから main にマージする。
+## 第2段階
+- 既存Markdownと公開記事一覧との網羅的な照合。未移行の記事だけMarkdown化。
+- JS側の重複メタデータの整理、一覧・関連記事・SEOの同一データ化。
+- 写真管理・新規記事公開をCMSで行えるように拡張し、作成制限を解除。
+
+## KII ATLAS
+- リポジトリと原稿形式を特定してから別途設定。SETOUCHIの設定を無検証で流用しない。
