@@ -45,13 +45,7 @@ jobs:
       # Exclude them from SETOUCHI's GitHub Pages artifact so /kii/ and every
       # /kii/... URL stop being accessible there after this deployment.
       - name: Exclude KII from SETOUCHI GitHub Pages
-        run: |
-          test -f dist-kii/index.html
-          test -f dist/kii/index.html
-          rm -rf dist/kii
-          test ! -e dist/kii
-          test -f dist/index.html
-          test -f dist/book/index.html
+        run: node scripts/prepare-setouchi-pages.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
