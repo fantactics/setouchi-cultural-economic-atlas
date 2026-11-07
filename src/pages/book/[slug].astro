@@ -19,6 +19,7 @@ import { setouchiShipMaterialsEssay } from '../../data/setouchiShipMaterialsEssa
 import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
+import { quageoSetouchiEssays } from '../../data/quageoSetouchiEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { tomoTwoActPortPhotos } from '../../data/tomoTwoActPortPhotos.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
@@ -52,7 +53,7 @@ const markdownModules=import.meta.glob('../../content/essays/*.md',{eager:true})
 const markdownBySlug=Object.fromEntries(Object.entries(markdownModules).map(([file,module])=>[file.split('/').pop().replace(/\.md$/,''),module]));
 
 export function getStaticPaths(){
-  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
+  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
   const archivedBookArticles=['tadano-shido-industrial-ecosystem','miura-matsuyama-small-boiler-revolution'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
   return [
     ...publishedBookArticles.map((article,index)=>({
@@ -169,7 +170,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       </div>
     </header>
 
-    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}<span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span></figcaption></figure>}
+    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}{!article.omitPhotoCredits && <span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>}</figcaption></figure>}
     {article.slug==='tai-meshi-two-seas' && (
       <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
         <div class="tai-meshi-pair-heading">
@@ -316,8 +317,15 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
         ? <div class="markdown-essay-body"><MarkdownContent /></div>
         : <EssayProseSections article={article} showNumbers={!isNarrativeEssay} inlinePhotos={inlinePhotos} />}
 
+      {article.originalPhotoSequence?.length>0 && <section class="quageo-own-photo-sequence" aria-label="旅の写真">
+        <h2>旅の写真</h2>
+        <div class="quageo-own-photo-grid">{article.originalPhotoSequence.map((photo)=><figure>
+          <img src={photo.imageUrl} alt={photo.alt||photo.title} loading="lazy" decoding="async" />
+          <figcaption><strong>{photo.title}</strong><span>{photo.caption}</span></figcaption>
+        </figure>)}</div>
+      </section>}
       {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
-      <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>
+      {!article.omitPhotoCredits && article.sources?.length>0 && <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>}
     </div>
 
     {(appendixPhotos.length>0 || supplementaryPhotos.length>0 || (isGastronomy && foodPhotos.length>0)) && <section class="reader-photo-appendix" aria-label="記事の写真">
@@ -356,6 +364,13 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </nav>
 
   <style>
+    .quageo-own-photo-sequence{max-width:1060px;margin:3.25rem auto;padding:0 1rem;}
+    .quageo-own-photo-sequence h2{font-size:clamp(1.3rem,2.8vw,1.85rem);margin:0 0 1.25rem;}
+    .quageo-own-photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:1.5rem;}
+    .quageo-own-photo-grid figure{margin:0;min-width:0;}
+    .quageo-own-photo-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px;}
+    .quageo-own-photo-grid figcaption{display:flex;flex-direction:column;gap:.4rem;margin-top:.7rem;line-height:1.75;font-size:.89rem;}
+    .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
     .reader-landscape-map{margin:1rem 0 2.6rem;}
