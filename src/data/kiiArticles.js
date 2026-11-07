@@ -4,8 +4,8 @@
 export const kiiArticles = [
   {
     "slug": "nachi-waterfall-where-rock-meets-faith",
-    "title": "鳥居の向こうに、社殿はなかった",
-    "teaser": "滝の場所を決めた二種類の岩。人はそこに神を見いだし、黒い石を土産にした。那智の風景を石から読み解く。",
+    "title": "那智の滝の場所を決めた二種類の岩",
+    "teaser": "那智の大滝は、二種類の岩の境目に生まれた。滝の下の飛瀧神社、山上の熊野那智大社、門前の黒飴まで、石をたどって旅をする。",
     "region": "那智勝浦・那智山",
     "category": "信仰景観",
     "tags": [
@@ -70,10 +70,6 @@ export const kiiArticles = [
         "url": "https://www.kumano-sanzan.jp/nachi/yuisyo.html"
       },
       {
-        "label": "日本原子力研究開発機構｜紀伊半島の非火山性温泉",
-        "url": "https://www.jaea.go.jp/04/tono/pressnews/040427_2/040427_2.pdf"
-      },
-      {
         "label": "三重県総合博物館｜那智黒石",
         "url": "https://www.bunka.pref.mie.lg.jp/MieMu/82987046674.htm"
       },
@@ -84,6 +80,22 @@ export const kiiArticles = [
       {
         "label": "那智黒｜黒糖飴の由来（コトバンク）",
         "url": "https://kotobank.jp/word/%E9%82%A3%E6%99%BA%E9%BB%92-346940"
+      },
+      {
+        "label": "熊野那智大社公式｜飛瀧神社",
+        "url": "https://kumanonachitaisha.or.jp/pavilion/waterfall/"
+      },
+      {
+        "label": "熊野那智大社公式｜御由緒",
+        "url": "https://kumanonachitaisha.or.jp/prestige/"
+      },
+      {
+        "label": "那智黒石協同組合｜石の由来",
+        "url": "https://www.nachiguroishi.com/nachiguroishi"
+      },
+      {
+        "label": "那智黒石協同組合｜那智石との違い",
+        "url": "https://www.nachiguroishi.com/qanda"
       }
     ]
   },
