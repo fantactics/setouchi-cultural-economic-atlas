@@ -32,8 +32,19 @@ export const atlasSites = {
     basePath: '/setouchi-cultural-economic-atlas/kii/',
     theme: 'forest',
     indexable: false, // Keep the empty KII prototype out of search indexes until editorial launch.
-    navigation: [{ label: 'トップ', path: '' }, { label: 'エッセイ', path: '#essays' }, { label: 'このサイトについて', path: '#about-kii' }],
-    footer: [{ label: 'トップ', path: '' }, { label: 'このサイトについて', path: '#about-kii' }]
+    navigation: [
+      { label: 'トップ', path: '' },
+      { label: '一覧', path: 'book/' },
+      { label: '地名から', path: 'regions/' },
+      { label: '自然条件から', path: 'nature/' }
+    ],
+    footer: [
+      { label: 'トップ', path: '' },
+      { label: 'エッセイ一覧', path: 'book/' },
+      { label: '地名から', path: 'regions/' },
+      { label: '自然条件から', path: 'nature/' },
+      { label: 'このサイトについて', path: '#about-kii' }
+    ]
   }
 };
 export function atlasHref(site, path = '') {

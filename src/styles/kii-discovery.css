@@ -1,0 +1,26 @@
+.kii-discovery{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#304d42}
+.kii-discovery-header{padding:40px 0 18px;max-width:780px}
+.kii-discovery-header .reader-eyebrow{font-size:.7rem;font-weight:850;color:#bf7952}
+.kii-discovery-header h1{font-family:inherit;font-size:clamp(2rem,4.8vw,3.55rem);font-weight:850;letter-spacing:-.055em;color:#305c49;margin:10px 0 14px;line-height:1.3}
+.kii-discovery-header>p:last-child{color:#647b70;font-size:1.05rem;line-height:1.85}
+.kii-discovery .atlas-region-search{background:#edf4ec;margin:22px 0 27px}
+.kii-discovery-count{font-weight:800;color:#6c836e;font-size:.83rem;margin:26px 0 15px}
+.kii-discovery-jumps{display:flex;flex-wrap:wrap;gap:10px;margin:23px 0 40px}
+.kii-discovery-jumps a{display:inline-block;border:1px solid #d5e3d6;padding:10px 16px;background:white;border-radius:100px;text-decoration:none;font-size:.88rem;font-weight:750;color:#3a7359}
+.kii-discovery-jumps a:hover{background:#e9f2e8}
+.kii-discovery-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 28px}
+.kii-discovery-section{min-width:0;scroll-margin-top:120px}
+.kii-discovery-heading{margin:0 0 13px}
+.kii-discovery-heading h2{font-family:inherit;font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:850;color:#315d49;margin:0 0 5px}
+.kii-discovery-heading p{font-size:.85rem;color:#799084;margin:0}
+.kii-discovery-links{display:grid;gap:12px}
+.kii-discovery-link{display:flex;gap:15px;align-items:center;border:1px solid #dfe8df;background:#fffdf9;border-radius:16px;padding:12px;text-decoration:none;color:#2c4f3f;transition:transform .2s ease}
+.kii-discovery-link:hover{transform:translateY(-2px);border-color:#a6c7b1}
+.kii-discovery-link img{flex-shrink:0;width:110px;height:87px;object-fit:cover;border-radius:10px;background:#e8ede5}
+.kii-discovery-link>span:nth-child(1),.kii-discovery-link>span:nth-child(2){min-width:0;flex:1}
+.kii-discovery-link strong{display:block;font-size:1.04rem;font-weight:800;line-height:1.5}
+.kii-discovery-link small{display:block;font-size:.75rem;color:#77867c;line-height:1.65;margin-top:5px}
+.kii-discovery-arrow{font-size:1.15rem;color:#5b9471}
+@media(max-width:850px){.kii-discovery-list{grid-template-columns:1fr}}
+@media(max-width:520px){.kii-discovery-header{padding-top:22px}.kii-discovery-jumps{gap:8px;margin-bottom:28px}.kii-discovery-jumps a{font-size:.8rem;padding:8px 12px}.kii-discovery-link img{width:92px;height:82px}.kii-discovery-link strong{font-size:.96rem}}
+@media(prefers-reduced-motion:reduce){.kii-discovery-link{transition:none}}

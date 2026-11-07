@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+import { kiiArticles } from '../../../data/kiiArticles.js';
+import { kiiNaturalTagVocabulary } from '../../../data/kiiNaturalTags.js';
+import '../../../styles/reader-navigation.css';
+import '../../../styles/kii-discovery.css';
+const site=atlasSites.kii;
+const tags=kiiNaturalTagVocabulary.map(name=>({name,stories:kiiArticles.filter(a=>a.tags?.includes(name))})).filter(g=>g.stories.length);
+---
+<BaseLayout siteKey="kii" title="自然条件から" description="山地、多雨、深い谷、温泉、黒潮。紀伊半島の自然条件からエッセイを探す。">
+  <div class="reader-home kii-discovery">
+    <header class="kii-discovery-header"><p class="reader-eyebrow">NATURE & STORIES</p><h1>自然条件から</h1><p>山の高さ、雨の多さ、石と水の性質。土地の自然条件から、風景の理由をたどります。</p></header>
+    <nav class="kii-discovery-jumps" aria-label="自然条件で探す">
+      {tags.map(({name})=><a href={`#nature-${encodeURIComponent(name)}`}>{name}</a>)}
+    </nav>
+    <div class="kii-discovery-list">
+      {tags.map(({name,stories})=><section class="kii-discovery-section" id={`nature-${name}`}>
+        <div class="kii-discovery-heading"><h2>{name}</h2><p>{stories.length}篇のエッセイ</p></div>
+        <div class="kii-discovery-links">{stories.map(a=><a class="kii-discovery-link" href={`${site.basePath}book/${a.slug}/`}>
+          {a.imageUrl&&<img src={a.imageUrl} alt={a.alt||a.title} loading="lazy"/>}
+          <span><strong>{a.title}</strong><small>{a.region} ・ {a.teaser}</small></span><span class="kii-discovery-arrow" aria-hidden="true">↗</span>
+        </a>)}</div>
+      </section>)}
+    </div>
+  </div>
+</BaseLayout>
