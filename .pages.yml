@@ -146,6 +146,38 @@ content:
           switcher: true
           media: false
 
+  # Citation-rich article: use Markdown-native links instead of embedded HTML.
+  # Pilot only; keep the general collection in source-editing mode.
+  - name: wysiwyg-setouchi-sushi-not-nigiri
+    label: 視覚編集テスト｜瀬戸内の寿司（脚注あり）
+    type: file
+    path: src/content/essays/setouchi-sushi-not-nigiri.md
+    format: yaml-frontmatter
+    operations:
+      rename: false
+      delete: false
+    fields:
+      - name: slug
+        label: 記事ID（編集不可）
+        type: string
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文（出典リンク保持テスト）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+
 # Crucial: preserve existing frontmatter (sources, photo metadata, research links,
 # migration status and other fields) not exposed in this initial editor.
 settings:
