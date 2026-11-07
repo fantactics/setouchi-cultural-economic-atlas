@@ -9,8 +9,9 @@ export const kiiArticles = [
     "region": "那智勝浦・那智山",
     "category": "信仰景観",
     "tags": [
-      "山地",
-      "森林",
+      "地質境界",
+      "火成岩",
+      "堆積岩",
       "多雨"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462585940_1223803015571285_3635145836551130159_n.jpg?resize=760%2C570&ssl=1",

@@ -50,6 +50,10 @@ jobs:
           grep -q '自然条件から' dist-kii/index.html
           grep -q '那智の滝の場所を決めた二種類の岩' dist-kii/regions/index.html
           grep -q '多雨' dist-kii/nature/index.html
+          grep -q '地質境界' dist-kii/nature/index.html
+          grep -q '火成岩' dist-kii/nature/index.html
+          grep -q '堆積岩' dist-kii/nature/index.html
+          grep -q '地質境界' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           test -f dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           ! grep -q '出典・参照資料' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           ! grep -q '出典・参照資料' dist-kii/book/koyasan-mountain-top-basin-city/index.html
