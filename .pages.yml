@@ -1,0 +1,66 @@
+# Pages CMS for SETOUCHI ATLAS
+# All essays now use Markdown-native citation links.
+# Keep opaque photo metadata and source lists intact on save.
+media:
+  input: public/images/essays
+  output: /setouchi-cultural-economic-atlas/images/essays
+  rename: safe
+  categories: [image]
+
+content:
+  - name: essays
+    label: エッセイ
+    type: collection
+    path: src/content/essays
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title, subtitle]
+      search: [title, subtitle, lead]
+    fields:
+      - name: slug
+        label: 記事ID（URL用・編集不可）
+        type: string
+        readonly: true
+      - name: part
+        label: 分類
+        type: string
+        readonly: true
+      - name: cities
+        label: 地名
+        type: string
+        list: true
+        readonly: true
+      - name: keywords
+        label: キーワード
+        type: string
+        list: true
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+        required: true
+      - name: subtitle
+        label: サブタイトル
+        type: text
+      - name: lead
+        label: 導入文
+        type: text
+      - name: body
+        label: エッセイ本文（視覚編集）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+
+# Crucial: preserve existing frontmatter (sources, photo metadata, research links,
+# migration status and other fields) not exposed in this initial editor.
+settings:
+  content:
+    merge: true
