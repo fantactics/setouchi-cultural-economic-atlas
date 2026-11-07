@@ -373,6 +373,9 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
+    /* Markdown-native citation links remain clickable after Pages CMS editing. */
+    .markdown-essay-body :global(a[href^="#source-"]){font-size:.72em;vertical-align:super;line-height:0;margin-left:.15em;white-space:nowrap;}
+
     .reader-landscape-map{margin:1rem 0 2.6rem;}
     .reader-landscape-map h2{font-size:clamp(1.3rem,2.7vw,1.8rem);line-height:1.4;margin:.5rem 0 .75rem;}
     .reader-landscape-map p{line-height:1.8;margin:0 0 1rem;}
