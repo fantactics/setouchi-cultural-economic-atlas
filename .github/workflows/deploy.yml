@@ -28,6 +28,17 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Validate KII content
+        run: node scripts/check-kii-articles.mjs
+      - name: Package standalone KII preview
+        run: node scripts/package-kii.mjs
+      - name: Upload KII preview bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: kii-atlas-standalone
+          path: ./dist-kii
+          if-no-files-found: error
+          retention-days: 30
       - name: Verify sitemap output
         run: node scripts/check-sitemap.mjs
       - name: Upload artifact

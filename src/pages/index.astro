@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteSearch from '../components/SiteSearch.astro';
+import AtlasEssayCards from '../components/AtlasEssayCards.astro';
 import { cardTeaser, cardPhotoId } from '../data/essayCardCopy.js';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { kadaEssays } from '../data/kadaEssays.js';
@@ -72,15 +73,17 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
 
     <section class="reader-home-section" aria-labelledby="home-picks">
       <div class="reader-section-heading"><div><p class="reader-eyebrow">MORE STORIES</p><h2 id="home-picks">ほかにも、こんな旅。</h2><p>気になる写真から、寄り道してみよう。</p></div><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a></div>
-      <div class="reader-essay-grid">
-        {recommended.slice(3).map((article)=>{
-          const photo=essayPhoto(article);
-          return <a class="reader-essay-card" href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}>
-            {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading="lazy" />}
-            <div><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h3>{article.title}</h3><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
-          </a>;
-        })}
-      </div>
+      <AtlasEssayCards stories={recommended.slice(3).map((article)=>{
+        const photo=essayPhoto(article);
+        return {
+          href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,
+          imageUrl:photo?.imageUrl || '',
+          alt:photo?.alt || article.title,
+          title:article.title,
+          region:article.cities?.slice(0,2).join('・') || '瀬戸内',
+          teaser:cardTeaser(article)
+        };
+      })} />
     </section>
 
     <section class="reader-home-search" aria-labelledby="reader-home-search-title">

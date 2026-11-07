@@ -1,0 +1,46 @@
+name: Validate ATLAS sites
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install
+      - run: node scripts/check-kii-articles.mjs
+      - run: npm run build
+      - run: node scripts/package-kii.mjs
+      - name: Check generated SETOUCHI and KII entry points
+        run: |
+          test -f dist/index.html
+          test -f dist/kii/index.html
+          test -f dist-kii/index.html
+          test -f dist-kii/robots.txt
+          grep -q 'https://preview.invalid/' dist-kii/index.html
+          if grep -q 'https://fantactics.github.io/setouchi-cultural-economic-atlas/kii/' dist-kii/index.html; then echo 'Standalone KII canonical still points to SETOUCHI'; exit 1; fi
+          grep -q 'SETOUCHI ATLAS' dist/index.html
+          grep -q 'KII ATLAS' dist/kii/index.html
+          grep -q '紀伊半島のエッセイを探す' dist/kii/index.html
+          grep -q 'noindex,follow' dist/kii/index.html
+          if grep -q 'noindex,follow' dist/index.html; then echo 'SETOUCHI must remain indexable'; exit 1; fi
+          grep -q 'reader-essay-card' dist/index.html
+          grep -q '最初のエッセイを準備中です' dist/kii/index.html
+          if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
+          if grep -q 'rel="sitemap"' dist-kii/index.html; then echo 'Standalone KII references a foreign sitemap'; exit 1; fi
+      - name: Upload KII standalone preview for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: kii-atlas-pr-preview
+          path: ./dist-kii
+          if-no-files-found: error
+          retention-days: 14

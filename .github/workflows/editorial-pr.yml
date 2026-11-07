@@ -43,36 +43,4 @@ jobs:
           test -f dist/book/four-salt-fields/index.html
           test -f dist/book/setouchi-sushi-not-nigiri/index.html
       - name: Check built essays and source attributions
-        run: |
-          node --input-type=module <<'EOF'
-          import fs from 'node:fs';
-          const cases = [
-            ['mihara-castle-to-multimodal-city','三原駅と城跡が重なる場所'],
-            ['kojima-jeans-circular-economy','小さな金属の鋲'],
-            ['setouchi-ship-materials','1952年'],
-            ['niihama-after-copper','1927年、別子銅山の鉱石はあと17年分'],
-            ['shimonoseki-resource-made-by-market','2016年に地理的表示'],
-            ['faith-as-transport-map','尾道の住吉神社には'],
-            ['sanuki-store-the-rain','線香が燃え尽きるまで'],
-            ['iwakuni-river-city','1673年に完成した錦帯橋は'],
-            ['mikan-slope-and-varieties','麦や芋を育てた場所でもあり'],
-            ['four-salt-fields','同じ塩をつくっていたのに、残ったものは違った'],
-            ['setouchi-sushi-not-nigiri','人が集まる日に作り']
-          ];
-          for (const [slug,expected] of cases) {
-            const file = `dist/book/${slug}/index.html`;
-            const html = fs.readFileSync(file,'utf8');
-            for (const text of [expected,'出典・参照資料',...(slug==='mikan-slope-and-varieties'?['商標の使用許諾を受けた果実','柑橘栽培の段々畑と防風垣']:[]),...(slug==='four-salt-fields'?['旧塩田を使い直すことと','個別作品｜坂出の番の州']:[])]) {
-              if (!html.includes(text)) throw Error(`${slug}: missing ${text}`);
-            }
-            if (html.includes('<div class="kicker">暫定的なまとめ</div>') || html.includes('<div class="kicker">まだ分からないこと</div>')) {
-              const i=html.indexOf('<div class="kicker">まだ分からないこと</div>');
-              console.error('Research section context:',html.slice(i-220,i+160));
-              throw Error(`${slug}: research-only ending exposed`);
-            }
-            const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
-            if (!imgs.length) throw Error(`${slug}: no rendered images`);
-            if (imgs.some(x=>!(/\balt=/.test(x)))) throw Error(`${slug}: image without alt attribute`);
-            console.log(`${slug}: article content, sources, photos and narrative ending OK`);
-          }
-          EOF
+        run: node scripts/check-built-editorial.mjs
