@@ -25,12 +25,12 @@ for(const name of files){
   // Pages CMS may normalize quoted JSON-style YAML into block-style YAML;
   // validate presence/identity, not the incidental formatting of lists.
   const fm=match[1];
-  const keys=[...fm.matchAll(/^([a-zA-Z]\\w*):/gm)].map(x=>x[1]);
+  const keys=[...fm.matchAll(/^([a-zA-Z]\w*):/gm)].map(x=>x[1]);
   for(const key of ['slug','title','teaser','region','category','tags','imageUrl','alt','photoCredit','sources']){
     if(!keys.includes(key)) throw Error('Missing KII field '+key+': '+slug);
   }
   const readScalar=(key)=>{
-    const line=fm.split(/\\r?\\n/).find(line=>line.startsWith(key+':'));
+    const line=fm.split(/\r?\n/).find(line=>line.startsWith(key+':'));
     return line?.slice(key.length+1).trim().replace(/^["']|["']$/g,'');
   };
   if(readScalar('slug')!==slug) throw Error('KII slug mismatch: '+slug);
