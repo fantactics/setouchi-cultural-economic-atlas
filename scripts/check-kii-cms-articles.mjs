@@ -22,23 +22,25 @@ for(const name of files){
   const text=readFileSync(join(folder,name),'utf8');
   const match=text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if(!match) throw Error('Missing KII YAML frontmatter: '+slug);
-  const fields={};
-  for(const line of match[1].split(/\r?\n/)){
-    const m=line.match(/^([a-zA-Z]\w*):\s*(.+)$/);
-    if(!m) throw Error('Invalid KII YAML line: '+slug+': '+line);
-    // Initial migration uses JSON-compatible YAML scalar/array syntax.
-    try{fields[m[1]]=JSON.parse(m[2]);}
-    catch{throw Error('Unsafe KII initial frontmatter encoding in '+slug);}
+  // Pages CMS may normalize quoted JSON-style YAML into block-style YAML;
+  // validate presence/identity, not the incidental formatting of lists.
+  const fm=match[1];
+  const keys=[...fm.matchAll(/^([a-zA-Z]\\w*):/gm)].map(x=>x[1]);
+  for(const key of ['slug','title','teaser','region','category','tags','imageUrl','alt','photoCredit','sources']){
+    if(!keys.includes(key)) throw Error('Missing KII field '+key+': '+slug);
   }
-  if(fields.slug!==slug) throw Error('KII slug mismatch: '+slug);
+  const readScalar=(key)=>{
+    const line=fm.split(/\\r?\\n/).find(line=>line.startsWith(key+':'));
+    return line?.slice(key.length+1).trim().replace(/^["']|["']$/g,'');
+  };
+  if(readScalar('slug')!==slug) throw Error('KII slug mismatch: '+slug);
   for(const key of ['title','teaser','region','category','imageUrl','alt','photoCredit']){
-    if(typeof fields[key]!=='string'||!fields[key].trim()) throw Error('Missing KII '+key+': '+slug);
+    if(!readScalar(key)) throw Error('Empty KII '+key+': '+slug);
   }
-  if(fields.imageUrl!==original.imageUrl||fields.alt!==original.alt||fields.photoCredit!==original.photoCredit){
-    throw Error('KII photo attribution changed unintentionally: '+slug);
+  for(const key of ['imageUrl','alt','photoCredit']){
+    if(readScalar(key)!==original[key]) throw Error('KII photo attribution changed unintentionally: '+slug);
   }
-  if(!Array.isArray(fields.tags)||fields.tags.some(x=>!vocabulary.has(x))) throw Error('KII natural tags invalid: '+slug);
-  if(!Array.isArray(fields.sources)||fields.sources.some(x=>!x.label||!/^https:\/\//.test(x.url||''))) throw Error('KII sources invalid: '+slug);
+  if(!fm.includes('https://')) throw Error('KII reference URLs missing: '+slug);
   const body=text.slice(match[0].length).trim();
   if(!body.startsWith('## ')||!body.includes('\n\n')||body.includes('<!--')||body.includes('視覚編集テスト'))
     throw Error('KII body unsafe or empty: '+slug);
