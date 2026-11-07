@@ -12,46 +12,62 @@ provisionalConclusion: "風景を眺めて走り抜ける旅と、島の店や�
 openQuestions: ["サイクリスト1,000人当たりの宿泊・消費・立寄・地域内残存額を海道別に比較できるか","サイクリング来訪を最初の接点として移住・創業した人を長期追跡できるか","サイクル関連公共投資に対して、宿・飲食・空き家改修などの民間投資がどれだけ誘発されたか","住民便益と事故・混雑・マナー等の外部不経済を同じ評価表に載せられるか"]
 sources: [{"id":1,"title":"令和6年度しまなみ広域サイクルツーリズム圏域形成促進に係る動向調査委託事業 仕様書","publisher":"愛媛県","url":"https://www.pref.ehime.jp/uploaded/attachment/132776.pdf"},{"id":2,"title":"サイクルツーリズムが地域経済に与える影響","publisher":"国土交通省","url":"https://www.mlit.go.jp/road/ir/ir-council/bicycle-up/07pdf/04.pdf"},{"id":3,"title":"呉市を訪問する観光客及び観光消費額の拡大に向けた調査","publisher":"呉市","url":"https://www.city.kure.lg.jp/uploaded/attachment/53798.pdf"},{"id":4,"title":"観光地域づくりについて","publisher":"国土交通省 GOOD CYCLE JAPAN","url":"https://www.mlit.go.jp/road/bicycleuse/good-cycle-japan/plan/action5/"},{"id":5,"title":"令和8年度 修学旅行によるしまなみ海道自転車道利用促進事業助成","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/104449.html"},{"id":6,"title":"令和8年度 しまなみ地域観光客滞在促進事業","publisher":"愛媛県","url":"https://www.pref.ehime.jp/site/nyusatsu/145643.html"},{"id":7,"title":"瀬戸内しまなみ海道の自転車通行料金の無料化の継続","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/140206.html"},{"id":8,"title":"移住者を呼び込む「神の島」大三島――移住者を起点とした、観光・移住需要の創出","publisher":"いよぎん地域経済研究センター","url":"https://www.iyoirc.jp/wp-content/uploads/2022/03/22-148.pdf"}]
 migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-behind/"}
+editorialPhotoPlacements:
+  - afterHeading: "橋を渡ると、港が近くなる"
+    afterParagraph: 3
+    photoIds: ["photo-onomichi-panorama"]
+  - afterHeading: "コーヒー一杯で、旅は寄り道になる"
+    afterParagraph: 3
+    photoIds: ["photo-mitarai-townscape"]
+  - afterHeading: "大三島で、次の暮らしを見つける人もいる"
+    afterParagraph: 3
+    photoIds: ["photo-imabari-kurushima"]
+  - afterHeading: "旅人の道は、島の人の道でもある"
+    afterParagraph: 3
+    photoIds: ["photo-mitarai-panorama"]
+  - afterHeading: "風景だけで終わらない旅へ"
+    afterParagraph: 3
+    photoIds: ["photo-onomichi-channel-dock"]
 ---
 ## 橋を渡ると、港が近くなる
 
-しまなみ海道には、橋を目当てに世界中から自転車がやってくる。愛媛県の2024年度の調査仕様書では、年間約33万人が訪れると紹介されている。それほど多くの人が、一度は瀬戸内の島々を自分の速度で眺めたということになる。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+しまなみ海道には、橋を目当てに世界中から自転車がやってくる。愛媛県の2024年度の調査仕様書では、年間約33万人が訪れると紹介されている。それほど多くの人が、一度は瀬戸内の島々を自分の速度で眺めたということになる。 [1](#source-1)
 
 車なら窓の外へ流れていく港や石垣も、自転車なら立ち止まれる。斜面の柑橘畑を見上げ、海辺の集落の細い道へ入る。大きな観光施設がなくても、旅の途中で忘れられない風景に出会うことがある。
 
-ただ、橋を渡った人のすべてが島に泊まるわけではない。同じ県の資料では、日帰りや通過型の旅が多く、飲食以外の買い物は少ないとも整理されている。<sup class="book-footnotes"><a href="#source-1">[1]</a></sup>
+ただ、橋を渡った人のすべてが島に泊まるわけではない。同じ県の資料では、日帰りや通過型の旅が多く、飲食以外の買い物は少ないとも整理されている。 [1](#source-1)
 
-<!-- photoIds: photo-onomichi-panorama -->
+
 
 ## コーヒー一杯で、旅は寄り道になる
 
 朝に尾道を出て、夕方には今治へ着く。その間にどこかの島で昼食をとる旅と、補給だけして一気に走る旅では、立ち寄る店も、町で過ごす時間も違う。
 
-日帰りのサイクリストは、宿泊客に比べて現地で使う金額が小さくなりやすいという国土交通省の調査もある。それは「自転車に乗る人がお金を使わない」のではなく、旅の時間の使い方によるところが大きいのだろう。<sup class="book-footnotes"><a href="#source-2">[2]</a></sup>
+日帰りのサイクリストは、宿泊客に比べて現地で使う金額が小さくなりやすいという国土交通省の調査もある。それは「自転車に乗る人がお金を使わない」のではなく、旅の時間の使い方によるところが大きいのだろう。 [2](#source-2)
 
 一杯のコーヒーを飲むために止まる。商家を改装した宿に泊まる。小さな漁港で話し込む。そうした寄り道をするかどうかで、同じ道は別の旅になる。
 
-<!-- photoIds: photo-mitarai-townscape -->
+
 
 ## 大三島で、次の暮らしを見つける人もいる
 
-大三島では、移住して飲食店を営む人が多いと報告されている。いよぎん地域経済研究センターの資料は、2021年時点で島内の飲食店の約半数が移住者による経営だったと紹介している。<sup class="book-footnotes"><a href="#source-8">[8]</a></sup>
+大三島では、移住して飲食店を営む人が多いと報告されている。いよぎん地域経済研究センターの資料は、2021年時点で島内の飲食店の約半数が移住者による経営だったと紹介している。 [8](#source-8)
 
-もちろん、その人たちがサイクリングをきっかけに移住したとは言えない。島の神社や自然、橋で結ばれた便利さ、人との出会いなど、島を選ぶ理由はいくつもある。<sup class="book-footnotes"><a href="#source-8">[8]</a></sup>
+もちろん、その人たちがサイクリングをきっかけに移住したとは言えない。島の神社や自然、橋で結ばれた便利さ、人との出会いなど、島を選ぶ理由はいくつもある。 [8](#source-8)
 
 それでも、旅の途中で初めて知った土地が、いつか暮らす場所になることは想像できる。自転車は、島を知る最初のきっかけの一つかもしれない。
 
-<!-- photoIds: photo-imabari-kurushima -->
+
 
 ## 旅人の道は、島の人の道でもある
 
-自転車を迎えるための道しるべ、休憩場所、港の案内。旅人にうれしい設備は、島に暮らす人や別の旅人にも役立つことがある。しまなみ海道では、自転車の通行料金無料化が続けられ、沿線の利用環境も整えられてきた。<sup class="book-footnotes"><a href="#source-7">[7]</a></sup>
+自転車を迎えるための道しるべ、休憩場所、港の案内。旅人にうれしい設備は、島に暮らす人や別の旅人にも役立つことがある。しまなみ海道では、自転車の通行料金無料化が続けられ、沿線の利用環境も整えられてきた。 [7](#source-7)
 
 一方で、自転車が増えることが、いつでも住民にとってよいとは限らない。細い道でのすれ違い、交通安全、静かな暮らしとの距離感。訪ねる人が増えたあとに生まれることも、よい面ばかりではない。
 
 観光で賑わう橋から少し離れて、集落の暮らしを思い浮かべてみる。同じ道を、今日は旅人が走り、明日はその土地の人が使う。
 
-<!-- photoIds: photo-mitarai-panorama -->
+
 
 ## 風景だけで終わらない旅へ
 
@@ -61,4 +77,4 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 次に橋の上で一列に進む自転車を見かけたら、どこから来たのかだけでなく、この先のどこで止まるのだろう、と考えてみたい。旅が残すものは、きっと道の両側にある。
 
-<!-- photoIds: photo-onomichi-channel-dock -->
+
