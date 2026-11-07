@@ -44,6 +44,9 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'chichibugahama-sky-in-tide': ['tourism','sea'],
+  'ogushi-theatron-sea-as-stage': ['tourism','sea'],
+  'tatsuno-water-castle-and-soy-sauce': ['townscape','food'],
   'tatara-bridge-citrus-seasons': ['agriculture', 'tourism'],
   "awaji-onion-rice-field": ["agriculture", "food"],
   "four-salt-fields": [
