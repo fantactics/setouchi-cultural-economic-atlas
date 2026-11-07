@@ -13,7 +13,7 @@ export const kiiArticles = [
       "森林",
       "多雨"
     ],
-    "imageUrl": "https://quageo.kyotrad.com/wp-content/uploads/2024/12/462585940_1223803015571285_3635145836551130159_n.jpg",
+    "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462585940_1223803015571285_3635145836551130159_n.jpg?resize=760%2C570&ssl=1",
     "alt": "鳥居の向こうに那智の滝が落ちる飛瀧神社の風景",
     "photoCredit": "写真：クアトロのジオ紀行（原著者撮影）",
     "sections": [
@@ -72,7 +72,7 @@ export const kiiArticles = [
       "海風",
       "潮汐"
     ],
-    "imageUrl": "https://quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg",
+    "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg?resize=760%2C570&ssl=1",
     "alt": "白良浜の砂浜と海に沈む夕日、手前に護岸の構造物が見える",
     "photoCredit": "写真：クアトロのジオ紀行（原著者撮影）",
     "sections": [
