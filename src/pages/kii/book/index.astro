@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AtlasEssayCards from '../../../components/AtlasEssayCards.astro';
+import AtlasEssaySearch from '../../../components/AtlasEssaySearch.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+import { kiiArticles } from '../../../data/kiiArticles.js';
+import '../../../styles/reader-navigation.css';
+import '../../../styles/kii-discovery.css';
+const site=atlasSites.kii;
+const stories=kiiArticles.map(a=>({...a,href:`${site.basePath}book/${a.slug}/`}));
+---
+<BaseLayout siteKey="kii" title="エッセイ一覧" description="紀伊半島の風景をたどるKII ATLASのエッセイ一覧。">
+  <div class="reader-home kii-discovery">
+    <header class="kii-discovery-header"><p class="reader-eyebrow">ALL STORIES</p><h1>エッセイ一覧</h1><p>風景から、物語へ。紀伊半島を旅するエッセイを集めました。</p></header>
+    <AtlasEssaySearch stories={stories} label="エッセイを探す" placeholder="例：那智、みかん、海岸、温泉" inputId="kii-index-search"/>
+    <div class="kii-discovery-count">全{stories.length}篇</div>
+    <AtlasEssayCards stories={stories}/>
+  </div>
+</BaseLayout>
