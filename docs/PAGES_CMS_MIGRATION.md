@@ -68,3 +68,11 @@
 - 未対応は `farmland-or-solar`, `after-the-solar-farm`, `tadano-shido-industrial-ecosystem`, `miura-matsuyama-small-boiler-revolution`。
 - 後者2件はアーカイブ研究記事として扱われるため、公開エッセイと混同しない。
 - 他のデータファイルのエッセイも個別に照合する必要がある。
+
+## 視覚編集・父母ヶ浜の保存検証（2026-11-07）
+- Pages CMSの視覚編集テスト画面から `chichibugahama-sky-in-tide.md` の末尾に「視覚編集テスト」を追加して保存。
+- 保存前後で、本文からテスト文字列を取り除いた内容が完全一致。見出し、段落の欠落なし。
+- YAMLフロントマターのキー `slug,title,subtitle,lead,part,cities,keywords,migration` はすべて残存。YAML配列と引用符はCMSによって正規化。
+- テスト文を除去し、保存前の原稿そのものに復元。復元後のGit blob SHAは元原稿と一致。
+- HTML脚注を持つ原稿は以前のリッチテキストテストで脚注表記が変換されたため、今回の成功結果を流用しない。
+- 次は大串半島・龍野の同様の画面表示と保存テスト、そして本文HTMLの安全な表記移行を検討。
