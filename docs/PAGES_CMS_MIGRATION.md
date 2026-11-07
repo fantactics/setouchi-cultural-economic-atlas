@@ -52,3 +52,19 @@
 - 追加後の GitHub Actions（Validate ATLAS sites / Editorial PR validation）両方成功。
 - まだMarkdown化されていない記事は残る。特に `farmland-or-solar`, `after-the-solar-farm` や旧研究版の記事の取り扱いを区別して整理すること。
 - CMSのソース編集で本文中のHTML脚注を保持できるかは、修正後の実機保存テストを完了するまで未確認。
+
+## 2026-11-07: 限定的な視覚編集（試験）
+- フロントマターと本文が簡素で、HTML脚注のない3本を対象として、Pages CMSに独立した「視覚編集テスト」編集画面を追加。
+  - 父母ヶ浜 `chichibugahama-sky-in-tide.md`
+  - 大串半島 `ogushi-theatron-sea-as-stage.md`
+  - 龍野 `tatsuno-water-castle-and-soy-sauce.md`
+- これらの独立編集画面は `rich-text` / `format: markdown`。画像挿入は安全性確認まで無効。
+- 一般エッセイ一覧の本文欄は引き続き `code` / `format: markdown`。脚注HTMLを含む記事には視覚編集を使用しない。
+- 複数のUIが同じファイルを対象とするため、同時編集・上書きに注意。保存前後の差分比較が必要。
+- 視覚編集テストでは見出し、段落、強調、URL、写真メタデータと段落順序が保たれることを確認するまで本番運用しない。
+
+## Markdown照合メモ
+- `src/data/bookArticles.js` の記事slug42件に対し、Markdownは38件に対応（作業ブランチの調査）。
+- 未対応は `farmland-or-solar`, `after-the-solar-farm`, `tadano-shido-industrial-ecosystem`, `miura-matsuyama-small-boiler-revolution`。
+- 後者2件はアーカイブ研究記事として扱われるため、公開エッセイと混同しない。
+- 他のデータファイルのエッセイも個別に照合する必要がある。
