@@ -17,7 +17,7 @@ Both SETOUCHI ATLAS and KII ATLAS live in this repository.
 - The validation workflow checks the isolated standalone KII bundle. Following merge, the existing main-branch deployment workflow uploads the KII bundle as a downloadable GitHub Actions artifact, while still deploying `dist/` to the original SETOUCHI GitHub Pages URL.
 - The bundle is deliberately **prelaunch** (`noindex`, `robots.txt: Disallow /`); setting a domain alone does NOT start public indexing. A later launch procedure must explicitly lift these protections after editorial review.
 - No KII hosting service or independent domain has been connected yet, and no live changes should occur until review and merge.
-- The previous general editorial workflow fails on a SETOUCHI copy assertion; this is a distinct check from the ATLAS builds and must be reconciled before merge.
+- The editorial PR workflow now runs `scripts/check-built-editorial.mjs`, verifying article routes, substantial rendered Japanese prose, source sections, alt attributes and absence of research-only endings without pinning copyedited sentences. Review its CI result before merging.
 
 ## Subsequent phases
 1. Gradually adapt legacy SETOUCHI index, detail page, tags and search to the region-agnostic components while preserving existing editorial features and permalinks; verify visual parity rather than replacing more capable components prematurely.
