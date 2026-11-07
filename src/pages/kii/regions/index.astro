@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+import { kiiArticles } from '../../../data/kiiArticles.js';
+import '../../../styles/reader-navigation.css';
+import '../../../styles/kii-discovery.css';
+const site=atlasSites.kii;
+// Each published essay belongs to a real destination; do not expose empty regions.
+const destinations=[
+  {name:'那智勝浦',description:'滝と信仰の風景',slugs:['nachi-waterfall-where-rock-meets-faith']},
+  {name:'白浜',description:'白い砂浜と観光の風景',slugs:['shirarahama-white-sand-across-the-sea']},
+  {name:'有田',description:'みかん山と石積みの風景',slugs:['arida-mikan-climbs-the-hillside']},
+  {name:'熊野本宮',description:'川湯温泉と山あいの川',slugs:['kawayu-hot-spring-river-as-a-bath']},
+  {name:'瀞峡',description:'北山川が刻む深い谷',slugs:['dorokyo-quiet-water-cutting-deep']},
+  {name:'七里御浜',description:'熊野川から続く石の浜',slugs:['shichirimihama-pebbles-from-river-to-pilgrimage']}
+].map(d=>({...d,stories:d.slugs.map(slug=>kiiArticles.find(a=>a.slug===slug)).filter(Boolean)})).filter(d=>d.stories.length);
+const listed=new Set(destinations.flatMap(d=>d.stories.map(a=>a.slug)));
+if(kiiArticles.some(a=>!listed.has(a.slug)))throw Error('KII region directory is missing an essay');
+---
+<BaseLayout siteKey="kii" title="地名から" description="紀伊半島の地名からKII ATLASのエッセイを探す。">
+  <div class="reader-home kii-discovery">
+    <header class="kii-discovery-header"><p class="reader-eyebrow">PLACES & STORIES</p><h1>地名から</h1><p>行ったことのある町から、まだ知らない風景へ。地名を入口にエッセイをたどります。</p></header>
+    <nav class="kii-discovery-jumps" aria-label="地名で探す">
+      {destinations.map(d=><a href={`#place-${d.stories[0].slug}`}>{d.name}</a>)}
+    </nav>
+    <div class="kii-discovery-list">
+      {destinations.map(d=><section class="kii-discovery-section" id={`place-${d.stories[0].slug}`}>
+        <div class="kii-discovery-heading"><h2>{d.name}</h2><p>{d.description}</p></div>
+        <div class="kii-discovery-links">{d.stories.map(a=><a class="kii-discovery-link" href={`${site.basePath}book/${a.slug}/`}>
+          {a.imageUrl&&<img src={a.imageUrl} alt={a.alt||a.title} loading="lazy"/>}
+          <span><strong>{a.title}</strong><small>{a.teaser}</small></span><span class="kii-discovery-arrow" aria-hidden="true">↗</span>
+        </a>)}</div>
+      </section>)}
+    </div>
+  </div>
+</BaseLayout>
