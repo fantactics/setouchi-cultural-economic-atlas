@@ -8,7 +8,7 @@ import '../../../styles/kii-discovery.css';
 const site=atlasSites.kii;
 const tags=kiiNaturalTagVocabulary.map(name=>({name,stories:kiiArticles.filter(a=>a.tags?.includes(name))})).filter(g=>g.stories.length);
 ---
-<BaseLayout siteKey="kii" title="自然条件から" description="山地、多雨、深い谷、温泉、黒潮。紀伊半島の自然条件からエッセイを探す。">
+<BaseLayout siteKey="kii" title="自然条件から" description="地質境界、火成岩、堆積岩、多雨、深い谷。紀伊半島の自然条件からエッセイを探す。">
   <div class="reader-home kii-discovery">
     <header class="kii-discovery-header"><p class="reader-eyebrow">NATURE & STORIES</p><h1>自然条件から</h1><p>山の高さ、雨の多さ、石と水の性質。土地の自然条件から、風景の理由をたどります。</p></header>
     <nav class="kii-discovery-jumps" aria-label="自然条件で探す">
