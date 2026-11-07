@@ -52,10 +52,10 @@ content:
         type: text
       - name: body
         label: エッセイ本文
-        type: rich-text
+        type: code
+        description: 脚注や埋め込みHTMLを保持するためMarkdownソースを直接編集します
         options:
           format: markdown
-          switcher: true
 
 # Crucial: preserve existing frontmatter (sources, photo metadata, research links,
 # migration status and other fields) not exposed in this initial editor.
