@@ -7,9 +7,11 @@ const {
   actionHref = null,
   actionLabel = null,
   // Optional bounds-fitting for sites with a different geographic footprint.
-  fitMarkers = false
+  fitMarkers = false,
+  headingLevel = 'h1'
 } = Astro.props;
 
+const HeadingTag=headingLevel==='h2'?'h2':'h1';
 const mapPlaces = places.map((p) => ({
   id:p.id,
   name:p.name,
@@ -27,7 +29,7 @@ const mapPlaces = places.map((p) => ({
   <div class="home-atlas-map-canvas" data-atlas-region-map data-places={JSON.stringify(mapPlaces)} data-fit-markers={fitMarkers ? "true" : "false"}></div>
   <div class="map-first-copy">
     <div class="kicker">{kicker}</div>
-    <h1>{title}</h1>
+    <HeadingTag>{title}</HeadingTag>
     <p>{description}</p>
     {actionHref && actionLabel && <div class="map-first-actions"><a href={actionHref}>{actionLabel}</a></div>}
   </div>
