@@ -19,9 +19,11 @@ jobs:
       - run: npm install
       - run: node scripts/check-cms-essays.mjs
       - run: node scripts/check-kii-articles.mjs
+      - run: node scripts/check-kii-cms-articles.mjs
       - run: npm run build
       - run: node scripts/check-cms-rendered-pages.mjs
       - run: node scripts/package-kii.mjs
+      - run: node scripts/check-kii-cms-rendered.mjs
       - name: Check generated SETOUCHI and KII entry points
         run: |
           test -f dist/index.html

@@ -59,6 +59,53 @@ content:
           switcher: true
           media: false
 
+  - name: kii-essays
+    label: KII ATLAS｜エッセイ
+    type: collection
+    path: src/content/kii-essays
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title, region]
+      search: [title, teaser, region]
+    fields:
+      - name: slug
+        label: 記事ID（URL用・編集不可）
+        type: string
+        readonly: true
+      - name: region
+        label: 地域
+        type: string
+        readonly: true
+      - name: category
+        label: 景観カテゴリー
+        type: string
+        readonly: true
+      - name: tags
+        label: 自然条件タグ
+        type: string
+        list: true
+        readonly: true
+      - name: title
+        label: タイトル
+        type: string
+        required: true
+      - name: teaser
+        label: リード文（一覧にも反映）
+        type: text
+      - name: body
+        label: エッセイ本文（視覚編集）
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: false
+
 # Crucial: preserve existing frontmatter (sources, photo metadata, research links,
 # migration status and other fields) not exposed in this initial editor.
 settings:
