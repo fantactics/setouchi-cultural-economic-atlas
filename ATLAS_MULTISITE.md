@@ -7,10 +7,12 @@ Both SETOUCHI ATLAS and KII ATLAS live in this repository.
 - Shared layout/navigation/site identity is defined in `src/layouts/BaseLayout.astro` and `src/config/atlasSites.js`.
 - The first KII landing page is at `src/pages/kii/index.astro`, provisionally published at `/setouchi-cultural-economic-atlas/kii/` **only after merge**.
 - KII has no published essays yet. Do not duplicate SETOUCHI content or imagery into KII.
+- Regional essay cards are shared via `src/components/AtlasEssayCards.astro`. SETOUCHI homepage and the KII landing page both use it.
+- KII-specific article records live in `src/data/kiiArticles.js` and are initially empty. KII shows an explicit editorial empty state until reviewed stories are added.
 - The PR build validates both entry points. No live changes should occur until review and merge.
 
 ## Subsequent phases
-1. Extract the common essay card, index, detail page, tag UI and search into reusable components without changing current SETOUCHI permalinks.
+1. Extend the shared essay card to index and detail page components, tag UI and regional search without changing current SETOUCHI permalinks.
 2. Store region-specific essays, place data and photographs separately and have each site read only its region's data.
 3. Configure two build targets and two deployment destinations, preserving the existing SETOUCHI GitHub Pages URL. A repository's single GitHub Pages deployment cannot natively publish two separately configured Pages sites; a second destination, custom domain/hosting or a separate deployment repository is needed if KII must have an independent hostname.
 4. Introduce KII-only routes and regional indexes once articles exist; test navigation, sitemap, canonical URL, analytics, image credits and SEO for each site.
