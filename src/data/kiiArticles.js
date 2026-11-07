@@ -103,7 +103,7 @@ export const kiiArticles = [
   {
     "slug": "shirarahama-white-sand-across-the-sea",
     "title": "白良浜の白い砂は、海を渡ってきた",
-    "teaser": "白い砂が美しい白良浜。実はその一部はオーストラリアから来た。石英がつくった自然の浜を、人は海を越えて運んだ砂で守った。",
+    "teaser": "歌に詠まれた白砂の名勝が、外国の砂で守られている。白良浜の白さを残すために、人は何を選び、何を手放したのだろう。",
     "region": "白浜・白良浜",
     "category": "観光景観",
     "tags": [
@@ -149,20 +149,40 @@ export const kiiArticles = [
     ],
     "sources": [
       {
-        "label": "原研究ノート｜南紀白浜の白良浜はビーチリゾートだった（クアトロのジオ紀行）",
-        "url": "https://quageo.kyotrad.com/?p=1558"
+        "label": "日本歴史地名大系｜白良浜の古来の名勝・催馬楽と紀伊続風土記",
+        "url": "https://kotobank.jp/word/%E7%99%BD%E8%89%AF%E6%B5%9C-1988558"
       },
       {
-        "label": "和歌山県議会 令和6年6月定例会（白砂の起源・養浜・護岸）",
+        "label": "和歌山県広報 2022年5月｜歌枕としての白良浜",
+        "url": "https://www.pref.wakayama.lg.jp/prefg/000100/d00210212_d/fil/04-05.pdf"
+      },
+      {
+        "label": "産業技術総合研究所 地質標本館｜白良浜の石英砂",
+        "url": "https://www.gsj.jp/Muse/sand/D-2697.html"
+      },
+      {
+        "label": "和歌山県議会2024年6月｜白砂起源、砂投入量と流失",
         "url": "https://www.pref.wakayama.lg.jp/gijiroku/d00217978.html"
       },
       {
-        "label": "和歌山県議会 平成30年6月定例会（潜堤・砂の移動）",
+        "label": "白浜町議会2022年12月｜事業費と輸入砂の規模",
+        "url": "https://www.town.shirahama.wakayama.jp/material/files/group/51/1215teireikai.pdf"
+      },
+      {
+        "label": "和歌山県議会2018年6月｜海岸防災と景観への懸念",
         "url": "https://www.pref.wakayama.lg.jp/gijiroku/p041773.html"
       },
       {
-        "label": "日本交通公社｜白良浜海岸と石英の白砂",
-        "url": "https://tabi.jtb.or.jp/res/300020-"
+        "label": "和歌山県議会2019年6月｜砂定着の限界と護岸整備",
+        "url": "https://www.pref.wakayama.lg.jp/gijiroku/d00203254.html"
+      },
+      {
+        "label": "砂浜観察サポート図鑑｜鳴き砂や移入生物の研究",
+        "url": "https://sunahama-web.jp/column/detail_11.html"
+      },
+      {
+        "label": "原研究ノート｜白良浜（クアトロのジオ紀行）",
+        "url": "https://quageo.kyotrad.com/?p=1558"
       }
     ]
   },
