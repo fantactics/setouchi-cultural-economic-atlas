@@ -5,25 +5,31 @@ const {
   title = '場所から読む。',
   description = '自然条件も、産業の履歴も、人が得られるもの・できることも地域ごとに違います。地図から一つの地域を選び、その可能性と制約の変化をたどってください。',
   actionHref = null,
-  actionLabel = null
+  actionLabel = null,
+  // Optional bounds-fitting for sites with a different geographic footprint.
+  fitMarkers = false,
+  headingLevel = 'h1'
 } = Astro.props;
 
+const HeadingTag=headingLevel==='h2'?'h2':'h1';
 const mapPlaces = places.map((p) => ({
   id:p.id,
   name:p.name,
   prefecture:p.prefecture,
   lat:p.lat,
   lon:p.lon,
-  subtitle:p.subtitle
+  subtitle:p.subtitle,
+  href:p.href || `/setouchi-cultural-economic-atlas/places/${p.id}/`,
+  linkLabel:p.linkLabel || '地域ページへ →'
 }));
 ---
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
 <section class="map-first-hero">
-  <div class="home-atlas-map-canvas" data-atlas-region-map data-places={JSON.stringify(mapPlaces)}></div>
+  <div class="home-atlas-map-canvas" data-atlas-region-map data-places={JSON.stringify(mapPlaces)} data-fit-markers={fitMarkers ? "true" : "false"}></div>
   <div class="map-first-copy">
     <div class="kicker">{kicker}</div>
-    <h1>{title}</h1>
+    <HeadingTag>{title}</HeadingTag>
     <p>{description}</p>
     {actionHref && actionLabel && <div class="map-first-actions"><a href={actionHref}>{actionLabel}</a></div>}
   </div>
@@ -39,11 +45,20 @@ const mapPlaces = places.map((p) => ({
       try{items=JSON.parse(el.dataset.places||'[]')}catch(_){return}
       const map=L.map(el,{scrollWheelZoom:false}).setView([34.25,133.45],7);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(map);
-      items.forEach((p)=>{
-        if(typeof p.lat!=='number'||typeof p.lon!=='number') return;
-        const marker=L.circleMarker([p.lat,p.lon],{radius:6,weight:2,fillOpacity:.85}).addTo(map);
-        marker.bindPopup(`<strong>${p.name}</strong><br><small>${p.prefecture}</small><br>${p.subtitle||''}<br><a href="/setouchi-cultural-economic-atlas/places/${p.id}/">地域ページへ →</a>`);
+      const valid=items.filter((p)=>Number.isFinite(p.lat)&&Number.isFinite(p.lon));
+      valid.forEach((p)=>{
+        const marker=L.circleMarker([p.lat,p.lon],{radius:7,weight:2,fillOpacity:.85}).addTo(map);
+        // DOM nodes rather than concatenated HTML keep CMS article text safe.
+        const content=document.createElement('div');
+        const name=document.createElement('strong');name.textContent=p.name||'';content.appendChild(name);
+        const region=document.createElement('small');region.style.display='block';region.textContent=p.prefecture||'';content.appendChild(region);
+        if(p.subtitle){const summary=document.createElement('div');summary.textContent=p.subtitle;summary.style.margin='5px 0';content.appendChild(summary);}
+        const link=document.createElement('a');link.href=p.href;link.textContent=p.linkLabel||'地域ページへ →';content.appendChild(link);
+        marker.bindPopup(content);
       });
+      if(el.dataset.fitMarkers==='true'&&valid.length){
+        map.fitBounds(L.latLngBounds(valid.map((p)=>[p.lat,p.lon])),{padding:[30,30],maxZoom:9});
+      }
     });
   })();
 </script>

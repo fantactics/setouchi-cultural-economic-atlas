@@ -36,6 +36,19 @@ jobs:
           grep -q 'kii-magazine-category' dist-kii/book/index.html
           grep -q 'kii-magazine-story' dist-kii/book/index.html
           test -f dist-kii/regions/index.html
+          grep -q 'data-atlas-region-map' dist-kii/regions/index.html
+          grep -q 'data-fit-markers="true"' dist-kii/regions/index.html
+          grep -q 'MAP / 9 STORIES' dist-kii/regions/index.html
+          grep -q 'エッセイを読む' dist-kii/regions/index.html
+          grep -q 'nachi-waterfall-where-rock-meets-faith' dist-kii/regions/index.html
+          grep -q 'shirarahama-white-sand-across-the-sea' dist-kii/regions/index.html
+          grep -q 'arida-mikan-climbs-the-hillside' dist-kii/regions/index.html
+          grep -q 'kawayu-hot-spring-river-as-a-bath' dist-kii/regions/index.html
+          grep -q 'dorokyo-quiet-water-cutting-deep' dist-kii/regions/index.html
+          grep -q 'shichirimihama-pebbles-from-river-to-pilgrimage' dist-kii/regions/index.html
+          grep -q 'hashiguiiwa-rocks-sunrise-and-legends' dist-kii/regions/index.html
+          grep -q 'saikazaki-blue-green-stone-garden' dist-kii/regions/index.html
+          grep -q 'koyasan-mountain-top-basin-city' dist-kii/regions/index.html
           test -f dist-kii/nature/index.html
           test -f dist-kii/about/index.html
           grep -q 'ランドスケープ = ネイチャー x カルチャー' dist-kii/about/index.html

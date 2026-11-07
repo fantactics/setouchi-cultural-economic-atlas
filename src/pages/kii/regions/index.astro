@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AtlasRegionMap from '../../../components/AtlasRegionMap.astro';
 import { atlasSites } from '../../../config/atlasSites.js';
 import { kiiArticles } from '../../../data/kiiCmsArticles.js';
 import '../../../styles/reader-navigation.css';
@@ -17,16 +18,54 @@ const destinations=[
   {name:'雑賀崎',description:'緑色の岩と庭園の石',slugs:['saikazaki-blue-green-stone-garden']},
   {name:'高野山',description:'霧と山上の宗教都市',slugs:['koyasan-mountain-top-basin-city']}
 ].map(d=>({...d,stories:d.slugs.map(slug=>kiiArticles.find(a=>a.slug===slug)).filter(Boolean)})).filter(d=>d.stories.length);
+const essayLocations={
+  'nachi-waterfall-where-rock-meets-faith':{lat:33.6753,lon:135.887,prefecture:'和歌山県那智勝浦町・那智の滝'},
+  'shirarahama-white-sand-across-the-sea':{lat:33.6828,lon:135.3449,prefecture:'和歌山県白浜町・白良浜'},
+  'arida-mikan-climbs-the-hillside':{lat:34.0706,lon:135.1473,prefecture:'和歌山県有田市・有田川沿い'},
+  'kawayu-hot-spring-river-as-a-bath':{lat:33.8127,lon:135.7689,prefecture:'和歌山県田辺市本宮町・川湯温泉'},
+  'dorokyo-quiet-water-cutting-deep':{lat:33.8899,lon:135.867,prefecture:'三重県熊野市紀和町・瀞峡'},
+  'shichirimihama-pebbles-from-river-to-pilgrimage':{lat:33.8474,lon:136.0411,prefecture:'三重県御浜町・七里御浜'},
+  'hashiguiiwa-rocks-sunrise-and-legends':{lat:33.4818,lon:135.794,prefecture:'和歌山県串本町・橋杭岩'},
+  'saikazaki-blue-green-stone-garden':{lat:34.1883,lon:135.1457,prefecture:'和歌山県和歌山市・雑賀崎'},
+  'koyasan-mountain-top-basin-city':{lat:34.2142,lon:135.5847,prefecture:'和歌山県高野町・高野山'}
+};
+const mapPins=destinations.map((d)=>{
+  const story=d.stories[0];
+  const location=essayLocations[story.slug];
+  if(!location)throw Error('Missing KII map coordinates: '+story.slug);
+  return {
+    id:story.slug,
+    name:d.name,
+    prefecture:location.prefecture,
+    lat:location.lat,
+    lon:location.lon,
+    subtitle:story.title,
+    href:`${site.basePath}book/${story.slug}/`,
+    linkLabel:'エッセイを読む →'
+  };
+});
 const listed=new Set(destinations.flatMap(d=>d.stories.map(a=>a.slug)));
 if(kiiArticles.some(a=>!listed.has(a.slug)))throw Error('KII region directory is missing an essay');
 ---
 <BaseLayout siteKey="kii" title="地名から" description="紀伊半島の地名からKII ATLASのエッセイを探す。">
   <div class="reader-home kii-discovery">
     <header class="kii-discovery-header"><p class="reader-eyebrow">PLACES & STORIES</p><h1>地名から</h1><p>行ったことのある町から、まだ知らない風景へ。地名を入口にエッセイをたどります。</p></header>
+    <div class="kii-destination-map" aria-label="紀伊半島のエッセイ地図">
+      <AtlasRegionMap
+        places={mapPins}
+        fitMarkers={true}
+        headingLevel="h2"
+        kicker={`MAP / ${mapPins.length} STORIES`}
+        title="地図から、寄り道。"
+        description="那智の滝から高野山まで、紀伊半島の風景にピンを立てました。気になる場所を押すと、そこからエッセイへ飛べます。"
+        actionHref="#kii-place-directory"
+        actionLabel="地名の一覧を見る ↓"
+      />
+    </div>
     <nav class="kii-discovery-jumps" aria-label="地名で探す">
       {destinations.map(d=><a href={`#place-${d.stories[0].slug}`}>{d.name}</a>)}
     </nav>
-    <div class="kii-discovery-list">
+    <div class="kii-discovery-list" id="kii-place-directory">
       {destinations.map(d=><section class="kii-discovery-section" id={`place-${d.stories[0].slug}`}>
         <div class="kii-discovery-heading"><h2>{d.name}</h2><p>{d.description}</p></div>
         <div class="kii-discovery-links">{d.stories.map(a=><a class="kii-discovery-link" href={`${site.basePath}book/${a.slug}/`}>
@@ -37,3 +76,14 @@ if(kiiArticles.some(a=>!listed.has(a.slug)))throw Error('KII region directory is
     </div>
   </div>
 </BaseLayout>
+<style>
+  .kii-destination-map{margin:20px 0 32px}
+  .kii-destination-map :global(.map-first-hero){border-radius:22px;overflow:hidden}
+  .kii-destination-map :global(.map-first-copy h2){font-family:inherit;font-weight:850;letter-spacing:-.035em}
+  .kii-destination-map :global(.home-atlas-map-canvas){min-height:380px}
+  @media(max-width:600px){
+    .kii-destination-map{margin:12px 0 24px}
+    .kii-destination-map :global(.map-first-hero){border-radius:16px}
+    .kii-destination-map :global(.home-atlas-map-canvas){min-height:330px}
+  }
+</style>
