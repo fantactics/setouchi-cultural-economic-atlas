@@ -36,3 +36,11 @@ jobs:
           grep -q 'reader-essay-card' dist/index.html
           grep -q '最初のエッセイを準備中です' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
+          if grep -q 'rel="sitemap"' dist-kii/index.html; then echo 'Standalone KII references a foreign sitemap'; exit 1; fi
+      - name: Upload KII standalone preview for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: kii-atlas-pr-preview
+          path: ./dist-kii
+          if-no-files-found: error
+          retention-days: 14
