@@ -3,124 +3,86 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import AtlasEssayCards from '../../components/AtlasEssayCards.astro';
 import AtlasEssaySearch from '../../components/AtlasEssaySearch.astro';
 import { kiiArticles } from '../../data/kiiArticles.js';
-import { kiiNaturalTagVocabulary } from '../../data/kiiNaturalTags.js';
 import { atlasSites } from '../../config/atlasSites.js';
 import '../../styles/reader-navigation.css';
 
 const site = atlasSites.kii;
 const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath}book/${article.slug}/` }));
-const usedNaturalTags = kiiNaturalTagVocabulary.filter((tag)=>kiiArticles.some((article)=>article.tags?.includes(tag)));
-const themes = [
-  { number:'01', icon:'⛰', title: '山と森', detail: '紀伊山地の地形、雨、森林と人の暮らし。', tone:'hill' },
-  { number:'02', icon:'〰', title: '川と谷', detail: '急流と深い谷がつくる生業や道のかたち。', tone:'river' },
-  { number:'03', icon:'◒', title: '海と港', detail: '熊野灘、紀伊水道の海と沿岸の町。', tone:'sea' },
-  { number:'04', icon:'✳', title: '信仰と道', detail: '山を越え、祈りをつなぐ道と集落。', tone:'path' }
-];
+// Photo-first, concise front page: three feature stories, three more and a search box.
+// Full listings, places, and nature tags have their own dedicated pages.
+const featured = stories.slice(0, 3);
+const otherStories = stories.slice(3, 6);
 ---
-<BaseLayout siteKey="kii" title={site.name} description={site.description} image={null} imageAlt="">
-  <div class="reader-home kii-home">
-    <section class="reader-home-intro kii-hero">
-      <div class="kii-hero-copy">
-        <p class="reader-eyebrow"><span aria-hidden="true">✳</span> STORIES FROM THE KII PENINSULA</p>
-        <h1>山があり、雨が降る。<br />そこから、物語が始まる。</h1>
-        <p class="reader-home-subtitle">ランドスケープ = ネイチャー x カルチャー</p>
-        <p class="reader-home-lead">峰を越える道、谷あいの集落、海に向かう川。<br />紀伊半島の自然を入口に、人々の選択と土地の文化を見つめていきます。</p>
-        <a class="kii-hero-link" href="#essays">紀伊の風景をめぐる <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="kii-hero-art" aria-hidden="true">
-        <span class="kii-art-sun"></span>
-        <span class="kii-art-ridge kii-art-ridge-far"></span>
-        <span class="kii-art-ridge kii-art-ridge-mid"></span>
-        <span class="kii-art-ridge kii-art-ridge-near"></span>
-        <span class="kii-art-river"></span>
-        <span class="kii-art-label">MOUNTAINS · RIVERS · SEA</span>
-      </div>
+<BaseLayout siteKey="kii" title={site.name} description={site.description} image={featured[0]?.imageUrl || null} imageAlt={featured[0]?.alt || ''}>
+  <div class="reader-home kii-home-simple">
+    <h1 class="reader-home-screenreader">KII ATLAS のエッセイ</h1>
+
+    <section class="kii-home-welcome" aria-label="サイト紹介">
+      <p class="reader-eyebrow">STORIES FROM THE KII PENINSULA</p>
+      <p>山の道、川の流れ、海辺の町。<br />紀伊半島の風景から、土地の物語をたどる。</p>
     </section>
 
-    <section id="essays" class="reader-home-section" aria-labelledby="kii-essays-title">
-      <div class="reader-section-heading">
-        <div>
-          <p class="reader-eyebrow">EXPLORE KII</p>
-          <h2 id="kii-essays-title">風景から、旅をはじめよう。</h2>
-          <p>自然条件を起点に、少しずつエッセイを公開していきます。</p>
-        </div>
-      </div>
-      <AtlasEssaySearch stories={stories} label="紀伊半島のエッセイを探す" placeholder="例：熊野、多雨、川、森林" inputId="kii-essay-search" />
-      {usedNaturalTags.length > 0 && <div class="kii-natural-tags" aria-label="自然条件タグ"><strong>自然条件から探す</strong>{usedNaturalTags.map((tag)=><a href={`${site.basePath}?q=${encodeURIComponent(tag)}#essays`}>{tag}</a>)}</div>}
-      <AtlasEssayCards stories={stories} emptyMessage="最初のエッセイを準備中です。公開時にはここに掲載します。" />
-      <div class="kii-topic-heading"><span>4 LANDSCAPES</span><h3>まずは、四つの風景から。</h3></div>
-      <div class="kii-topics">
-        {themes.map((theme)=>(
-          <article class:list={['kii-topic', `kii-topic-${theme.tone}`]}>
-            <div class="kii-topic-top"><span>{theme.number} / KII</span><span class="kii-topic-icon" aria-hidden="true">{theme.icon}</span></div>
-            <h3>{theme.title}</h3>
-            <p>{theme.detail}</p>
-          </article>
+    <section class="reader-home-featured" aria-labelledby="kii-feature-title">
+      <p class="reader-home-feature-label" id="kii-feature-title">今日の3篇</p>
+      <div class="reader-home-feature-grid">
+        {featured.map((story,index)=>(
+          <a class="reader-home-feature" href={story.href}>
+            {story.imageUrl && <img src={story.imageUrl} alt={story.alt || story.title} loading={index===0?'eager':'lazy'} />}
+            <div class="reader-home-feature-copy">
+              <span>{story.region}</span>
+              <h2>{story.title}</h2>
+              <p>{story.teaser}</p>
+              <strong>読む →</strong>
+            </div>
+          </a>
         ))}
       </div>
     </section>
 
-    <section id="about-kii" class="reader-home-section kii-about" aria-labelledby="kii-about-title">
-      <p class="reader-eyebrow">ABOUT THIS ATLAS</p>
-      <h2 id="kii-about-title">風景の向こうにある理由。</h2>
-      <p>このサイトは、地名や名所を並べる案内書ではありません。土地の気候や地形、生態系と、人々が生み出してきた生業や文化のつながりを、旅する人の視点からたどるエッセイ集です。</p>
+    <section class="reader-home-section" aria-labelledby="kii-more-title">
+      <div class="reader-section-heading">
+        <div>
+          <p class="reader-eyebrow">MORE STORIES</p>
+          <h2 id="kii-more-title">ほかにも、こんな旅。</h2>
+          <p>気になる写真から、寄り道してみよう。</p>
+        </div>
+        <a href={site.basePath+'book/'}>すべてのエッセイを見る →</a>
+      </div>
+      <AtlasEssayCards stories={otherStories}/>
+    </section>
+
+    <section class="reader-home-search" aria-labelledby="kii-search-title">
+      <div class="reader-section-heading">
+        <div>
+          <p class="reader-eyebrow">FIND A STORY</p>
+          <h2 id="kii-search-title">ことばで、ひとっとび。</h2>
+          <p>地名、温泉、山や川。思いついたことばで探してみよう。</p>
+        </div>
+      </div>
+      <AtlasEssaySearch stories={stories} label="紀伊半島のエッセイを探す" placeholder="例：熊野、白浜、石、温泉" inputId="kii-home-search" />
+    </section>
+    <section id="about-kii" class="kii-home-about">
+      <p><strong>KII ATLAS</strong> は、ランドスケープ = ネイチャー x カルチャーをテーマに、紀伊半島の風景と、その理由をたどるエッセイ集です。</p>
+      <a href={site.basePath+'regions/'}>地名から探す →</a>
+      <a href={site.basePath+'nature/'}>自然条件から探す →</a>
     </section>
   </div>
 </BaseLayout>
-
 <style>
-  /* KII shares SETOUCHI's contemporary magazine type system and card rhythm.
-     Only its regional colors and illustrations are site-specific. */
-  .kii-home{--kii-forest:#315f4e;--kii-lime:#e5f0c8;--kii-coral:#c77b52;--kii-cream:#fffaf1;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#29483d}
-  .kii-home .reader-eyebrow{color:#a55f40;letter-spacing:.11em;font-weight:800;font-size:.72rem}
-  .kii-home .reader-eyebrow span{color:#db8954;font-size:1.2rem;margin-right:7px;vertical-align:middle}
-  .kii-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(20px,5vw,64px);align-items:center;max-width:none;padding:clamp(30px,5vw,65px) 0 clamp(20px,3vw,40px)}
-  .kii-hero-copy{min-width:0}
-  .kii-home .kii-hero h1{font-family:inherit;font-weight:850;font-size:clamp(2.05rem,4.2vw,4.15rem);letter-spacing:-.065em;line-height:1.39;color:#2e5347;margin:18px 0 19px;text-wrap:balance}
-  .kii-home .reader-home-subtitle{font-family:inherit;font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;letter-spacing:-.025em;line-height:1.7;color:#bc724e;margin:0 0 21px}
-  .kii-home .reader-home-lead{font-size:clamp(.96rem,1.35vw,1.07rem);line-height:2;color:#59746b;margin-bottom:25px}
-  .kii-hero-link{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:12px 19px;border-radius:999px;background:#376d59;color:white;text-decoration:none;font-size:.91rem;font-weight:800;transition:transform .2s ease,background .2s ease}
-  .kii-hero-link:hover{background:#255342;transform:translateY(-2px)}
-  .kii-hero-art{position:relative;isolation:isolate;aspect-ratio:4/4.2;overflow:hidden;border-radius:28px;background:linear-gradient(155deg,#fbedd4 0%,#f2e9d2 50%,#e6efdf 100%);box-shadow:0 15px 32px rgba(30,65,48,.08)}
-  .kii-art-sun{position:absolute;top:12%;right:15%;width:30%;aspect-ratio:1;border-radius:50%;background:#e8a76c}
-  .kii-art-ridge{position:absolute;left:-12%;width:127%;height:70%;border-radius:44% 56% 0 0}
-  .kii-art-ridge-far{top:41%;background:#a1b9a3;transform:rotate(-12deg)}
-  .kii-art-ridge-mid{top:55%;left:-24%;background:#628f77;transform:rotate(14deg)}
-  .kii-art-ridge-near{top:71%;left:-6%;background:#336d5a;transform:rotate(-8deg)}
-  .kii-art-river{position:absolute;bottom:-13%;left:28%;width:30%;height:48%;background:#b3d9d3;transform:rotate(18deg);border-radius:60% 40% 0 0 / 90% 45% 0 0;clip-path:polygon(32% 0,63% 6%,84% 36%,67% 100%,0 100%,45% 45%)}
-  .kii-art-label{position:absolute;z-index:2;bottom:20px;left:21px;color:#f9fff4;letter-spacing:.13em;font-size:.64rem;font-weight:900}
-  .kii-home .reader-home-section{margin-top:62px}
-  .kii-home .reader-section-heading h2,.kii-topic-heading h3,.kii-about h2{font-family:inherit;font-weight:850;letter-spacing:-.045em}
-  .kii-home .reader-section-heading h2{color:#305747}
-  .kii-home .reader-section-heading p:not(.reader-eyebrow){line-height:1.85}
-  .kii-natural-tags{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:16px 0 24px}
-  .kii-natural-tags strong{margin-right:8px;font-size:.87rem}
-  .kii-natural-tags a{background:#e9f0e7;border-radius:999px;color:#355d49;padding:5px 11px;font-size:.8rem}
-  .kii-topic-heading{display:flex;align-items:baseline;gap:17px;margin:39px 0 19px}
-  .kii-topic-heading>span{font-size:.69rem;letter-spacing:.14em;color:#b87351;font-weight:900}
-  .kii-topic-heading h3{font-size:clamp(1.3rem,2.3vw,1.85rem);margin:0;color:#305747}
-  .kii-topics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .kii-topic{background:#f2f6eb;border:1px solid #e0e9da;border-radius:20px;padding:clamp(17px,2.1vw,25px);min-height:230px;transition:transform .2s ease}
-  .kii-topic:hover{transform:translateY(-3px)}
-  .kii-topic-river{background:#e8f3f1}
-  .kii-topic-sea{background:#e7eff4}
-  .kii-topic-path{background:#fff0e2}
-  .kii-topic-top{display:flex;align-items:start;justify-content:space-between;gap:7px;min-height:60px}
-  .kii-topic-top>span:first-child{font-size:.65rem;letter-spacing:.11em;color:#66877b;font-weight:900}
-  .kii-topic-icon{font-family:system-ui,sans-serif;color:#5e9076;font-size:1.85rem;line-height:1}
-  .kii-topic-sea .kii-topic-icon{color:#678faa}
-  .kii-topic-path .kii-topic-icon{color:#ce8a62}
-  .kii-topic h3{font-family:inherit;font-size:clamp(1.32rem,1.6vw,1.7rem);font-weight:850;letter-spacing:-.045em;margin:1px 0 10px;color:#315c4a}
-  .kii-topic p{margin:0;color:#61796f;line-height:1.85;font-size:.89rem}
-  .kii-about{padding:clamp(25px,4vw,48px);border-radius:24px;background:#f1f5e9;max-width:none;border:1px solid #e1eadb}
-  .kii-about h2{font-size:clamp(1.65rem,2.8vw,2.35rem);color:#305747;margin:0 0 17px}
-  .kii-about>p:last-child{line-height:2;max-width:760px;color:#526d60;margin:0}
+  .kii-home-simple{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#29483d}
+  .kii-home-welcome{padding:11px 0 23px}
+  .kii-home-welcome .reader-eyebrow{color:#bf7953;font-size:.7rem;font-weight:800}
+  .kii-home-welcome>p:last-child{font-size:clamp(.98rem,1.7vw,1.25rem);line-height:1.9;color:#4b6a5e;font-weight:650;margin:0}
+  .kii-home-simple .reader-home-feature-grid .reader-home-feature{background:#fffdf8}
+  .kii-home-simple .reader-home-feature-copy>span{color:#bd7955}
+  .kii-home-simple .reader-home-feature-copy strong{background:#e8f1e6;color:#386d56}
+  .kii-home-simple .reader-section-heading h2{color:#31594a}
+  .kii-home-simple .reader-home-search{background:#edf3ea}
+  .kii-home-simple .reader-home-search .atlas-region-search{margin:12px 0 0;background:transparent;padding:0}
+  .kii-home-simple .reader-home-search .atlas-region-search label{font-size:.82rem;color:#4e6c5b}
+  .kii-home-about{margin:55px 0 0;padding:24px 0;border-top:1px solid #dce5d9;color:#61766a;font-size:.85rem;line-height:1.85}
+  .kii-home-about p{margin:0 0 12px}
+  .kii-home-about a{display:inline-block;margin:0 20px 8px 0;text-decoration:underline;text-underline-offset:4px;color:#366954;font-weight:700}
   :global(body.atlas-theme-forest){--sea:#376d59;--paper:#faf9f3;--line:#e5e8db}
-  :global(body.atlas-theme-forest .site-header){background:rgba(250,249,243,.96)}
-  :global(body.atlas-theme-forest .brand){color:#305b4c}
-  @media(max-width:1030px){.kii-topics{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:750px){.kii-hero{grid-template-columns:1fr;gap:15px;padding-top:25px}.kii-hero-art{max-height:320px;aspect-ratio:16/8}.kii-home .kii-hero h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}}
-  @media(max-width:600px){.kii-home .reader-home-section{margin-top:46px}.kii-topics{gap:10px}.kii-topic{min-height:215px;padding:16px;border-radius:16px}.kii-topic-heading{display:block}.kii-topic-heading h3{margin-top:8px}.kii-about{border-radius:18px}.kii-hero-art{max-height:270px}}
-  @media(max-width:380px){.kii-topics{grid-template-columns:1fr}.kii-topic{min-height:160px}}
-  @media(prefers-reduced-motion:reduce){.kii-topic,.kii-hero-link{transition:none}}
+  @media(max-width:580px){.kii-home-welcome{padding-bottom:15px}.kii-home-about{margin-top:35px}}
 </style>
