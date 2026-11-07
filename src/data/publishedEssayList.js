@@ -15,6 +15,7 @@ import { setouchiShipMaterialsEssay } from './setouchiShipMaterialsEssay.js';
 import { aiRegionalPlanningEssay } from './aiRegionalPlanningEssay.js';
 import { kojimaCircularEssay } from './kojimaCircularEssay.js';
 import { kojimaIslandEssays } from './kojimaIslandEssays.js';
+import { quageoSetouchiEssays } from './quageoSetouchiEssays.js';
 
 export const publishedEssays=[...new Map([
   ...orderedBookArticles,
@@ -22,5 +23,5 @@ export const publishedEssays=[...new Map([
   tomoTwoActPortEssay,...portSystemEssays,niboshiShirasuEssay,
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
   setouchiShipMaterialsEssay,aiRegionalPlanningEssay,kojimaCircularEssay,
-  ...kojimaIslandEssays
+  ...kojimaIslandEssays,...quageoSetouchiEssays
 ].filter((article)=>article?.slug).map((article)=>[article.slug,article])).values()];
