@@ -20,7 +20,26 @@ content:
     view:
       primary: title
       fields: [title, subtitle]
+      search: [title, subtitle, lead]
     fields:
+      - name: slug
+        label: 記事ID（URL用・編集不可）
+        type: string
+        readonly: true
+      - name: part
+        label: 分類
+        type: string
+        readonly: true
+      - name: cities
+        label: 地名
+        type: string
+        list: true
+        readonly: true
+      - name: keywords
+        label: キーワード
+        type: string
+        list: true
+        readonly: true
       - name: title
         label: タイトル
         type: string
@@ -37,3 +56,9 @@ content:
         options:
           format: markdown
           switcher: true
+
+# Crucial: preserve existing frontmatter (sources, photo metadata, research links,
+# migration status and other fields) not exposed in this initial editor.
+settings:
+  content:
+    merge: true
