@@ -34,13 +34,13 @@ await cp(input, output, { recursive: true });
 await cp(join(source, '_astro'), join(output, '_astro'), { recursive: true });
 
 const replaceUrls = (content) => {
+  // Replace complete canonical / OpenGraph URLs before shortening paths.
+  const oldHost = 'https://fantactics.github.io';
+  let transformed = content.split(oldHost + kiiBase).join((origin || 'https://preview.invalid') + '/');
   // The KII-specific base must be replaced BEFORE the broader asset base.
-  let transformed = content.split(kiiBase).join('/');
+  transformed = transformed.split(kiiBase).join('/');
   // Shared, fingerprinted Astro assets live at the site's own root.
   transformed = transformed.split(setouchiBase + '_astro/').join('/_astro/');
-  // The host's canonical and social URL must not point to SETOUCHI.
-  const oldHost = 'https://fantactics.github.io';
-  transformed = transformed.split(oldHost + kiiBase).join((origin || 'https://preview.invalid') + '/');
   return transformed;
 };
 async function walk(directory) {
