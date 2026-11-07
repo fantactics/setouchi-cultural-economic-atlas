@@ -3,8 +3,21 @@ slug: setouchi-sushi-not-nigiri
 part: 食は、土地を語る
 title: 瀬戸内の寿司は握らず、分ける
 subtitle: 岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓――ハレの日に人と人をつなぐ料理
-cities: [岡山, 香川, 広島, 松山]
-keywords: [寿司, 押し寿司, ばら寿司, 松山鮓, ママカリ, サワラ, 食文化, 保存食, 共同体]
+cities:
+  - 岡山
+  - 香川
+  - 広島
+  - 松山
+keywords:
+  - 寿司
+  - 押し寿司
+  - ばら寿司
+  - 松山鮓
+  - ママカリ
+  - サワラ
+  - 食文化
+  - 保存食
+  - 共同体
 lead: 岡山の祝いの席には、魚介と野菜で彩られた大皿のばら寿司が現れる。讃岐ではサワラの押し抜きずしが親類の家を行き来し、広島では木型で作った角寿司を隣近所にも分けた。松山でも、客を迎えるときに松山鮓を振る舞ってきた。形も味も違うのに、そこには共通する風景がある。一人前を注文して食べるのではなく、作り、盛り、取り分け、持っていく。瀬戸内の寿司を「誰と食べるか」から眺めると、ハレの日に人と人をつないできた、もう一つの役割が見えてくる。
 heroPhoto:
   imageUrl: https://commons.wikimedia.org/wiki/Special:FilePath/Chirashi-zushi.jpg?width=1600
@@ -16,13 +29,34 @@ heroPhoto:
   license: CC BY-SA 3.0
   licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
 sources:
-  - { id: 1, title: "水産発酵食品―なれずし等", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/bunrui/suisan-hakkou.html" }
-  - { id: 2, title: "ばらずし 岡山県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_1_okayama.html" }
-  - { id: 3, title: "中国四国の郷土料理・ママカリ寿司等", publisher: 農林水産省 中国四国農政局, url: "https://www.maff.go.jp/chushi/sesaku/export/attach/pdf/jouhou-52.pdf" }
-  - { id: 4, title: "押し抜きずし 香川県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/oshinuki_zushi_kagawa.html" }
-  - { id: 5, title: "角寿司 広島県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_16_hiroshima.html" }
-  - { id: 6, title: "松山鮓 愛媛県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/matsu_yama_zushi_ehime.html" }
-  - { id: 7, title: "江戸前寿司 東京都", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_2_tokyo.html" }
+  - id: 1
+    title: 水産発酵食品―なれずし等
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/bunrui/suisan-hakkou.html
+  - id: 2
+    title: ばらずし 岡山県
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_1_okayama.html
+  - id: 3
+    title: 中国四国の郷土料理・ママカリ寿司等
+    publisher: 農林水産省 中国四国農政局
+    url: https://www.maff.go.jp/chushi/sesaku/export/attach/pdf/jouhou-52.pdf
+  - id: 4
+    title: 押し抜きずし 香川県
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/oshinuki_zushi_kagawa.html
+  - id: 5
+    title: 角寿司 広島県
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/42_16_hiroshima.html
+  - id: 6
+    title: 松山鮓 愛媛県
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/matsu_yama_zushi_ehime.html
+  - id: 7
+    title: 江戸前寿司 東京都
+    publisher: 農林水産省
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_2_tokyo.html
 editorialPhotoPlacements:
   - afterHeading: 松山――客をもてなす、松山鮓
     photoIds:
@@ -32,7 +66,6 @@ migration:
   status: pilot-copy
   publicUrl: /book/setouchi-sushi-not-nigiri/
 ---
-
 ## 一貫ではなく、一皿を囲む
 
 寿司と聞けば、カウンターで一貫ずつ握られる姿を思い浮かべる。だが、岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓を眺めると、別の食べ方が見えてくる。大きく作り、集まった人に振る舞い、ときには別の家へ届ける寿司である。 [2](#source-2) [4](#source-4) [5](#source-5) [6](#source-6)
@@ -73,7 +106,6 @@ migration:
 
 ここでは、同じ大皿を囲むことが、歓迎の言葉にもなる。祝い事や客の訪問を、特別な料理を作って迎える。その習慣の中に、松山鮓のもう一つの意味がある。 [6](#source-6)
 
-
 ## 分けることが、祝いの言葉になる
 
 江戸では巨大都市と外食文化が発達し、一人の客へその場ですぐ提供できる握り寿司が発展した。コハダを締め、アナゴを煮、エビを茹でるなど、江戸前寿司もまた保存と調理を両立させる技術体系だった。 [7](#source-7)
@@ -83,3 +115,7 @@ migration:
 もちろん、瀬戸内でも握り寿司は食べられ、押し寿司や大皿の寿司は他地域にもある。「瀬戸内は握らない」という絶対的な境界ではない。それでも、この土地に伝わるいくつもの寿司には、食べ方を通じて人との関係を育てるという共通の顔がある。
 
 寿司を作れば、「寄っていきませんか」と声をかける理由ができる。ひと箱渡せば、「おめでとう」や「いつもありがとう」を言葉にしなくても伝えられる。瀬戸内の寿司は握らず、分ける。そこには、料理を通じて人と人の距離を縮めてきた、ハレの日の文化がある。 [4](#source-4) [5](#source-5)
+
+
+
+視覚編集テスト2
