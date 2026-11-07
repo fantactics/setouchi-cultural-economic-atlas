@@ -48,7 +48,7 @@ jobs:
           grep -q '橋杭岩は、なぜ橋にならなかったのか' dist-kii/index.html
           grep -q '地名から' dist-kii/index.html
           grep -q '自然条件から' dist-kii/index.html
-          grep -q '神になった滝には、地質の理由がある' dist-kii/regions/index.html
+          grep -q '鳥居の向こうに、社殿はなかった' dist-kii/regions/index.html
           grep -q '多雨' dist-kii/nature/index.html
           test -f dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           ! grep -q '出典・参照資料' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
@@ -57,7 +57,10 @@ jobs:
           grep -q 'aria-label="自然条件タグ"' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           test -f dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           test -f dist-kii/book/arida-mikan-climbs-the-hillside/index.html
-          grep -q '神になった滝には、地質の理由がある' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          grep -q '鳥居の向こうに、社殿はなかった' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          grep -q '南紀熊野ジオパーク' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          grep -q '那智黒' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
+          grep -q 'フィリピン海プレート' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           grep -q '白良浜の白い砂は、海を渡ってきた' dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           grep -q 'みかん畑は、なぜ山を登ったのか' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
           test -f dist-kii/robots.txt
@@ -69,7 +72,7 @@ jobs:
           grep -q 'index,follow' dist/kii/index.html
           if grep -q 'noindex,follow' dist/index.html; then echo 'SETOUCHI must remain indexable'; exit 1; fi
           grep -q 'reader-essay-card' dist/index.html
-          grep -q '神になった滝には、地質の理由がある' dist/kii/index.html
+          grep -q '鳥居の向こうに、社殿はなかった' dist/kii/index.html
           grep -q '白良浜の白い砂は、海を渡ってきた' dist/kii/index.html
           grep -q 'みかん畑は、なぜ山を登ったのか' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
