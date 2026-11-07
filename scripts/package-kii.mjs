@@ -5,7 +5,7 @@
  * Usage: node scripts/package-kii.mjs
  *        KII_PUBLIC_ORIGIN=https://kii.example.org node scripts/package-kii.mjs
  *
- * The default is a preview-only, noindex package. Domain configuration is
+ * The default is the confirmed kii-atlas.pages.dev origin, with noindex. Domain configuration is
  * deliberately explicit: no fictional public destination is published.
  */
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -16,11 +16,11 @@ const input = join(source, 'kii');
 const output = resolve('dist-kii');
 const setouchiBase = '/setouchi-cultural-economic-atlas/';
 const kiiBase = setouchiBase + 'kii/';
-const origin = process.env.KII_PUBLIC_ORIGIN?.replace(/\/$/, '') || '';
+const origin = process.env.KII_PUBLIC_ORIGIN?.replace(/\/$/, '') || 'https://kii-atlas.pages.dev';
 if (origin && !/^https:\/\/[^/]+$/.test(origin)) {
   throw new Error('KII_PUBLIC_ORIGIN must be a bare HTTPS origin, without a path');
 }
-if (origin && !process.env.KII_LAUNCH_APPROVED) {
+if (process.env.KII_PUBLIC_ORIGIN && !process.env.KII_LAUNCH_APPROVED) {
   throw new Error('Production-like KII packaging requires KII_LAUNCH_APPROVED=1');
 }
 try {
@@ -36,7 +36,7 @@ await cp(join(source, '_astro'), join(output, '_astro'), { recursive: true });
 const replaceUrls = (content) => {
   // Replace complete canonical / OpenGraph URLs before shortening paths.
   const oldHost = 'https://fantactics.github.io';
-  let transformed = content.split(oldHost + kiiBase).join((origin || 'https://preview.invalid') + '/');
+  let transformed = content.split(oldHost + kiiBase).join(origin + '/');
   // Shared sitemap indexes the SETOUCHI domain; do not advertise it for KII.
   transformed = transformed.replace(/<link\s+rel="sitemap"[^>]*>/g, '');
   // The KII-specific base must be replaced BEFORE the broader asset base.
@@ -70,7 +70,7 @@ await writeFile(join(output, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 await writeFile(join(output, '.nojekyll'), '');
 await writeFile(join(output, 'BUILD_INFO.txt'),
   'KII ATLAS standalone bundle\n' +
-  'Origin: ' + (origin || 'unconfigured preview') + '\n' +
+  'Origin: ' + origin + '\n' +
   'Status: noindex (prelaunch)\n' +
   'Source: shared ATLAS monorepo\n');
 const homepage = await readFile(join(output, 'index.html'), 'utf8');
