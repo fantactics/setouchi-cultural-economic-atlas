@@ -80,6 +80,11 @@ jobs:
           grep -q '漂砂' dist-kii/nature/index.html
           grep -q '波浪' dist-kii/nature/index.html
           grep -q 'みかん畑は、なぜ山を登ったのか' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '平地の少なさ' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '陽地' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '河原の丸石' dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          grep -q '急斜面' dist-kii/nature/index.html
+          grep -q '日照' dist-kii/nature/index.html
           test -f dist-kii/robots.txt
           grep -q 'https://kii-atlas.pages.dev/' dist-kii/index.html
           if grep -q 'https://fantactics.github.io/setouchi-cultural-economic-atlas/kii/' dist-kii/index.html; then echo 'Standalone KII canonical still points to SETOUCHI'; exit 1; fi
