@@ -1,6 +1,6 @@
 ---
 /** Site-agnostic essay body: data belongs to the invoking region. */
-const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true } = Astro.props;
+const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true, MarkdownContent = null } = Astro.props;
 ---
 <article class="atlas-shared-essay">
   <header>
@@ -12,12 +12,14 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
     {article.tags?.length > 0 && <ul class="atlas-essay-tags" aria-label="自然条件タグ">{article.tags.map((tag)=><li>{tag}</li>)}</ul>}
   </header>
   <div class="atlas-essay-body">
-    {(article.sections || []).map((section)=>(
-      <section>
-        {section.heading && <h2>{section.heading}</h2>}
-        {(section.paragraphs || []).map((paragraph)=><p>{paragraph}</p>)}
-      </section>
-    ))}
+    {MarkdownContent
+      ? <div class="atlas-essay-markdown"><MarkdownContent /></div>
+      : (article.sections || []).map((section)=>(
+          <section>
+            {section.heading && <h2>{section.heading}</h2>}
+            {(section.paragraphs || []).map((paragraph)=><p>{paragraph}</p>)}
+          </section>
+        ))}
   </div>
   {showSources && article.sources?.length > 0 && <aside class="atlas-essay-sources">
     <h2>出典・参照資料</h2>
@@ -42,6 +44,9 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
   .atlas-essay-body section{margin-bottom:49px}
   .atlas-essay-body h2{font-family:inherit;font-size:clamp(1.45rem,2.8vw,2.1rem);font-weight:800;color:#355c4d;letter-spacing:-.04em;border-left:5px solid #d79365;padding-left:18px;line-height:1.5}
   .atlas-essay-body p{font-size:clamp(1.01rem,1.5vw,1.095rem);line-height:2.13;margin:1.35rem 0;letter-spacing:.007em}
+  .atlas-essay-markdown :global(h2){font-family:inherit;font-size:clamp(1.45rem,2.8vw,2.1rem);font-weight:800;color:#355c4d;letter-spacing:-.04em;border-left:5px solid #d79365;padding-left:18px;line-height:1.5;margin:0 0 22px}
+  .atlas-essay-markdown :global(p){font-size:clamp(1.01rem,1.5vw,1.095rem);line-height:2.13;margin:1.35rem 0;letter-spacing:.007em}
+  .atlas-essay-markdown :global(h2:not(:first-child)){margin-top:49px}
   .atlas-essay-sources{max-width:760px;margin:auto;border-top:1px solid #dce5dc;padding-top:24px}
   .atlas-essay-sources h2{font-size:1.06rem;font-weight:800;color:#466a58}
   .atlas-essay-sources ul{padding-left:1.3rem}
