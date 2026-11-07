@@ -189,7 +189,7 @@ export const kiiArticles = [
   {
     "slug": "arida-mikan-climbs-the-hillside",
     "title": "みかん畑は、なぜ山を登ったのか",
-    "teaser": "有田川の両岸、みかんの畑が山を登っている。平地の少なさを引き受け、石を積んで日なたを耕してきた人々の400年をたどる。",
+    "teaser": "有田川の向こうに広がる、緑と白のパッチワーク。平地の少なさ、石積み、品種の違い、雨と日差しを調整する技術が山肌を彩っていた。",
     "region": "有田・有田川流域",
     "category": "農業景観",
     "tags": [
@@ -274,6 +274,22 @@ export const kiiArticles = [
       {
         "label": "有田川町｜景観の成立と山地・平地のみかん畑",
         "url": "https://www.town.aridagawa.lg.jp/material/files/group/30/1_1_outline.pdf"
+      },
+      {
+        "label": "早和果樹園｜屋根かけ栽培（2023年9月5日）",
+        "url": "https://www.sowakajuen.co.jp/blog/agriculture/p19320/"
+      },
+      {
+        "label": "早和果樹園｜マルドリ方式と水分管理",
+        "url": "https://www.sowakajuen.co.jp/industry_1/marudori/"
+      },
+      {
+        "label": "早和果樹園｜白いマルチシート栽培",
+        "url": "https://www.sowakajuen.co.jp/news/p8418/"
+      },
+      {
+        "label": "蜂久農園｜みかん収穫時期の違い",
+        "url": "https://www.tamuramikan89.com/smartphone/mikan.html"
       }
     ]
   },
