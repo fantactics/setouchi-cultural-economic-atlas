@@ -13,6 +13,7 @@
  * For ambiguous or merely incidental mentions, omit tags rather than guess.
  */
 export const naturalConditionRules = [
+  {tag:'軟水', pattern:/軟水|鉄分.*少な.*水|ミネラル.*少な.*水/},
   {tag:'少雨', pattern:/少雨|雨量が少な|雨が少な|降水量が少な|降水量は少な|水不足が続|乾燥した気候/},
   {tag:'雨陰', pattern:/雨陰|山地が雨雲を|山が雨を遮|雨雲を遮|湿った風を遮|山で雨を降らせ/},
   {tag:'急流', pattern:/急流|急潮|速い潮|潮が速|潮流が速|激しい潮流|速い流れ|川は短く.*急|急な川|川.{0,14}勾配が急/},
@@ -56,6 +57,9 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'chichibugahama-sky-in-tide':['潮汐','遠浅','日照'],
+  'ogushi-theatron-sea-as-stage':['岬','少雨','多島海'],
+  'tatsuno-water-castle-and-soy-sauce':['軟水','斜面'],
   'tatara-bridge-citrus-seasons':['少雨','日照','斜面'],
   'awaji-onion-rice-field':['少雨','日照'],
   'sanuki-store-the-rain':['少雨','急流','雨陰'],
