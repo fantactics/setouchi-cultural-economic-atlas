@@ -1,85 +1,17 @@
 ---
-slug: awaji-onion-rice-field
-part: 農業景観
-title: 淡路島の玉ねぎは、田んぼで育つ
-subtitle: 同じ晴れ空の下で――紀の川と香川の水田裏作をたどる
-cities:
-  - 淡路島
-  - 南あわじ
-  - 紀の川
-  - 香川
-  - 三豊
-keywords:
-  - 玉ねぎ
-  - 淡路島たまねぎ
-  - 水田裏作
-  - 二毛作
-  - 稲作
-  - 畜産
-  - 牛ふん堆肥
-  - 玉ねぎ小屋
-  - 自然乾燥
-  - 少雨
-  - 日照
-  - 水利
-  - 紀の川市
-  - みがきたまねぎ
-  - 香川県
-heroPhotoId: photo-awaji-onion-rice-field
-lead: 春の淡路島。三原平野の玉ねぎ畑には細長い葉が伸び、初夏には収穫を迎える。だが、この畑は夏になると水を張った田んぼになる。水を嫌う玉ねぎが水田で育つのはなぜだろう。同じ農業の暦が紀の川や香川にもあることを知ると、島の名産を支えてきたのが気候だけではないことが見えてくる。
-narrativeMode: sketch
-provisionalConclusion: 淡路島の玉ねぎ産地は温暖な冬と多日照に加え、水田裏作・水利管理・稲わらと牛ふんの循環・風を使う自然乾燥・産地組織の選択に支えられた。紀の川や香川との違いは気候だけで説明できない。
-openQuestions:
-  - 淡路島と香川の土地改良・機械化の経緯を同じ指標で比較できるか
-  - 紀の川の水田裏作が地域の農業経営に占める割合はどう推移したか
-sources:
-  - id: 1
-    title: 南あわじにおける水稲・たまねぎ・畜産の生産循環システム
-    publisher: 農林水産省・日本農業遺産
-    url: https://www.maff.go.jp/j/nousin/kantai/giahs_3_awaji.html
-  - id: 2
-    title: 淡路島たまねぎ・栽培と乾燥
-    publisher: 南あわじ市
-    url: https://www.city.minamiawaji.hyogo.jp/soshiki/shoku/tamanegi.html
-  - id: 3
-    title: 南あわじ地域の農業支援プロジェクト（玉ねぎ小屋の乾燥期間）
-    publisher: 兵庫県立淡路景観園芸学校
-    url: https://www.awaji.ac.jp/projects/02_tamanegigoya
-  - id: 4
-    title: 淡路島たまねぎの収穫と玉ねぎ小屋（5月下旬〜8月上旬）
-    publisher: あわじ国
-    url: https://welcome.awajikoku.com/topics/news/%EF%BC%95%E6%9C%88%E4%B8%AD%E9%A0%83%E3%81%8B%E3%82%89%EF%BC%96%E6%9C%88%E5%88%9D%E6%97%AC%E3%81%BE%E3%81%A7%E6%B7%A1%E8%B7%AF%E5%B3%B6%E3%81%9F%E3%81%BE%E3%81%AD%E3%81%8E%E3%81%AE%E5%8F%8E%E7%A9%AB/
-  - id: 5
-    title: 第4次紀の川市食育推進計画
-    publisher: 紀の川市
-    url: https://www.city.kinokawa.lg.jp/028/files/kinokawasisyokuikukeikaku4.pdf
-  - id: 6
-    title: 紀の川市の水田での米とタマネギの二毛作
-    publisher: 農民連・農民新聞（2024年9月）
-    url: https://www.nouminren.ne.jp/topics/news/2024/0902_717.html
-  - id: 7
-    title: 香川県のたまねぎ産地と作付面積の変化
-    publisher: 農畜産業振興機構（JA香川県）
-    url: https://vegetable.alic.go.jp/yasaijoho/santi/0706_santi1.html
-  - id: 8
-    title: Onion field Yamazoe ac (1).jpg（写真・CC BY-SA 4.0）
-    publisher: Wikimedia Commons / Asturio Cantabrio
-    url: https://commons.wikimedia.org/wiki/File:Onion_field_Yamazoe_ac_(1).jpg
-  - id: 9
-    title: タマネギ収穫後の乾燥と貯蔵のポイント
-    publisher: タキイ種苗・タキイネット通販
-    url: https://shop.takii.co.jp/qa/detail/503
-  - id: 10
-    title: たまねぎの不思議（乾燥した外皮と貯蔵性）
-    publisher: 兵庫県立農林水産技術総合センター
-    url: https://hyogo-nourinsuisangc.jp/kenmin_minasama/mame/syokuhin_mame/02/18/1099/
-  - id: 11
-    title: 淡路の吊り玉ねぎと糖・辛みの変化
-    publisher: 兵庫県立農林水産技術総合センター（淡路農業技術センター）
-    url: https://hyogo-nourinsuisangc.jp/archive/17-zakkan/article/zakkan_01808.html
-migration:
-  status: native-editorial
-  publicUrl: /book/awaji-onion-rice-field/
+slug: "awaji-onion-rice-field"
+part: "農業景観"
+title: "淡路島の玉ねぎは、田んぼで育つ"
+subtitle: "同じ晴れ空の下で――紀の川と香川の水田裏作をたどる"
+cities: ["淡路島","南あわじ","紀の川","香川","三豊"]
+keywords: ["玉ねぎ","淡路島たまねぎ","水田裏作","二毛作","稲作","畜産","牛ふん堆肥","玉ねぎ小屋","自然乾燥","少雨","日照","水利","紀の川市","みがきたまねぎ","香川県"]
+heroPhotoId: "photo-awaji-onion-rice-field"
+lead: "春の淡路島。三原平野の玉ねぎ畑には細長い葉が伸び、初夏には収穫を迎える。だが、この畑は夏になると水を張った田んぼになる。水を嫌う玉ねぎが水田で育つのはなぜだろう。同じ農業の暦が紀の川や香川にもあることを知ると、島の名産を支えてきたのが気候だけではないことが見えてくる。"
+narrativeMode: "sketch"
+provisionalConclusion: "淡路島の玉ねぎ産地は温暖な冬と多日照に加え、水田裏作・水利管理・稲わらと牛ふんの循環・風を使う自然乾燥・産地組織の選択に支えられた。紀の川や香川との違いは気候だけで説明できない。"
+openQuestions: ["淡路島と香川の土地改良・機械化の経緯を同じ指標で比較できるか","紀の川の水田裏作が地域の農業経営に占める割合はどう推移したか"]
+sources: [{"id":1,"title":"南あわじにおける水稲・たまねぎ・畜産の生産循環システム","publisher":"農林水産省・日本農業遺産","url":"https://www.maff.go.jp/j/nousin/kantai/giahs_3_awaji.html"},{"id":2,"title":"淡路島たまねぎ・栽培と乾燥","publisher":"南あわじ市","url":"https://www.city.minamiawaji.hyogo.jp/soshiki/shoku/tamanegi.html"},{"id":3,"title":"南あわじ地域の農業支援プロジェクト（玉ねぎ小屋の乾燥期間）","publisher":"兵庫県立淡路景観園芸学校","url":"https://www.awaji.ac.jp/projects/02_tamanegigoya"},{"id":4,"title":"淡路島たまねぎの収穫と玉ねぎ小屋（5月下旬〜8月上旬）","publisher":"あわじ国","url":"https://welcome.awajikoku.com/topics/news/%EF%BC%95%E6%9C%88%E4%B8%AD%E9%A0%83%E3%81%8B%E3%82%89%EF%BC%96%E6%9C%88%E5%88%9D%E6%97%AC%E3%81%BE%E3%81%A7%E6%B7%A1%E8%B7%AF%E5%B3%B6%E3%81%9F%E3%81%BE%E3%81%AD%E3%81%8E%E3%81%AE%E5%8F%8E%E7%A9%AB/"},{"id":5,"title":"第4次紀の川市食育推進計画","publisher":"紀の川市","url":"https://www.city.kinokawa.lg.jp/028/files/kinokawasisyokuikukeikaku4.pdf"},{"id":6,"title":"紀の川市の水田での米とタマネギの二毛作","publisher":"農民連・農民新聞（2024年9月）","url":"https://www.nouminren.ne.jp/topics/news/2024/0902_717.html"},{"id":7,"title":"香川県のたまねぎ産地と作付面積の変化","publisher":"農畜産業振興機構（JA香川県）","url":"https://vegetable.alic.go.jp/yasaijoho/santi/0706_santi1.html"},{"id":8,"title":"Onion field Yamazoe ac (1).jpg（写真・CC BY-SA 4.0）","publisher":"Wikimedia Commons / Asturio Cantabrio","url":"https://commons.wikimedia.org/wiki/File:Onion_field_Yamazoe_ac_(1).jpg"},{"id":9,"title":"タマネギ収穫後の乾燥と貯蔵のポイント","publisher":"タキイ種苗・タキイネット通販","url":"https://shop.takii.co.jp/qa/detail/503"},{"id":10,"title":"たまねぎの不思議（乾燥した外皮と貯蔵性）","publisher":"兵庫県立農林水産技術総合センター","url":"https://hyogo-nourinsuisangc.jp/kenmin_minasama/mame/syokuhin_mame/02/18/1099/"},{"id":11,"title":"淡路の吊り玉ねぎと糖・辛みの変化","publisher":"兵庫県立農林水産技術総合センター（淡路農業技術センター）","url":"https://hyogo-nourinsuisangc.jp/archive/17-zakkan/article/zakkan_01808.html"}]
+migration: {"status":"native-editorial","publicUrl":"/book/awaji-onion-rice-field/"}
 ---
 春の淡路島。南部の三原平野に広がる畑では、玉ねぎの細長い葉が青々と伸びている。五月になると葉が倒れ始め、やがて丸々と太った玉ねぎが収穫される。
 
@@ -160,7 +92,3 @@ migration:
 初夏の淡路島を訪れたら、玉ねぎ畑の向こうの小屋にも目を向けてみたい。
 
 そこで吊るされた玉ねぎのそばでは、もう田植えが始まっている。風が乾かす玉ねぎと、水に育つ稲。同じ田んぼの二つの季節が、そこに重なっている。
-
-
-
-視覚編集テスト
