@@ -1,6 +1,7 @@
 // One canonical discovery pool for internal links.
 // The dedicated archived research versions are intentionally excluded.
 import { orderedBookArticles } from './bookArticles.js';
+import { withMarkdownMetadata } from './essayMarkdownMetadata.js';
 import { kadaEssays } from './kadaEssays.js';
 import { kadaIndustryEssay } from './kadaIndustryEssay.js';
 import { cycleTourismEssay } from './cycleTourismEssay.js';
@@ -24,4 +25,4 @@ export const publishedEssays=[...new Map([
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
   setouchiShipMaterialsEssay,aiRegionalPlanningEssay,kojimaCircularEssay,
   ...kojimaIslandEssays,...quageoSetouchiEssays
-].filter((article)=>article?.slug).map((article)=>[article.slug,article])).values()];
+].filter((article)=>article?.slug).map((article)=>[article.slug,withMarkdownMetadata(article)])).values()];
