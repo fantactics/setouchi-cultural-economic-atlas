@@ -1,17 +1,89 @@
 ---
-slug: "hijiki-tidal-time"
-part: "食は、土地を語る"
-title: "冬の夜、ひじきの磯が現れる"
-subtitle: "周防大島の南の小島。潮間帯の岩場が、産地になる条件をたどる"
-cities: ["周防大島","沖家室島"]
-keywords: ["ひじき","潮間帯","磯","干満","採集","海藻","沖家室島","藻場","ガストロノミー"]
-heroPhotoId: "photo-hijiki-species"
-lead: "山口県の周防大島から南へ、沖家室大橋を渡った先に、小さな沖家室島がある。伊予灘に面した岩場では、冬の夜、まだ暗いうちから人がひじきを刈る。なぜ夜なのか。なぜこの島で、まとまった量のひじきが採れるのか。海に浮かぶ小島のまわりで、岩の高さと潮の満ち引きがつくる、ふだんは見えない「ひじきの畑」を訪ねたい。"
-researchLinks: [{"label":"現地写真｜沖家室島の夜の磯とひじきの干し場","href":"https://www.hijiki.online/process"},{"label":"現地写真｜沖家室島の磯とひじきの生産者","href":"https://happiness-yamaguchi.pref.yamaguchi.lg.jp/kiralink/202210/syokurepo/index.html"}]
-provisionalConclusion: "沖家室島は山口県周防大島の南に橋でつながる約1平方キロメートルの小島。ヒジキは潮間帯下部の岩に付着し、分布する地盤高と帯の広さは岩場の勾配・干満差に左右される。伊勢志摩の遠浅岩礁という一般例は沖家室島の実測地形と区別する。同島の生産者には一晩数トンの生ヒジキを運ぶ場合もあるが、ブランド商品は初期の新芽から一日分程度を厳選している。大量生産の断定を避け、採集量・加工・販売量の段階を区別する。"
-openQuestions: ["瀬戸内各地のヒジキ漁期と大潮周期の関係を比較できるか","天然採集・増殖・養殖の比率は地域ごとにどう違うか","ヒジキ加工法の地域差は食感や流通距離とどう結びついているか"]
-sources: [{"id":1,"title":"ヒジキ養殖マニュアル","publisher":"愛媛県農林水産研究所 水産研究センター","url":"https://www.pref.ehime.jp/uploaded/attachment/98525.pdf"},{"id":2,"title":"海洋生物等モニタリング調査について","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/site/eco/c-jyuumin-monitor-monitoring.html"},{"id":3,"title":"江田島市大柿町釣附海岸 調査実施状況","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/site/eco/c-jyuumin-monitor-tyousa-jyoukyou-080621-080621-oogaki.html"},{"id":4,"title":"食レポ!!やまぐち 周防大島町編 沖家室ひじき","publisher":"山口県","url":"https://happiness-yamaguchi.pref.yamaguchi.lg.jp/kiralink/202210/syokurepo/index.html"},{"id":5,"title":"沿岸漁業環境の保全","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/1458.html"},{"id":6,"title":"沖家室ひじきの生産過程","publisher":"沖家室ひじき（生産者）","url":"https://www.hijiki.online/process"},{"id":7,"title":"丹後の海の生き物（ヒジキ）","publisher":"京都府農林水産技術センター海洋センター","url":"https://www.pref.kyoto.jp/kaiyo/hijiki.html"},{"id":8,"title":"沖家室ひじき","publisher":"周防大島観光協会","url":"https://suo-oshima-kanko.net/spot/okikamuro-hijiki"},{"id":9,"title":"季節で変わる干潮の時間帯","publisher":"しおどき","url":"https://japantide.com/guide/kisetsu-kanchou/"},{"id":10,"title":"沖家室島（島の位置・沖家室大橋・面積）","publisher":"日本大百科全書／コトバンク","url":"https://kotobank.jp/word/沖家室島-1282339"},{"id":11,"title":"ひじきの産地・生息環境","publisher":"日本ひじき協議会","url":"https://www.hijiki.org/trivia-origin/"},{"id":12,"title":"伊勢ひじき（遠浅の岩場と海水の混合）","publisher":"農林水産省「にっぽん伝統食図鑑」","url":"https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/ise_hiziki.html"},{"id":13,"title":"ヒジキ資源手引き（潮間帯の生育高さと群落密度）","publisher":"大分県","url":"https://www.pref.oita.jp/uploaded/attachment/2099130.pdf"}]
-migration: {"status":"generated-copy","publicUrl":"/book/hijiki-tidal-time/"}
+slug: hijiki-tidal-time
+part: 食は、土地を語る
+title: 冬の夜、ひじきの磯が現れる
+subtitle: 周防大島の南の小島。潮間帯の岩場が、産地になる条件をたどる
+cities:
+  - 周防大島
+  - 沖家室島
+keywords:
+  - ひじき
+  - 潮間帯
+  - 磯
+  - 干満
+  - 採集
+  - 海藻
+  - 沖家室島
+  - 藻場
+  - ガストロノミー
+heroPhotoId: photo-hijiki-species
+lead: 山口県の周防大島から南へ、沖家室大橋を渡った先に、小さな沖家室島がある。伊予灘に面した岩場では、冬の夜、まだ暗いうちから人がひじきを刈る。なぜ夜なのか。なぜこの島で、まとまった量のひじきが採れるのか。海に浮かぶ小島のまわりで、岩の高さと潮の満ち引きがつくる、ふだんは見えない「ひじきの畑」を訪ねたい。
+researchLinks:
+  - label: 現地写真｜沖家室島の夜の磯とひじきの干し場
+    href: https://www.hijiki.online/process
+  - label: 現地写真｜沖家室島の磯とひじきの生産者
+    href: https://happiness-yamaguchi.pref.yamaguchi.lg.jp/kiralink/202210/syokurepo/index.html
+provisionalConclusion: 沖家室島は山口県周防大島の南に橋でつながる約1平方キロメートルの小島。ヒジキは潮間帯下部の岩に付着し、分布する地盤高と帯の広さは岩場の勾配・干満差に左右される。伊勢志摩の遠浅岩礁という一般例は沖家室島の実測地形と区別する。同島の生産者には一晩数トンの生ヒジキを運ぶ場合もあるが、ブランド商品は初期の新芽から一日分程度を厳選している。大量生産の断定を避け、採集量・加工・販売量の段階を区別する。
+openQuestions:
+  - 瀬戸内各地のヒジキ漁期と大潮周期の関係を比較できるか
+  - 天然採集・増殖・養殖の比率は地域ごとにどう違うか
+  - ヒジキ加工法の地域差は食感や流通距離とどう結びついているか
+sources:
+  - id: 1
+    title: ヒジキ養殖マニュアル
+    publisher: 愛媛県農林水産研究所 水産研究センター
+    url: https://www.pref.ehime.jp/uploaded/attachment/98525.pdf
+  - id: 2
+    title: 海洋生物等モニタリング調査について
+    publisher: 広島県
+    url: https://www.pref.hiroshima.lg.jp/site/eco/c-jyuumin-monitor-monitoring.html
+  - id: 3
+    title: 江田島市大柿町釣附海岸 調査実施状況
+    publisher: 広島県
+    url: https://www.pref.hiroshima.lg.jp/site/eco/c-jyuumin-monitor-tyousa-jyoukyou-080621-080621-oogaki.html
+  - id: 4
+    title: 食レポ!!やまぐち 周防大島町編 沖家室ひじき
+    publisher: 山口県
+    url: https://happiness-yamaguchi.pref.yamaguchi.lg.jp/kiralink/202210/syokurepo/index.html
+  - id: 5
+    title: 沿岸漁業環境の保全
+    publisher: 愛媛県
+    url: https://www.pref.ehime.jp/page/1458.html
+  - id: 6
+    title: 沖家室ひじきの生産過程
+    publisher: 沖家室ひじき（生産者）
+    url: https://www.hijiki.online/process
+  - id: 7
+    title: 丹後の海の生き物（ヒジキ）
+    publisher: 京都府農林水産技術センター海洋センター
+    url: https://www.pref.kyoto.jp/kaiyo/hijiki.html
+  - id: 8
+    title: 沖家室ひじき
+    publisher: 周防大島観光協会
+    url: https://suo-oshima-kanko.net/spot/okikamuro-hijiki
+  - id: 9
+    title: 季節で変わる干潮の時間帯
+    publisher: しおどき
+    url: https://japantide.com/guide/kisetsu-kanchou/
+  - id: 10
+    title: 沖家室島（島の位置・沖家室大橋・面積）
+    publisher: 日本大百科全書／コトバンク
+    url: https://kotobank.jp/word/沖家室島-1282339
+  - id: 11
+    title: ひじきの産地・生息環境
+    publisher: 日本ひじき協議会
+    url: https://www.hijiki.org/trivia-origin/
+  - id: 12
+    title: 伊勢ひじき（遠浅の岩場と海水の混合）
+    publisher: 農林水産省「にっぽん伝統食図鑑」
+    url: https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/ise_hiziki.html
+  - id: 13
+    title: ヒジキ資源手引き（潮間帯の生育高さと群落密度）
+    publisher: 大分県
+    url: https://www.pref.oita.jp/uploaded/attachment/2099130.pdf
+migration:
+  status: generated-copy
+  publicUrl: /book/hijiki-tidal-time/
 ---
 ## 周防大島の南、沖家室島の冬の磯
 
@@ -48,3 +120,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/hijiki-tidal-time/"}
 港へ運ばれたひじきは、ほかの海藻を取り除き、干し場に広げて天日で乾かす。沖家室ひじきの生産者は、乾かしたものを水に戻し、島の薪で熱した鉄釜で蒸し煮にして、再び干す。雨が降れば片づけ、晴れれば広げる。磯を出たあとも、今度は天気が仕事の時間を決める。 [4](#source-4) [6](#source-6)
 
 冬の磯から港へ戻るとき、岩場にいくつもの細いひじきの帯が続いている姿を思い浮かべたい。その帯をつくるのは、岩の高さ、満ち引きする海水、波の力だ。そこに人が通える道があり、刈り、運び、干して売る仕事があって、初めてひじきは島の産物になる。 [4](#source-4) [6](#source-6) [7](#source-7) [13](#source-13)
+
+
+
+視覚編集テスト
