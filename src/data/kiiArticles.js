@@ -103,12 +103,13 @@ export const kiiArticles = [
   {
     "slug": "shirarahama-white-sand-across-the-sea",
     "title": "白良浜の白い砂は、海を渡ってきた",
-    "teaser": "白良浜の白い砂は、その一部がオーストラリアから来たという。夕日に光る浜を守ってきたのは、波と向き合う人々の仕事だった。",
+    "teaser": "白い砂が美しい白良浜。実はその一部はオーストラリアから来た。石英がつくった自然の浜を、人は海を越えて運んだ砂で守った。",
     "region": "白浜・白良浜",
     "category": "観光景観",
     "tags": [
-      "海風",
-      "潮汐"
+      "石英",
+      "漂砂",
+      "波浪"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg?resize=760%2C570&ssl=1",
     "alt": "白良浜の砂浜と海に沈む夕日、手前に護岸の構造物が見える",
@@ -152,8 +153,16 @@ export const kiiArticles = [
         "url": "https://quageo.kyotrad.com/?p=1558"
       },
       {
-        "label": "和歌山県議会 令和6年6月定例会会議録（白良浜の砂浜保全・養浜量・護岸整備）",
+        "label": "和歌山県議会 令和6年6月定例会（白砂の起源・養浜・護岸）",
         "url": "https://www.pref.wakayama.lg.jp/gijiroku/d00217978.html"
+      },
+      {
+        "label": "和歌山県議会 平成30年6月定例会（潜堤・砂の移動）",
+        "url": "https://www.pref.wakayama.lg.jp/gijiroku/p041773.html"
+      },
+      {
+        "label": "日本交通公社｜白良浜海岸と石英の白砂",
+        "url": "https://tabi.jtb.or.jp/res/300020-"
       }
     ]
   },
