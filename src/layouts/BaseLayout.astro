@@ -1,5 +1,6 @@
 ---
 import NaturalSystemEnhancer from '../components/NaturalSystemEnhancer.astro';
+import { atlasSites, atlasHref } from '../config/atlasSites.js';
 import RegionalDynamicNaturalCapital from '../components/RegionalDynamicNaturalCapital.astro';
 import RegionalAdaptiveLens from '../components/RegionalAdaptiveLens.astro';
 import EssayResearchSynthesis from '../components/EssayResearchSynthesis.astro';
@@ -22,6 +23,7 @@ import '../styles/essay-detail-pop.css';
 import '../styles/region-detail-pop.css';
 
 const {
+  siteKey = 'setouchi',
   title = 'SETOUCHI ATLAS',
   description = 'ランドスケープ ＝ ネイチャー ｘ カルチャー。港町の路地、島の食卓、海辺の工場をめぐる瀬戸内のエッセイ集。',
   image = 'https://www.city.takehara.lg.jp/material/images/group/14/9.jpg',
@@ -30,8 +32,10 @@ const {
   seoTitle = null,
   researchMeta = null
 } = Astro.props;
-const siteTitle = 'SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー';
-const baseUrl = '/setouchi-cultural-economic-atlas/';
+const atlasSite = atlasSites[siteKey];
+if (!atlasSite) throw new Error(`Unknown ATLAS site: ${siteKey}`);
+const siteTitle = `${atlasSite.name}｜${atlasSite.tagline}`;
+const baseUrl = atlasSite.basePath;
 const pathname = Astro.url.pathname;
 const placePathMatch = pathname.match(/\/places\/([^/]+)\/?$/);
 const placeId = placePathMatch?.[1] || null;
@@ -48,8 +52,8 @@ const researchSynthesis = synthesisLayers.length
       essays: [...(merged.essays || []), ...(layer.essays || [])]
     }), {points:[],essays:[]})
   : null;
-const isHome = pathname === '/setouchi-cultural-economic-atlas/' || pathname === '/setouchi-cultural-economic-atlas';
-const pageTitle = seoTitle || (isHome ? siteTitle : title.includes('SETOUCHI ATLAS') ? title.replaceAll('SETOUCHI ATLAS',siteTitle) : `${title} | ${siteTitle}`);
+const isHome = pathname === baseUrl || pathname === baseUrl.slice(0,-1);
+const pageTitle = seoTitle || (isHome ? siteTitle : title.includes(atlasSite.name) ? title.replaceAll(atlasSite.name,siteTitle) : `${title} | ${siteTitle}`);
 const isEssayDetail = /^\/setouchi-cultural-economic-atlas\/book\/[^/]+\/?$/.test(pathname);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
@@ -96,7 +100,7 @@ const defaultStructuredData = schemaType === 'WebSite'
       '@context':'https://schema.org',
       '@type':'WebSite',
       name:siteTitle,
-      alternateName:'SETOUCHI ATLAS',
+      alternateName:atlasSite.name,
       url:siteRoot,
       description,
       inLanguage:'ja'
@@ -147,17 +151,16 @@ const jsonLd = structuredData || defaultStructuredData;
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <title>{pageTitle}</title>
   </head>
-  <body class:list={[`page-type-${pageType}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
+  <body class:list={[`page-type-${pageType}`,`atlas-theme-${atlasSite.theme}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
     <header class="site-header">
       <a class="brand-wrap" href={baseUrl}>
-        <span class="brand">SETOUCHI ATLAS</span>
-        <span class="brand-tagline">ランドスケープ ＝ ネイチャー ｘ カルチャー</span>
+        <span class="brand">{atlasSite.name}</span>
+        <span class="brand-tagline">{atlasSite.tagline}</span>
       </a>
       <nav>
-        <a class:list={['site-nav-link',isHome&&'active']} href="/setouchi-cultural-economic-atlas/">トップ</a>
-        <a class:list={['site-nav-link',pageType==='essay'&&!pathname.startsWith(`${baseUrl}book/nature`)&&'active']} href="/setouchi-cultural-economic-atlas/book/">一覧</a>
-        <a class:list={['site-nav-link',pageType==='region'&&'active']} href="/setouchi-cultural-economic-atlas/places/">地名から</a>
-        <a class:list={['site-nav-link',pathname.startsWith(`${baseUrl}book/nature`)&&'active']} href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から</a>
+        {atlasSite.navigation.map((item)=>(
+          <a class:list={['site-nav-link',item.path === '' ? isHome : !item.path.startsWith('#') && pathname.startsWith(atlasHref(atlasSite,item.path)) && 'active']} href={atlasHref(atlasSite,item.path)}>{item.label}</a>
+        ))}
       </nav>
     </header>
     <main>
@@ -181,14 +184,10 @@ const jsonLd = structuredData || defaultStructuredData;
       {placeId && <RegionalAdaptiveLens placeId={placeId} />}
     </main>
     <footer id="about">
-      <strong>SETOUCHI ATLAS</strong>
-      <p class="footer-thesis">ランドスケープ ＝ ネイチャー ｘ カルチャー</p>
+      <strong>{atlasSite.name}</strong>
+      <p class="footer-thesis">{atlasSite.tagline}</p>
       <div class="footer-atlas-links">
-        <a href="/setouchi-cultural-economic-atlas/about/">このサイトについて</a>
-        <a href="/setouchi-cultural-economic-atlas/places/">地域別</a>
-        <a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a>
-        <a href="/setouchi-cultural-economic-atlas/chapters/">研究ノート</a>
-        <a href="/setouchi-cultural-economic-atlas/methodology/">編集・調査の方法</a>
+        {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
       </div>
     </footer>
   </body>
