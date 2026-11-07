@@ -91,18 +91,18 @@ async function gatherHtml(directory) {
 }
 await gatherHtml(output);
 routes.sort();
-const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\\n' +
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n' +
-  routes.map(url => '  <url><loc>' + url.replaceAll('&', '&amp;') + '</loc></url>').join('\\n') +
-  '\\n</urlset>\\n';
+const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  routes.map(url => '  <url><loc>' + url.replaceAll('&', '&amp;') + '</loc></url>').join('\n') +
+  '\n</urlset>\n';
 await writeFile(join(output, 'sitemap.xml'), sitemap);
-await writeFile(join(output, 'robots.txt'), 'User-agent: *\\nAllow: /\\n\\nSitemap: ' + origin + '/sitemap.xml\\n');
+await writeFile(join(output, 'robots.txt'), 'User-agent: *\nAllow: /\n\nSitemap: ' + origin + '/sitemap.xml\n');
 await writeFile(join(output, '.nojekyll'), '');
 await writeFile(join(output, 'BUILD_INFO.txt'),
-  'KII ATLAS standalone bundle\\n' +
-  'Origin: ' + origin + '\\n' +
-  'Status: indexable (Cloudflare Pages)\\n' +
-  'Source: shared ATLAS monorepo\\n');
+  'KII ATLAS standalone bundle\n' +
+  'Origin: ' + origin + '\n' +
+  'Status: indexable (Cloudflare Pages)\n' +
+  'Source: shared ATLAS monorepo\n');
 const homepage = await readFile(join(output, 'index.html'), 'utf8');
 for (const required of ['KII ATLAS','index,follow','href="/"']) {
   if (!homepage.includes(required)) throw new Error('Missing ' + required + ' in KII homepage');
