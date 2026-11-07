@@ -17,11 +17,6 @@ const otherStories = stories.slice(-3);
   <div class="reader-home kii-home-simple">
     <h1 class="reader-home-screenreader">KII ATLAS のエッセイ</h1>
 
-    <section class="kii-home-welcome" aria-label="サイト紹介">
-      <p class="reader-eyebrow">STORIES FROM THE KII PENINSULA</p>
-      <p>山の道、川の流れ、海辺の町。<br />紀伊半島の風景から、土地の物語をたどる。</p>
-    </section>
-
     <section class="reader-home-featured" aria-labelledby="kii-feature-title">
       <p class="reader-home-feature-label" id="kii-feature-title">今日の3篇</p>
       <div class="reader-home-feature-grid">
@@ -61,18 +56,15 @@ const otherStories = stories.slice(-3);
       </div>
       <AtlasEssaySearch stories={stories} label="紀伊半島のエッセイを探す" placeholder="例：熊野、白浜、石、温泉" inputId="kii-home-search" />
     </section>
-    <section id="about-kii" class="kii-home-about">
-      <p><strong>KII ATLAS</strong> は、ランドスケープ = ネイチャー x カルチャーをテーマに、紀伊半島の風景と、その理由をたどるエッセイ集です。</p>
+    <nav class="kii-home-about" aria-label="さらに探す">
       <a href={site.basePath+'regions/'}>地名から探す →</a>
       <a href={site.basePath+'nature/'}>自然条件から探す →</a>
-    </section>
+      <a href={site.basePath+'about/'}>このサイトについて →</a>
+    </nav>
   </div>
 </BaseLayout>
 <style>
   .kii-home-simple{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#29483d}
-  .kii-home-welcome{padding:11px 0 23px}
-  .kii-home-welcome .reader-eyebrow{color:#bf7953;font-size:.7rem;font-weight:800}
-  .kii-home-welcome>p:last-child{font-size:clamp(.98rem,1.7vw,1.25rem);line-height:1.9;color:#4b6a5e;font-weight:650;margin:0}
   .kii-home-simple .reader-home-feature-grid .reader-home-feature{background:#fffdf8}
   .kii-home-simple .reader-home-feature-copy>span{color:#bd7955}
   .kii-home-simple .reader-home-feature-copy strong{background:#e8f1e6;color:#386d56}
@@ -81,8 +73,7 @@ const otherStories = stories.slice(-3);
   .kii-home-simple .reader-home-search .atlas-region-search{margin:12px 0 0;background:transparent;padding:0}
   .kii-home-simple .reader-home-search .atlas-region-search label{font-size:.82rem;color:#4e6c5b}
   .kii-home-about{margin:55px 0 0;padding:24px 0;border-top:1px solid #dce5d9;color:#61766a;font-size:.85rem;line-height:1.85}
-  .kii-home-about p{margin:0 0 12px}
   .kii-home-about a{display:inline-block;margin:0 20px 8px 0;text-decoration:underline;text-underline-offset:4px;color:#366954;font-weight:700}
   :global(body.atlas-theme-forest){--sea:#376d59;--paper:#faf9f3;--line:#e5e8db}
-  @media(max-width:580px){.kii-home-welcome{padding-bottom:15px}.kii-home-about{margin-top:35px}}
+  @media(max-width:580px){.kii-home-about{margin-top:35px}}
 </style>

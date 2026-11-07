@@ -43,7 +43,7 @@ export const atlasSites = {
       { label: 'エッセイ一覧', path: 'book/' },
       { label: '地名から', path: 'regions/' },
       { label: '自然条件から', path: 'nature/' },
-      { label: 'このサイトについて', path: '#about-kii' }
+      { label: 'このサイトについて', path: 'about/' }
     ]
   }
 };

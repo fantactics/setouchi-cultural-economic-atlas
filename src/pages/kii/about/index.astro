@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+const site = atlasSites.kii;
+---
+<BaseLayout siteKey="kii" title="このサイトについて" description="KII ATLASは、紀伊半島の風景を入口に、自然環境と人々の営みがつくった物語をたどるエッセイ集です。" image={null}>
+  <section class="kii-about-page" aria-labelledby="kii-about-heading">
+    <p class="kii-about-kicker">HELLO, KII! <span aria-hidden="true">✳</span></p>
+    <h1 id="kii-about-heading">このサイトについて</h1>
+    <div class="kii-about-content">
+      <p class="kii-about-statement">合言葉は、<strong>ランドスケープ = ネイチャー x カルチャー</strong>。</p>
+      <p>紀伊半島を旅していると、山の奥に町が現れたり、川原からお湯が湧いたり、海岸に不思議な岩が並んでいたり。景色を眺めているだけなのに、ときどき「どうして？」が浮かびます。</p>
+      <p>その答えをたどると、岩や雨、川や海の働きだけでなく、その土地で暮らしてきた人々の工夫や、長く受け継がれてきた信仰、仕事、道の歴史が見えてきます。</p>
+      <p>KII ATLASは、そんな発見を集めたエッセイ集です。難しい研究の説明ではなく、風景から始まる小さな旅として、紀伊半島の自然と文化のつながりを描いていきます。</p>
+      <p>読み終えたあと、最初に見た景色が少し違って見える。そんな一篇を増やしていきたいと思っています。</p>
+      <a class="kii-about-start" href={site.basePath + 'book/'}>エッセイを読んでみる <span aria-hidden="true">↗</span></a>
+    </div>
+    <nav class="kii-about-discover" aria-label="エッセイを探す">
+      <a href={site.basePath + 'regions/'}>地名から探す <span aria-hidden="true">→</span></a>
+      <a href={site.basePath + 'nature/'}>自然条件から探す <span aria-hidden="true">→</span></a>
+    </nav>
+  </section>
+</BaseLayout>
+<style>
+  .kii-about-page{max-width:880px;margin:0 auto;padding:clamp(38px,6vw,76px) 22px 92px;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#304e40}
+  .kii-about-kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;padding:7px 14px;border-radius:99px;background:#e8f2e6;color:#517f61;font-size:.73rem;font-weight:850;letter-spacing:.1em}
+  .kii-about-kicker span{color:#cc8258;font-size:1.04rem}
+  .kii-about-page h1{font-family:inherit;font-size:clamp(2rem,4vw,3rem);font-weight:850;line-height:1.35;letter-spacing:-.045em;color:#315b49;margin:0 0 26px}
+  .kii-about-content{padding:clamp(24px,4vw,42px);border:1px solid #dee8db;border-radius:24px;background:linear-gradient(130deg,#fffaf0,#fffefa 57%,#eff7ee)}
+  .kii-about-content p{font-size:clamp(1rem,1.5vw,1.1rem);color:#536c5f;line-height:2.07;margin:0 0 20px}
+  .kii-about-content .kii-about-statement{font-size:clamp(1.05rem,1.8vw,1.22rem);font-weight:760;color:#355f4c}
+  .kii-about-statement strong{color:#2e7154;background:#e7f1dd;padding:.12em .28em;border-radius:7px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .kii-about-start{display:inline-flex;align-items:center;gap:14px;background:#386c55;color:#fff!important;text-decoration:none;font-size:.9rem;font-weight:800;padding:12px 20px;border-radius:99px;margin-top:4px}
+  .kii-about-start:hover{background:#28533f}
+  .kii-about-discover{display:flex;flex-wrap:wrap;gap:12px;margin-top:23px}
+  .kii-about-discover a{padding:12px 17px;border:1px solid #dfebdf;border-radius:99px;text-decoration:none;color:#36694f;background:#fffdf9;font-size:.9rem;font-weight:750}
+  .kii-about-discover a:hover{background:#eef5ea}
+  @media(max-width:600px){.kii-about-page{padding:31px 17px 75px}.kii-about-content{padding:23px 19px;border-radius:18px}.kii-about-content p{line-height:1.93}}
+</style>
