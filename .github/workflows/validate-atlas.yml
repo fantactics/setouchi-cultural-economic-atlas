@@ -24,3 +24,6 @@ jobs:
           test -f dist/kii/index.html
           grep -q 'SETOUCHI ATLAS' dist/index.html
           grep -q 'KII ATLAS' dist/kii/index.html
+          grep -q 'reader-essay-card' dist/index.html
+          grep -q '最初のエッセイを準備中です' dist/kii/index.html
+          if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
