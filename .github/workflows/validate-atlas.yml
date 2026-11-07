@@ -26,6 +26,11 @@ jobs:
           test -f dist/kii/index.html
           test -f dist-kii/index.html
           test -f dist-kii/book/index.html
+          grep -q '今日は、どの紀伊半島へ？' dist-kii/book/index.html
+          grep -q 'いま、どんな風景が気になる？' dist-kii/book/index.html
+          grep -q 'タイトルを、ずらり。' dist-kii/book/index.html
+          grep -q 'kii-magazine-category' dist-kii/book/index.html
+          grep -q 'kii-magazine-story' dist-kii/book/index.html
           test -f dist-kii/regions/index.html
           test -f dist-kii/nature/index.html
           test -f dist-kii/about/index.html
