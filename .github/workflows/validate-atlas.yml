@@ -26,6 +26,8 @@ jobs:
           grep -q 'SETOUCHI ATLAS' dist/index.html
           grep -q 'KII ATLAS' dist/kii/index.html
           grep -q '紀伊半島のエッセイを探す' dist/kii/index.html
+          grep -q 'noindex,follow' dist/kii/index.html
+          if grep -q 'noindex,follow' dist/index.html; then echo 'SETOUCHI must remain indexable'; exit 1; fi
           grep -q 'reader-essay-card' dist/index.html
           grep -q '最初のエッセイを準備中です' dist/kii/index.html
           if grep -q 'setouchi-sushi-not-nigiri' dist/kii/index.html; then echo 'KII page leaked SETOUCHI articles'; exit 1; fi
