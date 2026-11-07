@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AtlasEssayCards from '../../components/AtlasEssayCards.astro';
+import AtlasEssaySearch from '../../components/AtlasEssaySearch.astro';
 import { kiiArticles } from '../../data/kiiArticles.js';
+import { kiiNaturalTagVocabulary } from '../../data/kiiNaturalTags.js';
 import { atlasSites } from '../../config/atlasSites.js';
 import '../../styles/reader-navigation.css';
 
 const site = atlasSites.kii;
 const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath}book/${article.slug}/` }));
+const usedNaturalTags = kiiNaturalTagVocabulary.filter((tag)=>kiiArticles.some((article)=>article.tags?.includes(tag)));
 const themes = [
   { title: '山と森', detail: '紀伊山地の地形、雨、森林と人の暮らし。' },
   { title: '川と谷', detail: '急流と深い谷がつくる生業や道のかたち。' },
@@ -31,6 +34,8 @@ const themes = [
           <p>自然条件を起点に、少しずつエッセイを公開していきます。</p>
         </div>
       </div>
+      <AtlasEssaySearch stories={stories} label="紀伊半島のエッセイを探す" placeholder="例：熊野、多雨、川、森林" inputId="kii-essay-search" />
+      {usedNaturalTags.length > 0 && <div class="kii-natural-tags" aria-label="自然条件タグ"><strong>自然条件から探す</strong>{usedNaturalTags.map((tag)=><span>{tag}</span>)}</div>}
       <AtlasEssayCards stories={stories} emptyMessage="最初のエッセイを準備中です。公開時にはここに掲載します。" />
       <div class="kii-topics">
         {themes.map((theme)=>(
@@ -54,6 +59,7 @@ const themes = [
   .kii-home{--forest:#355d49;--forest-soft:#e9f0e7}
   .kii-home .reader-home-intro h1{color:#2b4938}
   .kii-home .reader-home-subtitle,.kii-home .reader-eyebrow{color:#52745c}
+  .kii-natural-tags{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:16px 0 24px}.kii-natural-tags strong{margin-right:8px;font-size:.87rem}.kii-natural-tags span{background:#e9f0e7;border-radius:999px;color:#355d49;padding:5px 11px;font-size:.8rem}
   .kii-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   .kii-topic{background:#fff;border:1px solid #dfe6dc;border-radius:16px;padding:clamp(22px,3vw,38px);min-height:170px}
   .kii-topic h3{font-family:var(--book-serif,serif);font-size:clamp(1.45rem,2.5vw,2rem);font-weight:500;margin:0 0 12px;color:#355d49}
