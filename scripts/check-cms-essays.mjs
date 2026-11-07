@@ -7,7 +7,7 @@ import { join, basename } from 'node:path';
 const folder='src/content/essays';
 const cms=readFileSync('.pages.yml','utf8');
 const visualEntries=[...cms.matchAll(/^\s*path:\s*src\/content\/essays\/([^\n]+\.md)\s*$/gm)].map(m=>m[1].trim());
-const allEssaysVisual = /name:\s*essays[\s\S]*?label:\s*エッセイ本文\s*\n\s*type:\s*rich-text/.test(cms);
+const allEssaysVisual = /^\s*- name:\s*essays\s*$/m.test(cms) && /^\s*type:\s*rich-text\s*$/m.test(cms);
 const files=readdirSync(folder).filter(f=>f.endsWith('.md')).sort();
 const results=[];
 let failed=false;
@@ -42,6 +42,10 @@ for(const file of files){
 }
 
 const visual=results.filter(r=>r.visual);
+if(!allEssaysVisual || visual.length!==files.length){
+  console.error('CMS SAFETY: expected the entire essays collection to use visual editor, audited',visual.length,'of',files.length);
+  failed=true;
+}
 const legacy=results.filter(r=>r.legacy);
 const photoComments=results.filter(r=>r.comments);
 console.log('CMS essay audit:',JSON.stringify({
