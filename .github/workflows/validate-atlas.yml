@@ -28,6 +28,11 @@ jobs:
           test -f dist-kii/book/index.html
           test -f dist-kii/regions/index.html
           test -f dist-kii/nature/index.html
+          test -f dist-kii/book/hashiguiiwa-rocks-sunrise-and-legends/index.html
+          test -f dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          test -f dist-kii/book/koyasan-mountain-top-basin-city/index.html
+          grep -q '高野山は、山の頂上ではなかった' dist-kii/regions/index.html
+          grep -q '橋杭岩は、なぜ橋にならなかったのか' dist-kii/index.html
           grep -q '地名から' dist-kii/index.html
           grep -q '自然条件から' dist-kii/index.html
           grep -q '神になった滝には、地質の理由がある' dist-kii/regions/index.html

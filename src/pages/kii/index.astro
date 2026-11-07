@@ -11,7 +11,7 @@ const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath
 // Photo-first, concise front page: three feature stories, three more and a search box.
 // Full listings, places, and nature tags have their own dedicated pages.
 const featured = stories.slice(0, 3);
-const otherStories = stories.slice(3, 6);
+const otherStories = stories.slice(-3);
 ---
 <BaseLayout siteKey="kii" title={site.name} description={site.description} image={featured[0]?.imageUrl || null} imageAlt={featured[0]?.alt || ''}>
   <div class="reader-home kii-home-simple">

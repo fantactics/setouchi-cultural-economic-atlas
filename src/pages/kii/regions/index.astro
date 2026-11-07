@@ -12,7 +12,10 @@ const destinations=[
   {name:'有田',description:'みかん山と石積みの風景',slugs:['arida-mikan-climbs-the-hillside']},
   {name:'熊野本宮',description:'川湯温泉と山あいの川',slugs:['kawayu-hot-spring-river-as-a-bath']},
   {name:'瀞峡',description:'北山川が刻む深い谷',slugs:['dorokyo-quiet-water-cutting-deep']},
-  {name:'七里御浜',description:'熊野川から続く石の浜',slugs:['shichirimihama-pebbles-from-river-to-pilgrimage']}
+  {name:'七里御浜',description:'熊野川から続く石の浜',slugs:['shichirimihama-pebbles-from-river-to-pilgrimage']},
+  {name:'串本',description:'橋杭岩と夜明けの海',slugs:['hashiguiiwa-rocks-sunrise-and-legends']},
+  {name:'雑賀崎',description:'緑色の岩と庭園の石',slugs:['saikazaki-blue-green-stone-garden']},
+  {name:'高野山',description:'霧と山上の宗教都市',slugs:['koyasan-mountain-top-basin-city']}
 ].map(d=>({...d,stories:d.slugs.map(slug=>kiiArticles.find(a=>a.slug===slug)).filter(Boolean)})).filter(d=>d.stories.length);
 const listed=new Set(destinations.flatMap(d=>d.stories.map(a=>a.slug)));
 if(kiiArticles.some(a=>!listed.has(a.slug)))throw Error('KII region directory is missing an essay');

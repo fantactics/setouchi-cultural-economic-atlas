@@ -76,3 +76,11 @@ User has authorized use of photos on the original quageo website. For future ima
 - `shichirimihama-pebbles-from-river-to-pilgrimage`: river-supplied pebble beach, coastal drift and Kumano pilgrimage route; original field note `https://quageo.kyotrad.com/?p=2239`.
 
 All three feature directly verified hero images from the owner's Quageo WordPress image CDN. The Shichirimihama image includes a small toy dinosaur placed by the original photographer; its description/credit should not suggest it is wildlife. Keep source links and natural-condition tags checked via `scripts/check-kii-articles.mjs`. SEO noindex remains in effect pending explicit approval.
+
+## KII essays 7–9: peninsula rock, culture and highland settlement
+
+- `hashiguiiwa-rocks-sunrise-and-legends`: original field note `https://quageo.kyotrad.com/?p=2291`, original owner photo of dawn silhouettes; geology/legend/tsunami interpreted via Nanki Kumano Geopark and Japan Society of Landscape Architects.
+- `saikazaki-blue-green-stone-garden`: original field note `https://quageo.kyotrad.com/?p=2054`, verified original owner photo of sea-cliff greenish rock; the narrative connects geological beauty to garden-stone aesthetics, but **does not claim that stones pictured were specifically quarried for any named garden**.
+- `koyasan-mountain-top-basin-city`: original field notes `https://quageo.kyotrad.com/?p=2018` and `https://quageo.kyotrad.com/?p=2146`, original owner's valley-mist photo; plateau town, pilgrimage approaches and monastic settlement corroborated against Wakayama prefectural heritage and Forest Agency sources. The photo alone does not establish local fog frequency.
+
+KII articles now total nine; the new three are exposed through the essay directory, place browser, natural conditions and homepage's further-story selection. SEO noindex remains enabled until separate launch approval.
