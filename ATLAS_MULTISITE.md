@@ -4,8 +4,9 @@ Both SETOUCHI ATLAS and KII ATLAS live in this repository.
 
 ## Current status
 - The production deployment and canonical SETOUCHI paths remain unchanged.
+- **Publication boundary (2026-11):** KII is published only at `https://kii-atlas.pages.dev/`. The main-branch GitHub Pages workflow packages KII into `dist-kii/` and then removes `dist/kii/` before uploading SETOUCHI's `dist/`. Thus `https://fantactics.github.io/setouchi-cultural-economic-atlas/kii/` and its child pages should return GitHub Pages 404 after the new deployment, while SETOUCHI remains visible. The source files remain in the public GitHub repository; this is website unpublishing, not private source control.
 - Shared layout/navigation/site identity is defined in `src/layouts/BaseLayout.astro` and `src/config/atlasSites.js`.
-- The first KII landing page is at `src/pages/kii/index.astro`, provisionally published at `/setouchi-cultural-economic-atlas/kii/` **only after merge**.
+- KII source routes remain under `src/pages/kii/` for the combined build. Their GitHub Pages preview output is now deliberately excluded from the uploaded SETOUCHI artifact.
 - KII's first three researched essays are now in `src/data/kiiArticles.js`: Nachi waterfall, Shirarahama beach, and Arida's citrus terraces. Do not duplicate SETOUCHI essays or photography into KII.
 - Regional essay cards are shared via `src/components/AtlasEssayCards.astro`. SETOUCHI homepage and the KII landing page both use it.
 - KII-specific article records live in `src/data/kiiArticles.js`. They include sections, verified public background references, natural-condition tags and optional credited images from the owner's original quageo website.
