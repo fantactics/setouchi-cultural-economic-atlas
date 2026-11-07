@@ -24,7 +24,7 @@ sources:
   - { id: 6, title: "松山鮓 愛媛県", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/matsu_yama_zushi_ehime.html" }
   - { id: 7, title: "江戸前寿司 東京都", publisher: 農林水産省, url: "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_2_tokyo.html" }
 editorialPhotoPlacements:
-  - afterHeading: 松山鮓――客を迎える寿司
+  - afterHeading: 松山――客をもてなす、松山鮓
     photoIds:
       - photo-matsuyama-zushi-shared-bowl
 migration:
