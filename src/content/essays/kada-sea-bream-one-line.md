@@ -28,6 +28,11 @@ editorialPhotoPlacements:
 
 ただし「潮が速いから必ずおいしい」と、味を一つの理由で決めることはできない。海峡の自然に加え、どう釣り上げ、どう生かして港へ戻すかにも、加太の真鯛らしさがある。 [1](#source-1) [2](#source-2) [4](#source-4)
 
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/kada/bc503dc5b1.webp" alt="加太の砂浜と青い海、沖に連なる島影。海辺の建物と防波堤も見える" width="2000" height="1500" loading="lazy" decoding="async" />
+  <figcaption>加太の海辺から見える砂浜と島影。海峡を行き来する潮のある風景のすぐそばで、漁師たちは鯛を釣る。 撮影：ATLAS編集者。</figcaption>
+</figure>
+
 ## 釣り竿のかわりに、人差し指を使う
 
 和歌山県の取材には、真鯛を釣る漁師の右手人差し指に、細い糸が掛かっている写真がある。左手は船のアクセルとコントローラーへ。魚が疑似餌に触れた反応を指で受け取り、そのまま糸を手繰り寄せる。加太の一本釣りでは、竿を使わないことが多いのだ。 [1](#source-1)

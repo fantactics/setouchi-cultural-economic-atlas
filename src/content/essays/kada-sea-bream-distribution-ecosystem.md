@@ -87,6 +87,11 @@ editorialPhotoPlacements:
 
 直販や産地飲食の意味は、単なる中間流通の省略ではない。魚と場所の関係を切らずに消費者へ渡せることにある。
 
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/kada/4fd19c3581.webp" alt="加太で提供された魚介の丼と汁物、小鉢が並ぶ食事" width="2000" height="1500" loading="lazy" decoding="async" />
+  <figcaption>加太で味わった魚介の丼と汁物。魚を遠くへ運ぶだけでなく、人が港町を訪れて食べることにも、産地の価値がある。 撮影：ATLAS編集者。</figcaption>
+</figure>
+
 
 
 ## 港は、自然の時間を人間の時間へ翻訳する
