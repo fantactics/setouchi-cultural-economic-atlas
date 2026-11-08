@@ -61,6 +61,11 @@ editorialPhotoPlacements:
 
 いまのサンポート高松は、港の埋立てと再開発によって生まれた新しい水際の町だ。高松城の北側は、かつてはすぐ海だった。今はその間に港の施設、道路、駅前広場が広がる。海から離れてしまったように見える城の堀だけが、昔の海とのつながりを今も残している。 [1](#source-1) [4](#source-4) [8](#source-8)
 
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/takamatsu/cdf4af9611.webp" alt="高松城跡の海水を引く堀に架かる屋根付きの橋と、堀の石垣や背景の高層ビル" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>高松城跡の水堀と屋根付きの橋、その背後に広がる現代の街。かつて海とつながっていた城の姿が、今の都市景観の中に残る。 撮影：ATLAS編集者。</figcaption>
+</figure>
+
 玉藻公園の堀を見たあと、港へ歩いてみるといい。海城の北側にあった波打ち際が、少しずつ沖へ移ってきたことに気づく。川がつくった土地に城を築き、人が海を埋めて港を広げる。高松の玄関口は、同じ海岸線を使い続けたのではなく、その線を動かしながらできてきた。 [4](#source-4) [9](#source-9)
 
 

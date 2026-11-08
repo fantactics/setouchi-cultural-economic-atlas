@@ -75,6 +75,13 @@ editorialPhotoPlacements:
 
 1982年、古い町並みは国の重要伝統的建造物群保存地区に選ばれた。塩を運ぶために築かれた商いの町は、今では建物や暮らしの歴史を訪ねる人を迎えている。町並みは観光のために最初からつくられたものではない。田畑になれなかった土地から始まる、人々の仕事の積み重ねだった。 [1](#source-1) [7](#source-7)
 
+通りには、町家を生かした宿の暖簾もかかる。塩を売った時代とは別の仕事が、いま同じ町並みの中に生まれている。
+
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/takehara/3d6b4410f8.webp" alt="竹原の木造建築に掛かる「NIPPONIA HOTEL」の暖簾と瓦屋根、格子戸" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>竹原の伝統的な建物に掛かる宿の暖簾。かつての町並みは、今も旅人を迎える仕事の場所になっている。 撮影：ATLAS編集者。</figcaption>
+</figure>
+
 竹原で白壁の通りを歩くとき、塩田の広がりを想像してみたい。海に出ようとした川が土砂を運び、海水は土地に塩を残した。人々はその土地に別の仕事を見つけ、川の流れを直し、塩を船で売り、その富で家を建てた。塩田が見えなくなった今も、海と川への応答が町の形に残っている。 [1](#source-1) [2](#source-2) [4](#source-4)
 
 
