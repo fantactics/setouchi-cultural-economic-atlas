@@ -32,6 +32,8 @@ jobs:
         run: npm run build
       - name: Validate KII content
         run: node scripts/check-kii-articles.mjs
+      - name: Validate KII CMS content and firsthand author voice
+        run: node scripts/check-kii-cms-articles.mjs
       - name: Package standalone KII preview
         run: node scripts/package-kii.mjs
       - name: Upload KII preview bundle
