@@ -2,14 +2,14 @@
 slug: "faith-as-transport-map"
 part: "なぜ、船はここで止まったのか"
 title: "大阪の豪商と茶屋の女性が、島の神社を建てた"
-subtitle: "御手洗の千砂子波止と住吉神社に残る、海を越えた寄進者たちの名前"
+subtitle: "御手洗と下津井――地域の顔をつくった、海の向こうの人々"
 cities: ["御手洗","大崎下島","大阪","下津井"]
-keywords: ["御手洗","住吉神社","千砂子波止","鴻池善右衛門","茶屋","玉垣","大阪","風待ち","潮待ち","下津井","祇園神社","玉垣勧進帳","北前船"]
+keywords: ["御手洗","住吉神社","千砂子波止","鴻池善右衛門","茶屋","玉垣","大阪","風待ち","潮待ち","下津井","祇園神社","玉垣勧進帳","北前船","関係人口","歴史まちづくり","地域の誇り"]
 heroPhotoId: "photo-mitarai-townscape"
-lead: "御手洗の港を歩くと、海へ伸びる石積みの防波堤のそばに、小さな住吉神社がある。けれど、社殿を寄進したのはこの島の人ではなく、大阪の豪商だった。玉垣を読めば、遠い港の商人の名に交じって、町の茶屋で働いた女性たちの名前も残っている。なぜ島の港に、これほど多くの人の仕事とお金が集まったのだろう。海から吹く風を避けて船が止まり、人が集まる港をつくるとき、神社もまた海を越えて建てられた。"
-provisionalConclusion: "御手洗の住吉神社は千砂子波止の築造に伴い、大阪の豪商鴻池の寄進と大工の技術、各地の商人の資金、地元茶屋の女性たちの砂持ちによって成立した。神社・波止・玉垣をひとつの港湾景観として読むことで、海運が島外の資本と島内の労働を結びつけた歴史が見える。"
+lead: "御手洗の港を歩くと、石積みの波止のそばに住吉神社がある。社殿を寄進したのは島の人ではなく、大阪の豪商・鴻池善右衛門だった。玉垣には遠い港の商人と、町の茶屋で働いた女性たちの名前が並ぶ。東の下津井でも、祇園神社に北陸各地の船主の名が残る。どちらも土地の人々が大切にしてきた神社だ。けれど、その姿をつくり支えたのは、そこに住む人だけではなかった。"
+provisionalConclusion: "御手洗の住吉神社は大阪の豪商や遠方の商人と地元の働き手に、下津井の祇園神社は北前船の船主など広域の寄進者にも支えられた。二つの神社は、住民の誇りと域外の人々の関わりが両立してきた港町の歴史を物語る。交易を通じた関わりには、今日の「関係人口」に通じる面がある。歴史まちづくりにおいて、地域の価値を住民だけでつくったものと捉え直さない視点を示す。"
 openQuestions: ["住吉神社の玉垣に刻まれた寄進者の名前と所在地をすべて確認できるか","千砂子波止の築造費用と神社造営の費用負担を史料から復元できるか"]
-sources: [{"id":1,"title":"住吉神社本殿・瑞垣及び門","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kenjyubun-4.html"},{"id":2,"title":"住吉神社・豊地区史跡資料","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/53/shiseki5-yutakak.html"},{"id":3,"title":"下津井祇園文書 8冊","publisher":"倉敷市","url":"https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007597/1011206/1007710/1007711.html"},{"id":4,"title":"鞆の浦について／常夜燈","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html"},{"id":5,"title":"尾道市歴史的風致維持向上計画（住吉浜と住吉神社）","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/uploaded/attachment/33514.pdf"},{"id":6,"title":"住吉神社","publisher":"尾道観光協会","url":"https://www.ononavi.jp/spots/detail.html?detail_id=336"},{"id":7,"title":"尾道市の北前船構成文化財・住吉神社","publisher":"北前船データベース","url":"https://kitamae-bune-db.com/db/area_cat/onomichi/"},{"id":8,"title":"千砂子波止・高燈籠","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/67/m000253.html"},{"id":9,"title":"住吉神社（広島県重要文化財）","publisher":"呉市 日本遺産北前船","url":"https://www.city.kure.lg.jp/site/kitamae3/index-2.html"},{"id":10,"title":"千砂子波止の築造と富くじによる資金調達","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/53/shiseki4-yutaka.html"},{"id":11,"title":"住吉神社と航海守護・鴻池寄進の経緯","publisher":"観光庁・国土交通省","url":"https://www.mlit.go.jp/tagengo-db/en/R2-01756.html"},{"id":13,"title":"住吉公園歴史探訪 第16号――鴻池善右衛門らによる1908年の住吉大社奉納灯籠","publisher":"大阪府営公園ポータル","url":"https://www.toshi-kouen.jp/article.php/sumiyoshi_news20221024"},{"id":14,"title":"瀬戸大橋開通30周年！ 鷲羽山・下津井の絶景撮影スポット10選（祇園神社）","publisher":"岡山県観光連盟 岡山観光WEB","url":"https://www.okayama-kanko.jp/okatabi/191/page"}]
+sources: [{"id":1,"title":"住吉神社本殿・瑞垣及び門","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kenjyubun-4.html"},{"id":2,"title":"住吉神社・豊地区史跡資料","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/53/shiseki5-yutakak.html"},{"id":3,"title":"下津井祇園文書 8冊","publisher":"倉敷市","url":"https://www.city.kurashiki.okayama.jp/culture/art/1007596/1007597/1011206/1007710/1007711.html"},{"id":4,"title":"鞆の浦について／常夜燈","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html"},{"id":5,"title":"尾道市歴史的風致維持向上計画（住吉浜と住吉神社）","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/uploaded/attachment/33514.pdf"},{"id":6,"title":"住吉神社","publisher":"尾道観光協会","url":"https://www.ononavi.jp/spots/detail.html?detail_id=336"},{"id":7,"title":"尾道市の北前船構成文化財・住吉神社","publisher":"北前船データベース","url":"https://kitamae-bune-db.com/db/area_cat/onomichi/"},{"id":8,"title":"千砂子波止・高燈籠","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/67/m000253.html"},{"id":9,"title":"住吉神社（広島県重要文化財）","publisher":"呉市 日本遺産北前船","url":"https://www.city.kure.lg.jp/site/kitamae3/index-2.html"},{"id":10,"title":"千砂子波止の築造と富くじによる資金調達","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/53/shiseki4-yutaka.html"},{"id":11,"title":"住吉神社と航海守護・鴻池寄進の経緯","publisher":"観光庁・国土交通省","url":"https://www.mlit.go.jp/tagengo-db/en/R2-01756.html"},{"id":13,"title":"住吉公園歴史探訪 第16号――鴻池善右衛門らによる1908年の住吉大社奉納灯籠","publisher":"大阪府営公園ポータル","url":"https://www.toshi-kouen.jp/article.php/sumiyoshi_news20221024"},{"id":14,"title":"瀬戸大橋開通30周年！ 鷲羽山・下津井の絶景撮影スポット10選（祇園神社）","publisher":"岡山県観光連盟 岡山観光WEB","url":"https://www.okayama-kanko.jp/okatabi/191/page"},{"id":15,"title":"祇園神社の奉納物（各地の北前船主による玉垣・灯籠）","publisher":"日本遺産 北前船データベース","url":"https://kitamae-bune-db.com/db/gionjinja_tamagaki_toro/"}]
 migration: {"status":"generated-copy","publicUrl":"/book/faith-as-transport-map/"}
 editorialPhotoPlacements:
   - afterHeading: "船が風を待つ入り江に、波止を築く"
@@ -61,14 +61,20 @@ editorialPhotoPlacements:
   <figcaption>下津井祇園神社の高台から望む瀬戸大橋。古い鳥居と石灯籠の向こうに、海を横断する新しい交通路が重なる。撮影：ATLAS編集者。</figcaption>
 </figure>
 
-御手洗では玉垣に残る名前を、下津井では寄進を記した帳面をたどる。どちらも、神社が近所の人々だけで完結する建物ではなかったことを考える手がかりになる。ただし、二つの港の寄進者や建立の経緯が同じだったわけではない。いま祇園神社の境内からは、かつて船が行き交った海に架かる瀬戸大橋が見える。交通の形は変わっても、人と土地を結ぶ場所が港の上に残っている。 [3](#source-3) [14](#source-14)
+祇園神社の玉垣や石灯籠には、北前船の船主たちが寄進したものが数多く残る。奉納者の所在地は新潟、富山、石川、瀬戸内各地にまたがる。遠くの港からやって来た人々が、下津井の海の守り神にも願いを託していたのだ。 [3](#source-3) [15](#source-15)
 
-## 海辺の神社が、港町の仕事を記憶する
+御手洗では玉垣に刻まれた名前を、下津井では寄進の記録と境内の石をたどる。寄進者も神社の成り立ちも同じではないが、どちらにも、港の外に暮らす人々の手が届いている。祇園神社の境内からは、かつて船が行き交った海に瀬戸大橋が架かるのが見える。海を越える方法は変わっても、土地を結ぶ道はここに重なっている。 [3](#source-3) [14](#source-14) [15](#source-15)
 
-防波堤の突端には、船の目印になった高さ約6メートルの高燈籠も残る。波止で船を守り、灯りで港の位置を知らせ、その傍らで航海の安全を祈る。御手洗の海辺には、船を迎えるための施設が短い距離に重なっている。 [8](#source-8)
+## 地域の誇りをつくったのは、地域の人だけではない
 
-神社の石に残る名前は、どの商人がどの商品を扱ったかという取引帳ではない。それでも、港を整えるために誰が資金を出し、誰が建物をつくり、誰が砂を運んだのかを、現在の風景の中で教えてくれる。 [1](#source-1) [2](#source-2)
+御手洗の住吉神社も、下津井の祇園神社も、今ではそれぞれの港町の顔になっている。土地の人々が大切にしてきた神社だが、それを形づくる資金や建築技術、石の寄進は、土地の内側だけから集まったわけではない。大阪の豪商、北陸の船主、地元の商人、港で働く女性たち。神社に関わった人々の住む場所も、役割も、一様ではなかった。 [1](#source-1) [2](#source-2) [15](#source-15)
 
-御手洗を歩くなら、海を見たあと、千砂子波止と住吉神社へ立ち寄ってみたい。遠くの商人と地元の働き手が手をかけた石と木が、この島の港をいまも形づくっている。 [1](#source-1) [8](#source-8)
+海の向こうに住みながら、商いを通じて港と関わり、その土地の神社に願いを託す。今日なら、こうした人々の一部を「関係人口」と呼ぶかもしれない。もちろん江戸時代にその言葉はなく、寄進の動機も信仰、商売上の関係、航海の安全への願いなどさまざまだ。それでも、住んでいるかどうかだけでは、地域を支えた人の輪を描ききれないことはわかる。 [2](#source-2) [15](#source-15)
+
+歴史ある町を守ろうとするとき、「昔からの住民がつくり、住民だけで守ってきたもの」を本来の姿と考えたくなる。しかし港町の歴史は、そんなに閉じていない。外から来た人を無条件にたたえる必要はないし、地元で働いた人の役割を薄めてもいけない。大切なのは、誰がどこから来て、何を持ち寄り、どう関わったのかを、境界線の内外に分けずに見つめることだ。
+
+御手洗の千砂子波止の先には、船の目印となった高燈籠が立っている。波止で船を迎え、そのそばの神社で航海の安全を祈った。海辺に残る石や木には、住民と、遠い港から関わった人々の仕事が折り重なっている。 [1](#source-1) [8](#source-8)
+
+「私たちの神社」であることは、「私たちだけでつくった神社」であることを意味しない。むしろ海を越えた人々とのつながりこそ、港町が誇れる歴史の一部なのではないだろうか。
 
 
