@@ -192,6 +192,10 @@ export const essayEntryBySlug = {
     "urban",
     "industry"
   ],
+  "farmland-or-solar": [
+    "agriculture",
+    "industry"
+  ],
   "tadano-shido-industrial-ecosystem": [
     "industry",
     "urban"
