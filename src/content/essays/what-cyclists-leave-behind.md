@@ -2,12 +2,12 @@
 slug: "what-cyclists-leave-behind"
 part: "移動は、地域を変える"
 narrativeMode: "sketch"
-title: "自転車で人は来た。では、地域に何が残ったのか"
-subtitle: "しまなみ・とびしま――橋を渡った旅人は、どこで足を止めるのだろう"
+title: "自転車を降りると、島が近くなる"
+subtitle: "しまなみ・とびしま――橋から降りて見つける斜面の畑と港の暮らし"
 cities: ["尾道","今治","御手洗","大三島"]
 keywords: ["サイクルツーリズム","しまなみ海道","とびしま海道","観光消費","地域捕捉力","移住","創業","空き家","景観","インフラ"]
 heroPhotoId: "photo-imabari-kurushima"
-lead: "しまなみ海道の橋を自転車が渡っていく。橋の先には、柑橘畑のある斜面や小さな港がある。車なら通り過ぎる風景でも、自転車なら足を止めたくなる。けれど、景色を眺めて写真を撮り、そのまま次の島へ走っていったら、旅人が来たことは町に何を残すのだろう。サイクリストが何人走ったかではなく、どんな場所で立ち止まり、誰と出会い、また来たいと思ったのか。橋の上からでは見えない、道の両側の物語をたどってみたい。"
+lead: "しまなみ海道の橋の上では、海と島が一枚の大きな風景になる。ところが島へ下り、自転車でゆっくり走ると、同じ景色が細部に分かれ始める。急な斜面のみかん畑、潮のそばの小さな港、山が迫る集落、石垣の間を抜ける道。橋の高さからは見えなかった人の仕事が、足元に現れる。自転車は島を速く通り抜ける道具であると同時に、風景の見方を変える乗り物なのかもしれない。"
 provisionalConclusion: "風景を眺めて走り抜ける旅と、島の店や人と出会う旅では、同じ海道でも残る記憶が違う。自転車の数だけでは見えない、道の両側の暮らしを大切にしたい。"
 openQuestions: ["サイクリスト1,000人当たりの宿泊・消費・立寄・地域内残存額を海道別に比較できるか","サイクリング来訪を最初の接点として移住・創業した人を長期追跡できるか","サイクル関連公共投資に対して、宿・飲食・空き家改修などの民間投資がどれだけ誘発されたか","住民便益と事故・混雑・マナー等の外部不経済を同じ評価表に載せられるか"]
 sources: [{"id":1,"title":"令和6年度しまなみ広域サイクルツーリズム圏域形成促進に係る動向調査委託事業 仕様書","publisher":"愛媛県","url":"https://www.pref.ehime.jp/uploaded/attachment/132776.pdf"},{"id":2,"title":"サイクルツーリズムが地域経済に与える影響","publisher":"国土交通省","url":"https://www.mlit.go.jp/road/ir/ir-council/bicycle-up/07pdf/04.pdf"},{"id":3,"title":"呉市を訪問する観光客及び観光消費額の拡大に向けた調査","publisher":"呉市","url":"https://www.city.kure.lg.jp/uploaded/attachment/53798.pdf"},{"id":4,"title":"観光地域づくりについて","publisher":"国土交通省 GOOD CYCLE JAPAN","url":"https://www.mlit.go.jp/road/bicycleuse/good-cycle-japan/plan/action5/"},{"id":5,"title":"令和8年度 修学旅行によるしまなみ海道自転車道利用促進事業助成","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/104449.html"},{"id":6,"title":"令和8年度 しまなみ地域観光客滞在促進事業","publisher":"愛媛県","url":"https://www.pref.ehime.jp/site/nyusatsu/145643.html"},{"id":7,"title":"瀬戸内しまなみ海道の自転車通行料金の無料化の継続","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/140206.html"},{"id":8,"title":"移住者を呼び込む「神の島」大三島――移住者を起点とした、観光・移住需要の創出","publisher":"いよぎん地域経済研究センター","url":"https://www.iyoirc.jp/wp-content/uploads/2022/03/22-148.pdf"}]
