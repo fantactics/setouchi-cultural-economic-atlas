@@ -373,6 +373,32 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
+    /* Original ATLAS photographs in Markdown essays: consistent, restrained display.
+       Apply only to the uploaded images; Commons and other illustrations keep their
+       own editorial treatment. Preserve the image's natural proportions. */
+    .markdown-essay-body :global(img[src*="/images/atlas-original/"]){
+      display:block;
+      width:min(100%, 600px);
+      max-width:100%;
+      height:auto;
+      max-height:450px;
+      object-fit:contain;
+      border-radius:9px;
+      margin:0 auto;
+    }
+    .markdown-essay-body :global(p:has(> img[src*="/images/atlas-original/"])){
+      max-width:600px;
+      margin:2rem auto .6rem;
+      text-align:center;
+    }
+    .markdown-essay-body :global(p:has(> img[src*="/images/atlas-original/"]) + p){
+      max-width:600px;
+      margin:0 auto 2.1rem;
+      color:var(--muted,#687572);
+      font-size:.85rem;
+      line-height:1.75;
+    }
+
     /* Markdown-native citation links remain clickable after Pages CMS editing. */
     .markdown-essay-body :global(a[href^="#source-"]){font-size:.72em;vertical-align:super;line-height:0;margin-left:.15em;white-space:nowrap;}
 
