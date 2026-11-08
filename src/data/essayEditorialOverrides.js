@@ -1,4 +1,6 @@
+import { landscapeEditorialTrial } from './landscapeEditorialTrial.js';
 const essayOverrides = {
+  ...landscapeEditorialTrial,
   'mitarai-economy-of-waiting': {
     subtitle:'海を渡る船が立ち止まるとき、町にはどんな時間が流れたのだろう',
     lead:'大崎下島の御手洗には、海に寄り添うように古い家並みが続いている。路地を曲がれば港はすぐ近い。かつてこの場所には、風や潮の具合を待ち、荷を扱い、次の航海に備える船が立ち寄った。船を待たせた時間は、陸に暮らす人びとにとって、食事や宿、買い物を支える時間でもあった。港での待ち時間が町の営みになり、その必要が変わった後も建物は残った。御手洗の町並みは、そんな時間の移り変わりを静かに伝えている。',
