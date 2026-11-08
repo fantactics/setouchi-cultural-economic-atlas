@@ -13,7 +13,6 @@ import { setouchiSushiEssay } from './setouchiSushiEssay.js';
 import { setouchiShrimpEssay } from './setouchiShrimpEssay.js';
 import { setouchiItinerantTradeBoatsEssay } from './setouchiItinerantTradeBoatsEssay.js';
 import { setouchiShipMaterialsEssay } from './setouchiShipMaterialsEssay.js';
-import { aiRegionalPlanningEssay } from './aiRegionalPlanningEssay.js';
 import { kojimaCircularEssay } from './kojimaCircularEssay.js';
 import { kojimaIslandEssays } from './kojimaIslandEssays.js';
 import { quageoSetouchiEssays } from './quageoSetouchiEssays.js';
@@ -23,6 +22,6 @@ export const publishedEssays=[...new Map([
   ...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
   tomoTwoActPortEssay,...portSystemEssays,niboshiShirasuEssay,
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
-  setouchiShipMaterialsEssay,aiRegionalPlanningEssay,kojimaCircularEssay,
+  setouchiShipMaterialsEssay,kojimaCircularEssay,
   ...kojimaIslandEssays,...quageoSetouchiEssays
 ].filter((article)=>article?.slug).map((article)=>[article.slug,withMarkdownMetadata(article)])).values()];
