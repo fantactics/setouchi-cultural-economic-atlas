@@ -1,4 +1,5 @@
 import { bookArticleBySlug } from './bookArticles.js';
+import { aiRegionalPlanningEssay } from './aiRegionalPlanningEssay.js';
 
 export const researchChapters = [
   {
@@ -912,5 +913,22 @@ const retiredLandUseNotes = landUseNoteSettings.map((settings)=>{
 });
 
 researchChapters.push(...retiredLandUseNotes);
+
+// Moved from the reader-facing essay collection; preserve sourced analysis here.
+researchChapters.push({
+  slug:'ai-regional-planning-adaptive-note',
+  number:'A01',
+  title:'AI時代の地域計画――観測し、学習し、修正する方法',
+  subtitle:aiRegionalPlanningEssay.subtitle,
+  thesis:'未来の完成図を固定するのではなく、地域の変化を観測し、小さく試し、学習に応じて計画を修正する方法を検討する。',
+  intro:[aiRegionalPlanningEssay.lead,'以前はエッセイに掲載していた地域計画論を、検証可能な研究ノートへ移しました。地域の風景を読むエッセイとは掲載目的を分けています。'],
+  sections:aiRegionalPlanningEssay.sections.map((section,index)=>({
+    title:section.heading,
+    claim:index===5?'hypothesis':'interpretation',
+    paragraphs:section.paragraphs.map((p)=>p.text+(p.refs?.length?'［資料 '+p.refs.join('・')+'］':''))
+  })),
+  sources:aiRegionalPlanningEssay.sources,
+  related:[{label:'エッセイ一覧へ',href:'/setouchi-cultural-economic-atlas/book/'}]
+});
 
 export const chapterBySlug = Object.fromEntries(researchChapters.map((chapter)=>[chapter.slug,chapter]));
