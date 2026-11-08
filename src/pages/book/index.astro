@@ -9,7 +9,6 @@ import '../../styles/reader-navigation.css';
 import { orderedBookArticles } from '../../data/bookArticles.js';
 import { withMarkdownMetadata } from '../../data/essayMarkdownMetadata.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
-import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
 import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
@@ -27,7 +26,7 @@ import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].map(withMarkdownMetadata);
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay].map(withMarkdownMetadata);
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 // Use article photography first, then a place-matched or theme-matched image.
@@ -49,7 +48,7 @@ const articlePhoto=(article)=>{
   return null;
 };
 const photoMissingArticles=allBookArticles.filter((article)=>!articlePhoto(article));
-const expectedTextOnlySlugs=['ai-era-regional-planning-learning-velocity'];
+const expectedTextOnlySlugs=[];
 const unexpectedMissing=photoMissingArticles.filter((article)=>!expectedTextOnlySlugs.includes(article.slug));
 if(unexpectedMissing.length) {
   throw new Error(`Review essay cover photo before publishing: ${unexpectedMissing.map((article)=>article.slug).join(', ')}`);
