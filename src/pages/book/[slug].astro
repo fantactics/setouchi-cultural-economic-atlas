@@ -373,30 +373,40 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
-    /* Original ATLAS photographs in Markdown essays: consistent, restrained display.
-       Apply only to the uploaded images; Commons and other illustrations keep their
-       own editorial treatment. Preserve the image's natural proportions. */
-    .markdown-essay-body :global(img[src*="/images/atlas-original/"]){
+    /* Editorial standard for photographs embedded in Markdown essays.
+       Covers personal photographs and Commons images, while leaving hero
+       photos and dedicated galleries untouched. Do not crop documentary photos. */
+    .markdown-essay-body :global(p > img:only-child),
+    .markdown-essay-body :global(p > a:only-child > img:only-child){
       display:block;
       width:min(100%, 600px);
       max-width:100%;
       height:auto;
       max-height:450px;
       object-fit:contain;
-      border-radius:9px;
       margin:0 auto;
+      border-radius:9px;
     }
-    .markdown-essay-body :global(p:has(> img[src*="/images/atlas-original/"])){
-      max-width:600px;
-      margin:2rem auto .6rem;
-      text-align:center;
+    .markdown-essay-body :global(p:has(> img:only-child)),
+    .markdown-essay-body :global(p:has(> a:only-child > img:only-child)){
+      width:min(100%, 600px);
+      max-width:100%;
+      margin:2.1rem auto .65rem;
     }
+    /* Photo captions for locally uploaded ATLAS originals. */
     .markdown-essay-body :global(p:has(> img[src*="/images/atlas-original/"]) + p){
-      max-width:600px;
-      margin:0 auto 2.1rem;
+      width:min(100%, 600px);
+      max-width:100%;
+      margin:0 auto 2.2rem;
       color:var(--muted,#687572);
       font-size:.85rem;
       line-height:1.75;
+    }
+    @media(max-width:640px){
+      .markdown-essay-body :global(p > img:only-child),
+      .markdown-essay-body :global(p > a:only-child > img:only-child){
+        max-height:360px;
+      }
     }
 
     /* Markdown-native citation links remain clickable after Pages CMS editing. */
