@@ -85,6 +85,11 @@ editorialPhotoPlacements:
 
 それは、単に仕事がなくなって家が残ったという話ではない。海を埋め、石を積み、船の客を迎えるために整えてきた町の構造が、その後も暮らしの場所として使われ、保存されてきた。現在の旅人が歩く小路は、かつて船から降りた人々が使った動線でもある。 [1](#source-1) [4](#source-4)
 
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/mitarai/2575ebc818.webp" alt="御手洗の木造町家。格子戸や瓦屋根と、今の暮らしに使うエアコンの室外機が同居している" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>御手洗の町家に残る格子戸と瓦屋根。その脇には現代の設備もある。古い町並みは、暮らしの変化を受け入れながら使われ続けている。撮影：ATLAS編集者。</figcaption>
+</figure>
+
 港の雁木を一段ずつ下りると、足元には海があり、振り返れば家並みがすぐそこにある。かつて風や潮が船を待たせた。その時間が仕事を生み、仕事が細い土地に町をつくった。御手洗の石段から見る風景には、海の時間を町の時間に変えてきた歴史が残っている。 [1](#source-1) [5](#source-5) [6](#source-6)
 
 
