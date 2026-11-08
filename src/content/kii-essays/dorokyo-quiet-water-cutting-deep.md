@@ -7,7 +7,7 @@ category: "渓谷景観"
 tags: ["多雨","急流","深い谷","森林"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462570391_9047193888652105_7067709840289723447_n.jpg?resize=760%2C570&ssl=1"
 alt: "瀞峡の深い青緑色の淵と両岸の切り立った岩壁、上部を覆う山の森"
-photoCredit: "写真：クアトロのジオ紀行（原著者撮影）"
+photoCredit: "写真：クアトロのジオ紀行"
 sources: [{"label":"原研究ノート｜瀞峡（どろきょう）は静かに流れる（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2179"},{"label":"瀞八丁｜南紀熊野ジオパーク","url":"https://nankikumanogeo.jp/geosite/dorohaccyo/"},{"label":"瀞八丁｜文化庁・国指定文化財等データベース","url":"https://kunishitei.bunka.go.jp/bsys/maindetails/401/3080"},{"label":"瀞峡｜和歌山県（川舟周遊の案内）","url":"https://www.pref.wakayama.lg.jp/prefg/081300/d00214695.html"},{"label":"瀞ホテルとは｜瀞ホテル（筏師の宿から旅館・喫茶への変遷）","url":"https://dorohotel.jp/about/"},{"label":"筏流しの歴史｜北山村観光サイト（旧航路と現在の観光筏下り区間）","url":"https://www.vill.kitayama.wakayama.jp/kanko/ikada/rekishi.html"},{"label":"北山川観光筏下り｜北山村観光サイト（観光体験と筏の構造）","url":"https://www.vill.kitayama.wakayama.jp/kanko/ikada/taiken.html"},{"label":"北山川の筏流し技術｜日本森林学会 林業遺産（1963年の輸送終了と1979年の観光再開）","url":"https://www.forestry.jp/forestryheritage/2023-9753/"},{"label":"大台ヶ原の概要｜環境省近畿地方環境事務所（海からの湿潤気流・年間降水量・標高）","url":"https://kinki.env.go.jp/nature/mat/odai/page_00020.html"},{"label":"大台ヶ原の雨｜環境省近畿地方環境事務所（大雨が瀞峡に伝わる水系）","url":"https://kinki.env.go.jp/blog/2011/07/1298.html"},{"label":"2011年台風12号の大雨｜気象庁（上北山の期間総降水量と豪雨の仕組み）","url":"https://www.data.jma.go.jp/stats/data/bosai/report/2011/20110830/20110830.html"},{"label":"瀞ホテル東達也さんインタビュー｜奈良っこ（10数m高い別棟の被害と本館の存続）","url":"https://www.narakko.jp/yomiweb/nature181/"},{"label":"吉野熊野国立公園の特長｜環境省（多雨域、北山川の深いV字谷）","url":"https://www.env.go.jp/park/yoshino/point/index.html"}]
 ---
 
@@ -39,7 +39,7 @@ sources: [{"label":"原研究ノート｜瀞峡（どろきょう）は静かに
 
 2011年の台風12号は、その極端な例だった。大型で動きの遅い台風が湿った空気を送り込み、紀伊半島の山々に何日も雨を降らせた。気象庁の観測では、上流域にある奈良県上北山の降水量は8月30日から9月5日までで1,814.5ミリメートル。平年の年間降水量のおよそ３分の２に当たる雨が、わずか数日間に集中した。
 
-原著者の旅の記録には、瀞峡で洪水の最高水位を示す表示に驚いたことが残る。いつもの淵と、増水した川。その落差を思えば、崖の上の瀞ホテルが被害を受けたことも、もはや不思議な話ではなくなってくる。
+瀞峡で洪水の最高水位を示す表示を見たとき、私は驚いた。目の前の穏やかな水面からは、到底想像できない高さだった。あの高さまで水が上がったのだと知ると、崖の上に建つ瀞ホテルが被害を受けたことにも、川の恐ろしい力が実感として迫ってくる。
 
 ## 筏師は、この川を仕事の道にした
 
