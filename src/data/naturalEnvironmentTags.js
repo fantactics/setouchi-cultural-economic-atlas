@@ -110,7 +110,9 @@ export const naturalConditionAnchors = {
   'setouchi-itinerant-trade-boats':['斜面','潮汐','季節風'],
   'setouchi-ship-materials':['多島海'],
   'niboshi-shirasu-two-food-cultures':['海峡','水温'],
-  'kojima-island-infrastructure-per-capita':['多島海'],
+  'kojima-island-infrastructure-per-capita':['多島海','斜面'],
+  'what-cyclists-leave-behind':['多島海','斜面','日照'],
+  'farmland-or-solar':['日照'],
   'kojima-island-cycling-without-consumption':['多島海'],
   'kojima-island-bubble-villas-second-life':['多島海']
 };
