@@ -26,6 +26,8 @@ jobs:
           node-version: 24
       - name: Install dependencies
         run: npm install
+      - name: Validate locally hosted essay photographs
+        run: node scripts/check-atlas-original-photos.mjs
       - name: Build
         run: npm run build
       - name: Validate KII content
