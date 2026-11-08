@@ -37,13 +37,29 @@ for(const name of files){
   for(const key of ['title','teaser','region','category','imageUrl','alt','photoCredit']){
     if(!readScalar(key)) throw Error('Empty KII '+key+': '+slug);
   }
-  for(const key of ['imageUrl','alt','photoCredit']){
-    if(readScalar(key)!==original[key]) throw Error('KII photo attribution changed unintentionally: '+slug);
+  for(const key of ['imageUrl','alt']){
+    if(readScalar(key)!==original[key]) throw Error('KII photo asset changed unintentionally: '+slug);
+  }
+  // A self-authored first-person essay should not retain third-person
+  // "original author" photo credits from the import pipeline. Keep the
+  // source brand and factual date/prop details when modernizing the credit.
+  const credit=readScalar('photoCredit');
+  if(!credit.startsWith('写真：クアトロのジオ紀行')) {
+    throw Error('KII original photography attribution missing: '+slug);
+  }
+  if(original.photoCredit.includes('2022年5月') && !credit.includes('2022年5月')) {
+    throw Error('KII original photo date lost: '+slug);
+  }
+  if(original.photoCredit.includes('恐竜の模型') && !credit.includes('恐竜の模型')) {
+    throw Error('KII original photo prop note lost: '+slug);
   }
   if(!fm.includes('https://')) throw Error('KII reference URLs missing: '+slug);
   const body=text.slice(match[0].length).trim();
   if(!body.startsWith('## ')||!body.includes('\n\n')||body.includes('<!--')||body.includes('視覚編集テスト'))
     throw Error('KII body unsafe or empty: '+slug);
   if((body.match(/^## /gm)||[]).length<1) throw Error('Missing KII section headings: '+slug);
+  if(/原著者|撮影者による持ち込み|筆者の(?:現地|旅の)?記録|旅の記録には/.test(body)) {
+    throw Error('KII self-authored firsthand observation written in third person: '+slug);
+  }
 }
 console.log('KII Pages CMS validation: '+files.length+' editable articles, photos and source metadata retained.');

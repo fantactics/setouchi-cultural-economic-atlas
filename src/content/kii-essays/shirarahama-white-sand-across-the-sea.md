@@ -7,7 +7,7 @@ category: "観光景観"
 tags: ["石英","漂砂","波浪"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg?resize=760%2C570&ssl=1"
 alt: "白良浜の砂浜と海に沈む夕日、手前に護岸の構造物が見える"
-photoCredit: "写真：クアトロのジオ紀行（原著者撮影）"
+photoCredit: "写真：クアトロのジオ紀行"
 sources: [{"label":"日本歴史地名大系｜白良浜の古来の名勝・催馬楽と紀伊続風土記","url":"https://kotobank.jp/word/%E7%99%BD%E8%89%AF%E6%B5%9C-1988558"},{"label":"和歌山県広報 2022年5月｜歌枕としての白良浜","url":"https://www.pref.wakayama.lg.jp/prefg/000100/d00210212_d/fil/04-05.pdf"},{"label":"産業技術総合研究所 地質標本館｜白良浜の石英砂","url":"https://www.gsj.jp/Muse/sand/D-2697.html"},{"label":"和歌山県議会2024年6月｜白砂起源、砂投入量と流失","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00217978.html"},{"label":"白浜町議会2022年12月｜事業費と輸入砂の規模","url":"https://www.town.shirahama.wakayama.jp/material/files/group/51/1215teireikai.pdf"},{"label":"和歌山県議会2018年6月｜海岸防災と景観への懸念","url":"https://www.pref.wakayama.lg.jp/gijiroku/p041773.html"},{"label":"和歌山県議会2019年6月｜砂定着の限界と護岸整備","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00203254.html"},{"label":"砂浜観察サポート図鑑｜鳴き砂や移入生物の研究","url":"https://sunahama-web.jp/column/detail_11.html"},{"label":"原研究ノート｜白良浜（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=1558"}]
 ---
 
@@ -19,7 +19,7 @@ sources: [{"label":"日本歴史地名大系｜白良浜の古来の名勝・催
 
 町の名にもなった白さ。土地の人には、ただの観光資源ではなく、ここが白浜であることの証しだったのだろう。
 
-ところが、今日この浜に広がる白砂の一部は、オーストラリアから運ばれてきたものだ。昔の歌人が見た白い浜を、遠い国の砂で保っている。その話を知ると、足元の砂の見え方が変わる。
+ところが、今日この浜に広がる白砂の一部は、オーストラリアから運ばれてきたものだ。昔の歌人が見た白い浜を、遠い国の砂で保っている。その話を知って、私には足元の砂が違って見えた。
 
 ## 岩から生まれた白さが、少しずつ失われた
 

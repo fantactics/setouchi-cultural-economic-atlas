@@ -7,7 +7,7 @@ category: "信仰景観"
 tags: ["地質境界","火成岩","堆積岩","多雨"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462585940_1223803015571285_3635145836551130159_n.jpg?resize=760%2C570&ssl=1"
 alt: "鳥居の向こうに那智の滝が落ちる飛瀧神社の風景"
-photoCredit: "写真：クアトロのジオ紀行（原著者撮影）"
+photoCredit: "写真：クアトロのジオ紀行"
 sources: [{"label":"現地研究ノート｜削られない火成岩が生んだ那智の滝（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2183"},{"label":"南紀熊野ジオパーク｜大地の成り立ち（三つの地質体）","url":"https://nankikumanogeo.jp/geo_theme/earth/"},{"label":"南紀熊野ジオパーク｜世界遺産とジオパーク（那智の滝の地質境界）","url":"https://nankikumanogeo.jp/geo_theme/heritage-and-geopark/"},{"label":"日本ジオパークネットワーク｜南紀熊野（那智四十八滝）","url":"https://geopark.jp/geopark/nanki-kumano/"},{"label":"熊野三山協議会｜熊野那智大社の御由緒","url":"https://www.kumano-sanzan.jp/nachi/yuisyo.html"},{"label":"三重県総合博物館｜那智黒石","url":"https://www.bunka.pref.mie.lg.jp/MieMu/82987046674.htm"},{"label":"特許庁｜那智黒石（地域団体商標）","url":"https://www.jpo.go.jp/system/trademark/gaiyo/chidan/shoukai/ichiran/6225396.html"},{"label":"日本大百科全書｜那智黒の黒糖飴（コトバンク所収）","url":"https://kotobank.jp/word/%E9%82%A3%E6%99%BA%E9%BB%92-346940"},{"label":"熊野那智大社公式｜飛瀧神社（熊野那智大社の別宮）","url":"https://kumanonachitaisha.or.jp/pavilion/waterfall/"},{"label":"熊野那智大社公式｜御由緒（滝本から山腹への遷座伝承）","url":"https://kumanonachitaisha.or.jp/prestige/"},{"label":"熊野那智黒石協同組合｜那智黒石の由来と産地","url":"https://www.nachiguroishi.com/nachiguroishi"},{"label":"熊野那智黒石協同組合｜那智石と那智黒石の違い","url":"https://www.nachiguroishi.com/qanda"}]
 ---
 
@@ -42,7 +42,7 @@ sources: [{"label":"現地研究ノート｜削られない火成岩が生んだ
 
 ## 滝の前の店は、黒飴でいっぱいだった
 
-滝を拝んで門前へ戻ると、目の前の土産店には「那智黒」ののど飴が大量に並んでいた。滝の白い水を見たばかりなのに、こちらは真っ黒。あまりにたくさん置かれているので、那智の名物なのだとひと目でわかる。
+滝を拝んで門前へ戻った私は、土産店に「那智黒」ののど飴が大量に並んでいるのを見て驚いた。滝の白い水を見たばかりなのに、こちらは真っ黒。あまりにたくさん置かれているので、那智の名物なのだとひと目でわかる。
 
 那智黒の名は、もともと**那智黒石**という黒い石に由来する。磨くと艶の出る石で、囲碁の黒い碁石や硯に使われてきた。黒糖でつくった丸い飴は、その碁石をかたどったものだ。石の色と形が、食べられる土産になったのである。
 

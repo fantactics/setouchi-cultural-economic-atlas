@@ -7,7 +7,7 @@ category: "農業景観"
 tags: ["急斜面","平地の少なさ","日照","水はけ"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2022/05/279711722_405172511411334_8156135131445673413_n.jpg?ssl=1&w=775"
 alt: "有田川を挟んで望む、山腹の斜面に不揃いな緑の模様を描くみかんの段々畑"
-photoCredit: "写真：クアトロのジオ紀行（2022年5月、原著者撮影）"
+photoCredit: "写真：クアトロのジオ紀行（2022年5月撮影）"
 sources: [{"label":"原研究ノート｜斜面がすごいことになってる 有田町だんだんミカン畑の山アート（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=775"},{"label":"有田・下津地域の石積み階段園みかんシステム｜農林水産省","url":"https://www.maff.go.jp/j/nousin/kantai/giahs_arida_shimotsu.html"},{"label":"有田・下津地域の世界農業遺産認定｜農林水産省（2025年8月27日）","url":"https://www.maff.go.jp/j/press/nousin/kantai/250827.html"},{"label":"有田地域農業遺産申請資料｜陽地・陰地、平地の少なさと石積みの技術","url":"https://www.maff.go.jp/j/nousin/kantai/attach/pdf/giahs_3_arida-1.pdf"},{"label":"有田地域農業遺産申請資料｜山頂の雑木林と川の役割","url":"https://www.maff.go.jp/j/nousin/kantai/attach/pdf/giahs_3_arida-6.pdf"},{"label":"有田みかん産地の表層地質と土壌保水性｜和歌山県2010年","url":"https://www.pref.wakayama.lg.jp/prefg/070100/070109/kanko/3_1_3_11_kenpo_senter11_d/fil/11_kenhou_05.pdf"},{"label":"和歌山県｜みかんのテロワール（傾斜地と石垣）","url":"https://www.pref.wakayama.lg.jp/prefg/071700/kokunai/brandshien/R2/d00205865.html"},{"label":"有田川町｜景観の成立と山地・平地のみかん畑","url":"https://www.town.aridagawa.lg.jp/material/files/group/30/1_1_outline.pdf"},{"label":"早和果樹園｜ハウスにビニールをはりました（2023年9月5日）","url":"https://www.sowakajuen.co.jp/blog/agriculture/p19320/"},{"label":"早和果樹園｜高品質栽培マルドリ方式","url":"https://www.sowakajuen.co.jp/industry_1/marudori/"},{"label":"早和果樹園｜みかん栽培日記・マルチシート被覆","url":"https://www.sowakajuen.co.jp/news/p8418/"},{"label":"早和果樹園｜有田みかんの品種と気候・栽培","url":"https://sowakajuen.com/f/faq"},{"label":"蜂久農園｜品種別の収穫時期とマルチシート","url":"https://www.tamuramikan89.com/smartphone/mikan.html"}]
 ---
 
@@ -15,7 +15,7 @@ sources: [{"label":"原研究ノート｜斜面がすごいことになってる
 
 有田川に架かる橋から対岸を眺めると、山が緑のつぎはぎをまとっている。丸いみかんの木が斜面を覆い、畑の境目が山肌に折れ曲がった線を引く。濃い緑の隣に淡い緑、その先には白っぽい区画まである。山の形に沿っているのに、どの模様も少しずつ違う。
 
-なぜ、こんなパッチワークになったのだろう。畑の形が違うだけでは、緑の濃淡や白い区画までは説明できない。
+私は、山肌の色がこれほど違うことに驚いた。なぜ、こんなパッチワークになったのだろう。畑の形が違うだけでは、緑の濃淡や白い区画までは説明できない。
 
 近づいてみると、この山には三つの時間が重なっている。何百年もかけて築かれた畑、十年単位で育ち更新される木々、そして一年ごとに繰り返される栽培の仕事だ。
 

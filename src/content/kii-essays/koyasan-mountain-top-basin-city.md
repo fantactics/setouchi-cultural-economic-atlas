@@ -7,7 +7,7 @@ category: "信仰景観"
 tags: ["山地","森林"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/09/kiri.jpg?resize=760%2C570&ssl=1"
 alt: "高野山への山道から眺める夕暮れ。幾重もの山の谷筋に白い霧がたまっている"
-photoCredit: "写真：クアトロのジオ紀行（原著者撮影）"
+photoCredit: "写真：クアトロのジオ紀行"
 sources: [{"label":"原研究ノート｜高野山は霧が多いという（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2018"},{"label":"原研究ノート｜国道371号で行く晩秋の高野山（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2146"},{"label":"高野山｜和歌山県世界遺産センター","url":"https://www.sekaiisan-wakayama.jp/know/koyasan/"},{"label":"高野山風景林｜林野庁","url":"https://www.rinya.maff.go.jp/j/kokuyu_rinya/kokumin_mori/katuyo/reku/rekumori/koyasan.html"},{"label":"高野山への表参道、町石道を歩く｜和歌山県公式観光サイト","url":"https://www.wakayama-kanko.or.jp/courses/detail_49.html"}]
 ---
 
@@ -15,7 +15,7 @@ sources: [{"label":"原研究ノート｜高野山は霧が多いという（ク
 
 高野山へ向かう山道から谷を見下ろすと、幾重もの山並みの間に白い霧が漂っている。夕暮れの山はどこまでも深く、ここから先に町があるとは思えない。
 
-ところが道を登りきると、寺院だけでなく宿坊や店、住まいが並ぶ町が現れる。山頂の寺だとばかり思っていた高野山には、暮らしの場所が広がっていた。
+ところが道を登りきると、寺院だけでなく宿坊や店、住まいが並ぶ町が現れる。山深い場所に、これほどの暮らしが広がっていることに、私は驚いた。
 
 ## 峰ではなく、山に抱かれた平地
 
