@@ -54,7 +54,7 @@ const markdownBySlug=Object.fromEntries(Object.entries(markdownModules).map(([fi
 
 export function getStaticPaths(){
   const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
-  const archivedBookArticles=['tadano-shido-industrial-ecosystem','miura-matsuyama-small-boiler-revolution'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
+  const archivedBookArticles=['miura-matsuyama-small-boiler-revolution','ai-era-regional-planning-learning-velocity'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
   return [
     ...publishedBookArticles.map((article,index)=>({
       params:{slug:article.slug},
@@ -77,7 +77,7 @@ const MarkdownContent=markdownModule?.Content || null;
 const seo=essaySearchMeta(article);
 const naturalTags=getNaturalConditionTags(article);
 const archivedResearchHref={
-  'tadano-shido-industrial-ecosystem':'/setouchi-cultural-economic-atlas/chapters/tadano-shido-industrial-ecosystem-note/',
+  'ai-era-regional-planning-learning-velocity':'/setouchi-cultural-economic-atlas/chapters/ai-regional-planning-adaptive-note/',
   'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
 }[article.slug] || null;
 const isTravelogue=article.narrativeMode==='travelogue';
@@ -150,7 +150,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
   <article class="book-article">
     {archivedResearchHref && <section class="book-open-questions">
       <div class="kicker">資料保存版</div>
-      <p>この記事は、企業沿革と技術史の資料性を保つため旧URLに保存しています。現在の掲載区分は研究ノートです。</p>
+      <p>この旧URLは資料保存のために残しています。現在の掲載区分は研究ノートです。</p>
       <div class="chapter-related-grid"><a class="compare-button" href={archivedResearchHref}>研究ノート版を読む →</a></div>
     </section>}
     <div class="reader-book-back"><a href="/setouchi-cultural-economic-atlas/book/">← エッセイ一覧に戻る</a></div>
