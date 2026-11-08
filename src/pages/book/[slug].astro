@@ -373,39 +373,56 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
-    /* Editorial standard for photographs embedded in Markdown essays.
-       Covers personal photographs and Commons images, while leaving hero
-       photos and dedicated galleries untouched. Do not crop documentary photos. */
-    .markdown-essay-body :global(p > img:only-child),
-    .markdown-essay-body :global(p > a:only-child > img:only-child){
-      display:block;
-      width:min(100%, 600px);
+    /* A single editorial scale for original and Commons photographs inside essays.
+       Hero images and gallery components retain their own design. */
+    .markdown-essay-body :global(figure.atlas-inline-photo) {
+      width:min(100%, 560px);
       max-width:100%;
+      margin:2rem auto 2.4rem;
+      padding:0;
+    }
+    .markdown-essay-body :global(figure.atlas-inline-photo img) {
+      display:block;
+      width:100%;
       height:auto;
-      max-height:450px;
+      max-height:420px;
       object-fit:contain;
-      margin:0 auto;
       border-radius:9px;
     }
-    .markdown-essay-body :global(p:has(> img:only-child)),
-    .markdown-essay-body :global(p:has(> a:only-child > img:only-child)){
-      width:min(100%, 600px);
-      max-width:100%;
-      margin:2.1rem auto .65rem;
-    }
-    /* Photo captions for locally uploaded ATLAS originals. */
-    .markdown-essay-body :global(p:has(> img[src*="/images/atlas-original/"]) + p){
-      width:min(100%, 600px);
-      max-width:100%;
-      margin:0 auto 2.2rem;
+    .markdown-essay-body :global(figure.atlas-inline-photo figcaption) {
+      margin:.65rem 0 0;
       color:var(--muted,#687572);
       font-size:.85rem;
       line-height:1.75;
+      text-align:left;
     }
-    @media(max-width:640px){
+    /* Other images placed directly in Markdown content, including Commons. */
+    .markdown-essay-body :global(p > img:only-child),
+    .markdown-essay-body :global(p > a:only-child > img:only-child) {
+      display:block;
+      width:min(100%, 560px);
+      max-width:100%;
+      max-height:420px;
+      height:auto;
+      object-fit:contain;
+      border-radius:9px;
+      margin:0 auto;
+    }
+    .markdown-essay-body :global(p:has(> img:only-child)),
+    .markdown-essay-body :global(p:has(> a:only-child > img:only-child)) {
+      width:min(100%, 560px);
+      max-width:100%;
+      margin:2rem auto .75rem;
+    }
+    @media(max-width:640px) {
+      .markdown-essay-body :global(figure.atlas-inline-photo) {
+        width:100%;
+        margin:1.65rem auto 2rem;
+      }
+      .markdown-essay-body :global(figure.atlas-inline-photo img),
       .markdown-essay-body :global(p > img:only-child),
-      .markdown-essay-body :global(p > a:only-child > img:only-child){
-        max-height:360px;
+      .markdown-essay-body :global(p > a:only-child > img:only-child) {
+        max-height:340px;
       }
     }
 

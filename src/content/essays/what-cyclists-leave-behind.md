@@ -33,9 +33,10 @@ editorialPhotoPlacements:
 
 しまなみ海道には、橋を目当てに世界中から自転車がやってくる。愛媛県の2024年度の調査仕様書では、年間約33万人が訪れると紹介されている。それほど多くの人が、一度は瀬戸内の島々を自分の速度で眺めたということになる。 [1](#source-1)
 
-![橋の自転車道を走るサイクリストと、手前に停めた青い自転車](/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/bbb9912005.webp)
-
-*しまなみ海道の橋上の自転車道。海を渡る旅人の速度で、橋と島の距離を感じる。撮影：ATLAS編集者。*
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/bbb9912005.webp" alt="橋の自転車道を走るサイクリストと、手前に停めた青い自転車" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>しまなみ海道の橋上の自転車道。海を渡る旅人の速度で、橋と島の距離を感じる。撮影：ATLAS編集者。</figcaption>
+</figure>
 
 車なら窓の外へ流れていく港や石垣も、自転車なら立ち止まれる。斜面の柑橘畑を見上げ、海辺の集落の細い道へ入る。大きな観光施設がなくても、旅の途中で忘れられない風景に出会うことがある。
 
@@ -67,9 +68,10 @@ editorialPhotoPlacements:
 
 自転車を迎えるための道しるべ、休憩場所、港の案内。旅人にうれしい設備は、島に暮らす人や別の旅人にも役立つことがある。しまなみ海道では、自転車の通行料金無料化が続けられ、沿線の利用環境も整えられてきた。 [7](#source-7)
 
-![しまなみ海道の路面に描かれたナショナルサイクルルート表示と行き交うサイクリスト](/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/bcdb6af7c2.webp)
-
-*海辺のサイクルルートに描かれた道案内。旅人が走りやすい道は、標識や路面表示にも支えられている。撮影：ATLAS編集者。*
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/bcdb6af7c2.webp" alt="しまなみ海道の路面に描かれたナショナルサイクルルート表示と行き交うサイクリスト" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>海辺のサイクルルートに描かれた道案内。旅人が走りやすい道は、標識や路面表示にも支えられている。撮影：ATLAS編集者。</figcaption>
+</figure>
 
 一方で、自転車が増えることが、いつでも住民にとってよいとは限らない。細い道でのすれ違い、交通安全、静かな暮らしとの距離感。訪ねる人が増えたあとに生まれることも、よい面ばかりではない。
 

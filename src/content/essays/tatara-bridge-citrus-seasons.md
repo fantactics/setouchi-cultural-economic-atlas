@@ -15,17 +15,19 @@ migration: {"status":"native-editorial","publicUrl":"/book/tatara-bridge-citrus-
 ---
 生口島を自転車で走り、多々羅大橋を目指す。橋へ上がるための自転車道は、海沿いの道から緩やかに高度を上げ、斜面の果樹園の中を曲がりながら続いている。
 
-![山裾の斜面に広がる柑橘畑と小さな建物](/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/6cdf89cdf1.webp)
-
-*生口島の山裾に広がる柑橘畑。樹木と斜面の関係が、島の農業景観を形づくる。果実の品種は未確認。撮影：ATLAS編集者。*
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/6cdf89cdf1.webp" alt="山裾の斜面に広がる柑橘畑と小さな建物" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>生口島の山裾に広がる柑橘畑。樹木と斜面の関係が、島の農業景観を形づくる。果実の品種は未確認。撮影：ATLAS編集者。</figcaption>
+</figure>
 
 このあたりは「レモン谷」と呼ばれる。緑の葉の間に実るレモン、海、その向こうの大三島。そして果樹園の上には、白いケーブルを広げた多々羅大橋が見える。車で高速道路を通り過ぎるだけでは、こんなふうには見えない。ペダルを踏む速さだから、畑の木々まで目に入る。 [1](#source-1) [2](#source-2)
 
 橋を渡ると広島県から愛媛県へ入る。対岸は大三島。こちらにも柑橘畑が続いている。
 
-![広島県と愛媛県を示す橋上の案内板と青い自転車](/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/0d69abd55d.webp)
-
-*橋の上にある広島県と愛媛県の案内表示。自転車なら、県境を越える瞬間も一つの風景になる。撮影：ATLAS編集者。*
+<figure class="atlas-inline-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/0d69abd55d.webp" alt="広島県と愛媛県を示す橋上の案内板と青い自転車" width="1200" height="900" loading="lazy" decoding="async" />
+  <figcaption>橋の上にある広島県と愛媛県の案内表示。自転車なら、県境を越える瞬間も一つの風景になる。撮影：ATLAS編集者。</figcaption>
+</figure>
 
 ただ、道の駅や直売所で目にする果物の名前は、一つではない。温州みかん、伊予柑、ネーブル、八朔。さらに、はれひめ、まどんな、甘平、媛小春、せとか、はるか。
 

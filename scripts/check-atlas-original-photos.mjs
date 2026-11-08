@@ -1,4 +1,5 @@
 // Validate locally published ATLAS original photos before deployment.
+// Supports normal Markdown image syntax and semantic HTML <figure> images.
 // No external API or paid service is used.
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -6,16 +7,30 @@ import path from 'node:path';
 const root = process.cwd();
 const contentDir = path.join(root, 'src/content/essays');
 const prefix = '/setouchi-cultural-economic-atlas/';
-const photoPrefix = '/setouchi-cultural-economic-atlas/images/atlas-original/';
+const imagePathPrefix = prefix + 'images/atlas-original/';
 const errors = [];
 let checked = 0;
+
+function photoReferences(source) {
+  const found = [];
+  for (const m of source.matchAll(/!\[([^\]\n]*)\]\((\/setouchi-cultural-economic-atlas\/images\/atlas-original\/[^\s)]+)\)/g)) {
+    found.push({ alt:m[1], url:m[2] });
+  }
+  for (const m of source.matchAll(/<img\b[^>]*>/g)) {
+    const tag = m[0];
+    const src = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (!src?.startsWith(imagePathPrefix)) continue;
+    const alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1] || '';
+    found.push({ alt, url:src });
+  }
+  return found;
+}
+
 const files = (await readdir(contentDir)).filter(name => name.endsWith('.md'));
 for (const file of files) {
   const source = await readFile(path.join(contentDir, file), 'utf8');
-  const matcher = /!\[([^\]]*)\]\((\/setouchi-cultural-economic-atlas\/images\/atlas-original\/[^\s)]+)\)/g;
-  for (const m of source.matchAll(matcher)) {
+  for (const {alt,url} of photoReferences(source)) {
     checked++;
-    const [ , alt, url ] = m;
     if (!alt.trim()) errors.push(`${file}: missing alt text for ${url}`);
     const rel = url.slice(prefix.length);
     const local = path.resolve(root, 'public', rel);
