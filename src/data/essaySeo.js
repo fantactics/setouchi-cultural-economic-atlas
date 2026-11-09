@@ -17,7 +17,7 @@ const searchHeadlines = {
   'faith-as-transport-map':'御手洗の住吉神社｜鴻池善右衛門と茶屋の女性たち',
   'sanuki-store-the-rain':'讃岐平野のため池と水争い｜線香で分けた農業用水',
   'iwakuni-river-city':'岩国・錦帯橋の歴史｜洪水と橋出米が生まれた理由',
-  'onomichi-capital-to-culture-and-ships':'尾道の寺と造船業｜港町の歴史を歩く',
+  'onomichi-capital-to-culture-and-ships':'尾道の坂道と寺有地｜時宗・鉄道・斜面住宅の歴史',
   'takehara-salt-capital-to-townscape':'竹原の町並みと塩田｜白壁の町ができた理由',
   'mitarai-economy-of-waiting':'御手洗の町並みと潮待ち港｜大崎下島の歴史',
   'shimonoseki-resource-made-by-market':'下関のふぐはなぜ集まる？ 唐戸市場と南風泊の歴史',
