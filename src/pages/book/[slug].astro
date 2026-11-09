@@ -102,14 +102,6 @@ const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.h
 const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
-const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
-const contextualResearchLinks=isKojimaIslandEssay
-  ? [
-      {label:'研究ノート｜人口ではなく、島の利用強度を測る',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'},
-      ...(article.slug==='kojima-island-cycling-without-consumption'?[{label:'研究ノート｜自転車は、島を変えたか',href:'/setouchi-cultural-economic-atlas/chapters/cycle-tourism-regional-impact/'}]:[])
-    ]
-  : (article.researchLinks||[]);
-
 const rawEssayPhotos=[
   ...(article.photoGallery||[]),
   ...(essayPhotoGalleries[article.slug]||[]),...(essayPhotoGalleriesMore[article.slug]||[]),...(essayPhotoGalleriesExpansion[article.slug]||[]),
@@ -314,7 +306,6 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
           <figcaption><strong>{photo.title}</strong><span>{photo.caption}</span></figcaption>
         </figure>)}</div>
       </section>}
-      {contextualResearchLinks.length>0 && <section class="book-open-questions"><div class="kicker">もっと深く知りたくなったら</div><p>エッセイでは視点と仮説を簡潔に示しています。詳しい論証、比較表、年代・統計は研究ノートとデータページに分けています。</p><div class="chapter-related-grid">{contextualResearchLinks.map((item,index)=><a class:list={['compare-button',index>0&&'secondary']} href={item.href}>{item.label} →</a>)}</div></section>}
       {!article.omitPhotoCredits && article.sources?.length>0 && <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>}
     </div>
 
