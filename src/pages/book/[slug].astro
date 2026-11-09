@@ -103,7 +103,6 @@ const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
 const isKojimaIslandEssay=kojimaIslandEssays.some((item)=>item.slug===article.slug);
-const kojimaSeriesLinks=kojimaIslandEssays.map((item)=>({title:item.title,href:`/setouchi-cultural-economic-atlas/book/${item.slug}/`,current:item.slug===article.slug}));
 const contextualResearchLinks=isKojimaIslandEssay
   ? [
       {label:'研究ノート｜人口ではなく、島の利用強度を測る',href:'/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'},
@@ -155,7 +154,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
     </section>}
     <div class="reader-book-back"><a href="/setouchi-cultural-economic-atlas/book/">← エッセイ一覧に戻る</a></div>
     <header class="book-article-header">
-      <div class="book-article-series">{isKojimaIslandEssay ? '鴻島シリーズ' : article.part}</div>
+      <div class="book-article-series">{article.part}</div>
       <h1>{article.title}</h1>
       <p class="book-article-subtitle">{article.subtitle}</p>
       <p class="book-article-dek">{article.lead}</p>
@@ -206,15 +205,6 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
         <p>{reference.note}</p>
       </div>)}
     </nav>}
-
-    {isKojimaIslandEssay && <section class="book-open-questions">
-      <div class="kicker">鴻島シリーズ</div>
-      <p>別荘地として開発された小島を、公共インフラ、観光、住宅ストック、所有と利用の変化から読みます。</p>
-      <div class="chapter-related-grid">
-        {kojimaSeriesLinks.map((item)=><a class:list={['compare-button',item.current&&'secondary']} href={item.href}>{item.current?'現在の記事｜':''}{item.title} →</a>)}
-        <a class="compare-button secondary" href="/setouchi-cultural-economic-atlas/places/hinase/">地域ページ｜日生・鴻島 →</a>
-      </div>
-    </section>}
 
     <div class="book-reading-column">
       <EssayGoogleMap article={article} />
