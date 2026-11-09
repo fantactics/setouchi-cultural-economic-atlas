@@ -601,7 +601,9 @@ export const landscapeEditorialTrial = {
           },
           {
             "text": "坂が3％なら、標高を30メートル上げるだけでも、単純計算で水平距離約1キロメートルが必要になる。実際の道は地形を避けたり曲がったりするので、もっと長くなることもある。だから橋のたもとで、自転車道は海岸から離れ、斜面をぐるりと回る。",
-            "refs": []
+            "refs": [
+              10
+            ]
           },
           {
             "text": "山の斜面に刻まれた長いカーブは、船のために確保した橋の高さを、自転車が越えられる勾配へと置き換える装置なのだ。",
@@ -675,6 +677,32 @@ export const landscapeEditorialTrial = {
       "取付道の勾配が決められた設計基準と、各橋の登坂距離の詳細",
       "架橋前後で海峡の航行船舶の規模や航路がどう変わったか",
       "同じ瀬戸内のとびしま海道では、橋梁高と自転車取付道にどんな違いがあるか"
+    ],
+    "sources": [
+      {
+        "id": 9,
+        "title": "しまなみ海道 橋ナビ（各橋の海面からの高さ）",
+        "publisher": "本州四国連絡高速道路株式会社",
+        "url": "https://www.jb-honshi.co.jp/shimanamicycling/bridge/"
+      },
+      {
+        "id": 10,
+        "title": "しまなみ海道サイクリング 道の利用と尾道渡船",
+        "publisher": "本州四国連絡高速道路株式会社",
+        "url": "https://www.jb-honshi.co.jp/shimanamicycling/howto/index02.html"
+      },
+      {
+        "id": 11,
+        "title": "来島海峡大橋の橋梁諸元",
+        "publisher": "本州四国連絡高速道路株式会社",
+        "url": "https://www.jb-honshi.co.jp/shimanami/about/shimanami/p07.html"
+      },
+      {
+        "id": 12,
+        "title": "原付道・自転車歩行者道の橋ごとの構造",
+        "publisher": "本州四国連絡高速道路株式会社",
+        "url": "https://www.jb-honshi.co.jp/customer_index/guide/zihodo/index.html"
+      }
     ]
   }
 };
