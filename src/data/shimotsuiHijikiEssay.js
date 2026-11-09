@@ -26,10 +26,19 @@ export const shimotsuiHijikiEssay = {
       photoIds:['photo-hijiki-species']
     },
     {
-      heading:'漁師の仕事は、海から上げたあとも続く',
+      heading:'海のひじきは、まだ黒いおかずではない',
       paragraphs:[
-        {text:'武豊丸は100年以上続く漁師一家で、ひじきの養殖から収穫、天日干し、茹で、販売までを手がけると紹介されている。天候に合わせて茹で具合を調整するというから、海で育てるだけでなく、陸へ上げてからの仕事にも勘所がある。',refs:[2]},
-        {text:'港に揚げた海藻がそのままパスタになるわけではない。育てて、採って、干して、茹でて、料理に使える食材にする。海の条件だけでは商品にならず、漁師の手仕事だけでも海藻は育たない。二つが重なって、下津井産のひじきになる。',refs:[2,3]}
+        {text:'ふだん私たちが目にするひじきは、乾燥した黒い小枝のような姿だ。ところが海で育っているヒジキは、緑がかった褐色をしている。春に収穫される海藻は、摘んだその場で食べるものとは違い、渋みを和らげ、柔らかくして、保存できる食材にするための加工を必要とする。',refs:[8,9]},
+        {text:'一般の天然ヒジキは、春の大潮で磯が大きく現れるときに刈り取られる。海に浸かっていた岩場が干潮時だけ作業場になるのだ。一方、下津井の武豊丸が扱うのは養殖ヒジキであり、天然物と同じ磯刈りをしているとは限らない。養殖した海藻をいつ、どんな方法で収穫するのかは、今後さらに知りたいところだ。',refs:[8,9,2]}
+      ],
+      photoIds:[]
+    },
+    {
+      heading:'いったん干し、戻し、茹でる――港から食材への変身',
+      paragraphs:[
+        {text:'武豊丸は、ヒジキを養殖して収穫し、天日干しし、茹でて商品にするまでを自分たちで担っているという。海の作業を終えても、まだ仕事は半ばなのだ。天日干しは水分を抜く作業だが、乾けばそれで完成というわけでもない。',refs:[2]},
+        {text:'ひじきの一般的な加工法には、収穫したものをいったん干し、水で戻して塩を洗い、蒸し上げてから再び乾燥する「伊勢製法」と、収穫後の生の海藻を茹でたり蒸したりしてから乾燥する「房州製法」がある。加熱は硬さや渋みを和らげ、食べやすい状態にする大切な工程だ。どちらも、海藻を食材に変えるために水と熱を使っている。',refs:[8,9,10]},
+        {text:'武豊丸について確認できる工程は「天日干し」と「茹で」までで、乾燥後に一度水で戻すのか、茹でたあと再び乾燥するのかなど、細かな手順は公表資料には書かれていない。伊勢製法の工程をそのまま当てはめることはできない。それでも、天候に合わせて茹で具合を微調整するという紹介からは、潮と日差しだけでなく、釜の前で重ねられる判断が、このひじきの食感をつくっていることがうかがえる。',refs:[2]}
       ],
       photoIds:['photo-hijiki-harvest-reference']
     },
@@ -55,6 +64,9 @@ export const shimotsuiHijikiEssay = {
     {id:4,title:'たこめし 岡山県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_10_okayama.html'},
     {id:5,title:'12月・1月の出店報告',publisher:'岡山県漁業協同組合連合会',url:'https://www.oygyoren.or.jp/12%E6%9C%88%E3%81%AE%E5%87%BA%E5%BA%97%E5%A0%B1%E5%91%8A/'},
     {id:6,title:'潮流の速い「瀬戸」に育まれた下津井ダコ',publisher:'岡山県観光連盟',url:'https://www.okayama-kanko.jp/feature/made_in_okayama/12'},
-    {id:7,title:'丹後の海の生き物（ヒジキ）',publisher:'京都府農林水産技術センター海洋センター',url:'https://www.pref.kyoto.jp/kaiyo/hijiki.html'}
+    {id:7,title:'丹後の海の生き物（ヒジキ）',publisher:'京都府農林水産技術センター海洋センター',url:'https://www.pref.kyoto.jp/kaiyo/hijiki.html'},
+    {id:8,title:'ひじきの加工工程',publisher:'株式会社くらこん',url:'https://www.kurakon.jp/ency_hijiki/02.html'},
+    {id:9,title:'ひじきQ&A',publisher:'日本ひじき協議会',url:'https://www.hijiki.org/faq/'},
+    {id:10,title:'伊勢ひじき（製造方法）',publisher:'農林水産省「にっぽん伝統食図鑑」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/ise_hiziki.html'}
   ]
 };
