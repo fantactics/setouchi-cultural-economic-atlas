@@ -23,7 +23,9 @@ export const bookArticles = [
         paragraphs:[
           {text:"赤穂の西浜では1959年の塩業整備に際し、廃業ではなく経営改善が選ばれ、1960年には赤穂海水株式会社が設立された。その後、塩田で海水を濃くする仕事からイオン交換膜を用いる工場の製塩へ移っていく。",refs:[6]},
           {text:"ここで残ったのは、古い製塩技術そのものというよりも、設備を更新して塩をつくり続ける経営主体である。新しい技術に必要な技能や工場は、塩田の仕事と同じではない。",refs:[6,13]},
-          {text:"塩田の跡は工業地や市街地にも転用された。赤穂では、塩をつくる事業の継続と、かつて塩をつくった土地の転用という、別々の選択があった。",refs:[13]}
+          {text:"赤穂では塩をつくる事業が残った一方、旧塩田の土地は別々の道を歩んだ。赤穂市の都市計画資料によれば、西浜の一部は工業用地に、尾崎の旧塩田の一部は区画整理を経て住宅地や道路に変わった。昔の海辺を一括して「工業地帯になった」と言うだけでは、土地ごとの選択を見落としてしまう。",refs:[15]},
+          {text:"さらに東浜には1987年開園の赤穂海浜公園ができ、園内の「塩の国」には揚浜式・入浜式・流下式の塩田が復元された。そこでつくる濃い塩水を使った「塩の国の塩」の商品化も進んだ。塩田を失った場所が、工場や住宅だけでなく、塩づくりを伝える場所にもなったのである。",refs:[13,16,17]},
+          {text:"赤穂の海辺に残ったものは二種類ではない。製塩事業を続ける会社と、工場・住宅・公園に使い直された旧塩田の土地。さらに公園では、失われた技術そのものが文化的な体験としてつくり直されている。",refs:[13]}
         ],
         photoIds:["photo-ako-shionokuni-official"]
       },
@@ -68,7 +70,6 @@ export const bookArticles = [
       {label:'個別作品｜赤穂の製塩事業',href:'/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/'},
       {label:'個別作品｜竹原の町並み',href:'/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/'},
       {label:'個別作品｜坂出の番の州',href:'/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/'},
-      {label:'個別作品｜赤穂の土地利用',href:'/setouchi-cultural-economic-atlas/book/ako-salt-fields-to-city/'},
       {label:'個別作品｜錦海の太陽光発電',href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}
     ],
     provisionalConclusion:"赤穂で継がれたのは製塩事業、竹原では製塩期に建てられた町家、坂出では旧塩田の利用と別に新たな埋立が進み、三田尻では塩田跡地へ企業が誘致された。これらは同じ『塩田のその後』ではない。何が残ったのかだけでなく、何を残そうとしたのか、その選択の時期と担い手が違う。事業や建物が残っても、塩田に働いた人々の仕事まで続いたとは限らない。",
@@ -87,7 +88,10 @@ export const bookArticles = [
       {id:11,title:'今昔写真集（昭和30年から）',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html'},
       {id:12,title:'防府市の都市計画 令和7年度',publisher:'防府市',url:'https://www.city.hofu.yamaguchi.jp/uploaded/attachment/142611.pdf'},
       {id:13,title:'赤穂市立海洋科学館・塩の国／赤穂かん水塩',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html'},
-      {id:14,title:'坂出港の概要・各地区の姿',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'}
+      {id:14,title:'坂出港の概要・各地区の姿',publisher:'坂出市',url:'https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html'},
+      {id:15,title:'赤穂市都市計画マスタープラン',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf'},
+      {id:16,title:'赤穂海浜公園とは？',publisher:'兵庫県立赤穂海浜公園',url:'https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html'},
+      {id:17,title:'昔ながら「塩の国の塩」新発売',publisher:'赤穂民報',url:'https://www.ako-minpo.jp/smp/news_15166.html'}
     ]
   },
   {
@@ -2019,10 +2023,6 @@ export const bookArticles = [
         "label": "比較編｜赤穂・竹原・坂出・三田尻",
         "href": "/setouchi-cultural-economic-atlas/book/four-salt-fields/"
       },
-      {
-        "label": "土地編｜赤穂の塩田跡地は何になったか",
-        "href": "/setouchi-cultural-economic-atlas/book/ako-salt-fields-to-city/"
-      }
     ],
     "provisionalConclusion": "赤穂西浜は1965年に塩田の大部分を住友セメントに売却し、代わりにイオン交換膜を用いる製塩設備を導入した。1967年には操業を開始し、1972年には大型工場へ転換。同年に東浜・西浜の塩田はすべてなくなったが、西浜の製塩事業は続いた。一方、東浜は廃止され、雇用や技能の継承は未確認。土地を手放したことが、産業の存続へとつながった逆説を描く。",
     "openQuestions": [
@@ -3045,95 +3045,6 @@ export const bookArticles = [
     }
   },
   {
-    slug:'sea-bream-scales-to-collagen',
-    part:'捨てずに循環させる取り組み',
-    title:"宇和海の鯛のウロコが、米子の歯みがきになる",
-    subtitle:"入り江に浮かぶ養殖いけすから、山陰の研究所へ",
-    cities:['宇和島','愛媛','米子'],
-    keywords:['サーキュラーエコノミー','真鯛','ウロコ','コラーゲン','宇和海','米子','未利用資源','ハイドロキシアパタイト'],
-    heroPhotoId:'photo-bream-scale-illustration',
-    lead:"宇和海の入り江には、真鯛を育てるいけすが浮かんでいる。黒潮の影響を受ける深い海と、複雑に入り組んだ海岸線。養殖に恵まれたこの海で育つ鯛のウロコが、遠く鳥取県米子市で歯みがきの材料になっているという。鯛と歯みがき。一見つながらない二つのものを結ぶのは、魚をさばくときに取り除かれる、小さくて硬いウロコだった。",
-    sections:[
-      {
-        "heading": "鯛の産地に残るもの",
-        "paragraphs": [
-          {
-            "text": "山が海へ落ち込む宇和海には、奥まった入り江が幾つもある。水深が深く、黒潮の影響を受けるこの海は、真鯛などの養殖が盛んな場所だ。養殖いけすの向こうに、急な斜面と集落が見える。この地形と海の条件が、鯛を育てる仕事を支えてきた。",
-            "refs": [
-              4
-            ]
-          },
-          {
-            "text": "鯛が食卓に届く前、加工場で身を取れば骨や皮、ウロコが残る。薄い一枚のウロコには、コラーゲンと、カルシウムやリンを含むアパタイトという成分がある。食べる身とは違う性質に、別の使い道が隠れていた。",
-            "refs": [
-              1,
-              5
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-bream-scale-illustration"
-        ]
-      },
-      {
-        "heading": "ウロコを見つけた米子の会社",
-        "paragraphs": [
-          {
-            "text": "その使い道を見いだしたのが、鳥取県米子市のルウ研究所だ。同社は宇和島産の鯛のウロコを原料としている。かつて岸壁付近に捨てられていたウロコに着目したという。宇和海で育った魚の、食卓には届かなかった部分を、山陰の会社が見つめ直した。",
-            "refs": [
-              2,
-              3,
-              6
-            ]
-          },
-          {
-            "text": "ウロコから取り出したコラーゲンは飲用製品などに、ハイドロキシアパタイトは歯みがき製品に使われている。歯を磨く粉の原料が、かつて海の魚の体を覆っていたとは、なかなか想像できない。魚を食べることと歯を磨くことが、一枚のウロコでつながった。",
-            "refs": [
-              2,
-              3,
-              5
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "魚の行き先は、身だけではない",
-        "paragraphs": [
-          {
-            "text": "宇和島と米子は、四国の南西と本州の日本海側に離れている。鯛を育てる海に、ウロコから成分を取り出す研究や製造の仕事までそろっている必要はなかった。別の土地にある技術が、宇和海で生まれた残りものに新しい価値を与えた。",
-            "refs": [
-              2,
-              3,
-              6
-            ]
-          },
-          {
-            "text": "どの加工場のウロコが、どんな経路で米子へ運ばれ、どれほど製品になっているのか。公開資料からは、そこまでは分からない。だから、宇和海のウロコがすべて生かされているとは言えない。それでも、入り江のいけすを眺めるとき、鯛の行き先は食卓だけではないと思い出せる。あの魚の小さなウロコが、どこかの洗面台にまでつながっている。",
-            "refs": [
-              2,
-              3,
-              4,
-              6
-            ]
-          }
-        ],
-        "photoIds": []
-      }
-    ],
-    provisionalConclusion:"宇和海の養殖場で育った鯛は、身だけでなくウロコも加工時に残す。鳥取県米子市のルウ研究所は、宇和島産の鯛のウロコをコラーゲンやハイドロキシアパタイトを使う製品の原料としている。ここには、養殖産地と遠方の研究・製造拠点が副産物を通じてつながる物語がある。ただし、回収量や輸送経路、地域全体の廃棄削減効果は未確認であり、すべてのウロコが高付加価値製品になるとは言えない。",
-    openQuestions:['宇和島圏で発生する真鯛鱗の年間量と実際の利用割合はどの程度か','宇和島産のウロコはどのような回収・物流ルートで米子の事業者へ届くか','抽出後の成分を含む全工程の廃棄物・エネルギー・付加価値を確認できるか'],
-    sources:[
-      {id:1,title:'マダイ鱗の脱灰処理によるコラーゲンの分離',publisher:'日本食品科学工学会誌',url:'https://www.jstage.jst.go.jp/article/nskkk1995/51/11/51_11_572/_article/-char/ja'},
-      {id:2,title:'コラーゲンリキッド',publisher:'ルウ研究所',url:'https://ruken.org/post_product/collagen05/'},
-      {id:3,title:'SDGsへの取り組み',publisher:'ルウ研究所',url:'https://ruken.org/sdgs/'},
-      {id:4,title:'マダイ',publisher:'愛媛県 水産王国えひめ',url:'https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_madai.html'},
-      {id:5,title:'本物の価値で社会貢献',publisher:'ルウ研究所',url:'https://ruken.org/contributions/'},
-      {id:6,title:'企業情報',publisher:'ルウ研究所',url:'https://ruken.org/about/company/'},
-      {id:7,title:'環境科学研究部門（宇和海の地形・海況）',publisher:'愛媛大学 南予水産研究センター',url:'https://ccr.ehime-u.ac.jp/cnf/researches-contents/environment-science/'}
-    ]
-  },
-  {
     slug:'fish-waste-to-feed-and-citrus',
     part:'捨てずに循環させる取り組み',
     title:'魚のアラが、養殖魚とみかんを育てる',
@@ -3563,118 +3474,6 @@ export const bookArticles = [
         "publisher": "SHIMAOMOI",
         "url": "https://shima-omoi.com/research/island.php?id=137"
       }
-    ]
-  },
-  {
-    slug:'soy-sauce-lees-to-chomeiso',
-    part:'捨てずに循環させる取り組み',
-    title:'醤油蔵から長命草の畑へ',
-    subtitle:'島の醤油粕を肥料に、新しい食材を育てる',
-    cities:['小豆島'],
-    keywords:['サーキュラーエコノミー','醤油粕','小豆島','長命草','肥料','塩分','食品残渣','地域循環'],
-    heroPhotoId:'photo-shodoshima-hishio',
-    lead:"小豆島の醤油蔵では、熟成させたもろみを搾って醤油をつくる。瓶に詰める醤油のほかに残るのは、塩分を含んだ醤油粕だ。一方、島の農家は、年齢を重ねても育てやすく、加工品にもできる新しい作物を探していた。そこで注目されたのが、海岸にも自生する「長命草」。醤油蔵の搾りかすを肥料に使いながら、この植物を栽培する試みが始まった。",
-    sections:[
-      {
-        "heading": "醤油の島に残る搾りかす",
-        "paragraphs": [
-          {
-            "text": "小豆島は、醤油づくりの歴史が長い島だ。蔵では大豆や小麦などから仕込んだもろみを搾り、醤油を取り出す。後に残る醤油粕にも使い道はあるが、塩分を含むため、畑へいくらでもまけるわけではない。",
-            "refs": [
-              1,
-              4
-            ]
-          },
-          {
-            "text": "島には醤油づくりの仕事があり、畑では別の作物を探す人がいた。二つの仕事が交わるきっかけになったのが、長命草だった。",
-            "refs": [
-              2,
-              4
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-shodoshima-hishio"
-        ]
-      },
-      {
-        "heading": "海辺にも育つ、長命草",
-        "paragraphs": [
-          {
-            "text": "長命草は、ボタンボウフウと呼ばれるセリ科の植物だ。海岸の岩場などにも自生し、独特の香りがある葉や若芽を食べる。沖縄では伝統的な食材として使われてきた。",
-            "refs": [
-              4,
-              5
-            ]
-          },
-          {
-            "text": "小豆島では、農家の高齢化や、栽培してきた電照ギクの価格変動などを背景に、新しい作物が探されていた。長命草は収穫物が軽く、食品にも加工できることから注目され、農家らによる栽培の取り組みが始まった。",
-            "refs": [
-              2,
-              4,
-              7,
-              8
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-chomeiso-botanboufu-example"
-        ]
-      },
-      {
-        "heading": "醤油粕を、長命草の畑へ",
-        "paragraphs": [
-          {
-            "text": "小豆島の農家は、醤油蔵から出る醤油粕を堆肥・有機質肥料として使い、長命草を育てる試みに取り組んだ。醤油粕の施用量を変えて生育や土の状態を調べる試験も行われている。",
-            "refs": [
-              2,
-              3,
-              4
-            ]
-          },
-          {
-            "text": "海辺にも育つ植物だからといって、塩分を多く与えるほどよいわけではない。醤油粕をどう使えば作物と土に無理がないか、確かめながら進める必要がある。",
-            "refs": [
-              3,
-              4
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "醤油蔵から、新しい島の食卓へ",
-        "paragraphs": [
-          {
-            "text": "長命草の葉は、茶や麺類などの商品にも使われている。醤油粕を受け取る畑ができ、そこで収穫した葉にはまた別の行き先が生まれた。醤油づくりと新しい農業が、島の中でつながった。",
-            "refs": [
-              3,
-              6
-            ]
-          },
-          {
-            "text": "この取り組みだけで島の醤油粕がすべて使い切れるわけではない。それでも、蔵を訪ねて醤油の香りに出会ったら、搾ったあとに残る粕のことも思い出したい。海辺に育つ小さな葉が、醤油の島に新しい食べ物を加えている。",
-            "refs": [
-              2,
-              3,
-              4
-            ]
-          }
-        ],
-        "photoIds": []
-      }
-    ],
-    provisionalConclusion:"小豆島の長命草栽培は、醤油粕の処理問題だけから生まれたものではない。耕作放棄地の増加、農家の高齢化、電照ギクの価格不安定に対応するため、農家と食品企業が新しい作物と販路を探していた。海岸にも育つ長命草は栽培・加工の両面で注目され、その畑では醤油粕を堆肥・有機質肥料として使う試みが始まった。長期的な土壌への影響や島全体の粕の利用割合はなお検証が必要である。",
-    openQuestions:['小豆島で年間に発生する醤油粕量と島内利用量を把握できるか','醤油粕・オリーブ堆肥の配合率と土壌塩分・収量・栄養価の関係を定量化できるか','島内の醤油・オリーブ・農業をつなぐマテリアルフローを描けるか'],
-    sources:[
-      {id:1,title:'廃棄物対策',publisher:'日本醤油協会',url:'https://www.soysauce.or.jp/environment/disposal'},
-      {id:2,title:'小豆島長命草の会',publisher:'しょうどしま長命草プロジェクト',url:'https://shodoshima-choumeisou.com/farmer/'},
-      {id:3,title:'しょうどしま長命草プロジェクト',publisher:'しょうどしま長命草プロジェクト',url:'https://shodoshima-choumeisou.com/'},
-      {id:4,title:'農商工連携で長命草を小豆島特産物に',publisher:'農林水産省（農業改良普及の事例）',url:'https://www.maff.go.jp/j/seisan/gizyutu/hukyu/h_zirei/h29/attach/pdf/index-10.pdf'},
-      {id:5,title:'ボタンボウフウ・長命草',publisher:'沖縄県「沖縄の伝統的な食文化」',url:'https://jmapps.ne.jp/okinawacyura/det.html?data_id=1246&data_idx=0&referer_id=284'},
-      {id:6,title:'しょうどしま長命草プロジェクト―商品と取り組み',publisher:'しょうどしま長命草プロジェクト',url:'https://shodoshima-choumeisou.com/townhall/'},
-      {id:7,title:'小豆島長命草の会―耕作放棄地と高齢農家の取り組み',publisher:'しょうどしま長命草プロジェクト',url:'https://shodoshima-choumeisou.com/farmer/'},
-      {id:8,title:'小豆島食材開発会議―六次産業化の経緯',publisher:'農林水産省 中国四国農政局',url:'https://www.maff.go.jp/chushi/nouson/kaseika/attach/pdf/discover_jirei-30.pdf'}
     ]
   },
   {
@@ -4215,114 +4014,6 @@ export const bookArticles = [
     ]
   },
   {
-    slug:'ako-salt-fields-to-city',
-    part:'土地は、何度でも使い直される',
-    title:'赤穂の塩田跡に、工場と町と公園ができた',
-    subtitle:'西浜の工業地、尾崎の住宅地、東浜の「塩の国」',
-    cities:['赤穂'],
-    keywords:['土地利用','赤穂','塩田跡地','西浜塩田','工業団地','区画整理','住宅地','海浜公園'],
-    heroPhotoId:'photo-ako-power-plant',
-    lead:"赤穂の海辺には、かつて東西に広い塩田があった。今、西浜には工場が並び、尾崎などには住宅や道路が広がり、東浜側には大きな海浜公園がある。塩田はなくなったが、同じ土地が一つの姿に変わったわけではない。なかでも赤穂海浜公園には昔の塩田が復元され、そこでつくった濃い塩水から新しい土産物の塩まで生まれた。工場、町、遊ぶ場所。塩をつくった土地には、三つの違う続きがある。",
-    sections:[
-      {
-        "heading": "塩田が、工場の土地になった",
-        "paragraphs": [
-          {
-            "text": "赤穂では長く海辺で塩をつくり、1972年に塩田での製塩が終わった。塩をつくる会社は新しい製法で事業を続けたが、海辺に広がっていた塩田の地面には別の使い道が生まれた。",
-            "refs": [
-              1
-            ]
-          },
-          {
-            "text": "赤穂市の都市計画マスタープランによると、西浜塩田の跡は工業用地となり、臨海部の工業地帯が形づくられた。そこに残ったのは塩田の技術ではなく、海に面したまとまった土地だった。",
-            "refs": [
-              2
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-ako-power-plant"
-        ]
-      },
-      {
-        "heading": "塩田の上に、住宅と道路ができた",
-        "paragraphs": [
-          {
-            "text": "工場にならなかった旧塩田もある。市の都市計画に関する記録では、尾崎地区の一部は、昔からの集落を除く多くの土地がもともと塩田で、区画整理によって市街地になったと説明されている。",
-            "refs": [
-              3
-            ]
-          },
-          {
-            "text": "いま家や道路が並ぶところにも、以前は海水を引いて塩をつくる場所があった。工場の並ぶ西浜とは違い、こちらは人が暮らし、行き交うための土地へ変わった。",
-            "refs": [
-              3
-            ]
-          }
-        ],
-        "photoIds": []
-      },
-      {
-        "heading": "塩田の跡に、塩づくりを体験できる公園がある",
-        "paragraphs": [
-          {
-            "text": "旧東浜塩田の跡に造られた赤穂海浜公園は、1987年に開園した。園内には遊具や広場があり、「塩の国」には揚浜式、入浜式、流下式という昔の塩田が復元されている。訪れた人は、かつての塩づくりの様子を見学したり、塩づくりを体験したりできる。",
-            "refs": [
-              5,
-              6
-            ]
-          },
-          {
-            "text": "ここでの塩づくりは、単なる展示で終わらなかった。復元した流下式塩田でつくる濃い塩水を使い、市と地元の製塩事業者が「播州赤穂 塩の国の塩」を商品化した。昔の仕事を伝える場所が、新しい土産物を生む場所にもなった。",
-            "refs": [
-              7
-            ]
-          }
-        ],
-        "photoIds": [
-          "photo-ako-shionokuni-official"
-        ]
-      },
-      {
-        "heading": "同じ塩田の跡に、三つの風景",
-        "paragraphs": [
-          {
-            "text": "西浜の工場、尾崎などの住宅地、東浜の海浜公園。いずれも塩田の跡から生まれたが、働く場所、暮らす場所、遊びながら歴史を知る場所と、役割は異なる。",
-            "refs": [
-              2,
-              3,
-              5
-            ]
-          },
-          {
-            "text": "赤穂の海辺を歩くときは、塩田の名残を探すだけでなく、塩田だった地面が今は何に使われているのかを見てみたい。姿を消した塩田が、工場にも町にも公園にも、形を変えて続いている。",
-            "refs": [
-              2,
-              3,
-              5
-            ]
-          }
-        ],
-        "photoIds": []
-      }
-    ],
-    researchLinks:[
-      {label:"比較編｜塩田が消えた四つの町",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
-      {label:"産業編｜赤穂で塩づくりが続く理由",href:'/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/'}
-    ],
-    provisionalConclusion:"赤穂の塩田がなくなったあと、海辺の土地は西浜の工業地、旧塩田に広がる市街地、塩づくりを伝える公園などに分かれた。企業がどう製法を変えたかとは別に、土地が誰のどんな仕事や生活の場になったかという歴史がある。区画ごとの所有や具体的な用途転換の判断過程は、今後の史料確認が必要である。",
-    openQuestions:['旧東浜・西浜の塩田区画を現在の用途へGISで対応づけられるか','塩田跡地の住宅地と自然地盤上の住宅地で地盤・防災条件はどう異なるか','文化的景観として残された面積と産業転用された面積を比較できるか'],
-    sources:[
-      {id:1,title:'赤穂西浜塩田資料（教育委員会提出議案参考資料）',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf'},
-      {id:2,title:'赤穂市都市計画マスタープラン',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf'},
-      {id:3,title:'赤穂市都市計画審議会議事録',publisher:'赤穂市',url:'https://www.city.ako.lg.jp/chiiki/keikaku/documents/r6-1_kentikusinsakai_gijiroku.pdf'},
-      {id:4,title:'「赤穂の天塩海浜スポーツセンター」赤穂化成が愛称命名権',publisher:'赤穂民報',url:'https://www.ako-minpo.jp/smp/news_15419.html'},
-      {id:5,title:'赤穂海浜公園とは？',publisher:'兵庫県立赤穂海浜公園',url:'https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html'},
-      {id:6,title:'赤穂市立海洋科学館・塩の国',publisher:'近畿経済産業局',url:'https://www.kansai.meti.go.jp/2kokuji/tvlist/kohyo/200.html'},
-      {id:7,title:'昔ながら「塩の国の塩」新発売',publisher:'赤穂民報',url:'https://www.ako-minpo.jp/smp/news_15166.html'}
-    ]
-  },
-  {
     slug:'farmland-or-solar',
     part:'土地は、何度でも使い直される',
     title:"畑の上にパネルを置くとき、何を残すのか",
@@ -4772,7 +4463,7 @@ export const bookArticles = [
   {"slug":"tatara-bridge-citrus-seasons","part":"農業景観","title":"橋を渡ると、みかんの名前が増えていく","subtitle":"生口島のレモン谷から大三島へ。柑橘の季節と歴史を自転車でたどる","cities":["生口島","瀬戸田","大三島","今治","尾道"],"keywords":["レモン谷","多々羅大橋","しまなみ海道","サイクリング","柑橘","温州みかん","はれひめ","紅まどんな","甘平","媛小春","せとか","伊予柑","八朔","はるか","大三島ネーブル","レモン","品種改良","価格","温暖化","少雨","日照","斜面","農業景観"],"heroPhotoId":"photo-tatara-cycling-ikuchijima","lead":"生口島から多々羅大橋へ向かう自転車道は、レモン谷の果樹園の中をゆっくり上っていく。広島県から愛媛県へ橋を渡ると、直売所には温州みかん、まどんな、甘平、媛小春など多彩な柑橘が並ぶ。同じ海辺の斜面で、二つの島はどのように果物を育ててきたのだろう。","narrativeMode":"sketch","provisionalConclusion":"似通った瀬戸内の少雨・日照・斜面の条件のもと、大三島の柑橘多品種化と生口島のレモン産地づくりは、明治以来の技術移転、温州みかんの供給過剰、市場の需要、品種育成や貯蔵技術、気候変動への対応などが重なって生じた。県境を農業の優劣の境界として扱わない。","openQuestions":["大三島における品種別の作付面積・農家手取りの長期的変化をどう記録するか","県境を越えた苗木や生産技術の交流を、現代まで史料で追えるか","近年の気温上昇が大三島の品種転換・収穫暦へ与えた影響をどこまで現地データで確かめられるか"],"sources":[{"id":1,"title":"しまなみ海道サイクリング・多々羅大橋往復コース（レモン谷を通るアクセス道）","publisher":"尾道観光協会","url":"https://www.ononavi.jp/fan/modelcourse/detail.html?detail_id=20"},{"id":2,"title":"原付道・自転車歩行者道の概要","publisher":"本州四国連絡高速道路","url":"https://www.jb-honshi.co.jp/customer_index/guide/zihodo/index.html"},{"id":3,"title":"愛媛県史 地誌Ⅱ 東予西部 大島・伯方島・大三島の柑橘（1）","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/33/view/4764"},{"id":4,"title":"愛媛県史 地誌Ⅱ 東予西部 大島・伯方島・大三島の柑橘（2）","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/33/view/4765"},{"id":5,"title":"大三島の柑橘生産者・永井農園（栽培品種一覧）","publisher":"永井農園","url":"https://omishimangi.thebase.in/about"},{"id":6,"title":"多々羅しまなみ公園・ふれあい屋台市の柑橘品種と旬","publisher":"株式会社しまなみ","url":"https://imabari-shimanami.jp/tatara-fureaiichi/"},{"id":7,"title":"県育成かんきつの品種紹介","publisher":"愛媛県農林水産研究所 みかん研究所","url":"https://www.pref.ehime.jp/page/1385.html"},{"id":8,"title":"紅プリンセスの本格出荷・親品種と収穫期","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/102054.html"},{"id":9,"title":"大三島の柑橘農園と加工品","publisher":"setouchi LIETO","url":"https://setouchi-lieto.com/"},{"id":10,"title":"瀬戸内 広島レモンとは（歴史・出荷時期・貯蔵技術）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/site/kazyuyasaikaki/setoushihiroshimalemon.html"},{"id":11,"title":"レモン栽培の拡大と気候変動適応","publisher":"広島県・ひろしま気候変動適応センター","url":"https://www.pref.hiroshima.lg.jp/site/tekiou/adaptation-hiroshima-lemon2.html"},{"id":12,"title":"農業生産における気候変動適応ガイド うんしゅうみかん編","publisher":"農林水産省","url":"https://www.maff.go.jp/j/seisan/kankyo/ondanka/attach/pdf/index-141.pdf"},{"id":13,"title":"生口島から望む多々羅大橋と自転車道（写真、CC BY-SA 4.0）","publisher":"Wikimedia Commons / Fabimaru","url":"https://commons.wikimedia.org/wiki/File:Tatara_Bridge_from_Ikuchijima.jpg"},{"id":14,"title":"大三島の柑橘農業の変遷に関する聞き取り記録","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://i-manabi.jp/system/regionals/regionals/ecode%3A1/114/view/16930"}],"sections":[],"researchLinks":[]},
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","ako-salt-fields-to-city","farmland-or-solar","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","sea-bream-scales-to-collagen","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","soy-sauce-lees-to-chomeiso","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","tadano-shido-industrial-ecosystem","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","farmland-or-solar","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","tadano-shido-industrial-ecosystem","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
