@@ -11,7 +11,6 @@ import { withMarkdownMetadata } from '../../data/essayMarkdownMetadata.js';
 import { cycleTourismEssay } from '../../data/cycleTourismEssay.js';
 import { kadaEssays } from '../../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../../data/kadaIndustryEssay.js';
-import { shimotsuiHijikiEssay } from '../../data/shimotsuiHijikiEssay.js';
 import { tomoTwoActPortEssay } from '../../data/tomoTwoActPortEssay.js';
 import { portSystemEssays } from '../../data/portSystemEssays.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
@@ -26,7 +25,7 @@ import { photoEvidence } from '../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
 import '../../styles/essay-magazine.css';
 
-const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay].map(withMarkdownMetadata);
+const allBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay].map(withMarkdownMetadata);
 const allPhotoEvidence=[...photoEvidence,...Object.values(additionalPlacePhotos).flat()];
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 // Use article photography first, then a place-matched or theme-matched image.
