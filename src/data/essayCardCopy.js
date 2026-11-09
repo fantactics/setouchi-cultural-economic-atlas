@@ -1,7 +1,6 @@
 // Short reader-facing blurbs for cards. Keep article subtitles and source data unchanged.
 // A photoId here only changes discovery cards, never the article hero or credits.
 export const essayCardCopy = {
-  'farmland-or-solar': {teaser:'日差しを分け合う畑。作物とパネルの影が重なる風景を読む。'},
   'tadano-shido-industrial-ecosystem': {teaser:'志度の海辺にある大きなクレーン工場。高松の技術が選んだ土地。'},
   'kojima-island-infrastructure-per-capita': {teaser:'住む島、別荘の島、観光の島。海底送水管と三つの下水処理を比べる。'},
   'what-cyclists-leave-behind': {teaser:'橋の手前の長い登り坂。その理由は、下を通る船にあった。'},
