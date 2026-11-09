@@ -39,7 +39,7 @@ export const essayCardCopy = {
     "teaser": "山裾が狭く、町は川向こうへ。二百メートルの錦川に、なぜ五つの橋を架けたのか。"
   },
   "onomichi-capital-to-culture-and-ships": {
-    "teaser": "寺の屋根の向こうに造船所。港町の二つの歴史を眺める。"
+    "teaser": "山門と本堂を鉄道が隔てる。寺有地と近代の交通が尾道の坂道をつくった。"
   },
   "takehara-salt-capital-to-townscape": {
     "teaser": "田畑にできなかった塩辛い干拓地が塩田になり、その富は竹原の白壁へ変わった。"
