@@ -5,7 +5,6 @@ import { withMarkdownMetadata } from './essayMarkdownMetadata.js';
 import { kadaEssays } from './kadaEssays.js';
 import { kadaIndustryEssay } from './kadaIndustryEssay.js';
 import { cycleTourismEssay } from './cycleTourismEssay.js';
-import { shimotsuiHijikiEssay } from './shimotsuiHijikiEssay.js';
 import { tomoTwoActPortEssay } from './tomoTwoActPortEssay.js';
 import { portSystemEssays } from './portSystemEssays.js';
 import { niboshiShirasuEssay } from './niboshiShirasuEssay.js';
@@ -19,7 +18,7 @@ import { quageoSetouchiEssays } from './quageoSetouchiEssays.js';
 
 export const publishedEssays=[...new Map([
   ...orderedBookArticles,
-  ...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,
+  ...kadaEssays,kadaIndustryEssay,cycleTourismEssay,
   tomoTwoActPortEssay,...portSystemEssays,niboshiShirasuEssay,
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
   setouchiShipMaterialsEssay,kojimaCircularEssay,
