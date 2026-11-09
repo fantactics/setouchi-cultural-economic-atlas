@@ -1,7 +1,7 @@
 /* Landscape-first editorial trial: 2026-11-09. Original sourced articles remain in their data files. */
 export const landscapeEditorialTrial = {
   "kojima-island-infrastructure-per-capita": {
-    "title": "島に水を届け、海へ戻す――大多府島・鴻島・宮島",
+    "title": "島の飲用水はどこから来て、生活排水はどこに流すのか　- 大多府島・鴻島・宮島を比較する",
     "subtitle": "定住の島、別荘の島、観光の島。海底送水管と三つの排水処理",
     "lead": "島に渡って蛇口をひねる。水はどこから来るのだろう。大きな川やダムを持たない島では、海底に管を通し、本土や隣の島から水を引いている場所がある。しかも、島を使う人は、毎日暮らす人ばかりではない。別荘で休日を過ごす人も、旅先として短い時間を過ごす人もいる。では、必要な水の量と、使った水を処理する方法はどう変わるのか。大多府島、鴻島、宮島。三つの島を比べながら、海を越える水と、海に戻る水の道をたどってみたい。",
     "sections": [
