@@ -90,7 +90,6 @@ export const essayCardCopy = {
   "oyster-shells-after-the-meal": {
     "teaser": "牡蠣の殻と、平和への願いを込めた折り鶴。海と町の記憶が一枚の壁で出会う。"
   },
-  "sea-bream-scales-to-collagen": {
     "teaser": "宇和海の鯛から取り除かれたウロコが、遠くの研究所へ渡る。"
   },
   "fish-waste-to-feed-and-citrus": {
@@ -99,7 +98,6 @@ export const essayCardCopy = {
   "olive-pomace-to-cattle": {
     "teaser": "小豆島の陽ざしと水はけのよい土が育てた実は、牛肉の名産まで生んだ。"
   },
-  "soy-sauce-lees-to-chomeiso": {
     "teaser": "小豆島の醤油蔵から長命草の畑へ。島の新しい挑戦。"
   },
   "ibuki-fat-sardines-revalued": {
@@ -115,7 +113,6 @@ export const essayCardCopy = {
     "teaser": "工場が立つ海辺は、昔の塩田か、新しく造った陸地か。",
     "photoId": "photo-sakaide-bannosu"
   },
-  "ako-salt-fields-to-city": {
     "teaser": "塩田がなくなったあと、工場と住宅地と公園が生まれた。"
   },
 };
