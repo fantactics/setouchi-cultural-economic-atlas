@@ -34,7 +34,7 @@ const essayPhoto=(article)=>{
   const ids=[article.heroPhotoId,...(article.sections||[]).flatMap((section)=>section.photoIds||[])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
 };
-const recommendedSlugs=['kojima-from-cotton-to-jeans','soy-sauce-lees-to-chomeiso','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island','sanuki-store-the-rain','setouchi-sushi-not-nigiri'];
+const recommendedSlugs=['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island','sanuki-store-the-rain','setouchi-sushi-not-nigiri'];
 const recommended=recommendedSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 const featuredArticles=recommended.slice(0,3);
 
