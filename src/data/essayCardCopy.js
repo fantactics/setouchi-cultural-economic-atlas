@@ -3,7 +3,7 @@
 export const essayCardCopy = {
   'farmland-or-solar': {teaser:'日差しを分け合う畑。作物とパネルの影が重なる風景を読む。'},
   'tadano-shido-industrial-ecosystem': {teaser:'志度の海辺にある大きなクレーン工場。高松の技術が選んだ土地。'},
-  'kojima-island-infrastructure-per-capita': {teaser:'海を渡って島の家に届く水。鴻島の斜面を支える見えない道。'},
+  'kojima-island-infrastructure-per-capita': {teaser:'別荘の鴻島、暮らしの男木島、観光の宮島。島の水はどこから来て、どこへ戻る？'},
   'what-cyclists-leave-behind': {teaser:'橋を降りると、柑橘畑の石垣と港の道が近づいてくる。'},
   "niboshi-shirasu-two-food-cultures": {
     "teaser": "しらすで知られる泉州は、かつて煮干しの浜だった。小魚の運び方が変えた食卓。"
