@@ -48,7 +48,7 @@ const searchHeadlines = {
   'tadano-shido-industrial-ecosystem':'志度の海辺の巨大クレーン工場｜タダノと香川の産業景観',
   'miura-matsuyama-small-boiler-revolution':'三浦工業はなぜ松山に？ 小型ボイラ技術の歴史',
   'sawara-spring-two-gates':'瀬戸内海のサワラ｜春の回遊と日生の食文化',
-  'what-cyclists-leave-behind':'自転車を降りると島が近くなる｜しまなみ・とびしまの集落と畑',
+  'what-cyclists-leave-behind':'しまなみ海道の橋へ自転車はなぜ登る？｜船の航路と橋の高さの秘密',
   'shimotsui-hijiki-peperoncino':'下津井のひじき養殖｜海藻とペペロンチーノ',
   'tomo-two-act-tidal-port':'鞆の浦の潮待ち｜潮汐がつくった港町の暮らし',
   'niboshi-shirasu-two-food-cultures':'しらすといりこの違い｜泉州・和歌浦・伊吹島の食文化',
