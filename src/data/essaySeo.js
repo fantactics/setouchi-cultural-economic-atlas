@@ -58,7 +58,7 @@ const searchHeadlines = {
   'setouchi-ship-materials':'伊予灘の地引き網船と飫肥杉｜木造船の材料と流通',
   'ai-era-regional-planning-learning-velocity':'AI時代の地域計画｜学習し続ける地域経営とは',
   'kojima-jeans-circular-economy':'児島ジーンズの循環型ものづくり｜リベットと再生繊維',
-  'kojima-island-infrastructure-per-capita':'鴻島の水道と斜面の暮らし｜日生沖の島の風景',
+  'kojima-island-infrastructure-per-capita':'鴻島の別荘と上下水道｜男木島・宮島と比較する島の水の道',
   'kojima-island-cycling-without-consumption':'日生・鴻島のサイクル観光｜島に消費を残すには',
   'kojima-island-bubble-villas-second-life':'日生・鴻島の別荘と空き家｜新しい使い手の登場',
   'kada-sea-bream-one-line':'和歌山・加太の鯛一本釣り｜友ヶ島の潮と漁師の技',
