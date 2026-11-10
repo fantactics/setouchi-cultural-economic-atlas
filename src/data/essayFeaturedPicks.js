@@ -34,7 +34,7 @@ export const essayFeaturedByEntrance = {
   ],
   "tourism": [
     "what-cyclists-leave-behind",
-    "kojima-island-bubble-villas-second-life",
+    "chichibugahama-sky-in-tide",
     "mitarai-economy-of-waiting"
   ],
   "urban": [
