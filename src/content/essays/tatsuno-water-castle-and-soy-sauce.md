@@ -40,19 +40,3 @@ migration:
 龍野の町へ戻ると、古い醤油蔵と城下町の家並みがまた違って見える。水が酒づくりを難しくしたから、何もつくれなかったわけではない。酒と醤油の技術を行き来しながら、この土地に合う味を見つけた人たちがいた。
 
 揖保川の伏流水は、淡口醤油の淡い色を支え、その川の流れは醤油を遠くの食卓へ運んだ。同じ自然条件も、何をつくるか、誰に届けるかで価値が変わる。龍野の白壁と醤油蔵は、その選び直しが町並みになった風景なのだ。
-
-## 出典・参考資料
-
-<span id="source-1"></span>1. [たつの市龍野伝統的建造物群保存地区について](https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/tatunoshitatunodentoutekikenzoubutugunhozontikunoshoukai/2541.html)（たつの市）
-
-<span id="source-2"></span>2. [淡口醤油](https://www.tatsuno.or.jp/%E5%9C%B0%E5%A0%B4%E7%94%A3%E6%A5%AD/%E6%B7%A1%E5%8F%A3%E9%86%A4%E6%B2%B9/)（龍野商工会議所）
-
-<span id="source-3"></span>3. [淡口しょうゆの誕生と近畿のしょうゆ](https://www.kikkoman.com/jp/kiifc/publication/foodculture/no28_kinki.html)（キッコーマン FOOD CULTURE）
-
-<span id="source-4"></span>4. [独自の製法技術：揖保川の伏流水](https://www.higashimaru.co.jp/about/quality/original.html)（ヒガシマル醤油）
-
-<span id="source-5"></span>5. [醤油 特集](https://tatsuno-tourism.jp/special_contents/%E9%86%A4%E6%B2%B9-%E7%89%B9%E9%9B%86/)（たつの市観光協会）
-
-<span id="source-6"></span>6. [連載コラム「大阪のだし」第19回](https://www.pref.osaka.lg.jp/o070080/toshimiryoku/osakathemuseum/dashi/oosakanodashi019.html)（大阪府）
-
-<span id="source-7"></span>7. [商標登録第5051778号 龍野淡口醤油](https://www.jpo.go.jp/system/trademark/gaiyo/chidan/shoukai/ichiran/5051778.html)（特許庁）
