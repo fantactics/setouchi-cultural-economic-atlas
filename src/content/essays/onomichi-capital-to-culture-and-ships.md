@@ -15,7 +15,10 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 ## 山門の向こうに、本堂がない
 
-[常称寺の紅葉風景（尾道観光協会「おのみちや」写真 No.3199）を見る](https://www.ononavi.jp/onomichiya/search/detail.php?id=3199)
+<figure class="onomichi-crossing-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/joshoji-crossing-onomichi.avif" alt="踏切の向こうに常称寺の建物が見える。線路、寺院、民家が重なっている尾道の街並み" width="640" height="427" loading="eager" decoding="async" />
+  <figcaption>踏切の向こうに見える常称寺。寺院の空間に鉄道と住宅が重なっている。写真：<a href="https://www.ononavi.jp/onomichiya/search/detail.php?id=3199" target="_blank" rel="noopener noreferrer">尾道観光協会「おのみちや」No.3199</a></figcaption>
+</figure>
 
 尾道の山手を歩くと、民家の間に突然、古い寺の大門が現れる。時宗の常称寺だ。門をくぐっても、その先に本堂はない。線路と国道を越え、坂を上がった先に本堂が建つ。寺の門と本堂の間を、近代の交通が横切ってしまった。[7](#source-7) [8](#source-8)
 
