@@ -24,7 +24,7 @@ const searchHeadlines = {
   'yanai-trade-profit-to-whitewalls':'山口・柳井の白壁の町並み｜商人と川港の歴史',
   'mihara-castle-to-multimodal-city':'三原城と山陽鉄道｜城跡を駅が横切った理由',
   'matsuyama-three-centers-one-city':'松山・三津浜と高浜港｜汽船が港を移した理由',
-  'hiketa-castle-port-town':'東かがわ・引田の城山と港町｜入り江と醤油蔵',
+  'hiketa-castle-port-town':'引田城山はかつて島だった｜港・石垣・醤油蔵と町の歴史',
   'ako-after-salt-fields':'赤穂の塩田と製塩業｜塩田を売っても塩をつくる理由',
   'takamatsu-sea-castle-to-gateway':'高松城はなぜ港から遠くなった？ 海城と埋立の歴史',
   'tai-meshi-two-seas':'鯛めしはなぜ2種類？ 今治・松山と宇和島の食文化',
