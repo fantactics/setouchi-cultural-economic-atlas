@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="t d">
+<title id="t">川と波が運ぶ砂が引田の地形を変えた（模式図）</title><desc id="d">左から安戸池、城山、引田の町。小海川は城山と引田の町の境界へ向かい、古川は町の方へ流れる。砂の蓄積によって島の周囲の陸地と潟湖が形づくられたことを概念的に示す。</desc>
+<defs>
+<linearGradient id="sea" x2="0" y2="1"><stop stop-color="#badce9"/><stop offset="1" stop-color="#e8f4f1"/></linearGradient>
+<linearGradient id="land" x2="0" y2="1"><stop stop-color="#f4dba9"/><stop offset="1" stop-color="#d4dfab"/></linearGradient>
+<linearGradient id="hill" x2="0" y2="1"><stop stop-color="#8fb384"/><stop offset="1" stop-color="#426c57"/></linearGradient>
+<marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0 0L7 3L0 6" fill="none" stroke="#2785b6" stroke-width="1.6"/></marker>
+<pattern id="town" width="31" height="30" patternUnits="userSpaceOnUse"><path d="M2 3H25V24H2Z" fill="#faf5e8" stroke="#c3a785" stroke-width="1.3"/><path d="M14 4V23M4 13H24" stroke="#e7d4bc" stroke-width="1"/></pattern>
+</defs>
+<rect width="1200" height="720" fill="#faf7ef"/>
+<text x="600" y="54" text-anchor="middle" fill="#193852" font-size="39" font-weight="700">川と波が運ぶ砂が、引田の地形を変えた</text>
+<text x="600" y="85" text-anchor="middle" fill="#455a66" font-size="18">砂の堆積が、島を陸につなぎ、海の一部を潟湖に変えていった</text>
+<rect x="20" y="109" width="1160" height="460" rx="16" fill="url(#sea)"/>
+<path d="M20 325 Q130 292 260 328 Q395 360 496 334 Q610 325 698 365 Q860 350 1020 344 Q1128 316 1180 330 L1180 569H20Z" fill="url(#land)" stroke="#d1b97f" stroke-width="3"/>
+<path d="M20 462 Q140 420 270 459 Q381 423 481 481 Q580 469 699 497 Q830 468 954 500 Q1075 482 1180 491V569H20Z" fill="#a2bc8b" opacity=".7"/>
+<path d="M20 518 Q104 470 185 500 T340 523 Q470 467 586 517 T842 515 T1180 523V569H20Z" fill="#688c70"/>
+<path d="M45 359Q84 314 158 345Q215 356 268 342Q321 366 299 419Q289 459 219 478Q118 479 59 450Q25 418 45 359Z" fill="#8dcee1" stroke="#dfefdf" stroke-width="12"/>
+<path d="M30 349Q97 301 171 320Q273 315 335 346" fill="none" stroke="#ecd093" stroke-width="17" stroke-linecap="round"/>
+<path d="M305 455Q370 439 432 465Q480 431 514 396Q536 339 594 325Q658 307 698 361Q742 394 773 444Q737 488 638 502Q525 484 467 488Z" fill="url(#hill)" stroke="#7ca16f" stroke-width="3"/>
+<path d="M793 392 Q929 366 1166 393V511Q1050 484 900 490Q844 464 793 479Z" fill="url(#town)" opacity=".95"/>
+<path d="M385 566 Q390 522 448 491 Q504 468 587 478 Q678 494 747 458 Q779 432 810 439" fill="none" stroke="#f7fcfb" stroke-width="25"/>
+<path d="M385 566 Q390 522 448 491 Q504 468 587 478 Q678 494 747 458 Q779 432 810 439" fill="none" stroke="#67b1d4" stroke-width="15" marker-end="url(#arr)"/>
+<path d="M851 568 Q834 534 867 494Q890 467 912 455" fill="none" stroke="#f7fcfb" stroke-width="25"/>
+<path d="M851 568 Q834 534 867 494Q890 467 912 455" fill="none" stroke="#67b1d4" stroke-width="15" marker-end="url(#arr)"/>
+<path d="M360 275Q535 260 720 274Q870 282 1012 270" stroke="#2785b6" stroke-width="4" fill="none" marker-end="url(#arr)"/>
+<g font-family="sans-serif" font-weight="700" fill="#1f3f56" paint-order="stroke" stroke="#faf7ef" stroke-width="5" stroke-linejoin="round">
+<text x="171" y="402" text-anchor="middle" font-size="34">安戸池</text><text x="171" y="430" text-anchor="middle" font-size="20">（潟湖）</text>
+<text x="615" y="403" text-anchor="middle" font-size="36">城山</text><text x="615" y="435" text-anchor="middle" font-size="20">（かつて島）</text>
+<text x="995" y="445" text-anchor="middle" font-size="34">引田の町</text>
+<text x="392" y="539" text-anchor="end" font-size="25">小海川</text><text x="920" y="548" font-size="25">古川</text>
+<text x="700" y="241" text-anchor="middle" font-size="24">沿岸流・砂礫の移動（概念）</text>
+<text x="542" y="534" text-anchor="middle" font-size="20">砂礫の堆積域（概念）</text>
+</g>
+<rect x="40" y="137" rx="14" width="380" height="108" fill="#fffaf2" stroke="#c59f7b" stroke-width="2"/>
+<text x="60" y="175" font-size="24" font-weight="700" fill="#694b33">湾の入口に砂が伸びる</text>
+<text x="60" y="208" font-size="21" fill="#694b33">海の一部が囲まれ、安戸池に</text>
+<rect x="809" y="137" rx="14" width="340" height="108" fill="#fffaf2" stroke="#c59f7b" stroke-width="2"/>
+<text x="831" y="175" font-size="24" font-weight="700" fill="#694b33">島と陸の間に砂が堆積</text>
+<text x="831" y="208" font-size="21" fill="#694b33">城山は陸続きの地形に</text>
+<rect x="33" y="589" rx="12" width="1134" height="100" fill="#fffdf8" stroke="#d1bd9f" stroke-width="2"/>
+<text x="57" y="621" font-size="24" font-weight="700" fill="#234659">地形変化のイメージ図</text>
+<text x="57" y="650" font-size="18" fill="#515d5f">※ 実際の縮尺・方位、古い海岸線、河道・土砂移動経路を正確に再現したものではありません。</text>
+<text x="57" y="677" font-size="18" fill="#515d5f">※ 城山が陸続きになった年代は未確定です。小海川の矢印は地形形成の説明用で、特定年代の流路を示しません。</text>
+</svg>
