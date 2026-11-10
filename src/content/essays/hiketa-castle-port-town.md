@@ -30,8 +30,8 @@ editorialPhotoPlacements: []
 **この土地は変わり続ける。** 引田に暮らした人々も、そんなことを知っていたのではないだろうか。
 
 <figure class="hiketa-terrain-figure">
-  <iframe title="引田の城山・安戸池と周辺の河川の位置関係を示す地図（OpenStreetMap）" src="https://www.openstreetmap.org/export/embed.html?bbox=134.374%2C34.216%2C134.416%2C34.254&amp;layer=mapnik" width="100%" height="400" loading="lazy" style="border:1px solid #c8d3d9;border-radius:12px"></iframe>
-  <figcaption>引田周辺の現在の地図。城山、引田の町、安戸池と周辺の川の位置関係を見比べたい。地図：© OpenStreetMap contributors（<a href="https://www.openstreetmap.org/copyright">ライセンス</a>）。<a href="https://www.openstreetmap.org/#map=14/34.235/134.395" target="_blank" rel="noopener noreferrer">大きな地図を見る</a>。現在の地図は、過去の海岸線の復元図ではない。</figcaption>
+  <img src="/setouchi-cultural-economic-atlas/images/hiketa-sand-formation-diagram.svg" alt="左から安戸池、城山、引田の町が並び、川が運ぶ土砂と波の作用によって砂州や潟湖が生まれる仕組みを示した地形のイメージ図" loading="lazy" style="width:100%;height:auto;border-radius:12px" />
+  <figcaption>地形の形成過程を説明するイメージ図。位置関係や砂の蓄積による地形変化を理解するための概念図であり、縮尺・方位・昔の海岸線、河川の流路や土砂の移動方向を正確に復元したものではありません。城山が陸続きになった時期も未確定です。</figcaption>
 </figure>
 
 ## 祖父が覚えていた海、父が知る浅瀬
