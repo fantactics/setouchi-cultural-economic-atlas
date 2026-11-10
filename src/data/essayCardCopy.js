@@ -58,7 +58,7 @@ export const essayCardCopy = {
     "teaser": "港、駅、城下町。松山の中心は、なぜ一か所ではないのか。"
   },
   "hiketa-castle-port-town": {
-    "teaser": "城のある岬を仰ぎながら、引田の港町の時間を歩く。"
+    "teaser": "島だった城山の内側に港ができた。城の石垣から、醤油蔵の赤壁へ。"
   },
   "ako-after-salt-fields": {
     "teaser": "赤穂は塩田を売って、塩づくりを続けた。土地を手放す産業の選択。"
