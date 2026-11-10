@@ -1,4 +1,5 @@
 import { bookArticleBySlug } from './bookArticles.js';
+import { retiredLandUseSource } from './retiredLandUseSource.js';
 import { aiRegionalPlanningEssay } from './aiRegionalPlanningEssay.js';
 
 export const researchChapters = [
@@ -893,7 +894,7 @@ const landUseNoteSettings = [
 ];
 
 const retiredLandUseNotes = landUseNoteSettings.map((settings)=>{
-  const source = bookArticleBySlug[settings.original];
+  const source = bookArticleBySlug[settings.original] || (settings.original === retiredLandUseSource.slug ? retiredLandUseSource : null);
   if(!source) throw new Error(`Missing research source: ${settings.original}`);
   return {
     slug:settings.slug,
