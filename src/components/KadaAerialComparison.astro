@@ -1,0 +1,72 @@
+---
+/**
+ * 同じ座標・縮尺で空中写真を比較。画像は国土地理院サーバーから直接取得する。
+ * 対象はコスモパーク加太防災ヘリポート付近（和歌山県公表の座標）。
+ */
+const lat=34+16/60+53/3600;
+const lon=135+5/60+37/3600;
+const zoom=14;
+const n=2**zoom;
+const px=(lon+180)/360*n*256;
+const rad=lat*Math.PI/180;
+const py=(1-Math.log(Math.tan(rad)+1/Math.cos(rad))/Math.PI)/2*n*256;
+const x0=Math.floor(px/256)-1;
+const y0=Math.floor(py/256)-1;
+const offsetX=px-x0*256;
+const offsetY=py-y0*256;
+const layers=[
+ {id:'gazo1',label:'1974–1978年',note:'土砂採取開始前の丘陵地',url:'https://maps.gsi.go.jp/development/ichiran.html',ext:'jpg'},
+ {id:'gazo4',label:'1987–1990年',note:'土砂採取工事が進んだ時期',url:'https://maps.gsi.go.jp/development/ichiran.html',ext:'jpg'},
+ {id:'seamlessphoto',label:'最近の空中写真',note:'造成跡地と現在の土地利用（撮影年は地点ごとに異なる）',url:'https://maps.gsi.go.jp/development/ichiran.html',ext:'jpg'}
+].map(layer=>({
+ ...layer,
+ tiles:Array.from({length:9},(_,i)=>{
+   const dx=i%3,dy=Math.floor(i/3);
+   const tx=x0+dx,ty=y0+dy;
+   return {src:`https://cyberjapandata.gsi.go.jp/xyz/${layer.id}/${zoom}/${tx}/${ty}.${layer.ext}`,left:dx*256,top:dy*256};
+ })
+}));
+---
+<section class="kada-history-comparison" aria-labelledby="kada-history-comparison-title">
+  <div class="kada-history-heading">
+    <span class="kada-history-kicker">LANDSCAPE / BEFORE & AFTER</span>
+    <h2 id="kada-history-comparison-title">加太の丘が変わる――同じ場所を空から見る</h2>
+    <p>現在のコスモパーク加太防災ヘリポート付近を、同じ中心点・縮尺で比較しています。緑の丘陵が削られ、大きな造成地に姿を変えた過程をたどってください。</p>
+  </div>
+  <div class="kada-aerial-grid">
+    {layers.map(layer=><figure class="kada-aerial-panel">
+      <div class="kada-aerial-window" role="img" aria-label={`国土地理院の${layer.label}の加太空中写真、同じ地点を比較`}>
+        <div class="kada-aerial-tiles" style={`left:50%;top:50%;transform:translate(-${offsetX}px,-${offsetY}px)`}>
+          {layer.tiles.map(tile=><img src={tile.src} alt="" aria-hidden="true" loading="lazy" decoding="async" style={`left:${tile.left}px;top:${tile.top}px`}/>)}
+        </div>
+        <span class="kada-center-point" title="三時期の共通基準点"></span>
+      </div>
+      <figcaption>
+        <strong>{layer.label}</strong>
+        <span>{layer.note}</span>
+      </figcaption>
+    </figure>)}
+  </div>
+  <div class="kada-aerial-foot">
+    <p>出典：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">国土地理院「地理院タイル」</a>。国土画像情報の撮影年は年代幅で示しており、右端の最新写真は2024年撮影と断定できません。比較の基準点は現在の防災ヘリポート付近であり、土砂採取区域の境界を示すものではありません。地域・年代によっては画像の未収録箇所があります。</p>
+    <p><a href="https://www.pref.wakayama.lg.jp/prefg/020100/021300/cosmo_d/fil/cosmoall.pdf" target="_blank" rel="noopener noreferrer">2024年1月撮影のコスモパーク加太全景（和歌山県・PDF）</a> ／ <a href="https://www.pref.wakayama.lg.jp/bcms/prefg/000200/kenmin/s22-h16/h1_5/pdf/h021101.pdf" target="_blank" rel="noopener noreferrer">1990年の土砂採取現場写真（和歌山県広報誌・PDF）</a> ／ <a href="https://maps.gsi.go.jp/#14/34.281389/135.093611/" target="_blank" rel="noopener noreferrer">地理院地図で詳しく見る</a></p>
+  </div>
+</section>
+<style>
+.kada-history-comparison{max-width:1130px;margin:2.2rem auto 2.8rem;padding:1.4rem clamp(12px,2vw,26px);background:var(--paper,#faf8f2);border:1px solid var(--line,#dedcd2);border-radius:13px}
+.kada-history-kicker{font-size:.76rem;letter-spacing:.12em;font-weight:800;color:var(--accent,#756044)}
+.kada-history-heading h2{margin:.5rem 0 .7rem;font-size:clamp(1.15rem,2.7vw,1.6rem);line-height:1.4}
+.kada-history-heading p{margin:0 0 1.1rem;line-height:1.7;font-size:.92rem}
+.kada-aerial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.kada-aerial-panel{margin:0;min-width:0}
+.kada-aerial-window{position:relative;aspect-ratio:1/1.05;width:100%;overflow:hidden;background:#e1e2dd;border-radius:7px}
+.kada-aerial-tiles{position:absolute;width:768px;height:768px;pointer-events:none}
+.kada-aerial-tiles img{width:256px;height:256px;display:block;position:absolute;object-fit:cover;max-width:none;border:0}
+.kada-center-point{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:12px;width:12px;border:2px solid white;border-radius:50%;box-shadow:0 0 0 1.5px #c84432,0 1px 6px #0008;pointer-events:none}
+.kada-aerial-panel figcaption{display:flex;flex-direction:column;gap:.3rem;margin:.65rem .2rem 0;font-size:.83rem;line-height:1.55}
+.kada-aerial-panel figcaption strong{font-size:.95rem}
+.kada-aerial-foot{font-size:.76rem;line-height:1.75;color:var(--muted,#5f6464);margin-top:1rem}
+.kada-aerial-foot p{margin:.45rem 0}
+.kada-aerial-foot a{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:700px){.kada-aerial-grid{grid-template-columns:1fr;gap:1rem}.kada-aerial-window{aspect-ratio:1.3}.kada-aerial-panel figcaption{margin-top:.4rem}}
+</style>
