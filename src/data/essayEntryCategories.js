@@ -156,6 +156,10 @@ export const essayEntryBySlug = {
     "industry",
     "sea"
   ],
+  "oyster-shells-where-they-go": [
+    "industry",
+    "sea"
+  ],
   "sea-bream-scales-to-collagen": [
     "industry",
     "food"
