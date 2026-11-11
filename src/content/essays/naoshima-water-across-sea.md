@@ -5,8 +5,8 @@ title: "直島の水は、海を渡ってくる"
 subtitle: "銅の島を支えた二つの水源と、県境を越える「友情の水」"
 cities: ["直島", "玉野", "倉敷", "児島"]
 keywords: ["直島","直島 水道","直島 水源","玉野市","倉敷市","高梁川","海底送水管","友情の水","直島ダム","製錬所","三菱マテリアル","児島 直島 新航路","少雨","離島"]
-lead: "直島の水道水は、岡山県の高梁川から海を渡ってくる。だが島にはダムもある。銅製錬の発展が増やした水需要と1967年の大渇水。その背後にある、島内の雨と海底送水管という二つの水の道をたどる。"
-sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher":"直島町","url":"https://www.town.naoshima.lg.jp/torikumi/suido/item/nsb.pdf"},{"id":2,"title":"水道水ができるまで","publisher":"玉野市","url":"https://www.city.tamano.lg.jp/soshiki/21/25900.html"},{"id":3,"title":"県境を越えた友情の水（元直島町長の回顧）","publisher":"国土交通省四国地方整備局","url":"https://www.skr.mlit.go.jp/kasen/topics/mizukobore/mizukobore_86.pdf"},{"id":4,"title":"直島製錬所百年のあゆみ","publisher":"三菱マテリアル","url":"https://www.mmc.co.jp/naoshima/corporate/history.html"},{"id":5,"title":"児島―直島新航路整備及び広域連携に関する共同宣言（2026年11月2日）","publisher":"倉敷市","url":"https://www.city.kurashiki.okayama.jp/culture/tourism/1014722/1028436.html"},{"id":6,"title":"海底送水管（玉野～直島間）改良工事","publisher":"株式会社フソウ","url":"https://www.fuso-inc.co.jp/works/202302_naoshima.html"},{"id":7,"title":"直島製錬所の写真・CC BY 4.0","publisher":"Wikimedia Commons / ブルーノ・プラス","url":"https://commons.wikimedia.org/wiki/File:Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg"}]
+lead: "直島の水道水は、岡山県の高梁川から海を渡ってくる。島内にダムがありながら、なぜ水を海の向こうから引くのか。1967年の大渇水と2026年の高梁川渇水を結ぶ、二つの水の道をたどる。"
+sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher":"直島町","url":"https://www.town.naoshima.lg.jp/torikumi/suido/item/nsb.pdf"},{"id":2,"title":"水道水ができるまで","publisher":"玉野市","url":"https://www.city.tamano.lg.jp/soshiki/21/25900.html"},{"id":3,"title":"県境を越えた友情の水（元直島町長の回顧）","publisher":"国土交通省四国地方整備局","url":"https://www.skr.mlit.go.jp/kasen/topics/mizukobore/mizukobore_86.pdf"},{"id":4,"title":"直島製錬所百年のあゆみ","publisher":"三菱マテリアル","url":"https://www.mmc.co.jp/naoshima/corporate/history.html"},{"id":5,"title":"児島―直島新航路整備及び広域連携に関する共同宣言（2026年11月2日）","publisher":"倉敷市","url":"https://www.city.kurashiki.okayama.jp/culture/tourism/1014722/1028436.html"},{"id":6,"title":"海底送水管（玉野～直島間）改良工事","publisher":"株式会社フソウ","url":"https://www.fuso-inc.co.jp/works/202302_naoshima.html"},{"id":7,"title":"直島製錬所の写真・CC BY 4.0","publisher":"Wikimedia Commons / ブルーノ・プラス","url":"https://commons.wikimedia.org/wiki/File:Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg"},{"id":8,"title":"直島ダム1965年完成・上水道1966年完成","publisher":"直島町（元町長・三宅親連氏の業績）","url":"https://naoshimacho.kir.jp/about/meiyo/miyake.html"},{"id":9,"title":"海洋開発草分け話（20）1979年直島海底導水管敷設工事","publisher":"『船の科学』1996年3月号","url":"https://zousen-shiryoukan.jasnaoe.or.jp/wp/wp-content/uploads/item/funenokagaku/funenokagaku-vol49-03.pdf"},{"id":10,"title":"第3海底送水管が通水","publisher":"水道産業新聞（2009年3月16日）","url":"https://suidou.co.jp/backnumber/20090316/"},{"id":11,"title":"玉野―直島間の海底送水管布設工事船（2008年8月12日撮影）","publisher":"みっちゃんのHomepage","url":"https://www.ne.jp/asahi/okayama/tamano/shashin/kanfusetu1.html"},{"id":12,"title":"高梁川水系の渇水情報（2026年11月11日更新）","publisher":"岡山県","url":"https://www.pref.okayama.lg.jp/page/1050541.html"},{"id":13,"title":"2026年の直島町節水呼びかけ","publisher":"直島町・ふれあい通信なおしま","url":"https://www.town.naoshima.lg.jp/info.html?id=2"},{"id":14,"title":"直島町史（目次・199日間の給水制限）","publisher":"香川県立図書館","url":"https://www.library.pref.kagawa.lg.jp/know/local/local_2006"}]
 ---
 直島の宮浦港では、草間彌生の赤いかぼちゃが旅人を迎える。島には美術館が点在し、世界中から訪れた人々がカフェでくつろぎ、宿に泊まる。
 
@@ -29,7 +29,7 @@ sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher"
 
 工場が大きくなれば、設備の冷却や電解工程に水が要る。働く人とその家族の暮らしにも、もちろん水が要る。
 
-けれども直島は、雨が少なく大きな川もない瀬戸内海の島だ。1966年に直島ダムが完成したが、その翌年、西日本を襲った干ばつで貯水量が減り、島は深刻な水不足に陥った。1968年1月には、対岸の玉野市から給水船で水道水を運んだこともあった。
+けれども直島は、雨が少なく大きな川もない瀬戸内海の島だ。1965年に直島ダムが完成し、翌1966年には上水道の整備が進んだ。だが1967年、西日本を襲った干ばつで貯水量が減り、島は深刻な水不足に陥った。1968年1月には、対岸の玉野市から給水船で水道水を運んだこともあった。
 
 ダムをつくっても、降らない雨はためられない。
 
@@ -56,9 +56,17 @@ sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher"
 
 直島町の2019年の水道ビジョンでは、町全体の有収水量の約7割を工場用水が占めていた。製錬所があってこその町の水需要が、数字にも表れている。
 
-1969年の海底送水管も、完成して終わりではなかった。事故や腐食、経年劣化に対応して1979年、2008年に新たな送水管が設けられ、2023年にも玉野側の一部で改良工事が行われた。
+## 海の底に管を敷くという仕事
 
-水を引く仕事は一度きりではない。島の暮らしとともに、海の底でも更新が続いている。
+海底送水管は、1969年に通水して終わりではなかった。最初の管は船の錨などで損傷し、修理が必要になった。安定して水を届けるため、1979年には二本目の管が敷設された。
+
+当時の技術者の回顧によると、玉野から直島まで約2,100メートルの海底を掘り、直径35センチの鋼管を敷き込んだ。玉野側には泥が、直島側には岩盤があり、海底を掘る方法も異なる。潮が速い場所では、流れが緩む時間を選んで作業した。海は島を隔てる障害であると同時に、管を通す工事現場だったのだ。
+
+2008年11月には三本目の海底送水管が完成した。こちらは約2,030メートルの継ぎ目のないポリエチレン管。管そのものも、敷設する技術も変わっている。
+
+2008年8月には、玉野市の神登山から、この工事に使われた管埋設船が撮影されていた。山から海を眺めた一枚に、ふだんは見えない水道の仕事が写っている（[2008年の工事船の写真を見る](https://www.ne.jp/asahi/okayama/tamano/shashin/kanfusetu1.html)）。
+
+2023年にも玉野側の送水管の一部が改良された。島の水道は、海の底で維持され続けている。
 
 ## 新しい船の道と、古くからある水の道
 
@@ -68,4 +76,14 @@ sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher"
 
 一方で、水の道は半世紀以上も前からあった。高梁川から倉敷、玉野、そして直島へ。川を流れ、海の下を渡り、丘の上の配水池へ汲み上げられる水に、県境はない。
 
-旅人が目にするのは、白い美術館や赤いかぼちゃ、青い海だ。その景色の下には、山から届いた水を島へ運ぶ、もう一つの川が流れている。
+## そして2026年、高梁川も渇水した
+
+島の外から水を受け取れるようになって、水不足の心配が消えたわけではない。
+
+2026年9月、岡山県の高梁川水系では渇水のため取水制限が始まった。直島町も、町民に節水を呼びかけた。11月11日時点でも、高梁川の取水制限は続いている。
+
+1967年には島のダムの水が足りなかった。半世紀余り後の2026年には、海を越えて水を送ってくれる高梁川の水が足りなくなっている。
+
+直島の人々は、海底送水管をつくり、更新し、島の内と外に二つの水源を確保してきた。それでも、雨の少なさそのものを変えられたわけではない。
+
+旅人が目にするのは、白い美術館や赤いかぼちゃ、青い海だ。その景色の下には、山から届いた水を島へ運ぶ、もう一つの川が流れている。海を越えても、水はやはり雨から生まれる。
