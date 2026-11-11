@@ -5040,6 +5040,16 @@ export const bookArticles = [
 bookArticles.push({
   slug: 'naoshima-water-across-sea',
   part: '海と島',
+  heroPhoto: {
+    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg?width=960',
+    title: '直島製錬所と海',
+    caption: '直島の北部に広がる三菱マテリアル直島製錬所。島内の産業と水の関係を物語る風景。',
+    alt: '直島北部の海辺に立地する銅製錬所',
+    kind: 'photo',
+    author: 'ブルーノ・プラス',
+    sourcePage: 'https://commons.wikimedia.org/wiki/File:Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg',
+    license: 'CC BY 4.0'
+  },
   title: '直島の水は、海を渡ってくる',
   subtitle: '銅の島を支えた二つの水源と、県境を越える「友情の水」',
   cities: ['直島','玉野','倉敷','児島'],
