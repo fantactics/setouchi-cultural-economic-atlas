@@ -1,6 +1,12 @@
 // Article map positions: explicit locations take precedence over a city-name fallback.
 // This metadata is about today's geography, not a reconstruction of historical coastlines.
 const essayMapOverrides = {
+  'naoshima-water-across-sea': {
+    query: '直島 玉野市 岡山県',
+    name: '玉野市と直島――海を渡る水',
+    zoom: 11,
+    description: '直島の北に玉野市、さらに西に倉敷市があります。海底送水管は玉野から直島へ渡ります。高梁川からの水の仕組みは本文の模式図を参照してください。'
+  },
   'tatara-bridge-citrus-seasons': {
     query: 'レモン谷 多々羅大橋 生口島 広島県尾道市瀬戸田町',
     name: '生口島・レモン谷から大三島へ',
