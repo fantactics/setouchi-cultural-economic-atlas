@@ -3,6 +3,7 @@
 // Manual, article-specific headlines avoid keyword-stuffed boilerplate.
 // Add a headline here when publishing a new essay; the fallback still remains valid.
 const searchHeadlines = {
+  'naoshima-water-across-sea':'直島の水道はどこから？｜高梁川・玉野市の海底送水管と直島ダム',
   'chichibugahama-sky-in-tide':'父母ヶ浜の水鏡はなぜできる？｜干潮・遠浅の浜・夕日の条件',
   'tatsuno-water-castle-and-soy-sauce':'龍野の城下町と淡口醤油｜揖保川の軟水が育てた町並み',
   'tatara-bridge-citrus-seasons':'多々羅大橋と生口島のレモン谷｜大三島の柑橘品種・歴史・旬',
