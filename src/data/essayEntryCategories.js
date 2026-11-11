@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'naoshima-water-across-sea': ['sea', 'industry'],
   'chichibugahama-sky-in-tide': ['tourism','sea'],
   'ogushi-theatron-sea-as-stage': ['tourism','sea'],
   'tatsuno-water-castle-and-soy-sauce': ['townscape','food'],
