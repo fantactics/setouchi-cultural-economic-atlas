@@ -1,5 +1,220 @@
 export const bookArticles = [
   {
+    "slug": "oyster-shells-where-they-go",
+    "part": "捨てずに循環させる取り組み",
+    "title": "牡蠣を食べたあと、20万立方メートルの殻はどこへ行くのか",
+    "subtitle": "広島湾の殻が、海の堆積場、畑、鶏舎、そして海底へ向かうまで",
+    "cities": [
+      "広島湾",
+      "広島市",
+      "日生"
+    ],
+    "keywords": [
+      "牡蠣",
+      "かき殻",
+      "カキ殻",
+      "海中堆積",
+      "炭酸カルシウム",
+      "肥料",
+      "飼料",
+      "底質改善",
+      "広島湾",
+      "岡山",
+      "物質循環"
+    ],
+    "heroPhotoId": "photo-hiroshima-oyster-rafts",
+    "lead": "冬の広島湾。むき身を取り出す作業場では、牡蠣の殻が積み上がる。広島県で生まれる殻は年間およそ20万立方メートル。実は多くが食卓に届く前に外されている。その殻は、海の中で保管され、畑や鶏舎へ運ばれ、ときには再び海底を整える材料になる。だが、すべてが使い切られているわけではない。",
+    "sections": [
+      {
+        "heading": "むき身の横で、殻が山になる",
+        "paragraphs": [
+          {
+            "text": "冬の広島湾には牡蠣の養殖筏が並ぶ。島々が波を和らげ、太田川などから流れ込む水が植物プランクトンを育てる。この海で育った牡蠣が、冬の食卓へ向かう。",
+            "refs": [
+              5
+            ]
+          },
+          {
+            "text": "ところが、広島の牡蠣は殻付きのまま食卓に届くものばかりではない。多くは浜の作業場で身を外し、「むき身」として出荷される。食べ終わってから殻が残るというより、食べる前に、すでに大量の殻が生まれているのだ。",
+            "refs": [
+              1
+            ]
+          },
+          {
+            "text": "広島県の推計では、その量は県全体で年間約20万立方メートル。重さではなく、積み上げた殻の体積である。牡蠣の産地は、同時に膨大な殻を扱う産地でもある。",
+            "refs": [
+              1
+            ]
+          }
+        ],
+        "photoIds": []
+      },
+      {
+        "heading": "殻は一度、海へ戻って待つ",
+        "paragraphs": [
+          {
+            "text": "殻には貝柱などの有機物が残り、すぐに粉にして売れるわけではない。広島では、むき身を外した殻を海中の堆積場へ運び、三か月以上置いて付着物を落とす。その後、加工業者が陸揚げして破砕・乾燥し、製品の材料にする。",
+            "refs": [
+              1
+            ]
+          },
+          {
+            "text": "一度海から揚げた殻を、わざわざ海の中に置き、また陸へ戻す。これは海へ投げ捨てているのではない。次の利用に備えるための、管理された保管工程なのだ。",
+            "refs": [
+              1
+            ]
+          },
+          {
+            "text": "牡蠣の身を育てた海が、今度は殻を加工しやすくするための時間と場所を提供している。",
+            "refs": [
+              1
+            ]
+          }
+        ],
+        "photoIds": []
+      },
+      {
+        "heading": "畑と鶏舎に、海の石灰が届く",
+        "paragraphs": [
+          {
+            "text": "牡蠣の殻をつくっている主な成分は、炭酸カルシウム。細かく砕けば、畑の土づくりに用いる石灰質の資材になり、鶏の卵殻形成に必要なカルシウムを補う飼料にもなる。",
+            "refs": [
+              1
+            ]
+          },
+          {
+            "text": "ここには意外なつながりがある。島影の海で育った牡蠣の殻が、陸の作物を育て、鶏が卵を産むための材料になる。海の恵みは、牡蠣の身を食べ終えても働き続ける。",
+            "refs": [
+              1
+            ]
+          },
+          {
+            "text": "しかし、その出口は安定しているとは限らない。広島県は、鳥インフルエンザや農業用資材価格の変化などを背景に、肥料・飼料向けの利用が減少していると説明する。余った殻には、運ぶ場所と置く場所が必要になる。",
+            "refs": [
+              1,
+              4
+            ]
+          }
+        ],
+        "photoIds": []
+      },
+      {
+        "heading": "20万のうち、6万はまだ行き先を待っている",
+        "paragraphs": [
+          {
+            "text": "2025年4月の国会答弁では、広島県で年間約20万立方メートル生じる殻のうち、約14万立方メートルが土壌改良材や飼料などに使われ、残る約6万立方メートルは一時的に保管されていると説明された。これは当時の説明に基づく数字であり、2026年現在の在庫量を示すものではない。",
+            "refs": [
+              2
+            ]
+          },
+          {
+            "text": "殻を粉にするにも、海から引き揚げ、運び、乾燥する仕事がある。材料として役に立つことと、産地にある殻を無理なく使い切れることは別の問題だ。県も加工費用を抑え、大量に扱える用途を増やす取り組みを支援している。",
+            "refs": [
+              1,
+              4
+            ]
+          },
+          {
+            "text": "牡蠣を育てる技術だけでは、牡蠣産業は完結しない。殻の山に出口をつくる人々の仕事も、産地を支えている。",
+            "refs": [
+              1,
+              2
+            ]
+          }
+        ],
+        "photoIds": []
+      },
+      {
+        "heading": "岡山では、殻を海底に敷いている",
+        "paragraphs": [
+          {
+            "text": "海から出た殻を、もう一度海で役立てようとする取り組みもある。岡山県ではカキ殻を浅い海底に敷いて、アマモや底生生物が暮らしやすい底質をつくる技術を実用化し、2022年には沖合の深い場所での実証結果も踏まえてガイドラインを改訂した。",
+            "refs": [
+              3
+            ]
+          },
+          {
+            "text": "海底へ戻す殻は、魚介類が身を隠す空間や生き物の足場をつくり、海底の状態を改善する材料になることがある。ただし、どこへでも投入してよいわけではなく、海域の条件に合わせた設計と効果の確認が要る。",
+            "refs": [
+              1,
+              3
+            ]
+          },
+          {
+            "text": "ここで広島と岡山の殻が一本の輸送経路でつながっていると考えるのは早い。広島で生じた殻が岡山の事業に運ばれていることまでは確認できていない。二つの県ではそれぞれ、殻を海の環境改善に使う方法が検討されてきた。広島県も2026年、漁場造成と底質改善のためのガイドラインを公表している。",
+            "refs": [
+              1,
+              3
+            ]
+          }
+        ],
+        "photoIds": []
+      },
+      {
+        "heading": "海に戻すことと、海に捨てることの違い",
+        "paragraphs": [
+          {
+            "text": "牡蠣の殻は、海にあるときは身を守る家だった。人の手で集められた後には、畑の土を整える材料になり、鶏の餌になり、条件が合えば海底の生き物のすみかをつくる材料にもなる。",
+            "refs": [
+              1,
+              3
+            ]
+          },
+          {
+            "text": "けれど、循環という言葉だけで片づけることはできない。海中での保管にも、陸での加工にも管理と費用がかかる。海底に使う場合も、捨てるのではなく、場所と量を考えて使わなければならない。",
+            "refs": [
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "text": "広島湾の筏を見渡しても、殻の行き先は見えない。海から陸へ、そしてときには別の海の底へ。牡蠣の産地には、目に見える筏のほかに、殻の行き先を探し続けるもう一つの産業がある。",
+            "refs": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "photoIds": []
+      }
+    ],
+    "researchLinks": [],
+    "sources": [
+      {
+        "id": 1,
+        "title": "かき殻の利活用について（2026年2月27日）",
+        "publisher": "広島県",
+        "url": "https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara.html"
+      },
+      {
+        "id": 2,
+        "title": "参議院農林水産委員会（2025年4月24日、かき殻の利用量）",
+        "publisher": "国立国会図書館・国会会議録",
+        "url": "https://kokkai.ndl.go.jp/simple/txt/121715007X00720250424/89"
+      },
+      {
+        "id": 3,
+        "title": "カキ殻を利用した総合的な底質改良技術ガイドラインの改訂（2022年）",
+        "publisher": "岡山県",
+        "url": "https://www.pref.okayama.jp/page/820701.html"
+      },
+      {
+        "id": 4,
+        "title": "令和7年度かき殻有効活用対策推進事業費補助金",
+        "publisher": "広島県",
+        "url": "https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara-yukokatuyo.html"
+      },
+      {
+        "id": 5,
+        "title": "広島湾のかき養殖の自然条件",
+        "publisher": "広島市農林水産振興センター",
+        "url": "https://www.haff.city.hiroshima.jp/info/suisansc/oyster/production/"
+      }
+    ]
+  },
+  {
     slug:'four-salt-fields',
     part:'海と陸は、人がつくった',
     title:'塩田のあとに残った四つの風景',
@@ -4724,7 +4939,7 @@ export const bookArticles = [
   {"slug":"tatara-bridge-citrus-seasons","part":"農業景観","title":"橋を渡ると、みかんの名前が増えていく","subtitle":"生口島のレモン谷から大三島へ。柑橘の季節と歴史を自転車でたどる","cities":["生口島","瀬戸田","大三島","今治","尾道"],"keywords":["レモン谷","多々羅大橋","しまなみ海道","サイクリング","柑橘","温州みかん","はれひめ","紅まどんな","甘平","媛小春","せとか","伊予柑","八朔","はるか","大三島ネーブル","レモン","品種改良","価格","温暖化","少雨","日照","斜面","農業景観"],"heroPhotoId":"photo-tatara-cycling-ikuchijima","lead":"生口島から多々羅大橋へ向かう自転車道は、レモン谷の果樹園の中をゆっくり上っていく。広島県から愛媛県へ橋を渡ると、直売所には温州みかん、まどんな、甘平、媛小春など多彩な柑橘が並ぶ。同じ海辺の斜面で、二つの島はどのように果物を育ててきたのだろう。","narrativeMode":"sketch","provisionalConclusion":"似通った瀬戸内の少雨・日照・斜面の条件のもと、大三島の柑橘多品種化と生口島のレモン産地づくりは、明治以来の技術移転、温州みかんの供給過剰、市場の需要、品種育成や貯蔵技術、気候変動への対応などが重なって生じた。県境を農業の優劣の境界として扱わない。","openQuestions":["大三島における品種別の作付面積・農家手取りの長期的変化をどう記録するか","県境を越えた苗木や生産技術の交流を、現代まで史料で追えるか","近年の気温上昇が大三島の品種転換・収穫暦へ与えた影響をどこまで現地データで確かめられるか"],"sources":[{"id":1,"title":"しまなみ海道サイクリング・多々羅大橋往復コース（レモン谷を通るアクセス道）","publisher":"尾道観光協会","url":"https://www.ononavi.jp/fan/modelcourse/detail.html?detail_id=20"},{"id":2,"title":"原付道・自転車歩行者道の概要","publisher":"本州四国連絡高速道路","url":"https://www.jb-honshi.co.jp/customer_index/guide/zihodo/index.html"},{"id":3,"title":"愛媛県史 地誌Ⅱ 東予西部 大島・伯方島・大三島の柑橘（1）","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/33/view/4764"},{"id":4,"title":"愛媛県史 地誌Ⅱ 東予西部 大島・伯方島・大三島の柑橘（2）","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode%3A2/33/view/4765"},{"id":5,"title":"大三島の柑橘生産者・永井農園（栽培品種一覧）","publisher":"永井農園","url":"https://omishimangi.thebase.in/about"},{"id":6,"title":"多々羅しまなみ公園・ふれあい屋台市の柑橘品種と旬","publisher":"株式会社しまなみ","url":"https://imabari-shimanami.jp/tatara-fureaiichi/"},{"id":7,"title":"県育成かんきつの品種紹介","publisher":"愛媛県農林水産研究所 みかん研究所","url":"https://www.pref.ehime.jp/page/1385.html"},{"id":8,"title":"紅プリンセスの本格出荷・親品種と収穫期","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/102054.html"},{"id":9,"title":"大三島の柑橘農園と加工品","publisher":"setouchi LIETO","url":"https://setouchi-lieto.com/"},{"id":10,"title":"瀬戸内 広島レモンとは（歴史・出荷時期・貯蔵技術）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/site/kazyuyasaikaki/setoushihiroshimalemon.html"},{"id":11,"title":"レモン栽培の拡大と気候変動適応","publisher":"広島県・ひろしま気候変動適応センター","url":"https://www.pref.hiroshima.lg.jp/site/tekiou/adaptation-hiroshima-lemon2.html"},{"id":12,"title":"農業生産における気候変動適応ガイド うんしゅうみかん編","publisher":"農林水産省","url":"https://www.maff.go.jp/j/seisan/kankyo/ondanka/attach/pdf/index-141.pdf"},{"id":13,"title":"生口島から望む多々羅大橋と自転車道（写真、CC BY-SA 4.0）","publisher":"Wikimedia Commons / Fabimaru","url":"https://commons.wikimedia.org/wiki/File:Tatara_Bridge_from_Ikuchijima.jpg"},{"id":14,"title":"大三島の柑橘農業の変遷に関する聞き取り記録","publisher":"愛媛県生涯学習センター・えひめの記憶","url":"https://i-manabi.jp/system/regionals/regionals/ecode%3A1/114/view/16930"}],"sections":[],"researchLinks":[]},
 ];
 
-export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","tadano-shido-industrial-ecosystem","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
+export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","tadano-shido-industrial-ecosystem","ako-after-salt-fields","onomichi-capital-to-culture-and-ships","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
