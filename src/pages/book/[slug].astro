@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import EssayProseSections from '../../components/EssayProseSections.astro';
+import KadaAerialComparison from '../../components/KadaAerialComparison.astro';
 import { selectEssayInlinePhotos } from '../../data/essayReadingPresentation.js';
 import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { orderedBookArticles, bookArticleBySlug } from '../../data/bookArticles.js';
@@ -160,6 +161,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       </div>
     </header>
 
+    {article.slug==='kada-steel-data-center-transition' && <KadaAerialComparison />}
     {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}{!article.omitPhotoCredits && <span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>}</figcaption></figure>}
     {article.slug==='tai-meshi-two-seas' && (
       <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
