@@ -22,10 +22,6 @@ sources: [{"id":1,"title":"直島町水道ビジョン（2019年）","publisher"
 
 1917年、三菱が島の北部に製錬所を設け、翌1918年に銅の生産を始めた。製錬所とは、鉱石などから金属を取り出し、純度を高める工場のこと。今も直島では銅の製造に加えて、使い終えた電子機器などから貴金属を回収する仕事が続いている。
 
-<figure>
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg?width=960" alt="瀬戸内海に面する直島北部の三菱マテリアル直島製錬所" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px" />
-  <figcaption>直島の北部を占める製錬所。現代アートと並ぶ、この島のもう一つの風景。写真：ブルーノ・プラス／<a href="https://commons.wikimedia.org/wiki/File:Mitsubishi_Materials_Corporation_Naoshima_Smelter.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>、画像変更なし）</figcaption>
-</figure>
 
 工場が大きくなれば、設備の冷却や電解工程に水が要る。働く人とその家族の暮らしにも、もちろん水が要る。
 
