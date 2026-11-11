@@ -4,10 +4,10 @@ part: "捨てずに循環させる取り組み"
 title: "牡蠣を食べたあと、20万立方メートルの殻はどこへ行くのか"
 subtitle: "広島湾の殻が、海の堆積場、畑、鶏舎、そして海底へ向かうまで"
 cities: ["広島湾","広島市","日生"]
-keywords: ["牡蠣","かき殻","カキ殻","海中堆積","炭酸カルシウム","肥料","飼料","底質改善","広島湾","岡山","物質循環"]
+keywords: ["牡蠣","かき殻","カキ殻","海中堆積","炭酸カルシウム","肥料","飼料","底質改善","広島湾","岡山","物質循環","フランス","チェサピーク湾","牡蠣礁","海岸侵食","透水性舗装材"]
 heroPhotoId: "photo-hiroshima-oyster-rafts"
 lead: "冬の広島湾。むき身を取り出す作業場では、牡蠣の殻が積み上がる。広島県で生まれる殻は年間およそ20万立方メートル。実は多くが食卓に届く前に外されている。その殻は、海の中で保管され、畑や鶏舎へ運ばれ、ときには再び海底を整える材料になる。だが、すべてが使い切られているわけではない。"
-sources: [{"id":1,"title":"かき殻の利活用について（2026年2月27日）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara.html"},{"id":2,"title":"参議院農林水産委員会（2025年4月24日、かき殻の利用量）","publisher":"国立国会図書館・国会会議録","url":"https://kokkai.ndl.go.jp/simple/txt/121715007X00720250424/89"},{"id":3,"title":"カキ殻を利用した総合的な底質改良技術ガイドラインの改訂（2022年）","publisher":"岡山県","url":"https://www.pref.okayama.jp/page/820701.html"},{"id":4,"title":"令和7年度かき殻有効活用対策推進事業費補助金","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara-yukokatuyo.html"},{"id":5,"title":"広島湾のかき養殖の自然条件","publisher":"広島市農林水産振興センター","url":"https://www.haff.city.hiroshima.jp/info/suisansc/oyster/production/"}]
+sources: [{"id":1,"title":"かき殻の利活用について（2026年2月27日）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara.html"},{"id":2,"title":"参議院農林水産委員会（2025年4月24日、かき殻の利用量）","publisher":"国立国会図書館・国会会議録","url":"https://kokkai.ndl.go.jp/simple/txt/121715007X00720250424/89"},{"id":3,"title":"カキ殻を利用した総合的な底質改良技術ガイドラインの改訂（2022年）","publisher":"岡山県","url":"https://www.pref.okayama.jp/page/820701.html"},{"id":4,"title":"令和7年度かき殻有効活用対策推進事業費補助金","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara-yukokatuyo.html"},{"id":5,"title":"広島湾のかき養殖の自然条件","publisher":"広島市農林水産振興センター","url":"https://www.haff.city.hiroshima.jp/info/suisansc/oyster/production/"},{"id":6,"title":"L’Agglo donne une deuxième vie aux coquillages（2026年11月9日）","publisher":"CapAtlantique La Baule–Guérande Agglo","url":"https://www.cap-atlantique.fr/actualites/lagglo-donne-une-deuxieme-vie-aux-coquillages-entre-novembre-2026-et-le-printemps-2027/"},{"id":7,"title":"En Vendée, un parking perméable à base de coquilles d'huîtres（2026年11月4日）","publisher":"Département de la Vendée","url":"https://www.vendee.fr/actualite/un-parking-permeable-a-base-de-coquilles-dhuitres?no_cache=1"},{"id":8,"title":"Chesapeake Oyster Week and Shell Recycling Alliance（2026年）","publisher":"Maryland Department of Agriculture","url":"https://mda.maryland.gov/news/press-releases/time-chow-down-and-celebrate-chesapeake-oyster-week-march-20-31"},{"id":9,"title":"Oyster Shell Recycling Program","publisher":"Coalition to Restore Coastal Louisiana","url":"https://www.crcl.org/osrp-restaurants/"},{"id":10,"title":"Les huîtres : comment les choisir et les conserver ?（2025年12月17日）","publisher":"フランス経済省 DGCCRF","url":"https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/les-huitres-comment-les-choisir-et-les-conserver"}]
 migration: {"status":"generated-copy","publicUrl":"/book/oyster-shells-where-they-go/"}
 ---
 ## むき身の横で、殻が山になる
@@ -50,10 +50,28 @@ migration: {"status":"generated-copy","publicUrl":"/book/oyster-shells-where-the
 
 ここで広島と岡山の殻が一本の輸送経路でつながっていると考えるのは早い。広島で生じた殻が岡山の事業に運ばれていることまでは確認できていない。二つの県ではそれぞれ、殻を海の環境改善に使う方法が検討されてきた。広島県も2026年、漁場造成と底質改善のためのガイドラインを公表している。 [1](#source-1) [3](#source-3)
 
+## フランスでは、殻が家庭の食卓にも残る
+
+広島で殻が集まるのは、主としてむき身を取り出す産地の作業場だ。ところがフランスでは、牡蠣を殻付きで買い、食べる直前に開ける習慣がある。食卓に身と殻が一緒に届くため、殻は家庭やレストランにも分散する。広島とは、回収の出発点が違う。 [1](#source-1) [10](#source-10)
+
+大西洋岸のラ・ボール、ゲランド周辺では、自治体連合CapAtlantiqueが9か所の公共回収施設に貝殻専用の容器を置いている。2025〜26年には28トンを回収し、地元の事業者が植物などと混ぜて堆肥の材料にした。ただし、この28トンは牡蠣だけでなく、ムール貝やホタテなどを含む量である。 [6](#source-6)
+
+同じフランスでも、ヴァンデ県では別の使い道が生まれた。牡蠣殻を再生材料とする透水性ブロックが、2026年にラ・ロッシュ＝シュル＝ヨンの駐車場へ敷かれた。雨を地面へ浸透させるための舗装材だ。海の殻が、今度は町の雨水の流れに関わっている。 [7](#source-7)
+
+## アメリカでは、次の牡蠣と海岸を育てる
+
+アメリカのチェサピーク湾では、殻が少し違った価値を持つ。牡蠣の幼生は、硬い殻などに付着して育つ。そこで非営利団体Oyster Recovery Partnershipは、飲食店や公共回収拠点から使用済みの牡蠣殻を集め、洗浄・処理して、次の牡蠣が育つ基盤として海へ戻している。 [8](#source-8)
+
+2026年のメリーランド州の発表によれば、回収網は約200の飲食店と約70の公共回収拠点に及び、年間およそ3万ブッシェルの殻が集まる。広島の20万立方メートルとは単位も対象範囲も違い、そのまま規模を比べることはできない。ここで殻の主な役割は、土の石灰ではなく、新しい牡蠣礁の足場なのだ。 [8](#source-8)
+
+さらに南のルイジアナ州では、ニューオーリンズなどの飲食店から集めた殻が、波を弱める海岸沿いの牡蠣礁に使われている。湿地や海岸が失われていく地域では、殻は生き物のすみかであると同時に、海岸線を守る材料になる。 [9](#source-9)
+
 ## 海に戻すことと、海に捨てることの違い
 
-牡蠣の殻は、海にあるときは身を守る家だった。人の手で集められた後には、畑の土を整える材料になり、鶏の餌になり、条件が合えば海底の生き物のすみかをつくる材料にもなる。 [1](#source-1) [3](#source-3)
+牡蠣の殻は、海にあるときは身を守る家だった。人の手で集められた後には、広島では畑や鶏舎の石灰になり、岡山では海底環境を整える材料になる。フランスでは食卓から回収され、舗装材として町の雨水を地中へ通すこともある。アメリカでは次の牡蠣を育て、海岸を守る足場となる。 [1](#source-1) [3](#source-3) [6](#source-6) [7](#source-7) [8](#source-8) [9](#source-9)
 
-けれど、循環という言葉だけで片づけることはできない。海中での保管にも、陸での加工にも管理と費用がかかる。海底に使う場合も、捨てるのではなく、場所と量を考えて使わなければならない。 [1](#source-1) [3](#source-3) [4](#source-4)
+同じ炭酸カルシウムの殻なのに、使い道は一つではない。どこに殻が集まり、運ぶ距離はどれだけあり、その土地が何に困っているのか。殻の行き先は、自然環境だけでなく、食べ方や回収の仕組みにも左右される。 [1](#source-1) [6](#source-6) [8](#source-8) [9](#source-9)
 
-広島湾の筏を見渡しても、殻の行き先は見えない。海から陸へ、そしてときには別の海の底へ。牡蠣の産地には、目に見える筏のほかに、殻の行き先を探し続けるもう一つの産業がある。 [1](#source-1) [2](#source-2) [3](#source-3)
+だから「海に戻す」と「海に捨てる」も違う。海底に使う場合には場所と量を考え、効果を確かめる必要がある。加工や運搬の費用を払っても使える出口でなければ、殻は積み上がり続ける。 [1](#source-1) [3](#source-3) [4](#source-4)
+
+冬の広島湾に浮かぶ筏を見渡しても、殻の行き先までは見えない。けれど遠い国の海や町まで眺めてみると、牡蠣を育てるという一つの仕事のあとに、その土地ごとの別の仕事が続いていることに気づく。 [1](#source-1) [6](#source-6) [8](#source-8)
