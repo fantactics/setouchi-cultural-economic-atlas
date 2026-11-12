@@ -20,6 +20,11 @@ let checked=0;
 const skipped=[];
 for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const slug=file.slice(0,-3);
+ // Standalone Astro pages use independent page templates; this test covers
+ // the generic Markdown-driven essay route only.
+ const directAstro=path.resolve('src/pages/book',slug+'.astro');
+ const directIndex=path.resolve('src/pages/book',slug,'index.astro');
+ if(existsSync(directAstro)||existsSync(directIndex)){skipped.push(slug);continue;}
  const candidate=path.join(builtRoot,slug,'index.html');
  if(!existsSync(candidate)){skipped.push(slug);continue;}
  const html=readFileSync(candidate,'utf8');
