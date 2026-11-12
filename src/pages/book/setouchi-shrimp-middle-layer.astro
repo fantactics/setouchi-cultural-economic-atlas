@@ -2,11 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayProseSections from '../../components/EssayProseSections.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
+import { essaySearchMeta } from '../../data/essaySeo.js';
 import EssayPhotoGallery from '../../components/EssayPhotoGallery.astro';
 import { shrimpArticlePhotos } from '../../data/shrimpArticlePhotos.js';
 import { setouchiShrimpEssay as article } from '../../data/setouchiShrimpEssay.js';
+const seo=essaySearchMeta(article);
 ---
-<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} description={article.subtitle}>
+<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
