@@ -9,7 +9,7 @@ const builtRoot=path.resolve('dist/book');
 const decode=(text)=>String(text||'')
  .replace(/&quot;/g,'"').replace(/&#39;|&#x27;/gi,"'")
  .replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')
- .replace(/&#(\\d+);/g,(_,num)=>String.fromCodePoint(Number(num)));
+ .replace(/&#(\d+);/g,(_,num)=>String.fromCodePoint(Number(num)));
 const getTag=(html,tag)=>decode(html.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`))?.[1]||'').trim();
 const getMeta=(html,property)=>decode(html.match(new RegExp(`<meta\\s+property="${property}"\\s+content="([^"]*)"`))?.[1]||'');
 let checked=0;
@@ -19,7 +19,7 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const candidate=path.join(builtRoot,slug,'index.html');
  if(!existsSync(candidate)){skipped.push(slug);continue;}
  const html=readFileSync(candidate,'utf8');
- const h1=decode(html.match(/<h1[^>]*>([\\s\\S]*?)<\\/h1>/)?.[1]||'').trim();
+ const h1=decode(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'').trim();
  const pageTitle=getTag(html,'title');
  const og=getMeta(html,'og:title');
  const twitter=decode(html.match(/<meta\\s+name="twitter:title"\\s+content="([^"]*)"/)?.[1]||'');
@@ -27,7 +27,7 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  assert.equal(pageTitle,`${h1}｜SETOUCHI ATLAS`,`Stale <title>: ${slug}`);
  assert.equal(og,pageTitle,`Mismatched og:title: ${slug}`);
  assert.equal(twitter,h1,`Mismatched twitter:title: ${slug}`);
- const jsonLd=html.match(/<script\\s+type="application\\/ld\\+json"[^>]*>([\\s\\S]*?)<\\/script>/)?.[1];
+ const jsonLd=html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1];
  assert.ok(jsonLd,`Missing JSON-LD: ${slug}`);
  const schema=JSON.parse(jsonLd);
  assert.equal(schema.headline,h1,`Outdated JSON-LD headline: ${slug}`);
