@@ -137,7 +137,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
   distinctPhotoKeys.add(key);return true;
 });
 ---
-<BaseLayout title={`${article.title} | 地域エッセイ`} seoTitle={seo.title} description={seo.description} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
+<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
   <article class="book-article">
     {archivedResearchHref && <section class="book-open-questions">
       <div class="kicker">資料保存版</div>
