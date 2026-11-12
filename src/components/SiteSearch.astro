@@ -1,5 +1,6 @@
 ---
 import { orderedBookArticles } from '../data/bookArticles.js';
+import { withMarkdownMetadata } from '../data/essayMarkdownMetadata.js';
 import { kadaEssays } from '../data/kadaEssays.js';
 import { kadaIndustryEssay } from '../data/kadaIndustryEssay.js';
 import { cycleTourismEssay } from '../data/cycleTourismEssay.js';
@@ -21,7 +22,7 @@ import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
 const { essaysOnly = false } = Astro.props;
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean).map(withMarkdownMetadata);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
 
