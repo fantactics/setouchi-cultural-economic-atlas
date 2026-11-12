@@ -8,7 +8,7 @@ import { Content, frontmatter } from '../../content/essays/setouchi-sushi-not-ni
 const article = frontmatter;
 const seo = essaySearchMeta(article);
 ---
-<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description} image={article.heroPhoto?.imageUrl} imageAlt={article.heroPhoto?.alt || article.title}>
+<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description} image={article.heroPhoto?.imageUrl} imageAlt={article.heroPhoto?.alt || article.title}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
