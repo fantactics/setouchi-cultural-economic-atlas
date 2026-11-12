@@ -30,6 +30,8 @@ jobs:
         run: node scripts/check-atlas-original-photos.mjs
       - name: Build
         run: npm run build
+      - name: Verify essay Google metadata matches published titles
+        run: node scripts/check-essay-seo.mjs
       - name: Validate KII content
         run: node scripts/check-kii-articles.mjs
       - name: Validate KII CMS content and firsthand author voice
