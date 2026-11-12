@@ -11,7 +11,10 @@ const decode=(text)=>String(text||'')
  .replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')
  .replace(/&#(\d+);/g,(_,num)=>String.fromCodePoint(Number(num)));
 const getTag=(html,tag)=>decode(html.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`))?.[1]||'').trim();
-const getMeta=(html,property)=>decode(html.match(new RegExp(`<meta\\s+property="${property}"\\s+content="([^"]*)"`))?.[1]||'');
+const getMeta=(html,kind,key)=>{
+ const tag=(html.match(/<meta\b[^>]*>/g)||[]).find(value=>value.includes(kind+'="'+key+'"'));
+ return decode(tag?.match(/\bcontent="([^"]*)"/)?.[1]||'');
+};
 let checked=0;
 const skipped=[];
 for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
@@ -21,8 +24,8 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const html=readFileSync(candidate,'utf8');
  const h1=decode(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'').trim();
  const pageTitle=getTag(html,'title');
- const og=getMeta(html,'og:title');
- const twitter=decode(html.match(/<meta\\s+name="twitter:title"\\s+content="([^"]*)"/)?.[1]||'');
+ const og=getMeta(html,'property','og:title');
+ const twitter=getMeta(html,'name','twitter:title');
  assert.ok(h1,`Missing essay H1: ${slug}`);
  assert.equal(pageTitle,`${h1}｜SETOUCHI ATLAS`,`Stale <title>: ${slug}`);
  assert.equal(og,pageTitle,`Mismatched og:title: ${slug}`);
