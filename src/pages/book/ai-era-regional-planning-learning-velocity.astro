@@ -6,7 +6,7 @@ import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import { Content, frontmatter as article } from '../../content/essays/ai-era-regional-planning-learning-velocity.md';
 const seo=essaySearchMeta(article);
 ---
-<BaseLayout title={`${article.title} | 瀬戸内自然文化経済アトラス`} seoTitle={seo.title} description={seo.description}>
+<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description}>
   <article class="book-article">
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
