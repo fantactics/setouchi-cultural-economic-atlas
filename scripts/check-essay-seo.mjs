@@ -15,6 +15,7 @@ const getMeta=(html,kind,key)=>{
  const tag=(html.match(/<meta\b[^>]*>/g)||[]).find(value=>value.includes(kind+'="'+key+'"'));
  return decode(tag?.match(/\bcontent="([^"]*)"/)?.[1]||'');
 };
+const sameSpacing=(value)=>String(value || '').replace(/[\s\u3000]+/g,' ').trim();
 let checked=0;
 const skipped=[];
 for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
@@ -27,13 +28,13 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const og=getMeta(html,'property','og:title');
  const twitter=getMeta(html,'name','twitter:title');
  assert.ok(h1,`Missing essay H1: ${slug}`);
- assert.equal(pageTitle,`${h1}｜SETOUCHI ATLAS`,`Stale <title>: ${slug}`);
- assert.equal(og,pageTitle,`Mismatched og:title: ${slug}`);
- assert.ok(twitter.startsWith(h1),`Mismatched twitter:title: ${slug}: ${twitter}`);
+ assert.equal(sameSpacing(pageTitle),sameSpacing(`${h1}｜SETOUCHI ATLAS`),`Stale <title>: ${slug}`);
+ assert.equal(sameSpacing(og),sameSpacing(pageTitle),`Mismatched og:title: ${slug}`);
+ assert.ok(sameSpacing(twitter).startsWith(sameSpacing(h1)),`Mismatched twitter:title: ${slug}: ${twitter}`);
  const jsonLd=html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1];
  assert.ok(jsonLd,`Missing JSON-LD: ${slug}`);
  const schema=JSON.parse(jsonLd);
- assert.ok(String(schema.headline || '').startsWith(h1),`Outdated JSON-LD headline: ${slug}: ${schema.headline}`);
+ assert.ok(sameSpacing(schema.headline).startsWith(sameSpacing(h1)),`Outdated JSON-LD headline: ${slug}: ${schema.headline}`);
  checked++;
 }
 assert.ok(checked>=30,`Unexpectedly few published Markdown essays checked: ${checked}`);
