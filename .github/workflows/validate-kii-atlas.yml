@@ -69,6 +69,9 @@ jobs:
           grep -q '紀州東照宮' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           grep -q '砂岩の切石' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           grep -q '三波川変成帯' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '三波川変成帯に属する緑色片岩' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '海底で噴き出した玄武岩' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '変成岩' dist-kii/nature/index.html
           grep -q '中央構造線' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           grep -q '秩父帯' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           grep -q '付加体' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
