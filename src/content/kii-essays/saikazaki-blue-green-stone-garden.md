@@ -4,11 +4,11 @@ title: "海岸の緑の岩が、庭園の美になった"
 teaser: "雑賀崎の海岸に現れる青緑色の岩。紀州の青石は和歌山城の石垣や庭園にも使われた。けれど隣り合う二つの神社の石段は、違う石でできている。岩の色から紀伊半島の地質と人の選択をたどる。"
 region: "和歌山・雑賀崎"
 category: "自然と文化の景観"
-tags: ["地質境界","堆積岩","海風"]
+tags: ["地質境界","変成岩","海風"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/11/462570750_1902629290227643_6127613884724636932_n.jpg?resize=775%2C581&ssl=1"
 alt: "雑賀崎の海辺。層が斜めに走る緑灰色の岩肌が海へ向かって露出している"
 photoCredit: "写真：クアトロのジオ紀行"
-sources: [{"label":"原研究ノート｜緑色の庭石はここから来ていたのか 紀州青石がどっちゃりな雑賀崎（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2054"},{"label":"和歌山県公式観光サイト｜番所庭園（雑賀崎の紀州青石・緑泥片岩の海岸）","url":"https://www.wakayama-kanko.or.jp/spots/detail_574.html"},{"label":"和歌山市｜和歌山城築城当時の石垣について（結晶片岩と野面積み）","url":"https://www.city.wakayama.wakayama.jp/shisei/hasshin/1057874/1001154/1024078/1063576/1066826.html"},{"label":"和歌山県公式観光サイト｜豊臣時代の和歌山城・岡公園の採石場（紀州の青石）","url":"https://www.wakayama-kanko.or.jp/features/detail_633.html"},{"label":"和歌山県公式観光サイト｜西之丸庭園（紅葉渓庭園）に使われる紀州青石","url":"https://www.wakayama-kanko.or.jp/spots/detail_9.html"},{"label":"和歌山県文化財センター｜2025年度調査報告・紀州東照宮の砂岩石段と隣接する和歌浦天満宮の緑泥片岩","url":"https://wabunse.or.jp/report/sympo_data/files/chihou2025.pdf"},{"label":"和歌山県教育委員会｜和歌の浦学術調査報告書・和歌浦と雑賀崎の三波川帯の地質","url":"https://www.pref.wakayama.lg.jp/prefg/500700/bunkazaihoukokusho_d/fil/wakanouragakujutsu.pdf"},{"label":"和歌山市｜歴史的風致維持向上計画（紀の川右岸の和泉層群と左岸の三波川帯、青石の利用）","url":"https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/018/740/rekimachikeikaku-hennkou4.pdf"},{"label":"和歌山県｜地質の概要（付加体、三波川変成帯、秩父帯、四万十帯の配列）","url":"https://www.pref.wakayama.lg.jp/prefg/032600/yasei/reddata_d/fil/zentai.pdf"},{"label":"和歌山県文化財センター｜水軒堤防発掘調査報告書・雑賀崎の結晶片岩採石地の可能性","url":"https://sitereports.nabunken.go.jp/files/attach/72/72767/25705_1_%E7%9C%8C%E6%8C%87%E5%AE%9A%E5%8F%B2%E8%B7%A1%E6%B0%B4%E8%BB%92%E5%A0%A4%E9%98%B2.pdf"},{"label":"日本造園学会｜庭園と石の流通（紀州や阿波の青石が庭石として珍重された歴史）","url":"https://researchpromotion.jila-zouen.org/wp-content/uploads/2025/05/2024_nihonteien_seikahoukoku.pdf"},{"label":"住吉大社・住吉っさん vol.36｜和歌浦（雑賀崎）の青石と住吉大社の石碑の地質学的考察","url":"https://www.sumiyoshitaisha.net/upload/cmn_editor/files/9fec5cc4caf052dd46a422f813325ea91656050343.pdf"}]
+sources: [{"label":"原研究ノート｜緑色の庭石はここから来ていたのか 紀州青石がどっちゃりな雑賀崎（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=2054"},{"label":"和歌山県公式観光サイト｜番所庭園（雑賀崎の紀州青石・緑泥片岩の海岸）","url":"https://www.wakayama-kanko.or.jp/spots/detail_574.html"},{"label":"和歌山市｜和歌山城築城当時の石垣について（結晶片岩と野面積み）","url":"https://www.city.wakayama.wakayama.jp/shisei/hasshin/1057874/1001154/1024078/1063576/1066826.html"},{"label":"和歌山県公式観光サイト｜豊臣時代の和歌山城・岡公園の採石場（紀州の青石）","url":"https://www.wakayama-kanko.or.jp/features/detail_633.html"},{"label":"和歌山県公式観光サイト｜西之丸庭園（紅葉渓庭園）に使われる紀州青石","url":"https://www.wakayama-kanko.or.jp/spots/detail_9.html"},{"label":"和歌山県文化財センター｜2025年度調査報告・紀州東照宮の砂岩石段と隣接する和歌浦天満宮の緑泥片岩","url":"https://wabunse.or.jp/report/sympo_data/files/chihou2025.pdf"},{"label":"和歌山県教育委員会｜和歌の浦学術調査報告書・和歌浦と雑賀崎の三波川帯の地質","url":"https://www.pref.wakayama.lg.jp/prefg/500700/bunkazaihoukokusho_d/fil/wakanouragakujutsu.pdf"},{"label":"和歌山市｜歴史的風致維持向上計画（紀の川右岸の和泉層群と左岸の三波川帯、青石の利用）","url":"https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/018/740/rekimachikeikaku-hennkou4.pdf"},{"label":"和歌山県｜地質の概要（付加体、三波川変成帯、秩父帯、四万十帯の配列）","url":"https://www.pref.wakayama.lg.jp/prefg/032600/yasei/reddata_d/fil/zentai.pdf"},{"label":"和歌山県文化財センター｜水軒堤防発掘調査報告書・雑賀崎の結晶片岩採石地の可能性","url":"https://sitereports.nabunken.go.jp/files/attach/72/72767/25705_1_%E7%9C%8C%E6%8C%87%E5%AE%9A%E5%8F%B2%E8%B7%A1%E6%B0%B4%E8%BB%92%E5%A0%A4%E9%98%B2.pdf"},{"label":"日本造園学会｜庭園と石の流通（紀州や阿波の青石が庭石として珍重された歴史）","url":"https://researchpromotion.jila-zouen.org/wp-content/uploads/2025/05/2024_nihonteien_seikahoukoku.pdf"},{"label":"住吉大社・住吉っさん vol.36｜和歌浦（雑賀崎）の青石と住吉大社の石碑の地質学的考察","url":"https://www.sumiyoshitaisha.net/upload/cmn_editor/files/9fec5cc4caf052dd46a422f813325ea91656050343.pdf"},{"label":"地質調査所『地質ニュース』454号（1992年）｜雑賀崎の海食崖をなす三波川変成帯の緑色片岩","url":"https://www.gsj.jp/data/chishitsunews/92_06_01.pdf"},{"label":"日本地質学会｜和歌山市付近の三波川変成岩類と海洋プレートの沈み込み","url":"https://geosociety.jp/activities/fukyu/photocon/%E7%AC%AC13%E5%9B%9E%E6%83%91%E6%98%9F%E5%9C%B0%E7%90%83%E3%83%95%E3%82%A9%E3%83%88%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88/"}]
 ---
 
 ## 岩の色から、庭の景色を思い出した
@@ -17,7 +17,7 @@ sources: [{"label":"原研究ノート｜緑色の庭石はここから来てい
 
 私はその色を見て、日本庭園の水辺に据えられた青い庭石を思い出した。石の面を見せたり、わずかに傾けたりして、庭師が風景の中心に据える石だ。
 
-和歌浦から雑賀崎にかけての海岸には、「紀州青石」と呼ばれる岩が露出する。緑色なのに青石。昔の「青」という色の呼び方には、青緑や緑の色合いも含まれていたのだという。
+和歌浦から雑賀崎にかけての海岸には、「紀州青石」と呼ばれる岩が露出する。その正体は、三波川変成帯に属する緑色片岩という変成岩だ。緑色なのに青石。昔の「青」という色の呼び方には、青緑や緑の色合いも含まれていたのだという。
 
 しかし、この石は庭を飾っただけではなかった。和歌山の町を歩くと、もっと意外なところにも同じ系統の石が現れる。
 
@@ -43,11 +43,11 @@ sources: [{"label":"原研究ノート｜緑色の庭石はここから来てい
 
 同じ和歌浦で、城には青石、庭にも青石、天満宮にも青石。一方、東照宮の石段には砂岩。風景をつくる石は、ただ近くにあるものを使えばよいというだけではなかったらしい。石の割れ方、加工のしやすさ、仕上げ方。何をつくろうとしたかによって、人は石を選び分けてきた。
 
-## 海の下でできた岩が、緑色の板になった
+## 海底の火山岩が、青石になるまで
 
 では、雑賀崎の岩は、なぜこんな色と形をしているのだろう。
 
-このあたりは「三波川変成帯」という地質の帯に属する。もとは海底の堆積物や火山活動による岩石などで、その一部がプレートの沈み込みに伴う強い圧力と熱を受け、鉱物の組み合わせも並び方も変わった。緑泥石や緑簾石といった鉱物が、青緑色を生み出す。
+緑色片岩のもとになったのは、海底で噴き出した玄武岩などの火山岩だ。それが海洋プレートの沈み込みに伴って地下深くへ運ばれ、強い圧力と熱を受けた。岩の中の鉱物が組み替わり、緑泥石や緑簾石などの緑色の鉱物ができた。海底の火山岩が、長い地球の営みを経て、紀州青石に姿を変えたのである。
 
 押され、変化した岩には、鉱物が一定の方向に並ぶ「片理」という筋ができる。すると、岩はその筋に沿って板のように割れやすくなる。雑賀崎の海辺で目にした、重なった薄い面や斜めの縞模様も、その地中での時間を映している。
 
@@ -59,7 +59,7 @@ sources: [{"label":"原研究ノート｜緑色の庭石はここから来てい
 
 雑賀崎や和歌浦は三波川帯。しかし北へ進み、紀の川沿いを通る中央構造線を越えると、和泉山脈をつくる砂岩や泥岩の「和泉層群」が広がる。反対に南へ進み、有田川構造線を越えれば、今度は「秩父帯」。さらに南には「四万十帯」が続いている。
 
-これは、単に場所ごとに違う岩が偶然あるということではない。海のプレートが沈み込む場所で、海底の岩や堆積物が陸側に押しつけられ、帯状に付け加わっていった。こうした「付加体」を起源とする岩石や、地下深くで変成した岩石が、長い地殻変動を経て地表に現れたのである。
+これは、単に場所ごとに違う岩が偶然あるということではない。海のプレートが沈み込む場所で、海底の岩や堆積物が陸側に押しつけられ、帯状に付け加わっていった。こうした「付加体」に由来する岩石の一部は、さらに地下で強い圧力を受けて変成岩になった。雑賀崎の緑色片岩も、ただ海底の堆積物が固まった岩ではない。海底の火山岩が変成作用を受けてできた岩なのだ。
 
 紀伊半島を南北に移動すると、見える山が少しずつ変わる。その足元には、異なる時代と成り立ちをもつ地質が、帯のように続いている。ただし、県内のすべての岩が付加体というわけではない。北の和泉層群のように、その後に堆積した地層もあり、南には別の時代の岩石もある。
 
