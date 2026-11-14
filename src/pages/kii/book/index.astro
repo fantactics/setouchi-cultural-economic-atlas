@@ -24,7 +24,7 @@ const coverSlugs=[
 const coverStories=coverSlugs.map(slug=>bySlug.get(slug)).filter(Boolean);
 const featured=coverStories.slice(0,3);
 // Categories are drawn from KII article data to avoid adding unpopulated entrances.
-const preferredCategories=['信仰景観','農業景観','観光景観','渓谷景観','海と道','自然と文化の景観'];
+const preferredCategories=['信仰景観','歴史景観','農業景観','観光景観','渓谷景観','海と道','自然と文化の景観'];
 const categories=preferredCategories
   .map((label,i)=>({label,number:String(i+1).padStart(2,'0'),stories:stories.filter(a=>a.category===label)}))
   .filter(group=>group.stories.length);
@@ -32,6 +32,7 @@ const ungrouped=stories.filter(a=>!preferredCategories.includes(a.category));
 if(ungrouped.length)throw Error('KII magazine category missing: '+ungrouped.map(a=>a.category).join(','));
 const categoryDescription={
   '信仰景観':'山と水が、人の祈りに出会う。',
+  '歴史景観':'山と谷の地形から、人と権力の歴史を読み解く。',
   '農業景観':'土地に合わせて育った、実りの風景。',
   '観光景観':'旅人を惹きつける景色の、その理由。',
   '渓谷景観':'深い谷と雨がつくる、水の道。',
