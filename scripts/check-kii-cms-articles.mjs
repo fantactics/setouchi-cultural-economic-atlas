@@ -44,8 +44,12 @@ for(const name of files){
   // "original author" photo credits from the import pipeline. Keep the
   // source brand and factual date/prop details when modernizing the credit.
   const credit=readScalar('photoCredit');
-  if(!credit.startsWith('写真：クアトロのジオ紀行')) {
-    throw Error('KII original photography attribution missing: '+slug);
+  const ownedPhoto = credit.startsWith('写真：クアトロのジオ紀行');
+  const publicDomainPhoto = credit.startsWith('写真：Wikimedia Commons') &&
+    /パブリックドメイン|CC0/.test(credit) &&
+    fm.includes('https://commons.wikimedia.org/wiki/File:');
+  if(!ownedPhoto && !publicDomainPhoto) {
+    throw Error('KII image requires original photography or verified public-domain source: '+slug);
   }
   if(original.photoCredit.includes('2022年5月') && !credit.includes('2022年5月')) {
     throw Error('KII original photo date lost: '+slug);
