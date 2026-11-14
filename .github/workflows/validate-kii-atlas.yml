@@ -1,0 +1,46 @@
+name: Validate KII ATLAS independently
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/content/kii-essays/**'
+      - 'src/data/kiiArticles.js'
+      - 'src/data/kiiNaturalTags.js'
+      - 'src/data/kiiCmsArticles.js'
+      - 'src/pages/kii/**'
+      - 'src/components/AtlasEssayDetail.astro'
+      - 'src/components/AtlasRegionMap.astro'
+      - 'scripts/check-kii-*.mjs'
+      - 'scripts/package-kii.mjs'
+      - '.github/workflows/validate-kii-atlas.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kii-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install
+      - run: node scripts/check-kii-articles.mjs
+      - run: node scripts/check-kii-cms-articles.mjs
+      - run: npm run build
+      - run: node scripts/package-kii.mjs
+      - run: node scripts/check-kii-cms-rendered.mjs
+      - name: Confirm new KII historical essay and map
+        run: |
+          test -f dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '一万三千人が暮らしていた' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '米と塩だった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '歴史景観' dist-kii/book/index.html
+          grep -q 'totsukawa-mountain-villages-and-tenchugumi' dist-kii/regions/index.html
+          grep -q 'MAP / 10 PLACES' dist-kii/regions/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/nature/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
