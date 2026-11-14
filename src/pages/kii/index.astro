@@ -12,6 +12,7 @@ const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath
 // Full listings, places, and nature tags have their own dedicated pages.
 const featured = stories.slice(0, 3);
 const otherStories = stories.slice(-3);
+const randomPickPool = stories.filter((s)=>s.imageUrl).map(({href,imageUrl,alt,title,region,teaser})=>({href,imageUrl,alt,title,region,teaser}));
 ---
 <BaseLayout siteKey="kii" title={site.name} description={site.description} image={featured[0]?.imageUrl || null} imageAlt={featured[0]?.alt || ''}>
   <div class="reader-home kii-home-simple">
@@ -45,6 +46,39 @@ const otherStories = stories.slice(-3);
       </div>
       <AtlasEssayCards stories={otherStories}/>
     </section>
+    <script id="kii-random-picks" type="application/json" set:html={JSON.stringify(randomPickPool).replace(/</g,'\\u003c')}></script>
+    <script is:inline>
+      (() => {
+        const data=document.getElementById('kii-random-picks');
+        const features=[...document.querySelectorAll('.kii-home-simple .reader-home-feature')];
+        const cards=[...document.querySelectorAll('.kii-home-simple .reader-essay-card')];
+        if(!data || features.length!==3 || cards.length!==3) return;
+        let options;
+        try {options=JSON.parse(data.textContent||'[]');} catch {return;}
+        if(options.length<6) return;
+        for(let i=options.length-1;i>0;i--){
+          const j=Math.floor(Math.random()*(i+1));
+          [options[i],options[j]]=[options[j],options[i]];
+        }
+        const selected=options.slice(0,6);
+        const update=(el,s,feature)=>{
+          el.href=s.href;
+          const img=el.querySelector('img');
+          if(img){img.src=s.imageUrl;img.alt=s.alt||s.title;}
+          const copy=feature?el.querySelector('.reader-home-feature-copy'):el.querySelector('div');
+          if(!copy)return;
+          const region=copy.querySelector('span');
+          const title=copy.querySelector(feature?'h2':'h3');
+          const teaser=copy.querySelector('p');
+          if(region)region.textContent=s.region||'';
+          if(title)title.textContent=s.title;
+          if(teaser)teaser.textContent=s.teaser||'';
+        };
+        features.forEach((el,i)=>update(el,selected[i],true));
+        cards.forEach((el,i)=>update(el,selected[i+3],false));
+      })();
+    </script>
+
 
     <section class="reader-home-search" aria-labelledby="kii-search-title">
       <div class="reader-section-heading">
