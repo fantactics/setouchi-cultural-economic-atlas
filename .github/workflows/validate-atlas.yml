@@ -38,7 +38,7 @@ jobs:
           test -f dist-kii/regions/index.html
           grep -q 'data-atlas-region-map' dist-kii/regions/index.html
           grep -q 'data-fit-markers="true"' dist-kii/regions/index.html
-          grep -q 'MAP / 9 PLACES' dist-kii/regions/index.html
+          grep -q 'MAP / 10 PLACES' dist-kii/regions/index.html
           grep -q 'kii-places-cover-grid' dist-kii/regions/index.html
           grep -q 'LET.S GO, KII' dist-kii/regions/index.html
           grep -q 'kii-places-side-photos' dist-kii/regions/index.html
@@ -52,6 +52,8 @@ jobs:
           grep -q 'shirarahama-white-sand-across-the-sea' dist-kii/regions/index.html
           grep -q 'arida-mikan-climbs-the-hillside' dist-kii/regions/index.html
           grep -q 'kawayu-hot-spring-river-as-a-bath' dist-kii/regions/index.html
+          grep -q 'totsukawa-mountain-villages-and-tenchugumi' dist-kii/regions/index.html
+          grep -q '深い谷と郷士たちの歴史' dist-kii/regions/index.html
           grep -q 'dorokyo-quiet-water-cutting-deep' dist-kii/regions/index.html
           grep -q 'shichirimihama-pebbles-from-river-to-pilgrimage' dist-kii/regions/index.html
           grep -q 'hashiguiiwa-rocks-sunrise-and-legends' dist-kii/regions/index.html
@@ -82,6 +84,15 @@ jobs:
           grep -q 'aria-label="自然条件タグ"' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           test -f dist-kii/book/shirarahama-white-sand-across-the-sea/index.html
           test -f dist-kii/book/arida-mikan-climbs-the-hillside/index.html
+          test -f dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '一万三千人が暮らしていた' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '米と塩だった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '歴史景観' dist-kii/book/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/book/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/nature/index.html
+          grep -q '十津川の山は、志士たちを守れなかった' dist-kii/regions/index.html
           grep -q '那智の滝の場所を決めた二種類の岩' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           grep -q '南紀熊野ジオパーク' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
           grep -q '那智黒' dist-kii/book/nachi-waterfall-where-rock-meets-faith/index.html
