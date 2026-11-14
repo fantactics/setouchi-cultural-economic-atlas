@@ -77,3 +77,18 @@ jobs:
           grep -q '付加体' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
           grep -q '地質境界' dist-kii/nature/index.html
           ! grep -q '出典・参照資料' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+
+      - name: Check Kawayu geothermal source and seasonal river-bath essay
+        run: |
+          test -f dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '川を掘ると、温泉になる' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '火山がないのに、七十三度' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '川湯岩床' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '昔のマグマが、いまも直接お湯を温めているわけではない' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '赤外線カメラ' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '夏は自分の湯船、冬は大きな仙人風呂' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '一九八五年' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '川が変われば、風呂もつくり直す' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q 'もう一度、河原を見てみる' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+          grep -q '火成岩' dist-kii/nature/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
