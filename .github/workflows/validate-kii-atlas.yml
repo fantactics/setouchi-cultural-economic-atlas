@@ -92,3 +92,18 @@ jobs:
           grep -q 'もう一度、河原を見てみる' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
           grep -q '火成岩' dist-kii/nature/index.html
           ! grep -q '出典・参照資料' dist-kii/book/kawayu-hot-spring-river-as-a-bath/index.html
+
+      - name: Check Shichirimihama northbound pebbles and southbound pilgrims
+        run: |
+          test -f dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '石は北へ、人は南へ――七里御浜の二つの道' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '石は、熊野川から北へ向かった' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '人は、その浜を南へ歩いた' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '元和五年' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '拾い子さん' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '鵜殿港' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '約百メートル後退' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '人工リーフ' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '二〇二六年' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
+          grep -q '漂砂' dist-kii/nature/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/shichirimihama-pebbles-from-river-to-pilgrimage/index.html
