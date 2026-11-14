@@ -37,8 +37,14 @@ jobs:
         run: |
           test -f dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
           grep -q '十津川の山は、志士たちを守れなかった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
-          grep -q '一万三千人が暮らしていた' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
-          grep -q '米と塩だった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '千人が、この山から戦いへ向かった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '天誅組とは、何者だったのか' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '都から遠いからこそ、朝廷につながった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '都で政治がひっくり返った' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q 'もう一度、十津川の谷を見る' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          ! grep -q '大水害' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          ! grep -q '北海道へ' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+          grep -q '米と塩が、入ってこなくなった' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
           grep -q '歴史景観' dist-kii/book/index.html
           grep -q 'totsukawa-mountain-villages-and-tenchugumi' dist-kii/regions/index.html
           grep -q 'MAP / 10 PLACES' dist-kii/regions/index.html
