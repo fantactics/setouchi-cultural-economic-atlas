@@ -56,3 +56,21 @@ jobs:
           grep -q 'MAP / 10 PLACES' dist-kii/regions/index.html
           grep -q '十津川の勤王の志士たちを躊躇させた、山村の米と塩の流通事情' dist-kii/nature/index.html
           ! grep -q '出典・参照資料' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
+
+      - name: Check Saikazaki stone heritage and geological narrative
+        run: |
+          test -f dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '海岸の緑の岩が、庭園の美になった' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '和歌山城' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '岡公園' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '西之丸庭園' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '水軒堤防' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '和歌浦天満宮' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '紀州東照宮' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '砂岩の切石' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '三波川変成帯' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '中央構造線' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '秩父帯' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '付加体' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
+          grep -q '地質境界' dist-kii/nature/index.html
+          ! grep -q '出典・参照資料' dist-kii/book/saikazaki-blue-green-stone-garden/index.html
