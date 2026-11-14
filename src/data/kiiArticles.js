@@ -302,8 +302,8 @@ export const kiiArticles = [
     "tags": [
       "温泉",
       "山地",
-      "地質境界",
-      "急流"
+      "堆積岩",
+      "火成岩"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/11/kawayu.jpg?resize=760%2C570&ssl=1",
     "alt": "川湯温泉の大塔川。河原に人々が集まり、川沿いには温泉旅館が建つ",
