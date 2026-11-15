@@ -34,6 +34,12 @@ sources: [{"label":"原研究ノート｜緑色の庭石はここから来てい
   <figcaption style="font-size:.8rem;line-height:1.7;color:#64776b;margin-top:.55rem;">紀州青石を庭石に用いた和歌山城西之丸庭園（紅葉渓庭園）。写真：<a href="https://commons.wikimedia.org/wiki/File:Wakayama_Castle_Nishinomaru_Garden09bs4592.jpg">663highland / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a>）</figcaption>
 </figure>
 
+紀州青石は、和歌山だけでなく遠くの庭園にも運ばれた。東京の清澄庭園では、産地を記した札とともに据えられている。石に近づくと、青灰色の表面を走る筋や重なった面がよく見える。
+
+<figure style="max-width:760px;margin:2rem auto;">
+  <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/KiyosumiGardenStone1.JPG/960px-KiyosumiGardenStone1.JPG" alt="東京・清澄庭園の紀州青石の近景。青灰色の石肌に筋模様が走り、手前に「紀州青石」の札が立つ" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;" />
+  <figcaption style="font-size:.8rem;line-height:1.7;color:#64776b;margin-top:.55rem;">清澄庭園（東京都江東区）に据えられた紀州青石。石肌の筋模様と色合いがよくわかる。写真：<a href="https://commons.wikimedia.org/wiki/File:KiyosumiGardenStone1.JPG">Ippukucho / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>）</figcaption>
+</figure>
 
 雑賀崎の岩が地域の石材だったことを示す手がかりもある。江戸時代の海岸堤防、水軒堤防の発掘調査では、結晶片岩の調達地として雑賀崎周辺が推定されている。付近には「石切場」という地名も残るという。ここでは岩は、庭の美しさでも城の威容でもなく、海から暮らしを守る素材になった。
 
