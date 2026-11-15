@@ -29,6 +29,12 @@ sources: [{"label":"原研究ノート｜緑色の庭石はここから来てい
 
 そして城の西之丸庭園、紅葉渓庭園にも青石が使われている。庭園の中では岩の色や平たい面が鑑賞の対象になり、石垣では同じ性質が積み上げやすさにつながる。山の中で生まれた石に、人はそれぞれ別の役目を与えたのだ。
 
+<figure style="max-width:760px;margin:2rem auto;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wakayama_Castle_Nishinomaru_Garden09bs4592.jpg/960px-Wakayama_Castle_Nishinomaru_Garden09bs4592.jpg" alt="和歌山城西之丸庭園（紅葉渓庭園）の池と石組。庭園に紀州青石が用いられている" loading="lazy" style="width:100%;height:auto;border-radius:14px;" />
+  <figcaption style="font-size:.8rem;line-height:1.7;color:#64776b;margin-top:.55rem;">紀州青石を庭石に用いた和歌山城西之丸庭園（紅葉渓庭園）。写真：<a href="https://commons.wikimedia.org/wiki/File:Wakayama_Castle_Nishinomaru_Garden09bs4592.jpg">663highland / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a>）</figcaption>
+</figure>
+
+
 雑賀崎の岩が地域の石材だったことを示す手がかりもある。江戸時代の海岸堤防、水軒堤防の発掘調査では、結晶片岩の調達地として雑賀崎周辺が推定されている。付近には「石切場」という地名も残るという。ここでは岩は、庭の美しさでも城の威容でもなく、海から暮らしを守る素材になった。
 
 ## 隣り合う石段は、同じ石ではなかった
