@@ -6,10 +6,10 @@ subtitle: "祖父の記憶から孫の未来へ――砂と水が書き換える
 cities: ["引田"]
 keywords: ["引田","砂州","砂嘴","陸繋島","扇状地","潟湖","城山","小海川","古川","馬宿川","海岸線","土地利用","安戸池","ハマチ養殖","東かがわ"]
 heroPhotoId: "photo-hiketa-townscape"
-lead: "引田の城山は、かつて島だったと考えられている。波が運ぶ砂が島を陸につなぎ、安戸池では海の一部を囲った。海と陸の境界が変わっていく土地で、人々は何を見てきたのだろう。祖父の知る海、父が見た浅瀬、自分の足元の陸。そして孫の時代の海岸線を想像する。"
+lead: "かつて海に囲まれていたと考えられる引田の城山。砂が陸と海の境を変え、人々も川や港をつくり替えてきた。祖父の知る水際と孫が見る海岸線は、同じだろうか。いま引田で進む護岸整備の計画までたどると、地形の変化は昔話ではなく、現在進行形の出来事として見えてくる。"
 provisionalConclusion: "引田の地形は砂礫堆積と河川流路の変化によって形成され、城山は陸繋島の地形をもち、安戸池には潟湖が残る。過去の地形変化から将来を思い描いた人々の具体的証言は未確認であるため、祖父・父・孫は地形変化を人間の時間尺度で表す仮想的な視点として用いる。海岸線の将来変化の速度や方向は断定しない。"
 openQuestions: ["城山の陸繋化時期を示す地層・遺跡年代を確認できるか","小海川の付け替え年代と目的を一次史料で確認できるか","潟の埋積や塩田・新田開発について当時の住民の認識を示す記録があるか"]
-sources: [{"id":1,"title":"東かがわ市初! 国指定史跡「引田城跡」","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html"},{"id":2,"title":"市の名称・地勢・特産品","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/824/5487.html"},{"id":3,"title":"引田町並み保存活動","publisher":"風まちネット","url":"https://sites.google.com/view/kazemachi/%E5%BC%95%E7%94%B0%E7%94%BA%E4%B8%A6%E3%81%BF%E4%BF%9D%E5%AD%98%E6%B4%BB%E5%8B%95"},{"id":4,"title":"引田城跡・城山","publisher":"東かがわ市観光情報サイト","url":"https://higashikagawa.net/sightseeing/hiketajo"},{"id":5,"title":"讃州井筒屋敷と引田の歴史的町並みを巡る","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/blog/blog-20220316/blog-20220316"},{"id":6,"title":"歴史ある引田まち並み","publisher":"国土交通省 手づくり郷土賞","url":"https://www.mlit.go.jp/sogoseisaku/region/tedukuri/pdf/Part27_H24/H24_all.pdf"},{"id":7,"title":"国指定文化財等データベース・引田城跡","publisher":"文化庁","url":"https://kunishitei.bunka.go.jp/bsys/maindetails/401/00004100"},{"id":8,"title":"引田城址 発掘調査報告書（2005年）","publisher":"東かがわ市教育委員会","url":"https://sitereports.nabunken.go.jp/files/attach/15/15051/11291_1_%E5%BC%95%E7%94%B0%E5%9F%8E%E5%9D%80.pdf"},{"id":9,"title":"引田のまち並み","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/point/35/"},{"id":10,"title":"かめびし屋の伝統的な醸造","publisher":"国土交通省 観光資源の多言語解説","url":"https://www.mlit.go.jp/tagengo-db/R2-01885.html"},{"id":11,"title":"野網 和三郎","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/kosodate_kyoiku/kyoikuiinkai/furusatokyouzai/5/7389.html"},{"id":12,"title":"香川県におけるハマチ養殖の歴史と変遷","publisher":"厚生労働省掲載資料","url":"https://www.mhlw.go.jp/shingi/2005/05/dl/s0525-8c3.pdf"},{"id":13,"title":"ジオツーリズムによる地域活性化シンポジウム資料集（引田ジオストーリー）","publisher":"香川大学","url":"https://www.kagawa-u.ac.jp/files/3516/7529/9119/20230215HP.pdf"},{"id":14,"title":"土地分類基本調査 東かがわ地域 地形の記載","publisher":"国土交通省","url":"https://nlftp.mlit.go.jp/kokjo/tochimizu/F3/data/pdf/3705t.pdf"},{"id":15,"title":"安戸池と養殖の空撮写真","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/837/ADOMILK/6792.html"}]
+sources: [{"id":1,"title":"東かがわ市初! 国指定史跡「引田城跡」","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/shogaigakushuka/gyomuannai/8/hiketa_z/992.html"},{"id":2,"title":"市の名称・地勢・特産品","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/824/5487.html"},{"id":3,"title":"引田町並み保存活動","publisher":"風まちネット","url":"https://sites.google.com/view/kazemachi/%E5%BC%95%E7%94%B0%E7%94%BA%E4%B8%A6%E3%81%BF%E4%BF%9D%E5%AD%98%E6%B4%BB%E5%8B%95"},{"id":4,"title":"引田城跡・城山","publisher":"東かがわ市観光情報サイト","url":"https://higashikagawa.net/sightseeing/hiketajo"},{"id":5,"title":"讃州井筒屋敷と引田の歴史的町並みを巡る","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/blog/blog-20220316/blog-20220316"},{"id":6,"title":"歴史ある引田まち並み","publisher":"国土交通省 手づくり郷土賞","url":"https://www.mlit.go.jp/sogoseisaku/region/tedukuri/pdf/Part27_H24/H24_all.pdf"},{"id":7,"title":"国指定文化財等データベース・引田城跡","publisher":"文化庁","url":"https://kunishitei.bunka.go.jp/bsys/maindetails/401/00004100"},{"id":8,"title":"引田城址 発掘調査報告書（2005年）","publisher":"東かがわ市教育委員会","url":"https://sitereports.nabunken.go.jp/files/attach/15/15051/11291_1_%E5%BC%95%E7%94%B0%E5%9F%8E%E5%9D%80.pdf"},{"id":9,"title":"引田のまち並み","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/point/35/"},{"id":10,"title":"かめびし屋の伝統的な醸造","publisher":"国土交通省 観光資源の多言語解説","url":"https://www.mlit.go.jp/tagengo-db/R2-01885.html"},{"id":11,"title":"野網 和三郎","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/kosodate_kyoiku/kyoikuiinkai/furusatokyouzai/5/7389.html"},{"id":12,"title":"香川県におけるハマチ養殖の歴史と変遷","publisher":"厚生労働省掲載資料","url":"https://www.mhlw.go.jp/shingi/2005/05/dl/s0525-8c3.pdf"},{"id":13,"title":"ジオツーリズムによる地域活性化シンポジウム資料集（引田ジオストーリー）","publisher":"香川大学","url":"https://www.kagawa-u.ac.jp/files/3516/7529/9119/20230215HP.pdf"},{"id":14,"title":"土地分類基本調査 東かがわ地域 地形の記載","publisher":"国土交通省","url":"https://nlftp.mlit.go.jp/kokjo/tochimizu/F3/data/pdf/3705t.pdf"},{"id":15,"title":"安戸池と養殖の空撮写真","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/soshikikarasagasu/senryaku/gyomuannai/837/ADOMILK/6792.html"},{"id":16,"title":"引田港の概要と整備の経緯","publisher":"香川県港湾課","url":"https://www.pref.kagawa.lg.jp/documents/13082/hiketa.pdf"},{"id":17,"title":"令和8年度当初予算主要施策概要・引田漁港高潮対策","publisher":"東かがわ市","url":"https://www.higashikagawa.jp/material/files/group/4/R8yosanngaiyou.pdf"},{"id":18,"title":"香川県：潟湖の安戸池・大池と城山の地形","publisher":"日本の地形千景","url":"https://www.web-gis.jp/GM1000/LandMap/LandMap_17_008.html"},{"id":19,"title":"引田港の高潮対策事業計画","publisher":"建通新聞","url":"https://digital.kentsu.co.jp/articles/artcl_rglr/01KVRZT2C6M09JZJT3BHC5NGSN"},{"id":20,"title":"地理院地図の年代別空中写真","publisher":"国土地理院","url":"https://www.gsi.go.jp/johofukyu/johofukyu210322.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/hiketa-castle-port-town/"}
 editorialPhotoPlacements: []
 ---
@@ -62,11 +62,22 @@ editorialPhotoPlacements: []
 
 港にとって、砂は恵みであると同時に悩みの種でもある。砂が積もれば、新しい土地ができる。しかし浅瀬が広がれば、船の往来にも影響する。地形の変化を見ながら、人々は川を動かし、土地を使い直してきた。
 
+
+## 祖父が知る港は、孫にも同じ姿だろうか
+
+海岸線を動かしてきたのは、砂と波だけではない。近代以降、港を守る堤や護岸も、海と陸の境界を決めるようになった。
+
+香川県によれば、引田港の近代港湾としての整備は1928年頃に始まり、1964年にはほぼ現在の形になった。祖父母の世代が見た港と、その前の世代が使った港は、すでに同じ形ではない。 [16](#source-16)
+
+そして今も、その境界はつくり替えられようとしている。東かがわ市は2026年度から2030年度にかけ、引田漁港の高潮対策として防潮堤などを整備する事業を計画している。2026年度は設計委託を予算化した。波や水を防ぐため、人が海との境をどうつくるかは、次の世代にも関わる選択だ。 [17](#source-17) [19](#source-19)
+
+ただし、護岸が建設されることと、自然の砂州が現在も陸地を広げ続けていることは別だ。離岸堤などによって漂砂の働きが変わった可能性も指摘されている。最近数十年の海岸線が実際にどれだけ前進・後退したかは、年代の異なる航空写真を同じ条件で重ね、潮位や写真のずれも確かめる必要がある。 [18](#source-18) [20](#source-20)
+
 ## まだ描かれていない地図
 
 引田の古い町並みを歩く。商家も醤油蔵も、長い時間を生きてきた建物だ。けれど、その足元の土地には、建物よりもさらに長い変化の歴史がある。かつて島だったと考えられる城山は陸とつながり、海の一部は安戸池として残った。人々は川の流れを変え、その水面ではハマチを育て始めた。
 
-海岸線が今後どこへ、どれほど動くのかは分からない。護岸も道路もある現代の海辺を、昔と同じ速さで砂がつくり替えると決めつけることもできない。それでも、引田の町を完成した地形の上にあるものとして眺めると、大切なことを見落とす。
+海岸線が今後どこへ、どれほど動くのかは分からない。護岸も道路もある現代の海辺を、昔と同じ速さで砂がつくり替えると決めつけることもできない。それでも、人々が海との境界を守り、つくり直しているという意味で、引田の地形と町の関係は現在も変わり続けている。
 
 昔の引田を知ろうとして、私たちは古地図を広げる。
 
