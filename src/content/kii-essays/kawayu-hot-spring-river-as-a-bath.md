@@ -4,7 +4,7 @@ title: "川を掘ると、温泉になる"
 teaser: "川原の砂利をどければ、73度の湯が現れる。火山のない熊野で地下の熱が上がってくる理由と、冬だけ川を千人風呂に変える人々の工夫をたどる。"
 region: "田辺・熊野本宮・川湯温泉"
 category: "観光景観"
-tags: ["温泉","山地","堆積岩","火成岩"]
+tags: ["温泉","堆積岩","火成岩"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/11/kawayu.jpg?resize=760%2C570&ssl=1"
 alt: "川湯温泉の大塔川。河原に人々が集まり、川沿いには温泉旅館が建つ"
 photoCredit: "写真：クアトロのジオ紀行"
