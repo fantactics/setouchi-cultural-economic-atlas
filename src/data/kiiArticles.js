@@ -11,8 +11,7 @@ export const kiiArticles = [
     "tags": [
       "地質境界",
       "火成岩",
-      "堆積岩",
-      "多雨"
+      "堆積岩"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462585940_1223803015571285_3635145836551130159_n.jpg?resize=760%2C570&ssl=1",
     "alt": "鳥居の向こうに那智の滝が落ちる飛瀧神社の風景",
@@ -194,7 +193,6 @@ export const kiiArticles = [
     "category": "農業景観",
     "tags": [
       "急斜面",
-      "平地の少なさ",
       "日照",
       "水はけ"
     ],
@@ -301,7 +299,6 @@ export const kiiArticles = [
     "category": "観光景観",
     "tags": [
       "温泉",
-      "山地",
       "堆積岩",
       "火成岩"
     ],
@@ -896,8 +893,7 @@ export const kiiArticles = [
     "tags": [
       "深い谷",
       "山地",
-      "森林",
-      "急斜面"
+      "森林"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Totsukawa_spa_town_2011.JPG",
     "alt": "十津川温泉街と二津野湖を対岸から眺める。小さな市街地を急峻な山々が取り囲む現代の十津川の風景（2011年撮影）",
