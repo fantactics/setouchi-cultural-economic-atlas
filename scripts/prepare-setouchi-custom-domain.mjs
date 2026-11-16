@@ -70,7 +70,7 @@ assert.ok(/href=["']\/["']/.test(home), 'Top navigation does not point to /');
 for (const html of htmlPaths) {
   const markup = await readFile(html, 'utf8');
   assert.ok(!markup.includes(oldBase), `Legacy path remains in ${path.relative(dist, html)}`);
-  for (const match of markup.matchAll(/<(?:link|script)\\b[^>]*(?:href|src)=["'](\\/_astro\\/[^"'?#]+)["']/g)) {
+  for (const match of markup.matchAll(/<(?:link|script)\b[^>]*(?:href|src)=["'](\/_astro\/[^"'?#]+)["']/g)) {
     const asset = path.join(dist, match[1].slice(1));
     try {
       await stat(asset);
