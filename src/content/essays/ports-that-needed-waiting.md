@@ -9,19 +9,6 @@ heroPhotoId: "photo-tomonoura-port"
 lead: "鞆の浦には海へ下りる石段があり、御手洗には古い船宿が並ぶ。多度津では港から鉄道が内陸へ延び、尾道水道の向こうには造船所が見える。四つの港町はなぜ、こんなにも違う姿になったのだろう。潮と風を待った船の時代から、それぞれの町が選び取った次の仕事をたどる。"
 sources: [{"id":1,"title":"歴史的港湾施設（雁木）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179045.html"},{"id":2,"title":"歴史的港湾施設（常夜燈）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179037.html"},{"id":3,"title":"鞆の浦について","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html"},{"id":4,"title":"御手洗伝統的建造物群保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html"},{"id":5,"title":"北前船と御手洗","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/kitamae1/"},{"id":6,"title":"多度津町の歴史・町勢","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/tadoritsukutadotsu/about_tadotsu/about_tadotsu.html"},{"id":7,"title":"北前船寄港地・多度津","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html"},{"id":8,"title":"尾道市の沿革","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/soshiki/2/2977.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/ports-that-needed-waiting/"}
-editorialPhotoPlacements:
-  - afterHeading: "潮が変わるまで、船は動けなかった"
-    afterParagraph: 3
-    photoIds: ["photo-tomonoura-gangi","photo-tomonoura-port"]
-  - afterHeading: "御手洗では、待つ時間が町をつくった"
-    afterParagraph: 3
-    photoIds: ["photo-mitarai-panorama","photo-mitarai-townscape","photo-mitarai-lighthouse"]
-  - afterHeading: "多度津は、船から鉄道へ人を送り出した"
-    afterParagraph: 3
-    photoIds: ["photo-tadotsu-station","photo-tadotsu-factory"]
-  - afterHeading: "尾道は、港で蓄えた富を次の産業につないだ"
-    afterParagraph: 3
-    photoIds: ["photo-onomichi-panorama","photo-onomichi-ferry","photo-onomichi-channel-dock"]
 ---
 鞆の浦の常夜燈の下には、海へ向かって石段が延びる。御手洗では、港からすぐの路地に古い商家が並ぶ。多度津には海から琴平へ向かう鉄道の歴史があり、尾道水道では対岸に造船所が見える。
 
