@@ -10,22 +10,6 @@ lead: "竹原の白壁を歩いても、塩田は見えない。赤穂には製�
 researchLinks: [{"label":"個別作品｜赤穂の製塩事業","href":"/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/"},{"label":"個別作品｜竹原の町並み","href":"/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/"},{"label":"個別作品｜坂出の番の州","href":"/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/"},{"label":"個別作品｜錦海の太陽光発電","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"}]
 sources: [{"id":1,"title":"三田尻塩田記念産業公園 入浜式塩田のしくみ","publisher":"防府市","url":"https://www.city.hofu.yamaguchi.jp/soshiki/25/irihama.html"},{"id":2,"title":"旧赤穂西浜塩業組合関係史料について","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":3,"title":"三田尻塩田の歴史","publisher":"防府市","url":"https://www.city.hofu.yamaguchi.jp/soshiki/25/rekishi.html"},{"id":4,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":5,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":6,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":7,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":8,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":9,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":10,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":11,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":12,"title":"防府市の都市計画 令和7年度","publisher":"防府市","url":"https://www.city.hofu.yamaguchi.jp/uploaded/attachment/142611.pdf"},{"id":13,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":14,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":15,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":16,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":17,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":18,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":19,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":20,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"}]
 migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
-editorialPhotoPlacements:
-  - afterHeading: "塩田のあとを歩くと、四つの風景に出会う"
-    afterParagraph: 3
-    photoIds: ["photo-sakaide-salt-1955-official"]
-  - afterHeading: "赤穂――塩田が消えても、塩づくりは続いた"
-    afterParagraph: 3
-    photoIds: ["photo-ako-shionokuni-official"]
-  - afterHeading: "竹原――塩の利益が、白壁の町になった"
-    afterParagraph: 3
-    photoIds: ["photo-takehara-town-official"]
-  - afterHeading: "坂出――塩田跡と新しい埋立地を見分ける"
-    afterParagraph: 3
-    photoIds: ["photo-sakaide-bannosu-aerial"]
-  - afterHeading: "伯方――塩田を残せなかった人々が、塩の会社をつくった"
-    afterParagraph: 3
-    photoIds: []
 ---
 竹原の古い町並みを歩いても、かつてこの町に大きな塩田があったことは、すぐには分からない。目に入るのは白壁の商家や酒蔵で、海水を引き込む塩田の風景ではない。
 
