@@ -82,6 +82,26 @@ for (const html of htmlPaths) {
   redirects++;
 }
 
+// Guard the five editorially revised essays and the deliberately unpublished
+// Shido draft in the actual artifact that will be deployed to the custom domain.
+const revisedEssays = [
+  ['fish-waste-to-feed-and-citrus', '港で残った魚が、みかん山へ向かう'],
+  ['citrus-pomace-cascade', 'みかんを搾ったあと、枝を切ったあと'],
+  ['olive-pomace-to-cattle', 'オリーブの搾りかすで、牛を育てる'],
+  ['four-salt-fields', '塩田のあとに残った四つの風景'],
+  ['ports-that-needed-waiting', '船が待たなくなったとき、港町には何が残ったのか']
+];
+for (const [slug, heading] of revisedEssays) {
+  const page = path.join(dist, 'book', slug, 'index.html');
+  const html = await readFile(page, 'utf8');
+  assert.ok(html.includes(heading), `Revised heading missing in deployed essay: ${slug}`);
+  assert.ok(html.includes('https://setouchi-atlas.pia2.org/book/' + slug + '/'), `Wrong canonical domain: ${slug}`);
+  assert.ok(!html.includes('/setouchi-cultural-economic-atlas/'), `Legacy project path survived in essay: ${slug}`);
+  assert.ok(html.includes('class="markdown-essay-body"'), `Markdown essay body not rendered: ${slug}`);
+}
+const withheld = path.join(dist, 'book', 'tadano-shido-industrial-ecosystem', 'index.html');
+assert.ok(!(await stat(withheld).then(() => true).catch(() => false)), 'Shido draft must not be published');
+
 const home = await readFile(path.join(dist, 'index.html'), 'utf8');
 const sitemap = await readFile(path.join(dist, 'sitemap-0.xml'), 'utf8');
 const sitemapIndex = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
