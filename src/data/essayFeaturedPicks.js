@@ -10,7 +10,7 @@ export const essayFeaturedByEntrance = {
   "townscape": [
     "takehara-salt-capital-to-townscape",
     "yanai-trade-profit-to-whitewalls",
-    "onomichi-capital-to-culture-and-ships"
+    "hiketa-castle-port-town"
   ],
   "agriculture": [
     "mikan-slope-and-varieties",
