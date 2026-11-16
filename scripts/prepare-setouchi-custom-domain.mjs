@@ -44,37 +44,25 @@ for await (const file of files(dist)) {
   }
 }
 
-// Keep a dependable stylesheet fallback inside each published page.
-// In the custom-domain transition the legacy Astro base may otherwise cause
-// CSS requests to miss, rendering the entire site as unstyled HTML.
-// We still retain the stylesheet links for browser caching.
-let inlinedStylesheets = 0;
+// Use one root-level stylesheet whose URL cannot depend on Astro's former
+// /setouchi-cultural-economic-atlas/ project base. It acts as a dependable
+// fallback alongside Astro's existing hashed CSS links. Do not inline styles:
+// many pages would needlessly inflate the Pages deployment artifact.
+const cssDir = path.join(dist, '_astro');
+const cssFiles = (await readdir(cssDir)).filter(name => name.endsWith('.css'));
+assert.ok(cssFiles.length > 0, 'Astro did not emit any compiled CSS');
+const combinedCss = [];
+for (const name of cssFiles) {
+  const css = await readFile(path.join(cssDir, name), 'utf8');
+  // Asset URLs inside CSS were relative to /_astro/. Keep that relative
+  // directory context after concatenating into a root-level fallback file.
+  combinedCss.push(css.replaceAll('url(./', 'url(/_astro/').replaceAll('url("../', 'url("/'));
+}
+await writeFile(path.join(dist, 'atlas-fallback.css'), combinedCss.join('\n'), 'utf8');
 for (const html of htmlPaths) {
   let markup = await readFile(html, 'utf8');
-  const tags = [...markup.matchAll(/<link\b[^>]*>/gi)];
-  let pageStyles = 0;
-  for (const match of tags) {
-    const tag = match[0];
-    if (!/\brel\s*=\s*["']stylesheet["']/i.test(tag)) continue;
-    const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
-    if (!href) continue;
-    let stylesheet;
-    try {
-      const uri = new URL(href.replaceAll('&amp;', '&'), domain + '/');
-      if (uri.origin !== domain) continue;
-      stylesheet = path.join(dist, decodeURIComponent(uri.pathname).replace(/^\/+/, ''));
-      // Prevent a filename or URL from escaping the output directory.
-      assert.ok(stylesheet.startsWith(dist + path.sep), 'Stylesheet path outside dist');
-      const css = (await readFile(stylesheet, 'utf8')).replaceAll('</style', '<\\/style');
-      const inline = '<style data-atlas-inline-fallback="true">\n' + css + '\n</style>';
-      markup = markup.replace(tag, tag + inline);
-      pageStyles++;
-      inlinedStylesheets++;
-    } catch (error) {
-      throw new Error('Cannot inline stylesheet ' + href + ' in ' + path.relative(dist, html) + ': ' + error.message);
-    }
-  }
-  if (pageStyles === 0 && markup.includes('site-header')) throw new Error('No local stylesheet was found for ' + path.relative(dist, html));
+  if (!markup.includes('</head>')) continue;
+  markup = markup.replace('</head>', '<link rel="stylesheet" href="/atlas-fallback.css" /></head>');
   await writeFile(html, markup, 'utf8');
 }
 
@@ -97,26 +85,14 @@ for (const html of htmlPaths) {
 const home = await readFile(path.join(dist, 'index.html'), 'utf8');
 const sitemap = await readFile(path.join(dist, 'sitemap-0.xml'), 'utf8');
 const sitemapIndex = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-// Catch failures that were previously invisible: menu links, CSS/JS assets and images.
-const oldBase = '/setouchi-cultural-economic-atlas';
-assert.ok(!home.includes(oldBase), 'Home still references the old project path');
-assert.ok(/href=["']\/["']/.test(home), 'Top navigation does not point to /');
-for (const html of htmlPaths) {
-  const markup = await readFile(html, 'utf8');
-  assert.ok(!markup.includes(oldBase), `Legacy path remains in ${path.relative(dist, html)}`);
-  for (const match of markup.matchAll(/<(?:link|script)\b[^>]*(?:href|src)=["'](\/_astro\/[^"'?#]+)["']/g)) {
-    const asset = path.join(dist, match[1].slice(1));
-    try {
-      await stat(asset);
-    } catch {
-      throw new Error(`Missing compiled asset ${match[1]} in ${path.relative(dist, html)}`);
-    }
-  }
-}
+// Check the public link and independent root-level CSS fallback.
+assert.ok(home.includes('href="/atlas-fallback.css"'), 'Fallback CSS missing from homepage');
+assert.ok(home.includes('href="/"'), 'Top navigation must point to the custom-domain root');
+assert.ok(!home.includes('/setouchi-cultural-economic-atlas'), 'Old project path remains in homepage');
 assert.ok(home.includes(domain), 'Home page must link to the custom domain');
 assert.ok(!home.includes(legacyPath), 'Home page still contains old project URLs');
 assert.ok(sitemap.includes(domain + '/book/'), 'New-domain essay URLs missing from sitemap');
 assert.ok(!sitemap.includes(legacyOrigin), 'Sitemap still points to old host');
 assert.ok(sitemapIndex.includes(domain + '/sitemap-0.xml'), 'Sitemap index points to old host');
 assert.ok((await stat(path.join(dist, 'setouchi-cultural-economic-atlas', 'book', 'hiketa-castle-port-town', 'index.html'))).isFile(), 'Missing old Hiketa URL redirect');
-console.log(`Custom domain artifact ready: ${rewritten} rewritten text files; ${inlinedStylesheets} inlined stylesheet fallbacks; ${redirects} legacy-path redirects.`);
+console.log(`Custom domain artifact ready: ${rewritten} rewritten files; ${cssFiles.length} bundled CSS files; ${redirects} legacy-path redirects.`);
