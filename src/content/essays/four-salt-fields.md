@@ -45,6 +45,12 @@ editorialPhotoPlacements:
 
 ## 赤穂――塩田が消えても、塩づくりは続いた
 
+<figure class="atlas-inline-photo">
+  <img src="https://www.city.ako.lg.jp/documents/sionokuni.jpg" alt="赤穂市の塩の国に復元された塩田" loading="lazy" decoding="async" />
+  <figcaption>赤穂「塩の国」の復元塩田。失われた製塩技術が、体験できる風景として残る。 写真：<a href="https://www.city.ako.lg.jp/shisetu.html">赤穂市</a>（赤穂市フォトライブラリー）。</figcaption>
+</figure>
+
+
 赤穂の面白さは、塩田の風景が消えても、塩をつくる仕事が残ったことだ。
 
 西浜では1959年の塩業整備に際して廃業ではなく経営改善の道が選ばれ、翌1960年には赤穂海水株式会社が設立された。海水を塩田で濃くする方法から、イオン交換膜を使う工場製塩へ。製法も設備も変わったが、塩づくりの事業は続いていった。 [6](#source-6)
@@ -66,6 +72,12 @@ editorialPhotoPlacements:
 赤穂では塩の事業を続けるために技術が変わった。伯方では失われた製法を惜しむ人々の思いが、新しい事業を始める力になった。同じ工場の風景でも、そこへ至る道は正反対に近い。
 
 ## 竹原――塩の利益が、白壁の町になった
+
+<figure class="atlas-inline-photo">
+  <img src="https://www.city.takehara.lg.jp/material/images/group/14/9.jpg" alt="竹原市の町並み保存地区" loading="lazy" decoding="async" />
+  <figcaption>竹原の町並み。塩づくりで蓄えた富は、塩田以外の姿でも町に残った。 写真：<a href="https://www.city.takehara.lg.jp/soshikikarasagasu/toshiseibika/gyomuannai/1/1_1/1803.html">竹原市</a>（竹原市景観17選）。</figcaption>
+</figure>
+
 
 竹原では、塩づくりの痕跡を探しても、最初に目に入るのは塩田ではない。白壁の商家、蔵、酒蔵が連なる町並みだ。
 
