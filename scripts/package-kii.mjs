@@ -5,8 +5,8 @@
  * Usage: node scripts/package-kii.mjs
  *        KII_PUBLIC_ORIGIN=https://kii.example.org node scripts/package-kii.mjs
  *
- * The default is the confirmed kii-atlas.pages.dev origin. Domain configuration is
- * deliberately explicit: no fictional public destination is published.
+ * The default production origin is kii-atlas.pia2.org. Configure the matching
+ * Cloudflare Pages custom domain and deploy the bundle before switching redirects.
  */
 import { access, cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { resolve, relative, join, extname } from 'node:path';
@@ -16,7 +16,7 @@ const input = join(source, 'kii');
 const output = resolve('dist-kii');
 const setouchiBase = '/setouchi-cultural-economic-atlas/';
 const kiiBase = setouchiBase + 'kii/';
-const origin = process.env.KII_PUBLIC_ORIGIN?.replace(/\/$/, '') || 'https://kii-atlas.pages.dev';
+const origin = process.env.KII_PUBLIC_ORIGIN?.replace(/\/$/, '') || 'https://kii-atlas.pia2.org';
 if (origin && !/^https:\/\/[^/]+$/.test(origin)) {
   throw new Error('KII_PUBLIC_ORIGIN must be a bare HTTPS origin, without a path');
 }
@@ -37,8 +37,8 @@ const replaceUrls = (content) => {
   // Replace complete canonical / OpenGraph URLs before shortening paths.
   const oldHost = 'https://fantactics.github.io';
   let transformed = content.split(oldHost + kiiBase).join(origin + '/');
-  // Shared sitemap indexes the SETOUCHI domain; do not advertise it for KII.
-  transformed = transformed.replace(/<link\s+rel="sitemap"[^>]*>/g, '');
+  // Replace Astro's SETOUCHI sitemap link with the standalone KII sitemap.
+  transformed = transformed.replace(/<link\s+rel="sitemap"[^>]*>/g, '<link rel="sitemap" type="application/xml" href="' + origin + '/sitemap.xml" />');
   // The KII-specific base must be replaced BEFORE the broader asset base.
   transformed = transformed.split(kiiBase).join('/');
   // Shared, fingerprinted Astro assets live at the site's own root.
@@ -104,7 +104,7 @@ await writeFile(join(output, 'BUILD_INFO.txt'),
   'Status: indexable (Cloudflare Pages)\n' +
   'Source: shared ATLAS monorepo\n');
 const homepage = await readFile(join(output, 'index.html'), 'utf8');
-for (const required of ['KII ATLAS','index,follow','href="/"']) {
+for (const required of ['KII ATLAS','index,follow','href="/"', 'rel="canonical" href="' + origin + '/"', 'href="' + origin + '/sitemap.xml"']) {
   if (!homepage.includes(required)) throw new Error('Missing ' + required + ' in KII homepage');
 }
 if (!routes.length || routes.some(url => url.includes('/setouchi-cultural-economic-atlas/'))) {
