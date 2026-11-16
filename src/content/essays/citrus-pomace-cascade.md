@@ -37,6 +37,12 @@ editorialPhotoPlacements:
 
 ## 木を手入れすれば、枝が残る
 
+<figure class="atlas-inline-photo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Karihama%20Terrace%20Field%2003.jpg?width=1600" alt="愛媛県西予市狩浜、宇和海に向かう石積みの柑橘段畑" loading="lazy" decoding="async" />
+  <figcaption>西予市狩浜の石積み柑橘段畑。斜面で枝を切り、運び出す手間を想像させる風景。 写真：<a href="https://commons.wikimedia.org/wiki/File:Karihama_Terrace_Field_03.jpg">Indiana jo</a>（CC BY-SA 4.0）。</figcaption>
+</figure>
+
+
 一方、果樹園には枝が残る。日当たりや風通しを整える剪定は欠かせないが、急斜面では切った枝を集めるだけでも容易ではない。 [3](#source-3)
 
 愛媛県の畜産研究センターは、柑橘の剪定枝を細かく砕いて牛舎の敷料に使い、使用後は家畜ふんと一緒に堆肥化する方法を調べた。枝にはクッション性があるものの、水分が増えた場合の保水性などに課題も見つかっている。これは実用化された搾汁粕の飼料利用とは異なり、研究段階の取り組みとして読まなければならない。 [4](#source-4) [6](#source-6)
