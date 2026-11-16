@@ -44,6 +44,40 @@ for await (const file of files(dist)) {
   }
 }
 
+// Keep a dependable stylesheet fallback inside each published page.
+// In the custom-domain transition the legacy Astro base may otherwise cause
+// CSS requests to miss, rendering the entire site as unstyled HTML.
+// We still retain the stylesheet links for browser caching.
+let inlinedStylesheets = 0;
+for (const html of htmlPaths) {
+  let markup = await readFile(html, 'utf8');
+  const tags = [...markup.matchAll(/<link\b[^>]*>/gi)];
+  let pageStyles = 0;
+  for (const match of tags) {
+    const tag = match[0];
+    if (!/\brel\s*=\s*["']stylesheet["']/i.test(tag)) continue;
+    const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (!href) continue;
+    let stylesheet;
+    try {
+      const uri = new URL(href.replaceAll('&amp;', '&'), domain + '/');
+      if (uri.origin !== domain) continue;
+      stylesheet = path.join(dist, decodeURIComponent(uri.pathname).replace(/^\/+/, ''));
+      // Prevent a filename or URL from escaping the output directory.
+      assert.ok(stylesheet.startsWith(dist + path.sep), 'Stylesheet path outside dist');
+      const css = (await readFile(stylesheet, 'utf8')).replaceAll('</style', '<\\/style');
+      const inline = '<style data-atlas-inline-fallback="true">\n' + css + '\n</style>';
+      markup = markup.replace(tag, tag + inline);
+      pageStyles++;
+      inlinedStylesheets++;
+    } catch (error) {
+      throw new Error('Cannot inline stylesheet ' + href + ' in ' + path.relative(dist, html) + ': ' + error.message);
+    }
+  }
+  if (pageStyles === 0) throw new Error('No local stylesheet was found for ' + path.relative(dist, html));
+  await writeFile(html, markup, 'utf8');
+}
+
 // GitHub Pages redirects the github.io project hostname to the new domain,
 // but may preserve the old project path. Provide lightweight compatibility
 // pages for old prefixed article/index URLs without rewriting any content.
@@ -85,4 +119,4 @@ assert.ok(sitemap.includes(domain + '/book/'), 'New-domain essay URLs missing fr
 assert.ok(!sitemap.includes(legacyOrigin), 'Sitemap still points to old host');
 assert.ok(sitemapIndex.includes(domain + '/sitemap-0.xml'), 'Sitemap index points to old host');
 assert.ok((await stat(path.join(dist, 'setouchi-cultural-economic-atlas', 'book', 'hiketa-castle-port-town', 'index.html'))).isFile(), 'Missing old Hiketa URL redirect');
-console.log(`Custom domain artifact ready: ${rewritten} rewritten text files; ${redirects} legacy-path redirects.`);
+console.log(`Custom domain artifact ready: ${rewritten} rewritten text files; ${inlinedStylesheets} inlined stylesheet fallbacks; ${redirects} legacy-path redirects.`);
