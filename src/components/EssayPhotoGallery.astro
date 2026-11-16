@@ -33,7 +33,8 @@ const displayPhotos = [...photos]
       {displayPhotos.map((photo,index)=>(
         <figure class:list={['essay-photo-card', index===0 && 'feature']}>
           <a href={photo.sourcePage} target="_blank" rel="noreferrer" class="essay-photo-link">
-            <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} />
+            <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} decoding="async" data-photo-essay-img />
+            <span class="essay-photo-unavailable" hidden>画像を表示できません。写真の出典ページをご覧ください。</span>
             {photo.isReference && <span class="essay-photo-reference">比較資料</span>}
           </a>
           <figcaption>
@@ -47,6 +48,33 @@ const displayPhotos = [...photos]
     </div>
   </section>
 )}
+
+<script is:inline>
+  // Wikimedia Special:FilePath thumbnails can fail for certain original image
+  // dimensions or after temporary thumbnail-cache errors. Try the original
+  // image once. If the publisher's image itself is unavailable, make the
+  // source link and a readable explanation visible instead of a broken image.
+  document.addEventListener('error', (event) => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement) || !image.matches('[data-photo-essay-img]')) return;
+    if (image.dataset.retryState !== 'original') {
+      image.dataset.retryState = 'original';
+      try {
+        const url = new URL(image.currentSrc || image.src, document.baseURI);
+        if (url.hostname === 'commons.wikimedia.org'
+            && url.pathname.startsWith('/wiki/Special:FilePath/')
+            && url.searchParams.has('width')) {
+          url.searchParams.delete('width');
+          image.src = url.href;
+          return;
+        }
+      } catch (_) {}
+    }
+    image.hidden = true;
+    const explanation = image.parentElement?.querySelector('.essay-photo-unavailable');
+    if (explanation) explanation.hidden = false;
+  }, true);
+</script>
 
 <style>
   .essay-photo-gallery{
@@ -100,6 +128,9 @@ const displayPhotos = [...photos]
     overflow:hidden;
     background:#ddd;
   }
+  .essay-photo-unavailable[hidden]{display:none;}
+  .essay-photo-unavailable:not([hidden]){display:flex;align-items:center;justify-content:center;min-height:220px;padding:24px;text-align:center;background:#e9e4da;color:#544a3b;font-size:.9rem;line-height:1.7;}
+  .essay-photo-card img[hidden]{display:none;}
   .essay-photo-card img{
     display:block;
     width:100%;
