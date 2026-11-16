@@ -38,8 +38,8 @@ editorialPhotoPlacements:
 ## 木を手入れすれば、枝が残る
 
 <figure class="atlas-inline-photo">
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Karihama%20Terrace%20Field%2003.jpg?width=1600" alt="愛媛県西予市狩浜、宇和海に向かう石積みの柑橘段畑" loading="lazy" decoding="async" />
-  <figcaption>西予市狩浜の石積み柑橘段畑。斜面で枝を切り、運び出す手間を想像させる風景。 写真：<a href="https://commons.wikimedia.org/wiki/File:Karihama_Terrace_Field_03.jpg">Indiana jo</a>（CC BY-SA 4.0）。</figcaption>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Citrus%20orchard%20of%20Baishinji%2C%20Matsuyama%2020240608.jpg?width=1400" alt="松山市梅津寺の柑橘園" loading="lazy" decoding="async" />
+  <figcaption>松山市梅津寺の柑橘園。段々畑では収穫だけでなく、枝の手入れや片づけも続く。写真：<a href="https://commons.wikimedia.org/wiki/File:Citrus_orchard_of_Baishinji,_Matsuyama_20240608.jpg">CT-May</a>（CC0）。</figcaption>
 </figure>
 
 
