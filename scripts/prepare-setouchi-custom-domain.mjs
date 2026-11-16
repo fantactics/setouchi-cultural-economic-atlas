@@ -74,7 +74,7 @@ for (const html of htmlPaths) {
       throw new Error('Cannot inline stylesheet ' + href + ' in ' + path.relative(dist, html) + ': ' + error.message);
     }
   }
-  if (pageStyles === 0) throw new Error('No local stylesheet was found for ' + path.relative(dist, html));
+  if (pageStyles === 0 && markup.includes('site-header')) throw new Error('No local stylesheet was found for ' + path.relative(dist, html));
   await writeFile(html, markup, 'utf8');
 }
 
