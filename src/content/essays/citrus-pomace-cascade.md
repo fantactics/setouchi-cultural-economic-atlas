@@ -12,16 +12,6 @@ provisionalConclusion: "愛媛の柑橘からは、搾汁後に果皮・果肉�
 openQuestions: ["搾汁粕の最新飼料利用量を追跡できるか","剪定枝の利用は研究段階からどこまで普及したか","異なる利用方法の輸送・加工負荷を比較できるか"]
 sources: [{"id":1,"title":"環境対策―搾汁粕の有効利用への取組み","publisher":"えひめ飲料","url":"https://www.ehime-inryo.co.jp/company/environmental.html"},{"id":2,"title":"MaCSIE®","publisher":"愛媛製紙","url":"https://www.ehimepaper.co.jp/products/development/macsie/"},{"id":3,"title":"農業遺産「愛媛・南予の柑橘農業システム」","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/1573.html"},{"id":4,"title":"柑橘剪定枝の畜産敷料利用と堆肥化の検討","publisher":"愛媛県農林水産研究所畜産研究センター","url":"https://www.pref.ehime.jp/uploaded/attachment/2223.pdf"},{"id":5,"title":"令和7年度採択事業―バイオ炭を活用したゼロカーボン農業モデルの構築","publisher":"愛媛県","url":"https://www.pref.ehime.jp/site/nyusatsu/135661.html"},{"id":6,"title":"畜産研究センター研究報告第7号","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/1300.html"},{"id":7,"title":"環境再生型農業＋バイオ炭活用により、循環を育む柑橘栽培へ","publisher":"四国EPO","url":"https://4epo.jp/information/shikoku-no-osusume/36299.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/citrus-pomace-cascade/"}
-editorialPhotoPlacements:
-  - afterHeading: "実を搾れば、皮と果肉が残る"
-    afterParagraph: 2
-    photoIds: ["photo-ehime-beni-madonna"]
-  - afterHeading: "木を手入れすれば、枝が残る"
-    afterParagraph: 2
-    photoIds: ["photo-karihama-citrus-terraces"]
-  - afterHeading: "みかん畑から、いくつもの行き先へ"
-    afterParagraph: 2
-    photoIds: ["photo-ehime-citrus-orchard"]
 ---
 ## みかん山には、二つの残りものがある
 
