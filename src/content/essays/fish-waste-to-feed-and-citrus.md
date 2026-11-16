@@ -14,12 +14,6 @@ migration: {"status":"generated-copy","publicUrl":"/book/fish-waste-to-feed-and-
 ---
 ## 港から山を見る
 
-<figure class="atlas-inline-photo">
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Karihama%20Terrace%20Field%2003.jpg?width=1600" alt="愛媛県西予市狩浜、宇和海に向かう石積みの柑橘段畑" loading="lazy" decoding="async" />
-  <figcaption>宇和海沿岸、西予市狩浜の石積み柑橘段畑。八幡浜の果樹園そのものではないが、海に迫る斜面を畑に変えてきた土地利用が見える。 写真：<a href="https://commons.wikimedia.org/wiki/File:Karihama_Terrace_Field_03.jpg">Indiana jo</a>（CC BY-SA 4.0）。</figcaption>
-</figure>
-
-
 八幡浜の海辺では、漁船が着く港の背後に山が迫る。斜面には石垣を積んだみかん畑が重なっている。船の仕事と畑の仕事。海と山が近いこの町でも、二つの生業は別々のものに見える。 [5](#source-5)
 
 けれど、魚をかまぼこなどに加工すると、食べる部分とは別に頭や骨、内臓が残る。それらをただ捨てずに、山の果樹を育てる材料へ変える仕事が八幡浜にはあった。
