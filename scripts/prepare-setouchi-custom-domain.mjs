@@ -28,10 +28,16 @@ for await (const file of files(dist)) {
   const before = await readFile(file, 'utf8');
   // Order matters: replace the full canonical URL before the root-relative base.
   const after = before
+    // Preserve a terminal path separator when possible, while also fixing the
+    // bare /setouchi-cultural-economic-atlas menu link (no terminal slash).
     .replaceAll(legacyOrigin + legacyPath, domain + '/')
+    .replaceAll(legacyOrigin + legacyPath.slice(0, -1), domain)
     .replaceAll(legacyPath, '/')
+    .replaceAll(legacyPath.slice(0, -1), '/')
+    // Some JSON embeds URLs using escaped forward slashes.
     .replaceAll('https:\\/\\/fantactics.github.io\\/setouchi-cultural-economic-atlas\\/', 'https:\\/\\/setouchi-atlas.pia2.org\\/')
-    .replaceAll('\\/setouchi-cultural-economic-atlas\\/', '\\/');
+    .replaceAll('\\/setouchi-cultural-economic-atlas\\/', '\\/')
+    .replaceAll('\\/setouchi-cultural-economic-atlas', '\\/');
   if (after !== before) {
     await writeFile(file, after, 'utf8');
     rewritten++;
@@ -57,6 +63,22 @@ for (const html of htmlPaths) {
 const home = await readFile(path.join(dist, 'index.html'), 'utf8');
 const sitemap = await readFile(path.join(dist, 'sitemap-0.xml'), 'utf8');
 const sitemapIndex = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
+// Catch failures that were previously invisible: menu links, CSS/JS assets and images.
+const oldBase = '/setouchi-cultural-economic-atlas';
+assert.ok(!home.includes(oldBase), 'Home still references the old project path');
+assert.ok(/href=["']\/["']/.test(home), 'Top navigation does not point to /');
+for (const html of htmlPaths) {
+  const markup = await readFile(html, 'utf8');
+  assert.ok(!markup.includes(oldBase), `Legacy path remains in ${path.relative(dist, html)}`);
+  for (const match of markup.matchAll(/<(?:link|script)\\b[^>]*(?:href|src)=["'](\\/_astro\\/[^"'?#]+)["']/g)) {
+    const asset = path.join(dist, match[1].slice(1));
+    try {
+      await stat(asset);
+    } catch {
+      throw new Error(`Missing compiled asset ${match[1]} in ${path.relative(dist, html)}`);
+    }
+  }
+}
 assert.ok(home.includes(domain), 'Home page must link to the custom domain');
 assert.ok(!home.includes(legacyPath), 'Home page still contains old project URLs');
 assert.ok(sitemap.includes(domain + '/book/'), 'New-domain essay URLs missing from sitemap');
