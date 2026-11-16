@@ -1,21 +1,20 @@
 // Short reader-facing blurbs for cards. Keep article subtitles and source data unchanged.
 // A photoId here only changes discovery cards, never the article hero or credits.
 export const essayCardCopy = {
-  'tadano-shido-industrial-ecosystem': {teaser:'志度の海辺にある大きなクレーン工場。高松の技術が選んだ土地。'},
   'kojima-island-infrastructure-per-capita': {teaser:'住む島、別荘の島、観光の島。海底送水管と三つの下水処理を比べる。'},
   'what-cyclists-leave-behind': {teaser:'橋の手前の長い登り坂。その理由は、下を通る船にあった。'},
   "niboshi-shirasu-two-food-cultures": {
     "teaser": "しらすで知られる泉州は、かつて煮干しの浜だった。小魚の運び方が変えた食卓。"
   },
   "four-salt-fields": {
-    "teaser": "塩田が消えた四つの町。それぞれに残ったものは、なぜ違うのだろう。"
+    "teaser": "赤穂の工場、伯方の塩、竹原の白壁、坂出の埋立地。塩田の時代は、それぞれ違う姿で残った。"
   },
   "kojima-from-cotton-to-jeans": {
     "teaser": "ジーンズストリートから、足袋と学生服の町だった頃へさかのぼる。",
     "photoId": "photo-kojima-jeans"
   },
   "ports-that-needed-waiting": {
-    "teaser": "船が潮や風を待つ時間が、瀬戸内の港町を育ててきた。",
+    "teaser": "鞆の石段、御手洗の船宿、多度津の鉄道、尾道の造船所。港に残る四つの時間。",
     "photoId": "photo-tomonoura-port"
   },
   "imabari-why-shipbuilding": {
