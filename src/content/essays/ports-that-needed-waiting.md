@@ -29,6 +29,12 @@ editorialPhotoPlacements:
 
 ## 潮が変わるまで、船は動けなかった
 
+<figure class="atlas-inline-photo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tomonoura%20Gangi.jpg?width=1400" alt="広島県福山市鞆の浦の雁木" loading="lazy" decoding="async" />
+  <figcaption>鞆の浦の雁木。潮位の変化に応じて荷を揚げ下ろしする石段。 写真：<a href="https://commons.wikimedia.org/wiki/File:Tomonoura_Gangi.jpg">Yanajin</a>（CC BY-SA 3.0）。</figcaption>
+</figure>
+
+
 鞆の浦は、瀬戸内海のほぼ中央、沼隈半島の先端にある。
 
 瀬戸内海では、潮が紀伊水道と豊後水道から入り込み、中央付近で出合う。潮の向きは満ち引きに応じて変わり、その変化を見計らうことが帆船の航海には重要だった。
@@ -40,6 +46,12 @@ editorialPhotoPlacements:
 船にとっては足止めでも、港にとっては人を迎える時間だった。鞆の雁木の石段には、潮の高さに合わせて働いた人々の足場が今も残る。
 
 ## 御手洗では、待つ時間が町をつくった
+
+<figure class="atlas-inline-photo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaki-shimojima%20Mitarai%20Panoramic%20View%202013-08.JPG?width=1200" alt="大崎下島の御手洗地区を見渡すパノラマ" loading="lazy" decoding="async" />
+  <figcaption>大崎下島の御手洗。海と斜面の間に家々が寄り添う。 写真：<a href="https://commons.wikimedia.org/wiki/File:Osaki-shimojima_Mitarai_Panoramic_View_2013-08.JPG">At by At</a>（CC BY-SA 3.0）。</figcaption>
+</figure>
+
 
 大崎下島の御手洗も、潮待ち・風待ちで栄えた港町だ。
 
