@@ -865,7 +865,7 @@ export const photoEvidence = [
     caption:'松山の古い海の玄関口である三津浜。',
     insight:'城下町松山とは別に海上交通の入口として発達した三津浜が、近代私鉄によって都市圏へ統合された「複数都市核」の一方を示す。',
     claimType:'interpretation',
-    imageUrl:'https://upload.wikimedia.org/wikipedia/commons/1/16/Mitsuhama-Port_on_inside%28Matsuyama_City%29.JPG',
+    imageUrl:'/setouchi-cultural-economic-atlas/images/essay-photo/mitsuhama-port-inside-jyo81.jpg',
     alt:'愛媛県松山市三津浜の内港',
     author:'Jyo81',
     sourcePage:'https://commons.wikimedia.org/wiki/File:Mitsuhama-Port_on_inside%28Matsuyama_City%29.JPG',
