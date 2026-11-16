@@ -18,6 +18,12 @@ editorialPhotoPlacements:
 ---
 ## 白い風車の足元から
 
+<figure class="atlas-inline-photo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shodoshima%20Olive%20Park%20Shodo%20Island%20Japan12bs3.jpg?width=1600" alt="小豆島オリーブ公園の斜面と瀬戸内海" loading="lazy" decoding="async" />
+  <figcaption>小豆島オリーブ公園の斜面と海。島に根づいたオリーブ栽培は、観光の風景にもなった。 写真：<a href="https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan12bs3.jpg">663highland</a>（CC BY-SA 3.0）。</figcaption>
+</figure>
+
+
 小豆島オリーブ公園の丘では、白いギリシャ風車の向こうに瀬戸内海が広がる。旅人が写真を撮るそばで、オリーブの木は銀色の葉を揺らしている。すっかり島の顔になった景色だが、ここにオリーブが自生していたわけではない。 [3](#source-3) [6](#source-6)
 
 1908年、政府が魚介類をオイルで保存することなども念頭に試験栽培を始めた。香川・三重・鹿児島の試験地のうち、小豆島の苗木が育ち、搾油できるまでになった。オリーブは、最初から海の仕事ともつながっていた。 [3](#source-3) [4](#source-4)
