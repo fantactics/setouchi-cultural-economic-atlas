@@ -10,9 +10,9 @@ lead: "鞆の浦には海へ下りる石段があり、御手洗には古い船�
 sources: [{"id":1,"title":"歴史的港湾施設（雁木）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179045.html"},{"id":2,"title":"歴史的港湾施設（常夜燈）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179037.html"},{"id":3,"title":"鞆の浦について","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html"},{"id":4,"title":"御手洗伝統的建造物群保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html"},{"id":5,"title":"北前船と御手洗","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/kitamae1/"},{"id":6,"title":"多度津町の歴史・町勢","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/tadoritsukutadotsu/about_tadotsu/about_tadotsu.html"},{"id":7,"title":"北前船寄港地・多度津","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html"},{"id":8,"title":"尾道市の沿革","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/soshiki/2/2977.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/ports-that-needed-waiting/"}
 ---
-鞆の浦の常夜燈の下には、海へ向かって石段が延びる。御手洗では、港からすぐの路地に古い商家が並ぶ。多度津には海から琴平へ向かう鉄道の歴史があり、尾道水道では対岸に造船所が見える。
+鞆の浦の常夜燈のそばから、石段が海へ下りている。満ちた潮は上の段を覆い、引けば下の段が現れる。海の高さが変わることを前提に、港を使う人々は足場を築いた。
 
-同じ「港町」でも、いま目にするものは驚くほど違う。かつて瀬戸内では、風や潮の具合によって船が出発を待った。先へ進めない時間が、陸の仕事を生むこともあった。その時間の意味が変わったとき、町はそれぞれ何を残し、何を新しく始めたのだろう。
+船は本来、目的地へ向かうものだ。それなのに瀬戸内には、船が先へ進まず、風や潮を待つことによって賑わった港があった。待つ時間が商いになる。その不思議な歴史を、海辺に残るものからたどってみよう。
 
 ## 潮が変わるまで、船は動けなかった
 
