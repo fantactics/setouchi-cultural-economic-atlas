@@ -1,6 +1,6 @@
 ---
 /** Site-agnostic essay body: data belongs to the invoking region. */
-const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true, MarkdownContent = null } = Astro.props;
+const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true, MarkdownContent = null, natureHref = null, cultureHref = null } = Astro.props;
 ---
 <article class="atlas-shared-essay">
   <header>
@@ -9,7 +9,14 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
     <h1>{article.title}</h1>
     {article.teaser && <p class="atlas-essay-lead">{article.teaser}</p>}
     {article.imageUrl && <figure><img src={article.imageUrl} alt={article.alt || article.title} />{showCredits && article.photoCredit && <figcaption>{article.photoCredit}</figcaption>}</figure>}
-    {article.tags?.length > 0 && <ul class="atlas-essay-tags" aria-label="自然条件タグ">{article.tags.map((tag)=><li>{tag}</li>)}</ul>}
+    {article.tags?.length > 0 && <div class="atlas-essay-tag-group">
+      {natureHref && <span class="atlas-essay-tag-label">自然条件</span>}
+      <ul class="atlas-essay-tags" aria-label="自然条件タグ">{article.tags.slice(0,3).map((tag)=><li>{natureHref ? <a href={`${natureHref}#nature-${encodeURIComponent(tag)}`}>{tag}</a> : tag}</li>)}</ul>
+    </div>}
+    {article.cultureTags?.length > 0 && <div class="atlas-essay-tag-group atlas-essay-tag-group--culture">
+      <span class="atlas-essay-tag-label">文化・営み</span>
+      <ul class="atlas-essay-tags" aria-label="文化・営みタグ">{article.cultureTags.slice(0,3).map((tag)=><li>{cultureHref ? <a href={`${cultureHref}#culture-${encodeURIComponent(tag)}`}>{tag}</a> : tag}</li>)}</ul>
+    </div>}
   </header>
   <div class="atlas-essay-body">
     {MarkdownContent
@@ -38,7 +45,13 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
   .atlas-shared-essay figure{margin:35px 0}
   .atlas-shared-essay figure img{display:block;width:100%;max-height:620px;object-fit:cover;border-radius:22px;background:#e7ede8}
   .atlas-shared-essay figcaption{color:#728279;font-size:.76rem;margin-top:10px;line-height:1.6}
-  .atlas-essay-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:21px 0;padding:0}
+  .atlas-essay-tag-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px 15px;margin:21px 0 0}
+  .atlas-essay-tag-label{color:#667b6e;font-size:.78rem;font-weight:800;min-width:68px}
+  .atlas-essay-tag-group--culture{margin-top:12px}
+  .atlas-essay-tag-group--culture .atlas-essay-tags li{background:#f8ece0;color:#805d43}
+  .atlas-essay-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+  .atlas-essay-tags a{color:inherit;text-decoration:none}
+  .atlas-essay-tags a:hover{text-decoration:underline;text-underline-offset:3px}
   .atlas-essay-tags li{border-radius:999px;padding:6px 13px;background:#e7f3ea;color:#3a7158;font-size:.79rem;font-weight:700}
   .atlas-essay-body{max-width:760px;margin:50px auto 60px}
   .atlas-essay-body section{margin-bottom:49px}
