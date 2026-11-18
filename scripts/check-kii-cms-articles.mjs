@@ -58,6 +58,36 @@ for(const name of files){
     throw Error('KII original photo prop note lost: '+slug);
   }
   if(!fm.includes('https://')) throw Error('KII reference URLs missing: '+slug);
+  // Tags can be written in JSON-style inline YAML or Pages CMS block YAML.
+  const readList=(key)=>{
+    const lines=fm.split(/\r?\n/);
+    const index=lines.findIndex(line=>line.startsWith(key+':'));
+    if(index<0) throw Error('Missing KII '+key+': '+slug);
+    const value=lines[index].slice(key.length+1).trim();
+    const clean=(s)=>s.trim().replace(/^["']|["']$/g,'');
+    if(value.startsWith('[') && value.endsWith(']')) {
+      return value.slice(1,-1).split(',').map(clean).filter(Boolean);
+    }
+    if(value) throw Error('Unexpected KII tag list shape: '+key+' / '+slug);
+    const result=[];
+    for(let i=index+1;i<lines.length;i++){
+      if(!lines[i].trim()) continue;
+      const item=lines[i].match(/^\s+-\s+(.+)$/);
+      if(!item) break;
+      result.push(clean(item[1]));
+    }
+    return result;
+  };
+  const naturalTags=readList('tags');
+  const cultureTags=readList('cultureTags');
+  if(naturalTags.length<1 || naturalTags.length>3 ||
+     naturalTags.some(tag=>!vocabulary.has(tag)) ||
+     new Set(naturalTags).size!==naturalTags.length){
+    throw Error('KII natural tags must be 1-3 distinct registered tags: '+slug);
+  }
+  if(cultureTags.length<1 || cultureTags.length>3 || new Set(cultureTags).size!==cultureTags.length){
+    throw Error('KII culture tags must be 1-3 distinct tags: '+slug);
+  }
   const body=text.slice(match[0].length).trim();
   if(!body.startsWith('## ')||!body.includes('\n\n')||body.includes('<!--')||body.includes('視覚編集テスト'))
     throw Error('KII body unsafe or empty: '+slug);
