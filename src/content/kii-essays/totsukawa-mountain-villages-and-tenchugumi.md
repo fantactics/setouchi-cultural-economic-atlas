@@ -4,7 +4,8 @@ title: "十津川の勤王の志士たちを躊躇させた、山村の米と塩
 teaser: "広大な山々に、かつて1万2,862人が暮らしていた。十津川から天誅組へ加わった約1,000人を揺さぶったのは、都の政変だけではない。山村の米と塩の流通が断たれたのだ。"
 region: "十津川郷・熊野川流域"
 category: "歴史景観"
-tags: ["深い谷","山地","森林"]
+tags: ["深い谷", "急斜面"]
+cultureTags: ["山村経済", "天誅組", "水運"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Totsukawa_spa_town_2011.JPG"
 alt: "十津川温泉街と二津野湖を対岸から眺める。小さな市街地を急峻な山々が取り囲む現代の十津川の風景（2011年撮影）"
 photoCredit: "写真：Wikimedia Commons／Soica2001（パブリックドメイン・2011年撮影）"
