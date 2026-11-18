@@ -17,7 +17,7 @@ for (const article of kiiArticles) {
       throw Error(`${article.slug}: invalid section paragraphs`);
     }
   }
-  if (article.tags && (!Array.isArray(article.tags) || article.tags.some(tag=>!tags.has(tag)))) throw Error(`${article.slug}: unregistered natural tag`);
+  if (article.tags && (!Array.isArray(article.tags) || article.tags.length > 3 || article.tags.some(tag=>!tags.has(tag)))) throw Error(`${article.slug}: natural tags must be at most three and registered`);
   if (article.imageUrl && (!article.alt || !article.photoCredit)) throw Error(`${article.slug}: photo requires alt text and credit`);
   if (article.sources && (!Array.isArray(article.sources) || article.sources.some(s=>!s.label || !/^https:\/\//.test(s.url || '')))) {
     throw Error(`${article.slug}: invalid source reference`);
