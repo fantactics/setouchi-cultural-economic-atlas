@@ -91,6 +91,11 @@ content:
         type: string
         list: true
         readonly: true
+      - name: cultureTags
+        label: 文化・営みタグ
+        type: string
+        list: true
+        readonly: true
       - name: title
         label: タイトル
         type: string
