@@ -27,11 +27,10 @@ export const atlasSites = {
     name: 'KII ATLAS',
     tagline: 'ランドスケープ = ネイチャー x カルチャー',
     description: '山、川、森、海。紀伊半島の風景から自然と文化のつながりをたどるエッセイ。',
-    // First-stage preview within the existing GitHub Pages deployment.
-    // A dedicated public origin can be introduced later without moving article data.
+    // Internal shared-build path; the standalone KII bundle rewrites this to its own domain.
     basePath: '/setouchi-cultural-economic-atlas/kii/',
     theme: 'forest',
-    indexable: true, // KII is published at kii-atlas.pages.dev; allow Google indexing.
+    indexable: true, // Canonical production domain: kii-atlas.pia2.org.
     navigation: [
       { label: 'トップ', path: '' },
       { label: '一覧', path: 'book/' },
