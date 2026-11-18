@@ -4,7 +4,8 @@ title: "橋杭岩は、なぜ橋にならなかったのか"
 teaser: "朝日を待つ海に、橋の杭のような岩が並ぶ。地下のマグマの跡に、人は弘法大師の物語を重ねた。"
 region: "串本・橋杭岩"
 category: "観光景観"
-tags: ["潮汐","海風"]
+tags: ["岩脈", "津波"]
+cultureTags: ["弘法大師伝説"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2025/01/hashikui.jpg?resize=775%2C581&ssl=1"
 alt: "串本の橋杭岩。夜明けの淡い光の中、いくつもの岩の塔が海を横切るように並んでいる"
 photoCredit: "写真：クアトロのジオ紀行"
