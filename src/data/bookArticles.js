@@ -530,7 +530,7 @@ export const bookArticles = [
                               7
                     ]
           }
-]
+        ],
         "photoIds": [
             "photo-imabari-hashihama"
         ]
