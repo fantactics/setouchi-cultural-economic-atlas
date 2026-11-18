@@ -758,7 +758,7 @@ export const bookArticles = [
     subtitle:'少雨の畑で育った小麦、冬の寒風に揺れる白い麺、そして土庄港の製油工場へ',
     cities:['小豆島','土庄','池田'],
     keywords:['小豆島','手延べ素麺','小麦','少雨','湧水','寒風','天日干し','ごま油','かどや製油','土庄港','製粉','讃岐うどん'],
-    heroPhotoId:'photo-shodoshima-olive-sea',
+    heroPhotoId:'photo-shodoshima-somen',
     lead:'冬の小豆島では、細く延ばした素麺が白いカーテンのように風に揺れる。海に囲まれた島の、雨の少ない季節の風景だ。この素麺をつくるために使われてきた油が、やがて土庄港に大きな製油工場を生む。けれど話の始まりは油ではない。雨が少なく、水の使い方を工夫してきた瀬戸内の農業と、そこで育った小麦にある。どうして麦が麺になり、島の冬の仕事が港の工業へつながっていったのだろう。',
     sections:[
       {
@@ -833,7 +833,7 @@ export const bookArticles = [
       {id:6,title:'そうめんができるまで――小麦粉・塩・ごま油・天日干し',publisher:'小豆島手延素麺協同組合',url:'https://shimanohikari.or.jp/process.html'},
       {id:7,title:'冬の天日干しと少雨・寒風',publisher:'KSB瀬戸内海放送',url:'https://news.ksb.co.jp/article/16278122'},
       {id:8,title:'小豆島の素麺とかどや製油の歴史',publisher:'本州四国連絡高速道路 瀬戸マーレ',url:'https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html'},
-      {id:9,title:'かどや製油 会社沿革――1858年創業、1961年土庄港新工場',publisher:'かどや製油株式会社',url:'https://www.kadoya.com/company/page03.html'},
+      {id:9,title:'かどや製油 会社沿革――1858年創業、1961年土庄港新工場',publisher:'かどや製油株式会社',url:'https://www.kadoya.com/company/history/'},
       {id:10,title:'かどや製油 会社概要――原料ごまの海外調達',publisher:'かどや製油株式会社',url:'https://www.kadoya.com/company/'},
       {id:11,title:'小豆島町文化財保存活用地域計画 第6章――殿川水系の製粉水車遺構と水天宮',publisher:'小豆島町',url:'https://www.town.shodoshima.lg.jp/material/files/group/26/06_kanren.pdf'}
     ]
