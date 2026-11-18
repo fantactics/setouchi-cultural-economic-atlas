@@ -4,7 +4,8 @@ title: "高野山は、山の頂上ではなかった"
 teaser: "霧が流れる山の向こうに、寺も店も宿もある町が現れる。高野山の聖地を支えたのは、山上に広がる平らな土地と、そこへ続く道だった。"
 region: "高野山・高野町"
 category: "信仰景観"
-tags: ["山地","森林"]
+tags: ["山上の平地", "山地", "霧"]
+cultureTags: ["宗教都市", "宿坊", "参詣道"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/09/kiri.jpg?resize=760%2C570&ssl=1"
 alt: "高野山への山道から眺める夕暮れ。幾重もの山の谷筋に白い霧がたまっている"
 photoCredit: "写真：クアトロのジオ紀行"
