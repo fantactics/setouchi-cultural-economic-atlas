@@ -9,7 +9,7 @@ import '../../styles/reader-navigation.css';
 const site = atlasSites.kii;
 const stories = kiiArticles.map((article)=>({ ...article, href: `${site.basePath}book/${article.slug}/` }));
 // Photo-first, concise front page: three feature stories, three more and a search box.
-// Full listings, places, and nature tags have their own dedicated pages.
+// Full listings, places, nature tags, and culture tags have dedicated pages.
 const featured = stories.slice(0, 3);
 const otherStories = stories.slice(-3);
 const randomPickPool = stories.filter((s)=>s.imageUrl).map(({href,imageUrl,alt,title,region,teaser})=>({href,imageUrl,alt,title,region,teaser}));
