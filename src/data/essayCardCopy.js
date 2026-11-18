@@ -48,7 +48,7 @@ export const essayCardCopy = {
     "photoId": "photo-mitarai-townscape"
   },
   "yanai-trade-profit-to-whitewalls": {
-    "teaser": "白壁の商家が続く柳井。港の商いは町に何を残したのか。"
+    "teaser": "白壁の通りは200メートル。一軒の商家は奥行119メートル。その裏が、かつて海岸だったとは。"
   },
   "mihara-castle-to-multimodal-city": {
     "teaser": "駅の下に城の本丸がある。三原の街を変えた交通の選択。"
