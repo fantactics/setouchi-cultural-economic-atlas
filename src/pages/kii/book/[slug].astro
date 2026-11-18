@@ -12,5 +12,5 @@ const site = atlasSites.kii;
 const MarkdownContent = kiiMarkdownBySlug[article.slug]?.Content;
 ---
 <BaseLayout siteKey="kii" title={article.title} description={article.teaser || site.description} image={article.imageUrl || null} imageAlt={article.alt || article.title}>
-  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" MarkdownContent={MarkdownContent} showCredits={false} showSources={true} />
+  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" MarkdownContent={MarkdownContent} showCredits={false} showSources={true} natureHref={site.basePath + 'nature/'} cultureHref={site.basePath + 'culture/'} />
 </BaseLayout>
