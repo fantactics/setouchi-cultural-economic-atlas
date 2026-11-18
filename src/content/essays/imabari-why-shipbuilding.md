@@ -6,17 +6,19 @@ subtitle: "塩田の遠浅と造船所の水深――波止浜湾から大西・
 cities: ["波止浜","今治","大西","丸亀","来島海峡"]
 keywords: ["造船","波止浜","塩田","遠浅","水深","浚渫","埋立","来島海峡","潮待ち","修船","大型船","大西","丸亀","船主"]
 heroPhotoId: "photo-imabari-kurushima"
-lead: "波止浜湾の岸に、造船所のクレーンが並ぶ。その湾の奥には、かつて塩田が広がっていた。塩田には遠浅の海が都合よい。しかし、船が大きくなれば深い水と広い水面が必要になる。浅い海を利用した塩の町が、どうして造船の町になれたのだろう。答えは、湾の中を掘り、塩田を埋め、それでも足りなくなると造船所を別の海辺へ広げていった歴史にある。"
+lead: "いま波止浜湾の岸には、造船所のクレーンが並ぶ。けれど、かつての波止浜は塩田で栄えた塩の町だった。塩田には遠浅の海が向く。一方、大きな船を造り、海へ送り出すには、深い水と広い水面が要る。まるで反対の条件だ。浅い海で塩をつくっていた土地は、どうして造船の町になれたのだろう。波止浜の海と陸が、時代ごとにどう使われ、どう変わってきたかをたどる。"
 provisionalConclusion: "湾奥の遠浅に塩田を築くことと、湾内の泊地で船を待たせ修繕することは地形的に両立した。波止浜港は大正期以降複数回浚渫され、塩田の一部を埋め立てて造船所を置いた。しかし湾の狭さと水深は大型船建造の制約となり、新来島どっくは大西、今治造船は丸亀に大型造船拠点を拡張した。造船業の成長は港の深さのみに依存せず、土地改変と拠点分散、既存の修船技術・船主需要の蓄積に支えられた。"
 openQuestions: ["波止浜湾の時代別海図・水深図で浚渫範囲の変化を確認する","旧塩田・波止浜の造船所・大西と丸亀の拡張先を年代別の地図で示す","各造船所の船台・ドックの規模と建造船型の変化を比較する"]
 sources: [{"id":1,"title":"今治の歴史 海事編","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/kaiji/rekisi/"},{"id":2,"title":"日本最大の海事都市今治とは","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/kaiji/about/"},{"id":3,"title":"今治海事都市発展ビジョン","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/kaiji/vision/"},{"id":4,"title":"臨海都市圏の生活文化―今治の造船・波止浜湾","publisher":"愛媛県生涯学習センター「えひめの記憶」","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:1/5/view/963"},{"id":5,"title":"愛媛県史 地誌Ⅱ・波止浜港（浚渫と塩田跡地）","publisher":"愛媛県生涯学習センター「えひめの記憶」","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:2/33/view/4729"},{"id":6,"title":"愛媛県史 地誌Ⅰ・造船業の立地と塩田埋立","publisher":"愛媛県生涯学習センター「えひめの記憶」","url":"https://i-manabi.jp/system/regionals/regionals/ecode:2/31/view/4432"},{"id":7,"title":"愛媛県史 社会経済３・鋼船の大型化と波止浜の水深制約","publisher":"愛媛県生涯学習センター「えひめの記憶」","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:2/45/view/5826"},{"id":8,"title":"郷土紹介 造船の町 今治（波止浜湾の形状）","publisher":"西部造船会","url":"https://www.jasnaoe.or.jp/old_sites/wjsna/mm/017/article02.html"},{"id":9,"title":"会社沿革（1968年 大西移転）","publisher":"株式会社新来島どっく","url":"https://www.skdy.co.jp/company/"},{"id":10,"title":"丸亀事業本部新社屋建設のお知らせ（1971年操業・大型船建造）","publisher":"今治造船株式会社","url":"https://www.imazo.co.jp/news/230703/"},{"id":11,"title":"新来島波止浜どっく（現在の小型船の建造・修理）","publisher":"株式会社新来島どっく","url":"https://www.skdy.co.jp/group/hashihama/"},{"id":12,"title":"波止浜製塩業と塩田跡地の土地利用","publisher":"愛媛県生涯学習センター「えひめの記憶」","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:1/27/view/3793"}]
 migration: {"status":"generated-copy","publicUrl":"/book/imabari-why-shipbuilding/"}
 ---
-## 塩田と造船所が、同じ湾にある
+## 塩の町が、造船の町になった
 
-波止浜湾の水辺には造船所のクレーンが並ぶ。ところが、かつての波止浜は塩の町だった。湾の奥の遠浅の海を堤で囲み、塩田を築いた。船を造る工場と、浅い海を利用する塩田。一見、正反対の土地利用に思える。 [1](#source-1) [5](#source-5)
+いま波止浜湾の岸に目を向けると、造船所の設備が見える。しかし、この水辺の昔の仕事をたどると、まず塩田に出会う。湾の奥の遠浅の海を堤で囲み、海水から塩をつくっていた。波止浜は、かつて塩の町だった。 [1](#source-1) [5](#source-5)
 
-塩田は船を浮かべるための場所ではない。海水を引き込み、濃くして塩を得るための土地だ。一方、船が出入りしたのは、海へ開いた湾内の水路や泊地だった。湾の奥の浅い場所を製塩に、船が通れる水面を港に使う。二つの仕事は、同じ湾にあっても、同じ水深を必要としていたわけではない。 [5](#source-5) [8](#source-8)
+塩田にとって、浅い海は利用しやすい土地だった。ところが造船では、造った船を浮かべ、海へ送り出さなければならない。船が大きくなれば、船台やドックだけでなく、その前に十分な水深と広さが要る。塩田に適した海と、大型船を造るのに適した海は、むしろ反対ではないだろうか。
+
+この疑問を解くには、塩田があった場所と船が出入りした場所を分け、さらに時代を追う必要がある。湾奥の浅い土地が製塩に使われる一方、海へ開いた水路や泊地には船が寄った。やがて港の底が掘られ、塩田の一部は工場用地に変わり、さらに大型船の造船所は湾の外へ広がっていく。波止浜では、仕事が変わるたびに、必要な海と陸の形も変わってきた。 [5](#source-5) [6](#source-6) [7](#source-7)
 
 <figure class="atlas-inline-photo">
   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hashihama%20Port.jpg?width=1200" alt="愛媛県今治市の波止浜港。細長い湾に造船所が並ぶ" loading="lazy" decoding="async" />
