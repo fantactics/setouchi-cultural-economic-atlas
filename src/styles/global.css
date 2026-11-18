@@ -2956,3 +2956,7 @@ footer { padding: 3rem 5vw; border-top: 1px solid var(--line); color: var(--mute
   text-decoration:none;
 }
 
+
+/* KII's three discovery entrances also fit narrow phone widths. */
+body.atlas-theme-forest .site-header nav{flex-wrap:wrap;row-gap:.35rem}
+@media(max-width:600px){body.atlas-theme-forest .site-header nav{gap:.4rem .85rem;font-size:.8rem}}
