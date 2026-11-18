@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { atlasSites } from '../../../config/atlasSites.js';
+import { kiiArticles } from '../../../data/kiiCmsArticles.js';
+import '../../../styles/reader-navigation.css';
+import '../../../styles/kii-discovery.css';
+
+const site = atlasSites.kii;
+const names = [...new Set(kiiArticles.flatMap(article => article.cultureTags || []))]
+  .sort((a, b) => a.localeCompare(b, 'ja'));
+const tags = names
+  .map(name => ({ name, stories: kiiArticles.filter(article => article.cultureTags?.includes(name)) }))
+  .filter(group => group.stories.length);
+if (kiiArticles.some(article => !article.cultureTags?.length)) {
+  throw Error('Every KII essay must have at least one culture-and-livelihood tag');
+}
+---
+<BaseLayout siteKey="kii" title="文化・営みから" description="信仰、暮らし、ものづくり、交通、景観保全。紀伊半島の文化と人の営みからエッセイを探す。">
+  <div class="reader-home kii-discovery">
+    <header class="kii-discovery-header">
+      <p class="reader-eyebrow">CULTURE & STORIES</p>
+      <h1>文化・営みから</h1>
+      <p>信仰、仕事、技術、旅、暮らし。土地の自然と向き合いながら、人々が育んできた文化や営みから風景をたどります。</p>
+    </header>
+    <nav class="kii-discovery-jumps" aria-label="文化・営みで探す">
+      {tags.map(({name}) => <a href={`#culture-${encodeURIComponent(name)}`}>{name}</a>)}
+    </nav>
+    <div class="kii-discovery-list">
+      {tags.map(({name,stories}) => <section class="kii-discovery-section" id={`culture-${name}`}>
+        <div class="kii-discovery-heading">
+          <h2>{name}</h2>
+          <p>{stories.length}篇のエッセイ</p>
+        </div>
+        <div class="kii-discovery-links">
+          {stories.map(article => <a class="kii-discovery-link" href={`${site.basePath}book/${article.slug}/`}>
+            {article.imageUrl && <img src={article.imageUrl} alt={article.alt || article.title} loading="lazy" />}
+            <span><strong>{article.title}</strong><small>{article.region} ・ {article.teaser}</small></span>
+            <span class="kii-discovery-arrow" aria-hidden="true">↗</span>
+          </a>)}
+        </div>
+      </section>)}
+    </div>
+  </div>
+</BaseLayout>
