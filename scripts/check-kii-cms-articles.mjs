@@ -26,7 +26,7 @@ for(const name of files){
   // validate presence/identity, not the incidental formatting of lists.
   const fm=match[1];
   const keys=[...fm.matchAll(/^([a-zA-Z]\w*):/gm)].map(x=>x[1]);
-  for(const key of ['slug','title','teaser','region','category','tags','imageUrl','alt','photoCredit','sources']){
+  for(const key of ['slug','title','teaser','region','category','tags','cultureTags','imageUrl','alt','photoCredit','sources']){
     if(!keys.includes(key)) throw Error('Missing KII field '+key+': '+slug);
   }
   const readScalar=(key)=>{
