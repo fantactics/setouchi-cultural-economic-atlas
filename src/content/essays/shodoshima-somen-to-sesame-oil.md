@@ -8,7 +8,7 @@ keywords: ["小豆島","手延べ素麺","小麦","少雨","湧水","寒風","�
 heroPhotoId: "photo-shodoshima-somen"
 lead: "冬の小豆島、細く延ばした素麺が干し台から白い糸のように垂れている。よく見ると、この麺には油が塗られている。くっつかず、切れずに長く延ばすための、ごま油だ。その油をつくる仕事は、やがて土庄港に大きな工場を生んだ。冬の干し台と港の製油工場。二つの風景を結ぶものは、一本の細い素麺だった。"
 researchLinks: [{"label":"関連作品｜醤油蔵の町に佃煮工場が生まれた","href":"/setouchi-cultural-economic-atlas/book/shodoshima-open-island/"},{"label":"実物写真｜小豆島の素麺を干す風景","href":"https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e"},{"label":"実物写真｜土庄港のかどや製油工場","href":"https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html"}]
-provisionalConclusion: "少雨・短い河川という水制約の下、香川県では稲作と裏作の小麦が組み合わされた。小豆島にもかつて小麦・ごま栽培と湧水利用があり、冬の少雨と寒風は手延べ素麺の乾燥に適した。素麺製造の油需要を背景に1858年に加登屋製油所が創業し、島外市場へ進出したのち1961年に土庄港の新工場へと発展した。自然条件は産業を自動的に決めたのではなく、農業・加工技術・企業活動によって景観に転換された。"
+provisionalConclusion: "少雨・短い河川という水制約の下、香川県では稲作と裏作の小麦が組み合わされた。小豆島にもかつて小麦・ごま栽培と湧水利用があり、冬の少雨と寒風は手延べ素麺の乾燥に適した。素麺製造の油需要を背景に1858年に角屋製油所が創業し、島外市場へ進出したのち1961年に土庄港の新工場へと発展した。自然条件は産業を自動的に決めたのではなく、農業・加工技術・企業活動によって景観に転換された。"
 openQuestions: ["島内の小麦栽培と水田裏作の割合を近世村別に把握できるか","小豆島の製粉水車があった流域と製麺所の立地を旧地図で比較できるか","かどやの創業時に島内の素麺製造業者が占めていた売上比率を確かめられるか","土庄港の1961年工場用地の造成史と土地利用を地図で検証できるか"]
 sources: [{"id":1,"title":"香川県の郷土料理と農業――少雨・ため池・水田裏作の小麦","publisher":"農林水産省","url":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/kagawa.html"},{"id":2,"title":"冬が最盛期！小豆島の素麺づくりを見に行ってきました","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e"},{"id":3,"title":"湯船の水と中山の千枚田","publisher":"小豆島町","url":"https://www.town.shodoshima.lg.jp/kanko/miru/nature/yufunenomizu.html"},{"id":4,"title":"湯船の水――水不足の島の湧水","publisher":"環境省 名水百選","url":"https://water-pub.env.go.jp/water-pub/mizu-site/meisui/data/index.asp?info=76"},{"id":5,"title":"小豆島の手延べ素麺と三輪からの製法伝来","publisher":"香川県観光協会","url":"https://www.my-kagawa.jp/shodoshima/feature/shodoshima/beauty4"},{"id":6,"title":"そうめんができるまで――小麦粉・塩・ごま油・天日干し","publisher":"小豆島手延素麺協同組合","url":"https://shimanohikari.or.jp/process.html"},{"id":7,"title":"冬の天日干しと少雨・寒風","publisher":"KSB瀬戸内海放送","url":"https://news.ksb.co.jp/article/16278122"},{"id":8,"title":"小豆島の素麺とかどや製油の歴史","publisher":"本州四国連絡高速道路 瀬戸マーレ","url":"https://www.jb-honshi.co.jp/kanko/seto_mare/jimototuu/jimototuu4_02/index.html"},{"id":9,"title":"かどや製油 会社沿革――1858年創業、1961年土庄港新工場","publisher":"かどや製油株式会社","url":"https://www.kadoya.com/company/history/"},{"id":10,"title":"かどや製油 会社概要――原料ごまの海外調達","publisher":"かどや製油株式会社","url":"https://www.kadoya.com/company/"},{"id":11,"title":"小豆島町文化財保存活用地域計画 第6章――殿川水系の製粉水車遺構と水天宮","publisher":"小豆島町","url":"https://www.town.shodoshima.lg.jp/material/files/group/26/06_kanren.pdf"}]
 migration: {"status":"generated-copy","publicUrl":"/book/shodoshima-somen-to-sesame-oil/"}
@@ -31,7 +31,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/shodoshima-somen-to-ses
 
 素麺の生地は、表面にごま油を塗って延ばされる。素麺をたくさんつくる島には、それを支える油もたくさん要る。かつては島内でごまを栽培し、素麺用の油を搾る人々もいた。 [5](#source-5) [6](#source-6) [8](#source-8)
 
-1858年、小豆島で加登屋製油所が創業した。のちのかどや製油である。島の素麺づくりは、ごま油の重要な買い手だった。細い麺をつくるための材料が、製油というもう一つの産業を育てるきっかけになった。 [8](#source-8) [9](#source-9)
+1858年、小豆島で角屋製油所が創業した。のちに加登屋製油所と名を変え、現在のかどや製油につながる。島の素麺づくりは、ごま油の重要な買い手だった。細い麺をつくるための材料が、製油というもう一つの産業を育てるきっかけになった。 [8](#source-8) [9](#source-9)
 
 ## 製油工場は、土庄港へ
 
