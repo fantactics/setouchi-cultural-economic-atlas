@@ -10,7 +10,11 @@ export const kiiMarkdownBySlug = Object.fromEntries(
 export const kiiArticles = legacyKiiArticles.map((article) => {
   const markdown = kiiMarkdownBySlug[article.slug];
   if (!markdown) throw Error('KII Markdown not found: ' + article.slug);
-  return { ...article, ...markdown.frontmatter, slug: article.slug, tags: (markdown.frontmatter.tags || article.tags || []).slice(0, 3) };
+  return {
+    ...article, ...markdown.frontmatter, slug: article.slug,
+    tags: (markdown.frontmatter.tags || article.tags || []).slice(0, 3),
+    cultureTags: (markdown.frontmatter.cultureTags || []).slice(0, 3)
+  };
 });
 
 if (Object.keys(kiiMarkdownBySlug).length !== legacyKiiArticles.length) {
