@@ -92,7 +92,7 @@ export const essayCardCopy = {
     "teaser": "魚をさばいたあとに残るものが、みかん畑の土を支える。"
   },
   "olive-pomace-to-cattle": {
-    "teaser": "小豆島の陽ざしと水はけのよい土が育てた実は、牛肉の名産まで生んだ。"
+    "teaser": "牛飼いは、なぜオリーブの搾りかすに目をつけたのか。島の二つの産業を結んだ発想と工夫。"
   },
   "ibuki-fat-sardines-revalued": {
     "teaser": "伊吹島のイワシは、脂がのったとき別の行き先を見つけた。"
