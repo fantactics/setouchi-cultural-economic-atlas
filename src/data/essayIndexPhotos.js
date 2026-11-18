@@ -68,6 +68,8 @@ export const essayCardPhotoContext = {
   "kada-steel-data-center-transition": "2014年の和歌山製鉄所（データセンターではありません）",
   "setouchi-sushi-not-nigiri": "ちらし寿司の参考写真",
   "oysters-taste-of-small-seas": "広島湾の養殖筏",
+  "oyster-shells-where-they-go": "米国の牡蠣殻集積（広島ではない比較写真）",
+  "kojima-jeans-circular-economy": "児島のジーンズストリート（ノーリベット製品ではありません）",
   "hijiki-tidal-time": "干潮時の採集（沖縄の比較写真）",
   "setouchi-shrimp-middle-layer": "ヨシエビの参考写真",
   "mikan-slope-and-varieties": "狩浜の石積み柑橘段畑（比較景観）",
