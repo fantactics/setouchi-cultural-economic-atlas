@@ -2074,7 +2074,7 @@ export const bookArticles = [
   {
     "slug": "yanai-trade-profit-to-whitewalls",
     "part": "富は、町に何を残したのか",
-    "title": "川の港が、二百メートルの白壁の町をつくった",
+    "title": "川の港から運ばれる木綿と油が、二百メートルの白壁の町をつくった",
     "subtitle": "白壁の奥は、蔵と油の工場だった――農村と海を結んだ柳井津の商い",
     "cities": [
       "柳井"
