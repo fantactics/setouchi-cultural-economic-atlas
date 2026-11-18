@@ -27,7 +27,7 @@ export const bookArticles = [
       "海岸侵食",
       "透水性舗装材"
     ],
-    "heroPhotoId": "photo-hiroshima-oyster-rafts",
+    "heroPhotoId": "photo-oyster-shell-pile-comparative",
     "lead": "冬の広島湾。牡蠣のむき身を取り出す作業場のそばには、殻の山ができる。牡蠣を食べた人が捨てたのではない。むしろ食卓に届く前に、殻だけが産地に残されたのだ。広島県が推計する発生量は年におよそ20万立方メートル。石灰質の材料として役立つはずなのに、なぜ殻は余るのだろう。殻の行き先を追うと、牡蠣を育てる海の中に、もう一つの保管場所があった。",
     "sections": [
       {
