@@ -77,7 +77,7 @@ export const essayCardCopy = {
     "teaser": "日生の祝いのこうこずし。春のサワラは、二つの水道から海を渡ってくる。"
   },
   "oysters-taste-of-small-seas": {
-    "teaser": "日生へ届く二つの川と、広島湾の太田川。牡蠣筏の下の見えない水をたどる。"
+    "teaser": "水面には同じ筏。その下では、日生と広島湾で違う水が牡蠣を育てている。"
   },
   "hijiki-tidal-time": {
     "teaser": "周防大島の南、沖家室島。岩場に育つひじきが産地になる条件をたどる。"
