@@ -67,7 +67,7 @@ export const essayCardCopy = {
     "photoId": "photo-takamatsu-seawater-moat"
   },
   "tai-meshi-two-seas": {
-    "teaser": "来島海峡の速い潮と、黒潮が届く宇和海。二つの海に二つの鯛めし。"
+    "teaser": "同じ「鯛めし」でも一尾を炊くか、生でかけるか。坂出・鞆・明石、そして豊後水道へ食文化の分布をたどる。"
   },
   "shimotsui-tako-meshi": {
     "teaser": "下津井の港に干しダコが並ぶ。その漁の先に、倉敷のたこめしがある。",
