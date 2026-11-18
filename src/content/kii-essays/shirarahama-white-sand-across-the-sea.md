@@ -4,7 +4,8 @@ title: "白良浜の白い砂は、海を渡ってきた"
 teaser: "歌に詠まれた白砂の名勝が、外国の砂で守られている。白良浜の白さを残すために、人は何を選び、何を手放したのだろう。"
 region: "白浜・白良浜"
 category: "観光景観"
-tags: ["石英","漂砂","波浪"]
+tags: ["白砂", "漂砂", "波浪"]
+cultureTags: ["養浜", "景観保全"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg?resize=760%2C570&ssl=1"
 alt: "白良浜の砂浜と海に沈む夕日、手前に護岸の構造物が見える"
 photoCredit: "写真：クアトロのジオ紀行"
