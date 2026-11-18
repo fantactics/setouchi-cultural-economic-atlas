@@ -2705,12 +2705,12 @@ export const bookArticles = [
   {
     slug:'tai-meshi-two-seas',
     part:'食は、土地を語る',
-    title:'二つの海、二つの鯛めし',
-    subtitle:'来島海峡の潮と宇和海の入り江が、二つの食卓につながるまで',
+    title: "二つの海、二つの鯛めし",
+    subtitle: "北条の一釜、宇和島の一膳。鯛の食べ方に重なる海の記憶",
     cities:['松山','今治','宇和島'],
     keywords:['鯛めし','真鯛','愛媛','瀬戸内海','宇和海','漁師料理','郷土料理','ガストロノミー'],
     heroPhotoId:'photo-imabari-kurushima',
-    lead:"今治の来島海峡では、島と島の間を速い潮が流れる。南へ下った宇和島の海には、山が迫る入り江に鯛の養殖いけすが浮かぶ。愛媛の鯛めしにも、二つの姿がある。今治や松山・北条では鯛を米と炊いて皆で取り分け、宇和島では生の鯛を卵入りのたれにからめ、一人ひとりのご飯へかける。前者には祝いの席や鯛の献上につながる伝承が、後者には船上で食べる漁師めしの伝承がある。盛り付けの違いの向こうに、鯛を囲んだ人々の暮らしが見えてくる。",
+    lead: "愛媛で鯛めしを注文すると、鯛が一尾のって炊き上がったご飯が出てくることもあれば、生の鯛を卵入りのたれにからめ、ご飯にかけて食べることもある。料理の名前は同じなのに、ずいぶん違う。北条・今治の炊き込み型と、宇和島の生食型。二つの鯛めしをたどると、速い潮の海と入り江の海、そしてそこで魚を食べてきた人々の歴史が見えてくる。",
     sections:[
       {
         "heading": "来島海峡、潮の速い海の鯛",
@@ -2806,19 +2806,9 @@ export const bookArticles = [
         "photoIds": []
       }
     ],
-    provisionalConclusion:'来島海峡の速い潮に育つ天然マダイと、黒潮の海水が届く宇和海の深い入り江という自然環境の違いを、北条・今治の炊き込み鯛めしと宇和島の生食型鯛めしの背景として描く。二つの調理法が環境の違いから必然的に生まれたとは断定せず、北条鹿島の伝承と南予の船上食の伝承を区別する。',
-    openQuestions:['炊き込み型と宇和島型が文献上いつから区別できるか','漁法・船上食・祝い食との関係を地域史料で追えるか','現代の養殖真鯛の普及が鯛めしの提供地域と価格をどう変えたか'],
-    sources:[
-      {id:1,title:'2種類あるって知ってた？愛媛の鯛めし',publisher:'愛媛県',url:'https://www.pref.ehime.jp/site/mican/16868.html'},
-      {id:2,title:'鯛めし 愛媛県',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/taimeshi_ehime.html'},
-      {id:3,title:'愛媛県の伝統食を知る',publisher:'農林水産省「うちの郷土料理」',url:'https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/ehime.html'},
-      {id:4,title:'愛媛の鯛めし 3つの鯛めしを徹底解説',publisher:'愛媛県公式観光サイト いよ観ネット',url:'https://www.iyokannet.jp/feature/tai/taimeshi'},
-      {id:5,title:'愛顔のえひめ 令和8年9月号「東予・洋風焼き鯛めし」',publisher:'愛媛県',url:'https://www.pref.ehime.jp/page/156309.html'},
-      {id:6,title:'マダイ―来島海峡の天然鯛と愛媛の養殖',publisher:'愛媛県',url:'https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_madai.html'},
-      {id:7,title:'環境科学研究部門―宇和海のリアス海岸と黒潮',publisher:'愛媛大学南予水産研究センター',url:'https://ccr.ehime-u.ac.jp/cnf/researches-contents/environment-science/'},
-      {id:8,title:'愛媛県の100年フード（北条鯛めし・宇和島鯛めし）',publisher:'文化庁',url:'https://www.bunka.go.jp/seisaku/shokubunka/foodculture/hyakunenfood/jirei/list_ehime.html'},
-      {id:9,title:'愛媛県の海面養殖業（リアス海岸と黒潮）',publisher:'愛媛県',url:'https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/documents/sakanakun_flyer.pdf'}
-    ]
+    provisionalConclusion: "北条・今治の炊き込み鯛めしと宇和島の生食型鯛めしを、食べる場面と伝承から対比する。来島海峡の急潮と、宇和海の入り江・養殖環境は食材供給の背景となるが、海の自然条件だけで調理法の違いが生じたとは断定しない。北条鹿島の献上伝承、宇和島の船上食伝承、現代の養殖を時代別に区別する。",
+    openQuestions: ["炊き込み型と宇和島型が文献上いつから区別できるか","漁法・船上食・祝い食との関係を地域史料で追えるか","現代の養殖真鯛の普及が鯛めしの提供地域と価格をどう変えたか"],
+    sources: [{"id":1,"title":"2種類あるって知ってた？愛媛の鯛めし","publisher":"愛媛県","url":"https://www.pref.ehime.jp/site/mican/16868.html"},{"id":2,"title":"鯛めし 愛媛県","publisher":"農林水産省「うちの郷土料理」","url":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/taimeshi_ehime.html"},{"id":3,"title":"愛媛県の伝統食を知る","publisher":"農林水産省「うちの郷土料理」","url":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/ehime.html"},{"id":4,"title":"愛媛の鯛めし 3つの鯛めしを徹底解説","publisher":"愛媛県公式観光サイト いよ観ネット","url":"https://www.iyokannet.jp/feature/tai/taimeshi"},{"id":5,"title":"愛顔のえひめ 令和8年9月号「東予・洋風焼き鯛めし」","publisher":"愛媛県","url":"https://www.pref.ehime.jp/page/156309.html"},{"id":6,"title":"マダイ―来島海峡の天然鯛と愛媛の養殖","publisher":"愛媛県","url":"https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/fish_madai.html"},{"id":7,"title":"環境科学研究部門―宇和海のリアス海岸と黒潮","publisher":"愛媛大学南予水産研究センター","url":"https://ccr.ehime-u.ac.jp/cnf/researches-contents/environment-science/"},{"id":8,"title":"愛媛県の100年フード（北条鯛めし・宇和島鯛めし）","publisher":"文化庁","url":"https://www.bunka.go.jp/seisaku/shokubunka/foodculture/hyakunenfood/jirei/list_ehime.html"},{"id":9,"title":"愛媛県の海面養殖業（リアス海岸と黒潮）","publisher":"愛媛県","url":"https://www.pref.ehime.jp/h37100/suisan_okoku_ehime/documents/sakanakun_flyer.pdf"}]
   },
   {
     slug:'shimotsui-tako-meshi',
@@ -2946,12 +2936,12 @@ export const bookArticles = [
   {
     slug:'oysters-taste-of-small-seas',
     part:'食は、土地を語る',
-    title:'牡蠣の筏が浮かぶ海',
-    subtitle:'日生と広島湾。静かな水面の下で、川と潮が牡蠣を育てる',
+    title: "牡蠣の筏が浮かぶ海",
+    subtitle: "日生と広島湾。同じ筏の下に、違う海がある",
     cities:['日生','広島湾'],
     keywords:['牡蠣','日生','広島湾','養殖','一年牡蠣','植物プランクトン','河川','海域差','ガストロノミー'],
     heroPhotoId:'photo-hinase-bay',
-    lead:"日生の海を見渡すと、島と島のあいだに四角い牡蠣筏が並んでいる。広島湾にも、よく似た景色が広がる。波の静かな場所に浮かぶ筏。その下では、牡蠣が海水を取り込み、目に見えない植物プランクトンを食べている。海からは見えない川の働きが、この風景を支えている。",
+    lead: "日生の沖にも、広島湾にも、海面には四角い牡蠣筏が並ぶ。上から眺めれば、よく似た景色だ。ところが筏の下では、海水が流れ、植物プランクトンが増え、牡蠣がそれを食べている。餌をまかずに育てる牡蠣にとって、海そのものが畑になる。水面には見えない二つの海の違いを、たどってみたい。",
     sections:[
       {
         "heading": "静かな筏の下で、牡蠣が育つ",
@@ -3053,24 +3043,9 @@ export const bookArticles = [
         "photoIds": []
       }
     ],
-    provisionalConclusion:'日生の吉井川・千種川、広島湾の太田川という異なる水系から養分を受け、島や岬の地形によって海水の滞留と交換が変わる。牡蠣の成長はその水中の植物プランクトンに支えられる。2025年のへい死は水温・塩分・酸素等の変動が大きな影響を持つことを示した。アマモ再生は地域の別の生態系保全であり、牡蠣の直接的な餌供給と混同しない。',
-    openQuestions:['日生・広島湾・寄島・邑久などを同じ時期に官能評価すると味の海域差はどこまで再現できるか','塩分・クロロフィル・水温・養殖期間と味覚成分を重ねられるか','料理法は牡蠣の産地特性にどこまで適応して形成されたのか'],
-    sources:[
-      {id:1,title:'「日生かき」が全国牡蠣－1グランプリを受賞',publisher:'備前市',url:'https://www.city.bizen.okayama.jp/soshiki/18/28311.html'},
-      {id:2,title:'おかやまの牡蠣',publisher:'岡山県公式観光サイト',url:'https://www.okayama-kanko.jp/feature/okayama-gourmet/04'},
-      {id:3,title:'本格シーズン到来！生産量日本一を誇る牡蠣の最新事情とは!?',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/lab/topics/20211108/01/'},
-      {id:4,title:'広島牡蠣',publisher:'国土交通省 地域観光資源の多言語解説文データベース',url:'https://www.mlit.go.jp/tagengo-db/R1-00503.html'},
-      {id:5,title:'広島人が伝授！牡蠣のおすすめ処理＆食べ方って？春牡蠣情報も！',publisher:'広島県',url:'https://www.pref.hiroshima.lg.jp/lab/topics/20230512/01/'},
-      {id:6,title:'広島湾カキ養殖場における水理特性',publisher:'水産海洋研究（農林水産研究情報総合センター収録）',url:'https://agriknowledge.affrc.go.jp/RN/2030611631.pdf'},
-      {id:7,title:"旬は直売所にあり！岡山の産直訪問「牡蠣の直売所」編",publisher:"岡山観光WEB",url:"https://www.okayama-kanko.jp/okatabi/1206/page"},
-      {id:8,title:"日生諸島",publisher:"岡山観光WEB",url:"https://www.okayama-kanko.jp/feature/island/02"},
-      {id:9,title:"日生町漁業協同組合によるアマモ再生プロジェクト",publisher:"地域再生大賞",url:"https://chiikisaisei.jp/organization/num-635"},
-      {id:10,title:"カキ養殖（太田川が育てる広島湾）",publisher:"国土交通省中国地方整備局",url:"https://www.cgr.mlit.go.jp/ootagawa/chiebukuro/search/kankyou/seikatu/No_215.html"},
-      {id:11,title:"筏式垂下法",publisher:"広島市農林水産振興センター",url:"https://www.haff.city.hiroshima.jp/info/suisansc/oyster/method/"},
-      {id:12,title:"漁業活動による環境保全（カキの水質浄化能力）",publisher:"水産庁",url:"https://www.jfa.maff.go.jp/j/kikaku/tamenteki/kaisetu/gyogyou_katudou/"},
-      {id:13,title:"おかやまの牡蠣",publisher:"岡山観光WEB",url:"https://www.okayama-kanko.jp/feature/okayama-gourmet/04"},
-      {id:14,title:"カキ養殖に関する情報（高水温等によるへい死）",publisher:"水産庁",url:"https://www.jfa.maff.go.jp/j/saibai/kaki_youshoku.html"}
-    ]
+    provisionalConclusion: "牡蠣は餌をまかず、海水中の植物プランクトンを濾し取って育つ。日生周辺の島影と岡山沿岸の流況、太田川が流入する広島湾の栄養塩と滞留・海水交換を対比する。ただし、個別河川が日生の筏にどの程度届くかは未確認。2025年の大量へい死が示すように、同じ海域でも水温・塩分・酸素・餌環境は変化する。",
+    openQuestions: ["日生漁場への個々の河川水の寄与を流況・水質資料で調べられるか","日生と広島湾の水温・塩分・クロロフィルaの季節変化を比較できるか","二産地の育成期間・漁場選択・食べ方を現地取材できるか"],
+    sources: [{"id":1,"title":"「日生かき」が全国牡蠣－1グランプリを受賞","publisher":"備前市","url":"https://www.city.bizen.okayama.jp/soshiki/18/28311.html"},{"id":2,"title":"おかやまの牡蠣","publisher":"岡山県公式観光サイト","url":"https://www.okayama-kanko.jp/feature/okayama-gourmet/04"},{"id":3,"title":"本格シーズン到来！生産量日本一を誇る牡蠣の最新事情とは!?","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/lab/topics/20211108/01/"},{"id":4,"title":"広島牡蠣","publisher":"国土交通省 地域観光資源の多言語解説文データベース","url":"https://www.mlit.go.jp/tagengo-db/R1-00503.html"},{"id":5,"title":"広島人が伝授！牡蠣のおすすめ処理＆食べ方って？春牡蠣情報も！","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/lab/topics/20230512/01/"},{"id":6,"title":"広島湾カキ養殖場における水理特性","publisher":"水産海洋研究（農林水産研究情報総合センター収録）","url":"https://agriknowledge.affrc.go.jp/RN/2030611631.pdf"},{"id":7,"title":"旬は直売所にあり！岡山の産直訪問「牡蠣の直売所」編","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/okatabi/1206/page"},{"id":8,"title":"日生諸島","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/feature/island/02"},{"id":9,"title":"日生町漁業協同組合によるアマモ再生プロジェクト","publisher":"地域再生大賞","url":"https://chiikisaisei.jp/organization/num-635"},{"id":10,"title":"カキ養殖（太田川が育てる広島湾）","publisher":"国土交通省中国地方整備局","url":"https://www.cgr.mlit.go.jp/ootagawa/chiebukuro/search/kankyou/seikatu/No_215.html"},{"id":11,"title":"筏式垂下法","publisher":"広島市農林水産振興センター","url":"https://www.haff.city.hiroshima.jp/info/suisansc/oyster/method/"},{"id":12,"title":"漁業活動による環境保全（カキの水質浄化能力）","publisher":"水産庁","url":"https://www.jfa.maff.go.jp/j/kikaku/tamenteki/kaisetu/gyogyou_katudou/"},{"id":13,"title":"おかやまの牡蠣","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/feature/okayama-gourmet/04"},{"id":14,"title":"カキ養殖に関する情報（高水温等によるへい死）","publisher":"水産庁","url":"https://www.jfa.maff.go.jp/j/saibai/kaki_youshoku.html"},{"id":15,"title":"クロロフィルa・塩分情報（カキ漁場の定期調査）","publisher":"岡山県水産研究所","url":"https://www.pref.okayama.jp/page/1030902.html"}]
   },
   {
     slug:'hijiki-tidal-time',
