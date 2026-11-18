@@ -106,7 +106,7 @@ export const kiiArticles = [
     "region": "白浜・白良浜",
     "category": "観光景観",
     "tags": [
-      "石英",
+      "白砂",
       "漂砂",
       "波浪"
     ],
@@ -299,8 +299,8 @@ export const kiiArticles = [
     "category": "観光景観",
     "tags": [
       "温泉",
-      "堆積岩",
-      "火成岩"
+      "岩の割れ目",
+      "河川"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/11/kawayu.jpg?resize=760%2C570&ssl=1",
     "alt": "川湯温泉の大塔川。河原に人々が集まり、川沿いには温泉旅館が建つ",
@@ -420,9 +420,9 @@ export const kiiArticles = [
     "region": "瀞峡・北山川",
     "category": "渓谷景観",
     "tags": [
-      "多雨",
+      "豪雨",
       "深い谷",
-      "森林"
+      "急流"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462570391_9047193888652105_7067709840289723447_n.jpg?resize=760%2C570&ssl=1",
     "alt": "瀞峡の深い青緑色の淵と両岸の切り立った岩壁、上部を覆う山の森",
@@ -487,9 +487,9 @@ export const kiiArticles = [
     "region": "熊野・御浜・紀宝・七里御浜",
     "category": "海と道",
     "tags": [
-      "波浪",
+      "礫浜",
       "漂砂",
-      "海風"
+      "波浪"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/12/462566118_1103207334681291_7730153178812392267_n.jpg?resize=760%2C570&ssl=1",
     "alt": "七里御浜を埋める丸い玉砂利と、水平線に光が差す熊野灘。手前には撮影者が置いた小さな恐竜の模型",
@@ -629,8 +629,8 @@ export const kiiArticles = [
     "region": "串本・橋杭岩",
     "category": "観光景観",
     "tags": [
-      "潮汐",
-      "海風"
+      "岩脈",
+      "津波"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2025/01/hashikui.jpg?resize=775%2C581&ssl=1",
     "alt": "串本の橋杭岩。夜明けの淡い光の中、いくつもの岩の塔が海を横切るように並んでいる",
@@ -691,9 +691,8 @@ export const kiiArticles = [
     "region": "和歌山・雑賀崎",
     "category": "自然と文化の景観",
     "tags": [
-      "地質境界",
       "変成岩",
-      "海風"
+      "片理"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/11/462570750_1902629290227643_6127613884724636932_n.jpg?resize=775%2C581&ssl=1",
     "alt": "雑賀崎の海辺。層が斜めに走る緑灰色の岩肌が海へ向かって露出している",
@@ -822,8 +821,9 @@ export const kiiArticles = [
     "region": "高野山・高野町",
     "category": "信仰景観",
     "tags": [
+      "山上の平地",
       "山地",
-      "森林"
+      "霧"
     ],
     "imageUrl": "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2024/09/kiri.jpg?resize=760%2C570&ssl=1",
     "alt": "高野山への山道から眺める夕暮れ。幾重もの山の谷筋に白い霧がたまっている",
@@ -892,8 +892,7 @@ export const kiiArticles = [
     "category": "歴史景観",
     "tags": [
       "深い谷",
-      "山地",
-      "森林"
+      "急斜面"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Totsukawa_spa_town_2011.JPG",
     "alt": "十津川温泉街と二津野湖を対岸から眺める。小さな市街地を急峻な山々が取り囲む現代の十津川の風景（2011年撮影）",
