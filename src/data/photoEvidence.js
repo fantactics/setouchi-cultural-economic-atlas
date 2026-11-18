@@ -1,5 +1,24 @@
 export const photoEvidence = [
   {
+    id: 'photo-shodoshima-somen',
+    placeId: 'shodoshima',
+    nodeKey: 'culture',
+    theme: 'food',
+    title: '小豆島の生そうめん',
+    caption: '小豆島町なかぶ庵で撮影された生そうめん。冬の手延べの仕事と、その食卓をつなぐ一皿。',
+    insight: '素麺の表面に塗るごま油が、島の製油業にもつながったことを考える入口になる。',
+    claimType: 'fact',
+    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Somen.jpg?width=1400',
+    alt: '小豆島町なかぶ庵で撮影された生そうめんの料理',
+    author: 'おにく',
+    sourcePage: 'https://commons.wikimedia.org/wiki/File:Somen.jpg',
+    license: 'CC0 1.0',
+    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    sourceType: 'Wikimedia Commons',
+    takenAt: '2023-12-09',
+    verifiedAt: '2026-11-18'
+  },
+  {
     "id": "photo-tatara-cycling-ikuchijima",
     "placeId": "ikuchijima",
     "nodeKey": "agriculture",
