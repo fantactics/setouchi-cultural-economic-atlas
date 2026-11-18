@@ -70,7 +70,7 @@ export const essayCardCopy = {
     "teaser": "同じ「鯛めし」でも一尾を炊くか、生でかけるか。坂出・鞆・明石、そして豊後水道へ食文化の分布をたどる。"
   },
   "shimotsui-tako-meshi": {
-    "teaser": "下津井の港に干しダコが並ぶ。その漁の先に、倉敷のたこめしがある。",
+    "teaser": "港の干しダコは、余ったタコを保存する漁師の工夫だった。その味は、たこめしにも残る。",
     "photoId": "photo-shimotsui-dried-octopus"
   },
   "sawara-spring-two-gates": {
@@ -83,7 +83,10 @@ export const essayCardCopy = {
     "teaser": "周防大島の南、沖家室島。岩場に育つひじきが産地になる条件をたどる。"
   },
   "mikan-slope-and-varieties": {
-    "teaser": "海へ向かう石垣の斜面に、みかんを育てる理由がある。"
+    "teaser": "みかんの石垣は、かつて桑畑を支えていた。光だけでなく土と水を守る段畑の歴史。"
+  },
+  "oyster-shells-where-they-go": {
+    "teaser": "牡蠣を食べる前に殻の山ができる。海で寝かせ、畑へ運ぶのに、なぜ余るのか。"
   },
   "oyster-shells-after-the-meal": {
     "teaser": "牡蠣の殻と、平和への願いを込めた折り鶴。海と町の記憶が一枚の壁で出会う。"
