@@ -18,7 +18,7 @@ export const essayCardCopy = {
     "photoId": "photo-tomonoura-port"
   },
   "imabari-why-shipbuilding": {
-    "teaser": "急流の海峡と静かな入り江。船を直す仕事から始まる今治の物語。",
+    "teaser": "塩田には遠浅の海、造船には深い海。波止浜は大型船の時代にどう対応したのか。",
     "photoId": "photo-imabari-shipyard"
   },
   "niihama-after-copper": {
