@@ -2,6 +2,22 @@
 // open licenses. Never hotlink their image assets; readers can view the originals
 // on the source pages. Covers remain limited to separately licensed images.
 export const essayPhotoFieldReferences = {
+  'oyster-shells-where-they-go': [
+    {
+      label:'広島の牡蠣殻加工場と殻の山を写真で見る',
+      publisher:'大和製衡（丸栄株式会社への取材記事）',
+      url:'https://yamato-scale.blog.jp/archives/45301924.html',
+      note:'広島県内の丸栄の工場で撮影された粉砕後の牡蠣殻の山と処理工程。未処理の殻の集積写真とは区別してください。写真の転載はしていません。'
+    }
+  ],
+  'kojima-jeans-circular-economy': [
+    {
+      label:'児島のノーリベット仕様ジーンズを実物写真で見る',
+      publisher:'Begin（JAPAN BLUE JEANS 2020年エシカルプロダクト取材）',
+      url:'https://www.e-begin.jp/article/114094/',
+      note:'製品の再資源化を考えて金属リベットを省略した児島のジーンズを紹介。記事の街路写真では製品の構造は分かりません。掲載元の写真は転載していません。'
+    }
+  ],
   'setouchi-shrimp-middle-layer': [
     {
       label:'庵治の小エビ・えびこぎ漁の写真を見る',
