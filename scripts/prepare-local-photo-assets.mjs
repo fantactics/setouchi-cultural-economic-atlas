@@ -137,6 +137,7 @@ await writeFile(path.join(root,'photo-health.json'),JSON.stringify({
   affectedPages
 },null,2)+'\n','utf8');
 console.log(`PHOTO ESSAY health report: ${affectedPages.length} page(s) with unresolved photos.`);
+for(const entry of affectedPages) console.warn(`PHOTO ESSAY missing: ${entry.page} (${entry.unresolved} image(s))`);
 if(local.size===0 && urls.size>0) console.warn('No Commons images could be mirrored: all PHOTO ESSAY images retain browser fallbacks.');
 
 // Original explicitly approved photo mirror, used outside PHOTO ESSAY as well.
