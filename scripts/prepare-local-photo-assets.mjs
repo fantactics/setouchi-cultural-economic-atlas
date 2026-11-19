@@ -47,9 +47,9 @@ const headers = {
 };
 async function download(src) {
   for (const candidate of candidates(src)) {
-    for (let attempt=1; attempt<=2; attempt++) {
+    for (let attempt=1; attempt<=1; attempt++) {
       try {
-        const response=await fetch(candidate,{headers,signal:AbortSignal.timeout(16000)});
+        const response=await fetch(candidate,{headers,signal:AbortSignal.timeout(7000)});
         if (!response.ok) throw Error(`HTTP ${response.status}`);
         const type=(response.headers.get('content-type')||'').split(';')[0].trim().toLowerCase();
         const formats={'image/jpeg':'.jpg','image/png':'.png','image/webp':'.webp','image/avif':'.avif','image/gif':'.gif'};
@@ -62,7 +62,7 @@ async function download(src) {
         await writeFile(path.join(rootAssets,name),bytes);
         return '/images/essay-photo/'+name;
       } catch (error) {
-        if (attempt===2) console.warn(`Image fetch failed: ${error.message} (${candidate.slice(0,110)})`);
+        if (attempt===1) console.warn(`Image fetch failed: ${error.message} (${candidate.slice(0,110)})`);
       }
     }
   }
@@ -78,7 +78,7 @@ async function worker(){
     if(result) local.set(src,result);
   }
 }
-await Promise.all(Array.from({length:5},()=>worker()));
+await Promise.all(Array.from({length:12},()=>worker()));
 let edited=0;
 for (const {file,html} of pages) {
   const updated=html.replace(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi,tag=>{
