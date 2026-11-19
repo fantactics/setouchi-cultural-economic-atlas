@@ -109,7 +109,33 @@ const rawEssayPhotos=[
   ...(essayPhotoGalleriesMore5[article.slug]||[]),...(essayPhotoGalleriesMore6[article.slug]||[]),...(essayPhotoGalleriesMore7[article.slug]||[]),
   ...(essayPhotoGalleriesMore8[article.slug]||[]),...(essayPhotoGalleriesMore9[article.slug]||[]),...(essayPhotoGalleriesMore10[article.slug]||[])
 ];
-const essayPhotos=rawEssayPhotos.map((entry)=>entry && entry.photoId ? {...photoById[entry.photoId],...entry} : entry).map(applyPhotoMetadataCorrection).filter((entry)=>entry && entry.imageUrl);
+// Two municipality-hosted images have unconfirmed redistribution rights and
+// may block third-party hotlinks. Use already-licensed photographs of the same
+// places for PHOTO ESSAY, while preserving the original editorial intent.
+const galleryCommonsSubstitutes={
+  'https://www.city.ako.lg.jp/documents/sionokuni.jpg':{
+    photo:photoById['photo-ako-salt-terrace'],
+    caption:'赤穂「塩の国」の復元流下式塩田。赤穂市提供写真ではなく、現地を撮影したCCライセンス写真です。'
+  },
+  'https://www.city.hofu.yamaguchi.jp/uploaded/image/35252.jpg':{
+    photo:photoById['photo-hofu-mitajiri-salt'],
+    caption:'三田尻塩田記念産業公園の入口。復元塩田の作業工程そのものではありません。'
+  }
+};
+const essayPhotos=rawEssayPhotos
+  .map((entry)=>entry && entry.photoId ? {...photoById[entry.photoId],...entry} : entry)
+  .map((entry)=>{
+    const alternate=galleryCommonsSubstitutes[entry?.imageUrl];
+    if(!alternate?.photo)return entry;
+    const photo=alternate.photo;
+    return {
+      ...entry,imageUrl:photo.imageUrl,alt:photo.alt,
+      author:photo.author,sourcePage:photo.sourcePage,
+      license:photo.license,licenseUrl:photo.licenseUrl,
+      caption:alternate.caption
+    };
+  })
+  .map(applyPhotoMetadataCorrection).filter((entry)=>entry && entry.imageUrl);
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[]).map((entry)=>entry.photoId ? photoById[entry.photoId] : entry).map(applyPhotoMetadataCorrection).filter(Boolean);
 const placeLinkByName={'赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','丸亀':'marugame','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi','鴻島':'hinase','日生':'hinase'};
