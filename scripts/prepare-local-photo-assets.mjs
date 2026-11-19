@@ -167,15 +167,5 @@ console.log(`PHOTO ESSAY health report: ${affectedPages.length} page(s) with unr
 for(const entry of affectedPages) console.warn(`PHOTO ESSAY missing: ${entry.page} (${entry.unresolved} image(s))`);
 if(local.size===0 && urls.size>0) console.warn('No Commons images could be mirrored: all PHOTO ESSAY images retain browser fallbacks.');
 
-// Original explicitly approved photo mirror, used outside PHOTO ESSAY as well.
-const approved={
-  url:'https://upload.wikimedia.org/wikipedia/commons/1/16/Mitsuhama-Port_on_inside%28Matsuyama_City%29.JPG',
-  destination:path.join(rootAssets,'mitsuhama-port-inside-jyo81.jpg')
-};
-try{
-  const response=await fetch(approved.url,{headers,signal:AbortSignal.timeout(16000)});
-  if(!response.ok) throw Error('HTTP '+response.status);
-  const bytes=Buffer.from(await response.arrayBuffer());
-  if(bytes.length<20000) throw Error('Image too small');
-  await writeFile(approved.destination,bytes);
-}catch(e){console.warn('Approved Mitsuhama photo mirror unavailable: '+e.message);}
+// All article and gallery Wikimedia photographs are now handled by the same
+// cached site-wide mirroring pass; no hardcoded local photo URL is required.
