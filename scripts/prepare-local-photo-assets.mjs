@@ -1,5 +1,5 @@
-// Mirror openly licensed PHOTO ESSAY images at deployment time so visitors
-// are not dependent on Wikimedia Commons / an image proxy at page-view time.
+// Mirror openly licensed Wikimedia images from PHOTO ESSAY galleries, article
+// heroes, image index cards and inline essays at deployment time.
 // Only an image that downloads and passes basic validation is rewritten.
 // Existing source links, attribution, and licenses remain in the page HTML.
 import { mkdir, readFile, writeFile, readdir, copyFile, stat } from 'node:fs/promises';
@@ -52,8 +52,14 @@ for await (const file of walk(root)) {
     if(isMirrorable(src)) urls.add(src);
     else if(/^https?:\/\//.test(src)) unsupportedRemote.add(src);
   }
+  // PHOTO ESSAY-only matching missed hero photos, card covers and inline shots.
+  // Mirror every Commons <img>, while retaining the PHOTO ESSAY page inventory.
+  for (const tag of html.matchAll(/<img\\b[^>]*>/gi)) {
+    const src=tag[0].match(/\\bsrc="([^"]+)"/i)?.[1]?.replaceAll('&amp;','&')?.replaceAll('&#38;','&');
+    if(src && isMirrorable(src)) urls.add(src);
+  }
 }
-console.log(`PHOTO ESSAY asset mirror: ${urls.size} licensed Wikimedia URLs across ${galleryPages.size} gallery pages`);
+console.log(`Site-wide Wikimedia photo mirror: ${urls.size} image URLs; ${galleryPages.size} PHOTO ESSAY gallery pages`);
 if(unsupportedRemote.size) console.warn('PHOTO ESSAY unsupported external URLs:', [...unsupportedRemote]);
 
 function candidates(src) {
@@ -133,7 +139,7 @@ for(const [src,url] of local) manifest[src]=path.basename(url);
 await writeFile(cacheManifest,JSON.stringify(manifest,null,2)+'\n','utf8');
 let edited=0;
 for (const {file,html} of pages) {
-  const updated=html.replace(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi,tag=>{
+  const updated=html.replace(/<img\b[^>]*>/gi,tag=>{
     return tag.replace(/\bsrc="([^"]+)"/i,(match,escaped)=>{
       const url=escaped.replaceAll('&amp;','&');
       return local.has(url)?'src="'+local.get(url)+'"':match;
@@ -141,7 +147,7 @@ for (const {file,html} of pages) {
   });
   if(updated!==html){await writeFile(file,updated,'utf8');edited++;}
 }
-console.log(`PHOTO ESSAY: mirrored ${local.size}/${urls.size} images; updated ${edited} HTML files.`);
+console.log(`Site-wide photos: mirrored ${local.size}/${urls.size} images; updated ${edited} HTML files.`);
 console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} Wikimedia images; unsupported remote: ${unsupportedRemote.size}`);
 const unresolved=items.filter(src=>!local.has(src));
 const affectedPages=pages.flatMap(({file,html})=>{
