@@ -50,52 +50,46 @@ const displayPhotos = [...photos]
 )}
 
 <script is:inline>
-  // Wikimedia's Special:FilePath thumbnail and original endpoints occasionally
-  // fail independently (including rate-limited responses). Try a third-party
-  // image cache only after direct Wikimedia URLs have failed. The image still
-  // links to its original source; author/licence captions remain unchanged.
+  // Photo Essay images are published locally. A transient GitHub Pages 503
+  // should not permanently hide a gallery image after one failed request.
   (() => {
-    const imageFallbacks = (src) => {
-      const result = [];
+    const imageFallbacks=(src)=>{
       let url;
-      try { url = new URL(src, document.baseURI); } catch { return result; }
-      if (url.hostname !== 'commons.wikimedia.org' ||
-          !url.pathname.startsWith('/wiki/Special:FilePath/')) return result;
-
-      if (url.searchParams.has('width')) {
-        const original = new URL(url.href);
-        original.searchParams.delete('width');
-        result.push(original.href);
+      try{url=new URL(src,document.baseURI);}catch{return [];}
+      if(url.origin===location.origin && url.pathname.startsWith('/images/essay-photo/')){
+        return [1,2,3].map(n=>{
+          const retry=new URL(url.href);
+          retry.searchParams.set('retry',String(n));
+          return retry.href;
+        });
       }
-      const original = new URL(url.href);
-      original.searchParams.delete('width');
-      // ImageKit's public image proxy caches Wikimedia-hosted images and avoids
-      // requesting the same Special:FilePath thumbnail from the visitor browser.
-      // Supply the unmodified original Commons URL as the upstream resource.
-      const proxy = new URL('https://wsrv.nl/');
-      proxy.searchParams.set('url', original.href);
-      proxy.searchParams.set('w', '1440');
-      proxy.searchParams.set('fit', 'inside');
-      result.push(proxy.href);
-      return [...new Set(result)];
+      if(url.hostname==='commons.wikimedia.org' && url.pathname.startsWith('/wiki/Special:FilePath/')){
+        const original=new URL(url.href);
+        original.searchParams.delete('width');
+        const proxy=new URL('https://wsrv.nl/');
+        proxy.searchParams.set('url',original.href);
+        proxy.searchParams.set('w','960');
+        return [...new Set([original.href,proxy.href])];
+      }
+      return [];
     };
-
-    document.addEventListener('error', (event) => {
-      const img = event.target;
-      if (!(img instanceof HTMLImageElement) || !img.matches('[data-photo-essay-img]')) return;
-      // Do not retry endlessly when an upstream URL has been removed or denied.
-      const attempts = Number(img.dataset.photoRetry || '0');
-      const fallbackUrls = imageFallbacks(img.dataset.originalPhotoUrl || img.src);
-      if (!img.dataset.originalPhotoUrl) img.dataset.originalPhotoUrl = img.src;
-      if (attempts < fallbackUrls.length) {
-        img.dataset.photoRetry = String(attempts + 1);
-        img.src = fallbackUrls[attempts];
+    document.addEventListener('error',event=>{
+      const img=event.target;
+      if(!(img instanceof HTMLImageElement)||!img.matches('[data-photo-essay-img]'))return;
+      if(!img.dataset.originalPhotoUrl)img.dataset.originalPhotoUrl=img.src;
+      const fallbacks=imageFallbacks(img.dataset.originalPhotoUrl);
+      const count=Number(img.dataset.photoRetry || '0');
+      if(count<fallbacks.length){
+        img.dataset.photoRetry=String(count+1);
+        const next=fallbacks[count];
+        // Back off on transient CDN failures and bypass an incorrectly cached 503.
+        window.setTimeout(()=>{if(img.isConnected)img.src=next;},[450,1200,2600][count]||0);
         return;
       }
-      img.hidden = true;
-      const explanation = img.parentElement?.querySelector('.essay-photo-unavailable');
-      if (explanation) explanation.hidden = false;
-    }, true);
+      img.hidden=true;
+      const explanation=img.parentElement?.querySelector('.essay-photo-unavailable');
+      if(explanation)explanation.hidden=false;
+    },true);
   })();
 </script>
 
