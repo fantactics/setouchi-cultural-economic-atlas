@@ -44,6 +44,8 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'iwagi-salt-pans-to-shrimp-ponds': ['sea','industry'],
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes': ['agriculture','sea'],
   'naoshima-water-across-sea': ['sea', 'industry'],
   'chichibugahama-sky-in-tide': ['tourism','sea'],
   'ogushi-theatron-sea-as-stage': ['tourism','sea'],
