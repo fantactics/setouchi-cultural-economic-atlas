@@ -15,6 +15,7 @@ import { setouchiShipMaterialsEssay } from './setouchiShipMaterialsEssay.js';
 import { kojimaCircularEssay } from './kojimaCircularEssay.js';
 import { kojimaIslandEssays } from './kojimaIslandEssays.js';
 import { quageoSetouchiEssays } from './quageoSetouchiEssays.js';
+import { saltLandscapeNatureEssays } from './saltLandscapeNatureEssays.js';
 
 export const publishedEssays=[...new Map([
   ...orderedBookArticles,
@@ -22,5 +23,5 @@ export const publishedEssays=[...new Map([
   tomoTwoActPortEssay,...portSystemEssays,niboshiShirasuEssay,
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
   setouchiShipMaterialsEssay,kojimaCircularEssay,
-  ...kojimaIslandEssays,...quageoSetouchiEssays
+  ...kojimaIslandEssays,...quageoSetouchiEssays,...saltLandscapeNatureEssays
 ].filter((article)=>article?.slug).map((article)=>[article.slug,withMarkdownMetadata(article)])).values()];
