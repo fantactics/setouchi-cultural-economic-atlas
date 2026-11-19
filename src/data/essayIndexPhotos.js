@@ -71,7 +71,7 @@ export const essayCardPhotoContext = {
   "shodoshima-somen-to-sesame-oil": "小豆島の生そうめん（天日干し・製油工場ではありません）",
   "shimotsui-tako-meshi": "下津井の干し蛸（料理の完成写真ではありません）",
   "kada-steel-data-center-transition": "2014年の和歌山製鉄所（データセンターではありません）",
-  "setouchi-sushi-not-nigiri": "ちらし寿司の参考写真",
+  "setouchi-sushi-not-nigiri": "松山鮓の実物写真（岡山ばら寿司ではありません）",
   "oysters-taste-of-small-seas": "広島湾の養殖筏",
   "oyster-shells-where-they-go": "米国の牡蠣殻集積（広島ではない比較写真）",
   "kojima-jeans-circular-economy": "児島のジーンズストリート（ノーリベット製品ではありません）",
