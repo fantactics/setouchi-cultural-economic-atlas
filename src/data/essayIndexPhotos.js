@@ -64,6 +64,11 @@ export const essayIndexPhotoOverrides = {
 // Optional, restrained visual-source context on feature cards. Be explicit when
 // the scene is illustrative or the photograph is from another nearby region.
 export const essayCardPhotoContext = {
+  "citrus-pomace-cascade": "愛媛・狩浜の柑橘段畑（搾汁粕や剪定枝の処理現場ではありません）",
+  "fish-waste-to-feed-and-citrus": "西予・狩浜の柑橘段畑（八幡浜の魚肥工場ではありません）",
+  "olive-pomace-to-cattle": "小豆島のオリーブ園（オリーブ牛・飼料加工の写真ではありません）",
+  "ibuki-fat-sardines-revalued": "伊吹島の島影（脂イワシの加工品ではありません）",
+  "shodoshima-somen-to-sesame-oil": "小豆島の生そうめん（天日干し・製油工場ではありません）",
   "shimotsui-tako-meshi": "下津井の干し蛸（料理の完成写真ではありません）",
   "kada-steel-data-center-transition": "2014年の和歌山製鉄所（データセンターではありません）",
   "setouchi-sushi-not-nigiri": "ちらし寿司の参考写真",
