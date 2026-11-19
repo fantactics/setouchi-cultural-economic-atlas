@@ -5,19 +5,8 @@ export const setouchiSushiEssay = {
   subtitle:'岡山のばら寿司、讃岐の押し抜きずし、広島の角寿司、松山鮓――ハレの日に人と人をつなぐ料理',
   cities:['岡山','香川','広島','松山'],
   keywords:['寿司','押し寿司','ばら寿司','松山鮓','ママカリ','サワラ','食文化','保存食','共同体'],
-  heroPhotoId:null,
-  // Rights-cleared reference photo until a genuine Okayama bara-zushi photo is licensed.
-  heroPhoto:{
-    imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Chirashi-zushi.jpg?width=1600',
-    alt:'大きな器に盛りつけたちらし寿司の参考写真。岡山ばら寿司そのものを撮影した写真ではない',
-    title:'大皿のちらし寿司（参考写真）',
-    caption:'取り分けて食べる寿司の参考写真。岡山ばら寿司そのものではありません。',
-    author:'Arashiyama',
-    credit:'Arashiyama / CC BY-SA 3.0',
-    sourcePage:'https://commons.wikimedia.org/wiki/File:Chirashi-zushi.jpg',
-    license:'CC BY-SA 3.0',
-    licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'
-  },
+  // Real regional dish instead of a generic comparison plate. This is Matsuyama-zushi, not Okayama bara-zushi.
+  heroPhotoId:'photo-matsuyama-zushi-shared-bowl',
   lead:'岡山の祝いの席には、魚介と野菜で彩られた大皿のばら寿司が現れる。讃岐ではサワラの押し抜きずしが親類の家を行き来し、広島では木型で作った角寿司を隣近所にも分けた。松山でも、客を迎えるときに松山鮓を振る舞ってきた。形も味も違うのに、そこには共通する風景がある。一人前を注文して食べるのではなく、作り、盛り、取り分け、持っていく。瀬戸内の寿司を「誰と食べるか」から眺めると、ハレの日に人と人をつないできた、もう一つの役割が見えてくる。',
   sections:[
     {
