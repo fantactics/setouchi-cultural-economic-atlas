@@ -80,6 +80,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout diagnostic script
+        uses: actions/checkout@v4
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
