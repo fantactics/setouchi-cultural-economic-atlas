@@ -4,6 +4,7 @@
 import assert from 'node:assert/strict';
 import { readdir, readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const dist = path.resolve('dist');
 const domain = 'https://setouchi-atlas.pia2.org';
@@ -58,11 +59,15 @@ for (const name of cssFiles) {
   // directory context after concatenating into a root-level fallback file.
   combinedCss.push(css.replaceAll('url(./', 'url(/_astro/').replaceAll('url("../', 'url("/'));
 }
-await writeFile(path.join(dist, 'atlas-fallback.css'), combinedCss.join('\n'), 'utf8');
+const fallbackCss=combinedCss.join('\n');
+await writeFile(path.join(dist, 'atlas-fallback.css'), fallbackCss, 'utf8');
+// Stable content fingerprint prevents browsers from reusing an outdated global
+// stylesheet after a new deploy (critical for PHOTO ESSAY display repairs).
+const fallbackVersion=createHash('sha256').update(fallbackCss).digest('hex').slice(0,12);
 for (const html of htmlPaths) {
   let markup = await readFile(html, 'utf8');
   if (!markup.includes('</head>')) continue;
-  markup = markup.replace('</head>', '<link rel="stylesheet" href="/atlas-fallback.css" /></head>');
+  markup = markup.replace('</head>', `<link rel="stylesheet" href="/atlas-fallback.css?v=${fallbackVersion}" /></head>`);
   await writeFile(html, markup, 'utf8');
 }
 
@@ -106,7 +111,7 @@ const home = await readFile(path.join(dist, 'index.html'), 'utf8');
 const sitemap = await readFile(path.join(dist, 'sitemap-0.xml'), 'utf8');
 const sitemapIndex = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
 // Check the public link and independent root-level CSS fallback.
-assert.ok(home.includes('href="/atlas-fallback.css"'), 'Fallback CSS missing from homepage');
+assert.ok(home.includes('href="/atlas-fallback.css?v='), 'Fallback CSS missing from homepage');
 assert.ok(home.includes('href="/"'), 'Top navigation must point to the custom-domain root');
 assert.ok(!home.includes('/setouchi-cultural-economic-atlas'), 'Old project path remains in homepage');
 assert.ok(home.includes(domain), 'Home page must link to the custom domain');
