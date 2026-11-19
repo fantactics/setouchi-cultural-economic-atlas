@@ -30,36 +30,55 @@ async function* walk(dir) {
 
 const pages = [];
 const urls = new Set();
-// Image tags created by EssayPhotoGallery have a dedicated data attribute.
+const unsupportedRemote = new Set();
+const galleryPages = new Set();
+// Include both Commons Special:FilePath and direct upload.wikimedia.org image
+// addresses. Earlier audits silently missed the latter, yielding false 112/112.
+function isMirrorable(url) {
+  try {
+    const parsed=new URL(url);
+    return (parsed.hostname==='commons.wikimedia.org' && parsed.pathname.startsWith('/wiki/Special:FilePath/'))
+      || (parsed.hostname==='upload.wikimedia.org' && parsed.pathname.startsWith('/wikipedia/commons/'));
+  } catch { return false; }
+}
 for await (const file of walk(root)) {
   const html = await readFile(file, 'utf8');
   pages.push({file,html});
-  for (const match of html.matchAll(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi)) {
-    const src = match[0].match(/\bsrc="([^"]+)"/i)?.[1]?.replaceAll('&amp;', '&');
-    if (src && /^https:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\//.test(src)) urls.add(src);
+  const tags=[...html.matchAll(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi)];
+  if(tags.length) galleryPages.add('/'+path.relative(root,file).replace(/index\.html$/,'').split(path.sep).join('/'));
+  for (const match of tags) {
+    const src = match[0].match(/\bsrc="([^"]+)"/i)?.[1]?.replaceAll('&amp;', '&')?.replaceAll('&#38;','&');
+    if(!src) continue;
+    if(isMirrorable(src)) urls.add(src);
+    else if(/^https?:\/\//.test(src)) unsupportedRemote.add(src);
   }
 }
-console.log(`PHOTO ESSAY asset mirror: ${urls.size} distinct Commons images across ${pages.length} HTML pages`);
+console.log(`PHOTO ESSAY asset mirror: ${urls.size} licensed Wikimedia URLs across ${galleryPages.size} gallery pages`);
+if(unsupportedRemote.size) console.warn('PHOTO ESSAY unsupported external URLs:', [...unsupportedRemote]);
 
 function candidates(src) {
-  const original = new URL(src);
-  original.searchParams.delete('width');
-  const resized = new URL(original.href);
-  resized.searchParams.set('width', '960');
-  // Wikimedia Commons FilePath redirects are subject to rate limits. The
-  // canonical media URL uses the MD5 of the decoded filename and can be
-  // requested directly without the redirect. Proxy the same canonical media
-  // URL when Wikimedia throttles GitHub-hosted builders.
-  const filename=decodeURIComponent(original.pathname.slice('/wiki/Special:FilePath/'.length)).replaceAll(' ','_');
-  const digest=createHash('md5').update(filename).digest('hex');
-  const canonical='https://upload.wikimedia.org/wikipedia/commons/'+digest[0]+'/'+digest.slice(0,2)+'/'+filename.split('/').map(encodeURIComponent).join('/');
-  const proxy = new URL('https://wsrv.nl/');
-  proxy.searchParams.set('url', canonical);
-  proxy.searchParams.set('w', '960');
-  const proxyOriginal = new URL('https://images.weserv.nl/');
-  proxyOriginal.searchParams.set('url', canonical);
-  proxyOriginal.searchParams.set('w', '960');
-  return [...new Set([resized.href, canonical, proxy.href, proxyOriginal.href, original.href])];
+  const original=new URL(src);
+  const isSpecial=original.hostname==='commons.wikimedia.org';
+  let canonical, resized=null, filepath=null;
+  if(isSpecial){
+    const filename=decodeURIComponent(original.pathname.slice('/wiki/Special:FilePath/'.length)).replaceAll(' ','_');
+    const digest=createHash('md5').update(filename).digest('hex');
+    canonical='https://upload.wikimedia.org/wikipedia/commons/'+digest[0]+'/'+digest.slice(0,2)+'/'+filename.split('/').map(encodeURIComponent).join('/');
+    const thumb=new URL(original.href);
+    thumb.searchParams.set('width','960');
+    resized=thumb.href;
+  } else {
+    canonical=original.href;
+    const filename=decodeURIComponent(original.pathname.slice(original.pathname.lastIndexOf('/')+1));
+    filepath='https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(filename)+'?width=960';
+  }
+  const proxy=new URL('https://wsrv.nl/');
+  proxy.searchParams.set('url',canonical);
+  proxy.searchParams.set('w','960');
+  const proxyAlternate=new URL('https://images.weserv.nl/');
+  proxyAlternate.searchParams.set('url',canonical);
+  proxyAlternate.searchParams.set('w','960');
+  return [...new Set([resized,canonical,proxy.href,proxyAlternate.href,filepath,original.href].filter(Boolean))];
 }
 const headers = {
   'User-Agent': 'SETOUCHI-ATLAS/1.0 (https://github.com/fantactics/setouchi-cultural-economic-atlas; editorial photo cache)',
@@ -123,7 +142,7 @@ for (const {file,html} of pages) {
   if(updated!==html){await writeFile(file,updated,'utf8');edited++;}
 }
 console.log(`PHOTO ESSAY: mirrored ${local.size}/${urls.size} images; updated ${edited} HTML files.`);
-console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} external images; see .photo-cache/manifest.json for successfully mirrored entries.`);
+console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} Wikimedia images; unsupported remote: ${unsupportedRemote.size}`);
 const unresolved=items.filter(src=>!local.has(src));
 const affectedPages=pages.flatMap(({file,html})=>{
   const blocked=unresolved.filter(src=>html.includes(src.replaceAll('&','&amp;'))||html.includes(src));
@@ -134,7 +153,9 @@ await writeFile(path.join(root,'photo-health.json'),JSON.stringify({
   total:items.length,
   locallyHosted:local.size,
   unresolved:unresolved.length,
-  affectedPages
+  affectedPages,
+  galleryPages:[...galleryPages],
+  unsupportedRemote:[...unsupportedRemote]
 },null,2)+'\n','utf8');
 console.log(`PHOTO ESSAY health report: ${affectedPages.length} page(s) with unresolved photos.`);
 for(const entry of affectedPages) console.warn(`PHOTO ESSAY missing: ${entry.page} (${entry.unresolved} image(s))`);
