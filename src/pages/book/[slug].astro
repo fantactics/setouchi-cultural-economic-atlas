@@ -102,6 +102,18 @@ const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.h
 const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
+const specificPhotoReference={
+  'oyster-shells-where-they-go':{
+    note:'冒頭の写真は米国の比較資料です。こちらが広島県内の実際の牡蠣殻加工場の写真です。',
+    label:'広島・海田の牡蠣殻集積と再資源化の現場写真を見る',
+    url:'https://yamato-scale.blog.jp/archives/45301924.html'
+  },
+  'kojima-jeans-circular-economy':{
+    note:'冒頭の写真は児島の街路です。記事の主役であるリベットを省略した製品はこちらで確認できます。',
+    label:'JAPAN BLUE JEANSのノーリベット仕様の実物を見る',
+    url:'https://www.e-begin.jp/article/114094/'
+  }
+}[article.slug] || null;
 const rawEssayPhotos=[
   ...(article.photoGallery||[]),
   ...(essayPhotoGalleries[article.slug]||[]),...(essayPhotoGalleriesMore[article.slug]||[]),...(essayPhotoGalleriesExpansion[article.slug]||[]),
@@ -187,7 +199,12 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
       </div>
     </header>
 
-    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}{!article.omitPhotoCredits && <span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>}</figcaption></figure>}
+    {hero && <figure class="book-hero-photo"><img src={hero.imageUrl} alt={hero.alt} /><figcaption><strong>{hero.title}</strong>　{hero.caption}{!article.omitPhotoCredits && <span>{hero.kind==='illustration'?'Illustration: ':'Photo: '}{hero.author} / <a href={hero.sourcePage} target="_blank" rel="noreferrer">{hero.license}</a></span>}
+      {specificPhotoReference && <div class="reader-real-photo-reference">
+        <p>{specificPhotoReference.note}</p>
+        <a href={specificPhotoReference.url} target="_blank" rel="noopener noreferrer">{specificPhotoReference.label} ↗</a>
+      </div>}
+    </figcaption></figure>}
     {article.slug==='kada-steel-data-center-transition' && <KadaAerialComparison />}
     {article.slug==='tai-meshi-two-seas' && (
       <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
