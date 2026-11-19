@@ -86,6 +86,13 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
       })} />
     </section>
 
+    <section class="reader-home-section" aria-label="エッセイの探し方">
+      <div class="reader-section-heading"><div><p class="reader-eyebrow">EXPLORE THE LANDSCAPE</p><h2>自然と文化、二つの入口。</h2><p>瀬戸内の風景を、土地の条件からも、人の営みからも。</p></div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+        <a href="/setouchi-cultural-economic-atlas/book/nature/" style="display:block;padding:24px;border:1px solid #d7e6dc;border-radius:16px;text-decoration:none;background:#f1f7f2;color:#315d4a"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">自然条件から</strong><span>雨、潮、風、地形、生き物から探す ↗</span></a>
+        <a href="/setouchi-cultural-economic-atlas/book/culture/" style="display:block;padding:24px;border:1px solid #eaded0;border-radius:16px;text-decoration:none;background:#fcf6ee;color:#855a3b"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">文化・風習から</strong><span>食、信仰、商い、技術、暮らしから探す ↗</span></a>
+      </div>
+    </section>
     <section class="reader-home-search" aria-labelledby="reader-home-search-title">
       <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">ことばで、ひとっとび。</h2><p>町、食べもの、港、島。思いついた言葉で探してみよう。</p></div></div>
       <SiteSearch essaysOnly={true} />
