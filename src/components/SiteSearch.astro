@@ -15,6 +15,7 @@ import { setouchiShipMaterialsEssay } from '../data/setouchiShipMaterialsEssay.j
 import { niboshiShirasuEssay } from '../data/niboshiShirasuEssay.js';
 import { kojimaCircularEssay } from '../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../data/kojimaIslandEssays.js';
+import { saltLandscapeNatureEssays } from '../data/saltLandscapeNatureEssays.js';
 import { places } from '../data/places.js';
 import { hinasePlace } from '../data/hinasePlace.js';
 import { additionalPlaces } from '../data/additionalPlaces.js';
@@ -22,7 +23,7 @@ import { researchChapters } from '../data/researchChapters.js';
 import { transportResearchChapters } from '../data/transportResearchChapters.js';
 
 const { essaysOnly = false } = Astro.props;
-const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean).map(withMarkdownMetadata);
+const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...saltLandscapeNatureEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay].filter(Boolean).map(withMarkdownMetadata);
 const allPlaces=[...places,hinasePlace,...additionalPlaces].filter(Boolean);
 const allResearch=[...researchChapters,...transportResearchChapters].filter(Boolean);
 
