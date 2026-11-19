@@ -87,3 +87,15 @@ jobs:
         uses: actions/deploy-pages@v4
       - name: Verify public PHOTO ESSAY image delivery
         run: node scripts/check-live-photo-essay.mjs
+      - name: Install Chrome automation driver
+        run: npm install --no-save --ignore-scripts puppeteer-core@24
+      - name: Verify PHOTO ESSAY images render in mobile Chrome
+        run: node scripts/check-browser-photo-essay.mjs
+      - name: Archive PHOTO ESSAY mobile screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: photo-essay-browser-check
+          path: photo-essay-browser-check
+          if-no-files-found: ignore
+          retention-days: 7
