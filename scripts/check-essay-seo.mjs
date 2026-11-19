@@ -1,8 +1,9 @@
-// After building Astro, ensure Google-facing metadata follows the visible
-// current essay heading. Prevents stale hand-maintained SEO titles from returning.
+// After building Astro, ensure Google-facing metadata follows approved SEO
+// focus titles where configured and the visible essay heading elsewhere.
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { essaySeoFocus } from '../src/data/essaySeo.js';
 
 const essayRoot=path.resolve('src/content/essays');
 const builtRoot=path.resolve('dist/book');
@@ -28,7 +29,8 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const og=getMeta(html,'property','og:title');
  const twitter=getMeta(html,'name','twitter:title');
  assert.ok(h1,`Missing essay H1: ${slug}`);
- assert.equal(sameSpacing(pageTitle),sameSpacing(`${h1}｜SETOUCHI ATLAS`),`Stale <title>: ${slug}`);
+ const expectedTitle=essaySeoFocus[slug]?.title || h1;
+ assert.equal(sameSpacing(pageTitle),sameSpacing(`${expectedTitle}｜SETOUCHI ATLAS`),`Incorrect <title>: ${slug}`);
  assert.equal(sameSpacing(og),sameSpacing(pageTitle),`Mismatched og:title: ${slug}`);
  assert.ok(sameSpacing(twitter).startsWith(sameSpacing(h1)),`Mismatched twitter:title: ${slug}: ${twitter}`);
  const jsonLd=html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1];
