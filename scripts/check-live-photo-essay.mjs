@@ -3,7 +3,18 @@
 // and file signature for every distinct gallery image.
 import assert from 'node:assert/strict';
 const origin='https://setouchi-atlas.pia2.org';
-const response=await fetch(origin+'/photo-health.json',{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
+const wait=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
+async function stableFetch(url,options={}){
+  let response;
+  for(let attempt=0;attempt<4;attempt++){
+    response=await fetch(url,options);
+    if(![429,500,502,503,504].includes(response.status))return response;
+    console.warn('TEMPORARY HTTP FAILURE',response.status,String(url),'attempt',attempt+1);
+    if(attempt<3)await wait(600*(attempt+1));
+  }
+  return response;
+}
+const response=await stableFetch(origin+'/photo-health.json',{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
 assert.equal(response.status,200,'Public photo-health report missing');
 const report=await response.json();
 const pages=report.galleryPages || [];
@@ -19,9 +30,9 @@ async function pool(items,threads,fn){
     while(next<items.length){ const index=next++;await fn(items[index]);}
   }));
 }
-await pool(pages,6,async p=>{
+await pool(pages,3,async p=>{
   try {
-    const res=await fetch(new URL(p,origin),{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
+    const res=await stableFetch(new URL(p,origin),{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
     if(!res.ok){failures.push(`PAGE HTTP ${res.status} ${p}`);return;}
     const html=await res.text();
     const imgs=[...html.matchAll(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi)]
@@ -36,10 +47,10 @@ await pool(pages,6,async p=>{
   }catch(e){failures.push(`PAGE ERROR ${p}: ${String(e)}`);}
 });
 let checked=0,pass=0;
-await pool([...urls.keys()],8,async url=>{
+await pool([...urls.keys()],4,async url=>{
   checked++;
   try {
-    const res=await fetch(url,{signal:AbortSignal.timeout(25000)});
+    const res=await stableFetch(url,{signal:AbortSignal.timeout(25000)});
     const bytes=Buffer.from(await res.arrayBuffer());
     const type=res.headers.get('content-type')||'';
     const valid=(
