@@ -24,6 +24,8 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'iwagi-salt-pans-to-shrimp-ponds':['塩づくり','漁撈・養殖'],
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['農の知恵','塩づくり'],
   'oyster-shells-where-they-go':['漁撈・養殖','再利用の工夫'],
   'onomichi-capital-to-culture-and-ships':['信仰・寺社','町並み・建築'],
   'yanai-trade-profit-to-whitewalls':['港の商い','町並み・建築'],
