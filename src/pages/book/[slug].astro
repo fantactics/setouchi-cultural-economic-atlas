@@ -44,6 +44,7 @@ import { cardTeaser, cardPhotoId } from '../../data/essayCardCopy.js';
 import { essayPhotoFieldReferences } from '../../data/essayPhotoFieldReferences.js';
 import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../data/essayIndexPhotos.js';
 import { getNaturalConditionTags } from '../../data/naturalEnvironmentTags.js';
+import { getCultureTags } from '../../data/cultureTraditionTags.js';
 import { essaySearchMeta } from '../../data/essaySeo.js';
 import { publishedEssays } from '../../data/publishedEssayList.js';
 import '../../styles/gastronomy-gallery.css';
@@ -76,6 +77,7 @@ const article=markdownModule
 const MarkdownContent=markdownModule?.Content || null;
 const seo=essaySearchMeta(article);
 const naturalTags=getNaturalConditionTags(article);
+const cultureTags=getCultureTags(article);
 const archivedResearchHref={
   'ai-era-regional-planning-learning-velocity':'/setouchi-cultural-economic-atlas/chapters/ai-regional-planning-adaptive-note/',
   'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
@@ -190,6 +192,12 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
             <span class="reader-nature-tags-label">自然条件</span>
             {naturalTags.map((tag)=><a href={`/setouchi-cultural-economic-atlas/book/nature/#nature-${encodeURIComponent(tag)}`}>#{tag}</a>)}
           </>) : <a class="reader-nature-tags-index-link" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件からほかのエッセイを探す</a>}
+        </div>
+        <div class="reader-nature-tags" aria-label="このエッセイの文化・風習">
+          {cultureTags.length>0 ? (<>
+            <span class="reader-nature-tags-label">文化・風習</span>
+            {cultureTags.map((tag)=><a href={`/setouchi-cultural-economic-atlas/book/culture/#culture-${encodeURIComponent(tag)}`}>#{tag}</a>)}
+          </>) : <a class="reader-nature-tags-index-link" href="/setouchi-cultural-economic-atlas/book/culture/">文化・風習からほかのエッセイを探す</a>}
         </div>
       </div>
     </header>
