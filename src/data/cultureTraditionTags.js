@@ -46,7 +46,7 @@ export const cultureTagAnchors={
   'mitarai-economy-of-waiting':['港の商い','船と航海'],
   'ports-that-needed-waiting':['船と航海','港の商い'],
   'imabari-why-shipbuilding':['船と航海','工業・ものづくり'],
-  'shodoshima-somen-to-sesame-oil':['食文化','醸造・発酵'],
+  'shodoshima-somen-to-sesame-oil':['食文化','工業・ものづくり'],
   'hijiki-tidal-time':['漁撈・養殖','食文化'],
   'niboshi-shirasu-two-food-cultures':['食文化','漁撈・養殖'],
   'setouchi-sushi-not-nigiri':['食文化'],
