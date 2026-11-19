@@ -1,49 +1,60 @@
-// Post-deploy test: verify the public HTML and its actual PHOTO ESSAY
-// image URLs, not merely that the build downloaded source images.
+// Validate PHOTO ESSAY delivery on ALL published pages, not a small sample.
+// This runs on the GitHub runner after deployment and checks HTTP, MIME, bytes
+// and file signature for every distinct gallery image.
 import assert from 'node:assert/strict';
-
-const origin = 'https://setouchi-atlas.pia2.org';
-const paths = [
-  '/book/matsuyama-three-centers-one-city/',
-  '/book/kojima-jeans-circular-economy/',
-  '/book/hijiki-tidal-time/',
-  '/book/what-cyclists-leave-behind/'
-];
-const timeout = (ms=20000) => AbortSignal.timeout(ms);
-const htmlDecode = (s) => s.replaceAll('&amp;','&').replaceAll('&#38;','&');
-let inspected = 0, successful = 0, failed = 0;
-for (const pagePath of paths) {
-  const url = origin + pagePath;
-  const page = await fetch(url, {headers:{'Cache-Control':'no-cache'}, signal:timeout()});
-  const html = await page.text();
-  console.log('LIVE PAGE',page.status,url,'bytes',html.length);
-  assert.equal(page.status,200,`Public page not HTTP 200: ${url}`);
-  const images = [...html.matchAll(/<img\b[^>]*data-photo-essay-img[^>]*>/gi)]
-    .map(match=>htmlDecode(match[0].match(/\bsrc="([^"]+)"/i)?.[1]||''))
-    .filter(Boolean);
-  console.log('LIVE PHOTO ESSAY',pagePath,images.length,images);
-  assert.ok(images.length>0,`No PHOTO ESSAY photos found in public HTML: ${pagePath}`);
-  for (const src of images) {
-    inspected++;
-    const imageUrl = new URL(src,origin);
-    try {
-      const res = await fetch(imageUrl, {signal:timeout()});
-      const bytes = Buffer.from(await res.arrayBuffer());
-      const type = res.headers.get('content-type')||'';
-      const signatureOk = (
-        (bytes[0]===0xff && bytes[1]===0xd8 && bytes[2]===0xff) ||
-        (bytes.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex'))) ||
-        (bytes.toString('ascii',0,4)==='RIFF' && bytes.toString('ascii',8,12)==='WEBP') ||
-        (bytes.toString('ascii',4,12).includes('ftypavif')) ||
-        (bytes.toString('ascii',0,6)==='GIF87a') || (bytes.toString('ascii',0,6)==='GIF89a')
-      );
-      const ok=res.ok&&type.startsWith('image/')&&bytes.length>800&&signatureOk;
-      if(ok)successful++; else failed++;
-      console.log(ok?'LIVE IMAGE OK':'LIVE IMAGE BAD',res.status,type,bytes.length,imageUrl.href);
-    } catch(e) {
-      failed++;console.log('LIVE IMAGE FAILED',String(e),imageUrl.href);
-    }
-  }
+const origin='https://setouchi-atlas.pia2.org';
+const response=await fetch(origin+'/photo-health.json',{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
+assert.equal(response.status,200,'Public photo-health report missing');
+const report=await response.json();
+const pages=report.galleryPages || [];
+assert.ok(pages.length>=35,`Gallery audit unexpectedly short: ${pages.length}`);
+console.log('LIVE PHOTO ESSAY AUDIT',JSON.stringify({pages:pages.length,buildWikimediaImages:report.total,buildMirrored:report.locallyHosted,unsupported:report.unsupportedRemote}));
+const decode=(src)=>src.replaceAll('&amp;','&').replaceAll('&#38;','&');
+const urls=new Map();
+const failures=[];
+let pageCount=0;
+async function pool(items,threads,fn){
+  let next=0;
+  await Promise.all(Array.from({length:threads},async()=>{
+    while(next<items.length){ const index=next++;await fn(items[index]);}
+  }));
 }
-console.log('LIVE PHOTO ESSAY SUMMARY',JSON.stringify({inspected,successful,failed}));
-assert.equal(failed,0,'Public PHOTO ESSAY images have failed delivery checks');
+await pool(pages,6,async p=>{
+  try {
+    const res=await fetch(new URL(p,origin),{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache'}});
+    if(!res.ok){failures.push(`PAGE HTTP ${res.status} ${p}`);return;}
+    const html=await res.text();
+    const imgs=[...html.matchAll(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi)]
+      .map(x=>decode(x[0].match(/\bsrc="([^"]+)"/i)?.[1]||'')).filter(Boolean);
+    if(!imgs.length)failures.push(`No gallery images found on ${p}`);
+    for(const src of imgs){
+      const full=new URL(src,origin).href;
+      if(!urls.has(full))urls.set(full,[]);
+      urls.get(full).push(p);
+    }
+    pageCount++;
+  }catch(e){failures.push(`PAGE ERROR ${p}: ${String(e)}`);}
+});
+let checked=0,pass=0;
+await pool([...urls.keys()],8,async url=>{
+  checked++;
+  try {
+    const res=await fetch(url,{signal:AbortSignal.timeout(25000)});
+    const bytes=Buffer.from(await res.arrayBuffer());
+    const type=res.headers.get('content-type')||'';
+    const valid=(
+      (bytes[0]===255&&bytes[1]===216&&bytes[2]===255) ||
+      bytes.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex')) ||
+      (bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP') ||
+      bytes.toString('ascii',4,12).includes('ftypavif') ||
+      bytes.toString('ascii',0,6)==='GIF87a' ||
+      bytes.toString('ascii',0,6)==='GIF89a'
+    );
+    if(!res.ok || !type.startsWith('image/') || bytes.length<800 || !valid)
+      throw Error(`HTTP ${res.status}; type ${type}; bytes ${bytes.length}; magic=${valid}`);
+    pass++;
+  }catch(e){failures.push(`IMAGE ${url} pages=${urls.get(url).join(',')} error=${String(e)}`);}
+});
+console.log('LIVE PHOTO ESSAY RESULT',JSON.stringify({pages:pageCount,uniqueImages:checked,passed:pass,failed:failures.length}));
+for(const f of failures)console.error('LIVE PHOTO ESSAY FAILURE',f);
+assert.equal(failures.length,0,'One or more public PHOTO ESSAY images failed HTTP/image validation');
