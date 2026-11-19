@@ -131,7 +131,7 @@ export const essayPhotoGalleriesMore15 = {
       title:'港町｜三津浜――第三の核は海上物流と渡航',
       caption:'三津浜内港。城下町から離れた沿岸部に、物流・渡航・港湾サービスを担う第三の中心が形成された。',
       insight:'城・温泉・港という性格の違う核が並立していたことが、後の都市統合の前提になる。',
-      imageUrl:'/setouchi-cultural-economic-atlas/images/essay-photo/mitsuhama-port-inside-jyo81.jpg',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Mitsuhama-Port_on_inside%28Matsuyama_City%29.JPG?width=1400',
       alt:'愛媛県松山市三津浜の内港',
       author:'Jyo81',
       sourcePage:'https://commons.wikimedia.org/wiki/File:Mitsuhama-Port_on_inside%28Matsuyama_City%29.JPG',
