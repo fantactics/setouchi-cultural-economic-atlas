@@ -127,7 +127,7 @@ console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} external images;
 const unresolved=items.filter(src=>!local.has(src));
 const affectedPages=pages.flatMap(({file,html})=>{
   const blocked=unresolved.filter(src=>html.includes(src.replaceAll('&','&amp;'))||html.includes(src));
-  return blocked.length ? [{page:'/'+path.relative(root,file).replace(/index\\.html$/,'').split(path.sep).join('/'),unresolved:blocked.length,images:blocked}] : [];
+  return blocked.length ? [{page:'/'+path.relative(root,file).replace(/index\.html$/,'').split(path.sep).join('/'),unresolved:blocked.length,images:blocked}] : [];
 });
 await writeFile(path.join(root,'photo-health.json'),JSON.stringify({
   generatedAt:new Date().toISOString(),
@@ -135,7 +135,7 @@ await writeFile(path.join(root,'photo-health.json'),JSON.stringify({
   locallyHosted:local.size,
   unresolved:unresolved.length,
   affectedPages
-},null,2)+'\\n','utf8');
+},null,2)+'\n','utf8');
 console.log(`PHOTO ESSAY health report: ${affectedPages.length} page(s) with unresolved photos.`);
 if(local.size===0 && urls.size>0) console.warn('No Commons images could be mirrored: all PHOTO ESSAY images retain browser fallbacks.');
 
