@@ -111,15 +111,15 @@ export const essayPhotoGalleriesMore10 = {
       insight:'採集技術とは道具だけではない。潮時を読み、短い作業可能時間へ人員と作業を集中させる時間管理でもある。'
     },
     {
-      title:'乾燥ひじき――潮の時間を保存可能な商品へ変える',
-      caption:'乾燥ひじきの比較資料。採集後の加熱・乾燥によって、短い潮間帯の生産時間が長期保存できる食材へ変換される。',
-      insight:'保存加工は自然条件への依存を消すのではなく、自然の一瞬を市場で扱える時間へ引き延ばす技術と考えられる。',
-      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Hijiki.jpg?width=1200',
-      alt:'乾燥ひじきの比較資料',
-      author:'Miya',
-      sourcePage:'https://commons.wikimedia.org/wiki/File:Hijiki.jpg',
-      license:'Public domain',
-      licenseUrl:'https://commons.wikimedia.org/wiki/File:Hijiki.jpg'
+      title:'ひじきの煮物――磯の収穫を食卓の一皿へ',
+      caption:'ひじきの煮物が並ぶ食卓の比較写真。沖家室島の生産物を撮影したものではない。採集された海藻は加工・保存を経て、日々の料理に使われる。',
+      insight:'短い干潮の時間に採った海藻が、乾燥などの加工を経て長く食べられる食材になる。写真は最終的な料理の一例で、乾燥工程そのものではない。',
+      imageUrl:'https://commons.wikimedia.org/wiki/Special:FilePath/Chazuke%20and%20simmered%20hijiki%20seaweed.jpg?width=960',
+      alt:'お茶漬けなどの料理とともに並ぶ、ひじきの煮物の比較写真',
+      author:'Blue Lotus',
+      sourcePage:'https://commons.wikimedia.org/wiki/File:Chazuke_and_simmered_hijiki_seaweed.jpg',
+      license:'CC BY 2.0',
+      licenseUrl:'https://creativecommons.org/licenses/by/2.0/'
     }
   ],
 
