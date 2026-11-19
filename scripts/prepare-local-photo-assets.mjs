@@ -54,8 +54,8 @@ for await (const file of walk(root)) {
   }
   // PHOTO ESSAY-only matching missed hero photos, card covers and inline shots.
   // Mirror every Commons <img>, while retaining the PHOTO ESSAY page inventory.
-  for (const tag of html.matchAll(/<img\\b[^>]*>/gi)) {
-    const src=tag[0].match(/\\bsrc="([^"]+)"/i)?.[1]?.replaceAll('&amp;','&')?.replaceAll('&#38;','&');
+  for (const tag of html.matchAll(/<img\b[^>]*>/gi)) {
+    const src=tag[0].match(/\bsrc="([^"]+)"/i)?.[1]?.replaceAll('&amp;','&')?.replaceAll('&#38;','&');
     if(src && isMirrorable(src)) urls.add(src);
   }
 }
