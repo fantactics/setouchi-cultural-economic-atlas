@@ -2,12 +2,14 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { publishedEssays } from '../../../data/publishedEssayList.js';
 import { cultureTagIndex } from '../../../data/cultureTraditionTags.js';
+import { photoEvidence } from '../../../data/photoEvidence.js';
 const groups=cultureTagIndex(publishedEssays);
+const photoById=Object.fromEntries(photoEvidence.map(photo=>[photo.id,photo]));
 const features=[
-  {tag:'食文化',question:'同じ魚でも、食べ方は違う。',eyebrow:'FOOD & TABLE'},
-  {tag:'港の商い',question:'港が、白壁の町を育てた。',eyebrow:'PORT & TRADE'},
-  {tag:'信仰・寺社',question:'寺と町は、どう結ばれた？',eyebrow:'FAITH & TOWN'}
-].map(f=>({...f,group:groups.find(g=>g.tag===f.tag)})).filter(f=>f.group);
+  {tag:'食文化',photoId:'photo-matsuyama-zushi-shared-bowl',question:'同じ魚でも、食べ方は違う。',eyebrow:'FOOD & TABLE'},
+  {tag:'港の商い',photoId:'photo-yanai-whitewall',question:'港が、白壁の町を育てた。',eyebrow:'PORT & TRADE'},
+  {tag:'信仰・寺社',photoId:'photo-onomichi-panorama',question:'寺と町は、どう結ばれた？',eyebrow:'FAITH & TOWN'}
+].map(f=>({...f,group:groups.find(g=>g.tag===f.tag),photo:photoById[f.photoId]})).filter(f=>f.group && f.photo?.imageUrl);
 ---
 <BaseLayout title="文化・風習から探す | SETOUCHI ATLAS" description="食文化、港の商い、町並み、信仰。瀬戸内の人びとの知恵と営みから、風景の物語を探す。">
   <main class="culture-index">
@@ -20,7 +22,7 @@ const features=[
     <section aria-labelledby="culture-features">
       <div class="culture-section-heading"><span>START HERE</span><h2 id="culture-features">まずは、この3つ。</h2></div>
       <div class="culture-features">
-        {features.map(({tag,question,eyebrow,group})=><a href={`#culture-${tag}`} class="culture-feature"><small>{eyebrow}</small><strong>{question}</strong><span>#{tag} · {group.essays.length}篇 ↗</span></a>)}
+        {features.map(({tag,question,eyebrow,group,photo})=><a href={`#culture-${tag}`} class="culture-feature"><div class="culture-feature-image"><img src={photo.imageUrl} alt={photo.alt||photo.title} loading="eager" decoding="async" /></div><div class="culture-feature-copy"><small>{eyebrow}</small><strong>{question}</strong><span>#{tag} · {group.essays.length}篇 ↗</span></div></a>)}
       </div>
     </section>
     <section class="culture-overview" id="culture-overview">
@@ -36,6 +38,7 @@ const features=[
       </section>)}
     </div>
     <p class="culture-note">文化・風習タグは自然条件タグとは独立して設定しています。名称は料理や生業、技術、信仰、暮らしの工夫を表します。記事の主題との関係が確認できるものを優先しています。</p>
+    <details class="culture-credits"><summary>代表写真の出典・利用条件</summary><ul>{features.map(({photo})=><li><a href={photo.sourcePage||photo.imageUrl} target="_blank" rel="noreferrer">{photo.title}</a> / {photo.author||'出典先参照'} / {photo.licenseUrl?<a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license||'利用条件'}</a>:(photo.license||'利用条件は出典参照')}</li>)}</ul></details>
   </main>
 </BaseLayout>
 <style>
@@ -51,11 +54,15 @@ const features=[
 .culture-section-heading h2{font-size:1.43rem;margin:0}
 .culture-section-heading small{font-size:.73rem;color:#89958c}
 .culture-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:40px}
-.culture-feature{display:flex;min-height:175px;flex-direction:column;gap:14px;padding:24px;border-radius:19px;background:#f9f4eb;border:1px solid #e9e1d4;text-decoration:none;color:inherit}
+.culture-feature{display:flex;min-width:0;flex-direction:column;gap:0;border-radius:19px;overflow:hidden;background:#f9f4eb;border:1px solid #e9e1d4;text-decoration:none;color:inherit;transition:transform .2s ease,box-shadow .2s ease}
+.culture-feature:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(30,67,54,.12)}
+.culture-feature-image{aspect-ratio:16/10;overflow:hidden;background:#dfe9e2}
+.culture-feature-image img{display:block;width:100%;height:100%;object-fit:cover}
+.culture-feature-copy{display:flex;flex-direction:column;gap:12px;padding:19px 22px 22px;flex:1}
 .culture-feature:nth-child(2){background:#edf5f0}.culture-feature:nth-child(3){background:#f2f0f9}
-.culture-feature small{color:#ab6b4b;letter-spacing:.09em;font-size:.7rem;font-weight:750}
-.culture-feature strong{font-size:1.2rem;line-height:1.5}
-.culture-feature span{margin-top:auto;color:#517c69;font-size:.8rem}
+.culture-feature-copy small{color:#ab6b4b;letter-spacing:.09em;font-size:.7rem;font-weight:750}
+.culture-feature-copy strong{font-size:1.2rem;line-height:1.5}
+.culture-feature-copy span{margin-top:auto;color:#517c69;font-size:.8rem}
 .culture-overview{padding:30px;background:#f7f8f4;border:1px solid #e4e9e0;border-radius:22px;margin-bottom:32px}
 .culture-overview p{font-size:.9rem;color:#667b70}
 .culture-chips{display:flex;flex-wrap:wrap;gap:9px}
@@ -75,5 +82,6 @@ const features=[
 .culture-group li small{font-size:.77rem;color:#7d9084}
 .culture-group details{margin-top:12px}.culture-group summary{cursor:pointer;padding:10px;border-radius:9px;background:#eff6f1;color:#456a57;font-size:.85rem;font-weight:700}
 .culture-note{max-width:860px;margin:37px auto 0;line-height:1.9;font-size:.83rem;color:#718477}
+.culture-credits{margin:18px auto;max-width:860px;color:#65796e;font-size:.82rem;line-height:1.8}.culture-credits summary{cursor:pointer;font-weight:700}.culture-credits a{color:#476e5c}
 @media(max-width:720px){.culture-features,.culture-results{grid-template-columns:1fr}.culture-index{padding:18px 15px 55px}.culture-overview{padding:20px}.culture-feature{min-height:145px}}
 </style>
