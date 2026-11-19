@@ -2,6 +2,38 @@
 // open licenses. Never hotlink their image assets; readers can view the originals
 // on the source pages. Covers remain limited to separately licensed images.
 export const essayPhotoFieldReferences = {
+  'ibuki-fat-sardines-revalued': [
+    {
+      label:"伊吹島で商品化された釜揚げいりこを見る",
+      publisher:"伊吹島プロジェクト",
+      url:"https://ibukijima.com/kamaage/",
+      note:"通常の乾燥いりこではなく、脂の多いイワシの別の加工方法を紹介する公式ページ。製品写真は転載していません。"
+    }
+  ],
+  'olive-pomace-to-cattle': [
+    {
+      label:"オリーブの搾りかすが飼料になる工程を見る",
+      publisher:"讃岐牛・オリーブ牛振興会",
+      url:"https://olivefedwagyu.jp/about/cycle.php",
+      note:"搾油後の副産物と畜産をつなぐ循環工程の説明。現在のアイキャッチは小豆島のオリーブ園で、牛や飼料加工設備の実写ではありません。"
+    }
+  ],
+  'fish-waste-to-feed-and-citrus': [
+    {
+      label:"八幡浜の魚残渣の肥料化について一次資料を見る",
+      publisher:"愛媛県 循環資源交換情報",
+      url:"https://www.pref.ehime.jp/page/9475.html",
+      note:"八幡浜蒲鉾協同組合に関する県の循環資源情報。実際の製造設備写真の掲載を保証するものではありません。"
+    }
+  ],
+  'citrus-pomace-cascade': [
+    {
+      label:"ジュース工場での柑橘搾汁粕利用を見る",
+      publisher:"えひめ飲料",
+      url:"https://www.ehime-inryo.co.jp/company/environmental.html",
+      note:"搾汁後の残渣の処理と有効利用を扱う事業者資料。冒頭の柑橘段畑は副産物処理の現場ではありません。"
+    }
+  ],
   'oyster-shells-where-they-go': [
     {
       label:'広島の牡蠣殻加工場と殻の山を写真で見る',
