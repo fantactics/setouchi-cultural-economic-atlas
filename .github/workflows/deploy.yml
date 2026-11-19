@@ -83,3 +83,5 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public PHOTO ESSAY image delivery
+        run: node scripts/check-live-photo-essay.mjs
