@@ -52,8 +52,20 @@ jobs:
       # /kii/... URL stop being accessible there after this deployment.
       - name: Exclude KII from SETOUCHI GitHub Pages
         run: node scripts/prepare-setouchi-pages.mjs
+      - name: Restore previously mirrored PHOTO ESSAY images
+        uses: actions/cache/restore@v4
+        with:
+          path: .photo-cache
+          key: atlas-photo-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            atlas-photo-cache-
       - name: Mirror approved PHOTO ESSAY asset into SETOUCHI artifact
         run: node scripts/prepare-local-photo-assets.mjs
+      - name: Preserve successfully mirrored PHOTO ESSAY images
+        uses: actions/cache/save@v4
+        with:
+          path: .photo-cache
+          key: atlas-photo-cache-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Prepare SETOUCHI custom domain and backward-compatible links
         run: node scripts/prepare-setouchi-custom-domain.mjs
       - name: Upload artifact
