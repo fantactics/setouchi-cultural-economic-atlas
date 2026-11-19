@@ -1,6 +1,7 @@
 // Reader-facing "read next" choices. Match published essays only.
 import { essayEntryBySlug } from './essayEntryCategories.js';
 import { getNaturalConditionTags } from './naturalEnvironmentTags.js';
+import { getCultureTags } from './cultureTraditionTags.js';
 // Explicit connections outrank broad theme similarity; no research notes are included.
 const curated = {
   'kojima-from-cotton-to-jeans':['kojima-jeans-circular-economy','imabari-why-shipbuilding','takehara-salt-capital-to-townscape'],
@@ -55,24 +56,26 @@ export const relatedEssaysFor=(article,articles,limit=3)=>{
   const readerPlaces=(cities)=>(cities||[]).filter((city)=>city&&!genericAreas.has(city));
   const subjectPlaces=readerPlaces(article.cities);
   const nature=getNaturalConditionTags(article);
+  const culture=getCultureTags(article);
   const entrances=essayEntryBySlug[article.slug]||[];
   const ranked=pool.filter((a)=>!visited.has(a.slug)).map((a)=>{
     const cities=intersection(subjectPlaces,readerPlaces(a.cities));
     const keywords=intersection(article.keywords,a.keywords);
     const natural=intersection(nature,getNaturalConditionTags(a));
+    const cultural=intersection(culture,getCultureTags(a));
     const candidateEntrances=essayEntryBySlug[a.slug]||[];
     const topics=intersection(entrances,candidateEntrances);
     const primaryTopic=entrances[0] && entrances[0]===candidateEntrances[0];
     const part=article.part===a.part;
     // Prefer a genuinely shared place, then environmental cause or editorial entrance.
     // Broad keywords and generic prefecture names alone should not dominate the links.
-    const score=9*cities+3*Math.min(2,natural)+3*Number(primaryTopic)+2*Math.min(2,topics)
+    const score=9*cities+3*Math.min(2,natural)+2*Math.min(2,cultural)+3*Number(primaryTopic)+2*Math.min(2,topics)
       +Math.min(3,keywords)*2+Number(part);
-    return {a,cities,keywords,natural,topics,part,score};
+    return {a,cities,keywords,natural,cultural,topics,part,score};
   }).sort((a,b)=>b.score-a.score||b.cities-a.cities||b.natural-a.natural||b.topics-a.topics||a.a.title.localeCompare(b.a.title,'ja'));
   for(const row of ranked){
     if(selected.length>=limit||row.score===0) break;
-    add(row.a,row.cities?'同じ土地の、別の物語':row.natural?'同じ自然条件から':row.topics?'同じ風景のテーマから':row.keywords?'同じ話題から広がる':'同じテーマでもう一篇');
+    add(row.a,row.cities?'同じ土地の、別の物語':row.natural?'同じ自然条件から':row.cultural?'同じ文化・風習から':row.topics?'同じ風景のテーマから':row.keywords?'同じ話題から広がる':'同じテーマでもう一篇');
   }
   // All published essays should have a readable next stop, even when topics are unique.
   for(const row of ranked){
