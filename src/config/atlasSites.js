@@ -12,12 +12,15 @@ export const atlasSites = {
       { label: 'トップ', path: '' },
       { label: '一覧', path: 'book/' },
       { label: '地名から', path: 'places/' },
-      { label: '自然条件から', path: 'book/nature/' }
+      { label: '自然条件から', path: 'book/nature/' },
+      { label: '文化・風習から', path: 'book/culture/' }
     ],
     footer: [
       { label: 'このサイトについて', path: 'about/' },
       { label: '地域別', path: 'places/' },
       { label: 'エッセイ', path: 'book/' },
+      { label: '自然条件から', path: 'book/nature/' },
+      { label: '文化・風習から', path: 'book/culture/' },
       { label: '研究ノート', path: 'chapters/' },
       { label: '編集・調査の方法', path: 'methodology/' }
     ]
