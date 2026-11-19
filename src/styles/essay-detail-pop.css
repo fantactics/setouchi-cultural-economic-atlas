@@ -175,6 +175,25 @@ body.page-type-essay .book-article .book-hero-photo figcaption span{
   font-size:.7rem;
   color:#83938a;
 }
+body.page-type-essay .book-article .book-hero-photo .reader-real-photo-reference{
+  margin:13px 0 0;
+  padding:13px 17px;
+  background:#f3f4ee;
+  border-left:3px solid #688477;
+  border-radius:0 9px 9px 0;
+  font-size:.84rem;
+  line-height:1.65;
+  color:#40584e;
+}
+body.page-type-essay .book-article .reader-real-photo-reference p{
+  margin:0 0 7px;
+}
+body.page-type-essay .book-article .reader-real-photo-reference a{
+  color:#205f4d;
+  font-weight:750;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
 body.page-type-essay .book-article .book-reading-column{
   max-width:800px;
   margin:0 auto;
