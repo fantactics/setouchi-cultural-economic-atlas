@@ -19,6 +19,7 @@ import { aiRegionalPlanningEssay } from '../../../data/aiRegionalPlanningEssay.j
 import { enhanceBookArticle } from '../../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../../data/essayEditorialOverrides.js';
 import { naturalConditionTagIndex } from '../../../data/naturalEnvironmentTags.js';
+import { saltLandscapeNatureEssays } from '../../../data/saltLandscapeNatureEssays.js';
 import { photoEvidence } from '../../../data/photoEvidence.js';
 
 const originalEssays=[
@@ -26,7 +27,7 @@ const originalEssays=[
   shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,
   kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,
   setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
-  setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay
+  setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay,...saltLandscapeNatureEssays
 ].filter(Boolean);
 const essays=originalEssays.map((a)=>withMarkdownMetadata(applyEssayEditorialOverride(enhanceBookArticle(a))));
 const natureGroups=naturalConditionTagIndex(essays);
