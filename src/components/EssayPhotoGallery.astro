@@ -33,7 +33,7 @@ const displayPhotos = [...photos]
       {displayPhotos.map((photo,index)=>(
         <figure class:list={['essay-photo-card', index===0 && 'feature']}>
           <a href={photo.sourcePage} target="_blank" rel="noreferrer" class="essay-photo-link">
-            <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} decoding="async" data-photo-essay-img />
+            <img src={photo.imageUrl} alt={photo.alt} loading={index===0?'eager':'lazy'} decoding="async" referrerpolicy="no-referrer" data-photo-essay-img />
             <span class="essay-photo-unavailable" hidden>画像を表示できません。写真の出典ページをご覧ください。</span>
             {photo.isReference && <span class="essay-photo-reference">比較資料</span>}
           </a>
@@ -50,30 +50,53 @@ const displayPhotos = [...photos]
 )}
 
 <script is:inline>
-  // Wikimedia Special:FilePath thumbnails can fail for certain original image
-  // dimensions or after temporary thumbnail-cache errors. Try the original
-  // image once. If the publisher's image itself is unavailable, make the
-  // source link and a readable explanation visible instead of a broken image.
-  document.addEventListener('error', (event) => {
-    const image = event.target;
-    if (!(image instanceof HTMLImageElement) || !image.matches('[data-photo-essay-img]')) return;
-    if (image.dataset.retryState !== 'original') {
-      image.dataset.retryState = 'original';
-      try {
-        const url = new URL(image.currentSrc || image.src, document.baseURI);
-        if (url.hostname === 'commons.wikimedia.org'
-            && url.pathname.startsWith('/wiki/Special:FilePath/')
-            && url.searchParams.has('width')) {
-          url.searchParams.delete('width');
-          image.src = url.href;
-          return;
-        }
-      } catch (_) {}
-    }
-    image.hidden = true;
-    const explanation = image.parentElement?.querySelector('.essay-photo-unavailable');
-    if (explanation) explanation.hidden = false;
-  }, true);
+  // Wikimedia's Special:FilePath thumbnail and original endpoints occasionally
+  // fail independently (including rate-limited responses). Try a third-party
+  // image cache only after direct Wikimedia URLs have failed. The image still
+  // links to its original source; author/licence captions remain unchanged.
+  (() => {
+    const imageFallbacks = (src) => {
+      const result = [];
+      let url;
+      try { url = new URL(src, document.baseURI); } catch { return result; }
+      if (url.hostname !== 'commons.wikimedia.org' ||
+          !url.pathname.startsWith('/wiki/Special:FilePath/')) return result;
+
+      if (url.searchParams.has('width')) {
+        const original = new URL(url.href);
+        original.searchParams.delete('width');
+        result.push(original.href);
+      }
+      const original = new URL(url.href);
+      original.searchParams.delete('width');
+      // ImageKit's public image proxy caches Wikimedia-hosted images and avoids
+      // requesting the same Special:FilePath thumbnail from the visitor browser.
+      // Supply the unmodified original Commons URL as the upstream resource.
+      const proxy = new URL('https://wsrv.nl/');
+      proxy.searchParams.set('url', original.href);
+      proxy.searchParams.set('w', '1440');
+      proxy.searchParams.set('fit', 'inside');
+      result.push(proxy.href);
+      return [...new Set(result)];
+    };
+
+    document.addEventListener('error', (event) => {
+      const img = event.target;
+      if (!(img instanceof HTMLImageElement) || !img.matches('[data-photo-essay-img]')) return;
+      // Do not retry endlessly when an upstream URL has been removed or denied.
+      const attempts = Number(img.dataset.photoRetry || '0');
+      const fallbackUrls = imageFallbacks(img.dataset.originalPhotoUrl || img.src);
+      if (!img.dataset.originalPhotoUrl) img.dataset.originalPhotoUrl = img.src;
+      if (attempts < fallbackUrls.length) {
+        img.dataset.photoRetry = String(attempts + 1);
+        img.src = fallbackUrls[attempts];
+        return;
+      }
+      img.hidden = true;
+      const explanation = img.parentElement?.querySelector('.essay-photo-unavailable');
+      if (explanation) explanation.hidden = false;
+    }, true);
+  })();
 </script>
 
 <style>
