@@ -20,6 +20,7 @@ import { aiRegionalPlanningEssay } from '../../data/aiRegionalPlanningEssay.js';
 import { kojimaCircularEssay } from '../../data/kojimaCircularEssay.js';
 import { kojimaIslandEssays } from '../../data/kojimaIslandEssays.js';
 import { quageoSetouchiEssays } from '../../data/quageoSetouchiEssays.js';
+import { saltLandscapeNatureEssays } from '../../data/saltLandscapeNatureEssays.js';
 import { photoEvidence } from '../../data/photoEvidence.js';
 import { tomoTwoActPortPhotos } from '../../data/tomoTwoActPortPhotos.js';
 import { additionalPlacePhotos } from '../../data/additionalPlacePhotos.js';
@@ -54,7 +55,7 @@ const markdownModules=import.meta.glob('../../content/essays/*.md',{eager:true})
 const markdownBySlug=Object.fromEntries(Object.entries(markdownModules).map(([file,module])=>[file.split('/').pop().replace(/\.md$/,''),module]));
 
 export function getStaticPaths(){
-  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
+  const publishedBookArticles=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,...saltLandscapeNatureEssays,niboshiShirasuEssay,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,aiRegionalPlanningEssay].filter(Boolean);
   const archivedBookArticles=['miura-matsuyama-small-boiler-revolution','ai-era-regional-planning-learning-velocity'].map((slug)=>bookArticleBySlug[slug]).filter(Boolean);
   return [
     ...publishedBookArticles.map((article,index)=>({
