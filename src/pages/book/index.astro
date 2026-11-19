@@ -140,7 +140,7 @@ const editorialPhotoCredits=[...new Map(
 
 
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
-      <div class="reader-discovery-head"><div><span>PICK YOUR MOOD <span aria-hidden="true">✳</span></span><h2 id="reader-discovery-title">いま、何が気になる？</h2><p>食べたい、歩きたい、眺めたい。そんな気分から選ぼう。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
+      <div class="reader-discovery-head"><div><span>PICK YOUR MOOD <span aria-hidden="true">✳</span></span><h2 id="reader-discovery-title">いま、何が気になる？</h2><p>食べたい、歩きたい、眺めたい。そんな気分から選ぼう。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="/setouchi-cultural-economic-atlas/book/culture/">文化・風習から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
       <div class="reader-discovery-grid">
         {categories.map((entry)=><a class="reader-discovery-tile" href={`#${entranceId(entry)}`}>
           <span>{String(essaysIn(entry).length).padStart(2,'0')} ESSAYS</span>
@@ -156,7 +156,7 @@ const editorialPhotoCredits=[...new Map(
 
     <nav class="reader-theme-shortcuts" aria-label="エッセイのカテゴリへ移動">
       <span>カテゴリへジャンプ</span>
-      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}<a class="reader-directory-jump" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件</a><a class="reader-directory-jump" href="#essay-directory">タイトル一覧</a></div>
+      <div>{categories.map((entry)=><a href={`#${entranceId(entry)}`}>{entry.label}</a>)}<a class="reader-directory-jump" href="/setouchi-cultural-economic-atlas/book/nature/">自然条件</a><a class="reader-directory-jump" href="/setouchi-cultural-economic-atlas/book/culture/">文化・風習</a><a class="reader-directory-jump" href="#essay-directory">タイトル一覧</a></div>
     </nav>
 
     <section id="essay-all-themes">
