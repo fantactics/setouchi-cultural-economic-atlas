@@ -124,6 +124,19 @@ for (const {file,html} of pages) {
 }
 console.log(`PHOTO ESSAY: mirrored ${local.size}/${urls.size} images; updated ${edited} HTML files.`);
 console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} external images; see .photo-cache/manifest.json for successfully mirrored entries.`);
+const unresolved=items.filter(src=>!local.has(src));
+const affectedPages=pages.flatMap(({file,html})=>{
+  const blocked=unresolved.filter(src=>html.includes(src.replaceAll('&','&amp;'))||html.includes(src));
+  return blocked.length ? [{page:'/'+path.relative(root,file).replace(/index\\.html$/,'').split(path.sep).join('/'),unresolved:blocked.length,images:blocked}] : [];
+});
+await writeFile(path.join(root,'photo-health.json'),JSON.stringify({
+  generatedAt:new Date().toISOString(),
+  total:items.length,
+  locallyHosted:local.size,
+  unresolved:unresolved.length,
+  affectedPages
+},null,2)+'\\n','utf8');
+console.log(`PHOTO ESSAY health report: ${affectedPages.length} page(s) with unresolved photos.`);
 if(local.size===0 && urls.size>0) console.warn('No Commons images could be mirrored: all PHOTO ESSAY images retain browser fallbacks.');
 
 // Original explicitly approved photo mirror, used outside PHOTO ESSAY as well.
