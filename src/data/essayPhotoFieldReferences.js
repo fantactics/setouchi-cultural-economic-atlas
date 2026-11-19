@@ -5,6 +5,7 @@ export const essayPhotoFieldReferences = {
   'ibuki-fat-sardines-revalued': [
     {
       label:"伊吹島で商品化された釜揚げいりこを見る",
+      heroNote:'冒頭は伊吹島の景観写真です。島の漁法、イワシの加工工程、釜揚げいりこの実物写真は公式取材ページで確認できます。',
       publisher:"伊吹島プロジェクト",
       url:"https://ibukijima.com/kamaage/",
       note:"通常の乾燥いりこではなく、脂の多いイワシの別の加工方法を紹介する公式ページ。製品写真は転載していません。"
@@ -13,6 +14,7 @@ export const essayPhotoFieldReferences = {
   'olive-pomace-to-cattle': [
     {
       label:"オリーブの搾りかすが飼料になる工程を見る",
+      heroNote:'冒頭はオリーブ園の風景です。搾油後の果実を飼料に加工する実際の工程は、オリーブ牛の公式サイトで確認できます。',
       publisher:"讃岐牛・オリーブ牛振興会",
       url:"https://olivefedwagyu.jp/about/cycle.php",
       note:"搾油後の副産物と畜産をつなぐ循環工程の説明。現在のアイキャッチは小豆島のオリーブ園で、牛や飼料加工設備の実写ではありません。"
@@ -29,6 +31,7 @@ export const essayPhotoFieldReferences = {
   'citrus-pomace-cascade': [
     {
       label:"ジュース工場での柑橘搾汁粕利用を見る",
+      heroNote:'冒頭は柑橘の段畑です。搾汁粕を密封・発酵させて飼料にする現場の写真は、えひめ飲料の公式資料で確認できます。',
       publisher:"えひめ飲料",
       url:"https://www.ehime-inryo.co.jp/company/environmental.html",
       note:"搾汁後の残渣の処理と有効利用を扱う事業者資料。冒頭の柑橘段畑は副産物処理の現場ではありません。"
@@ -37,6 +40,7 @@ export const essayPhotoFieldReferences = {
   'oyster-shells-where-they-go': [
     {
       label:'広島の牡蠣殻加工場と殻の山を写真で見る',
+      heroNote:'冒頭は米国で撮影された牡蠣殻の比較写真です。広島県内の殻の山と再資源化工場の実景は取材記事で確認できます。',
       publisher:'大和製衡（丸栄株式会社への取材記事）',
       url:'https://yamato-scale.blog.jp/archives/45301924.html',
       note:'広島県内の丸栄の工場で撮影された粉砕後の牡蠣殻の山と処理工程。未処理の殻の集積写真とは区別してください。写真の転載はしていません。'
@@ -51,6 +55,7 @@ export const essayPhotoFieldReferences = {
   'kojima-jeans-circular-economy': [
     {
       label:'児島のノーリベット仕様ジーンズを実物写真で見る',
+      heroNote:'冒頭は児島ジーンズストリートの街路写真です。リベットを使わないポケットの縫製を含む、実際の製品は取材記事で確認できます。',
       publisher:'Begin（JAPAN BLUE JEANS 2020年エシカルプロダクト取材）',
       url:'https://www.e-begin.jp/article/114094/',
       note:'製品の再資源化を考えて金属リベットを省略した児島のジーンズを紹介。記事の街路写真では製品の構造は分かりません。掲載元の写真は転載していません。'
@@ -95,6 +100,7 @@ export const essayPhotoFieldReferences = {
   'shodoshima-somen-to-sesame-oil': [
     {
       label:'白い素麺のカーテンが海風に揺れる写真を見る',
+      heroNote:'冒頭の生そうめんは小豆島産ですが、製造工程ではありません。素麺を延ばし、天日干しする小豆島の仕事場は取材写真で確認できます。',
       publisher:'香川県観光協会 うどん県旅ネット',
       url:'https://www.my-kagawa.jp/blog/blog-20220316e/blog-20220316e',
       note:'冬の天日干しの実景と製造工程。本文の島の風景写真は素麺の写真ではないため、実際の門干しはこちらで確認できます。'
