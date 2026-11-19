@@ -2,13 +2,23 @@
 // are not dependent on Wikimedia Commons / an image proxy at page-view time.
 // Only an image that downloads and passes basic validation is rewritten.
 // Existing source links, attribution, and licenses remain in the page HTML.
-import { mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, readdir, copyFile, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 const root = path.resolve('dist');
 const rootAssets = path.join(root, 'images', 'essay-photo');
 await mkdir(rootAssets, { recursive: true });
+const cacheAssets=path.resolve('.photo-cache/assets');
+const cacheManifest=path.resolve('.photo-cache/manifest.json');
+await mkdir(cacheAssets,{recursive:true});
+let previous={};
+try { previous=JSON.parse(await readFile(cacheManifest,'utf8')); } catch {}
+const cacheAvailable=async (filename)=>{
+  if (!/^[a-f0-9]{20}\.(jpg|png|webp|avif|gif)$/.test(filename)) return false;
+  const info=await stat(path.join(cacheAssets,filename)).catch(()=>null);
+  return Boolean(info?.isFile() && info.size>800 && info.size<8*1024*1024);
+};
 
 async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -70,6 +80,7 @@ async function download(src) {
         const hash=createHash('sha256').update(src).digest('hex').slice(0,20);
         const name=hash+extension;
         await writeFile(path.join(rootAssets,name),bytes);
+        await writeFile(path.join(cacheAssets,name),bytes);
         return '/images/essay-photo/'+name;
       } catch (error) {
         if (attempt===1) console.warn(`Image fetch failed: ${error.message} (${candidate.slice(0,110)})`);
@@ -80,15 +91,27 @@ async function download(src) {
 }
 const items=[...urls];
 const local=new Map();
+const pending=[];
+for(const src of items){
+  const name=previous[src];
+  if(name && await cacheAvailable(name)){
+    await copyFile(path.join(cacheAssets,name),path.join(rootAssets,name));
+    local.set(src,'/images/essay-photo/'+name);
+  } else pending.push(src);
+}
+console.log(`PHOTO ESSAY cache: reused ${local.size} previously downloaded images; attempting ${pending.length} new downloads.`);
 let next=0;
 async function worker(){
-  while(next<items.length){
-    const src=items[next++];
+  while(next<pending.length){
+    const src=pending[next++];
     const result=await download(src);
     if(result) local.set(src,result);
   }
 }
-await Promise.all(Array.from({length:12},()=>worker()));
+await Promise.all(Array.from({length:3},()=>worker()));
+const manifest={};
+for(const [src,url] of local) manifest[src]=path.basename(url);
+await writeFile(cacheManifest,JSON.stringify(manifest,null,2)+'\n','utf8');
 let edited=0;
 for (const {file,html} of pages) {
   const updated=html.replace(/<img\b[^>]*\bdata-photo-essay-img\b[^>]*>/gi,tag=>{
@@ -100,6 +123,7 @@ for (const {file,html} of pages) {
   if(updated!==html){await writeFile(file,updated,'utf8');edited++;}
 }
 console.log(`PHOTO ESSAY: mirrored ${local.size}/${urls.size} images; updated ${edited} HTML files.`);
+console.log(`PHOTO ESSAY unresolved: ${items.length-local.size} external images; see .photo-cache/manifest.json for successfully mirrored entries.`);
 if(local.size===0 && urls.size>0) console.warn('No Commons images could be mirrored: all PHOTO ESSAY images retain browser fallbacks.');
 
 // Original explicitly approved photo mirror, used outside PHOTO ESSAY as well.
