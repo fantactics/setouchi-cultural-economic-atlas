@@ -4,6 +4,9 @@ import { getNaturalConditionTags } from './naturalEnvironmentTags.js';
 import { getCultureTags } from './cultureTraditionTags.js';
 // Explicit connections outrank broad theme similarity; no research notes are included.
 const curated = {
+  'iwagi-salt-pans-to-shrimp-ponds':['four-salt-fields','oysters-taste-of-small-seas','ushimado-nagahama-kinkai-two-reclaimed-landscapes'],
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['kinkai-salt-field-to-solar','farmland-or-solar','iwagi-salt-pans-to-shrimp-ponds'],
+  'kinkai-salt-field-to-solar':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields','sakaide-salt-fields-to-industry'],
   'kojima-from-cotton-to-jeans':['kojima-jeans-circular-economy','imabari-why-shipbuilding','takehara-salt-capital-to-townscape'],
   'imabari-why-shipbuilding':['onomichi-capital-to-culture-and-ships','ports-that-needed-waiting','setouchi-ship-materials'],
   'onomichi-capital-to-culture-and-ships':['imabari-why-shipbuilding','mitarai-economy-of-waiting','ports-that-needed-waiting'],
