@@ -40,6 +40,12 @@ export const essayPhotoFieldReferences = {
       publisher:'大和製衡（丸栄株式会社への取材記事）',
       url:'https://yamato-scale.blog.jp/archives/45301924.html',
       note:'広島県内の丸栄の工場で撮影された粉砕後の牡蠣殻の山と処理工程。未処理の殻の集積写真とは区別してください。写真の転載はしていません。'
+    },
+    {
+      label:'広島・海田町の海中集積所でカキ殻を追う',
+      publisher:'広島CLiP新聞（丸栄・海田工場の取材）',
+      url:'https://magazine.cliiip.jp/social/7876/',
+      note:'海中集積所と再資源化の現場を取材した写真記事。写真の利用許諾は未確認のため、記事本文から原ページに案内しています。'
     }
   ],
   'kojima-jeans-circular-economy': [
@@ -48,6 +54,12 @@ export const essayPhotoFieldReferences = {
       publisher:'Begin（JAPAN BLUE JEANS 2020年エシカルプロダクト取材）',
       url:'https://www.e-begin.jp/article/114094/',
       note:'製品の再資源化を考えて金属リベットを省略した児島のジーンズを紹介。記事の街路写真では製品の構造は分かりません。掲載元の写真は転載していません。'
+    },
+    {
+      label:'ノーリベット仕様の販売製品とディテールを見る',
+      publisher:'Denimio（JAPAN BLUE JEANS J205741製品ページ）',
+      url:'https://www.denimio.com/ja_JP/j205741-12-5oz-scrap-thailand-banana-tree-jeans-wide-tapered-one-wash-30/J205741-OW-30.html',
+      note:'JAPAN BLUE JEANSのエシカルラインにおけるリベット不使用の製品例。製品個体の児島工場製造までは確認しておらず、ブランドの所在地と生産地は混同しない。'
     }
   ],
   'setouchi-shrimp-middle-layer': [
@@ -69,7 +81,7 @@ export const essayPhotoFieldReferences = {
       label:'岡山ばらずしの本物の写真を見る',
       publisher:'岡山観光WEB（岡山県観光連盟）',
       url:'https://www.okayama-kanko.jp/gourmet/detail_11993.html',
-      note:'ハレの日の華やかな盛り付け。本文冒頭のちらし寿司は比較写真です。'
+      note:'岡山ばら寿司の実物と調理法を確認できる公式ページ。記事冒頭の写真は松山鮓であり、岡山ばら寿司とは別の郷土料理です。'
     }
   ],
   'miura-matsuyama-small-boiler-revolution': [
