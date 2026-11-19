@@ -36,10 +36,20 @@ function candidates(src) {
   original.searchParams.delete('width');
   const resized = new URL(original.href);
   resized.searchParams.set('width', '960');
+  // Wikimedia Commons FilePath redirects are subject to rate limits. The
+  // canonical media URL uses the MD5 of the decoded filename and can be
+  // requested directly without the redirect. Proxy the same canonical media
+  // URL when Wikimedia throttles GitHub-hosted builders.
+  const filename=decodeURIComponent(original.pathname.slice('/wiki/Special:FilePath/'.length)).replaceAll(' ','_');
+  const digest=createHash('md5').update(filename).digest('hex');
+  const canonical='https://upload.wikimedia.org/wikipedia/commons/'+digest[0]+'/'+digest.slice(0,2)+'/'+filename.split('/').map(encodeURIComponent).join('/');
   const proxy = new URL('https://wsrv.nl/');
-  proxy.searchParams.set('url', original.href);
+  proxy.searchParams.set('url', canonical);
   proxy.searchParams.set('w', '960');
-  return [...new Set([resized.href, original.href, proxy.href])];
+  const proxyOriginal = new URL('https://images.weserv.nl/');
+  proxyOriginal.searchParams.set('url', canonical);
+  proxyOriginal.searchParams.set('w', '960');
+  return [...new Set([resized.href, canonical, proxy.href, proxyOriginal.href, original.href])];
 }
 const headers = {
   'User-Agent': 'SETOUCHI-ATLAS/1.0 (https://github.com/fantactics/setouchi-cultural-economic-atlas; editorial photo cache)',
