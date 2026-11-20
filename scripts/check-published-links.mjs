@@ -56,7 +56,8 @@ const important=[
   'book/nature/index.html',
   'book/culture/index.html',
   collection+'/index.html',
-  ...htmlChildren('book')
+  ...htmlChildren('book'),
+  ...htmlChildren('places')
 ];
 for(const relative of important){
   assert.ok(existsSync(path.join(dist,relative)),`Discovery page missing: ${relative}`);
@@ -65,7 +66,8 @@ for(const relative of important){
 const missing=new Map();
 let checked=0;
 for(const relative of important){
-  const html=readFileSync(path.join(dist,relative),'utf8');
+  const html=readFileSync(path.join(dist,relative),'utf8')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,''); // Ignore JavaScript-built map links.
   for(const match of html.matchAll(/\bhref=(["'])(.*?)\1/g)){
     const raw=match[2].replaceAll('&amp;','&').trim();
     if(!raw || raw.startsWith('#') || raw.startsWith('//') || /^[a-z][a-z\d+.-]*:/i.test(raw)) continue;
@@ -73,7 +75,7 @@ for(const relative of important){
     if(target.startsWith(legacy)) target=target.slice(legacy.length);
     else if(target.startsWith('/')) target=target.slice(1);
     else continue; // same-page and relative anchors do not define article routes
-    if(!target.startsWith('book/')&&!target.startsWith('collections/'))continue;
+    if(!target.startsWith('book/')&&!target.startsWith('collections/')&&!target.startsWith('places/'))continue;
     const normalized=target.replace(/\/+$/,'');
     if(!normalized || !normalized.includes('/')) continue;
     checked++;
@@ -96,4 +98,4 @@ for(const fragment of ['初めての3篇','問いをつないで、瀬戸内を�
 }
 assert.ok(collectionHtml.includes('五つの土地、五つの問い'), 'The salt collection comparison is missing');
 assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
-console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay pages, ${checked} editorial links, collection and sitemap.`);
+console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
