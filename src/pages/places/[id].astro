@@ -5,7 +5,6 @@ import { climateProfiles } from '../../data/climate.js';
 import { photosForPlace } from '../../data/photoEvidence.js';
 import PhotoEvidenceGallery from '../../components/PhotoEvidenceGallery.astro';
 import { publishedEssays } from '../../data/publishedEssayList.js';
-import { researchChapters } from '../../data/researchChapters.js';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -17,7 +16,6 @@ const { place } = Astro.props;
 const sourceById = Object.fromEntries(place.sources.map((source) => [source.id, source]));
 const hasClimate = !!climateProfiles[place.id];
 const placePhotos = photosForPlace(place.id);
-const textileRelated = ['shimotsui','imabari','hiketa','tomonoura'].includes(place.id);
 const storyAliases = {
   ako:['赤穂','gastronomy'],
   onomichi:['尾道','gastronomy'],
@@ -277,33 +275,6 @@ const regionCoverPhotoIds={
 const coverPhoto=placePhotos.find((photo)=>photo.id===regionCoverPhotoIds[place.id]) || placePhotos[0] || null;
 const coverSupportingPhotos=placePhotos.filter((photo)=>photo.id!==coverPhoto?.id).slice(0,3);
 
-const researchBySlug=Object.fromEntries(researchChapters.map((chapter)=>[chapter.slug,chapter]));
-const researchSlugsByPlace={
-  ako:['geography','livelihoods','gastronomy','capabilities','standardization'],
-  ushimado:['ports-trade','gastronomy','culture','cities'],
-  shimotsui:['geography','livelihoods','gastronomy','capabilities','cities'],
-  tomonoura:['geography','ports-trade','gastronomy','culture','cities'],
-  onomichi:['ports-trade','gastronomy','capabilities','culture','cities'],
-  mihara:['ports-trade','capabilities','cities','standardization'],
-  takehara:['livelihoods','gastronomy','capabilities','culture','cities'],
-  mitarai:['ports-trade','gastronomy','culture','cities','standardization'],
-  iwakuni:['geography','climate-water','cities','culture'],
-  yanai:['ports-trade','capabilities','culture','cities'],
-  hofu:['geography','livelihoods','capabilities','cities'],
-  shimonoseki:['geography','ports-trade','gastronomy','capabilities','cities'],
-  hiketa:['geography','ports-trade','livelihoods','gastronomy','culture'],
-  shodoshima:['climate-water','livelihoods','gastronomy','capabilities','culture'],
-  takamatsu:['ports-trade','gastronomy','cities','standardization','culture'],
-  sakaide:['geography','livelihoods','gastronomy','capabilities','standardization'],
-  tadotsu:['ports-trade','gastronomy','capabilities','cities','standardization'],
-  niihama:['livelihoods','capabilities','cities','standardization'],
-  imabari:['geography','ports-trade','gastronomy','capabilities','cities'],
-  matsuyama:['ports-trade','gastronomy','culture','cities','standardization']
-};
-const relatedResearch=(researchSlugsByPlace[place.id] || ['geography','ports-trade','cities'])
-  .map((slug)=>researchBySlug[slug])
-  .filter(Boolean);
-
 const naturalEnvironment=[
   {title:'地理・地形',body:place.sections?.[1]?.[1],claim:place.sections?.[1]?.[2],href:'/setouchi-cultural-economic-atlas/transect/'},
   {title:'気候・水',body:place.sections?.[2]?.[1],claim:place.sections?.[2]?.[2],href:hasClimate ? `/setouchi-cultural-economic-atlas/places/${place.id}/climate/` : '/setouchi-cultural-economic-atlas/climate/'},
@@ -377,13 +348,8 @@ const regionMapPoints=[
         <strong>エッセイ</strong>
         <span>この町は、なぜこの町になったのか</span>
       </a>
-      <a href="#region-research">
-        <small>03</small>
-        <strong>研究ノート</strong>
-        <span>瀬戸内全体のテーマから、この町を考える</span>
-      </a>
       <a href="#region-data">
-        <small>04</small>
+        <small>03</small>
         <strong>写真・データ</strong>
         <span>景観、産業、基礎データと出典から根拠を確かめる</span>
       </a>
@@ -483,57 +449,10 @@ const regionMapPoints=[
     </section>
   )}
 
-  <section class="section place-research-links region-layer-section" id="region-research">
-    <div class="region-layer-label research">研究ノート</div>
-    <h2>{place.name}を、瀬戸内全体の中で考える</h2>
-    <p class="region-layer-description">この地域だけを見ていると見えにくい構造を、他地域との比較や横断テーマから考えます。</p>
-    <div class="region-research-grid">
-      {relatedResearch.map((chapter)=>(
-        <a href={`/setouchi-cultural-economic-atlas/chapters/${chapter.slug}/`}>
-          <strong>{chapter.title}</strong>
-          <span>{chapter.subtitle}</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section gene-section region-layer-section region-genealogy">
-    <div class="region-layer-label research">研究ノート</div>
-    <h2>産業の系譜</h2>
-    <p class="lead">現在の産業が、どのような資源・技能・物流・資本から生まれたかを、仮説を含む因果の連鎖としてたどります。</p>
-    <div class="grid">
-      {place.genes.map((gene) => (
-        <article class="card">
-          <div class="kicker">{gene.type}</div>
-          <h3>{gene.name}</h3>
-          <div class="chain">
-            {gene.chain.map((step, i) => (
-              <>
-                <span>{step}</span>
-                {i < gene.chain.length - 1 && <b class="arrow">→</b>}
-              </>
-            ))}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  {textileRelated && (
-    <section class="section place-textile-link region-layer-section">
-      <div class="region-layer-label research">研究ノート</div>
-      <h2>瀬戸内の繊維・縫製産業帯の中で見る</h2>
-      <p class="lead">{place.id === 'tomonoura'
-        ? '福山市北部の備後絣・デニム産地との市域内比較です。鞆の浦の港町形成から直接デニム産業が生まれたという意味ではありません。'
-        : 'この地域の繊維・縫製産業を、児島・今治・東かがわ・福山の技能継承と横断比較します。'}</p>
-      <a class="compare-button" href="/setouchi-cultural-economic-atlas/textiles/">繊維・縫製産業帯を見る →</a>
-    </section>
-  )}
-
   <section class="section region-data-intro region-layer-section" id="region-data">
     <div class="region-layer-label data">データ</div>
     <h2>{place.name}を、資料から確かめる</h2>
-    <p class="lead">ここからは、エッセイと研究ノートを支える写真・基礎データ・出典です。</p>
+    <p class="lead">ここからは、エッセイを支える写真・基礎データ・出典です。</p>
   </section>
 
   <PhotoEvidenceGallery items={placePhotos} title="写真資料" />
