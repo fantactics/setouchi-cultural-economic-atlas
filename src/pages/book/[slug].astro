@@ -86,6 +86,11 @@ const archivedResearchHref={
 const isTravelogue=article.narrativeMode==='travelogue';
 const isNarrativeEssay=isTravelogue || article.narrativeMode==='sketch';
 const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
+const saltSeriesSlugs=new Set([
+  'four-salt-fields','ako-after-salt-fields','iwagi-salt-pans-to-shrimp-ponds',
+  'takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry',
+  'kinkai-salt-field-to-solar'
+]);
 const allPhotoEvidence=[...photoEvidence,...tomoTwoActPortPhotos,...Object.values(additionalPlacePhotos).flat()].map(applyPhotoMetadataCorrection);
 const photoById=Object.fromEntries(allPhotoEvidence.map((p)=>[p.id,p]));
 const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publishedEssays,3)
@@ -363,6 +368,11 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       description={isTravelogue ? "魚の姿、加工の仕事、食卓の一皿。海沿いの旅を、写真でもたどってみる。" : "土地の風景、仕事、食文化を写真から読み直します。"}
     />}
 
+    {saltSeriesSlugs.has(article.slug) && <aside class="salt-series-readmore" aria-label="塩田の風景を読み比べる">
+      <div><span>連作で読む</span><h2>塩田が消えたあと、土地には何が残ったか。</h2><p>同じ塩田の歴史から生まれた、赤穂・岩城島・竹原・坂出・錦海の違う未来を読み比べます。</p></div>
+      <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">五つの風景を見に行く →</a>
+    </aside>}
+
     {relatedEssays.length>0 && <section class="reader-related-essays" aria-labelledby="reader-related-title">
       <div class="reader-related-head">
         <div><span>READ NEXT</span><h2 id="reader-related-title">次は、どの風景を旅する？</h2><p>今読んだ物語から、瀬戸内の別の一篇へ。</p></div>
@@ -381,6 +391,14 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
     </nav>
 
+  <style>
+    .salt-series-readmore{display:flex;align-items:center;justify-content:space-between;gap:23px;max-width:1060px;margin:40px auto 28px;padding:22px clamp(18px,3.5vw,32px);border:1px solid #dce7d8;background:#f3f7ef;border-radius:18px;color:#33564b}
+    .salt-series-readmore span{font-size:.75rem;letter-spacing:.09em;color:#a67654;font-weight:800}
+    .salt-series-readmore h2{font-size:clamp(1.03rem,1.8vw,1.36rem);margin:7px 0 5px;line-height:1.5}
+    .salt-series-readmore p{font-size:.88rem;line-height:1.8;margin:0;color:#627567}
+    .salt-series-readmore a{flex-shrink:0;color:#277d66;font-weight:800;text-decoration:underline;text-underline-offset:3px;line-height:1.6}
+    @media(max-width:660px){.salt-series-readmore{flex-direction:column;align-items:flex-start}}
+  </style>
   <style>
     .quageo-own-photo-sequence{max-width:1060px;margin:3.25rem auto;padding:0 1rem;}
     .quageo-own-photo-sequence h2{font-size:clamp(1.3rem,2.8vw,1.85rem);margin:0 0 1.25rem;}
