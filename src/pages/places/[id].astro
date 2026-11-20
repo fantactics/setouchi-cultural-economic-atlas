@@ -460,7 +460,12 @@ const regionMapPoints=[
   <section class="section place-data-section region-layer-section">
     <div class="region-layer-label data">データ</div>
     <h2>地域データ</h2>
-    <p class="lead">自然、歴史、産業、暮らしなど18項目をまとめています。各項目は、事実・解釈・仮説を区別して表示します。</p>
+    <p class="lead">自然、歴史、産業、暮らしなどの基礎情報です。必要なときに開いて、出典とともに確かめられます。</p>
+    <details class="region-data-disclosure">
+      <summary>
+        <span class="region-data-disclosure-title">地域データを詳しく見る</span>
+        <span class="region-data-disclosure-count">{place.sections.length}項目・事実／解釈／仮説を区別 <span aria-hidden="true">＋</span></span>
+      </summary>
     <div class="profile-grid">
       {place.sections.map(([title, body, type], i) => (
         <article class="profile-card">
@@ -496,6 +501,7 @@ const regionMapPoints=[
         </article>
       ))}
     </div>
+    </details>
   </section>
 
   <section class="section sources-section region-layer-section">
@@ -548,4 +554,18 @@ const regionMapPoints=[
       if(coords.length>1) map.fitBounds(L.latLngBounds(coords),{padding:[32,32],maxZoom:10});
     })();
   </script>
+
+<style>
+  .region-data-disclosure{border:1px solid #d9e4dc;border-radius:16px;background:#fbfdfb;overflow:hidden}
+  .region-data-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;cursor:pointer;color:#29564c;list-style:none}
+  .region-data-disclosure>summary::-webkit-details-marker{display:none}
+  .region-data-disclosure-title{font-size:1.02rem;font-weight:750}
+  .region-data-disclosure-count{font-size:.79rem;color:#687f75}
+  .region-data-disclosure-count span{display:inline-block;font-size:1.3rem;line-height:1;margin-left:8px}
+  .region-data-disclosure[open] .region-data-disclosure-count span{transform:rotate(45deg)}
+  .region-data-disclosure>.profile-grid{padding:12px 18px 22px}
+  .region-data-disclosure>summary:hover{background:#f0f7f2}
+  .region-data-disclosure>summary:focus-visible{outline:3px solid #8db7aa;outline-offset:-3px}
+  @media(max-width:600px){.region-data-disclosure>summary{align-items:flex-start;flex-direction:column;gap:6px;padding:15px}.region-data-disclosure>.profile-grid{padding:8px 10px 16px}}
+</style>
 </BaseLayout>
