@@ -2,6 +2,16 @@
 // Licenses and image-source URLs are retained for the credits on /book/.
 // These images do not replace article body images or claim to show other locations.
 export const essayIndexPhotoOverrides = {
+  // The approved No.3199 photograph illustrates this essay's central puzzle:
+  // railway and temple in the same narrow townscape, unlike the panoramic hero.
+  "onomichi-capital-to-culture-and-ships": {
+    "imageUrl": "/setouchi-cultural-economic-atlas/images/atlas-original/joshoji-crossing-onomichi.avif",
+    "alt": "尾道・常称寺の近く。踏切の向こうに寺の建物が見え、鉄道と家並みが重なっている",
+    "title": "踏切の向こうに常称寺が見える風景",
+    "author": "尾道観光協会「おのみちや」No.3199",
+    "license": "利用条件は出典先参照",
+    "sourcePage": "https://www.ononavi.jp/onomichiya/search/detail.php?id=3199"
+  },
   "hijiki-tidal-time": {
     "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hijiki%20harvested%20on%20Camp%20Courtney%20120220-M-NB885-225.jpg?width=1400",
     "alt": "沖縄県うるま市の岩礁海岸で、干潮時にヒジキを手採りする人々。瀬戸内の採集地ではなく、潮間帯の作業を示す比較資料",
@@ -64,6 +74,7 @@ export const essayIndexPhotoOverrides = {
 // Optional, restrained visual-source context on feature cards. Be explicit when
 // the scene is illustrative or the photograph is from another nearby region.
 export const essayCardPhotoContext = {
+  "onomichi-capital-to-culture-and-ships": "常称寺付近の踏切。大門そのものの写真ではありません。",
   "citrus-pomace-cascade": "愛媛・狩浜の柑橘段畑（搾汁粕や剪定枝の処理現場ではありません）",
   "fish-waste-to-feed-and-citrus": "西予・狩浜の柑橘段畑（八幡浜の魚肥工場ではありません）",
   "olive-pomace-to-cattle": "小豆島のオリーブ園（オリーブ牛・飼料加工の写真ではありません）",
