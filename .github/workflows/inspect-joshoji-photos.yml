@@ -21,6 +21,8 @@ jobs:
             def handle_data(self,data):self.words.append(data)
           urls=[f'https://www.ononavi.jp/onomichiya/search/detail.php?id={i}' for i in (3199,3200,3201,3202)]
           urls.append('https://www.ononavi.jp/onomichiya/search/index.php?cat=&order=&vnum=4800')
+          urls.extend([f'https://r.jina.ai/https://www.ononavi.jp/onomichiya/search/detail.php?id={i}' for i in (3200,3201)])
+          urls.extend([f'https://ononavi.jp/onomichiya/search/detail.php?id={i}' for i in (3200,3201)])
           for url in urls:
             try:
               request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; AcademicResearchBot/1.0)'})
