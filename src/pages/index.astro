@@ -35,32 +35,17 @@ const essayPhoto=(article)=>{
   const ids=[article.heroPhotoId,...(article.sections||[]).flatMap((section)=>section.photoIds||[])].filter(Boolean);
   return ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
 };
-const recommendedSlugs=['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','tai-meshi-two-seas','ports-that-needed-waiting','shodoshima-open-island','sanuki-store-the-rain','setouchi-sushi-not-nigiri'];
+const recommendedSlugs=['sanuki-store-the-rain','onomichi-capital-to-culture-and-ships','tai-meshi-two-seas','kojima-from-cotton-to-jeans','imabari-why-shipbuilding','ports-that-needed-waiting','shodoshima-open-island'];
 const recommended=recommendedSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 const featuredArticles=recommended.slice(0,3);
 
-// Render three feature essays and five more picks for visitors without JavaScript.
-// With JavaScript, choose eight distinct illustrated essays at each visit.
-const randomPickPool=[...new Map(allEssays.map((article)=>[article.slug,article])).values()]
-  .map((article)=>{
-    const photo=essayPhoto(article);
-    return {
-      slug:article.slug,
-      title:article.title,
-      teaser:cardTeaser(article),
-      cities:article.cities?.slice(0,2).join('・') || '瀬戸内',
-      imageUrl:photo?.imageUrl || '',
-      alt:photo?.alt || article.title
-    };
-  })
-  .filter((entry)=>entry.imageUrl);
-if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illustrated essays.');
+
 ---
 <BaseLayout title="SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー" description="ランドスケープ ＝ ネイチャー ｘ カルチャー。港町の路地、島の食卓、海辺の工場。瀬戸内を旅するエッセイ集。">
   <div class="reader-home">
     <h1 class="reader-home-screenreader">SETOUCHI ATLAS のエッセイ</h1>
-    <section class="reader-home-featured" aria-label="今日の3篇">
-      <p class="reader-home-feature-label">今日の3篇</p>
+    <section class="reader-home-featured" aria-label="初めての3篇">
+      <p class="reader-home-feature-label">初めての3篇</p>
       <div class="reader-home-feature-grid">
         {featuredArticles.map((article,index)=>{
           const photo=essayPhoto(article);
@@ -69,6 +54,19 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
             <div class="reader-home-feature-copy"><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h2>{article.title}</h2><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
           </a>;
         })}
+      </div>
+    </section>
+
+    <section class="reader-home-section reader-home-series" aria-labelledby="home-series-title">
+      <div class="reader-section-heading"><div><p class="reader-eyebrow">READ AS A SERIES</p><h2 id="home-series-title">一つの問いから、五つの土地へ。</h2><p>読み比べると、見慣れた風景の別の顔が見えてくる。</p></div></div>
+      <div class="reader-home-series-panel">
+        <div>
+          <span class="reader-home-series-eyebrow">連作 01 · 塩田の、その先</span>
+          <h3>塩田が消えたあと、土地には何が残ったか。</h3>
+          <p>赤穂、岩城島、竹原、坂出、錦海。塩をつくった土地が、まったく違う未来を選んだ理由をたどります。</p>
+          <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">五つの風景を読み比べる →</a>
+        </div>
+        <div class="reader-home-series-places" aria-label="連作で訪ねる土地"><span>赤穂</span><span>岩城島</span><span>竹原</span><span>坂出</span><span>錦海</span></div>
       </div>
     </section>
 
@@ -98,48 +96,18 @@ if(randomPickPool.length<8) throw new Error('Homepage needs at least eight illus
       <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">ことばで、ひとっとび。</h2><p>町、食べもの、港、島。思いついた言葉で探してみよう。</p></div></div>
       <SiteSearch essaysOnly={true} />
     </section>
-    <script id="home-random-picks" type="application/json" set:html={JSON.stringify(randomPickPool).replace(/</g,'\\u003c')}></script>
-    <script is:inline>
-      (() => {
-        const data=document.getElementById('home-random-picks');
-        const features=[...document.querySelectorAll('.reader-home-feature-grid .reader-home-feature')];
-        const cards=[...document.querySelectorAll('.reader-home-section .reader-essay-card')];
-        if(!data || features.length!==3 || cards.length!==5) return;
-        let options;
-        try {options=JSON.parse(data.textContent || '[]');} catch {return;}
-        if(options.length<8) return;
-        // Select three different main essays and five additional stories, without repeats.
-        for(let i=options.length-1;i>0;i--){
-          const j=Math.floor(Math.random()*(i+1));
-          [options[i],options[j]]=[options[j],options[i]];
-        }
-        const selected=options.slice(0,8);
-        const root='/setouchi-cultural-economic-atlas/book/';
-        features.forEach((feature,index)=>{
-          const story=selected[index];
-          feature.href=root+story.slug+'/';
-          const img=feature.querySelector('img');
-          if(img){img.src=story.imageUrl;img.alt=story.alt;}
-          const city=feature.querySelector('.reader-home-feature-copy>span');
-          const title=feature.querySelector('h2');
-          const teaser=feature.querySelector('p');
-          if(city)city.textContent=story.cities;
-          if(title)title.textContent=story.title;
-          if(teaser)teaser.textContent=story.teaser;
-        });
-        cards.forEach((card,index)=>{
-          const story=selected[index+3];
-          card.href=root+story.slug+'/';
-          const img=card.querySelector('img');
-          if(img){img.src=story.imageUrl;img.alt=story.alt;}
-          const city=card.querySelector('div>span');
-          const title=card.querySelector('h3');
-          const teaser=card.querySelector('p');
-          if(city)city.textContent=story.cities;
-          if(title)title.textContent=story.title;
-          if(teaser)teaser.textContent=story.teaser;
-        });
-      })();
-    </script>
+
   </div>
+
+  <style>
+    .reader-home-series-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,290px);gap:24px;align-items:center;background:#f7f3e8;border:1px solid #e5ddcd;border-radius:21px;padding:clamp(22px,3vw,35px);color:#36574b}
+    .reader-home-series-eyebrow{display:block;color:#966a4a;font-size:.75rem;font-weight:800;letter-spacing:.08em;margin-bottom:10px}
+    .reader-home-series-panel h3{font-size:clamp(1.18rem,2.1vw,1.65rem);line-height:1.55;margin:0 0 9px}
+    .reader-home-series-panel p{font-size:.95rem;color:#5d6c61;line-height:1.85;margin:0 0 17px}
+    .reader-home-series-panel a{display:inline-block;color:#287a65;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+    .reader-home-series-places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .reader-home-series-places span{border:1px solid #c6d9cd;background:#fffefa;border-radius:11px;padding:12px 9px;text-align:center;font-weight:700;font-size:.88rem}
+    .reader-home-series-places span:last-child{grid-column:1 / -1;background:#e4eee3}
+    @media(max-width:700px){.reader-home-series-panel{grid-template-columns:1fr}.reader-home-series-places{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.reader-home-series-places span,.reader-home-series-places span:last-child{grid-column:auto;padding:9px 2px;font-size:.72rem}}
+  </style>
 </BaseLayout>
