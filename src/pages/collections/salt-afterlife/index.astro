@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { publishedEssays } from '../../../data/publishedEssayList.js';
+import { photoEvidence } from '../../../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../../../data/additionalPlacePhotos.js';
+import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../../data/essayIndexPhotos.js';
+import { cardPhotoId } from '../../../data/essayCardCopy.js';
+
+// An editorial comparison, not a geographical reconstruction or a claim that
+// all five former salt pans became the same kind of land.
+const paths = [
+  {
+    slug:'ako-after-salt-fields',
+    place:'兵庫・赤穂',
+    kind:'仕事を継ぐ',
+    before:'海水を濃くする塩田',
+    after:'膜と電気で塩をつくる工場',
+    question:'塩田を手放しても、塩づくりを続けられるのか。',
+    note:'西浜では土地を売り、新技術で製塩事業を継続。東浜は別の結末を迎えました。'
+  },
+  {
+    slug:'iwagi-salt-pans-to-shrimp-ponds',
+    place:'愛媛・岩城島',
+    kind:'水を使い直す',
+    before:'北浜の塩田',
+    after:'クルマエビの養殖池',
+    question:'塩を取り出した池で、今度は生き物を育てられるのか。',
+    note:'1986年の県史は北浜跡をクルマエビ養殖場と記録。現在の養殖種や稼働状況を示すものではありません。'
+  },
+  {
+    slug:'takehara-salt-capital-to-townscape',
+    place:'広島・竹原',
+    kind:'富が町に残る',
+    before:'塩田と廻船の商い',
+    after:'白壁の商家と新たな市街地',
+    question:'塩田が消えても、塩の利益はどこに残るのか。',
+    note:'干拓地は町へ姿を変え、塩で栄えた商家の建物には別の時間が刻まれています。'
+  },
+  {
+    slug:'sakaide-salt-fields-to-industry',
+    place:'香川・坂出',
+    kind:'海岸線をつくり直す',
+    before:'旧塩田と、その沖の海',
+    after:'旧塩田の転用と番の州の新規埋立',
+    question:'工場が立つ土地は、本当に塩田の跡だったのか。',
+    note:'重要なのは二種類の土地。番の州の巨大工業地帯は、旧塩田ではなく沖合を新たに埋め立てた場所です。'
+  },
+  {
+    slug:'kinkai-salt-field-to-solar',
+    place:'岡山・錦海',
+    kind:'守る仕事が残る',
+    before:'海を締め切って造った塩田',
+    after:'太陽光発電所と排水施設',
+    question:'塩づくりをやめたあと、なぜポンプは止められないのか。',
+    note:'塩田がなくなっても低地と背後の干拓地を守る排水の仕事は続きます。'
+  }
+];
+const bySlug = new Map(publishedEssays.map(article=>[article.slug,article]));
+const photos = Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(photo=>[photo.id,photo]));
+const chapters = paths.map(entry=>{
+  const article=bySlug.get(entry.slug);
+  if(!article) throw new Error('Salt-afterlife collection references unpublished essay: '+entry.slug);
+  const curated=essayIndexPhotoOverrides[entry.slug];
+  const photo=curated?.imageUrl ? curated :
+    photos[cardPhotoId(article)]?.imageUrl ? photos[cardPhotoId(article)] :
+    article.heroPhoto?.imageUrl ? article.heroPhoto :
+    photos[article.heroPhotoId];
+  return {...entry,title:article.title,href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,photo,photoContext:essayCardPhotoContext[entry.slug] || (entry.slug==='iwagi-salt-pans-to-shrimp-ponds'?'岩城島の集落の参考写真。旧北浜塩田跡ではありません。':null)};
+});
+---
+<BaseLayout
+  title="塩田が消えたあと、土地には何が残ったか | SETOUCHI ATLAS"
+  description="赤穂、岩城島、竹原、坂出、錦海。同じ塩田の歴史から、なぜ異なる風景が生まれたのか。五つの土地をつなぐSETOUCHI ATLASの連作案内。"
+>
+  <main class="salt-series">
+    <nav class="salt-breadcrumb" aria-label="パンくず"><a href="/setouchi-cultural-economic-atlas/">トップ</a><span aria-hidden="true">／</span><a href="/setouchi-cultural-economic-atlas/book/">エッセイ</a><span aria-hidden="true">／</span>連作</nav>
+    <header class="salt-intro">
+      <p class="salt-kicker">LANDSCAPE STORIES · 読み比べる瀬戸内</p>
+      <h1>塩田が消えたあと、<br />土地には何が残ったか。</h1>
+      <p class="salt-dek">海水を取り込み、太陽と風を使って塩をつくった土地。塩田が役目を終えたあとも、その先は一つではありませんでした。</p>
+      <p>ある町では塩づくりそのものが続き、ある島では池が養殖に使われ、別の土地では工場や発電所、町並みが生まれました。似た海辺の風景から、なぜこれほど違う未来が生まれたのでしょう。</p>
+      <p>五つのエッセイを並べて読むと、消えたものだけでなく、次の時代へ手渡されたものが見えてきます。</p>
+    </header>
+
+    <section class="salt-compare" aria-labelledby="salt-compare-title">
+      <div class="salt-section-head"><span>FIVE PATHS</span><h2 id="salt-compare-title">塩田の、その先へ。</h2><p>かつての仕事から、いまに続く風景へ。</p></div>
+      <div class="salt-branches" role="list">
+        {chapters.map((chapter)=><a role="listitem" class="salt-branch" href={chapter.href}>
+          <span class="salt-branch-place">{chapter.place}</span>
+          <span class="salt-branch-before">{chapter.before}</span>
+          <span class="salt-branch-arrow" aria-hidden="true">↓</span>
+          <strong>{chapter.after}</strong>
+          <span class="salt-branch-open">エッセイへ →</span>
+        </a>)}
+      </div>
+      <p class="salt-diagram-caption">比較模式図。土地利用・仕事の変化を示すもので、地理的位置、敷地境界、面積比を表すものではありません。坂出の番の州は旧塩田を転用した土地ではなく、別に埋め立てられた土地です。</p>
+    </section>
+
+    <section class="salt-chapters" aria-labelledby="salt-chapters-title">
+      <div class="salt-section-head"><span>READ THE STORIES</span><h2 id="salt-chapters-title">五つの土地、五つの問い。</h2><p>気になる問いから読み始めてください。決まった順番はありません。</p></div>
+      <div class="salt-chapter-grid">
+        {chapters.map((chapter,index)=><a class="salt-chapter" href={chapter.href}>
+          {chapter.photo?.imageUrl && <div class="salt-chapter-photo"><img src={chapter.photo.imageUrl} alt={chapter.photo.alt || chapter.title} loading="lazy" decoding="async" /></div>}
+          <div class="salt-chapter-copy">
+            <div class="salt-chapter-meta"><span>{String(index+1).padStart(2,'0')}</span><span>{chapter.place}</span><span>{chapter.kind}</span></div>
+            <h3>{chapter.question}</h3>
+            <p>{chapter.note}</p>
+            {chapter.photoContext && <small class="salt-photo-note">写真：{chapter.photoContext}</small>}
+            <strong class="salt-link">{chapter.title} を読む →</strong>
+          </div>
+        </a>)}
+      </div>
+    </section>
+
+    <section class="salt-ending">
+      <h2>消えたものと、残ったもの。</h2>
+      <p>塩田は、ただの空き地には戻りませんでした。海水の出入りを管理する技術、土地を使い直す工夫、そこで生まれた富、次の仕事を選んだ人々。海を陸へ変えた歴史は、塩田が見えなくなったあとも続いています。</p>
+      <p>そして、どの土地にも同じ答えがあったわけではありません。五つの物語を読み終えたとき、別の港や島の海辺も、少し違って見えるかもしれません。</p>
+      <a href="/setouchi-cultural-economic-atlas/book/four-salt-fields/">もう一つの比較編「塩田のあとに残った四つの風景」も読む →</a>
+    </section>
+  </main>
+  <style>
+    .salt-series{max-width:1120px;margin:0 auto;padding:clamp(30px,5vw,68px) 22px 100px;color:#28463e;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+    .salt-breadcrumb{display:flex;gap:9px;align-items:center;flex-wrap:wrap;color:#78877f;font-size:.8rem;margin-bottom:34px}
+    .salt-breadcrumb a{color:inherit}
+    .salt-intro{max-width:820px;margin-bottom:66px}
+    .salt-kicker,.salt-section-head>span{display:block;color:#a57553;letter-spacing:.14em;font-size:.77rem;font-weight:800;margin-bottom:13px}
+    .salt-intro h1{font-size:clamp(2.05rem,4.5vw,3.55rem);line-height:1.35;letter-spacing:-.035em;color:#254b43;margin:0 0 24px}
+    .salt-intro p{font-size:1.04rem;line-height:2.05;color:#4e655a;margin:0 0 14px}
+    .salt-intro .salt-dek{font-size:clamp(1.12rem,2vw,1.32rem);font-weight:700;line-height:1.85;color:#385d50}
+    .salt-compare{padding:clamp(22px,3vw,34px);border-radius:24px;background:#f3f6f0;margin-bottom:75px;border:1px solid #dbe6dc}
+    .salt-section-head{margin:0 0 24px}.salt-section-head h2{font-size:clamp(1.45rem,2.4vw,2rem);line-height:1.5;margin:0 0 8px;color:#294c42}.salt-section-head p{margin:0;color:#61766a;line-height:1.8}
+    .salt-branches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .salt-branch{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0;padding:20px 12px;border:1px solid #dae3d7;background:#fffefa;border-radius:16px;text-decoration:none;text-align:center;color:#325b4e;transition:transform .18s ease,border-color .18s}
+    .salt-branch:hover{transform:translateY(-3px);border-color:#90b2a0}.salt-branch-place{font-size:.78rem;color:#8d6553;font-weight:700}.salt-branch-before{min-height:3.2em;display:flex;align-items:center;font-size:.88rem;color:#5b7066;line-height:1.6}.salt-branch-arrow{color:#c59d68;font-size:1.3rem}.salt-branch strong{font-size:.92rem;line-height:1.65}.salt-branch-open{margin-top:auto;font-size:.75rem;color:#317b67;font-weight:700}
+    .salt-diagram-caption{margin:16px 0 0;color:#75847b;font-size:.77rem;line-height:1.8}
+    .salt-chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.salt-chapter{display:block;overflow:hidden;border-radius:19px;border:1px solid #e3e8de;background:#fffdf9;color:inherit;text-decoration:none;transition:transform .18s ease,box-shadow .18s}.salt-chapter:hover{transform:translateY(-3px);box-shadow:0 10px 30px #294c4214}
+    .salt-chapter-photo{height:200px;background:#e9efea;overflow:hidden}.salt-chapter-photo img{width:100%;height:100%;object-fit:cover}.salt-chapter-copy{padding:23px}.salt-chapter-meta{display:flex;gap:9px;flex-wrap:wrap;color:#9a745e;font-size:.76rem;font-weight:700}.salt-chapter h3{color:#294d43;font-size:clamp(1.05rem,1.7vw,1.28rem);line-height:1.6;margin:13px 0}.salt-chapter p{font-size:.9rem;line-height:1.85;color:#64776c;margin:0 0 12px}.salt-photo-note{display:block;font-size:.75rem;line-height:1.6;color:#87958a;margin-bottom:12px}.salt-link{font-size:.86rem;color:#267964}
+    .salt-ending{max-width:810px;margin:72px auto 0;padding:35px clamp(22px,4vw,45px);background:#faf5eb;border-radius:18px}.salt-ending h2{font-size:1.45rem;color:#385246}.salt-ending p{line-height:1.95;color:#54685a}.salt-ending a{display:inline-block;color:#287b68;line-height:1.7;font-weight:700;margin-top:10px}
+    @media(max-width:900px){.salt-branches{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:610px){.salt-series{padding:30px 16px 70px}.salt-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.salt-branch{padding:15px 9px}.salt-chapter-grid{grid-template-columns:1fr}.salt-chapter-photo{height:190px}.salt-intro{margin-bottom:43px}.salt-compare{margin-bottom:50px;padding:19px 13px}}
+    @media(prefers-reduced-motion:reduce){.salt-branch,.salt-chapter{transition:none}}
+  </style>
+</BaseLayout>
