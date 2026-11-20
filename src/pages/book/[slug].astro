@@ -154,7 +154,7 @@ const essayPhotos=rawEssayPhotos
   .map(applyPhotoMetadataCorrection).filter((entry)=>entry && entry.imageUrl);
 const isGastronomy=article.part==='食は、土地を語る';
 const gastronomyPhotos=(gastronomyPhotoSets[article.slug]||[]).map((entry)=>entry.photoId ? photoById[entry.photoId] : entry).map(applyPhotoMetadataCorrection).filter(Boolean);
-const placeLinkByName={'赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','丸亀':'marugame','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi','鴻島':'hinase','日生':'hinase'};
+const placeLinkByName={'赤穂':'ako','竹原':'takehara','坂出':'sakaide','防府（三田尻）':'hofu','三田尻':'hofu','児島':'shimotsui','下津井':'shimotsui','倉敷':'shimotsui','鞆の浦':'tomonoura','鞆':'tomonoura','御手洗':'mitarai','多度津':'tadotsu','尾道':'onomichi','今治':'imabari','波止浜':'imabari','来島海峡':'imabari','大三島':'imabari','新居浜':'niihama','別子':'niihama','東平':'niihama','小豆島':'shodoshima','牛窓':'ushimado','高松':'takamatsu','松山':'matsuyama','三原':'mihara','下関':'shimonoseki','柳井':'yanai','引田':'hiketa','岩国':'iwakuni','加太':'kada','鳴門':'naruto','明石':'akashi','鴻島':'hinase','日生':'hinase'};
 const cityLinks=article.cities.map((name)=>({name,href:placeLinkByName[name]?`/setouchi-cultural-economic-atlas/places/${placeLinkByName[name]}/`:`/setouchi-cultural-economic-atlas/cities/#${encodeURIComponent(name)}`}));
 const sections=article.sections.map((section,index)=>({
   ...section,
