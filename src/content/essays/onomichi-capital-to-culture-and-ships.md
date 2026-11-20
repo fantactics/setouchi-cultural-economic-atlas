@@ -25,8 +25,10 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 海へ目を向ければ、向島との間を尾道水道が細く伸びている。尾道は山と海に挟まれた町だが、単に平地が少ないから寺と住宅が斜面に密集したわけではない。山手の風景には、港が栄えた時代と、鉄道が通った時代、そして人々が家を建てた時代が折り重なっている。[1](#source-1) [10](#source-10)
 
 <figure class="onomichi-section-diagram">
-  <img src="/setouchi-cultural-economic-atlas/images/editorial/onomichi-joshoji-section.svg" alt="海側から山側に向かって、民家の間の常称寺大門、国道2号、JR山陽本線、石段、山側の敷地に建つ常称寺本堂が並ぶ断面模式図。高さと距離は実測値ではない" width="1120" height="500" loading="lazy" decoding="async" />
-  <figcaption>大門と本堂の間には、国道2号とJR山陽本線が走っている。海側（南）から山側（北）への関係を示した模式図であり、距離・高低差・道幅・建物の大きさは実測ではない。図：SETOUCHI ATLAS。根拠資料：<a href="https://kunishitei.bunka.go.jp/heritage/detail/102/00004234" target="_blank" rel="noopener noreferrer">文化庁</a>、<a href="https://www.ononavi.jp/spots/detail.html?detail_id=16" target="_blank" rel="noopener noreferrer">尾道観光協会</a>。</figcaption>
+  <div class="onomichi-section-scroll">
+    <img src="/setouchi-cultural-economic-atlas/images/editorial/onomichi-joshoji-section.svg" alt="海側から山側に向かって、民家の間の常称寺大門、国道2号、JR山陽本線、石段、山側の敷地に建つ常称寺本堂が並ぶ断面模式図。高さと距離は実測値ではない" width="1120" height="500" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><span class="onomichi-section-mobile-tip">スマートフォンでは図を左右に動かしてご覧ください。</span>大門と本堂の間には、国道2号とJR山陽本線が走っている。海側（南）から山側（北）への関係を示した模式図であり、距離・高低差・道幅・建物の大きさは実測ではない。図：SETOUCHI ATLAS。根拠資料：<a href="https://kunishitei.bunka.go.jp/heritage/detail/102/00004234" target="_blank" rel="noopener noreferrer">文化庁</a>、<a href="https://www.ononavi.jp/spots/detail.html?detail_id=16" target="_blank" rel="noopener noreferrer">尾道観光協会</a>。</figcaption>
 </figure>
 
 
