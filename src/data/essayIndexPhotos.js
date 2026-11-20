@@ -20,12 +20,13 @@ export const essayIndexPhotoOverrides = {
     "sourcePage": "https://commons.wikimedia.org/wiki/File:Uwajima_Taimeshi.jpg"
   },
   "oysters-taste-of-small-seas": {
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hiroshima%20Japan2.png?width=960",
-    "alt": "広島湾に浮かぶ牡蠣養殖用の筏。記事で紹介する日生の海域ではなく、広島湾の風景",
-    "author": "Toshiki Tanaka",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hiroshima_Japan2.png"
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Grilled%20oysters%20Food%20in%20Miyajima%20-%20DSC02189.JPG?width=1280",
+    "alt": "広島県廿日市市・宮島で撮影された焼き牡蠣。日生との産地別比較ではなく、広島側の牡蠣料理を示す写真",
+    "title": "宮島の焼き牡蠣（広島）",
+    "author": "Daderot",
+    "license": "Public domain (author dedication)",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Grilled_oysters_Food_in_Miyajima_-_DSC02189.JPG",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Grilled_oysters_Food_in_Miyajima_-_DSC02189.JPG"
   },
   "what-cyclists-leave-behind": {
     "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Shimanami-expressway%20and%20my%20bike.JPG?width=1200",
@@ -72,7 +73,7 @@ export const essayCardPhotoContext = {
   "shimotsui-tako-meshi": "下津井の干し蛸（料理の完成写真ではありません）",
   "kada-steel-data-center-transition": "2014年の和歌山製鉄所（データセンターではありません）",
   "setouchi-sushi-not-nigiri": "松山鮓の実物写真（岡山ばら寿司ではありません）",
-  "oysters-taste-of-small-seas": "広島湾の養殖筏",
+  "oysters-taste-of-small-seas": "宮島で撮影した焼き牡蠣（広島側の料理例）",
   "oyster-shells-where-they-go": "米国の牡蠣殻集積（広島ではない比較写真）",
   "kojima-jeans-circular-economy": "児島のジーンズストリート（ノーリベット製品ではありません）",
   "hijiki-tidal-time": "干潮時の採集（沖縄の比較写真）",
