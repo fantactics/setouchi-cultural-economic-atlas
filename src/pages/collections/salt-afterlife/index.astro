@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { publishedEssays } from '../../../data/publishedEssayList.js';
 import { photoEvidence } from '../../../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../../../data/additionalPlacePhotos.js';
-import { essayIndexPhotoOverrides, essayCardPhotoContext } from '../../../data/essayIndexPhotos.js';
+import { essayIndexPhotoOverrides } from '../../../data/essayIndexPhotos.js';
 import { cardPhotoId } from '../../../data/essayCardCopy.js';
 
 // An editorial comparison, not a geographical reconstruction or a claim that
@@ -75,7 +75,7 @@ const chapters = paths.map(entry=>{
     photos[cardPhotoId(article)]?.imageUrl ? photos[cardPhotoId(article)] :
     article.heroPhoto?.imageUrl ? article.heroPhoto :
     photos[article.heroPhotoId];
-  return {...entry,title:article.title,href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,photo,photoContext:essayCardPhotoContext[entry.slug] || (entry.slug==='iwagi-salt-pans-to-shrimp-ponds'?'岩城島の集落の参考写真。旧北浜塩田跡ではありません。':null)};
+  return {...entry,title:article.title,href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,photo};
 });
 ---
 <BaseLayout
@@ -110,24 +110,41 @@ const chapters = paths.map(entry=>{
     <section class="salt-chapters" aria-labelledby="salt-chapters-title">
       <div class="salt-section-head"><span>READ THE STORIES</span><h2 id="salt-chapters-title">五つの土地、五つの問い。</h2><p>気になる問いから読み始めてください。決まった順番はありません。</p></div>
       <div class="salt-chapter-grid">
-        {chapters.map((chapter,index)=><a class="salt-chapter" href={chapter.href}>
-          {chapter.photo?.imageUrl && <div class="salt-chapter-photo"><img src={chapter.photo.imageUrl} alt={chapter.photo.alt || chapter.title} loading="lazy" decoding="async" /></div>}
-          <div class="salt-chapter-copy">
-            <div class="salt-chapter-meta"><span>{String(index+1).padStart(2,'0')}</span><span>{chapter.place}</span><span>{chapter.kind}</span></div>
-            <h3>{chapter.question}</h3>
-            <p>{chapter.note}</p>
-            {chapter.photoContext && <small class="salt-photo-note">写真：{chapter.photoContext}</small>}
-            <strong class="salt-link">{chapter.title} を読む →</strong>
-          </div>
-        </a>)}
+        {chapters.map((chapter,index)=><article class="salt-chapter">
+          <a class="salt-chapter-main" href={chapter.href}>
+            {chapter.photo?.imageUrl && <figure class="salt-chapter-photo">
+              <img src={chapter.photo.imageUrl} alt={chapter.photo.alt || chapter.title} loading="lazy" decoding="async" />
+              <figcaption>{chapter.photoFocus}</figcaption>
+            </figure>}
+            <div class="salt-chapter-copy">
+              <div class="salt-chapter-meta"><span>{String(index+1).padStart(2,'0')}</span><span>{chapter.place}</span><span>{chapter.kind}</span></div>
+              <h3>{chapter.question}</h3>
+              <p>{chapter.note}</p>
+              <strong class="salt-link">{chapter.title} を読む →</strong>
+            </div>
+          </a>
+          {chapter.photo?.sourcePage && <p class="salt-photo-credit">
+            写真：<a href={chapter.photo.sourcePage} target="_blank" rel="noopener noreferrer">{chapter.photo.author || '出典'}</a>
+            {chapter.photo.license && <span> ／ {chapter.photo.license}</span>}
+          </p>}
+        </article>)}
       </div>
     </section>
 
-    <section class="salt-ending">
-      <h2>消えたものと、残ったもの。</h2>
-      <p>塩田は、ただの空き地には戻りませんでした。海水の出入りを管理する技術、土地を使い直す工夫、そこで生まれた富、次の仕事を選んだ人々。海を陸へ変えた歴史は、塩田が見えなくなったあとも続いています。</p>
-      <p>そして、どの土地にも同じ答えがあったわけではありません。五つの物語を読み終えたとき、別の港や島の海辺も、少し違って見えるかもしれません。</p>
-      <a href="/setouchi-cultural-economic-atlas/book/four-salt-fields/">もう一つの比較編「塩田のあとに残った四つの風景」も読む →</a>
+    <section class="salt-ending" aria-labelledby="salt-ending-title">
+      <p class="salt-ending-kicker">AFTER READING</p>
+      <h2 id="salt-ending-title">読み終えたら、もう一度、海辺を思い浮かべる。</h2>
+      <p>塩田は消えても、そこで育った技術や仕事、得られた富まで一緒に消えたわけではありません。だからこそ、海辺に何が残ったのかを、一つの答えで片づけたくないのです。</p>
+      <p>五つの土地を読んだあとなら、次の問いにも違う答えが見つかるかもしれません。</p>
+      <ul class="salt-ending-questions">
+        <li>残ったのは、<strong>土地</strong>だろうか。それとも、そこで続ける<strong>仕事</strong>だろうか。</li>
+        <li>古い仕事が生んだ<strong>富</strong>は、元の場所だけに残るのだろうか。</li>
+        <li>海岸線を変えたあと、誰がその土地を<strong>守り続ける</strong>のだろうか。</li>
+      </ul>
+      <div class="salt-ending-links">
+        <a href="#salt-compare-title">五つの道を、もう一度見比べる ↑</a>
+        <a href="/setouchi-cultural-economic-atlas/book/four-salt-fields/">もう一つの比較編「塩田のあとに残った四つの風景」へ →</a>
+      </div>
     </section>
   </main>
   <style>
@@ -151,5 +168,30 @@ const chapters = paths.map(entry=>{
     @media(max-width:900px){.salt-branches{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:610px){.salt-series{padding:30px 16px 70px}.salt-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.salt-branch{padding:15px 9px}.salt-chapter-grid{grid-template-columns:1fr}.salt-chapter-photo{height:190px}.salt-intro{margin-bottom:43px}.salt-compare{margin-bottom:50px;padding:19px 13px}}
     @media(prefers-reduced-motion:reduce){.salt-branch,.salt-chapter{transition:none}}
+
+    .salt-intro-start{display:inline-block;margin-top:12px;color:#267960;font-weight:800;text-underline-offset:4px}
+    .salt-compare{scroll-margin-top:20px}
+    .salt-origin{max-width:630px;margin:0 auto;text-align:center;background:#fffdf8;border:1px solid #dacdb3;border-radius:15px;padding:20px 18px}
+    .salt-origin>span{display:block;color:#956b51;font-size:.77rem;font-weight:800;margin-bottom:7px}
+    .salt-origin strong{font-size:clamp(1.07rem,2vw,1.3rem);line-height:1.6;color:#3d614f}
+    .salt-origin p{font-size:.8rem;color:#667869;margin:8px 0 0;line-height:1.8}
+    .salt-fork{height:34px;display:flex;justify-content:center;align-items:center}
+    .salt-fork:before{content:"";display:block;height:26px;width:2px;background:#9ab8a6}
+    .salt-branch-kind{font-size:.75rem;color:#789080;line-height:1.6}
+    .salt-branch strong{font-size:clamp(.93rem,1.35vw,1.12rem);line-height:1.5;color:#295847;margin:3px 0}
+    .salt-branch-after{font-size:.82rem;color:#61756a;line-height:1.6;flex:1}
+    .salt-chapter{display:flex;flex-direction:column}
+    .salt-chapter-main{display:block;color:inherit;text-decoration:none;flex:1}
+    .salt-chapter-photo{margin:0;background:#edf3ed}
+    .salt-chapter-photo img{display:block;width:100%;height:210px;object-fit:cover}
+    .salt-chapter-photo figcaption{padding:9px 15px;font-size:.78rem;line-height:1.7;color:#5b7265}
+    .salt-photo-credit{border-top:1px solid #edf0e9;padding:10px 22px 13px;font-size:.73rem!important;line-height:1.7!important;color:#87958a!important;margin:0!important}
+    .salt-photo-credit a{color:#687b70}
+    .salt-ending-kicker{display:block;color:#a57553;letter-spacing:.14em;font-size:.77rem;font-weight:800;margin-bottom:13px}
+    .salt-ending h2{line-height:1.55}
+    .salt-ending-questions{padding-left:1.4em;color:#506a5d;line-height:2;margin:18px 0}
+    .salt-ending-questions li{margin:6px 0}
+    .salt-ending-links{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px}
+    .salt-ending-links a{color:#287b68;font-weight:700;line-height:1.75}
   </style>
 </BaseLayout>
