@@ -64,5 +64,5 @@ for(const relative of important){
 }
 assert.equal(missing.size,0,'Broken editorial links: '+JSON.stringify(Object.fromEntries(missing)));
 assert.ok(collectionHtml.includes('五つの土地、五つの問い'), 'The salt collection comparison is missing');
-assert.ok(collectionHtml.includes('番の州は旧塩田を転用した土地ではなく'), 'Sakaide geographical caveat is missing');
+assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
 console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${checked} editorial links, collection and sitemap.`);
