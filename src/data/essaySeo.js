@@ -75,8 +75,7 @@ export const essaySeoFocus={
   'shodoshima-somen-to-sesame-oil':{
     title:'小豆島のそうめんがごま油産業を育てたのはなぜ？',
     description:'小豆島の手延べそうめんと、ごま油の製油工場はどうつながったのか。少雨の土地と冬の風、そうめんの製法から、島の産業の連鎖をたどる。'
-  }
-  ,
+  },
   'naoshima-water-across-sea':{
     title:'直島の水道水はどこから？海底送水管と「友情の水」',
     description:'直島の水道水は岡山県の高梁川に由来する。島にダムがあるのになぜ海底送水管で水を運ぶのか。1967年の渇水と島の製錬業から、海を越える水の仕組みをたどる。'
