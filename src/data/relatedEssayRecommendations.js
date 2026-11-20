@@ -28,7 +28,9 @@ const curated = {
   'sea-bream-scales-to-collagen':['tai-meshi-two-seas','fish-waste-to-feed-and-citrus','citrus-pomace-cascade'],
   'takehara-salt-capital-to-townscape':['four-salt-fields','yanai-trade-profit-to-whitewalls','onomichi-capital-to-culture-and-ships'],
   'yanai-trade-profit-to-whitewalls':['takehara-salt-capital-to-townscape','mitarai-economy-of-waiting','iwakuni-river-city'],
-  'niihama-after-copper':['imabari-why-shipbuilding','kojima-from-cotton-to-jeans','setouchi-ship-materials']
+  'niihama-after-copper':['imabari-why-shipbuilding','kojima-from-cotton-to-jeans','setouchi-ship-materials'],
+  'oysters-taste-of-small-seas':['oyster-shells-where-they-go','oyster-shells-after-the-meal','tai-meshi-two-seas'],
+  'oyster-shells-where-they-go':['oysters-taste-of-small-seas','oyster-shells-after-the-meal','fish-waste-to-feed-and-citrus']
 };
 
 
