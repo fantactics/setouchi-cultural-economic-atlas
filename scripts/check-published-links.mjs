@@ -25,6 +25,15 @@ const assertPage=(pathname)=>{
   return readFileSync(file,'utf8');
 };
 for(const slug of requiredSlugs) assertPage('book/'+slug);
+const onomichiPage=assertPage('book/onomichi-capital-to-culture-and-ships');
+const schematic='images/editorial/onomichi-joshoji-section.svg';
+const joshojiPhoto='images/atlas-original/joshoji-crossing-onomichi.avif';
+assert.ok(existsSync(path.join(dist,schematic)), 'Onomichi explanatory SVG did not reach built site');
+assert.ok(existsSync(path.join(dist,joshojiPhoto)), 'Approved Onomichi No.3199 photo not in built site');
+assert.ok(onomichiPage.includes('onomichi-joshoji-section.svg'), 'Onomichi page lost its section schematic');
+assert.ok(onomichiPage.includes('joshoji-crossing-onomichi.avif'), 'Onomichi essay lost the approved crossing photograph');
+assert.ok(onomichiPage.includes('距離・高低差'), 'Onomichi schematic lacks schematic-accuracy disclaimer');
+
 
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
