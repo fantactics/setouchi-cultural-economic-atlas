@@ -1,0 +1,38 @@
+name: Inspect Joshoji photo source
+on:
+  push:
+    paths:
+      - .github/workflows/inspect-joshoji-photos.yml
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Inspect original Ononavi photo metadata
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import re, html, urllib.request
+          from html.parser import HTMLParser
+          class Plain(HTMLParser):
+            def __init__(self):
+              super().__init__();self.words=[]
+            def handle_data(self,data):self.words.append(data)
+          urls=[f'https://www.ononavi.jp/onomichiya/search/detail.php?id={i}' for i in (3199,3200,3201,3202)]
+          urls.append('https://www.ononavi.jp/onomichiya/search/index.php?cat=&order=&vnum=4800')
+          for url in urls:
+            try:
+              request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; AcademicResearchBot/1.0)'})
+              with urllib.request.urlopen(request,timeout=22) as response:
+                body=response.read().decode('utf-8','replace'); status=response.status
+              p=Plain();p.feed(body);plain=' '.join(t.strip() for t in p.words if t.strip())
+              title=re.findall(r'<title[^>]*>(.*?)</title>',body,re.I|re.S)
+              images=re.findall(r'<img[^>]+(?:src|data-src)=["\']([^"\']+)["\']',body,re.I)
+              print('RESULT',status,url,'HTMLLEN',len(body),'TITLE',title[:1])
+              for needle in ['No.3199','No.3200','No.3201','No.3202','常称寺','大門','山門']:
+                k=plain.find(needle)
+                if k>=0: print('MATCH',needle,plain[max(0,k-80):k+280])
+              print('IMAGES',images[:15])
+            except Exception as e: print('ERROR',url,repr(e))
+          PY
