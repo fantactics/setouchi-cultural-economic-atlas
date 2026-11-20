@@ -104,6 +104,16 @@ for (const [slug, heading] of revisedEssays) {
   assert.ok(!html.includes('/setouchi-cultural-economic-atlas/'), `Legacy project path survived in essay: ${slug}`);
   assert.ok(html.includes('class="markdown-essay-body"'), `Markdown essay body not rendered: ${slug}`);
 }
+// Keep the first reader-facing comparison series accessible after rewriting URLs.
+const saltSeriesPath=path.join(dist,'collections','salt-afterlife','index.html');
+const saltSeriesHtml=await readFile(saltSeriesPath,'utf8');
+assert.ok(saltSeriesHtml.includes('塩田が消えたあと'), 'Salt-pan series disappeared from deployed artifact');
+assert.ok(saltSeriesHtml.includes('/book/iwagi-salt-pans-to-shrimp-ponds/'), 'Salt-pan series lost its Iwagi essay link');
+assert.ok(!saltSeriesHtml.includes('/setouchi-cultural-economic-atlas/'), 'Old base path remains in salt-pan series');
+const featuredHomeHtml=await readFile(path.join(dist,'index.html'),'utf8');
+assert.ok(featuredHomeHtml.includes('/collections/salt-afterlife/'), 'Homepage lost comparison-series link');
+assert.ok(featuredHomeHtml.includes('初めての3篇'), 'Homepage introduction is no longer editorially curated');
+
 const withheld = path.join(dist, 'book', 'tadano-shido-industrial-ecosystem', 'index.html');
 assert.ok(!(await stat(withheld).then(() => true).catch(() => false)), 'Shido draft must not be published');
 
