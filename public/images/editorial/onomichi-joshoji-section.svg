@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">常称寺・大門から本堂への位置関係を示す断面模式図</title>
+  <desc id="desc">海側の民家の間に大門が残り、北へ進むと国道2号、JR山陽本線、石段を経て山側の高い敷地に本堂が建つ。実際の距離、高低差、建築寸法を示す図ではない。</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f8f2"/><stop offset="1" stop-color="#fffaf0"/></linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7deca"/><stop offset="1" stop-color="#b7c7ad"/></linearGradient>
+    <pattern id="gravel" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="1.2" fill="#9aa8a4"/><circle cx="7" cy="7" r="1" fill="#9aa8a4"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b9887"/></marker>
+  </defs>
+  <rect width="1120" height="500" rx="20" fill="url(#sky)"/>
+  <rect x="1" y="1" width="1118" height="498" rx="19" fill="none" stroke="#dbe4d8" stroke-width="2"/>
+  <text x="38" y="47" fill="#2a5548" font-size="23" font-weight="700" font-family="sans-serif">山門をくぐっても、本堂に着かない理由</text>
+  <text x="38" y="76" fill="#647b6d" font-size="14" font-family="sans-serif">常称寺の大門・交通路・本堂の位置関係（断面模式図）</text>
+  <rect x="41" y="103" width="114" height="31" rx="15" fill="#dfeae4"/>
+  <text x="98" y="124" text-anchor="middle" fill="#426958" font-size="16" font-weight="700" font-family="sans-serif">海側・南</text>
+  <rect x="966" y="103" width="114" height="31" rx="15" fill="#dfeae4"/>
+  <text x="1023" y="124" text-anchor="middle" fill="#426958" font-size="16" font-weight="700" font-family="sans-serif">山側・北</text>
+  <path d="M30 363 L342 363 L410 356 L553 350 L715 349 L770 329 L806 293 L861 263 L1055 263 L1090 260 L1090 437 L30 437Z" fill="url(#land)"/>
+  <path d="M30 363 L342 363 L410 356 L553 350 L715 349 L770 329 L806 293 L861 263 L1055 263 L1090 260" fill="none" stroke="#91ab90" stroke-width="3"/>
+  <path d="M20 409 H1096" stroke="#a5bba0" stroke-dasharray="5 8" opacity=".46"/>
+  <!-- Houses around the south gate: illustrative, not a cadastral plan -->
+  <g stroke="#bc9c80" stroke-width="2">
+    <path d="M80 354V297L122 283L165 297V354Z" fill="#f0e1ca"/>
+    <path d="M70 299L122 269L175 299Z" fill="#d5b599"/>
+    <path d="M94 314H115V336H94Z M130 314H153V336H130Z" fill="#fbf9f2"/>
+    <path d="M324 353V308L359 295L393 308V353Z" fill="#efe1cb"/>
+    <path d="M317 309L359 283L400 309Z" fill="#d5b599"/>
+    <path d="M339 318H355V341H339Z M369 318H385V341H369Z" fill="#fbf9f2"/>
+  </g>
+  <!-- Historic gate -->
+  <g stroke="#527665" stroke-width="3" stroke-linejoin="round">
+    <path d="M206 310L241 277L299 277L334 310Z" fill="#6c8f7b"/>
+    <path d="M200 314L244 288H297L339 314" fill="none"/>
+    <path d="M219 314V362 M317 314V362 M242 314V362 M293 314V362" fill="none"/>
+    <path d="M223 324H313" stroke-width="5"/>
+  </g>
+  <rect x="234" y="366" width="77" height="23" rx="11" fill="#e3eee4"/>
+  <text x="272" y="382" text-anchor="middle" fill="#2e6752" font-size="14" font-weight="700" font-family="sans-serif">大門</text>
+  <text x="268" y="407" text-anchor="middle" fill="#698275" font-size="12" font-family="sans-serif">民家の間</text>
+  <!-- Route interruption: road followed by railway, looking north -->
+  <path d="M420 353 L536 351 L536 369 L420 370Z" fill="#b9b5ac"/>
+  <path d="M435 358 L521 357" stroke="#f8f8ef" stroke-width="2" stroke-dasharray="11 9"/>
+  <path d="M568 350 L716 349 L716 367 L568 369Z" fill="url(#gravel)"/>
+  <path d="M585 354L696 353 M585 360L696 359" stroke="#647b84" stroke-width="4" stroke-linecap="round"/>
+  <path d="M592 349L592 366 M611 349L611 366 M630 349L630 366 M649 349L649 366 M668 349L668 366 M687 349L687 366" stroke="#697c7d" stroke-width="2"/>
+  <text x="477" y="331" text-anchor="middle" fill="#6b635c" font-size="16" font-weight="700" font-family="sans-serif">国道2号</text>
+  <text x="639" y="321" text-anchor="middle" fill="#536e76" font-size="16" font-weight="700" font-family="sans-serif">JR山陽本線</text>
+  <rect x="448" y="389" width="75" height="22" rx="11" fill="#efe7dc"/><text x="485" y="405" text-anchor="middle" fill="#846d56" font-size="11" font-family="sans-serif">道路</text>
+  <rect x="590" y="389" width="98" height="22" rx="11" fill="#e0e9ea"/><text x="639" y="405" text-anchor="middle" fill="#597580" font-size="11" font-family="sans-serif">鉄道</text>
+  <!-- Stairs leading to temple terrace -->
+  <path d="M721 348L740 347L753 334L766 334L779 321L792 321L806 305L820 305L834 289L848 289L859 270" fill="none" stroke="#f8f6eb" stroke-width="9" stroke-linejoin="miter"/>
+  <path d="M721 348L740 347L753 334L766 334L779 321L792 321L806 305L820 305L834 289L848 289L859 270" fill="none" stroke="#9c9d89" stroke-width="2"/>
+  <text x="797" y="356" text-anchor="middle" fill="#667c64" font-size="15" font-weight="700" font-family="sans-serif">石段</text>
+  <!-- Main temple at top of the slope -->
+  <g stroke="#5b7867" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M883 219L921 192H1007L1045 219Z" fill="#6f8d77"/>
+    <path d="M891 222H1038" stroke-width="5"/>
+    <rect x="899" y="225" width="128" height="37" fill="#eadbc2"/>
+    <path d="M914 227V262 M938 227V262 M963 227V262 M988 227V262 M1013 227V262"/>
+    <path d="M933 260V237H991V260" fill="#c0b59d"/>
+  </g>
+  <text x="963" y="172" text-anchor="middle" fill="#2e6752" font-size="19" font-weight="700" font-family="sans-serif">常称寺・本堂</text>
+  <text x="962" y="288" text-anchor="middle" fill="#647c68" font-size="13" font-family="sans-serif">石段上の境内</text>
+  <path d="M281 250 C388 230 498 240 609 244 S789 230 882 221" stroke="#ac8a5d" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#arrow)"/>
+  <text x="553" y="223" text-anchor="middle" fill="#9b774c" font-size="14" font-weight="700" font-family="sans-serif">寺の参道を横切る近代の交通路</text>
+  <rect x="43" y="443" width="1035" height="40" rx="8" fill="#fffdf7" opacity=".95"/>
+  <text x="561" y="468" text-anchor="middle" fill="#687b6f" font-size="13" font-family="sans-serif">位置関係を理解するための模式図。距離・高低差・道幅・家屋配置は実測によらない。</text>
+</svg>
