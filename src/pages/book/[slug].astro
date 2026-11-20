@@ -380,13 +380,13 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
 
     {relatedEssays.length>0 && <section class="reader-related-essays" aria-labelledby="reader-related-title">
       <div class="reader-related-head">
-        <div><span>READ NEXT</span><h2 id="reader-related-title">次は、どの風景を旅する？</h2><p>今読んだ物語から、瀬戸内の別の一篇へ。</p></div>
+        <div><span>READ NEXT</span><h2 id="reader-related-title">この風景から、次の問いへ。</h2><p>一篇を読み終えたところから、別の土地の発見が始まります。</p></div>
         <a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a>
       </div>
       <div class="reader-related-grid">
         {relatedEssays.map((item)=><a class="reader-related-card" href={`/setouchi-cultural-economic-atlas/book/${item.slug}/`}>
           {item.photo?.imageUrl && <img src={item.photo.imageUrl} alt={item.photo.alt||item.title} loading="lazy" />}
-          <div><span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span><h3>{item.title}</h3><p>{item.teaser}</p>{item.photoContext && <small class="reader-related-photo-note">写真：{item.photoContext}</small>}<strong>読む →</strong></div>
+          <div><span>{item.relatedQuestion || item.relatedReason}{!item.relatedQuestion && item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span><h3>{item.title}</h3><p>{item.teaser}</p>{item.photoContext && <small class="reader-related-photo-note">写真：{item.photoContext}</small>}<strong>読む →</strong></div>
         </a>)}
       </div>
     </section>}
