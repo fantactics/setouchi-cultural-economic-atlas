@@ -140,6 +140,15 @@ const editorialPhotoCredits=[...new Map(
     </script>
 
 
+    <section class="essay-series-spotlight" aria-label="読み比べるエッセイ">
+      <div>
+        <span class="essay-series-spotlight-label">連作で読む · FIRST SERIES</span>
+        <h2>塩田が消えたあと、土地には何が残ったか。</h2>
+        <p>赤穂の製塩、岩城島の養殖池、竹原の白壁、坂出の埋立地、錦海の発電所。共通する歴史から生まれた五つの風景を読み比べます。</p>
+      </div>
+      <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">連作を読む →</a>
+    </section>
+
     <section class="reader-discovery" aria-labelledby="reader-discovery-title">
       <div class="reader-discovery-head"><div><span>PICK YOUR MOOD <span aria-hidden="true">✳</span></span><h2 id="reader-discovery-title">いま、何が気になる？</h2><p>食べたい、歩きたい、眺めたい。そんな気分から選ぼう。</p></div><div class="reader-discovery-head-links"><a href="#essay-all-themes">カテゴリをめくる ↓</a><a href="/setouchi-cultural-economic-atlas/book/nature/">自然条件から探す</a><a href="/setouchi-cultural-economic-atlas/book/culture/">文化・風習から探す</a><a href="#essay-directory">全{directoryCount}篇のタイトル一覧 ↓</a></div></div>
       <div class="reader-discovery-grid">
@@ -221,4 +230,12 @@ const editorialPhotoCredits=[...new Map(
 
     <div class="reader-book-back"><a href="#reader-discovery-title">↑ カテゴリ選びへ戻る</a></div>
   </main>
+  <style>
+    .essay-series-spotlight{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:35px 0;padding:clamp(23px,3vw,34px);border:1px solid #e2e3d7;border-radius:19px;background:#f5f7ef;color:#335548}
+    .essay-series-spotlight-label{font-size:.75rem;letter-spacing:.08em;color:#996d53;font-weight:800}
+    .essay-series-spotlight h2{font-size:clamp(1.15rem,2vw,1.5rem);margin:8px 0 10px;line-height:1.6}
+    .essay-series-spotlight p{font-size:.9rem;color:#5c7167;line-height:1.8;margin:0}
+    .essay-series-spotlight a{flex-shrink:0;color:#fff;background:#327e67;padding:12px 18px;border-radius:99px;font-size:.87rem;font-weight:800;text-decoration:none}
+    @media(max-width:690px){.essay-series-spotlight{flex-direction:column;align-items:flex-start}.essay-series-spotlight a{align-self:flex-start}}
+  </style>
 </BaseLayout>
