@@ -28,10 +28,17 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const pageTitle=getTag(html,'title');
  const og=getMeta(html,'property','og:title');
  const twitter=getMeta(html,'name','twitter:title');
+ const description=getMeta(html,'name','description');
+ const ogDescription=getMeta(html,'property','og:description');
+ const canonical=decode(html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/)?.[1]||'');
  assert.ok(h1,`Missing essay H1: ${slug}`);
+ assert.ok(description.length>=30 && description.length<=220,`Unusable search description: ${slug} (${description.length} chars)`);
+ assert.equal(ogDescription,description,`Mismatched og:description: ${slug}`);
+ assert.ok(canonical.endsWith('/book/'+slug+'/'),`Incorrect canonical essay path: ${slug}: ${canonical}`);
  const expectedTitle=essaySeoFocus[slug]?.title || h1;
  assert.equal(sameSpacing(pageTitle),sameSpacing(`${expectedTitle}｜SETOUCHI ATLAS`),`Incorrect <title>: ${slug}`);
  assert.equal(sameSpacing(og),sameSpacing(pageTitle),`Mismatched og:title: ${slug}`);
+ assert.equal((html.match(/<h1\\b/g)||[]).length,1,`Expected exactly one H1: ${slug}`);
  assert.ok(sameSpacing(twitter).startsWith(sameSpacing(h1)),`Mismatched twitter:title: ${slug}: ${twitter}`);
  const jsonLd=html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1];
  assert.ok(jsonLd,`Missing JSON-LD: ${slug}`);
