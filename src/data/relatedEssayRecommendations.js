@@ -31,6 +31,33 @@ const curated = {
   'niihama-after-copper':['imabari-why-shipbuilding','kojima-from-cotton-to-jeans','setouchi-ship-materials']
 };
 
+
+// A small set of deliberately edited bridges: the next card offers a new
+// question, not merely a matching tag. Keys are "current > next".
+const editorialBridges = {
+  'kojima-from-cotton-to-jeans>imabari-why-shipbuilding':'土地の条件から生まれた産業は、どう技術の町になった？',
+  'kojima-from-cotton-to-jeans>kojima-jeans-circular-economy':'ジーンズを作る町は、使い終わった服をどう扱う？',
+  'imabari-why-shipbuilding>onomichi-capital-to-culture-and-ships':'同じ造船の海で、町の歩みはなぜ違った？',
+  'onomichi-capital-to-culture-and-ships>imabari-why-shipbuilding':'隣の造船都市は、何を強みに発展した？',
+  'niihama-after-copper>imabari-why-shipbuilding':'鉱山と造船。それぞれの技術は何を残した？',
+  'takehara-salt-capital-to-townscape>yanai-trade-profit-to-whitewalls':'白壁の町は、別の土地では何の商いから生まれた？',
+  'yanai-trade-profit-to-whitewalls>takehara-salt-capital-to-townscape':'同じ白壁でも、町を富ませた商いは違う？',
+  'four-salt-fields>ako-after-salt-fields':'塩田が消えたあとの赤穂には、何が残った？',
+  'ako-after-salt-fields>takehara-salt-capital-to-townscape':'塩の富は、別の町でどんな風景になった？',
+  'sakaide-salt-fields-to-industry>kinkai-salt-field-to-solar':'塩田のあとを、工場ではなく太陽光が埋めたら？',
+  'ports-that-needed-waiting>mitarai-economy-of-waiting':'船が待つ時間は、島にどんな仕事を生んだ？',
+  'mitarai-economy-of-waiting>faith-as-transport-map':'港を行き交った人々は、どんな信仰を残した？',
+  'tomo-two-act-tidal-port>ports-that-needed-waiting':'潮待ちの港が待たなくなったあと、何が残る？',
+  'shodoshima-open-island>olive-pomace-to-cattle':'島のオリーブは、搾ったあとも役立つ？',
+  'olive-pomace-to-cattle>fish-waste-to-feed-and-citrus':'島の副産物利用は、海とみかん山でも起きている？',
+  'citrus-pomace-cascade>fish-waste-to-feed-and-citrus':'みかん山と漁港は、資源を分け合える？',
+  'fish-waste-to-feed-and-citrus>citrus-pomace-cascade':'搾りかすや剪定枝は、別の資源になれる？',
+  'shimotsui-tako-meshi>tai-meshi-two-seas':'同じ瀬戸内の魚料理でも、土地で味は変わる？',
+  'tai-meshi-two-seas>shimotsui-tako-meshi':'魚と米の組み合わせは、別の港でどう変わる？',
+  'oysters-taste-of-small-seas>oyster-shells-where-they-go':'牡蠣を食べたあと、大量の殻はどこへ行く？',
+  'oyster-shells-where-they-go>oysters-taste-of-small-seas':'牡蠣のおいしさは、海のどんな条件で決まる？'
+};
+
 const intersection = (a,b) => {
   const set=new Set(Array.isArray(a)?a:[]);
   return (Array.isArray(b)?b:[]).filter((x)=>set.has(x)).length;
@@ -45,7 +72,7 @@ export const relatedEssaysFor=(article,articles,limit=3)=>{
   const add=(candidate,reason)=>{
     if(!candidate || visited.has(candidate.slug) || selected.length>=limit) return;
     visited.add(candidate.slug);
-    selected.push({...candidate,relatedReason:reason});
+    selected.push({...candidate,relatedReason:reason,relatedQuestion:editorialBridges[`${article.slug}>${candidate.slug}`] || null});
   };
   for(const slug of curated[article.slug]||[]){
     const candidate=bySlug.get(slug);
