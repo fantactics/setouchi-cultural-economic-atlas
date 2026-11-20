@@ -50,7 +50,11 @@ const featuredArticles=featuredSlugs.map((slug)=>allEssays.find((article)=>artic
       <p class="reader-home-feature-label">初めての3篇</p>
       <div class="reader-home-feature-grid">
         {featuredArticles.map((article,index)=>{
-          const photo=essayPhoto(article);
+          // The featured oyster story opens with the food itself; its article and
+          // other discovery cards keep the Hiroshima Bay oyster-raft landscape.
+          const photo=article.slug==='oysters-taste-of-small-seas'
+            ? photoById['photo-hinase-oysters']
+            : essayPhoto(article);
           return <a class="reader-home-feature" href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}>
             {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'} />}
             <div class="reader-home-feature-copy"><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h2>{article.title}</h2><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
