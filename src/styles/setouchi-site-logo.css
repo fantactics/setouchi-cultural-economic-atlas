@@ -1,0 +1,50 @@
+/* Approved SETOUCHI ATLAS open-book logo. KII ATLAS retains its own wordmark. */
+.site-header .brand-wrap--setouchi-logo {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  text-decoration: none;
+  flex: 0 1 auto;
+}
+.site-header .setouchi-site-logo {
+  display: block;
+  width: clamp(295px, 31vw, 405px);
+  height: auto;
+  max-width: 100%;
+  /* Blend the ivory image ground into the site's neutral and tinted headers. */
+  mix-blend-mode: darken;
+}
+body.atlas-theme-sea .site-header {
+  column-gap: 1.5rem;
+}
+body.atlas-theme-sea .site-header nav {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: .4rem;
+}
+@media (max-width: 1120px) {
+  body.atlas-theme-sea .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    padding: .65rem 5vw;
+  }
+  body.atlas-theme-sea .site-header nav {
+    justify-content: flex-start;
+    gap: .4rem 1rem;
+  }
+}
+@media (max-width: 600px) {
+  body.atlas-theme-sea .site-header {
+    padding: .55rem 4vw;
+  }
+  .site-header .setouchi-site-logo {
+    width: min(92vw, 340px);
+  }
+  body.atlas-theme-sea .site-header nav {
+    gap: .35rem .75rem;
+    font-size: .8rem;
+  }
+}
