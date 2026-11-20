@@ -46,6 +46,12 @@ export const essayPhotoFieldReferences = {
       note:'広島県内の丸栄の工場で撮影された粉砕後の牡蠣殻の山と処理工程。未処理の殻の集積写真とは区別してください。写真の転載はしていません。'
     },
     {
+      label:'牡蠣殻が干潟の環境改善に使われる現場を見る',
+      publisher:'FNNプライムオンライン（広島・廿日市市の取材）',
+      url:'https://www.fnn.jp/articles/-/871017',
+      note:'砕いたカキ殻を干潟へ散布する現場の取材。殻の集積後の利用方法を確認できます。記事写真の転載許諾は未確認のため、転載せずリンクのみ設置しています。'
+    },
+    {
       label:'広島・海田町の海中集積所でカキ殻を追う',
       publisher:'広島CLiP新聞（丸栄・海田工場の取材）',
       url:'https://magazine.cliiip.jp/social/7876/',
@@ -59,6 +65,12 @@ export const essayPhotoFieldReferences = {
       publisher:'Begin（JAPAN BLUE JEANS 2020年エシカルプロダクト取材）',
       url:'https://www.e-begin.jp/article/114094/',
       note:'製品の再資源化を考えて金属リベットを省略した児島のジーンズを紹介。記事の街路写真では製品の構造は分かりません。掲載元の写真は転載していません。'
+    },
+    {
+      label:'児島の国産ジーンズとリベットの歴史を読む',
+      publisher:'倉敷市 クラシキ文華',
+      url:'https://citysales.city.kurashiki.okayama.jp/chishiki/2766/',
+      note:'国産ジーンズ産業に必要だったリベットや部材の歴史を説明する自治体資料。ノーリベット製品の写真ではないため、混同しないでください。'
     },
     {
       label:'ノーリベット仕様の販売製品とディテールを見る',
