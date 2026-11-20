@@ -15,10 +15,11 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 ## 山門の向こうに、本堂がない
 
-<figure class="onomichi-crossing-photo">
-  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/joshoji-crossing-onomichi.avif" alt="踏切の向こうに常称寺の建物が見える。線路、寺院、民家が重なっている尾道の街並み" width="640" height="427" loading="eager" decoding="async" />
-  <figcaption><strong>写真は大門ではなく、線路越しに常称寺の本堂がある山側を望んだもの。</strong> 大門（山門）は鉄道と国道の反対側、海側の民家の間に離れて残っている。写真：<a href="https://www.ononavi.jp/onomichiya/search/detail.php?id=3199" target="_blank" rel="noopener noreferrer">尾道観光協会「おのみちや」No.3199</a></figcaption>
-</figure>
+<aside class="onomichi-gate-reference" aria-label="常称寺の大門の実写資料">
+  <p><strong>山門の向こうに、本堂がない。</strong> 民家の間に残る常称寺の大門は、室町時代前期の重要文化財です。大門そのものの実写は、次の公的資料で確認できます。</p>
+  <p><a href="https://online.bunka.go.jp/heritages/detail/125207" target="_blank" rel="noopener noreferrer">文化遺産オンライン｜常称寺 大門の写真を見る ↗</a></p>
+  <small>大門の写真については、転載可能な画像をまだ確保できていないため、資料ページへのリンクとしています。本文中の踏切写真は本堂側を写しています。</small>
+</aside>
 
 尾道の山手を歩くと、民家の間に突然、古い寺の大門が現れる。時宗の常称寺だ。門をくぐっても、その先に本堂はない。線路と国道を越え、坂を上がった先に本堂が建つ。寺の門と本堂の間を、近代の交通が横切ってしまった。[7](#source-7) [8](#source-8)
 
@@ -53,6 +54,11 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 明治になると、この狭い町に鉄道を通すことになった。山陽鉄道が示した路線案は五つ。市街地の北を迂回する案もあったが、経済性から現在の山陽本線に近い市街地貫通案が進められた。[9](#source-9)
 
 町は反対で二分された。住民の立ち退きや商業地の分断に加え、山手の寺社へ通う道が切られることも反対理由だった。約一年の調整ののち、1891年に鉄道は尾道へ到達した。常称寺の大門が本堂から離れて見えるのは、こうした近代の選択が残した痕跡だ。[7](#source-7) [9](#source-9)
+
+<figure class="onomichi-crossing-photo">
+  <img src="/setouchi-cultural-economic-atlas/images/atlas-original/joshoji-crossing-onomichi.avif" alt="踏切の向こうに常称寺の建物が見える。線路、寺院、民家が重なっている尾道の街並み" width="640" height="427" loading="lazy" decoding="async" />
+  <figcaption><strong>この写真は大門ではなく、踏切から常称寺の本堂がある山側を望んだもの。</strong> 大門（山門）は鉄道と国道の反対側、海側の民家の間に離れて残っている。写真：<a href="https://www.ononavi.jp/onomichiya/search/detail.php?id=3199" target="_blank" rel="noopener noreferrer">尾道観光協会「おのみちや」No.3199</a></figcaption>
+</figure>
 
 鉄道は尾道を外の世界につなぐ新しい道であり、同時に町の内側の道を切る線でもあった。港の近さが生んだ細長い町では、新しい交通の通り道をつくることが、古い空間の使い方を大きく変えた。
 
