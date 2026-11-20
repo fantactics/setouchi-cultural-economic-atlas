@@ -13,6 +13,8 @@ const paths = [
     slug:'ako-after-salt-fields',
     place:'兵庫・赤穂',
     kind:'仕事を継ぐ',
+    inheritance:'製塩という仕事',
+    photoFocus:'赤穂海浜公園に再現された流下式塩田。昔の塩田をそのまま撮ったものではありません。',
     before:'海水を濃くする塩田',
     after:'膜と電気で塩をつくる工場',
     question:'塩田を手放しても、塩づくりを続けられるのか。',
@@ -22,6 +24,8 @@ const paths = [
     slug:'iwagi-salt-pans-to-shrimp-ponds',
     place:'愛媛・岩城島',
     kind:'水を使い直す',
+    inheritance:'海水を扱う池',
+    photoFocus:'岩城島の集落の参考写真。北浜の養殖池そのものではありません。',
     before:'北浜の塩田',
     after:'クルマエビの養殖池',
     question:'塩を取り出した池で、今度は生き物を育てられるのか。',
@@ -31,6 +35,8 @@ const paths = [
     slug:'takehara-salt-capital-to-townscape',
     place:'広島・竹原',
     kind:'富が町に残る',
+    inheritance:'塩で得た富',
+    photoFocus:'竹原の白壁の町並み。塩田そのものはこの写真には見えません。',
     before:'塩田と廻船の商い',
     after:'白壁の商家と新たな市街地',
     question:'塩田が消えても、塩の利益はどこに残るのか。',
@@ -40,6 +46,8 @@ const paths = [
     slug:'sakaide-salt-fields-to-industry',
     place:'香川・坂出',
     kind:'海岸線をつくり直す',
+    inheritance:'旧塩田と、新たな陸地',
+    photoFocus:'番の州の工業地。旧塩田の直接転用ではなく、沖合を新たに埋め立てた土地です。',
     before:'旧塩田と、その沖の海',
     after:'旧塩田の転用と番の州の新規埋立',
     question:'工場が立つ土地は、本当に塩田の跡だったのか。',
@@ -49,6 +57,8 @@ const paths = [
     slug:'kinkai-salt-field-to-solar',
     place:'岡山・錦海',
     kind:'守る仕事が残る',
+    inheritance:'排水し続ける責任',
+    photoFocus:'錦海塩田跡の発電所。土地の排水施設は写真だけでは見えません。',
     before:'海を締め切って造った塩田',
     after:'太陽光発電所と排水施設',
     question:'塩づくりをやめたあと、なぜポンプは止められないのか。',
@@ -77,23 +87,24 @@ const chapters = paths.map(entry=>{
     <header class="salt-intro">
       <p class="salt-kicker">LANDSCAPE STORIES · 読み比べる瀬戸内</p>
       <h1>塩田が消えたあと、<br />土地には何が残ったか。</h1>
-      <p class="salt-dek">海水を取り込み、太陽と風を使って塩をつくった土地。塩田が役目を終えたあとも、その先は一つではありませんでした。</p>
-      <p>ある町では塩づくりそのものが続き、ある島では池が養殖に使われ、別の土地では工場や発電所、町並みが生まれました。似た海辺の風景から、なぜこれほど違う未来が生まれたのでしょう。</p>
-      <p>五つのエッセイを並べて読むと、消えたものだけでなく、次の時代へ手渡されたものが見えてきます。</p>
+      <p class="salt-dek">海水を引き、日差しと風で塩をつくる。似た仕事をしていた浜が、塩田の終わりとともに、まったく違う表情を見せ始めました。</p>
+      <p>赤穂には製塩の仕事が、岩城島には海水を扱う池が、竹原には塩で得た富が残りました。坂出には旧塩田と新たに埋め立てた海岸が並び、錦海には使われなくなった土地を水から守る仕事が続いています。</p>
+      <p>土地の形が似ていても、受け継がれたものは同じではない。五つの土地を読み比べると、海岸線や建物の奥にもう一つの風景が浮かんできます。</p><a class="salt-intro-start" href="#salt-compare-title">五つの風景を見比べる ↓</a>
     </header>
 
     <section class="salt-compare" aria-labelledby="salt-compare-title">
-      <div class="salt-section-head"><span>FIVE PATHS</span><h2 id="salt-compare-title">塩田の、その先へ。</h2><p>かつての仕事から、いまに続く風景へ。</p></div>
+      <div class="salt-section-head"><span>FIVE PATHS · 比較模式図</span><h2 id="salt-compare-title">終わったのは塩づくり。では、何が残ったのだろう。</h2><p>共通する仕事の先に、五つの異なる風景があります。</p></div>
+      <div class="salt-origin"><span>共通する歴史</span><strong>海水と、日差しと、風を使う塩づくり</strong><p>ただし塩田の時代も、規模も、土地の成り立ちもそれぞれ異なります。</p></div><div class="salt-fork" aria-hidden="true"></div>
       <div class="salt-branches" role="list">
         {chapters.map((chapter)=><a role="listitem" class="salt-branch" href={chapter.href}>
           <span class="salt-branch-place">{chapter.place}</span>
-          <span class="salt-branch-before">{chapter.before}</span>
+          <span class="salt-branch-kind">{chapter.kind}</span>
           <span class="salt-branch-arrow" aria-hidden="true">↓</span>
-          <strong>{chapter.after}</strong>
+          <strong>{chapter.inheritance}</strong><span class="salt-branch-after">{chapter.after}</span>
           <span class="salt-branch-open">エッセイへ →</span>
         </a>)}
       </div>
-      <p class="salt-diagram-caption">比較模式図。土地利用・仕事の変化を示すもので、地理的位置、敷地境界、面積比を表すものではありません。坂出の番の州は旧塩田を転用した土地ではなく、別に埋め立てられた土地です。</p>
+      <p class="salt-diagram-caption">仕事・富・土地利用・管理の違いを示す模式図です。地理的位置、面積、すべての土地が塩田跡そのものを転用したという意味ではありません。特に坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地です。</p>
     </section>
 
     <section class="salt-chapters" aria-labelledby="salt-chapters-title">
