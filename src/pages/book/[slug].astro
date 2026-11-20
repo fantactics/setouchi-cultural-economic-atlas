@@ -415,6 +415,12 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
     .quageo-own-photo-grid figcaption span{color:var(--muted,#666);}
     .markdown-essay-body :global(h2){margin:3.4rem 0 1.25rem;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.45;letter-spacing:.02em;}
     .markdown-essay-body :global(p){margin:0 0 1.4rem;line-height:2.05;}
+    /* A source-linked schematic may be wider than a normal inline photograph. */
+    .markdown-essay-body :global(figure.onomichi-section-diagram) {width:100%;max-width:920px;margin:2.4rem auto 3rem;padding:0;}
+    .markdown-essay-body :global(figure.onomichi-section-diagram img) {display:block;width:100%;height:auto;aspect-ratio:1120 / 500;object-fit:contain;border-radius:15px;background:#f7f8f2;}
+    .markdown-essay-body :global(figure.onomichi-section-diagram figcaption) {color:#697b70;font-size:.83rem;line-height:1.9;margin:10px 2px 0;}
+    .markdown-essay-body :global(figure.onomichi-section-diagram a) {color:#287966;text-underline-offset:3px;}
+
     /* A single editorial scale for original and Commons photographs inside essays.
        Hero images and gallery components retain their own design. */
     .markdown-essay-body :global(figure.atlas-inline-photo) {
