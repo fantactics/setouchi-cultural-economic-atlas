@@ -17,8 +17,8 @@ const finishSentence=(value)=>{
 // The title shown to readers in the article remains article.title.
 export const essaySeoFocus={
   'onomichi-capital-to-culture-and-ships':{
-    title:'尾道に寺と坂道が多いのはなぜ？寺領と鉄道がつくった町',
-    description:'尾道の山門と本堂を鉄道が隔てるのはなぜか。寺有地、斜面、市街地の発展と交通の変化から、尾道の坂道と寺の風景を読み解く。'
+    title:'山と海に挟まれた港町を、あとから鉄道が貫いた',
+    description:'山と海に挟まれた尾道の港町を、明治の鉄道が貫いた。常称寺の山門と本堂の分断、斜面住宅の成り立ちから、時代が積み重なった景観をたどる。'
   },
   'sanuki-store-the-rain':{
     title:'香川・讃岐平野にため池が多いのはなぜ？少雨と水配分',
