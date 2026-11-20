@@ -420,6 +420,13 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
     .markdown-essay-body :global(figure.onomichi-section-diagram img) {display:block;width:100%;height:auto;aspect-ratio:1120 / 500;object-fit:contain;border-radius:15px;background:#f7f8f2;}
     .markdown-essay-body :global(figure.onomichi-section-diagram figcaption) {color:#697b70;font-size:.83rem;line-height:1.9;margin:10px 2px 0;}
     .markdown-essay-body :global(figure.onomichi-section-diagram a) {color:#287966;text-underline-offset:3px;}
+    .markdown-essay-body :global(.onomichi-section-scroll){overflow-x:auto;overscroll-behavior-x:contain}
+    .markdown-essay-body :global(.onomichi-section-mobile-tip){display:none;font-weight:700;color:#477866}
+    @media(max-width:700px){
+      .markdown-essay-body :global(.onomichi-section-scroll img){min-width:760px;max-width:none}
+      .markdown-essay-body :global(.onomichi-section-mobile-tip){display:block;margin-bottom:7px}
+    }
+
 
     /* A single editorial scale for original and Commons photographs inside essays.
        Hero images and gallery components retain their own design. */
