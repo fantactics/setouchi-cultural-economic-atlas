@@ -1,35 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { orderedBookArticles } from '../../../data/bookArticles.js';
-import { withMarkdownMetadata } from '../../../data/essayMarkdownMetadata.js';
-import { kadaEssays } from '../../../data/kadaEssays.js';
-import { kadaIndustryEssay } from '../../../data/kadaIndustryEssay.js';
-import { cycleTourismEssay } from '../../../data/cycleTourismEssay.js';
-import { shimotsuiHijikiEssay } from '../../../data/shimotsuiHijikiEssay.js';
-import { tomoTwoActPortEssay } from '../../../data/tomoTwoActPortEssay.js';
-import { portSystemEssays } from '../../../data/portSystemEssays.js';
-import { kojimaCircularEssay } from '../../../data/kojimaCircularEssay.js';
-import { kojimaIslandEssays } from '../../../data/kojimaIslandEssays.js';
-import { setouchiSushiEssay } from '../../../data/setouchiSushiEssay.js';
-import { setouchiShrimpEssay } from '../../../data/setouchiShrimpEssay.js';
-import { setouchiItinerantTradeBoatsEssay } from '../../../data/setouchiItinerantTradeBoatsEssay.js';
-import { setouchiShipMaterialsEssay } from '../../../data/setouchiShipMaterialsEssay.js';
-import { niboshiShirasuEssay } from '../../../data/niboshiShirasuEssay.js';
-import { aiRegionalPlanningEssay } from '../../../data/aiRegionalPlanningEssay.js';
+import { publishedEssays } from '../../../data/publishedEssayList.js';
 import { enhanceBookArticle } from '../../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../../data/essayEditorialOverrides.js';
 import { naturalConditionTagIndex } from '../../../data/naturalEnvironmentTags.js';
-import { saltLandscapeNatureEssays } from '../../../data/saltLandscapeNatureEssays.js';
 import { photoEvidence } from '../../../data/photoEvidence.js';
 
-const originalEssays=[
-  ...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,
-  shimotsuiHijikiEssay,tomoTwoActPortEssay,...portSystemEssays,
-  kojimaCircularEssay,...kojimaIslandEssays,setouchiSushiEssay,
-  setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
-  setouchiShipMaterialsEssay,niboshiShirasuEssay,aiRegionalPlanningEssay,...saltLandscapeNatureEssays
-].filter(Boolean);
-const essays=originalEssays.map((a)=>withMarkdownMetadata(applyEssayEditorialOverride(enhanceBookArticle(a))));
+// Keep this discovery page in sync with the canonical published essay index.
+const essays=publishedEssays.map((a)=>applyEssayEditorialOverride(enhanceBookArticle(a)));
 const natureGroups=naturalConditionTagIndex(essays);
 const tagCount=natureGroups.length;
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
