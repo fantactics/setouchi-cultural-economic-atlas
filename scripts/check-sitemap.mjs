@@ -30,6 +30,10 @@ const urls = xmlLocs(pages);
 assert.ok(urls.length >= 60, `Unexpectedly few sitemap URLs: ${urls.length}`);
 assert.ok(urls.every((url) => url.startsWith(base)), 'Sitemap must not escape the GitHub Pages project path');
 assert.ok(urls.some((url) => url.includes('/book/setouchi-sushi-not-nigiri/')), 'A known essay URL must be indexed');
+// Guard against an article present in bookArticles but omitted from storyOrder.
+const onomichiSlug = 'onomichi-capital-to-culture-and-ships';
+assert.ok(existsSync(path.join(dist, 'book', onomichiSlug, 'index.html')), 'Onomichi essay was not generated; check storyOrder');
+assert.ok(urls.some((url) => url.includes(`/book/${onomichiSlug}/`)), 'Onomichi essay missing from sitemap');
 assert.ok(urls.some((url) => url.includes('/book/')), 'The essay index must be included');
 assert.ok(robots.includes(`Sitemap: ${base}sitemap.xml`), 'robots.txt and sitemap entry point differ');
 
