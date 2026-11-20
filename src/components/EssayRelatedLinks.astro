@@ -24,8 +24,8 @@ const recommendations=relatedEssaysFor(article,publishedEssays,3).map((item)=>{
   <div class="reader-related-head">
     <div>
       <span>READ NEXT</span>
-      <h2 id="standalone-essay-related-heading">次は、どの風景を旅する？</h2>
-      <p>今読んだ物語から、瀬戸内の別の一篇へ。</p>
+      <h2 id="standalone-essay-related-heading">この風景から、次の問いへ。</h2>
+      <p>一篇を読み終えたところから、別の土地の発見が始まります。</p>
     </div>
     <a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a>
   </div>
@@ -33,7 +33,7 @@ const recommendations=relatedEssaysFor(article,publishedEssays,3).map((item)=>{
     {recommendations.map((item)=><a class="reader-related-card" href={`/setouchi-cultural-economic-atlas/book/${item.slug}/`}>
       {item.image?.imageUrl && <img src={item.image.imageUrl} alt={item.image.alt||item.title} loading="lazy" />}
       <div>
-        <span>{item.relatedReason}{item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span>
+        <span>{item.relatedQuestion || item.relatedReason}{!item.relatedQuestion && item.cities?.length ? ` ・ ${item.cities.slice(0,2).join('・')}` : ''}</span>
         <h3>{item.title}</h3>
         <p>{item.teaser}</p>
         <strong>読む →</strong>
