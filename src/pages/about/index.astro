@@ -3,19 +3,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout
   title="このサイトについて | SETOUCHI ATLAS"
-  description="ランドスケープ ＝ ネイチャー ｘ カルチャー。自然と人の営みがつくる瀬戸内の風景を旅するエッセイ集。編集主幹：藤崎壮滋（ぴあぴあ株式会社）。"
+  description="ランドスケープ ＝ ネイチャー × カルチャー。瀬戸内の風景に隠れた自然と人の営みを読み解き、旅先で新しい発見に出会うエッセイ集。"
 >
   <section class="reader-about-minimal" aria-labelledby="reader-about-title">
     <p class="reader-about-kicker">HELLO, SETOUCHI! <span aria-hidden="true">✳</span></p>
     <h1 id="reader-about-title">このサイトについて</h1>
     <div class="reader-about-description">
-      <p class="reader-about-concept">合言葉は、<strong>ランドスケープ ＝ ネイチャー ｘ カルチャー</strong>。</p>
-      <p>海や山、風や潮。そこに暮らす人の工夫や、受け継がれてきた仕事。二つが出会うと、いつもの風景がちょっと違って見えてきます。旅先で見つけた「なんで？」から、瀬戸内の物語をたどるエッセイ集です。</p>
+      <p class="reader-about-concept">合言葉は、<strong>ランドスケープ ＝ ネイチャー × カルチャー</strong>。</p>
+      <p>瀬戸内の海や島、山や町を歩いていると、ときどき不思議な風景に出会います。</p>
+      <p>どうして、この場所にこんな町ができたのだろう。なぜ、この土地ではこんな仕事が生まれたのだろう。同じ瀬戸内なのに、隣り合う土地で風景がこんなにも違うのはなぜだろう。</p>
+      <p>そんな小さな疑問から始まるのが、SETOUCHI ATLASのエッセイです。</p>
+
+      <h2>風景には、理由がある</h2>
+      <p>瀬戸内の風景は、自然がつくったものでも、人間がつくったものでもありません。</p>
+      <p>雨の少なさがため池を生み、海水が残った土地から塩づくりが始まる。海と山に挟まれた狭い土地には寺や家が重なり、港を行き交う人々は町に新しい文化を運んできました。</p>
+      <p>自然は人々の暮らしに条件を与え、人々はその条件に工夫を重ね、ときには自然そのものをつくり変えてきました。</p>
+      <p>その長い対話の結果が、いま私たちの目の前にある風景なのだと思います。</p>
+
+      <h2>見えない風景を、想像する</h2>
+      <p>岩城島では、塩をつくっていた池で、のちにクルマエビが育てられました。讃岐では、限られた水を田に分ける時間を、一本の線香で測っていました。</p>
+      <p>こうした話を知ると、何気ない池や水路にも、かつてそこで働いた人々の姿が浮かんできます。</p>
+      <p>もちろん、昔の人々が何を考え、なぜその選択をしたのか、記録だけではわからないこともあります。それでも、地形や気候、残された史料を手掛かりに、その理由を想像してみることはできます。</p>
+      <p>確かな事実を大切にしながら、その先にある「もしかしたら」にも目を向ける。それも、このエッセイ集の楽しみ方の一つです。</p>
+
+      <h2>次の旅で、風景が少し違って見える</h2>
+      <p>有名な観光名所だけでなく、港の片隅、古い水路、町家の裏側、山の斜面にも、その土地ならではの物語があります。</p>
+      <p>読み終えたあと、いつかその場所を訪ねたくなる。そして実際に訪ねたとき、以前は気づかなかったものが見えてくる。</p>
+      <p>SETOUCHI ATLASが、そんな旅のお供になればうれしく思います。</p>
       <a class="reader-about-start" href="/setouchi-cultural-economic-atlas/book/">エッセイをのぞいてみる ↗</a>
     </div>
     <div class="reader-about-editor">
       <h2>編集主幹</h2>
-      <p><strong>藤崎壮滋</strong> <span>（ぴあぴあ株式会社）</span></p>
+      <p class="reader-about-editor-name"><strong>藤崎壮滋</strong> <span>（ぴあぴあ株式会社）</span></p>
+      <p>地球環境学修士（環境マネジメント専攻・景観保全論分野）。</p>
+      <p>まちづくりや地方創生に長く携わってきました。そのなかで惹かれてきたのは、土地ごとに異なる自然の姿と、その条件に向き合いながら暮らしや文化を育んできた人々の営みです。</p>
+      <p>美しい風景にも、何気ない町並みにも、それぞれの土地の物語が隠れています。そんな物語を見つける楽しさを、旅する人たちと分かち合いたいと思っています。</p>
     </div>
   </section>
   <style>
@@ -58,6 +80,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       font-weight:700;
       line-height:1.92;
     }
+    .reader-about-description h2{
+      margin:31px 0 12px;font-family:inherit;
+      color:#2c574a;font-size:clamp(1.13rem,1.9vw,1.4rem);
+      font-weight:800;line-height:1.6;letter-spacing:-.015em;
+    }
     .reader-about-description strong{
       display:inline;
       padding:.14em .28em;
@@ -89,7 +116,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       font-weight:800;color:#b56b4d;
     }
     .reader-about-editor h2::before{content:"✦";color:#dfaf67}
-    .reader-about-editor p{margin:0;font-size:.97rem;line-height:1.7;color:#536d61}
+    .reader-about-editor p{margin:0 0 12px;font-size:.97rem;line-height:1.9;color:#536d61}
+    .reader-about-editor p:last-child{margin-bottom:0}
+    .reader-about-editor .reader-about-editor-name{margin-bottom:17px}
     .reader-about-editor strong{font-weight:800;color:#2d4d44}
     .reader-about-editor span{color:#87978c}
     @media(max-width:600px){
