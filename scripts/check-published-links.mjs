@@ -42,13 +42,27 @@ for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug),'b
   assert.ok(sitemapUrls.some(url=>url.includes('/'+pathname+'/')),`Missing sitemap entry: /${pathname}/`);
 }
 
+// Check all discovery surfaces, all essay "read next" cards, and every regional entry.
+// Traverse actual build output so generated tags and editorial overrides are covered.
+const { readdirSync } = await import('node:fs');
+const htmlChildren=(directory)=>existsSync(path.join(dist,directory))
+  ? readdirSync(path.join(dist,directory),{withFileTypes:true})
+    .filter((entry)=>entry.isDirectory() && existsSync(built(directory+'/'+entry.name)))
+    .map((entry)=>directory+'/'+entry.name+'/index.html')
+  : [];
 const important=[
   'index.html',
   'book/index.html',
+  'book/nature/index.html',
+  'book/culture/index.html',
   collection+'/index.html',
-  ...collectionEssays.map(slug=>'book/'+slug+'/index.html'),
-  'book/four-salt-fields/index.html'
+  ...htmlChildren('book'),
+  ...htmlChildren('places')
 ];
+for(const relative of important){
+  assert.ok(existsSync(path.join(dist,relative)),`Discovery page missing: ${relative}`);
+}
+
 const missing=new Map();
 let checked=0;
 for(const relative of important){
@@ -60,7 +74,7 @@ for(const relative of important){
     if(target.startsWith(legacy)) target=target.slice(legacy.length);
     else if(target.startsWith('/')) target=target.slice(1);
     else continue; // same-page and relative anchors do not define article routes
-    if(!target.startsWith('book/')&&!target.startsWith('collections/'))continue;
+    if(!target.startsWith('book/')&&!target.startsWith('collections/')&&!target.startsWith('places/'))continue;
     const normalized=target.replace(/\/+$/,'');
     if(!normalized || !normalized.includes('/')) continue;
     checked++;
@@ -72,6 +86,15 @@ for(const relative of important){
   }
 }
 assert.equal(missing.size,0,'Broken editorial links: '+JSON.stringify(Object.fromEntries(missing)));
+// Guard the main navigation and independently generated tag index pages.
+for(const page of ['book/nature','book/culture']){
+  const html=assertPage(page);
+  assert.ok(html.includes('book/'),`No story links in ${page}`);
+}
+const homepage=readFileSync(path.join(dist,'index.html'),'utf8');
+for(const fragment of ['初めての3篇','問いをつないで、瀬戸内を歩く']){
+  assert.ok(homepage.includes(fragment),`Missing homepage editorial section: ${fragment}`);
+}
 assert.ok(collectionHtml.includes('五つの土地、五つの問い'), 'The salt collection comparison is missing');
 assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
-console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${checked} editorial links, collection and sitemap.`);
+console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
