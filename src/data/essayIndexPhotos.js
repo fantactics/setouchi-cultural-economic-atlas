@@ -6,8 +6,8 @@ export const essayIndexPhotoOverrides = {
   // railway and temple in the same narrow townscape, unlike the panoramic hero.
   "onomichi-capital-to-culture-and-ships": {
     "imageUrl": "/setouchi-cultural-economic-atlas/images/atlas-original/joshoji-crossing-onomichi.avif",
-    "alt": "尾道・常称寺の近く。踏切の向こうに寺の建物が見え、鉄道と家並みが重なっている",
-    "title": "踏切の向こうに常称寺が見える風景",
+    "alt": "尾道・常称寺の踏切を越えた山側に本堂のある境内が見える。大門はこの写真とは別の場所にある",
+    "title": "常称寺の本堂方向を望む踏切",
     "author": "尾道観光協会「おのみちや」No.3199",
     "license": "利用条件は出典先参照",
     "sourcePage": "https://www.ononavi.jp/onomichiya/search/detail.php?id=3199"
@@ -74,7 +74,7 @@ export const essayIndexPhotoOverrides = {
 // Optional, restrained visual-source context on feature cards. Be explicit when
 // the scene is illustrative or the photograph is from another nearby region.
 export const essayCardPhotoContext = {
-  "onomichi-capital-to-culture-and-ships": "常称寺付近の踏切。大門そのものの写真ではありません。",
+  "onomichi-capital-to-culture-and-ships": "本堂のある山側へ向かう踏切。大門は写真には写っていません。",
   "citrus-pomace-cascade": "愛媛・狩浜の柑橘段畑（搾汁粕や剪定枝の処理現場ではありません）",
   "fish-waste-to-feed-and-citrus": "西予・狩浜の柑橘段畑（八幡浜の魚肥工場ではありません）",
   "olive-pomace-to-cattle": "小豆島のオリーブ園（オリーブ牛・飼料加工の写真ではありません）",
