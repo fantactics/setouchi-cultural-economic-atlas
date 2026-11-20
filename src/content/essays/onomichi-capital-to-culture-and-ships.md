@@ -15,15 +15,13 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
 
 ## 山門の向こうに、本堂がない
 
-<aside class="onomichi-gate-reference" aria-label="常称寺の大門の実写資料">
-  <p><strong>山門の向こうに、本堂がない。</strong> 民家の間に残る常称寺の大門は、室町時代前期の重要文化財です。大門そのものの実写は、次の公的資料で確認できます。</p>
-  <p><a href="https://online.bunka.go.jp/heritages/detail/125207" target="_blank" rel="noopener noreferrer">文化遺産オンライン｜常称寺 大門の写真を見る ↗</a></p>
-  <small>大門の写真については、転載可能な画像をまだ確保できていないため、資料ページへのリンクとしています。本文中の踏切写真は本堂側を写しています。</small>
-</aside>
-
 尾道の山手を歩くと、民家の間に突然、古い寺の大門が現れる。時宗の常称寺だ。門をくぐっても、その先に本堂はない。線路と国道を越え、坂を上がった先に本堂が建つ。寺の門と本堂の間を、近代の交通が横切ってしまった。[7](#source-7) [8](#source-8)
 
-海へ目を向ければ、向島との間を尾道水道が細く伸びている。尾道は山と海に挟まれた町だが、単に平地が少ないから寺と住宅が斜面に密集したわけではない。山手の風景には、港が栄えた時代と、鉄道が通った時代、そして人々が家を建てた時代が折り重なっている。[1](#source-1) [10](#source-10)
+<aside class="onomichi-gate-reference" aria-label="常称寺の大門を写真で確認">
+  <p><strong>民家の間に残る大門を、写真で確かめる。</strong> 常称寺の大門は、室町時代前期の四脚門。門の先に本堂が見えないことが、この町の歴史への入口です。</p>
+  <p><a href="https://online.bunka.go.jp/heritages/detail/125207" target="_blank" rel="noopener noreferrer">文化遺産オンラインで「常称寺 大門」の実写を見る ↗</a></p>
+  <small>大門は海側、常称寺の本堂は国道2号・JR山陽本線を越えた山側にあります。下の断面図と見比べてみてください。</small>
+</aside>
 
 <figure class="onomichi-section-diagram">
   <div class="onomichi-section-scroll">
@@ -31,6 +29,10 @@ migration: {"status":"generated-copy","publicUrl":"/book/onomichi-capital-to-cul
   </div>
   <figcaption><span class="onomichi-section-mobile-tip">スマートフォンでは図を左右に動かしてご覧ください。</span>大門と本堂の間には、国道2号とJR山陽本線が走っている。海側（南）から山側（北）への関係を示した模式図であり、距離・高低差・道幅・建物の大きさは実測ではない。図：SETOUCHI ATLAS。根拠資料：<a href="https://kunishitei.bunka.go.jp/heritage/detail/102/00004234" target="_blank" rel="noopener noreferrer">文化庁</a>、<a href="https://www.ononavi.jp/spots/detail.html?detail_id=16" target="_blank" rel="noopener noreferrer">尾道観光協会</a>。</figcaption>
 </figure>
+
+海へ目を向ければ、向島との間を尾道水道が細く伸びている。尾道は山と海に挟まれた町だが、単に平地が少ないから寺と住宅が斜面に密集したわけではない。山手の風景には、港が栄えた時代と、鉄道が通った時代、そして人々が家を建てた時代が折り重なっている。[1](#source-1) [10](#source-10)
+
+
 
 
 ## 港町に集まった寺、そして時宗
