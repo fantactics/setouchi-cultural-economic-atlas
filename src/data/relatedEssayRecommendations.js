@@ -6,7 +6,7 @@ import { getCultureTags } from './cultureTraditionTags.js';
 const curated = {
   'iwagi-salt-pans-to-shrimp-ponds':['four-salt-fields','oysters-taste-of-small-seas','ushimado-nagahama-kinkai-two-reclaimed-landscapes'],
   'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['kinkai-salt-field-to-solar','farmland-or-solar','iwagi-salt-pans-to-shrimp-ponds'],
-  'kinkai-salt-field-to-solar':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields','sakaide-salt-fields-to-industry'],
+  'kinkai-salt-field-to-solar':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields','sakaide-salt-fields-to-industry','iwagi-salt-pans-to-shrimp-ponds'],
   'kojima-from-cotton-to-jeans':['kojima-jeans-circular-economy','imabari-why-shipbuilding','takehara-salt-capital-to-townscape'],
   'imabari-why-shipbuilding':['onomichi-capital-to-culture-and-ships','ports-that-needed-waiting','setouchi-ship-materials'],
   'onomichi-capital-to-culture-and-ships':['imabari-why-shipbuilding','mitarai-economy-of-waiting','ports-that-needed-waiting'],
@@ -14,7 +14,6 @@ const curated = {
   'ako-after-salt-fields':['ako-salt-fields-to-city','four-salt-fields','takehara-salt-capital-to-townscape'],
   'ako-salt-fields-to-city':['ako-after-salt-fields','four-salt-fields','sakaide-salt-fields-to-industry'],
   'sakaide-salt-fields-to-industry':['four-salt-fields','kinkai-salt-field-to-solar','ako-salt-fields-to-city'],
-  'kinkai-salt-field-to-solar':['four-salt-fields','sakaide-salt-fields-to-industry','ako-salt-fields-to-city'],
   'soy-sauce-lees-to-chomeiso':['shodoshima-open-island','olive-pomace-to-cattle','citrus-pomace-cascade'],
   'shodoshima-open-island':['soy-sauce-lees-to-chomeiso','olive-pomace-to-cattle','setouchi-sushi-not-nigiri'],
   'olive-pomace-to-cattle':['shodoshima-open-island','soy-sauce-lees-to-chomeiso','fish-waste-to-feed-and-citrus'],
