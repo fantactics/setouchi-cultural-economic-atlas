@@ -10,6 +10,22 @@ import { photoEvidence } from '../../../data/photoEvidence.js';
 const essays=publishedEssays.map((a)=>applyEssayEditorialOverride(enhanceBookArticle(a)));
 const natureGroups=naturalConditionTagIndex(essays);
 const tagCount=natureGroups.length;
+// Reader-facing broad entrances; detailed scientific tags remain intact.
+const categoryDefinitions=[
+  {id:'weather',title:'雨・風・気候',description:'雨の少なさや風向き、日差しが、暮らしと仕事をどう変えた？',tags:['少雨','雨陰','日照','季節風','西風','潮風','台風']},
+  {id:'tides',title:'潮・海の動き',description:'潮の満ち引きや海流が、港や食卓に何をもたらした？',tags:['潮汐','潮流','急流','波浪','黒潮','海水交換','水温']},
+  {id:'coast',title:'島・海岸のかたち',description:'島、岬、浅瀬、入り江。そのかたちに人はどう応えた？',tags:['多島海','海峡','岬','入り江','リアス海岸','干潟','遠浅','砂州','砂嘴','砂底','砂礫底','岩礁']},
+  {id:'earth',title:'山・川・大地',description:'斜面や川、地層や土が、町と産業の形をどう決めた？',tags:['斜面','河口','洪水','地質','鉱床','土壌','津波','軟水']},
+  {id:'ecology',title:'海の豊かさを育む条件',description:'塩分や栄養、藻場など、目に見えにくい自然の働きに注目。',tags:['塩分','栄養塩','植物プランクトン','アマモ場']}
+];
+const assignedTags=new Set(categoryDefinitions.flatMap((group)=>group.tags));
+const unassigned=natureGroups.filter((group)=>!assignedTags.has(group.tag)).map((group)=>group.tag);
+const categories=[...categoryDefinitions,...(unassigned.length ? [{id:'other',title:'そのほかの自然条件',description:'新しいエッセイから見つかった自然の手がかり。',tags:unassigned}] : [])]
+  .map((category)=>({
+    ...category,
+    groups:category.tags.map((tag)=>natureGroups.find((entry)=>entry.tag===tag)).filter(Boolean)
+  }))
+  .filter((category)=>category.groups.length>0);
 const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
 const featureDefs=[
   {tag:'少雨',photoId:'photo-mannou-reservoir',question:'雨が少ないのに、池はいっぱい。',eyebrow:'RAIN & WATER'},
@@ -42,25 +58,46 @@ const natureFeatures=featureDefs.map((item)=>{
       </div>
     </section>
     <section class="nature-overview" aria-labelledby="nature-overview-title">
-      <div class="nature-section-title"><span>PICK A CLUE <span aria-hidden="true">✳</span></span><h2 id="nature-overview-title">気になる自然は、どれ？ <small>{tagCount}のヒント</small></h2></div>
-      <p>好きな言葉をタップ。まったく違う町の物語が、ひとつにつながるかも。</p>
-      <div class="nature-chip-list">
-        {natureGroups.map(({tag,essays})=><a href={`#nature-${encodeURIComponent(tag)}`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
-      </div>
+      <div class="nature-section-title"><span>PICK A CLUE <span aria-hidden="true">✳</span></span><h2 id="nature-overview-title">どんな自然から、旅を始める？ <small>{tagCount}のヒント</small></h2></div>
+      <p>まず大きなテーマを選んで、気になる自然条件へ。詳しい言葉もそのまま残しています。</p>
+      <nav class="nature-category-nav" aria-label="自然条件の大きな分類">
+        {categories.map((category)=>(
+          <a href={`#nature-category-${category.id}`}>
+            <strong>{category.title}</strong>
+            <small>{category.groups.length}の自然条件</small>
+          </a>
+        ))}
+      </nav>
     </section>
-    <div class="nature-results" aria-label="自然条件ごとのエッセイ">
-      {natureGroups.map(({tag,essays})=>
-        <section class="nature-group" id={`nature-${tag}`} aria-label={tag}>
-          <header><h2>{tag}</h2><span>{essays.length}篇の物語</span><a href="#nature-overview-title" aria-label={`${tag}から自然条件一覧に戻る`}>↑</a></header>
-          <ul>
-            {essays.slice(0,4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
-          </ul>
-          {essays.length>4 && <details class="nature-more">
-            <summary>ほかの物語も見る <span>{essays.length-4}篇</span></summary>
-            <ul>{essays.slice(4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}</ul>
-          </details>}
+    <div class="nature-category-results" aria-label="自然条件ごとのエッセイ">
+      {categories.map((category)=>(
+        <section class="nature-category" id={`nature-category-${category.id}`} aria-labelledby={`nature-heading-${category.id}`}>
+          <div class="nature-category-heading">
+            <div>
+              <h2 id={`nature-heading-${category.id}`}>{category.title}</h2>
+              <p>{category.description}</p>
+            </div>
+            <a href="#nature-overview-title" aria-label={`${category.title}から分類一覧に戻る`}>分類一覧へ ↑</a>
+          </div>
+          <nav class="nature-chip-list" aria-label={`${category.title}の自然条件`}>
+            {category.groups.map(({tag,essays})=><a href={`#nature-${encodeURIComponent(tag)}`}><span>{tag}</span><small>{essays.length}篇</small></a>)}
+          </nav>
+          <div class="nature-results">
+            {category.groups.map(({tag,essays})=>(
+              <section class="nature-group" id={`nature-${tag}`} aria-label={tag}>
+                <header><h3>{tag}</h3><span>{essays.length}篇の物語</span><a href={`#nature-category-${category.id}`} aria-label={`${tag}から${category.title}に戻る`}>↑</a></header>
+                <ul>
+                  {essays.slice(0,4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}
+                </ul>
+                {essays.length>4 && <details class="nature-more">
+                  <summary>ほかの物語も見る <span>{essays.length-4}篇</span></summary>
+                  <ul>{essays.slice(4).map((article)=><li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><strong>{article.title}</strong><small>{article.subtitle||''}</small></a></li>)}</ul>
+                </details>}
+              </section>
+            ))}
+          </div>
         </section>
-      )}
+      ))}
     </div>
     <details class="nature-notes">
       <summary>自然条件タグと写真について <span aria-hidden="true">＋</span></summary>
@@ -102,6 +139,18 @@ const natureFeatures=featureDefs.map((item)=>{
   .nature-overview{padding:29px clamp(18px,3vw,32px) 33px;background:linear-gradient(125deg,#fff7eb,#fffcf5 60%,#eff7ef);border:1px solid #f0e5d7;border-radius:24px;margin:0 0 34px}
   .nature-overview .nature-section-title{margin-bottom:7px}
   .nature-overview>p{margin:0 0 19px;color:#77837b;font-size:.86rem;line-height:1.75}
+  .nature-category-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px}
+  .nature-category-nav a{display:flex;flex-direction:column;gap:5px;text-decoration:none;border:1px solid #d7e4d9;background:#fff;border-radius:13px;padding:15px 17px;color:#315f50}
+  .nature-category-nav a:hover{border-color:#7bad99;background:#eff8f1}
+  .nature-category-nav strong{font-size:.98rem}
+  .nature-category-nav small{font-size:.74rem;color:#76877d}
+  .nature-category-results{display:grid;gap:32px}
+  .nature-category{scroll-margin-top:95px}
+  .nature-category-heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:0 0 16px;border-bottom:1px solid #dce8df;padding:0 0 12px}
+  .nature-category-heading h2{font-size:clamp(1.23rem,2.2vw,1.7rem);margin:0 0 5px}
+  .nature-category-heading p{font-size:.89rem;color:#748379;margin:0;line-height:1.7}
+  .nature-category-heading>a{font-size:.77rem;color:#527d70;text-decoration:none;white-space:nowrap}
+  .nature-category .nature-chip-list{margin:0 0 18px}
   .nature-chip-list{display:flex;flex-wrap:wrap;gap:10px}
   .nature-chip-list a{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:99px;background:#e3f1e8;border:1px solid #cae3d6;text-decoration:none;font-size:.85rem;font-weight:750;color:#28584d;transition:transform .18s ease,background .18s ease}
   .nature-chip-list a:nth-child(4n+2){background:#ffeadd;border-color:#f8d9c9;color:#874b35}
@@ -116,7 +165,7 @@ const natureFeatures=featureDefs.map((item)=>{
   .nature-group:nth-child(4n+3){border-top:4px solid #dec071}
   .nature-group:nth-child(4n){border-top:4px solid #9baed7}
   .nature-group>header{display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:1px solid #e8eee8}
-  .nature-group>header h2{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;margin:0;font-size:1.19rem;font-weight:800;letter-spacing:-.02em}
+  .nature-group>header h3{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;margin:0;font-size:1.19rem;font-weight:800;letter-spacing:-.02em}
   .nature-group>header span{font-size:.75rem;color:#82928a}
   .nature-group>header a{margin-left:auto;text-decoration:none;color:#558779;font-size:.9rem}
   .nature-group ul{list-style:none;margin:0;padding:0}
@@ -140,7 +189,7 @@ const natureFeatures=featureDefs.map((item)=>{
   .nature-end a:hover{background:#235e54}
   .nature-index a:focus-visible,.nature-index summary:focus-visible{outline:3px solid #e4a36e;outline-offset:3px}
   @media(max-width:850px){.nature-feature-grid{gap:13px}.nature-results{gap:14px}}
-  @media(max-width:700px){.nature-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nature-results{grid-template-columns:1fr}}
-  @media(max-width:530px){.nature-index{padding:17px 15px 54px}.nature-feature-grid{grid-template-columns:1fr;gap:14px}.nature-feature-image{aspect-ratio:16/9}.nature-intro>p:not(.nature-kicker) br{display:none}.nature-overview{padding:22px 16px;border-radius:18px}.nature-featured{margin-bottom:34px}.nature-section-title{gap:8px}.nature-chip-list{gap:7px}.nature-chip-list a{padding:8px 12px}}
+  @media(max-width:700px){.nature-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nature-results{grid-template-columns:1fr}.nature-category-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:530px){.nature-index{padding:17px 15px 54px}.nature-feature-grid{grid-template-columns:1fr;gap:14px}.nature-feature-image{aspect-ratio:16/9}.nature-intro>p:not(.nature-kicker) br{display:none}.nature-overview{padding:22px 16px;border-radius:18px}.nature-featured{margin-bottom:34px}.nature-section-title{gap:8px}.nature-category-nav{grid-template-columns:1fr}.nature-category-heading{align-items:start}.nature-category-heading>a{padding-top:5px}.nature-chip-list{gap:7px}.nature-chip-list a{padding:8px 12px}}
   @media(prefers-reduced-motion:reduce){.nature-feature-card,.nature-feature-image img,.nature-chip-list a{transition:none}}
 </style>
