@@ -1,8 +1,8 @@
 ---
 slug: "onomichi-capital-to-culture-and-ships"
 part: "富は、町に何を残したのか"
-title: "尾道の坂道は、寺の土地の上にできた"
-subtitle: "狭い水道の港、時宗の寺、鉄道に移された家々――斜面に重なる町の時間"
+title: "山と海に挟まれた港町を、あとから鉄道が貫いた"
+subtitle: "尾道――寺の大門と本堂を分け、家々を坂へ押し上げた近代の選択"
 cities: ["尾道"]
 keywords: ["尾道","寺有地","時宗","常称寺","西郷寺","山陽鉄道","借地","斜面住宅","坂道","尾道水道","港町"]
 heroPhotoId: "photo-onomichi-panorama"
