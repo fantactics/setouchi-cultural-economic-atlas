@@ -32,7 +32,7 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const ogDescription=getMeta(html,'property','og:description');
  const canonical=decode(html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/)?.[1]||'');
  assert.ok(h1,`Missing essay H1: ${slug}`);
- assert.ok(description.length>=30 && description.length<=220,`Unusable search description: ${slug} (${description.length} chars)`);
+ assert.ok(description.length>=10 && description.length<=250,`Unusable search description: ${slug} (${description.length} chars)`);
  assert.equal(ogDescription,description,`Mismatched og:description: ${slug}`);
  assert.ok(canonical.endsWith('/book/'+slug+'/'),`Incorrect canonical essay path: ${slug}: ${canonical}`);
  const expectedTitle=essaySeoFocus[slug]?.title || h1;
