@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteSearch from '../components/SiteSearch.astro';
-import AtlasEssayCards from '../components/AtlasEssayCards.astro';
 import { cardTeaser, cardPhotoId } from '../data/essayCardCopy.js';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { withMarkdownMetadata } from '../data/essayMarkdownMetadata.js';
@@ -37,13 +36,11 @@ const essayPhoto=(article)=>{
 };
 // The homepage's three representative essays are deliberately fixed by editorial choice.
 const featuredSlugs=['tomo-two-act-tidal-port','kojima-from-cotton-to-jeans','oysters-taste-of-small-seas'];
-const recommendedSlugs=[...featuredSlugs,'sanuki-store-the-rain','onomichi-capital-to-culture-and-ships','tai-meshi-two-seas','imabari-why-shipbuilding','ports-that-needed-waiting','shodoshima-open-island'];
-const recommended=recommendedSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 const featuredArticles=featuredSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 
 const readingTrails=[
   {label:'技術が、土地を越えていく',question:'自然に縛られた産業は、いつ土地から自由になる？',description:'綿作と児島の織物、海と今治の造船、そして尾道へ。産業の出発点と、技術の行き先を追う。',slugs:['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','onomichi-capital-to-culture-and-ships']},
-  {label:'同じ塩田、違う未来',question:'塩が消えたあと、なぜ町の姿はこんなに違う？',description:'赤穂・竹原・坂出。海辺の同じ仕事から、工場、白壁、埋立地へ。',slugs:['ako-after-salt-fields','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry']},
+  {label:'港に残った、船の時間',question:'船が待つ港には、どんな暮らしが生まれた？',description:'潮と風を待った船、港で生まれた商い、海を渡った信仰。交通の時間から町を見る。',slugs:['ports-that-needed-waiting','mitarai-economy-of-waiting','faith-as-transport-map']},
   {label:'食卓の裏側にある海',question:'牡蠣のおいしさと、食べたあとの殻はつながっている？',description:'海の条件が育てる味から、使い終えた殻の行方、そして瀬戸内の食文化へ。',slugs:['oysters-taste-of-small-seas','oyster-shells-where-they-go','setouchi-sushi-not-nigiri']}
 ].map((trail)=>({...trail,articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean)}))
  .filter((trail)=>trail.articles.length===trail.slugs.length);
@@ -106,28 +103,14 @@ const readingTrails=[
       </div>
     </section>
 
-    <section class="reader-home-section" aria-labelledby="home-picks">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">MORE STORIES</p><h2 id="home-picks">ほかにも、こんな旅。</h2><p>気になる写真から、寄り道してみよう。</p></div><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを見る →</a></div>
-      <AtlasEssayCards stories={recommended.slice(3).map((article)=>{
-        const photo=essayPhoto(article);
-        return {
-          href:`/setouchi-cultural-economic-atlas/book/${article.slug}/`,
-          imageUrl:photo?.imageUrl || '',
-          alt:photo?.alt || article.title,
-          title:article.title,
-          region:article.cities?.slice(0,2).join('・') || '瀬戸内',
-          teaser:cardTeaser(article)
-        };
-      })} />
-    </section>
-
     <section class="reader-home-section" aria-label="エッセイの探し方">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">EXPLORE THE LANDSCAPE</p><h2>自然と文化、二つの入口。</h2><p>瀬戸内の風景を、土地の条件からも、人の営みからも。</p></div></div>
+      <div class="reader-section-heading"><div><p class="reader-eyebrow">EXPLORE THE LANDSCAPE</p><h2>自然と文化、二つの入口。</h2><p>地名やテーマで探したいときは、こちらから。</p></div></div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
         <a href="/setouchi-cultural-economic-atlas/book/nature/" style="display:block;padding:24px;border:1px solid #d7e6dc;border-radius:16px;text-decoration:none;background:#f1f7f2;color:#315d4a"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">自然条件から</strong><span>雨、潮、風、地形、生き物から探す ↗</span></a>
         <a href="/setouchi-cultural-economic-atlas/book/culture/" style="display:block;padding:24px;border:1px solid #eaded0;border-radius:16px;text-decoration:none;background:#fcf6ee;color:#855a3b"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">文化・風習から</strong><span>食、信仰、商い、技術、暮らしから探す ↗</span></a>
       </div>
     </section>
+    <p class="reader-home-directory"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを一覧で見る →</a></p>
     <section class="reader-home-search" aria-labelledby="reader-home-search-title">
       <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">ことばで、ひとっとび。</h2><p>町、食べもの、港、島。思いついた言葉で探してみよう。</p></div></div>
       <SiteSearch essaysOnly={true} />
@@ -136,6 +119,10 @@ const readingTrails=[
   </div>
 
   <style>
+    .reader-home-directory{margin:24px 0 0;text-align:center}
+    .reader-home-directory a{display:inline-block;border:1px solid #c9ddd0;padding:13px 22px;border-radius:999px;color:#276557;font-weight:750;text-decoration:none;background:#fff}
+    .reader-home-directory a:hover{background:#eff8f1}
+    .reader-home-directory a:focus-visible{outline:3px solid #95c8b3;outline-offset:3px}
     .reader-home-editorial-intro{max-width:840px;margin:8px 0 38px}
     .reader-home-editorial-intro h1{font-family:var(--book-serif,serif);font-size:clamp(2rem,4vw,3.1rem);font-weight:550;letter-spacing:-.035em;line-height:1.45;margin:8px 0 12px;color:#254943}
     .reader-home-editorial-intro>p:last-child{font-size:clamp(.94rem,1.4vw,1.1rem);line-height:1.95;color:#667c72;margin:0}
