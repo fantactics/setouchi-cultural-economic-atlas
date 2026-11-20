@@ -21,6 +21,7 @@ import '../styles/research-detail-refresh.css';
 import '../styles/essay-reading-rhythm.css';
 import '../styles/essay-detail-pop.css';
 import '../styles/region-detail-pop.css';
+import '../styles/setouchi-site-logo.css';
 
 const {
   siteKey = 'setouchi',
@@ -153,9 +154,22 @@ const jsonLd = structuredData || defaultStructuredData;
   </head>
   <body class:list={[`page-type-${pageType}`,`atlas-theme-${atlasSite.theme}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
     <header class="site-header">
-      <a class="brand-wrap" href={baseUrl}>
-        <span class="brand">{atlasSite.name}</span>
-        <span class="brand-tagline">{atlasSite.tagline}</span>
+      <a class:list={['brand-wrap',siteKey === 'setouchi' && 'brand-wrap--setouchi-logo']} href={baseUrl}>
+        {siteKey === 'setouchi' ? (
+          <img
+            class="setouchi-site-logo"
+            src={`${baseUrl}images/branding/setouchi-atlas-logo.webp`}
+            alt="SETOUCHI ATLAS — LANDSCAPE = NATURE × CULTURE"
+            width="640"
+            height="108"
+            decoding="async"
+          />
+        ) : (
+          <>
+            <span class="brand">{atlasSite.name}</span>
+            <span class="brand-tagline">{atlasSite.tagline}</span>
+          </>
+        )}
       </a>
       <nav>
         {atlasSite.navigation.map((item)=>(
