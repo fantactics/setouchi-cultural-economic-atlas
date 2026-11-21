@@ -117,7 +117,7 @@ const editorialPhotoCredits=[...new Map(
   <main class="essay-magazine">
     <section class="essay-magazine-intro"><div><div class="eyebrow">STORIES FROM SETOUCHI <span aria-hidden="true">✳</span></div><h1>今日は、どの瀬戸内へ？</h1></div><p>海の色、町の路地、おいしいもの。<br />気になる写真から、旅するように読んでみよう。</p></section>
 
-    <div class="reader-feature-heading"><span>START HERE <span aria-hidden="true">✦</span></span><h2>まずは、この3篇。</h2></div>
+    <div class="reader-feature-heading"><span>DISCOVER <span aria-hidden="true">✦</span></span><h2>偶然出会う、3篇。</h2></div>
 
     <section class="essay-magazine-cover" aria-label="今読みたいエッセイ" data-random-cover="essays" data-cover-stories={JSON.stringify(coverStories)}>
       {featureStory && (<a class="essay-cover-main js-essay-main" href={featureStory.href}><img class="js-essay-main-image" src={featureStory.imageUrl} alt={featureStory.alt} fetchpriority="high" /><div class="essay-cover-copy"><small class="js-essay-main-kicker">FEATURE / {featureStory.part}</small><h2 class="js-essay-main-title">{featureStory.title}</h2><p class="js-essay-main-subtitle">{featureStory.subtitle}</p></div></a>)}
