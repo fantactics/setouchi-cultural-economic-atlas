@@ -122,8 +122,13 @@ const matchedCoverCaptions={
   'tai-meshi-two-seas':'生の鯛を使う宇和島式鯛めしの例。炊き込み式の鯛めしは本文の比較写真もご覧ください。',
   'what-cyclists-leave-behind':'自転車と来島海峡の橋。高い橋桁の下を船が通る海の風景です。'
 };
+const matchedCoverTitles={
+  'oysters-taste-of-small-seas':'宮島の焼き牡蠣（広島）',
+  'tai-meshi-two-seas':'宇和島式の鯛めし',
+  'what-cyclists-leave-behind':'来島海峡大橋と自転車'
+};
 const hero=matchedCover?.imageUrl
-  ? {...matchedCover,caption:matchedCoverCaptions[article.slug]}
+  ? {...matchedCover,title:matchedCover.title||matchedCoverTitles[article.slug],caption:matchedCoverCaptions[article.slug]}
   : originalHero;
 const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
