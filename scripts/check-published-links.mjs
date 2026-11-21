@@ -49,6 +49,17 @@ for(const [slug,fileHint] of [
   assert.ok(html.slice(heroIndex,heroIndex+700).includes(fileHint),`Article hero differs from verified discovery cover: ${slug}`);
 }
 
+// The island harvesting essay must not accidentally present an Okinawa photo
+// as its regional cover. Its licensed species photograph is shared with its article.
+const hijikiPage=assertPage('book/hijiki-tidal-time');
+const hijikiHero=hijikiPage.indexOf('class="book-hero-photo"');
+assert.ok(hijikiHero>=0,'Hijiki hero missing');
+assert.ok(hijikiPage.slice(hijikiHero,hijikiHero+750).includes('Sargassum%20fusiforme'),
+  'Hijiki hero should show the species, not a different region');
+const indexHtml=assertPage('book');
+assert.ok(!indexHtml.includes('Hijiki%20harvested%20on%20Camp%20Courtney'),
+  'An Okinawa comparison photo still appears as a Setouchi discovery cover');
+
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
