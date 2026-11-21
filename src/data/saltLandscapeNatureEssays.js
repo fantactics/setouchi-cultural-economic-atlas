@@ -213,8 +213,8 @@ export const saltLandscapeNatureEssays = [
   {
     "slug": "ushimado-nagahama-kinkai-two-reclaimed-landscapes",
     "part": "海と島の仕事",
-    "title": "海だった畑の隣で、湿地に鳥が戻った",
-    "subtitle": "牛窓・長浜と錦海湾――二度仕切られた海が育てた、二つの自然",
+    "title": "二つの堤防の内側に、白菜畑と塩の湿地",
+    "subtitle": "牛窓・長浜と錦海湾――海を二度仕切った土地の風景",
     "cities": [
       "牛窓",
       "長浜",
