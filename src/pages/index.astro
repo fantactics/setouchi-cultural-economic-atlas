@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteSearch from '../components/SiteSearch.astro';
-import { cardTeaser, cardPhotoId } from '../data/essayCardCopy.js';
+import { cardPhotoId } from '../data/essayCardCopy.js';
 import { orderedBookArticles } from '../data/bookArticles.js';
 import { withMarkdownMetadata } from '../data/essayMarkdownMetadata.js';
 import { kadaEssays } from '../data/kadaEssays.js';
@@ -22,6 +22,7 @@ import { essayIndexPhotoOverrides } from '../data/essayIndexPhotos.js';
 import { photoEvidence } from '../data/photoEvidence.js';
 import { additionalPlacePhotos } from '../data/additionalPlacePhotos.js';
 import '../styles/reader-navigation.css';
+import '../styles/home-landscape-refresh.css';
 
 const allEssays=[...orderedBookArticles,...kadaEssays,kadaIndustryEssay,cycleTourismEssay,tomoTwoActPortEssay,...portSystemEssays,kojimaCircularEssay,...kojimaIslandEssays,...quageoSetouchiEssays,...saltLandscapeNatureEssays,setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay,niboshiShirasuEssay].filter(Boolean).map(withMarkdownMetadata);
 const photoById=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map((p)=>[p.id,p]));
@@ -45,113 +46,128 @@ const readingTrails=[
 ].map((trail)=>({...trail,articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean)}))
  .filter((trail)=>trail.articles.length===trail.slugs.length);
 
-
-
+const trailCoverSlugs=['imabari-why-shipbuilding','mitarai-economy-of-waiting','oysters-taste-of-small-seas'];
+const trailCards=readingTrails.map((trail,index)=>({
+  ...trail,
+  coverPhoto:essayPhoto(allEssays.find((article)=>article.slug===trailCoverSlugs[index]))
+}));
+const saltContrasts=[
+  {slug:'takehara-salt-capital-to-townscape',place:'竹原',caption:'塩の富が残した白壁'},
+  {slug:'kinkai-salt-field-to-solar',place:'錦海湾',caption:'塩田のあとに並んだパネル'}
+].map((item)=>{
+  const article=allEssays.find((article)=>article.slug===item.slug);
+  return {...item,article,photo:article && essayPhoto(article)};
+});
+if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(article)?.imageUrl) ||
+  trailCards.length!==3 || trailCards.some((trail)=>!trail.coverPhoto?.imageUrl || trail.articles.length!==3) ||
+  saltContrasts.some((item)=>!item.photo?.imageUrl)) {
+  throw new Error('Homepage photo selection is incomplete; review before deployment');
+}
 ---
 <BaseLayout title="SETOUCHI ATLAS｜ランドスケープ ＝ ネイチャー ｘ カルチャー" description="ランドスケープ ＝ ネイチャー ｘ カルチャー。港町の路地、島の食卓、海辺の工場。瀬戸内を旅するエッセイ集。">
-  <div class="reader-home">
-    <header class="reader-home-editorial-intro">
-      <p class="reader-eyebrow">LANDSCAPE = NATURE × CULTURE</p>
+  <main class="reader-home visual-home">
+    <header class="visual-home-intro">
+      <p class="visual-home-eyebrow">LANDSCAPE = NATURE × CULTURE</p>
       <h1>その風景には、理由がある。</h1>
-      <p>島の味、港のかたち、町に残る仕事の跡。<br />自然と人の応答をたどれば、見慣れた瀬戸内が少し違って見えてくる。</p>
+      <p>島、港、食卓。景色の奥にある物語を、訪ねに行こう。</p>
     </header>
-    <section class="reader-home-featured" aria-label="初めての3篇">
-      <p class="reader-home-feature-label">初めての3篇</p>
-      <div class="reader-home-feature-grid">
+
+    <section class="visual-home-featured" aria-labelledby="visual-home-feature-title">
+      <div class="visual-home-heading visual-home-heading--small">
+        <h2 id="visual-home-feature-title">初めての3篇</h2>
+        <a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイ <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="visual-home-feature-grid">
         {featuredArticles.map((article,index)=>{
-          // The featured oyster story opens with the food itself; its article and
-          // other discovery cards keep the Hiroshima Bay oyster-raft landscape.
           const photo=article.slug==='oysters-taste-of-small-seas'
-            ? photoById['photo-hinase-oysters']
+            ? photoById['photo-hinase-oysters'] || essayPhoto(article)
             : essayPhoto(article);
-          return <a class="reader-home-feature" href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}>
-            {photo?.imageUrl && <img src={photo.imageUrl} alt={photo.alt || article.title} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'} />}
-            <div class="reader-home-feature-copy"><span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span><h2>{article.title}</h2><p>{cardTeaser(article)}</p><strong>読む →</strong></div>
+          return <a
+            class:list={['visual-home-feature',index===0 && 'visual-home-feature--large']}
+            href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}
+            aria-label={article.title+'を読む'}
+          >
+            <img
+              src={photo.imageUrl}
+              alt={photo.alt || article.title}
+              loading={index===0?'eager':'lazy'}
+              fetchpriority={index===0?'high':'auto'}
+              decoding="async"
+            />
+            <div class="visual-home-feature-copy">
+              <span>{article.cities?.slice(0,2).join('・') || '瀬戸内'}</span>
+              <h3>{article.title}</h3>
+              <span class="visual-home-feature-arrow" aria-hidden="true">↗</span>
+            </div>
           </a>;
         })}
       </div>
     </section>
 
-    <section class="reader-home-section reader-home-trails" aria-labelledby="home-trails-title">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">THREE WAYS TO READ</p><h2 id="home-trails-title">問いをつないで、瀬戸内を歩く。</h2><p>一篇で終わらない、三つの小さな読書の旅。</p></div></div>
-      <div class="reader-home-trail-grid">
-        {readingTrails.map((trail,index)=>(
-          <article class="reader-home-trail">
-            <div class="reader-home-trail-top"><small>STORY TRAIL {String(index+1).padStart(2,'0')}</small><span>{trail.label}</span></div>
-            <h3>{trail.question}</h3>
-            <p>{trail.description}</p>
-            <ol>
+    <section class="visual-home-section" aria-labelledby="visual-home-trails-title">
+      <div class="visual-home-heading">
+        <div><p class="visual-home-eyebrow">STORY TRAILS</p><h2 id="visual-home-trails-title">3つの読書の旅</h2></div>
+        <p class="visual-home-heading-note">気になる風景から、3篇をめぐる。</p>
+      </div>
+      <div class="visual-home-trail-grid">
+        {trailCards.map((trail,index)=>(
+          <details class="visual-home-trail">
+            <summary aria-label={trail.label+'の3篇を表示'}>
+              <img src={trail.coverPhoto.imageUrl} alt={trail.coverPhoto.alt || trail.label} loading="lazy" decoding="async" />
+              <span class="visual-home-trail-copy">
+                <small>TRAIL {String(index+1).padStart(2,'0')}</small>
+                <strong>{['産業と技術','港と船','海と食卓'][index]}</strong>
+                <span>{['技術は土地を越える','船を待った町','海の恵み、その先へ'][index]}</span>
+                <em>3篇を見る <span aria-hidden="true">＋</span></em>
+              </span>
+            </summary>
+            <ol class="visual-home-trail-links">
               {trail.articles.map((article,i)=>(
-                <li><a href={`/setouchi-cultural-economic-atlas/book/${article.slug}/`}><span>{String(i+1).padStart(2,'0')}</span><strong>{article.title}</strong><span aria-hidden="true">↗</span></a></li>
+                <li><a href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}>
+                  <span>{String(i+1).padStart(2,'0')}</span><strong>{article.title}</strong><span aria-hidden="true">↗</span>
+                </a></li>
               ))}
             </ol>
-          </article>
+          </details>
         ))}
       </div>
     </section>
 
-    <section class="reader-home-section reader-home-series" aria-labelledby="home-series-title">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">READ AS A SERIES</p><h2 id="home-series-title">一つの問いから、五つの土地へ。</h2><p>読み比べると、見慣れた風景の別の顔が見えてくる。</p></div></div>
-      <div class="reader-home-series-panel">
+    <section class="visual-home-section" aria-labelledby="visual-home-salt-title">
+      <div class="visual-home-heading">
         <div>
-          <span class="reader-home-series-eyebrow">連作 01 · 塩田の、その先</span>
-          <h3>塩田が消えたあと、土地には何が残ったか。</h3>
-          <p>赤穂、岩城島、竹原、坂出、錦海。塩をつくった土地が、まったく違う未来を選んだ理由をたどります。</p>
-          <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">五つの風景を読み比べる →</a>
+          <p class="visual-home-eyebrow">READ AS A SERIES</p>
+          <h2 id="visual-home-salt-title">塩田の、その先。</h2>
+          <p>白壁の町にも、発電する海辺にも。塩の仕事の続きがある。</p>
         </div>
-        <div class="reader-home-series-places" aria-label="連作で訪ねる土地"><span>赤穂</span><span>岩城島</span><span>竹原</span><span>坂出</span><span>錦海</span></div>
+        <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">五つの土地を読み比べる <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="visual-home-salt-grid">
+        {saltContrasts.map((item)=>(
+          <a class="visual-home-salt-card" href={'/setouchi-cultural-economic-atlas/book/'+item.slug+'/'}>
+            <img src={item.photo.imageUrl} alt={item.photo.alt || item.article.title} loading="lazy" decoding="async" />
+            <div class="visual-home-salt-copy"><span>{item.place}</span><h3>{item.caption}</h3></div>
+          </a>
+        ))}
       </div>
     </section>
 
-    <section class="reader-home-section" aria-label="エッセイの探し方">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">EXPLORE THE LANDSCAPE</p><h2>自然と文化、二つの入口。</h2><p>地名やテーマで探したいときは、こちらから。</p></div></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-        <a href="/setouchi-cultural-economic-atlas/book/nature/" style="display:block;padding:24px;border:1px solid #d7e6dc;border-radius:16px;text-decoration:none;background:#f1f7f2;color:#315d4a"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">自然条件から</strong><span>雨、潮、風、地形、生き物から探す ↗</span></a>
-        <a href="/setouchi-cultural-economic-atlas/book/culture/" style="display:block;padding:24px;border:1px solid #eaded0;border-radius:16px;text-decoration:none;background:#fcf6ee;color:#855a3b"><strong style="display:block;font-size:1.2rem;margin-bottom:9px">文化・風習から</strong><span>食、信仰、商い、技術、暮らしから探す ↗</span></a>
-      </div>
-    </section>
-    <p class="reader-home-directory"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを一覧で見る →</a></p>
-    <section class="reader-home-search" aria-labelledby="reader-home-search-title">
-      <div class="reader-section-heading"><div><p class="reader-eyebrow">FIND A STORY</p><h2 id="reader-home-search-title">ことばで、ひとっとび。</h2><p>町、食べもの、港、島。思いついた言葉で探してみよう。</p></div></div>
+    <nav class="visual-home-explore" aria-label="エッセイを探す">
+      <a href="/setouchi-cultural-economic-atlas/book/nature/">
+        <span class="visual-home-explore-symbol" aria-hidden="true">◌</span>
+        <span><strong>自然条件から</strong><small>潮・風・地形・生き物</small></span>
+        <span class="visual-home-explore-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="/setouchi-cultural-economic-atlas/book/culture/">
+        <span class="visual-home-explore-symbol" aria-hidden="true">✳</span>
+        <span><strong>文化・風習から</strong><small>食・信仰・商い・仕事</small></span>
+        <span class="visual-home-explore-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <section class="visual-home-search" aria-label="エッセイをキーワードで探す">
       <SiteSearch essaysOnly={true} />
     </section>
-
-  </div>
-
-  <style>
-    .reader-home-directory{margin:24px 0 0;text-align:center}
-    .reader-home-directory a{display:inline-block;border:1px solid #c9ddd0;padding:13px 22px;border-radius:999px;color:#276557;font-weight:750;text-decoration:none;background:#fff}
-    .reader-home-directory a:hover{background:#eff8f1}
-    .reader-home-directory a:focus-visible{outline:3px solid #95c8b3;outline-offset:3px}
-    .reader-home-editorial-intro{max-width:840px;margin:8px 0 38px}
-    .reader-home-editorial-intro h1{font-family:var(--book-serif,serif);font-size:clamp(2rem,4vw,3.1rem);font-weight:550;letter-spacing:-.035em;line-height:1.45;margin:8px 0 12px;color:#254943}
-    .reader-home-editorial-intro>p:last-child{font-size:clamp(.94rem,1.4vw,1.1rem);line-height:1.95;color:#667c72;margin:0}
-    .reader-home-trail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .reader-home-trail{min-width:0;background:#f7f8f3;border:1px solid #e0e8de;border-radius:18px;padding:23px 23px 19px;display:flex;flex-direction:column}
-    .reader-home-trail:nth-child(2){background:#fcf7ef;border-color:#ece4d6}
-    .reader-home-trail:nth-child(3){background:#f1f7f6;border-color:#d9e8e5}
-    .reader-home-trail-top{display:flex;flex-direction:column;gap:5px;color:#567d70}
-    .reader-home-trail-top small{font-size:.7rem;letter-spacing:.12em;font-weight:800}
-    .reader-home-trail-top span{font-size:.79rem;font-weight:700}
-    .reader-home-trail h3{font-size:clamp(1.14rem,1.65vw,1.4rem);line-height:1.56;margin:13px 0 8px;color:#294c42}
-    .reader-home-trail>p{font-size:.85rem;line-height:1.8;color:#687b73;margin:0 0 16px}
-    .reader-home-trail ol{list-style:none;padding:0;margin:auto 0 0;border-top:1px solid #dce5dc}
-    .reader-home-trail li{border-bottom:1px solid #dce5dc}
-    .reader-home-trail li a{display:grid;grid-template-columns:25px minmax(0,1fr) 13px;gap:7px;align-items:center;padding:12px 0;text-decoration:none;color:#2b5950}
-    .reader-home-trail li a span:first-child{font-size:.72rem;color:#95a39b}
-    .reader-home-trail li a strong{font-size:.83rem;font-weight:650;line-height:1.6}
-    .reader-home-trail li a:hover strong{text-decoration:underline;text-underline-offset:3px}
-    .reader-home-trail li a:focus-visible{outline:3px solid #85bca8;outline-offset:2px}
-    @media(max-width:900px){.reader-home-trail-grid{grid-template-columns:1fr}.reader-home-trail{padding:20px}.reader-home-trail ol{margin-top:8px}}
-    @media(max-width:580px){.reader-home-editorial-intro{margin:3px 0 27px}.reader-home-editorial-intro>p:last-child br{display:none}}
-    .reader-home-series-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,290px);gap:24px;align-items:center;background:#f7f3e8;border:1px solid #e5ddcd;border-radius:21px;padding:clamp(22px,3vw,35px);color:#36574b}
-    .reader-home-series-eyebrow{display:block;color:#966a4a;font-size:.75rem;font-weight:800;letter-spacing:.08em;margin-bottom:10px}
-    .reader-home-series-panel h3{font-size:clamp(1.18rem,2.1vw,1.65rem);line-height:1.55;margin:0 0 9px}
-    .reader-home-series-panel p{font-size:.95rem;color:#5d6c61;line-height:1.85;margin:0 0 17px}
-    .reader-home-series-panel a{display:inline-block;color:#287a65;font-weight:800;text-decoration:underline;text-underline-offset:4px}
-    .reader-home-series-places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-    .reader-home-series-places span{border:1px solid #c6d9cd;background:#fffefa;border-radius:11px;padding:12px 9px;text-align:center;font-weight:700;font-size:.88rem}
-    .reader-home-series-places span:last-child{grid-column:1 / -1;background:#e4eee3}
-    @media(max-width:700px){.reader-home-series-panel{grid-template-columns:1fr}.reader-home-series-places{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.reader-home-series-places span,.reader-home-series-places span:last-child{grid-column:auto;padding:9px 2px;font-size:.72rem}}
-  </style>
+    <p class="visual-home-directory"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを一覧で見る <span aria-hidden="true">↗</span></a></p>
+  </main>
 </BaseLayout>
