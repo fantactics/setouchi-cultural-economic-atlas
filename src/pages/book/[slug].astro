@@ -111,7 +111,20 @@ const relatedEssays=archivedResearchHref ? [] : relatedEssaysFor(article,publish
     return {...item,photo:image,photoContext:essayCardPhotoContext[item.slug] || null,teaser:cardTeaser(item)};
   });
 
-const hero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
+const originalHero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[article.heroPhotoId];
+// Keep the search/discovery photograph and the article entrance consistent only
+// where the actual subject is verified. Do not promote geographically misleading
+// comparison photographs (e.g. the Okinawa hijiki image) to an essay hero.
+const matchedCoverSlugs=new Set(['oysters-taste-of-small-seas','tai-meshi-two-seas','what-cyclists-leave-behind']);
+const matchedCover=matchedCoverSlugs.has(article.slug) ? essayIndexPhotoOverrides[article.slug] : null;
+const matchedCoverCaptions={
+  'oysters-taste-of-small-seas':'広島側の牡蠣料理の一例。日生の牡蠣や、産地ごとの食味の差を直接示す写真ではありません。',
+  'tai-meshi-two-seas':'生の鯛を使う宇和島式鯛めしの例。炊き込み式の鯛めしは本文の比較写真もご覧ください。',
+  'what-cyclists-leave-behind':'自転車と来島海峡の橋。高い橋桁の下を船が通る海の風景です。'
+};
+const hero=matchedCover?.imageUrl
+  ? {...matchedCover,caption:matchedCoverCaptions[article.slug]}
+  : originalHero;
 const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
@@ -195,7 +208,6 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       <div class="book-article-series">{article.part}</div>
       <h1>{article.title}</h1>
       <p class="book-article-subtitle">{article.subtitle}</p>
-      <p class="book-article-dek">{article.lead}</p>
       <div class="book-meta-row">
         <div>{cityLinks.map((item)=><a href={item.href}>{item.name}</a>)}</div>
         <div class="reader-nature-tags" aria-label="このエッセイを貫く自然条件">
@@ -219,6 +231,7 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
         <a href={specificPhotoReference.url} target="_blank" rel="noopener noreferrer">{specificPhotoReference.label} ↗</a>
       </div>}
     </figcaption></figure>}
+    <p class="book-article-dek reader-essay-opening-lead">{article.lead}</p>
     {article.slug==='kada-steel-data-center-transition' && <KadaAerialComparison />}
     {article.slug==='tai-meshi-two-seas' && (
       <section class="tai-meshi-photo-pair" aria-labelledby="tai-meshi-compare-heading">
@@ -402,6 +415,10 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
     </nav>
 
+  <style>
+    body.page-type-essay .reader-essay-opening-lead{box-sizing:border-box;max-width:770px;margin:1.5rem auto 1.8rem;padding:0 28px;font-family:var(--book-serif,serif);font-size:clamp(1.06rem,1.6vw,1.22rem);line-height:2.06;letter-spacing:.015em;color:#35483f}
+    @media(max-width:600px){body.page-type-essay .reader-essay-opening-lead{padding:0 19px;margin:1.1rem auto 1.6rem;font-size:1.04rem;line-height:1.95}}
+  </style>
   <style>
     .reader-map-disclosure{max-width:760px;margin:0 auto 1.65rem;border:1px solid #d9e5dd;border-radius:13px;overflow:hidden;background:#fafcf9}
     .reader-map-disclosure>summary{list-style:none;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:space-between;padding:13px 18px;color:#31594d;font-weight:750}
