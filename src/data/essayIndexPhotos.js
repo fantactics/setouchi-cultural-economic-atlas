@@ -11,13 +11,13 @@ export const essayIndexPhotoOverrides = {
     "sourcePage": "https://commons.wikimedia.org/wiki/File:Uwajima_Taimeshi.jpg"
   },
   "oysters-taste-of-small-seas": {
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Oysters%2C%20Hinase%2C%20Bizen%2C%20Okayama%20prefecture%20-%20Mar%204%2C%202011.jpg?width=1400",
-    "alt": "岡山県備前市日生産の牡蠣。日生と広島の牡蠣を比較する記事の日生側の食材",
-    "title": "日生産の牡蠣",
-    "author": "Ippei Suzuki",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:Oysters,_Hinase,_Bizen,_Okayama_prefecture_-_Mar_4,_2011.jpg"
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Grilled%20oysters%20Food%20in%20Miyajima%20-%20DSC02189.JPG?width=1280",
+    "alt": "広島県廿日市市・宮島で撮影された焼き牡蠣。日生との産地別比較ではなく、広島側の牡蠣料理を示す写真",
+    "title": "宮島の焼き牡蠣（広島）",
+    "author": "Daderot",
+    "license": "Public domain (author dedication)",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Grilled_oysters_Food_in_Miyajima_-_DSC02189.JPG",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Grilled_oysters_Food_in_Miyajima_-_DSC02189.JPG"
   },
   "what-cyclists-leave-behind": {
     "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Shimanami-expressway%20and%20my%20bike.JPG?width=1200",
