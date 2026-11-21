@@ -2,15 +2,6 @@
 // Licenses and image-source URLs are retained for the credits on /book/.
 // These images do not replace article body images or claim to show other locations.
 export const essayIndexPhotoOverrides = {
-  "hijiki-tidal-time": {
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hijiki%20harvested%20on%20Camp%20Courtney%20120220-M-NB885-225.jpg?width=1400",
-    "alt": "沖縄県うるま市の岩礁海岸で、干潮時にヒジキを手採りする人々。瀬戸内の採集地ではなく、潮間帯の作業を示す比較資料",
-    "title": "干潮時のヒジキ採集（沖縄・比較写真）",
-    "author": "Sgt. Rebekka Heite / U.S. Marine Corps",
-    "license": "Public domain (U.S. government work)",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Hijiki_harvested_on_Camp_Courtney_120220-M-NB885-225.jpg",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hijiki_harvested_on_Camp_Courtney_120220-M-NB885-225.jpg"
-  },
   "tai-meshi-two-seas": {
     "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Uwajima%20Taimeshi.jpg?width=1280",
     "alt": "愛媛県松山市で提供された宇和島鯛めし。記事で比較する二つの鯛めしのうち、生の鯛を用いる南予式",
@@ -76,7 +67,7 @@ export const essayCardPhotoContext = {
   "oysters-taste-of-small-seas": "宮島で撮影した焼き牡蠣（広島側の料理例）",
   "oyster-shells-where-they-go": "米国の牡蠣殻集積（広島ではない比較写真）",
   "kojima-jeans-circular-economy": "児島のジーンズストリート（ノーリベット製品ではありません）",
-  "hijiki-tidal-time": "干潮時の採集（沖縄の比較写真）",
+  "hijiki-tidal-time": "岩礁に生えるヒジキの姿（沖家室島の採集現場ではありません）",
   "setouchi-shrimp-middle-layer": "ヨシエビの参考写真",
   "mikan-slope-and-varieties": "狩浜の石積み柑橘段畑（比較景観）",
   "tai-meshi-two-seas": "宇和島鯛めし",
