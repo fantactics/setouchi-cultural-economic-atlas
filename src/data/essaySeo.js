@@ -215,6 +215,14 @@ export const essaySeoFocus={
   'takamatsu-sea-castle-to-gateway':{
     title:'高松城はなぜ海から遠くなった？砂州と埋立ての港町史',
     description:'高松城の堀には今も海水が入り、魚が泳ぐ。かつて海に面していた城が、なぜ港や道路の奥にあるのか。香東川の土砂と埋立て、鉄道・港湾整備をたどる。'
+  },
+  'iwagi-salt-pans-to-shrimp-ponds':{
+    title:'岩城島の塩田はなぜエビの養殖池になった？北浜の土地利用',
+    description:'愛媛県岩城島の北浜では、1971年に塩田が終わったあと、クルマエビの養殖場として記録された。海水を濃くする池から生き物を育てる池へ、土地と水の使い方の変化をたどる。'
+  },
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':{
+    title:'牛窓の長浜干拓地と錦海塩田は何が違う？畑と湿地の風景',
+    description:'岡山県牛窓の長浜には海を干拓した野菜畑が広がり、隣の錦海塩田跡では湿地の生態系が生まれた。同じ浅い湾を仕切り、異なる土地利用を選んだ歴史をたどる。'
   }
 };
 
