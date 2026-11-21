@@ -19,6 +19,7 @@ import '../styles/essay-reading-rhythm.css';
 import '../styles/essay-detail-pop.css';
 import '../styles/region-detail-pop.css';
 import '../styles/setouchi-site-logo.css';
+import '../styles/kii-site-logo.css';
 import '../styles/site-footer.css';
 
 const {
@@ -151,7 +152,7 @@ const jsonLd = structuredData || defaultStructuredData;
   </head>
   <body class:list={[`page-type-${pageType}`,`atlas-theme-${atlasSite.theme}`,isResearchDetail&&'research-detail-page']} data-page-type={pageType}>
     <header class="site-header">
-      <a class:list={['brand-wrap',siteKey === 'setouchi' && 'brand-wrap--setouchi-logo']} href={baseUrl}>
+      <a class:list={['brand-wrap',siteKey === 'setouchi' && 'brand-wrap--setouchi-logo',siteKey === 'kii' && 'brand-wrap--kii-logo']} href={baseUrl}>
         {siteKey === 'setouchi' ? (
           <img
             class="setouchi-site-logo"
@@ -162,10 +163,14 @@ const jsonLd = structuredData || defaultStructuredData;
             decoding="async"
           />
         ) : (
-          <>
-            <span class="brand">{atlasSite.name}</span>
-            <span class="brand-tagline">{atlasSite.tagline}</span>
-          </>
+          <img
+            class="kii-site-logo"
+            src={`${baseUrl}images/branding/kii-atlas-logo.webp`}
+            alt="KII ATLAS — ランドスケープ = ネイチャー × カルチャー"
+            width="500"
+            height="167"
+            decoding="async"
+          />
         )}
       </a>
       <nav>
@@ -214,13 +219,20 @@ const jsonLd = structuredData || defaultStructuredData;
           </a>
         </div>
       ) : (
-        <>
-          <strong>{atlasSite.name}</strong>
-          <p class="footer-thesis">{atlasSite.tagline}</p>
-          <div class="footer-atlas-links" role="navigation" aria-label="サイト案内">
-            {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
+        <div class="kii-site-footer-main">
+          <div class="kii-site-footer-info">
+            <nav class="footer-atlas-links" aria-label="サイト案内">
+              {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
+            </nav>
+            <p class="kii-site-copyright">© {new Date().getFullYear()} {atlasSite.name}</p>
           </div>
-        </>
+          <a href={baseUrl} class="kii-site-footer-logo-link" aria-label="KII ATLAS トップへ">
+            <img class="kii-site-footer-logo"
+              src={`${baseUrl}images/branding/kii-atlas-logo.webp`}
+              alt="KII ATLAS"
+              width="500" height="167" loading="lazy" decoding="async" />
+          </a>
+        </div>
       )}
     </footer>
   </body>
