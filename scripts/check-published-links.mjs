@@ -133,9 +133,15 @@ for(const page of ['book/nature','book/culture']){
   assert.ok(html.includes('book/'),`No story links in ${page}`);
 }
 const homepage=readFileSync(path.join(dist,'index.html'),'utf8');
-for(const fragment of ['初めての3篇','問いをつないで、瀬戸内を歩く']){
+for(const fragment of ['初めての3篇','3つの読書の旅','塩田の、その先。']){
   assert.ok(homepage.includes(fragment),`Missing homepage editorial section: ${fragment}`);
 }
+// Photo-first layout should preserve all three entry points, three expandable
+// story trails, the contrasting salt-landscape pair, and the essay search.
+assert.ok(homepage.includes('visual-home-feature-grid'),'Homepage photo feature mosaic is missing');
+assert.equal((homepage.match(/class="visual-home-trail"/g)||[]).length,3,'Three reading-trail cards should be present');
+assert.equal((homepage.match(/class="visual-home-salt-card"/g)||[]).length,2,'Two salt comparison photo cards should be present');
+assert.ok(homepage.includes('data-atlas-search'),'Homepage keyword search must remain available');
 assert.ok(collectionHtml.includes('五つの土地、五つの問い'), 'The salt collection comparison is missing');
 assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
 console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
