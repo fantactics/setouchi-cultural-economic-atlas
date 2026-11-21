@@ -75,7 +75,9 @@ body.page-type-essay .book-article .book-article-subtitle{
 body.page-type-essay .book-article .book-article-dek{
   font-family:inherit;
   max-width:780px;
-  margin:21px 0 0;
+  /* The lead sits outside .book-reading-column. Centre the block explicitly,
+     otherwise the old zero horizontal margins pin it to the page's left edge. */
+  margin:21px auto 0;
   font-size:clamp(.99rem,1.35vw,1.12rem);
   font-weight:450;
   line-height:2.02;

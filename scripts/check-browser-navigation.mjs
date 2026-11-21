@@ -45,6 +45,31 @@ try {
     }
     await page.close();
   }
+
+  // The article lead is a direct sibling of the reading column, not a child.
+  // Check both viewport classes so an inherited margin reset cannot shift it
+  // to the left while the header and article body remain centred.
+  for (const width of [390,1280]){
+    const page=await browser.newPage();
+    await page.setViewport({width,height:850,deviceScaleFactor:1});
+    const pathname='/book/kojima-from-cotton-to-jeans/';
+    const res=await page.goto(base+pathname,{waitUntil:'domcontentloaded',timeout:45000});
+    const geometry=await page.evaluate(()=>{
+      const lead=document.querySelector('.book-article-dek.reader-essay-opening-lead');
+      const wrapper=document.querySelector('article.book-article');
+      if(!lead || !wrapper)return {found:false};
+      const a=lead.getBoundingClientRect();
+      const b=wrapper.getBoundingClientRect();
+      return {found:true,leadLeft:a.left,leadRight:a.right,leadWidth:a.width,
+        articleCenter:b.left+b.width/2,leadCenter:a.left+a.width/2,
+        marginLeft:getComputedStyle(lead).marginLeft,
+        marginRight:getComputedStyle(lead).marginRight};
+    });
+    const centered=geometry.found && Math.abs(geometry.articleCenter-geometry.leadCenter)<4;
+    if(res?.status()!==200 || !centered)errors.push({pathname,width,http:res?.status(),geometry,reason:'essay opening lead not centred'});
+    console.log('ESSAY LEAD ALIGNMENT',width,centered?'PASS':'FAIL',JSON.stringify(geometry));
+    await page.close();
+  }
 } finally {await browser.close();}
 if(errors.length){console.error('Mobile navigation failures',JSON.stringify(errors));process.exitCode=1;}
 else console.log('Mobile navigation: 5 routes and homepage search passed.');
