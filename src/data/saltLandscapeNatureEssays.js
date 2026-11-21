@@ -244,6 +244,10 @@ export const saltLandscapeNatureEssays = [
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
     },
     "lead": "牛窓の長浜地区には、冬になると白菜やキャベツの畑が続く。ところがその畑のさらに海側には、かつて塩田だった広大な土地があり、一部は湿地として残っている。海を二度にわたって堤防で仕切った結果、湾の奥では野菜を育て、その外側では塩をつくった。さらに塩づくりが終わると、人がつくった土地に湿地の生き物が集まった。二つの堤防の間で、何が残り、何が変わったのだろう。",
+    "researchLinks": [
+      {"label":"排水と土地利用｜塩田が太陽光発電所になった理由","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"},
+      {"label":"次の時代｜2038年の錦海の土地管理","href":"/setouchi-cultural-economic-atlas/book/after-the-solar-farm/"}
+    ],
     "sections": [
       {
         "heading": "最初の堤防の内側に、白菜の畑ができた",
@@ -314,7 +318,7 @@ export const saltLandscapeNatureEssays = [
             ]
           },
           {
-            "text": "旧塩田の土地には雨水が流れ込み、地下から海水も浸み込む。排水ポンプを止めれば水位が上がる。なぜこの排水の責任が塩田廃止後も残るのかは、錦海塩田と太陽光発電を扱った別の記事で詳しくたどれる。ここで目を向けたいのは、畑でも湿地でも、水位や土の状態を人が管理していることだ。",
+            "text": "旧塩田では排水ポンプによる水位管理が続いている。堤防を築いたあと、水をどう逃がし、どこに残すかも土地ごとの選択になった。排水の負担と太陽光発電所の関係は、別篇で詳しく扱う。",
             "refs": [
               1
             ]

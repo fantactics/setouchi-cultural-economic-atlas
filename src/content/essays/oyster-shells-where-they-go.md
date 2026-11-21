@@ -7,6 +7,7 @@ cities: ["広島湾","広島市","日生"]
 keywords: ["牡蠣","かき殻","カキ殻","海中堆積","炭酸カルシウム","肥料","飼料","底質改善","広島湾","岡山","物質循環","フランス","チェサピーク湾","牡蠣礁","海岸侵食","透水性舗装材"]
 heroPhotoId: "photo-oyster-shell-pile-comparative"
 lead: "冬の広島湾。牡蠣のむき身を取り出す作業場のそばには、殻の山ができる。牡蠣を食べた人が捨てたのではない。むしろ食卓に届く前に、殻だけが産地に残されたのだ。広島県が推計する発生量は年におよそ20万立方メートル。石灰質の材料として役立つはずなのに、なぜ殻は余るのだろう。殻の行き先を追うと、牡蠣を育てる海の中に、もう一つの保管場所があった。"
+researchLinks: [{"label":"広島の壁材｜牡蠣殻と折り鶴が出会う場所","href":"/setouchi-cultural-economic-atlas/book/oyster-shells-after-the-meal/"}]
 sources: [{"id":1,"title":"かき殻の利活用について（2026年2月27日）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara.html"},{"id":2,"title":"参議院農林水産委員会（2025年4月24日、かき殻の利用量）","publisher":"国立国会図書館・国会会議録","url":"https://kokkai.ndl.go.jp/simple/txt/121715007X00720250424/89"},{"id":3,"title":"カキ殻を利用した総合的な底質改良技術ガイドラインの改訂（2022年）","publisher":"岡山県","url":"https://www.pref.okayama.jp/page/820701.html"},{"id":4,"title":"令和7年度かき殻有効活用対策推進事業費補助金","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/kakigara-yukokatuyo.html"},{"id":5,"title":"広島湾のかき養殖の自然条件","publisher":"広島市農林水産振興センター","url":"https://www.haff.city.hiroshima.jp/info/suisansc/oyster/production/"},{"id":6,"title":"L’Agglo donne une deuxième vie aux coquillages（2026年11月9日）","publisher":"CapAtlantique La Baule–Guérande Agglo","url":"https://www.cap-atlantique.fr/actualites/lagglo-donne-une-deuxieme-vie-aux-coquillages-entre-novembre-2026-et-le-printemps-2027/"},{"id":7,"title":"En Vendée, un parking perméable à base de coquilles d'huîtres（2026年11月4日）","publisher":"Département de la Vendée","url":"https://www.vendee.fr/actualite/un-parking-permeable-a-base-de-coquilles-dhuitres?no_cache=1"},{"id":8,"title":"Chesapeake Oyster Week and Shell Recycling Alliance（2026年）","publisher":"Maryland Department of Agriculture","url":"https://mda.maryland.gov/news/press-releases/time-chow-down-and-celebrate-chesapeake-oyster-week-march-20-31"},{"id":9,"title":"Oyster Shell Recycling Program","publisher":"Coalition to Restore Coastal Louisiana","url":"https://www.crcl.org/osrp-restaurants/"},{"id":10,"title":"Les huîtres : comment les choisir et les conserver ?（2025年12月17日）","publisher":"フランス経済省 DGCCRF","url":"https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/les-huitres-comment-les-choisir-et-les-conserver"},{"id":11,"title":"令和8年度かき殻有効活用対策推進事業費補助金","publisher":"広島県（2026年7月28日）","url":"https://www.pref.hiroshima.lg.jp/soshiki/88/r8kakigara-yukokatuyo.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/oyster-shells-where-they-go/"}
 ---
@@ -50,8 +51,6 @@ migration: {"status":"generated-copy","publicUrl":"/book/oyster-shells-where-the
 
 ## 殻は、海へ戻ってから陸へ出る
 
-冬の広島湾では牡蠣の身が次々と出荷され、むき身の作業場には殻が残る。その殻は、すぐに肥料や飼料になるとは限らない。付着物を落とすため、管理された海中の堆積場で三か月以上置かれ、それから再び陸へ揚げて砕かれる。海から来た殻が、もう一度海を通って材料になる。 [1](#source-1)
+殻は畑や鶏舎へ、条件が合えば海底の資材へも向かう。広島の町なかでは、[折り鶴と混ぜて壁材にした例](/setouchi-cultural-economic-atlas/book/oyster-shells-after-the-meal/)もある。だが、どの使い道にも運ぶ人と買い手が必要で、使えるというだけでは殻の山はなくならない。
 
-その先には畑や鶏舎、海底の環境改善など複数の使い道がある。だが需要には限りがある。2025年の国会答弁では、年間約20万立方メートルの殻が発生し、約6万立方メートルが一時保管される状況が説明された。これは2026年の在庫量を示すものではない。 [2](#source-2) [3](#source-3)
-
-港に積まれた白い殻の山を見れば、牡蠣をむく仕事はそこで終わらないと分かる。殻を船で海に預け、また陸に戻し、砕いて運ぶ。それでも次の買い手が現れるまで、港には殻を置く場所が必要なのだ。
+港に積まれた白い殻の山を見れば、牡蠣をむく仕事はそこで終わらないと分かる。食卓に届く前に殻が一か所へ集まる広島だからこそ、その行き先を引き受ける港の仕事もまた、大きいのだ。

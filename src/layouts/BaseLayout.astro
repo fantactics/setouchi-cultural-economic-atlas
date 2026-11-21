@@ -193,12 +193,35 @@ const jsonLd = structuredData || defaultStructuredData;
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
     </main>
     <footer id="about" class:list={[siteKey === 'setouchi' && 'site-footer--setouchi']}>
-      <strong>{atlasSite.name}</strong>
-      <p class="footer-thesis">{atlasSite.tagline}</p>
-      <div class="footer-atlas-links" role="navigation" aria-label="サイト案内">
-        {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
-      </div>
-      {siteKey === 'setouchi' && <p class="footer-copyright">© {new Date().getFullYear()} {atlasSite.name}</p>}
+      {siteKey === 'setouchi' ? (
+        <div class="site-footer-main">
+          <div class="site-footer-information">
+            <nav class="footer-atlas-links" aria-label="サイト案内">
+              {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
+            </nav>
+            <p class="footer-copyright">© {new Date().getFullYear()} {atlasSite.name}</p>
+          </div>
+          <a href={baseUrl} class="site-footer-logo-link" aria-label="SETOUCHI ATLAS トップへ">
+            <img
+              class="site-footer-logo"
+              src={`${baseUrl}images/branding/setouchi-atlas-logo.webp`}
+              alt="SETOUCHI ATLAS"
+              width="640"
+              height="108"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </div>
+      ) : (
+        <>
+          <strong>{atlasSite.name}</strong>
+          <p class="footer-thesis">{atlasSite.tagline}</p>
+          <div class="footer-atlas-links" role="navigation" aria-label="サイト案内">
+            {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
+          </div>
+        </>
+      )}
     </footer>
   </body>
 </html>

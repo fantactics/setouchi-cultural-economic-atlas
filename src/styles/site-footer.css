@@ -1,26 +1,25 @@
-/* Editorial footer for SETOUCHI ATLAS; KII ATLAS retains its existing design. */
+/* Balanced SETOUCHI footer: navigation left, existing open-book logo right.
+   KII ATLAS remains on its original footer design. */
 body.atlas-theme-sea .site-footer--setouchi {
   padding: 2.6rem 5vw 1.7rem;
   background: #edf1ee;
   border-top: 1px solid #cbd8d1;
   color: #4e625d;
 }
-body.atlas-theme-sea .site-footer--setouchi > strong {
-  display: block;
-  color: #26544d;
-  font-size: 1rem;
-  line-height: 1.4;
-  letter-spacing: .09em;
+body.atlas-theme-sea .site-footer--setouchi .site-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
 }
-body.atlas-theme-sea .site-footer--setouchi .footer-thesis {
-  margin: .25rem 0 1.4rem;
-  font-size: .86rem;
-  letter-spacing: .025em;
+body.atlas-theme-sea .site-footer--setouchi .site-footer-information {
+  min-width: 0;
 }
 body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links {
   display: flex;
   flex-wrap: wrap;
-  gap: .55rem 1.8rem;
+  gap: .7rem 1.5rem;
   align-items: center;
   font-size: .9rem;
 }
@@ -32,24 +31,45 @@ body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links a {
 body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links a:hover {
   text-decoration: underline;
 }
-body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links a:focus-visible {
+body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links a:focus-visible,
+body.atlas-theme-sea .site-footer--setouchi .site-footer-logo-link:focus-visible {
   outline: 2px solid #245b56;
   outline-offset: 4px;
   border-radius: 2px;
 }
 body.atlas-theme-sea .site-footer--setouchi .footer-copyright {
-  margin: 1.6rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid #cfdbd4;
+  margin: 1.1rem 0 0;
   color: #667a74;
   font-size: .77rem;
 }
-@media (max-width: 600px) {
-  body.atlas-theme-sea .site-footer--setouchi {
-    padding: 2.2rem 5vw 1.5rem;
+body.atlas-theme-sea .site-footer--setouchi .site-footer-logo-link {
+  flex: 0 1 340px;
+  display: block;
+  margin-left: auto;
+  min-width: 0;
+  text-decoration: none;
+}
+body.atlas-theme-sea .site-footer--setouchi .site-footer-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: darken;
+}
+@media (max-width: 650px) {
+  body.atlas-theme-sea .site-footer--setouchi {padding: 2.1rem 5vw 1.5rem;}
+  body.atlas-theme-sea .site-footer--setouchi .site-footer-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
   }
   body.atlas-theme-sea .site-footer--setouchi .footer-atlas-links {
-    gap: .7rem 1.3rem;
+    gap: .6rem 1.1rem;
+    font-size: .85rem;
     line-height: 1.8;
+  }
+  body.atlas-theme-sea .site-footer--setouchi .site-footer-logo-link {
+    flex: none;
+    width: min(78%, 290px);
+    align-self: flex-end;
   }
 }
