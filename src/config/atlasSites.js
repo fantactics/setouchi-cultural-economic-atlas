@@ -17,12 +17,8 @@ export const atlasSites = {
     ],
     footer: [
       { label: 'このサイトについて', path: 'about/' },
-      { label: '地域別', path: 'places/' },
-      { label: 'エッセイ', path: 'book/' },
-      { label: '自然条件から', path: 'book/nature/' },
-      { label: '文化・風習から', path: 'book/culture/' },
-      { label: '研究ノート', path: 'chapters/' },
-      { label: '編集・調査の方法', path: 'methodology/' }
+      { label: '編集・調査の方法', path: 'methodology/' },
+      { label: '研究ノート', path: 'chapters/' }
     ]
   },
   kii: {

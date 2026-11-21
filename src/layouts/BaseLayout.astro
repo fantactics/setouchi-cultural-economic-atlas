@@ -19,6 +19,7 @@ import '../styles/essay-reading-rhythm.css';
 import '../styles/essay-detail-pop.css';
 import '../styles/region-detail-pop.css';
 import '../styles/setouchi-site-logo.css';
+import '../styles/site-footer.css';
 
 const {
   siteKey = 'setouchi',
@@ -191,12 +192,13 @@ const jsonLd = structuredData || defaultStructuredData;
       {isResearchDetail && <ResearchRelatedData pathname={pathname} />}
       {naturalSystemProfile && <NaturalSystemEnhancer profile={naturalSystemProfile} />}
     </main>
-    <footer id="about">
+    <footer id="about" class:list={[siteKey === 'setouchi' && 'site-footer--setouchi']}>
       <strong>{atlasSite.name}</strong>
       <p class="footer-thesis">{atlasSite.tagline}</p>
-      <div class="footer-atlas-links">
+      <div class="footer-atlas-links" role="navigation" aria-label="サイト案内">
         {atlasSite.footer.map((item)=><a href={atlasHref(atlasSite,item.path)}>{item.label}</a>)}
       </div>
+      {siteKey === 'setouchi' && <p class="footer-copyright">© {new Date().getFullYear()} {atlasSite.name}</p>}
     </footer>
   </body>
 </html>
