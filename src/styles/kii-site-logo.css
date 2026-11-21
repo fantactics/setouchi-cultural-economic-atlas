@@ -1,0 +1,121 @@
+/* KII ATLAS: approved mountain-and-river landscape logo.
+   Scope all styles to the forest theme; SETOUCHI stays unchanged. */
+body.atlas-theme-forest .site-header .brand-wrap--kii-logo {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+  text-decoration: none;
+}
+body.atlas-theme-forest .site-header .kii-site-logo {
+  display: block;
+  width: clamp(290px, 31vw, 405px);
+  height: auto;
+  max-width: 100%;
+  mix-blend-mode: darken;
+}
+body.atlas-theme-forest .site-header {
+  column-gap: 1.5rem;
+}
+body.atlas-theme-forest .site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: .4rem;
+}
+body.atlas-theme-forest footer {
+  padding: 2.6rem 5vw 1.7rem;
+  background: #edf2eb;
+  border-top: 1px solid #d0ded3;
+  color: #4e6257;
+}
+body.atlas-theme-forest footer .kii-site-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+body.atlas-theme-forest footer .kii-site-footer-info {
+  min-width: 0;
+}
+body.atlas-theme-forest footer .footer-atlas-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.5rem;
+  align-items: center;
+  font-size: .9rem;
+}
+body.atlas-theme-forest footer .footer-atlas-links a {
+  color: #285a46;
+  text-decoration: none;
+  text-underline-offset: .22em;
+}
+body.atlas-theme-forest footer .footer-atlas-links a:hover {
+  text-decoration: underline;
+}
+body.atlas-theme-forest footer .kii-site-copyright {
+  margin: 1.1rem 0 0;
+  color: #687b6f;
+  font-size: .77rem;
+}
+body.atlas-theme-forest footer .kii-site-footer-logo-link {
+  display: block;
+  flex: 0 1 340px;
+  min-width: 0;
+  margin-left: auto;
+  text-decoration: none;
+}
+body.atlas-theme-forest footer .kii-site-footer-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: darken;
+}
+body.atlas-theme-forest footer a:focus-visible {
+  outline: 2px solid #285a46;
+  outline-offset: 4px;
+}
+@media (max-width: 1120px) {
+  body.atlas-theme-forest .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    padding: .65rem 5vw;
+  }
+  body.atlas-theme-forest .site-header nav {
+    justify-content: flex-start;
+    gap: .4rem 1rem;
+  }
+}
+@media (max-width: 650px) {
+  body.atlas-theme-forest .site-header {
+    padding: .55rem 4vw;
+  }
+  body.atlas-theme-forest .site-header .kii-site-logo {
+    width: min(92vw, 340px);
+  }
+  body.atlas-theme-forest .site-header nav {
+    gap: .35rem .75rem;
+    font-size: .8rem;
+  }
+  body.atlas-theme-forest footer {
+    padding: 2.1rem 5vw 1.5rem;
+  }
+  body.atlas-theme-forest footer .kii-site-footer-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  body.atlas-theme-forest footer .footer-atlas-links {
+    gap: .6rem 1.1rem;
+    font-size: .85rem;
+    line-height: 1.8;
+  }
+  body.atlas-theme-forest footer .kii-site-footer-logo-link {
+    flex: none;
+    width: min(78%, 290px);
+    align-self: flex-end;
+  }
+}
