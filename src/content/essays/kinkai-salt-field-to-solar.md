@@ -2,16 +2,16 @@
 slug: "kinkai-salt-field-to-solar"
 part: "土地は、何度でも使い直される"
 title: "塩田が太陽光発電所になった、もう一つの理由"
-subtitle: "二度の干拓で変わった水の道と、止められない排水ポンプ"
+subtitle: "塩田廃止後の排水責任から、2038年の土地の行き先まで"
 cities: ["牛窓","邑久","瀬戸内市"]
 keywords: ["土地利用","錦海塩田","太陽光発電","牛窓","干拓","長浜干拓地","安田堤防","排水ポンプ","海域復元","塩田跡地","メガソーラー","地域資源"]
 heroPhotoId: "photo-kinkai-solar"
-lead: "牛窓近くの錦海湾に広がる太陽光パネル。その下は、かつて海だった。湾を締め切って塩田を造ると、周辺の雨水が海へ流れる道まで変わった。塩田が廃止されてもポンプを止められず、市は排水機能を守るために跡地を取得した。では、土地を海に戻せばよかったのか。その問いをたどると、塩田より古い干拓地が見えてくる。"
-researchLinks: [{"label":"二つの堤防｜長浜の畑と錦海の塩性湿地","href":"/setouchi-cultural-economic-atlas/book/ushimado-nagahama-kinkai-two-reclaimed-landscapes/"},{"label":"次の時代｜2038年、錦海の土地を誰が引き継ぐのか","href":"/setouchi-cultural-economic-atlas/book/after-the-solar-farm/"},{"label":"比較編｜四つの塩田都市の異なるその後","href":"/setouchi-cultural-economic-atlas/book/four-salt-fields/"},{"label":"研究ノート｜2038年以降の土地と設備の管理","href":"/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/"}]
-sources: [{"id":1,"title":"錦海塩田跡地について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3995.html"},{"id":2,"title":"錦海塩田跡地の活用について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3996.html"},{"id":3,"title":"太陽のまちプロジェクト","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/"},{"id":4,"title":"瀬戸内Kirei太陽光発電所","publisher":"清水建設","url":"https://www.shimz.co.jp/works/jp_ene_201812_setouchiKirei.html"},{"id":5,"title":"貸付料収入を活用したまちづくり事業","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/114657.html"},{"id":6,"title":"錦海塩田跡地活用基本構想（2012年）","publisher":"瀬戸内市 錦海塩田跡地活用検討委員会","url":"https://www.city.setouchi.lg.jp/uploaded/attachment/107699.pdf"},{"id":7,"title":"牛窓歴史散歩：製塩の歴史と牛窓","publisher":"岡山県観光連盟","url":"https://www.okayama-kanko.jp/okatabi/1586/page"},{"id":8,"title":"中央環境審議会 瀬戸内海部会 企画専門委員会議事録","publisher":"環境省","url":"https://www.env.go.jp/council/former2013/11seto/y111-04a.html"}]
+lead: "牛窓近くの錦海湾に、太陽光パネルが果てしなく並ぶ。かつて海だった土地を塩田に変え、塩づくりが終わると今度は発電所にした。日差しを使う仕事が代わっただけに見えるが、その足元では排水ポンプが動き続けている。では、発電所の貸付期間が節目を迎える2038年、その仕事はどうなるのだろう。土地の使い道が変わるたびに、誰が海からつくった陸を支えてきたのか。"
+researchLinks: [{"label":"二つの堤防｜長浜の畑と錦海の塩性湿地","href":"/setouchi-cultural-economic-atlas/book/ushimado-nagahama-kinkai-two-reclaimed-landscapes/"},{"label":"比較編｜四つの塩田都市の異なるその後","href":"/setouchi-cultural-economic-atlas/book/four-salt-fields/"},{"label":"研究ノート｜2038年以降の土地と設備の管理","href":"/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/"}]
+sources: [{"id":1,"title":"錦海塩田跡地について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3995.html"},{"id":2,"title":"錦海塩田跡地の活用について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3996.html"},{"id":3,"title":"太陽のまちプロジェクト","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/"},{"id":4,"title":"瀬戸内Kirei太陽光発電所","publisher":"清水建設","url":"https://www.shimz.co.jp/works/jp_ene_201812_setouchiKirei.html"},{"id":5,"title":"貸付料収入を活用したまちづくり事業","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/114657.html"},{"id":6,"title":"錦海塩田跡地活用基本構想（2012年）","publisher":"瀬戸内市 錦海塩田跡地活用検討委員会","url":"https://www.city.setouchi.lg.jp/uploaded/attachment/107699.pdf"},{"id":7,"title":"牛窓歴史散歩：製塩の歴史と牛窓","publisher":"岡山県観光連盟","url":"https://www.okayama-kanko.jp/okatabi/1586/page"},{"id":8,"title":"中央環境審議会 瀬戸内海部会 企画専門委員会議事録","publisher":"環境省","url":"https://www.env.go.jp/council/former2013/11seto/y111-04a.html"},{"id":9,"title":"太陽光パネルの廃棄に関する情報","publisher":"資源エネルギー庁","url":"https://www.enecho.meti.go.jp/about/special/johoteikyo/taiyoukouhaiki.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/kinkai-salt-field-to-solar/"}
 editorialPhotoPlacements:
-  - afterHeading: "海を締め切って、塩田を造る"
+  - afterHeading: "塩田を造ったとき、水の出口も変わった"
     afterParagraph: 2
     photoIds: ["photo-ushimado-islands"]
   - afterHeading: "発電所を造り、堤防とポンプも整える"
@@ -50,8 +50,16 @@ editorialPhotoPlacements:
 
 ただし、旧塩田を海へ戻すと、その奥の長浜干拓地が再び海岸線に面する。市は2012年当時、古い安田堤防は老朽化しており、そのまま防潮施設として期待できないと評価していた。旧処分場や塩性湿地への影響も考えなくてはならない。堤防を一つ開くだけで排水の責任が消えるとはいえない。 [6](#source-6)
 
+## 2038年、今度は誰が引き継ぐのか
+
+瀬戸内市が公表する土地の貸付期間は、2014年4月から2038年10月まで。商業発電開始後20年間を基本とし、**更新も可能**とされている。2038年は契約の節目であり、パネルの撤去が決まった日ではない。 [2](#source-2)
+
+発電を続けるなら、設備を更新するのか、堤防やポンプの点検・修繕にどのような費用を充てるのか。発電を終えるなら、パネルをどこへ運び、基礎や排水路をどの状態まで整えて土地を引き渡すのか。どちらを選んでも、排水施設の管理は残る。使用済みパネルの処理・再資源化も別に考えなくてはならない。 [2](#source-2) [9](#source-9)
+
+ただし、錦海の設備をいつ更新・撤去するか、撤去費が十分に確保されているかは、公表資料だけでは確認できない。制度や費用の詳しい論点は[研究ノート「錦海塩田跡地の2038年以降の管理課題」](/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/)に残した。
+
 ## パネルの下で、ポンプが動く
 
-錦海湾の堤防に立てば、片側には海があり、もう片側には平らなパネルの列が続く。発電所はよく見えるが、その土地を乾いたままに保つ仕事は目立たない。
+錦海湾の堤防に立てば、片側には海があり、もう片側には平らなパネルの列が続く。日差しを受けて電気をつくる風景の下に、塩田があった時代から続く排水の仕事が隠れている。
 
-塩田を所有した会社から市へ、そして発電事業の収入と施設整備へ。水を外へ送る仕事の担い方は、土地の用途とともに変わってきた。次の契約の節目以降、誰が費用と責任を引き継ぐかは、[2038年を扱う別篇](/setouchi-cultural-economic-atlas/book/after-the-solar-farm/)で考えたい。
+かつて塩をつくった会社がその水をくみ出し、会社がなくなると市が土地を引き受け、発電事業が収入と設備を加えた。2038年にどの道を選んでも、雨は降り、堤防の下からは海水が浸み込む。パネルが変わっても、その足元のポンプを止めるわけにはいかない。
