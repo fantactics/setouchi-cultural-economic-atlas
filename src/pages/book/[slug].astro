@@ -115,6 +115,10 @@ const originalHero=article.heroPhoto?.imageUrl ? article.heroPhoto : photoById[a
 // Keep the search/discovery photograph and the article entrance consistent only
 // where the actual subject is verified. Do not promote geographically misleading
 // comparison photographs (e.g. the Okinawa hijiki image) to an essay hero.
+// These curated card photographs portray the subject introduced by the essay,
+// rather than unrelated comparative scenery, and have verified source metadata.
+const cardHeroSlugs=new Set(['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','shodoshima-open-island','takamatsu-sea-castle-to-gateway']);
+const cardHero=cardHeroSlugs.has(article.slug) ? photoById[cardPhotoId(article)] : null;
 const matchedCoverSlugs=new Set(['oysters-taste-of-small-seas','tai-meshi-two-seas','what-cyclists-leave-behind']);
 const matchedCover=matchedCoverSlugs.has(article.slug) ? essayIndexPhotoOverrides[article.slug] : null;
 const matchedCoverCaptions={
@@ -129,7 +133,7 @@ const matchedCoverTitles={
 };
 const hero=matchedCover?.imageUrl
   ? {...matchedCover,title:matchedCover.title||matchedCoverTitles[article.slug],caption:matchedCoverCaptions[article.slug]}
-  : originalHero;
+  : cardHero?.imageUrl ? cardHero : originalHero;
 const inlinePhotos=selectEssayInlinePhotos(article,photoById,hero);
 const inlinePhotoUrls=new Set(Object.values(inlinePhotos).map((photo)=>photo.imageUrl));
 const photoFieldReferences=essayPhotoFieldReferences[article.slug] || [];
