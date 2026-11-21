@@ -60,6 +60,21 @@ const indexHtml=assertPage('book');
 assert.ok(!indexHtml.includes('Hijiki%20harvested%20on%20Camp%20Courtney'),
   'An Okinawa comparison photo still appears as a Setouchi discovery cover');
 
+// The first photo on these essays should match the directly relevant,
+// copyright-vetted photo chosen on their discovery cards.
+for(const [slug,fileHint] of [
+  ['kojima-from-cotton-to-jeans','Kojima%20Jeans%20Street'],
+  ['imabari-why-shipbuilding','ImabariShipbuilding-Dockyard'],
+  ['shodoshima-open-island','Hishio-no-sato%20Shodo'],
+  ['takamatsu-sea-castle-to-gateway','Takamatsu%20Castle%20-%20Tamamo']
+]){
+  const html=assertPage('book/'+slug);
+  const heroIndex=html.indexOf('class="book-hero-photo"');
+  assert.ok(heroIndex>=0,'Essay hero missing: '+slug);
+  assert.ok(html.slice(heroIndex,heroIndex+850).includes(fileHint),
+    'Essay hero and verified subject-matched index photograph differ: '+slug);
+}
+
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
