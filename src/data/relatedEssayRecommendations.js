@@ -48,7 +48,7 @@ const curated = {
   'kada-sea-bream-one-line':['kada-sea-bream-distribution-ecosystem','kitan-strait-tai-to-shirasu','tai-meshi-two-seas'],
   'kada-sea-bream-distribution-ecosystem':['kada-sea-bream-one-line','kitan-strait-tai-to-shirasu','shimonoseki-resource-made-by-market'],
   'kitan-strait-tai-to-shirasu':['kada-sea-bream-one-line','niboshi-shirasu-two-food-cultures','sawara-spring-two-gates'],
-  'setouchi-sushi-not-nigiri':['sawara-spring-two-gates','shimotsui-tako-meshi','tai-meshi-two-seas']
+  'setouchi-sushi-not-nigiri':['sawara-spring-two-gates','shimotsui-tako-meshi','tai-meshi-two-seas'],
   'niboshi-shirasu-two-food-cultures':['ibuki-fat-sardines-revalued','kitan-strait-tai-to-shirasu','setouchi-shrimp-middle-layer'],
   'oyster-shells-after-the-meal':['oyster-shells-where-they-go','oysters-taste-of-small-seas','fish-waste-to-feed-and-citrus'],
 };
