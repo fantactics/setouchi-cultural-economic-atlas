@@ -28,9 +28,9 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
           </section>
         ))}
   </div>
-  {showSources && article.sources?.length > 0 && <aside class="atlas-essay-sources">
-    <h2>出典・参照資料</h2>
-    <ul>{article.sources.map((source)=><li><a href={source.url} rel="noopener noreferrer">{source.label}</a></li>)}</ul>
+  {showSources && article.sources?.length > 0 && <aside class="atlas-essay-sources" aria-label="参考文献">
+    <h2>参考文献</h2>
+    <ol>{article.sources.filter((source)=>source?.url && (source.label || source.title)).map((source)=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label || source.title}</a>{source.publisher && <span class="atlas-essay-source-publisher"> — {source.publisher}</span>}</li>)}</ol>
   </aside>}
 </article>
 <style>
@@ -62,7 +62,9 @@ const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredit
   .atlas-essay-markdown :global(h2:not(:first-child)){margin-top:49px}
   .atlas-essay-sources{max-width:760px;margin:auto;border-top:1px solid #dce5dc;padding-top:24px}
   .atlas-essay-sources h2{font-size:1.06rem;font-weight:800;color:#466a58}
-  .atlas-essay-sources ul{padding-left:1.3rem}
+  .atlas-essay-sources ol{padding-left:2rem;list-style-type:decimal}
+  .atlas-essay-sources li::marker{color:#466a58;font-weight:700}
+  .atlas-essay-source-publisher{font-size:.8rem;color:#74847a}
   .atlas-essay-sources li{line-height:1.85;overflow-wrap:anywhere;font-size:.86rem;color:#697d71;margin:.45rem 0}
   .atlas-essay-sources a{color:#376c59}
   @media(max-width:600px){.atlas-essay-region{margin-top:32px}.atlas-shared-essay figure img{border-radius:14px}.atlas-essay-body{margin-top:35px}.atlas-essay-body h2{padding-left:13px}}
