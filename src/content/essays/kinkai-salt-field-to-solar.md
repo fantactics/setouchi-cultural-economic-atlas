@@ -7,7 +7,7 @@ cities: ["牛窓","邑久","瀬戸内市"]
 keywords: ["土地利用","錦海塩田","太陽光発電","牛窓","干拓","長浜干拓地","安田堤防","排水ポンプ","海域復元","塩田跡地","メガソーラー","地域資源"]
 heroPhotoId: "photo-kinkai-solar"
 lead: "牛窓近くの錦海湾に、太陽光パネルが果てしなく並ぶ。かつて海だった土地を塩田に変え、塩づくりが終わると今度は発電所にした。日差しを使う仕事が代わっただけに見えるが、その足元では排水ポンプが動き続けている。では、発電所の貸付期間が節目を迎える2038年、その仕事はどうなるのだろう。土地の使い道が変わるたびに、誰が海からつくった陸を支えてきたのか。"
-researchLinks: [{"label":"二つの堤防｜長浜の畑と錦海の塩性湿地","href":"/setouchi-cultural-economic-atlas/book/ushimado-nagahama-kinkai-two-reclaimed-landscapes/"},{"label":"比較編｜四つの塩田都市の異なるその後","href":"/setouchi-cultural-economic-atlas/book/four-salt-fields/"},{"label":"研究ノート｜2038年以降の土地と設備の管理","href":"/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/"}]
+researchLinks: [{"label":"対照編｜水没ペンション村に残った塩田の排水","href":"/setouchi-cultural-economic-atlas/book/kashino-sunken-pension-village/"},{"label":"二つの堤防｜長浜の畑と錦海の塩性湿地","href":"/setouchi-cultural-economic-atlas/book/ushimado-nagahama-kinkai-two-reclaimed-landscapes/"},{"label":"比較編｜四つの塩田都市の異なるその後","href":"/setouchi-cultural-economic-atlas/book/four-salt-fields/"},{"label":"研究ノート｜2038年以降の土地と設備の管理","href":"/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/"}]
 sources: [{"id":1,"title":"錦海塩田跡地について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3995.html"},{"id":2,"title":"錦海塩田跡地の活用について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3996.html"},{"id":3,"title":"太陽のまちプロジェクト","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/"},{"id":4,"title":"瀬戸内Kirei太陽光発電所","publisher":"清水建設","url":"https://www.shimz.co.jp/works/jp_ene_201812_setouchiKirei.html"},{"id":5,"title":"貸付料収入を活用したまちづくり事業","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/site/taiyounomachipj/114657.html"},{"id":6,"title":"錦海塩田跡地活用基本構想（2012年）","publisher":"瀬戸内市 錦海塩田跡地活用検討委員会","url":"https://www.city.setouchi.lg.jp/uploaded/attachment/107699.pdf"},{"id":7,"title":"牛窓歴史散歩：製塩の歴史と牛窓","publisher":"岡山県観光連盟","url":"https://www.okayama-kanko.jp/okatabi/1586/page"},{"id":8,"title":"中央環境審議会 瀬戸内海部会 企画専門委員会議事録","publisher":"環境省","url":"https://www.env.go.jp/council/former2013/11seto/y111-04a.html"},{"id":9,"title":"太陽光パネルの廃棄に関する情報","publisher":"資源エネルギー庁","url":"https://www.enecho.meti.go.jp/about/special/johoteikyo/taiyoukouhaiki.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/kinkai-salt-field-to-solar/"}
 editorialPhotoPlacements:
@@ -35,6 +35,8 @@ editorialPhotoPlacements:
 1971年に塩田は廃止されたが、企業はその後も工場製塩や産業廃棄物の最終処分事業を続けた。2009年には所有会社が破産手続に入る。しかし、経営主体がなくなっても雨や海水は流れ込む。 [1](#source-1)
 
 排水設備が止まれば、周辺の約500世帯にも浸水のおそれがあると瀬戸内市は見込んだ。市は2010年に跡地を取得し、排水という仕事の責任を引き継いだ。塩田をやめた土地が、費用のかからない空き地になったわけではなかった。 [1](#source-1)
+
+同じ牛窓の鹿忍では、[塩田跡地の排水が途絶え、ロッジが水に沈んだ](/setouchi-cultural-economic-atlas/book/kashino-sunken-pension-village/)。土地の規模も所有関係も異なるが、排水を続ける仕事が土地の用途より長く残ることを、二つの風景は示している。
 
 ## 発電事業は、ポンプを支える仕組みにもなった
 

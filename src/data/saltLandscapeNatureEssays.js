@@ -245,7 +245,8 @@ export const saltLandscapeNatureEssays = [
     },
     "lead": "牛窓の長浜地区には、冬になると白菜やキャベツの畑が続く。ところがその畑のさらに海側には、かつて塩田だった広大な土地があり、一部は湿地として残っている。海を二度にわたって堤防で仕切った結果、湾の奥では野菜を育て、その外側では塩をつくった。さらに塩づくりが終わると、人がつくった土地に湿地の生き物が集まった。二つの堤防の間で、何が残り、何が変わったのだろう。",
     "researchLinks": [
-      {"label":"排水と土地利用｜塩田が太陽光発電所になった理由","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"}
+      {"label":"排水と土地利用｜塩田が太陽光発電所になった理由","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"},
+      {"label":"近隣のもう一つの塩田跡｜鹿忍の水没ペンション村","href":"/setouchi-cultural-economic-atlas/book/kashino-sunken-pension-village/"}
     ],
     "sections": [
       {

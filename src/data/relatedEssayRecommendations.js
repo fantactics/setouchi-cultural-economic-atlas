@@ -5,8 +5,9 @@ import { getCultureTags } from './cultureTraditionTags.js';
 // Explicit connections outrank broad theme similarity; no research notes are included.
 const curated = {
   'iwagi-salt-pans-to-shrimp-ponds':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','kinkai-salt-field-to-solar','four-salt-fields'],
-  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['kinkai-salt-field-to-solar','iwagi-salt-pans-to-shrimp-ponds','awaji-onion-rice-field'],
-  'kinkai-salt-field-to-solar':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields','sakaide-salt-fields-to-industry'],
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['kinkai-salt-field-to-solar','kashino-sunken-pension-village','iwagi-salt-pans-to-shrimp-ponds'],
+  'kinkai-salt-field-to-solar':['kashino-sunken-pension-village','ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields'],
+  'kashino-sunken-pension-village':['kinkai-salt-field-to-solar','ushimado-nagahama-kinkai-two-reclaimed-landscapes','four-salt-fields'],
   'kojima-from-cotton-to-jeans':['kojima-jeans-circular-economy','imabari-why-shipbuilding','takehara-salt-capital-to-townscape'],
   'imabari-why-shipbuilding':['setouchi-ship-materials','niihama-after-copper','onomichi-capital-to-culture-and-ships'],
   'onomichi-capital-to-culture-and-ships':['mihara-castle-to-multimodal-city','jinori-okinori-navigation-system','imabari-why-shipbuilding'],

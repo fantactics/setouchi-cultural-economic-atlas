@@ -5908,7 +5908,92 @@ bookArticles.push({
   sources: []
 });
 
-export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push({
+  "slug": "kashino-sunken-pension-village",
+  "part": "土地は、何度でも使い直される",
+  "title": "海に戻ったのではない。ポンプが止まり、ペンションが沈んだ",
+  "subtitle": "牛窓・鹿忍の塩田跡に、水面から屋根だけが残る理由",
+  "cities": [
+    "牛窓",
+    "鹿忍",
+    "瀬戸内市"
+  ],
+  "keywords": [
+    "鹿忍グリーンファーム",
+    "水没ペンション村",
+    "鹿忍塩田",
+    "排水ポンプ",
+    "塩田跡地",
+    "入浜式塩田",
+    "旧牛窓町",
+    "土地利用"
+  ],
+  "heroPhotoId": null,
+  "lead": "牛窓の海辺。静かな水面から、丸みを帯びた屋根がいくつも突き出している。水の中に建っているのは、かつて客を迎えていたロッジだ。その向こうには堤防があり、さらに外側に瀬戸内海がある。海と建物の間を堤防が隔てているのに、なぜロッジは水に沈んだのだろう。この風景の始まりは、リゾートの失敗ではなく、塩をつくっていた時代の地面にある。",
+  "sections": [],
+  "sources": [
+    {
+      "id": 1,
+      "title": "旧牛窓町町勢要覧資料編（平成14年度版）｜鹿忍塩田廃止の記録",
+      "publisher": "牛窓町（瀬戸内市公文書）",
+      "url": "https://www.city.setouchi.lg.jp/uploaded/attachment/106594.pdf"
+    },
+    {
+      "id": 2,
+      "title": "瀬戸内海沿岸に突然現れる「水没ペンション村」（2022年6月4日、全4頁）",
+      "publisher": "文春オンライン／Drone Japan",
+      "url": "https://bunshun.jp/articles/-/54692?page=4"
+    },
+    {
+      "id": 3,
+      "title": "“廃墟ペンション村”が大規模水没（2026年11月3日）",
+      "publisher": "FNNプライムオンライン",
+      "url": "https://www.fnn.jp/articles/-/1145282"
+    },
+    {
+      "id": 4,
+      "title": "令和6年第2回定例会議決結果｜鹿忍地区旧塩田跡地の悪臭改善請願",
+      "publisher": "瀬戸内市議会",
+      "url": "https://www.city.setouchi.lg.jp/site/setouchishigikai/140382.html"
+    },
+    {
+      "id": 5,
+      "title": "錦海塩田跡地について｜市が取得した経緯と排水ポンプ",
+      "publisher": "瀬戸内市",
+      "url": "https://www.city.setouchi.lg.jp/soshiki/21/3995.html"
+    },
+    {
+      "id": 6,
+      "title": "廃墟化して水没、野生動物が集まる（2026年10月29日）",
+      "publisher": "東洋経済オンライン",
+      "url": "https://toyokeizai.net/articles/-/962550"
+    }
+  ],
+  "openQuestions": [
+    "排水停止時期の特定",
+    "水没後の土地管理と水質"
+  ],
+  "researchLinks": [
+    {
+      "label": "現地空撮・浸水の変遷を確認｜文春オンライン（写真）",
+      "href": "https://bunshun.jp/articles/-/54692?page=4"
+    },
+    {
+      "label": "現況を確認｜FNN（2026年11月取材映像）",
+      "href": "https://www.fnn.jp/articles/-/1145282"
+    },
+    {
+      "label": "対照編｜錦海塩田はなぜ太陽光発電所になったのか",
+      "href": "/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"
+    },
+    {
+      "label": "自然条件編｜長浜・錦海の二つの堤防",
+      "href": "/setouchi-cultural-economic-atlas/book/ushimado-nagahama-kinkai-two-reclaimed-landscapes/"
+    }
+  ]
+});
+
+export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
