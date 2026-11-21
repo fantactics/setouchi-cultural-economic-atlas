@@ -247,17 +247,12 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
         </div>
       </section>
     )}
-    {photoFieldReferences.length>0 && <nav class="reader-photo-evidence" aria-label="記事に登場する実物・史料の写真へのリンク">
-      <span class="reader-photo-evidence-heading">実物の写真も見る</span>
-      {photoFieldReferences.map((reference)=><div class="reader-photo-evidence-item">
-        <a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.label} <span aria-hidden="true">↗</span></a>
-        <span class="reader-photo-evidence-publisher">{reference.publisher}</span>
-        <p>{reference.note}</p>
-      </div>)}
-    </nav>}
 
     <div class="book-reading-column">
       <EssayGoogleMap article={article} />
+      {['takamatsu-sea-castle-to-gateway','hiketa-castle-port-town','matsuyama-three-centers-one-city','yanai-trade-profit-to-whitewalls','niihama-after-copper'].includes(article.slug) && <details class="reader-map-disclosure">
+        <summary><span>地図で物語の舞台を確かめる</span><small>現在の地形・位置関係を見る</small></summary>
+        <div class="reader-map-disclosure-content">
       {article.slug==='takamatsu-sea-castle-to-gateway' && (
         <section class="reader-landscape-map" aria-labelledby="takamatsu-landscape-map-title">
           <div class="kicker">地図で見る自然条件</div>
@@ -353,6 +348,8 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
           <p class="reader-landscape-map-source">地図：Google マップ（現在の航空写真）。<a href="https://www.google.com/maps/search/?api=1&query=%E5%88%A5%E5%AD%90%E9%8A%85%E5%B1%B1%20%E6%9D%B1%E5%B9%B3" target="_blank" rel="noopener noreferrer">東平の貯鉱庫跡</a>／<a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%B1%85%E6%B5%9C%E6%B8%AF%E6%9C%AC%E6%B8%AF" target="_blank" rel="noopener noreferrer">新居浜港本港</a></p>
         </section>
       )}
+        </div>
+      </details>}
       {MarkdownContent
         ? <div class="markdown-essay-body"><MarkdownContent /></div>
         : <EssayProseSections article={article} showNumbers={!isNarrativeEssay} inlinePhotos={inlinePhotos} />}
@@ -364,6 +361,15 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
           <figcaption><strong>{photo.title}</strong><span>{photo.caption}</span></figcaption>
         </figure>)}</div>
       </section>}
+      {photoFieldReferences.length>0 && <nav class="reader-photo-evidence" aria-label="記事に登場する実物・史料の写真へのリンク">
+      <span class="reader-photo-evidence-heading">実物の写真も見る</span>
+      {photoFieldReferences.map((reference)=><div class="reader-photo-evidence-item">
+        <a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.label} <span aria-hidden="true">↗</span></a>
+        <span class="reader-photo-evidence-publisher">{reference.publisher}</span>
+        <p>{reference.note}</p>
+      </div>)}
+      </nav>}
+
       {!article.omitPhotoCredits && article.sources?.length>0 && <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>}
     </div>
 
@@ -396,6 +402,18 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
     </nav>
 
+  <style>
+    .reader-map-disclosure{max-width:760px;margin:0 auto 1.65rem;border:1px solid #d9e5dd;border-radius:13px;overflow:hidden;background:#fafcf9}
+    .reader-map-disclosure>summary{list-style:none;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:space-between;padding:13px 18px;color:#31594d;font-weight:750}
+    .reader-map-disclosure>summary::-webkit-details-marker{display:none}
+    .reader-map-disclosure>summary:after{content:'＋';font-size:1.1rem;flex:none}
+    .reader-map-disclosure[open]>summary:after{content:'−'}
+    .reader-map-disclosure>summary small{color:#73887c;font-weight:500;font-size:.75rem}
+    .reader-map-disclosure>summary:hover{background:#f0f7f1}
+    .reader-map-disclosure>summary:focus-visible{outline:3px solid #9cc8ab;outline-offset:-3px}
+    .reader-map-disclosure-content{padding:0 14px 16px}
+    @media(max-width:600px){.reader-map-disclosure>summary{flex-wrap:wrap;justify-content:flex-start}.reader-map-disclosure>summary:after{margin-left:auto}.reader-map-disclosure>summary small{width:100%}}
+  </style>
   <style>
     .salt-series-readmore{display:flex;align-items:center;justify-content:space-between;gap:23px;max-width:1060px;margin:40px auto 28px;padding:22px clamp(18px,3.5vw,32px);border:1px solid #dce7d8;background:#f3f7ef;border-radius:18px;color:#33564b}
     .salt-series-readmore span{font-size:.75rem;letter-spacing:.09em;color:#a67654;font-weight:800}
