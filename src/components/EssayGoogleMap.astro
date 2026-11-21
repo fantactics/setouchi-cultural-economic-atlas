@@ -9,8 +9,9 @@ const googleUrl = map ? `https://www.google.com/maps/search/?api=1&query=${encod
 const headingId = article ? `essay-google-map-${article.slug}` : 'essay-google-map';
 ---
 {map && (
-  <section class="essay-google-map" aria-labelledby={headingId}>
-    <div class="kicker">地図で見る、物語の舞台</div>
+  <details class="essay-google-map">
+    <summary><strong>地図で物語の舞台を確かめる</strong><small>{map.name}</small></summary>
+    <div class="essay-google-map-details" aria-labelledby={headingId}>
     <h2 id={headingId}>{map.name}</h2>
     <p>{map.description}</p>
     <div class="essay-google-map-frame">
@@ -28,10 +29,20 @@ const headingId = article ? `essay-google-map-${article.slug}` : 'essay-google-m
       地図：Google マップ（現在の地形・海岸線。歴史的な姿の復元図ではありません）。
       <a href={googleUrl} target="_blank" rel="noopener noreferrer">Googleマップで開く ↗</a>
     </p>
-  </section>
+    </div>
+  </details>
 )}
 <style>
-  .essay-google-map{margin:1rem 0 2.6rem;}
+  .essay-google-map{margin:0 0 1.65rem;border:1px solid #d9e5dd;border-radius:13px;background:#fafcf9;overflow:hidden;}
+  .essay-google-map>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 18px;color:#31594d;}
+  .essay-google-map>summary::-webkit-details-marker{display:none}
+  .essay-google-map>summary strong{font-size:.94rem}
+  .essay-google-map>summary small{font-size:.76rem;color:#73887c}
+  .essay-google-map>summary:after{content:"＋";font-size:1.1rem;margin-left:auto}
+  .essay-google-map[open]>summary:after{content:"−"}
+  .essay-google-map>summary:hover{background:#f0f7f1}
+  .essay-google-map>summary:focus-visible{outline:3px solid #9cc8ab;outline-offset:-3px}
+  .essay-google-map-details{padding:0 14px 16px}
   .essay-google-map h2{font-size:clamp(1.3rem,2.7vw,1.8rem);line-height:1.45;margin:.5rem 0 .75rem;}
   .essay-google-map p{line-height:1.85;margin:0 0 1rem;}
   .essay-google-map-frame{border:1px solid rgba(80,80,80,.18);border-radius:12px;overflow:hidden;background:#eee;}
