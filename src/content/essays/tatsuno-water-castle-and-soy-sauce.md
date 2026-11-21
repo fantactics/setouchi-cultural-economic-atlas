@@ -6,6 +6,8 @@ lead: "龍野の町を自転車で走ると、山裾の古い家並みに醤油�
 part: "町並みは、土地を語る"
 cities: ["たつの","龍野"]
 keywords: ["龍野","たつの市","淡口醤油","揖保川","鶏籠山","城下町","軟水","甘酒","伏流水","水運","醤油蔵"]
+sources: [{"id":1,"title":"たつの市龍野伝統的建造物群保存地区について","publisher":"たつの市","url":"https://www.city.tatsuno.lg.jp/soshiki/1028/gyomu/dentoutekikenzoubutsugunhozonchiku/tatunoshitatunodentoutekikenzoubutugunhozontikunoshoukai/2541.html"},{"id":2,"title":"淡口醤油","publisher":"龍野商工会議所","url":"https://www.tatsuno.or.jp/%E5%9C%B0%E5%A0%B4%E7%94%A3%E6%A5%AD/%E6%B7%A1%E5%8F%A3%E9%86%A4%E6%B2%B9/"},{"id":3,"title":"淡口しょうゆの誕生と近畿のしょうゆ","publisher":"キッコーマン FOOD CULTURE","url":"https://www.kikkoman.com/jp/kiifc/publication/foodculture/no28_kinki.html"},{"id":4,"title":"独自の製法技術：揖保川の伏流水","publisher":"ヒガシマル醤油","url":"https://www.higashimaru.co.jp/about/quality/original.html"},{"id":5,"title":"醤油 特集","publisher":"たつの市観光協会","url":"https://tatsuno-tourism.jp/special_contents/%E9%86%A4%E6%B2%B9-%E7%89%B9%E9%9B%86/"},{"id":6,"title":"連載コラム「大阪のだし」第19回","publisher":"大阪府","url":"https://www.pref.osaka.lg.jp/o070080/toshimiryoku/osakathemuseum/dashi/oosakanodashi019.html"},{"id":7,"title":"商標登録第5051778号 龍野淡口醤油","publisher":"特許庁","url":"https://www.jpo.go.jp/system/trademark/gaiyo/chidan/shoukai/ichiran/5051778.html"}]
+
 migration:
   sourceFile: "src/data/quageoSetouchiEssays.js"
   status: "pilot-copy"
