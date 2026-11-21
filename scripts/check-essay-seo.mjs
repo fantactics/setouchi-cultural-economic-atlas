@@ -48,4 +48,20 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  checked++;
 }
 assert.ok(checked>=30,`Unexpectedly few published Markdown essays checked: ${checked}`);
-console.log(`Essay SEO titles verified: ${checked} built pages. Unpublished Markdown files skipped: ${skipped.length}.`);
+// Curated SEO metadata also covers legacy JS-authored essays without a Markdown file.
+let curatedChecked=0;
+for(const [slug, focus] of Object.entries(essaySeoFocus)){
+ const file=path.join(builtRoot,slug,'index.html');
+ assert.ok(existsSync(file),`Curated SEO article is missing from published build: ${slug}`);
+ const html=readFileSync(file,'utf8');
+ const actualTitle=getTag(html,'title');
+ const actualDescription=getMeta(html,'name','description');
+ const canonicalTag=(html.match(/<link\b[^>]*>/g)||[]).find(tag=>/\brel="canonical"/.test(tag))||'';
+ const canonical=decode(canonicalTag.match(/\bhref="([^"]+)"/)?.[1]||'');
+ assert.equal(sameSpacing(actualTitle),sameSpacing(focus.title+'｜SETOUCHI ATLAS'),`Wrong SEO title for ${slug}`);
+ assert.equal(sameSpacing(actualDescription),sameSpacing(focus.description),`Wrong SEO description for ${slug}`);
+ assert.ok(canonical.endsWith('/book/'+slug+'/'),`Wrong canonical for curated essay ${slug}`);
+ curatedChecked++;
+}
+
+console.log(`Essay SEO titles verified: ${checked} Markdown built pages and ${curatedChecked} curated essay pages. Unpublished Markdown files skipped: ${skipped.length}.`);
