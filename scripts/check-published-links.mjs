@@ -35,6 +35,20 @@ assert.ok(onomichiPage.includes('joshoji-crossing-onomichi.avif'), 'Onomichi ess
 assert.ok(onomichiPage.includes('距離・高低差'), 'Onomichi schematic lacks schematic-accuracy disclaimer');
 
 
+// Readers should encounter the approved cover before the narrative lead,
+// and the article hero must agree with its verified discovery-card image.
+for(const [slug,fileHint] of [
+  ['oysters-taste-of-small-seas','Grilled%20oysters'],
+  ['tai-meshi-two-seas','Uwajima%20Taimeshi'],
+  ['what-cyclists-leave-behind','Shimanami-expressway']
+]){
+  const html=assertPage('book/'+slug);
+  const heroIndex=html.indexOf('class="book-hero-photo"');
+  const leadIndex=html.indexOf('class="book-article-dek reader-essay-opening-lead"');
+  assert.ok(heroIndex>=0 && leadIndex>heroIndex,`Essay opening order is incorrect: ${slug}`);
+  assert.ok(html.slice(heroIndex,heroIndex+700).includes(fileHint),`Article hero differs from verified discovery cover: ${slug}`);
+}
+
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
