@@ -30,7 +30,23 @@ const curated = {
   'yanai-trade-profit-to-whitewalls':['takehara-salt-capital-to-townscape','mitarai-economy-of-waiting','iwakuni-river-city'],
   'niihama-after-copper':['imabari-why-shipbuilding','kojima-from-cotton-to-jeans','setouchi-ship-materials'],
   'oysters-taste-of-small-seas':['oyster-shells-where-they-go','oyster-shells-after-the-meal','tai-meshi-two-seas'],
-  'oyster-shells-where-they-go':['oysters-taste-of-small-seas','oyster-shells-after-the-meal','fish-waste-to-feed-and-citrus']
+  'oyster-shells-where-they-go':['oysters-taste-of-small-seas','oyster-shells-after-the-meal','fish-waste-to-feed-and-citrus'],
+  'naoshima-water-across-sea':['sanuki-store-the-rain','kojima-island-infrastructure-per-capita','shodoshima-somen-to-sesame-oil'],
+  'sanuki-store-the-rain':['naoshima-water-across-sea','awaji-onion-rice-field','shodoshima-somen-to-sesame-oil'],
+  'awaji-onion-rice-field':['sanuki-store-the-rain','ushimado-nagahama-kinkai-two-reclaimed-landscapes','mikan-slope-and-varieties'],
+  'chichibugahama-sky-in-tide':['hijiki-tidal-time','what-cyclists-leave-behind','tomo-two-act-tidal-port'],
+  'tatsuno-water-castle-and-soy-sauce':['shodoshima-open-island','shodoshima-somen-to-sesame-oil','yanai-trade-profit-to-whitewalls'],
+  'iwagi-salt-pans-to-shrimp-ponds':['ushimado-nagahama-kinkai-two-reclaimed-landscapes','kinkai-salt-field-to-solar','four-salt-fields'],
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['kinkai-salt-field-to-solar','iwagi-salt-pans-to-shrimp-ponds','awaji-onion-rice-field'],
+  'kojima-island-infrastructure-per-capita':['naoshima-water-across-sea','sanuki-store-the-rain','what-cyclists-leave-behind'],
+  'takamatsu-sea-castle-to-gateway':['mihara-castle-to-multimodal-city','onomichi-capital-to-culture-and-ships','matsuyama-three-centers-one-city'],
+  'mihara-castle-to-multimodal-city':['takamatsu-sea-castle-to-gateway','onomichi-capital-to-culture-and-ships','matsuyama-three-centers-one-city'],
+  'what-cyclists-leave-behind':['tatara-bridge-citrus-seasons','ports-that-needed-waiting','chichibugahama-sky-in-tide'],
+  'tatara-bridge-citrus-seasons':['mikan-slope-and-varieties','what-cyclists-leave-behind','awaji-onion-rice-field'],
+  'kada-sea-bream-one-line':['kada-sea-bream-distribution-ecosystem','kitan-strait-tai-to-shirasu','tai-meshi-two-seas'],
+  'kada-sea-bream-distribution-ecosystem':['kada-sea-bream-one-line','kitan-strait-tai-to-shirasu','shimonoseki-resource-made-by-market'],
+  'kitan-strait-tai-to-shirasu':['kada-sea-bream-one-line','niboshi-shirasu-two-food-cultures','sawara-spring-two-gates'],
+  'setouchi-sushi-not-nigiri':['sawara-spring-two-gates','shimotsui-tako-meshi','tai-meshi-two-seas']
 };
 
 
@@ -57,7 +73,23 @@ const editorialBridges = {
   'shimotsui-tako-meshi>tai-meshi-two-seas':'同じ瀬戸内の魚料理でも、土地で味は変わる？',
   'tai-meshi-two-seas>shimotsui-tako-meshi':'魚と米の組み合わせは、別の港でどう変わる？',
   'oysters-taste-of-small-seas>oyster-shells-where-they-go':'牡蠣を食べたあと、大量の殻はどこへ行く？',
-  'oyster-shells-where-they-go>oysters-taste-of-small-seas':'牡蠣のおいしさは、海のどんな条件で決まる？'
+  'oyster-shells-where-they-go>oysters-taste-of-small-seas':'牡蠣のおいしさは、海のどんな条件で決まる？',
+  'naoshima-water-across-sea>sanuki-store-the-rain':'海の向こうから水を買う島と、雨をためる平野。何が違う？',
+  'sanuki-store-the-rain>naoshima-water-across-sea':'ため池だけでは足りない島は、どうやって水を届ける？',
+  'awaji-onion-rice-field>sanuki-store-the-rain':'田んぼの水を、雨の少ない土地はどう確保した？',
+  'chichibugahama-sky-in-tide>hijiki-tidal-time':'同じ引き潮は、景色だけでなく人の仕事もつくる？',
+  'tatsuno-water-castle-and-soy-sauce>shodoshima-open-island':'醤油づくりは、別の町ではどんな産業を生んだ？',
+  'iwagi-salt-pans-to-shrimp-ponds>ushimado-nagahama-kinkai-two-reclaimed-landscapes':'海を仕切った土地は、別の湾では何に変わった？',
+  'ushimado-nagahama-kinkai-two-reclaimed-landscapes>kinkai-salt-field-to-solar':'湿地と塩田の跡地は、太陽光発電とどう共存する？',
+  'kojima-island-infrastructure-per-capita>naoshima-water-across-sea':'島に水を送るには、海の向こうとどうつながる？',
+  'takamatsu-sea-castle-to-gateway>mihara-castle-to-multimodal-city':'海に面した城と、鉄道に貫かれた城。何が違う？',
+  'mihara-castle-to-multimodal-city>takamatsu-sea-castle-to-gateway':'鉄道が横切った城と、埋立てで海から離れた城。',
+  'what-cyclists-leave-behind>tatara-bridge-citrus-seasons':'橋の坂を越えた先に、どんな島の仕事がある？',
+  'tatara-bridge-citrus-seasons>mikan-slope-and-varieties':'柑橘の斜面は、橋の先と宇和海ではどう違う？',
+  'kada-sea-bream-one-line>kada-sea-bream-distribution-ecosystem':'一本の糸で釣った鯛は、港からどこへ行く？',
+  'kada-sea-bream-distribution-ecosystem>kada-sea-bream-one-line':'港の仕事が守る鮮度は、海のどんな技から始まる？',
+  'kitan-strait-tai-to-shirasu>niboshi-shirasu-two-food-cultures':'小さな魚は、釜と干し場でどんな味に変わる？',
+  'setouchi-sushi-not-nigiri>sawara-spring-two-gates':'春の魚と祝いの寿司は、どう結びついた？'
 };
 
 const intersection = (a,b) => {
