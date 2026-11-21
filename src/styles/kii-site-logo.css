@@ -10,9 +10,11 @@ body.atlas-theme-forest .site-header .brand-wrap--kii-logo {
 }
 body.atlas-theme-forest .site-header .kii-site-logo {
   display: block;
-  width: clamp(290px, 31vw, 405px);
-  height: auto;
+  /* Match SETOUCHI's ~68px desktop logo height rather than its width. */
+  width: auto;
+  height: 68px;
   max-width: 100%;
+  object-fit: contain;
   mix-blend-mode: darken;
 }
 body.atlas-theme-forest .site-header {
@@ -94,7 +96,9 @@ body.atlas-theme-forest footer a:focus-visible {
     padding: .55rem 4vw;
   }
   body.atlas-theme-forest .site-header .kii-site-logo {
-    width: min(92vw, 340px);
+    width: auto;
+    height: 56px;
+    max-width: 88vw;
   }
   body.atlas-theme-forest .site-header nav {
     gap: .35rem .75rem;
