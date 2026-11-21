@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'kashino-sunken-pension-village': ['tourism','sea'],
   'iwagi-salt-pans-to-shrimp-ponds': ['sea','industry'],
   'ushimado-nagahama-kinkai-two-reclaimed-landscapes': ['agriculture','sea'],
   'naoshima-water-across-sea': ['sea', 'industry'],
