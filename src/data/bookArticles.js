@@ -5993,7 +5993,328 @@ bookArticles.push({
   ]
 });
 
-export const storyOrder = ["sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+
+// 海釜と急潮流の二篇（2026年11月）
+bookArticles.push({
+  "slug": "setouchi-250-submarine-caldrons",
+  "part": "海と島",
+  "title": "穏やかな瀬戸内海の底に、250の深い穴がある",
+  "subtitle": "鳴門の渦潮から来島、明石、速吸瀬戸へ――海が海底を削る場所",
+  "cities": [
+    "鳴門",
+    "明石",
+    "今治",
+    "伯方島",
+    "佐田岬"
+  ],
+  "keywords": [
+    "海釜",
+    "渦潮",
+    "潮流",
+    "潮汐",
+    "海峡",
+    "鳴門海峡",
+    "来島海峡",
+    "明石海峡",
+    "速吸瀬戸",
+    "伯方瀬戸",
+    "海底地形",
+    "最終氷期"
+  ],
+  "heroPhotoId": "photo-imabari-kurushima",
+  "lead": "橋の上から瀬戸内海を眺める。島と島のあいだを船が静かに進み、海面は穏やかに見える。だがその足元には、深さ100メートルを超える窪地がいくつも隠れている。海上保安庁の研究が数えた「海釜」は、およそ250。鳴門の渦潮は、その海底の世界を私たちにちらりと見せているにすぎない。",
+  "sections": [
+    {
+      "heading": "渦潮が見えない場所にも、海釜はある",
+      "paragraphs": [
+        {
+          "text": "渦潮と聞いてまず思い浮かぶのは鳴門海峡だろう。しかし急潮流は来島海峡や明石海峡、関門海峡にもある。海面では渦が見えなくても、海底を詳しく測れば、大きな窪地が見つかる。海釜（かいふ）と呼ばれる地形だ。",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "海釜は海底にある円形、楕円形、あるいは細長い凹地。八島邦夫が1994年にまとめた研究では、長径1キロメートル以上のものが瀬戸内海に約250個確認された。250という数字は、すべての小さな窪みを数えた総数ではない。調査対象を定めて数えた値である。",
+          "refs": [
+            1
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "いちばん深い穴は、鳴門にはない",
+      "paragraphs": [
+        {
+          "text": "愛媛の佐田岬と大分の佐賀関を隔てる速吸瀬戸。海釜の最大水深は460メートル、周囲の海底より約300メートル深い。潮流で削られたと考えられる巨大な凹地が、目に見えない海底に横たわる。明石海峡には海峡に沿って細長く延びる海釜もある。",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "海釜の姿は海峡ごとに異なる。鳴門や速吸瀬戸では狭い部分の両側に窪地が分かれる「双子型」。明石は海峡に沿う「単成型」。島や岬のまわりには、先端に沿って発達する型もある。地図で見れば同じ青い海でも、水面下の形は一様ではない。",
+          "refs": [
+            1
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "海水は、海底の岩盤まで削る",
+      "paragraphs": [
+        {
+          "text": "潮の満ち引きで水が狭い海峡へ押し込まれると、流れは速くなる。強い流れは砂や泥を運ぶだけでなく、場所によっては岩盤を侵食する。大きな海釜の多くは、この長い侵食の歴史を刻んだものと考えられている。",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "ただし、海釜がすべて同じ過程で掘られたわけではない。氷期の川筋が海に沈んだ名残が埋まらず残ったものもあり、津波の流れが一部の海釜形成に寄与した可能性も検討されている。海釜は渦潮を生み出す魔法の穴ではない。急流、地質、昔の地形が重なった結果なのである。",
+          "refs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "海が来る前、この底は陸だった",
+      "paragraphs": [
+        {
+          "text": "最終氷期、海面が今より低かったころ、瀬戸内海の多くは陸地だった。海面が上がるにつれ、紀伊水道と豊後水道側から海水が入り、低い場所をつないでいった。海峡が開けば、そこに新しい潮流が生まれる。水路は海底をさらに刻み、海釜を育てた。",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "だから海釜の分布は、海の誕生の順序をたどる手がかりにもなる。伯方瀬戸周辺では、近年の精密測深で海底の姿がさらに詳しく調べられている。橋から見える島々の配置は、かつての陸地が海に分けられていった歴史の表面でもある。",
+          "refs": [
+            1,
+            3
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "海面に現れる渦は、そのごく一部",
+      "paragraphs": [
+        {
+          "text": "鳴門では発達した渦潮が観光の主役になる。来島では急潮流と湧き上がる水、島の背後の渦が船の進路を左右する。だが海釜が深いからといって、必ず大きな渦が見えるわけではない。海面の渦は、その時々の流れの速度差と地形がつくる一時的な模様なのだ。",
+          "refs": [
+            1,
+            5
+          ]
+        },
+        {
+          "text": "来島海峡大橋を渡るとき、眼下の潮目を見てみたい。いつもの海面の下には、海流が削り、海面上昇が形づくった、もう一枚の瀬戸内海の地図が広がっている。",
+          "refs": [
+            1
+          ]
+        }
+      ],
+      "photoIds": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "瀬戸内海の海釜地形に関する研究（1994年）",
+      "publisher": "海上保安庁水路部・八島邦夫",
+      "url": "https://www1.kaiho.mlit.go.jp/kenkyu/report/rhr30/rhr30-08.pdf"
+    },
+    {
+      "id": 2,
+      "title": "南海トラフ地震の津波シミュレーション結果から見た瀬戸内海の海釜形成の要因",
+      "publisher": "日本水路協会『水路』192号（2020年）",
+      "url": "https://jha.sakura.ne.jp/jp/shop/products/suiro/pdf/suiro192.pdf"
+    },
+    {
+      "id": 3,
+      "title": "瀬戸内海西部・伯方瀬戸周辺の海底地形とその成り立ち（2025年）",
+      "publisher": "日本地理学会・菅浩伸ほか",
+      "url": "https://www.jstage.jst.go.jp/article/ajg/2025a/0/2025a_142/_article/-char/ja/"
+    },
+    {
+      "id": 5,
+      "title": "来島海峡の潮流",
+      "publisher": "日本交通公社『全国観光資源台帳』",
+      "url": "https://tabi.jtb.or.jp/res/380019-"
+    }
+  ],
+  "researchLinks": [
+    {
+      "label": "各地編｜来島海峡――潮向きで船の通り方が変わる海",
+      "href": "/setouchi-cultural-economic-atlas/book/kurushima-tides-and-navigation/"
+    }
+  ],
+  "narrativeMode": "sketch"
+});
+bookArticles.push({
+  "slug": "kurushima-tides-and-navigation",
+  "part": "港と船",
+  "title": "潮が逆になれば、船の通り道も逆になる――来島海峡",
+  "subtitle": "最大約10ノットの急潮流、海底の海釜、そして「順中逆西」の航法",
+  "cities": [
+    "今治",
+    "来島海峡",
+    "大島"
+  ],
+  "keywords": [
+    "来島海峡",
+    "海釜",
+    "渦潮",
+    "潮流",
+    "潮汐",
+    "順中逆西",
+    "中水道",
+    "西水道",
+    "村上海賊",
+    "来島海峡大橋",
+    "航路"
+  ],
+  "heroPhotoId": "photo-imabari-kurushima",
+  "lead": "来島海峡大橋の上から海を見る。小さな島の間を貨物船が通り、その周囲には白く波立つ潮が筋を引く。同じ海峡なのに、潮が逆向きになれば船が通る水路の選び方まで変わる。来島海峡では、海が交通規則を決める。橋の下を流れるのは、最大約10ノット、時速にすれば約18キロの潮流だ。",
+  "sections": [
+    {
+      "heading": "橋から眺めると、海に川が走っている",
+      "paragraphs": [
+        {
+          "text": "今治と大島の間の来島海峡には、いくつもの島が浮かび、流れは複数の狭い水路に分かれる。潮の速いとき、海面には白い潮目や渦、下から水が盛り上がるような湧潮が現れる。穏やかな多島海のなかに、まるで川の急流が走っている。",
+          "refs": [
+            5
+          ]
+        },
+        {
+          "text": "中水道では最大10ノットほどに達するとされる。1ノットは時速1.852キロメートル。潮流の強さは海峡全体で一定ではなく、水路と潮時で変わる。鳴門ほど巨大な円形の渦が目立たなくとも、船にとっては十分に厳しい海だ。",
+          "refs": [
+            5,
+            7
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "潮が変わると、船の通り道が変わる",
+      "paragraphs": [
+        {
+          "text": "来島海峡航路には「順中逆西」という特別な航法がある。潮流に沿って進むときは中水道、潮流に逆らうときは西水道を使う。結果として、潮向きに応じて右側通航と左側通航が入れ替わる。通常の道路の感覚では理解しにくい。ここでは海そのものが交通のルールを組み立てている。",
+          "refs": [
+            4
+          ]
+        },
+        {
+          "text": "流れに押される船と、流れに逆らう船を、どの水路へ通すか。安全を考えた規則であって、観光のための珍しい仕組みではない。2021年と2023年には付近で重大な衝突事故が起き、2024年には航路西口の安全対策も改められた。潮の強い海は、今なお航海の難所である。",
+          "refs": [
+            4
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "海面の下にも、流れが刻んだ地形がある",
+      "paragraphs": [
+        {
+          "text": "急潮流は水面の波だけを動かしているのではない。来島海峡の海底には、強い流れが侵食に関与したと考えられる海釜がある。海釜は海底に刻まれた深い凹地で、海面に浮かぶ渦潮とは別のものだ。",
+          "refs": [
+            1
+          ]
+        },
+        {
+          "text": "潮流が速ければ、かならず大きな渦潮ができるわけではない。島や岬の配置、海底の起伏、水路ごとの流速差が渦や湧潮の現れ方を変える。来島の海面の複雑な模様は、見えない地形の上を潮が通り抜けているしるしでもある。",
+          "refs": [
+            1,
+            5
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "海の難所は、海賊にとっての城だった",
+      "paragraphs": [
+        {
+          "text": "橋を渡る船からでは小さく見える来島は、かつて来島村上氏の本拠地だった。島を囲む急流は、誰にとっても容易に近づけない天然の防御になる。一方、その流れを読み、島々の間を航行できる人々にとって、海峡は交通を押さえる場所にもなった。",
+          "refs": [
+            5,
+            6
+          ]
+        },
+        {
+          "text": "自然条件が自動的に海賊を生んだわけではない。地形と潮を知る技術を、航海の案内や海上交通の掌握に結びつけた人々がいたからこそ、海峡は力の源泉にもなった。",
+          "refs": [
+            6
+          ]
+        }
+      ],
+      "photoIds": []
+    },
+    {
+      "heading": "同じ流れの上を、いまは橋が渡る",
+      "paragraphs": [
+        {
+          "text": "来島海峡大橋は、かつて船が潮を選んで越えた場所の上を、自動車と自転車が横断する道に変えた。それでも下の船は、今日も潮の向きに合わせて進む水路を選んでいる。",
+          "refs": [
+            4,
+            5
+          ]
+        },
+        {
+          "text": "次に橋から白い潮目を見下ろすときは、そのそばを進む船にも目を向けたい。橋の上では道はいつも同じ場所にある。だが海の道は、数時間ごとに向きを変える。",
+          "refs": [
+            4
+          ]
+        }
+      ],
+      "photoIds": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "瀬戸内海の海釜地形に関する研究（1994年）",
+      "publisher": "海上保安庁水路部・八島邦夫",
+      "url": "https://www1.kaiho.mlit.go.jp/kenkyu/report/rhr30/rhr30-08.pdf"
+    },
+    {
+      "id": 4,
+      "title": "来島海峡衝突事故を踏まえた安全対策について",
+      "publisher": "内閣府『令和7年交通安全白書』",
+      "url": "https://www8.cao.go.jp/koutu/taisaku/r07kou_haku/zenbun/genkyo/topics/topic_14.html"
+    },
+    {
+      "id": 5,
+      "title": "来島海峡の潮流",
+      "publisher": "日本交通公社『全国観光資源台帳』",
+      "url": "https://tabi.jtb.or.jp/res/380019-"
+    },
+    {
+      "id": 6,
+      "title": "日本遺産巡り：芸予諸島・村上海賊",
+      "publisher": "文化庁・日本遺産ポータルサイト",
+      "url": "https://japan-heritage.bunka.go.jp/ja/special/129/"
+    },
+    {
+      "id": 7,
+      "title": "瀬戸内海水路誌 追補第5（2025年）",
+      "publisher": "海上保安庁海洋情報部",
+      "url": "https://www1.kaiho.mlit.go.jp/shoshi/tsuiho/pdf/103/103-2023-05.pdf"
+    }
+  ],
+  "researchLinks": [
+    {
+      "label": "広域編｜穏やかな瀬戸内海の底に、250の深い穴がある",
+      "href": "/setouchi-cultural-economic-atlas/book/setouchi-250-submarine-caldrons/"
+    }
+  ],
+  "narrativeMode": "sketch"
+});
+
+export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
