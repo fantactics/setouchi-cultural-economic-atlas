@@ -24,6 +24,8 @@ const curated = {
   'mitarai-economy-of-waiting':['jinori-okinori-navigation-system','gangi-tide-port-functions','ports-that-needed-waiting'],
   'faith-as-transport-map':['gangi-tide-port-functions','mitarai-economy-of-waiting','ports-that-needed-waiting'],
   'tomo-two-act-tidal-port':['gangi-tide-port-functions','ports-that-needed-waiting','jinori-okinori-navigation-system'],
+  'gangi-tide-port-functions':['tomo-two-act-tidal-port','mitarai-economy-of-waiting','faith-as-transport-map'],
+  'jinori-okinori-navigation-system':['mitarai-economy-of-waiting','tomo-two-act-tidal-port','ports-that-needed-waiting'],
   'shimotsui-tako-meshi':['tai-meshi-two-seas','shimotsui-hijiki-peperoncino','setouchi-sushi-not-nigiri'],
   'sea-bream-scales-to-collagen':['tai-meshi-two-seas','fish-waste-to-feed-and-citrus','citrus-pomace-cascade'],
   'takehara-salt-capital-to-townscape':['four-salt-fields','yanai-trade-profit-to-whitewalls','onomichi-capital-to-culture-and-ships'],
