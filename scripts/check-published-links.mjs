@@ -133,7 +133,7 @@ for(const page of ['book/nature','book/culture']){
   assert.ok(html.includes('book/'),`No story links in ${page}`);
 }
 const researchPage=assertPage('chapters');
-assert.ok(researchPage.includes('調査と研究ノート') && researchPage.includes('調査の方法') && researchPage.includes('研究ノート'),'Public research page must include methods and findings');
+assert.ok(researchPage.includes('調査と研究ノート') && researchPage.includes('調査の姿勢') && researchPage.includes('研究・資料ノートの書架'),'Public research page must include methods, findings and archive');
 assert.ok(researchPage.includes('研究ノートではその過程と結果を残します'),'Research-notes methodology connection missing');
 assert.ok(researchPage.includes('次のエッセイへつながる知見'),'Research index must prioritize writing-useful findings');
 assert.ok(!researchPage.includes('アトラスの編集方法') && !researchPage.includes('エッセイ→研究ノート更新フロー'),'Internal editorial workflow leaked into research index');
