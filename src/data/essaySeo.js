@@ -16,6 +16,14 @@ const finishSentence=(value)=>{
 // These are hypotheses about reader questions, not measured search volumes.
 // The title shown to readers in the article remains article.title.
 export const essaySeoFocus={
+  'mihara-castle-to-multimodal-city':{
+    title:'三原城はなぜ鉄道に貫かれた？山陽鉄道と新幹線が残した城跡',
+    description:'海上交通の拠点だった三原城は、1894年に本丸を山陽鉄道が横切り、近代の駅に場所を譲った。城跡と石垣、港湾整備、歴史的景観の喪失をたどる。'
+  },
+  'ibuki-fat-sardines-revalued':{
+    title:'伊吹いりこの脂イワシはなぜ干さない？急速冷凍と讃岐うどん',
+    description:'讃岐うどんの出汁を支える伊吹いりこ。脂が多い魚はなぜ干しにくいのか。急速冷凍の導入や一匹ずつの加工から、脂イワシの新しい用途をたどる。'
+  },
   'onomichi-capital-to-culture-and-ships':{
     title:'山と海に挟まれた港町を、あとから鉄道が貫いた',
     description:'山と海に挟まれた尾道の港町を、明治の鉄道が貫いた。常称寺の山門と本堂の分断、斜面住宅の成り立ちから、時代が積み重なった景観をたどる。'
@@ -77,8 +85,8 @@ export const essaySeoFocus={
     description:'小豆島の手延べそうめんと、ごま油の製油工場はどうつながったのか。少雨の土地と冬の風、そうめんの製法から、島の産業の連鎖をたどる。'
   },
   'naoshima-water-across-sea':{
-    title:'直島の水道水はどこから？海底送水管と「友情の水」',
-    description:'直島の水道水は岡山県の高梁川に由来する。島にダムがあるのになぜ海底送水管で水を運ぶのか。1967年の渇水と島の製錬業から、海を越える水の仕組みをたどる。'
+    title:'直島の水はどこから？観光と製錬所を支える水道・海底送水管',
+    description:'雨の少ない直島で観光客と住民の水はどう賄われるのか。島のダムと工業用水、高梁川から海底送水管を通る生活用水、2026年の渇水をたどる。'
   },
   'awaji-onion-rice-field':{
     title:'淡路島の玉ねぎはなぜ田んぼで育つ？水田裏作と二毛作',
