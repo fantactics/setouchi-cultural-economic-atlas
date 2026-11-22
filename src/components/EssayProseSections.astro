@@ -20,6 +20,15 @@ const sections=(article.sections||[]).map((section,index)=>{
     paragraphs:section.paragraphs.map((p)=>{
       const emphasize=!used && phrase && p.text.includes(phrase);
       if(emphasize) used=true;
+      // In this one regional comparison, bold place names as reading landmarks.
+      if (article.slug==='setouchi-250-submarine-caldrons' &&
+          section.heading==='鳴門のほかにも、潮が渦を巻く場所') {
+        const names=/(来島海峡|船折瀬戸|能島周辺|大畑瀬戸)/g;
+        const runs=p.text.split(names).filter(Boolean).map((text)=>({
+          text,emph:/^(来島海峡|船折瀬戸|能島周辺|大畑瀬戸)$/.test(text)
+        }));
+        return {...p,runs};
+      }
       return {...p,runs:essayEmphasisRuns(p.text,emphasize?phrase:null)};
     })
   };
