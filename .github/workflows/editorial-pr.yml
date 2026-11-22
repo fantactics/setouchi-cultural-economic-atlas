@@ -5,6 +5,10 @@ on:
     paths:
       - 'src/**'
       - 'scripts/**'
+      - 'EDITORIAL_*.md'
+      - 'KII_EDITORIAL_GUIDE.md'
+      - 'editorial/INTERNAL_EDITORIAL_POLICY.md'
+      - 'README.md'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/editorial-pr.yml'
@@ -25,6 +29,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Verify three-layer editorial policy documentation
+        run: node scripts/check-editorial-policy.mjs
       - name: Check editorial language (advisory)
         run: npm run lint:editorial
       - name: Build site

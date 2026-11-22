@@ -26,6 +26,8 @@ jobs:
           node-version: 24
       - name: Install dependencies
         run: npm install
+      - name: Verify three-layer editorial policy documentation
+        run: node scripts/check-editorial-policy.mjs
       - name: Validate locally hosted essay photographs
         run: node scripts/check-atlas-original-photos.mjs
       - name: Build
