@@ -13,7 +13,7 @@ openQuestions: ["下津井の干しダコがどの時期から作られ、港の
 sources: [{"id":1,"title":"たこめし 岡山県","publisher":"農林水産省「うちの郷土料理」","url":"https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/41_10_okayama.html"},{"id":2,"title":"たこめし","publisher":"倉敷市","url":"https://www.city.kurashiki.okayama.jp/fukushi/health/1008531/1008534/1008610/1008613.html"},{"id":3,"title":"タコの加工品―漁師からの直行便 七福丸・Nanahuku","publisher":"倉敷観光WEB","url":"https://www.kurashiki-tabi.jp/rm_buy/rm-buy198/"},{"id":4,"title":"下津井のたこ・干しだこ","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/spot/detail_10253.html"},{"id":5,"title":"中央環境審議会水環境部会・瀬戸内海環境保全小委員会第13回議事録（備讃瀬戸の海水混合と底質）","publisher":"環境省","url":"https://www.env.go.jp/council/09water/13_2.html"},{"id":6,"title":"せとうちネット｜タコの生態","publisher":"環境省","url":"https://www.env.go.jp/water/heisa/heisa_net/setouchiNet/seto/g1/g1chapter1/ikimono/tako.html"},{"id":7,"title":"日本の沿岸を歩く｜岡山・下津井（漁師による餌生物の証言）","publisher":"地球・人間環境フォーラム","url":"https://www.gef.or.jp/globalnet202008/globalnet202008-9/"},{"id":8,"title":"潮流の速い瀬戸に育まれたタコ","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/feature/made_in_okayama/12"},{"id":9,"title":"干しダコ――もとは漁師の保存食、今は土産物","publisher":"倉敷観光WEB","url":"https://www.kurashiki-tabi.jp/rm_buy/rm-buy140/"},{"id":10,"title":"下津井真だこ 一夜干し――加工品としての新しい工夫","publisher":"倉敷観光WEB","url":"https://www.kurashiki-tabi.jp/rm_buy/rm-buy187/"},{"id":11,"title":"特集・生姜風味のタコまぜ飯と干しダコの歴史","publisher":"倉敷市『クラシキ文華』","url":"https://citysales.city.kurashiki.okayama.jp/special/vol2/vol2_01/"},{"id":12,"title":"下津井とれとれ鮮魚市――干しダコと料理","publisher":"岡山観光WEB","url":"https://www.okayama-kanko.jp/souvenir/detail_10289.html"},{"id":13,"title":"届いてびっくり！ 食べられる便り「多幸メール」","publisher":"RSK山陽放送","url":"https://newsdig.tbs.co.jp/articles/rsk/595991?display=1"},{"id":14,"title":"多幸（たこ）メール人気でーす","publisher":"有限会社信和","url":"https://shimotsui-tako.jp/blog/detail/20231016182349/"}]
 migration: {"status":"generated-copy","publicUrl":"/book/shimotsui-tako-meshi/"}
 editorialPhotoPlacements:
-  - afterHeading: "橋の下で、タコが空を向いている"
+  - afterHeading: "瀬戸大橋の下で、タコが空を向いている"
     afterParagraph: 2
     photoIds: ["photo-shimotsui-dried-octopus"]
 ---
@@ -48,6 +48,6 @@ editorialPhotoPlacements:
 
 2023年、下津井の干しダコを郵送する「多幸（たこ）メール」がテレビで紹介された。干しダコの袋に切手を貼り、宛先とメッセージを書いて送る。受け取った人が驚き、笑顔になるようにと、地元の水産加工会社「信和」が郵便局と協力して考案したものだ。 [13](#source-13) [14](#source-14)
 
-もっとも、報道当時の商品に使われていたのは、漁獲量が減った地元のマダコではなく、ベトナム産のイイダコだった。下津井で育まれた干しダコの文化を、別の海で獲れたタコが伝えている。 [13](https://newsdig.tbs.co.jp/articles/rsk/595991?display=1)
+もっとも、報道当時の商品に使われていたのは、漁獲量が減った地元のマダコではなく、ベトナム産のイイダコだった。下津井で育まれた干しダコの文化を、別の海で獲れたタコが伝えている。 [13](#source-13)
 
 港の潮風に吊るされていたタコが、今度は切手を貼られ、誰かの家へ届く。「多幸」という名前も、あの八本脚の姿も、一度見たら忘れられそうにない。
