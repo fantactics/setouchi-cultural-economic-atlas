@@ -132,6 +132,18 @@ for(const page of ['book/nature','book/culture']){
   const html=assertPage(page);
   assert.ok(html.includes('book/'),`No story links in ${page}`);
 }
+const researchPage=assertPage('chapters');
+assert.ok(researchPage.includes('調査と研究ノート') && researchPage.includes('調査の方法') && researchPage.includes('研究ノート'),'Public research page must include methods and findings');
+assert.ok(researchPage.includes('研究ノートではその過程と結果を残します'),'Research-notes methodology connection missing');
+assert.ok(!researchPage.includes('アトラスの編集方法') && !researchPage.includes('エッセイ→研究ノート更新フロー'),'Internal editorial workflow leaked into research index');
+const footerHtml=researchPage.match(/<footer[\\s\\S]*?<\\/footer>/)?.[0] || researchPage;
+assert.ok(footerHtml.includes('調査と研究ノート'),'Unified footer link missing');
+assert.ok(!footerHtml.includes('編集・調査の方法'),'Old footer label should be removed');
+for(const legacyPage of ['methodology','editorial-methodology','research-workflow']){
+  const retired=assertPage(legacyPage);
+  assert.ok(retired.includes('noindex') && retired.includes('setouchi-atlas.pia2.org/chapters/'), `Retired public page should redirect to research index: ${legacyPage}`);
+  assert.ok(!sitemapUrls.some(url=>url.includes('/'+legacyPage+'/')), `Retired research/editorial page still in sitemap: ${legacyPage}`);
+}
 const homepage=readFileSync(path.join(dist,'index.html'),'utf8');
 for(const fragment of ['初めての3篇','3つの読書の旅','塩田の、その先。']){
   assert.ok(homepage.includes(fragment),`Missing homepage editorial section: ${fragment}`);

@@ -5,6 +5,6 @@ export default defineConfig({
   site: 'https://fantactics.github.io',
   base: '/setouchi-cultural-economic-atlas',
   integrations: [sitemap({
-    filter: (url) => !url.includes('/book/kojima-island-when-ruins-are-not-a-problem/') && !url.includes('/book/after-the-solar-farm/') && !url.includes('/kii/')
+    filter: (url) => !['/book/kojima-island-when-ruins-are-not-a-problem/','/book/after-the-solar-farm/','/editorial-methodology/','/research-workflow/','/methodology/','/kii/'].some((path)=>url.includes(path))
   })]
 });

@@ -81,26 +81,44 @@ const sourceNotes=[
 ];
 
 const methods=[
-  ['地域研究の方法論','/setouchi-cultural-economic-atlas/methodology/'],
   ['動的自然資本','/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/'],
   ['自然資本と暮らしの共通分析フレーム','/setouchi-cultural-economic-atlas/chapters/natural-capital-lifestyle-framework/'],
   ['シクロツーリズム評価プロトコル','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'],
   ['産業研究の自然資本監査','/setouchi-cultural-economic-atlas/chapters/industry-natural-capital-audit/']
 ];
 ---
-<BaseLayout title="研究ノート | SETOUCHI ATLAS" description="瀬戸内の地域比較から、新しい説明・仮説・知見を導く研究ノート。">
+<BaseLayout title="調査と研究ノート | SETOUCHI ATLAS" description="風景の疑問をどう調べ、どう確かめるか。SETOUCHI ATLASの調査方法と、地域比較から得られた研究ノートを紹介します。">
   <section class="research-index-hero">
-    <div class="research-index-kicker">RESEARCH FINDINGS</div>
-    <h1>研究ノート</h1>
-    <p class="research-index-lead">瀬戸内の地域差と時間的変化を比較し、自然条件、人間の応答、暮らし、生業、産業、交通、制度の関係から、地域の成り立ちを説明する知見や仮説を検証します。</p>
+    <div class="research-index-kicker">RESEARCH METHODS & FINDINGS</div>
+    <h1>調査と研究ノート</h1>
+    <p class="research-index-lead">港、島、町並み、食卓。風景から生まれた疑問を、地図や史料、写真、統計、現地の記録で確かめます。その調査の方法と、比較・検証から見えてきたことを一つのページにまとめました。</p>
+  </section>
+
+  <section class="research-methods-intro" id="research-method" aria-labelledby="research-method-title">
+    <div class="research-index-kicker">HOW WE INVESTIGATE</div>
+    <h2 id="research-method-title">調査の方法</h2>
+    <p class="research-methods-lead">美しい風景にも、見慣れた景色にも、まだ気づいていない理由があります。見た目の印象だけで説明せず、自然条件と人の営みを重ね、時代や地域を比べて確かめていきます。</p>
+    <div class="research-methods-grid">
+      <article><span>01</span><h3>風景から問いを立てる</h3><p>現地で目にした地形や建物、仕事の跡から「なぜここにあるのか」を考える。地名や定説を結論として出発しない。</p></article>
+      <article><span>02</span><h3>自然と人の応答を重ねる</h3><p>潮、水、地形、気候、生態系と、農業、漁業、交通、制度、土地改変の関係を読む。自然も人の営みも時間とともに変わる。</p></article>
+      <article><span>03</span><h3>複数の資料で確かめる</h3><p>古地図・航空写真・行政資料・統計・史料・現地観察を照らし合わせる。数値や年代、因果関係は一次資料を優先する。</p></article>
+      <article><span>04</span><h3>土地と時代を比べる</h3><p>似た風景の違いや、同じ土地の過去と現在を比較する。共通する仕組みと、その土地に固有の事情を区別する。</p></article>
+      <article><span>05</span><h3>確かなことと仮説を分ける</h3><p>確認できた事実、資料からの解釈、まだ検証中の仮説を混同しない。反証や新資料があれば説明を改める。</p></article>
+      <article><span>06</span><h3>望ましい未来を先に決めない</h3><p>観光客増加や産業成長を自動的な正解とはしない。誰に何が可能になり、何を失うのかまで目を向ける。</p></article>
+    </div>
+    <p class="research-methods-transition">こうした方法で得られた調査結果や比較、検証可能な仮説を、下の<strong>研究ノート</strong>に整理しています。</p>
+    <div class="research-methods-more" aria-label="詳しい調査手法">
+      <span>関連する分析手法</span>
+      <div class="support-links">{methods.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
+    </div>
   </section>
 
   <section class="research-program-intro">
-    <article><div class="research-program-no">01</div><div><div class="research-program-label">研究目的</div><h2>瀬戸内の地域差から、説明可能な知見を導く</h2><p>個別地域の紹介を積み上げるだけでなく、複数地域・複数時点を比較し、自然条件、人間の応答、暮らし、生業、産業、交通、制度の関係から、他地域にも検証可能な説明や仮説を導きます。</p></div></article>
-    <article><div class="research-program-no">02</div><div><div class="research-program-label">研究ノートの基準</div><h2>「情報がある」ではなく「比較から何かを言える」こと</h2><p>研究ノートでは、①研究上の問い、②比較対象、③根拠、④分析、⑤新しい知見または検証可能な仮説、⑥どこまで言えるか、を明示します。</p></div></article>
+    <article><div class="research-program-no">01</div><div><div class="research-program-label">RESEARCH NOTES</div><h2>調査で見えたことを、研究ノートに</h2><p>一つの地域の発見を、別の土地や時代と照らし合わせてみる。共通性が見つかることも、むしろ違いの理由が明らかになることもあります。研究ノートではその過程と結果を残します。</p></div></article>
+    <article><div class="research-program-no">02</div><div><div class="research-program-label">VERIFIABLE FINDINGS</div><h2>結論だけでなく、根拠と限界も</h2><p>研究上の問い、比較対象、資料、分析、見つかった知見や検証中の仮説を示します。「どこまで確かめられたか」も含め、更新できる調査結果として公開します。</p></div></article>
   </section>
 
-  <section class="research-themes-head"><div class="research-index-kicker">CORE RESEARCH</div><h2>現在の中核研究</h2><p>現時点で比較分析以上まで進んでいるテーマです。各ブロックの冒頭には、現在検証している「知見候補」を置いています。</p></section>
+  <section class="research-themes-head"><div class="research-index-kicker">RESEARCH NOTES</div><h2>研究ノート</h2><p>調査・比較から見えてきたことをテーマごとにまとめています。各ブロックの冒頭には、いま検証している問いと知見候補を記しています。</p></section>
 
   <div class="research-category-list">
     {coreResearch.map(group=><section class="research-category" id={`research-${group.no}`}>
@@ -113,18 +131,24 @@ const methods=[
       <div class="support-links">{sourceNotes.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
     </section>
 
-    <section class="research-category support-block">
-      <header class="research-category-head"><span>A</span><div><h2>研究の方法</h2><p>何をどう見るか、どう比較・評価するかを定める方法論です。研究成果とは分離して扱います。</p></div></header>
-      <div class="support-links">{methods.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
-    </section>
 
-    <section class="research-category support-block editorial-block">
-      <header class="research-category-head"><span>E</span><div><h2>アトラスの編集方法</h2><p>研究内容ではなく、サイトの編集・更新・同期のための内部運用です。研究ノートでは「どう見るか」ではなく、比較と証拠から何がわかったかを主役にし、視点や方法論だけのページは研究の方法へ、既知情報の整理は資料ノートへ分けています。</p></div></header>
-      <div class="support-links"><a href="/setouchi-cultural-economic-atlas/editorial-methodology/">アトラスの編集方法 →</a><a href="/setouchi-cultural-economic-atlas/research-workflow/">エッセイ→研究ノート更新フロー →</a></div>
-    </section>
   </div>
 
   <style>
+    .research-methods-intro{max-width:1120px;margin:0 auto;padding:3.1rem 1.5rem 3.5rem;scroll-margin-top:110px}
+    .research-methods-intro h2{font-size:clamp(1.8rem,3.8vw,2.6rem);margin:.15rem 0 1rem}
+    .research-methods-lead{max-width:860px;line-height:1.95;color:#536e62;font-size:1.03rem}
+    .research-methods-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:1.8rem 0}
+    .research-methods-grid article{border:1px solid #dde8de;background:#fafcf8;padding:21px;border-radius:13px;min-width:0}
+    .research-methods-grid article>span{display:block;color:#ad7456;font-size:.73rem;font-weight:800;letter-spacing:.08em;margin-bottom:8px}
+    .research-methods-grid h3{margin:0 0 8px;font-size:1.08rem;color:#294d40;line-height:1.5}
+    .research-methods-grid article p{margin:0;line-height:1.85;font-size:.88rem;color:#63796f}
+    .research-methods-transition{margin:1.6rem 0;font-size:1.04rem;line-height:1.9;color:#3d6758}
+    .research-methods-more{border-top:1px solid #dae5da;padding-top:20px}
+    .research-methods-more>span{display:block;margin-bottom:11px;font-size:.82rem;font-weight:700;color:#6a7b73}
+    .research-methods-more .support-links{margin-left:0}
+    @media(max-width:880px){.research-methods-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.research-methods-intro{padding:2.6rem 1rem}.research-methods-grid{grid-template-columns:1fr}.research-methods-grid article{padding:17px}}
     .research-index-hero{max-width:1180px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line,#ddd)}.research-index-kicker{font-size:.72rem;letter-spacing:.18em;font-weight:700;opacity:.6;margin-bottom:1.2rem}.research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}.research-index-lead{max-width:860px;font-size:1.18rem;line-height:1.9}.research-program-intro{max-width:1120px;margin:0 auto;padding:2rem 1.5rem 4rem}.research-program-intro>article{display:grid;grid-template-columns:70px 1fr;gap:1.25rem;padding:3rem 0;border-bottom:1px solid var(--line,#ddd)}.research-program-no{font-size:2.2rem;font-weight:800;opacity:.16}.research-program-label{font-size:.72rem;letter-spacing:.14em;font-weight:700;opacity:.55}.research-program-intro h2,.research-themes-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:.3rem 0 1rem}.research-program-intro p,.research-themes-head p{max-width:860px;line-height:1.9}.research-themes-head{max-width:1120px;margin:0 auto;padding:4rem 1.5rem 1rem}.research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}.research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd)}.research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2rem}.research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18}.research-category-head h2{font-size:clamp(1.8rem,3.6vw,3rem);margin:0 0 .8rem;max-width:900px}.research-category-head p{max-width:850px;line-height:1.8;opacity:.78}.research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin-left:90px}.research-note-card{display:flex;flex-direction:column;min-height:190px;padding:1.3rem;text-decoration:none;color:inherit;border:1px solid var(--line,#ddd);background:rgba(255,255,255,.76)}.research-note-card p{font-size:.92rem;line-height:1.7;opacity:.73;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}.support-block{padding-top:3rem}.support-links{display:flex;gap:.6rem;flex-wrap:wrap;margin-left:90px}.support-links a{padding:.7rem .9rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;font-size:.86rem}.editorial-block{opacity:.82}@media(max-width:720px){.research-program-intro>article,.research-category-head{grid-template-columns:1fr}.research-note-grid,.support-links{margin-left:0}.research-index-hero{padding-top:3.5rem}}
   </style>
 </BaseLayout>

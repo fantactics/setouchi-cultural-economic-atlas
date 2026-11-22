@@ -35,6 +35,10 @@ const onomichiSlug = 'onomichi-capital-to-culture-and-ships';
 assert.ok(existsSync(path.join(dist, 'book', onomichiSlug, 'index.html')), 'Onomichi essay was not generated; check storyOrder');
 assert.ok(urls.some((url) => url.includes(`/book/${onomichiSlug}/`)), 'Onomichi essay missing from sitemap');
 assert.ok(urls.some((url) => url.includes('/book/')), 'The essay index must be included');
+assert.ok(urls.some((url)=>url.includes('/chapters/')), 'Research and methods index must be included');
+for(const oldPath of ['methodology','editorial-methodology','research-workflow']){
+  assert.ok(!urls.some((url)=>url.includes('/'+oldPath+'/')), 'Internal or retired page must not be indexed: '+oldPath);
+}
 assert.ok(robots.includes(`Sitemap: ${base}sitemap.xml`), 'robots.txt and sitemap entry point differ');
 
 console.log(`Sitemap verification passed: ${urls.length} URLs, correct GitHub Pages project path, both XML entry points.`);

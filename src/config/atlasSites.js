@@ -17,8 +17,7 @@ export const atlasSites = {
     ],
     footer: [
       { label: 'このサイトについて', path: 'about/' },
-      { label: '編集・調査の方法', path: 'methodology/' },
-      { label: '研究ノート', path: 'chapters/' }
+      { label: '調査と研究ノート', path: 'chapters/' }
     ]
   },
   kii: {
