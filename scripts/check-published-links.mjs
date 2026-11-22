@@ -135,6 +135,7 @@ for(const page of ['book/nature','book/culture']){
 const researchPage=assertPage('chapters');
 assert.ok(researchPage.includes('調査と研究ノート') && researchPage.includes('調査の方法') && researchPage.includes('研究ノート'),'Public research page must include methods and findings');
 assert.ok(researchPage.includes('研究ノートではその過程と結果を残します'),'Research-notes methodology connection missing');
+assert.ok(researchPage.includes('次のエッセイへつながる知見'),'Research index must prioritize writing-useful findings');
 assert.ok(!researchPage.includes('アトラスの編集方法') && !researchPage.includes('エッセイ→研究ノート更新フロー'),'Internal editorial workflow leaked into research index');
 const footerStart=researchPage.indexOf('<footer');
 const footerEnd=researchPage.indexOf('</footer>',footerStart);

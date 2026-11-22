@@ -32,6 +32,8 @@ jobs:
         run: npm run build
       - name: Validate published essay routes, collection and internal links
         run: node scripts/check-published-links.mjs
+      - name: Verify living research notebook coverage and writing references
+        run: node scripts/check-research-notebook.mjs
       - name: Verify essay Google metadata matches published titles
         run: node scripts/check-essay-seo.mjs
       - name: Validate KII content

@@ -1,154 +1,133 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  notebookUpdated,
+  notebookPrinciples,
+  notebookEntries,
+  notebookArchiveGroups
+} from '../../data/researchWritingNotebook.js';
+import '../../styles/research-notebook.css';
 
-const coreResearch = [
-  {
-    no:'01', title:'自然制約への応答は、地域能力をどう形成するか',
-    insight:'自然条件そのものだけでなく、制約への長期的な応答が、技術・制度・共同管理能力として地域に蓄積する可能性を検証する。',
-    items:[
-      ['少雨地域の水貯留と配分制度','讃岐の少雨条件に対し、ため池・水利慣行・広域用水がどのように生活可能性を組み替えたかを比較する。','/setouchi-cultural-economic-atlas/chapters/water-storage-allocation/'],
-      ['地域別・動的自然資本の比較','自然資本の変化と人間の応答を22地域で比較し、同じ自然条件でも異なる地域構造が生まれる理由を探る。','/setouchi-cultural-economic-atlas/chapters/regional-dynamic-natural-capital/']
-    ]
-  },
-  {
-    no:'02', title:'移動量ではなく「停止と滞留」が地域価値を生むのではないか',
-    insight:'交通量や来訪者数が増えても、停止・滞在・消費・関係継続へ変換されなければ地域内に価値は残らない、という仮説を港と観光の双方から検証する。',
-    items:[
-      ['潮待ち港の近代化と機能転換','鞆・御手洗・多度津・尾道を比較し、交通条件の変化後に港町の蓄積が何へ転換されたかを見る。','/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/'],
-      ['一潮五里――瀬戸内の港は、なぜこの間隔で並んだのか','約20kmを固定的な港間距離ではなく、潮汐依存航海の標準的行動レンジと捉え、地乗り・沖乗りによる港湾網の再編を検証する。','/setouchi-cultural-economic-atlas/chapters/one-tide-five-ri-port-network/'],
-      ['消えた瀬戸内の港――地乗り航路の失われたノードを探す','古代・中世の港を現存・移動・内陸化・遺跡化・所在推定に分類し、港湾ネットワーク自体が時間とともに移動する仕組みを検証する。','/setouchi-cultural-economic-atlas/chapters/disappeared-ports-network/'],
-      ['港ではなく、錨地――潮待ち航海を支えた「見えない港」','航海日記の「潮掛り」「沖掛り」から、港町・泊・浦・島陰・沖合錨地を含む停泊可能地ネットワークを復元する。','/setouchi-cultural-economic-atlas/chapters/anchorage-network/'],
-      ['港湾結節機能と都市資産の転換','交通摩擦が生んだ滞留・資本蓄積・都市形成が、交通高速化後にどう再利用されたかを比較する。','/setouchi-cultural-economic-atlas/chapters/port-node-urban-assets/'],
-      ['シクロツーリズムの地域影響と時系列比較','走行者数ではなく、停止・宿泊・消費・再訪・所有・移住・創業への変換を比較する。','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-system/']
-    ]
-  },
-  {
-    no:'03', title:'産業は「工場」ではなく、能力の再結合によって継続するのではないか',
-    insight:'産業転換を企業名や製品の交代としてではなく、技能・設備・資本・土地・港湾・顧客・制度が別用途へ再結合される過程として読む。',
-    items:[
-      ['瀬戸内産業の転換と能力継承','複数産業を横断し、何が失われ、何が次産業へ持ち越されたかを比較する。','/setouchi-cultural-economic-atlas/chapters/setouchi-industrial-transformation/'],
-      ['塩田産業の地域資産継承','赤穂・竹原・坂出・三田尻で、塩業後に土地・港・資本・技術がどう残ったかを比較する。','/setouchi-cultural-economic-atlas/chapters/salt-fields-legacy/'],
-      ['瀬戸内造船産業の形成・集積・再生産構造','造船所単体ではなく、船主・修繕・舶用工業・技能・金融の相互依存から産業集積の再生産を読む。','/setouchi-cultural-economic-atlas/chapters/shipbuilding-system/'],
-      ['瀬戸内の地域資源循環','副産物・廃材・技能・物流を含め、地域内で資源価値が何段階に再利用されるかを比較する。','/setouchi-cultural-economic-atlas/chapters/regional-resource-circulation/']
-    ]
-  },
-  {
-    no:'04', title:'食文化は「名物」ではなく、資源と担い手の再生産系ではないか',
-    insight:'料理名の分布ではなく、海・農地・漁法・加工・流通・調理・食べる場・所得が連結して初めて食文化が継続する、という見方を地域比較で検証する。',
-    items:[
-      ['沿岸食資源の価値形成','自然資源が漁法・養殖・加工・市場・料理を経て地域価値へ変わる経路を比較する。','/setouchi-cultural-economic-atlas/chapters/coastal-food-value-formation/'],
-      ['食文化の再生産構造','資源、担い手、加工、食べる場、記憶、所得が食文化を維持する条件を整理・比較する。','/setouchi-cultural-economic-atlas/chapters/food-culture-reproduction/']
-    ]
-  },
-  {
-    no:'05', title:'人口減少下では「人口」より地域の利用強度を見るべきではないか',
-    insight:'常住人口だけでは地域の実態を捉えられない。所有・滞在・消費・移動・公共負担・外部不経済を分解して、地域がどのように使われているかを測る。',
-    items:[
-      ['小規模離島の利用強度','鴻島等を念頭に、人口の少なさと利用の少なさを分け、別荘・滞在・公共負担を含めて測る。','/setouchi-cultural-economic-atlas/chapters/island-use-intensity/'],
-      ['地域資産の再生産構造','資産価格ではなく、利用・維持・外部性・再利用可能性から地域資産が持続する条件を比較する。','/setouchi-cultural-economic-atlas/chapters/regional-asset-reproduction/'],
-      ['瀬戸内の土地利用ライフサイクル','形成・利用・転換・退出・再利用という時間軸で土地利用を比較する。','/setouchi-cultural-economic-atlas/chapters/land-use-lifecycle/']
-    ]
-  },
-  {
-    no:'06', title:'巨大投資が地域価値を生む条件は「地域接続」にあるのではないか',
-    insight:'投資額や立地件数そのものではなく、地元調達・人材・既存産業・計算資源利用・インフラ外部効果への接続度が地域効果を左右するという仮説を検証する。',
-    items:[
-      ['AIデータセンターの立地・地域接続・適地比較','「立地できるか」と「地域に何が残るか」を分け、瀬戸内の適地性と接続性を比較する。','/setouchi-cultural-economic-atlas/chapters/ai-datacenter-system/'],
-      ['瀬戸内Physical AIエコシステム','計算資源と製造・物流・港湾等の現場需要がどこで接続し得るかを整理する。','/setouchi-cultural-economic-atlas/chapters/physical-ai-player-ecosystem/']
-    ]
-  }
-];
-
-const sourceNotes=[
-  ['瀬戸内海の生命の一年――魚の産卵・成育・回遊','/setouchi-cultural-economic-atlas/chapters/setouchi-life-year/'],
-  ['地形・地理構造','/setouchi-cultural-economic-atlas/chapters/geography/'],
-  ['気候・水循環','/setouchi-cultural-economic-atlas/chapters/climate-water/'],
-  ['海と陸のエコシステム','/setouchi-cultural-economic-atlas/chapters/ecosystems/'],
-  ['自然資源の生業化','/setouchi-cultural-economic-atlas/chapters/livelihoods/'],
-  ['瀬戸内食文化の自然環境基盤','/setouchi-cultural-economic-atlas/chapters/gastronomy-environment/'],
-  ['瀬戸内の港・交通・交易','/setouchi-cultural-economic-atlas/chapters/ports-trade/'],
-  ['児島繊維産業の系譜','/setouchi-cultural-economic-atlas/chapters/kojima-textile-genealogy/'],
-  ['福山デニム産業の系譜','/setouchi-cultural-economic-atlas/chapters/fukuyama-denim-genealogy/'],
-  ['塩業から化学工業への産業転換','/setouchi-cultural-economic-atlas/chapters/shunan-soda-chemical-genealogy/'],
-  ['別子銅山から化学工業への産業系譜','/setouchi-cultural-economic-atlas/chapters/niihama-industrial-genealogy/'],
-  ['タダノの製品革新と志度の生産拠点','/setouchi-cultural-economic-atlas/chapters/tadano-shido-industrial-ecosystem-note/'],
-  ['三浦工業の小型貫流ボイラとサービス網','/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'],
-  ['AI時代の地域計画――学習と計画修正','/setouchi-cultural-economic-atlas/chapters/ai-regional-planning-adaptive-note/'],
-  ['農地転用と営農型太陽光の判断条件','/setouchi-cultural-economic-atlas/chapters/farmland-solar-land-use-note/'],
-  ['錦海塩田跡地の2038年以降の管理課題','/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/'],
-  ['瀬戸内の都市・集落形成','/setouchi-cultural-economic-atlas/chapters/cities/'],
-  ['瀬戸内の信仰・生活文化','/setouchi-cultural-economic-atlas/chapters/culture/']
-];
-
-const methods=[
-  ['動的自然資本','/setouchi-cultural-economic-atlas/chapters/dynamic-natural-capital/'],
-  ['自然資本と暮らしの共通分析フレーム','/setouchi-cultural-economic-atlas/chapters/natural-capital-lifestyle-framework/'],
-  ['シクロツーリズム評価プロトコル','/setouchi-cultural-economic-atlas/chapters/cycle-tourism-evaluation-protocol/'],
-  ['産業研究の自然資本監査','/setouchi-cultural-economic-atlas/chapters/industry-natural-capital-audit/']
-];
+const root='/setouchi-cultural-economic-atlas/';
+const articleUrl=(slug)=>root+'book/'+slug+'/';
+const noteUrl=(slug)=>root+'chapters/'+slug+'/';
 ---
-<BaseLayout title="調査と研究ノート | SETOUCHI ATLAS" description="風景の疑問をどう調べ、どう確かめるか。SETOUCHI ATLASの調査方法と、地域比較から得られた研究ノートを紹介します。">
-  <section class="research-index-hero">
-    <div class="research-index-kicker">RESEARCH METHODS & FINDINGS</div>
-    <h1>調査と研究ノート</h1>
-    <p class="research-index-lead">港、島、町並み、食卓。風景から生まれた疑問を、地図や史料、写真、統計、現地の記録で確かめます。その調査の方法と、比較・検証から見えてきたことを一つのページにまとめました。</p>
-  </section>
+<BaseLayout title="調査と研究ノート | SETOUCHI ATLAS" description="風景から生まれた疑問を調べ、得られた知見と未解決の問いを次のエッセイにつなぐ、更新し続けるSETOUCHI ATLASの研究ノート。">
+  <div class="working-notebook">
+    <header class="working-notebook-hero">
+      <p class="working-notebook-kicker">QUESTIONS FROM THE LANDSCAPE</p>
+      <h1>調査と研究ノート</h1>
+      <p class="working-notebook-lead">風景の不思議から始め、地図や史料をたどり、別の土地と比べてみる。調べてわかったことも、まだわからないことも、次の旅とエッセイの手掛かりとして残していきます。</p>
+      <nav class="working-notebook-shortcuts" aria-label="このページの目次">
+        <a href="#research-method">調査の姿勢</a>
+        <a href="#research-findings">蓄積された知見</a>
+        <a href="#research-library">研究・資料ノート</a>
+      </nav>
+    </header>
 
-  <section class="research-methods-intro" id="research-method" aria-labelledby="research-method-title">
-    <div class="research-index-kicker">HOW WE INVESTIGATE</div>
-    <h2 id="research-method-title">調査の方法</h2>
-    <p class="research-methods-lead">美しい風景にも、見慣れた景色にも、まだ気づいていない理由があります。見た目の印象だけで説明せず、自然条件と人の営みを重ね、時代や地域を比べて確かめていきます。</p>
-    <div class="research-methods-grid">
-      <article><span>01</span><h3>風景から問いを立てる</h3><p>現地で目にした地形や建物、仕事の跡から「なぜここにあるのか」を考える。地名や定説を結論として出発しない。</p></article>
-      <article><span>02</span><h3>自然と人の応答を重ねる</h3><p>潮、水、地形、気候、生態系と、農業、漁業、交通、制度、土地改変の関係を読む。自然も人の営みも時間とともに変わる。</p></article>
-      <article><span>03</span><h3>複数の資料で確かめる</h3><p>古地図・航空写真・行政資料・統計・史料・現地観察を照らし合わせる。数値や年代、因果関係は一次資料を優先する。</p></article>
-      <article><span>04</span><h3>土地と時代を比べる</h3><p>似た風景の違いや、同じ土地の過去と現在を比較する。共通する仕組みと、その土地に固有の事情を区別する。</p></article>
-      <article><span>05</span><h3>確かなことと仮説を分ける</h3><p>確認できた事実、資料からの解釈、まだ検証中の仮説を混同しない。反証や新資料があれば説明を改める。</p></article>
-      <article><span>06</span><h3>望ましい未来を先に決めない</h3><p>観光客増加や産業成長を自動的な正解とはしない。誰に何が可能になり、何を失うのかまで目を向ける。</p></article>
-    </div>
-    <p class="research-methods-transition">こうした方法で得られた調査結果や比較、検証可能な仮説を、下の<strong>研究ノート</strong>に整理しています。</p>
-    <div class="research-methods-more" aria-label="詳しい調査手法">
-      <span>関連する分析手法</span>
-      <div class="support-links">{methods.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
-    </div>
-  </section>
-
-  <section class="research-program-intro">
-    <article><div class="research-program-no">01</div><div><div class="research-program-label">RESEARCH NOTES</div><h2>調査で見えたことを、研究ノートに</h2><p>一つの地域の発見を、別の土地や時代と照らし合わせてみる。共通性が見つかることも、むしろ違いの理由が明らかになることもあります。研究ノートではその過程と結果を残します。</p></div></article>
-    <article><div class="research-program-no">02</div><div><div class="research-program-label">VERIFIABLE FINDINGS</div><h2>結論だけでなく、根拠と限界も</h2><p>研究上の問い、比較対象、資料、分析、見つかった知見や検証中の仮説を示します。「どこまで確かめられたか」も含め、更新できる調査結果として公開します。</p></div></article>
-  </section>
-
-  <section class="research-themes-head"><div class="research-index-kicker">RESEARCH NOTES</div><h2>研究ノート</h2><p>調査・比較から見えてきたことをテーマごとにまとめています。各ブロックの冒頭には、いま検証している問いと知見候補を記しています。</p></section>
-
-  <div class="research-category-list">
-    {coreResearch.map(group=><section class="research-category" id={`research-${group.no}`}>
-      <header class="research-category-head"><span>{group.no}</span><div><h2>{group.title}</h2><p>{group.insight}</p></div></header>
-      <div class="research-note-grid core-grid">{group.items.map(item=><a class="research-note-card" href={item[2]}><strong>{item[0]}</strong><p>{item[1]}</p><span>分析を見る →</span></a>)}</div>
-    </section>)}
-
-    <section class="research-category support-block">
-      <header class="research-category-head"><span>B</span><div><h2>資料ノート</h2><p>研究の材料となる既知情報・地域史・自然条件・産業系譜の整理です。これ自体を研究成果とは扱いません。</p></div></header>
-      <div class="support-links">{sourceNotes.map(item=><a href={item[1]}>{item[0]} →</a>)}</div>
+    <section class="working-notebook-method" id="research-method" aria-labelledby="working-notebook-method-title">
+      <div class="working-notebook-heading">
+        <p class="working-notebook-kicker">OUR APPROACH</p>
+        <h2 id="working-notebook-method-title">調査の姿勢</h2>
+        <p>四つの共通姿勢だけを置きます。観光、産業、食文化などに固有の評価手法を、すべてのエッセイの原則にはしません。</p>
+      </div>
+      <div class="working-notebook-principles">
+        {notebookPrinciples.map(([title,body],index)=>(
+          <article>
+            <span>{String(index+1).padStart(2,'0')}</span>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
+    <section class="working-notebook-knowledge" id="research-findings" aria-labelledby="working-notebook-knowledge-title">
+      <div class="working-notebook-heading">
+        <p class="working-notebook-kicker">A GROWING LIBRARY OF FINDINGS</p>
+        <h2 id="working-notebook-knowledge-title">次のエッセイへつながる知見</h2>
+        <p>完成した理論の一覧ではありません。既存のエッセイを通じて見えてきたことと、今後の調査で確かめたいことを、テーマごとに蓄積しています。各項目の根拠は、リンク先のエッセイと研究ノートを参照できます。</p>
+      </div>
+      <nav class="working-notebook-topic-nav" aria-label="知見のテーマ">
+        {notebookEntries.map((entry)=><a href={'#note-'+entry.id}>{entry.title}</a>)}
+      </nav>
 
+      <div class="working-notebook-topics">
+        {notebookEntries.map((entry,index)=>(
+          <details class="working-notebook-topic" id={'note-'+entry.id} open={index===0}>
+            <summary>
+              <span class="working-notebook-topic-number">{String(index+1).padStart(2,'0')}</span>
+              <span class="working-notebook-topic-summary">
+                <strong>{entry.title}</strong>
+                <small>{entry.question}</small>
+              </span>
+              <span class="working-notebook-topic-toggle" aria-hidden="true">＋</span>
+            </summary>
+            <div class="working-notebook-topic-body">
+              <div class="working-notebook-topic-columns">
+                <section>
+                  <h4>現時点で見えていること</h4>
+                  <p>{entry.finding}</p>
+                </section>
+                <section>
+                  <h4>次に確かめたいこと</h4>
+                  <ul>{entry.next.map((q)=><li>{q}</li>)}</ul>
+                </section>
+              </div>
+              <div class="working-notebook-writing-prompt"><strong>次の執筆に使うなら</strong><p>{entry.use}</p></div>
+              <div class="working-notebook-reference-grid">
+                <section>
+                  <h4>発見の入口になったエッセイ</h4>
+                  <ul>{entry.essays.map(([title,slug])=>(
+                    <li><a href={articleUrl(slug)}>{title}<span aria-hidden="true">↗</span></a></li>
+                  ))}</ul>
+                </section>
+                <section>
+                  <h4>関連する研究・比較資料</h4>
+                  <ul>{entry.research.map(([title,slug])=>(
+                    <li><a href={noteUrl(slug)}>{title}<span aria-hidden="true">↗</span></a></li>
+                  ))}</ul>
+                </section>
+              </div>
+              {entry.sources.length>0 && (
+                <div class="working-notebook-primary-sources">
+                  <h4>一次資料への入口</h4>
+                  {entry.sources.map(([title,url])=><a href={url} target="_blank" rel="noopener noreferrer">{title}<span aria-hidden="true">↗</span></a>)}
+                </div>
+              )}
+            </div>
+          </details>
+        ))}
+      </div>
+      <p class="working-notebook-updated">知見カードの整理日：<time datetime={notebookUpdated}>{notebookUpdated}</time>。調査の進展に応じて内容を更新します。</p>
+    </section>
+
+    <section class="working-notebook-library" id="research-library" aria-labelledby="working-notebook-library-title">
+      <div class="working-notebook-heading">
+        <p class="working-notebook-kicker">REFERENCE & SPECIALIST NOTES</p>
+        <h2 id="working-notebook-library-title">研究・資料ノートの書架</h2>
+        <p>個別の比較研究や初期の資料、観光・産業・地域政策の専門的な分析手法は、ここから参照できます。専門的なモデルは適用できる分野でだけ使い、新しい風景に当てはめるための定説とはしません。</p>
+      </div>
+      <div class="working-notebook-library-groups">
+        {notebookArchiveGroups.map((group)=>(
+          <details class="working-notebook-library-group">
+            <summary>
+              <span>{group.title}</span>
+              <small>{group.items.length}件</small>
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <ul>
+              {group.items.map(([title,slug])=><li><a href={noteUrl(slug)}>{title}<span aria-hidden="true">↗</span></a></li>)}
+            </ul>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="working-notebook-end">
+      <h2>知見は、次の風景へ</h2>
+      <p>一つの地域を調べると、別の土地を訪ねたくなる。研究ノートではその過程と結果を残します。新しい事実が出てくれば、以前の説明も更新していきます。</p>
+      <a href="/setouchi-cultural-economic-atlas/book/">エッセイから旅を始める <span aria-hidden="true">↗</span></a>
+    </section>
   </div>
-
-  <style>
-    .research-methods-intro{max-width:1120px;margin:0 auto;padding:3.1rem 1.5rem 3.5rem;scroll-margin-top:110px}
-    .research-methods-intro h2{font-size:clamp(1.8rem,3.8vw,2.6rem);margin:.15rem 0 1rem}
-    .research-methods-lead{max-width:860px;line-height:1.95;color:#536e62;font-size:1.03rem}
-    .research-methods-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:1.8rem 0}
-    .research-methods-grid article{border:1px solid #dde8de;background:#fafcf8;padding:21px;border-radius:13px;min-width:0}
-    .research-methods-grid article>span{display:block;color:#ad7456;font-size:.73rem;font-weight:800;letter-spacing:.08em;margin-bottom:8px}
-    .research-methods-grid h3{margin:0 0 8px;font-size:1.08rem;color:#294d40;line-height:1.5}
-    .research-methods-grid article p{margin:0;line-height:1.85;font-size:.88rem;color:#63796f}
-    .research-methods-transition{margin:1.6rem 0;font-size:1.04rem;line-height:1.9;color:#3d6758}
-    .research-methods-more{border-top:1px solid #dae5da;padding-top:20px}
-    .research-methods-more>span{display:block;margin-bottom:11px;font-size:.82rem;font-weight:700;color:#6a7b73}
-    .research-methods-more .support-links{margin-left:0}
-    @media(max-width:880px){.research-methods-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:600px){.research-methods-intro{padding:2.6rem 1rem}.research-methods-grid{grid-template-columns:1fr}.research-methods-grid article{padding:17px}}
-    .research-index-hero{max-width:1180px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line,#ddd)}.research-index-kicker{font-size:.72rem;letter-spacing:.18em;font-weight:700;opacity:.6;margin-bottom:1.2rem}.research-index-hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;margin:0 0 1.5rem}.research-index-lead{max-width:860px;font-size:1.18rem;line-height:1.9}.research-program-intro{max-width:1120px;margin:0 auto;padding:2rem 1.5rem 4rem}.research-program-intro>article{display:grid;grid-template-columns:70px 1fr;gap:1.25rem;padding:3rem 0;border-bottom:1px solid var(--line,#ddd)}.research-program-no{font-size:2.2rem;font-weight:800;opacity:.16}.research-program-label{font-size:.72rem;letter-spacing:.14em;font-weight:700;opacity:.55}.research-program-intro h2,.research-themes-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:.3rem 0 1rem}.research-program-intro p,.research-themes-head p{max-width:860px;line-height:1.9}.research-themes-head{max-width:1120px;margin:0 auto;padding:4rem 1.5rem 1rem}.research-category-list{max-width:1180px;margin:0 auto;padding:0 1.5rem 6rem}.research-category{padding:4rem 0;border-top:1px solid var(--line,#ddd)}.research-category-head{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;margin-bottom:2rem}.research-category-head>span{font-size:2.6rem;font-weight:700;opacity:.18}.research-category-head h2{font-size:clamp(1.8rem,3.6vw,3rem);margin:0 0 .8rem;max-width:900px}.research-category-head p{max-width:850px;line-height:1.8;opacity:.78}.research-note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin-left:90px}.research-note-card{display:flex;flex-direction:column;min-height:190px;padding:1.3rem;text-decoration:none;color:inherit;border:1px solid var(--line,#ddd);background:rgba(255,255,255,.76)}.research-note-card p{font-size:.92rem;line-height:1.7;opacity:.73;flex:1}.research-note-card span{font-size:.8rem;font-weight:700}.support-block{padding-top:3rem}.support-links{display:flex;gap:.6rem;flex-wrap:wrap;margin-left:90px}.support-links a{padding:.7rem .9rem;border:1px solid var(--line,#ddd);text-decoration:none;color:inherit;font-size:.86rem}.editorial-block{opacity:.82}@media(max-width:720px){.research-program-intro>article,.research-category-head{grid-template-columns:1fr}.research-note-grid,.support-links{margin-left:0}.research-index-hero{padding-top:3.5rem}}
-  </style>
 </BaseLayout>
