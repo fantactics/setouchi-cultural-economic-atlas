@@ -5998,7 +5998,7 @@ bookArticles.push({
 bookArticles.push({
   "slug": "setouchi-250-submarine-caldrons",
   "part": "海と島",
-  "title": "潮が速い海で、渦潮が生まれる場所",
+  "title": "渦潮が生まれる海峡と生まれない海峡",
   "subtitle": "鳴門、来島、大畠――水面の違いをたどると、海底に250の海釜が現れる",
   "cities": [
     "鳴門",
