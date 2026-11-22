@@ -136,7 +136,9 @@ const researchPage=assertPage('chapters');
 assert.ok(researchPage.includes('調査と研究ノート') && researchPage.includes('調査の方法') && researchPage.includes('研究ノート'),'Public research page must include methods and findings');
 assert.ok(researchPage.includes('研究ノートではその過程と結果を残します'),'Research-notes methodology connection missing');
 assert.ok(!researchPage.includes('アトラスの編集方法') && !researchPage.includes('エッセイ→研究ノート更新フロー'),'Internal editorial workflow leaked into research index');
-const footerHtml=researchPage.match(/<footer[\\s\\S]*?<\\/footer>/)?.[0] || researchPage;
+const footerStart=researchPage.indexOf('<footer');
+const footerEnd=researchPage.indexOf('</footer>',footerStart);
+const footerHtml=footerStart>=0 && footerEnd>footerStart ? researchPage.slice(footerStart,footerEnd+9) : researchPage;
 assert.ok(footerHtml.includes('調査と研究ノート'),'Unified footer link missing');
 assert.ok(!footerHtml.includes('編集・調査の方法'),'Old footer label should be removed');
 for(const legacyPage of ['methodology','editorial-methodology','research-workflow']){
