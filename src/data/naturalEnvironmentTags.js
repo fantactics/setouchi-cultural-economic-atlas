@@ -107,7 +107,7 @@ export const naturalConditionAnchors = {
   'tomo-two-act-tidal-port':['潮汐','季節風'],
   'gangi-tide-port-functions':['潮汐'],
   'jinori-okinori-navigation-system':['潮汐','季節風'],
-  'setouchi-shrimp-middle-layer':['砂底','潮流'],
+  'setouchi-shrimp-middle-layer':['潮汐','河口','塩分'],
   'setouchi-life-year':['水温','干潟','アマモ場'],
   'setouchi-itinerant-trade-boats':['斜面','潮汐','季節風'],
   'setouchi-ship-materials':['多島海'],
