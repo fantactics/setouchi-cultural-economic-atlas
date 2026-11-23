@@ -52,8 +52,12 @@ const researchSynthesis = synthesisLayers.length
     }), {points:[],essays:[]})
   : null;
 const isHome = pathname === baseUrl || pathname === baseUrl.slice(0,-1);
-const pageTitle = seoTitle || (isHome ? siteTitle : title.includes(atlasSite.name) ? title.replaceAll(atlasSite.name,siteTitle) : `${title} | ${siteTitle}`);
 const isEssayDetail = pathname.startsWith(`${baseUrl}book/`) && /^book\/[^/]+\/?$/.test(pathname.slice(baseUrl.length));
+// Essay browser-tab titles follow the same source as the visible H1.
+// Search-intent wording belongs in the description, not a competing title.
+const pageTitle = isEssayDetail
+  ? `${title}｜${atlasSite.name}`
+  : seoTitle || (isHome ? siteTitle : title.includes(atlasSite.name) ? title.replaceAll(atlasSite.name,siteTitle) : `${title} | ${siteTitle}`);
 const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
 const dataPrefixes = [
