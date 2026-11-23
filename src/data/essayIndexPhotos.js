@@ -68,7 +68,7 @@ export const essayCardPhotoContext = {
   "oyster-shells-where-they-go": "米国の牡蠣殻集積（広島ではない比較写真）",
   "kojima-jeans-circular-economy": "児島のジーンズストリート（ノーリベット製品ではありません）",
   "hijiki-tidal-time": "岩礁に生えるヒジキの姿（沖家室島の採集現場ではありません）",
-  "setouchi-shrimp-middle-layer": "ヨシエビの参考写真",
+  "setouchi-shrimp-middle-layer": "児島湾の四つ手網小屋（写真AC／ユーザー提供）",
   "mikan-slope-and-varieties": "狩浜の石積み柑橘段畑（比較景観）",
   "tai-meshi-two-seas": "宇和島鯛めし",
   "setouchi-itinerant-trade-boats": "1911年頃の瀬戸内画（行商船の実写ではありません）",
