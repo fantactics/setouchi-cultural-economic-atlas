@@ -14,6 +14,12 @@
 
 ママカリの正式な名前はサッパ。岡山では酢漬けや寿司にして食べる、なじみ深い魚だ。
 
+<figure class="atlas-inline-photo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sardinella%20zunasi%20Shibukawa.jpg?width=1200" alt="サッパ（ママカリ）の水中での姿。岡山県玉野市・渋川マリン水族館の展示個体" loading="lazy" decoding="async" />
+  <figcaption>サッパ（ママカリ）。岡山県の渋川マリン水族館で撮影された展示個体。写真：<a href="https://commons.wikimedia.org/wiki/File:Sardinella_zunasi_Shibukawa.jpg">Totti / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>、未改変）。</figcaption>
+</figure>
+
+
 岡山県漁業協同組合連合会の藤井義弘さんは、秋になると沿岸にアキアミが群れ、それを追ってママカリが沖から湾内へ、さらに河口の汽水域へとやって来ると書いている。岡山県の観光案内にも、秋のママカリはアキアミをたくさん食べて脂がのる、とある。 [2](https://www.seto.or.jp/upload/publish/sogoshi/88/s88_20.pdf) [3](https://www.okayama-kanko.jp/spot/detail_11977.html)
 
 四つ手網に入る二つの小さな生きものは、海中では食べるものと食べられるものだった。
@@ -58,3 +64,10 @@
 - 幼生が夏に県東部、秋に広域へ出現することは、同一個体の東西移動を示すものではない。
 - 湧昇流、海底砂地、栄養塩不足の直接の因果、児島湖締切による減少の因果は本文では採用しなかった。
 - 写真は候補確認のみであり転載の許諾未取得。公開記事の写真差し替え・タイトル変更は未実施。
+
+## 無料写真の掲載準備（本文外）
+
+- 四つ手網のヒーロー写真：写真AC「岡山県児島湾の四つ手網小屋」（right-w）。候補は存在し、写真ACの通常無料ダウンロード対象。ただしアカウントで正規のダウンロードが必要なため、この初稿にはまだ挿入していない。素材のページ：https://www.photo-ac.com/main/search?q=%E5%9B%9B%E3%81%A4%E6%89%8B%E7%B6%B2
+- アキアミ生体の写真：無料で種同定と再利用条件がともに確認できる候補はまだ確定できていない。写真ACの「アキアミ」名義の素材も確認はできるが、生体か加工品か、および正規取得の有無を要確認。https://www.photo-ac.com/main/search?q=%E3%82%A2%E3%82%AD%E3%82%A2%E3%83%9F
+- ママカリの写真：実際に無料で再利用できるWikimedia Commonsファイル（Totti、CC BY-SA 4.0）を「ママカリは、アミを追って来る」節の本文に挿入済み。写真は水族館の展示個体であって、児島湾の四つ手網から採集した個体ではない。
+- 出版原稿には画像を反映していない。写真ACの閲覧用画像を無断コピーしたり、費用を支払ったりしていない。
