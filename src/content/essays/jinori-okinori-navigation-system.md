@@ -1,8 +1,8 @@
 ---
 slug: "jinori-okinori-navigation-system"
 part: "なぜ、船はここで止まったのか"
-title: "同じ海に、二つの道があった"
-subtitle: "山陽沿岸をたどる地乗り、島々の間を抜ける沖乗り。港の役割を変えた船の選択"
+title: "船が選ぶ道が変わると、港町の運命も変わった"
+subtitle: "尾道を通る地乗り、御手洗へ向かう沖乗り――瀬戸内の二つの航路"
 cities: ["尾道","鞆の浦","三之瀬","御手洗","芸予諸島"]
 keywords: ["地乗り","沖乗り","芸予諸島","鼻栗瀬戸","弓削瀬戸","木綿帆","潮流","尾道水道","御手洗","三之瀬","西廻り航路"]
 heroPhoto: {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Onomichi.JPG?width=1400","alt":"向島側から望む尾道水道。山と島に挟まれた海に町と港が続く","title":"尾道水道――山陽沿岸をたどる海の道","caption":"狭い水道に港と町が重なる尾道。ここから島々の内側を通る航路へも目を向けてみる。","author":"Vickerman625","sourcePage":"https://commons.wikimedia.org/wiki/File:Onomichi.JPG","license":"Public Domain","licenseUrl":"https://creativecommons.org/publicdomain/mark/1.0/","credit":"Vickerman625 / Public Domain"}
