@@ -9,7 +9,7 @@ heroPhotoId: "photo-mihara-castle-station"
 lead: "三原駅のそばには、城の石垣と堀が残る。新幹線の高架を背負うこの城は、かつて瀬戸内海の航路を押さえる重要な海城だった。なぜ、城を削ってまで鉄道を通したのか。便利な交通を迎えた町が得たものと、失った風景をたどる。"
 provisionalConclusion: "三原の海城と鉄道は、山と海に挟まれた狭い平地と、沼田川河口を通じる海上交通を背景に同じ場所を利用した。城郭跡の鉄道転用と石垣の港湾資材化、海岸の埋立は近代の交通・産業用地への再配分を示す。ただし鉄道ルート選定の個別の意思決定過程は未確認。"
 openQuestions: ["1894年の山陽鉄道の三原駅経路選定について、用地買収や代替ルートを示す一次資料があるか","城跡から撤去された石垣が糸崎港のどの部分に再利用されたか確認できるか","明治期と現在の海岸線、城郭域と駅の土地利用を地図で重ね合わせられるか"]
-sources: [{"id":1,"title":"三原内港再生基本計画","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/uploaded/attachment/125594.pdf"},{"id":2,"title":"三原市の歴史文化の特徴――近代工業都市「三原」への道程","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/uploaded/life/165897_534375_misc.pdf"},{"id":5,"title":"自然条件","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/soshiki/4/gaiyo2.html"},{"id":6,"title":"城下町三原で城跡＆寺社めぐり","publisher":"三原市観光サイト","url":"https://www.city.mihara.hiroshima.jp/kankou/mihara.html"},{"id":7,"title":"専門家から見た三原城（中井均教授インタビュー）","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/soshiki/4/shiro-interview-n.html"},{"id":8,"title":"三原駅の駅舎変遷（レファレンス事例）","publisher":"国立国会図書館レファレンス協同データベース","url":"https://crd.ndl.go.jp/reference/entry/reference/show?asc=desc&dtltbs=1&fi=8_21+5_%E7%A4%BE%E4%BC%9A%E4%BA%BA&id=1000068148&ldtl=1&mcmd=25&page=ref_view&pg=5&st=update&state=2200000035"},{"id":9,"title":"城郭を転用した鉄道施設の歴史","publisher":"乗りものニュース","url":"https://trafficnews.jp/post/81786"},{"id":10,"title":"三原の町の移り変わり","publisher":"全国市長会館","url":"https://www.toshikaikan.or.jp/shisei/2022/pdf/202205/2022_05_transition.pdf"},{"id":11,"title":"小早川氏城跡（三原城跡）・保存と整備の経緯","publisher":"文化庁・国指定文化財等データベース","url":"https://online.bunka.go.jp/db/heritages/detail/172995"}]
+sources: [{"id":1,"title":"三原内港再生基本計画","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/uploaded/attachment/125594.pdf"},{"id":2,"title":"三原市の歴史文化の特徴――近代工業都市「三原」への道程","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/uploaded/life/165897_534375_misc.pdf"},{"id":3,"title":"自然条件","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/soshiki/4/gaiyo2.html"},{"id":4,"title":"城下町三原で城跡＆寺社めぐり","publisher":"三原市観光サイト","url":"https://www.city.mihara.hiroshima.jp/kankou/mihara.html"},{"id":5,"title":"専門家から見た三原城（中井均教授インタビュー）","publisher":"三原市","url":"https://www.city.mihara.hiroshima.jp/soshiki/4/shiro-interview-n.html"},{"id":6,"title":"三原駅の駅舎変遷（レファレンス事例）","publisher":"国立国会図書館レファレンス協同データベース","url":"https://crd.ndl.go.jp/reference/entry/reference/show?asc=desc&dtltbs=1&fi=8_21+5_%E7%A4%BE%E4%BC%9A%E4%BA%BA&id=1000068148&ldtl=1&mcmd=25&page=ref_view&pg=5&st=update&state=2200000035"},{"id":7,"title":"城郭を転用した鉄道施設の歴史","publisher":"乗りものニュース","url":"https://trafficnews.jp/post/81786"},{"id":8,"title":"三原の町の移り変わり","publisher":"全国市長会館","url":"https://www.toshikaikan.or.jp/shisei/2022/pdf/202205/2022_05_transition.pdf"},{"id":9,"title":"小早川氏城跡（三原城跡）・保存と整備の経緯","publisher":"文化庁・国指定文化財等データベース","url":"https://online.bunka.go.jp/db/heritages/detail/172995"}]
 migration: {"status":"generated-copy","publicUrl":"/book/mihara-castle-to-multimodal-city/"}
 editorialPhotoPlacements:
   - afterHeading: "船のためにつくった海城"
@@ -28,7 +28,7 @@ editorialPhotoPlacements:
 
 古い城の隣に、あとから駅ができたのだろう。
 
-ところが、実際はもっと思い切った話だった。**山陽鉄道は三原城の本丸を貫き、そこに駅をつくった。** 城の一部は線路に場所を譲り、石垣も多くが取り壊された。 [8](#source-8) [9](#source-9)
+ところが、実際はもっと思い切った話だった。**山陽鉄道は三原城の本丸を貫き、そこに駅をつくった。** 城の一部は線路に場所を譲り、石垣も多くが取り壊された。 [6](#source-6) [7](#source-7)
 
 今は列車が行き交う町の玄関口。かつては瀬戸内海の交通を押さえる、大切な城だった。
 
@@ -36,11 +36,11 @@ editorialPhotoPlacements:
 
 ## 船のためにつくった海城
 
-三原は北に山、南に瀬戸内海が迫る、細長い平地にある。いまは駅や商店街が並ぶ場所も、昔は海がもっと近かった。 [5](#source-5)
+三原は北に山、南に瀬戸内海が迫る、細長い平地にある。いまは駅や商店街が並ぶ場所も、昔は海がもっと近かった。 [3](#source-3)
 
-1567年、小早川隆景が築き始めた三原城は、海に面した島々をつないでつくった「海城」だ。船の出入りを考え、瀬戸内海の航路を押さえるための拠点だった。 [6](#source-6) [7](#source-7)
+1567年、小早川隆景が築き始めた三原城は、海に面した島々をつないでつくった「海城」だ。船の出入りを考え、瀬戸内海の航路を押さえるための拠点だった。 [4](#source-4) [5](#source-5)
 
-山上の城とは、地形の使い方が違う。船が行き交う海のそばに城を置き、水運を味方につけた。南側には海が迫り、「浮城」と呼ばれたのも、その姿からだった。 [6](#source-6)
+山上の城とは、地形の使い方が違う。船が行き交う海のそばに城を置き、水運を味方につけた。南側には海が迫り、「浮城」と呼ばれたのも、その姿からだった。 [4](#source-4)
 
 城と港は、一体だったのである。
 
@@ -48,19 +48,19 @@ editorialPhotoPlacements:
 
 時代は明治へ移る。船だけでなく、鉄道が大量の人や荷物を運ぶようになった。
 
-1892年に山陽鉄道は現在の糸崎駅のあたりまで延び、1894年、広島方面への延伸にあわせて三原駅が開業した。駅が置かれたのは、三原城の本丸跡だった。 [2](#source-2) [8](#source-8)
+1892年に山陽鉄道は現在の糸崎駅のあたりまで延び、1894年、広島方面への延伸にあわせて三原駅が開業した。駅が置かれたのは、三原城の本丸跡だった。 [2](#source-2) [6](#source-6)
 
-鉄道にとって必要なのは、列車が走れる連続した土地と、駅を置ける場所だ。三原では北が山、南が海。城下町のほかに平地がたくさんあるわけではない。 [5](#source-5)
+鉄道にとって必要なのは、列車が走れる連続した土地と、駅を置ける場所だ。三原では北が山、南が海。城下町のほかに平地がたくさんあるわけではない。 [3](#source-3)
 
 城郭を避ける別ルートが検討されたのか、町の人々がどう受け止めたのか。現在参照できる資料からは、その議論をたどれない。
 
-記録に残るのは、山陽鉄道の延伸によって本丸跡が駅用地となり、城の石垣や曲輪が失われたという結果だ。**海上交通のために築かれた城の場所を、今度は陸上交通が使った。** [2](#source-2) [11](#source-11)
+記録に残るのは、山陽鉄道の延伸によって本丸跡が駅用地となり、城の石垣や曲輪が失われたという結果だ。**海上交通のために築かれた城の場所を、今度は陸上交通が使った。** [2](#source-2) [9](#source-9)
 
 ## 石垣までも、次の時代の材料になった
 
 三原城の受難は、線路だけでは終わらなかった。
 
-鉄道の建設で取り外された石垣の石は、糸崎港の整備にも再利用されたとされる。 [9](#source-9)
+鉄道の建設で取り外された石垣の石は、糸崎港の整備にも再利用されたとされる。 [7](#source-7)
 
 城を守った石が、船を迎える港の材料になる。
 
@@ -74,12 +74,12 @@ editorialPhotoPlacements:
 
 在来線が城を貫いたのは明治だが、鉄道の時代はそこで終わらない。
 
-1975年には山陽新幹線の三原駅が開業し、1991年には在来線も高架になった。三原城のすぐそばに、さらに大きな交通施設が重なった。 [6](#source-6) [10](#source-10)
+1975年には山陽新幹線の三原駅が開業し、1991年には在来線も高架になった。三原城のすぐそばに、さらに大きな交通施設が重なった。 [4](#source-4) [8](#source-8)
 
-城跡がまったく顧みられなかったわけではない。残る石垣や堀の一部は史跡として保存された。文化庁の資料には、新幹線建設への同意や、その後の再開発での保存協議の経緯も記されている。 [11](#source-11)
+城跡がまったく顧みられなかったわけではない。残る石垣や堀の一部は史跡として保存された。文化庁の資料には、新幹線建設への同意や、その後の再開発での保存協議の経緯も記されている。 [9](#source-9)
 
 ただ、城の全体を取り戻すことはできなかった。
 
-石垣の向こうを列車が走り、その上を新幹線が通る。城郭の大部分は失われたが、駅のすぐ隣には天主台と堀が残された。鉄道の利便と城跡の保存は、時代ごとに異なる形で重ねられてきた。 [6](#source-6) [11](#source-11)
+石垣の向こうを列車が走り、その上を新幹線が通る。城郭の大部分は失われたが、駅のすぐ隣には天主台と堀が残された。鉄道の利便と城跡の保存は、時代ごとに異なる形で重ねられてきた。 [4](#source-4) [9](#source-9)
 
 改札からすぐの天主台跡は、単なる「駅前の城跡」ではない。三原が新しい交通を受け入れるたびに、城が少しずつ場所を譲ってきた、その残りなのだ。

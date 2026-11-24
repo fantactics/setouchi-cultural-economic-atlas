@@ -9,7 +9,7 @@ heroPhotoId: "photo-mitarai-panorama"
 lead: "大崎下島の東端、御手洗の港には、海へ下りる石段が残る。そのすぐ後ろには商家、船宿、茶屋が肩を寄せ合う細い路地。広い平地も農地も乏しい島の端に、なぜこれほどの町が生まれたのだろう。港の前の静かな水面と、石段から続く町並みを手がかりに、ここへ寄った船の時間をたどってみる。"
 provisionalConclusion: "御手洗は島陰の静かな港という自然条件だけで発展したのではない。近世の帆走技術の向上と沖乗り・西廻り航路の拡大が寄港地としての地位を生み、潮待ち・風待ちの滞在が補給、荷役、取引、宿泊、修船などの需要を生んだ。狭い土地に町家と路地が密集し、競争に対応して港を埋立・整備した。汽船・鉄道の普及後も港の改修は続いたが、交通体系の変化は止められず、建物と港湾施設が今日の景観として残った。"
 openQuestions: ["1666年以降の沖乗り航路と御手洗の寄港記録を史料で照合できるか","1829年千砂子波止の費用負担と船舶誘致効果を確認できるか","船宿・茶屋・荷役・船たでの各収入の構成を比較できるか"]
-sources: [{"id":1,"title":"呉市豊町御手洗伝統的建造物群保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html"},{"id":2,"title":"豊町御手洗の旧金子家住宅・御手洗の歴史","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/kanekoke/"},{"id":3,"title":"潮待ち・風待ちの港町、御手洗","publisher":"呉市","url":"https://www.city.kure.lg.jp/uploaded/attachment/46533.pdf"},{"id":4,"title":"御手洗町並み保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/67/m000200.html"},{"id":5,"title":"瀬戸内海航路と御手洗――地乗り・沖乗りと港の仕事","publisher":"JR西日本","url":"https://www.westjr.co.jp/company/info/issue/bsignal/04_vol_94/feature01.html"},{"id":6,"title":"21世紀に伝えたい港湾遺産――広島・御手洗港","publisher":"日本埋立浚渫協会","url":"https://www.umeshunkyo.or.jp/heritage-backnumber/09mitarai/page.html"},{"id":7,"title":"弁才船の帆走と航海（船の科学館もの知りシート）","publisher":"船の科学館／日本財団図書館","url":"https://nippon.zaidan.info/seikabutsu/2002/00033/contents/028.htm"},{"id":9,"title":"松右衛門帆――木綿帆の改良と普及","publisher":"千葉県立関宿城博物館","url":"https://www.chiba-muse.or.jp/SEKIYADO/page-1613700720694/"},{"id":10,"title":"工楽松右衛門と松右衛門帆","publisher":"大林組 季刊大林","url":"https://www2024-2.obayashi.co.jp/kikan_obayashi/detail/kikan_60_kuraku.html"}]
+sources: [{"id":1,"title":"呉市豊町御手洗伝統的建造物群保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html"},{"id":2,"title":"豊町御手洗の旧金子家住宅・御手洗の歴史","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/kanekoke/"},{"id":3,"title":"潮待ち・風待ちの港町、御手洗","publisher":"呉市","url":"https://www.city.kure.lg.jp/uploaded/attachment/46533.pdf"},{"id":4,"title":"御手洗町並み保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/soshiki/67/m000200.html"},{"id":5,"title":"瀬戸内海航路と御手洗――地乗り・沖乗りと港の仕事","publisher":"JR西日本","url":"https://www.westjr.co.jp/company/info/issue/bsignal/04_vol_94/feature01.html"},{"id":6,"title":"21世紀に伝えたい港湾遺産――広島・御手洗港","publisher":"日本埋立浚渫協会","url":"https://www.umeshunkyo.or.jp/heritage-backnumber/09mitarai/page.html"},{"id":7,"title":"弁才船の帆走と航海（船の科学館もの知りシート）","publisher":"船の科学館／日本財団図書館","url":"https://nippon.zaidan.info/seikabutsu/2002/00033/contents/028.htm"},{"id":8,"title":"松右衛門帆――木綿帆の改良と普及","publisher":"千葉県立関宿城博物館","url":"https://www.chiba-muse.or.jp/SEKIYADO/page-1613700720694/"},{"id":9,"title":"工楽松右衛門と松右衛門帆","publisher":"大林組 季刊大林","url":"https://www2024-2.obayashi.co.jp/kikan_obayashi/detail/kikan_60_kuraku.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/mitarai-economy-of-waiting/"}
 editorialPhotoPlacements:
   - afterHeading: "山と海の間に、細い町がある"
@@ -37,11 +37,11 @@ editorialPhotoPlacements:
 
 ## 船の道が変わると、島に港が生まれた
 
-かつての船は、山陽側の岸や島影をたどる「地乗り」で次の港へ進むことが多かった。江戸時代に木綿帆や弁才船の性能が高まると、岸を細かく回らず、芸予諸島の間を抜ける「沖乗り」も使われるようになる。沖といっても外洋へ出るわけではない。鞆の浦から弓削瀬戸や岩城島の近くを通って御手洗、さらに上関へ向かう道だ。 [5](#source-5) [7](#source-7) [9](#source-9)
+かつての船は、山陽側の岸や島影をたどる「地乗り」で次の港へ進むことが多かった。江戸時代に木綿帆や弁才船の性能が高まると、岸を細かく回らず、芸予諸島の間を抜ける「沖乗り」も使われるようになる。沖といっても外洋へ出るわけではない。鞆の浦から弓削瀬戸や岩城島の近くを通って御手洗、さらに上関へ向かう道だ。 [5](#source-5) [7](#source-7) [8](#source-8)
 
 大崎下島の東端にある御手洗は、その道筋に面していた。1666年には町場の形成が進み、1672年に日本海側と大坂を結ぶ西廻り航路が整えられると、米や特産品を運ぶ船の往来が増えた。島の人々は停泊船に薪、水、野菜を売り、しだいに荷の取引を仲介する商いも育てた。 [2](#source-2) [5](#source-5) [6](#source-6)
 
-船の改良はそれで終わらない。1785年には工楽松右衛門が丈夫な木綿帆を開発している。ただし、これは御手洗の町が育った後の技術であり、町の誕生をその発明一つで説明することはできない。船の道の詳しい違いは、地乗りと沖乗りを扱う別の記事でたどることができる。 [9](#source-9) [10](#source-10)
+船の改良はそれで終わらない。1785年には工楽松右衛門が丈夫な木綿帆を開発している。ただし、これは御手洗の町が育った後の技術であり、町の誕生をその発明一つで説明することはできない。船の道の詳しい違いは、地乗りと沖乗りを扱う別の記事でたどることができる。 [8](#source-8) [9](#source-9)
 
 ## 船が進めない時間を、町の仕事にした
 

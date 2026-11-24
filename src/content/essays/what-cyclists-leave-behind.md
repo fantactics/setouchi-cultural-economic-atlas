@@ -10,7 +10,7 @@ heroPhotoId: "photo-imabari-kurushima"
 lead: "しまなみ海道のサイクリングでは、目の前の橋に着くまでに長い坂を登ることになる。島と島をつなぐ橋がなぜこんなに高いのか。実はその下を行き交う船のためでもあった。自転車と船、そして私自身の帰り道から、海峡に重なる二つの交通を眺め直す。"
 provisionalConclusion: "海運の航路を塞がないための橋桁下空間が橋の高さを決め、自転車が登れる勾配を確保するための長い取付道が島の斜面に生まれた。因島大橋の二層構造や尾道渡船との併存にも、交通の重層性が表れている。"
 openQuestions: ["取付道の勾配が決められた設計基準と、各橋の登坂距離の詳細","架橋前後で海峡の航行船舶の規模や航路がどう変わったか","同じ瀬戸内のとびしま海道では、橋梁高と自転車取付道にどんな違いがあるか"]
-sources: [{"id":9,"title":"しまなみ海道 橋ナビ（各橋の海面からの高さ）","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanamicycling/bridge/"},{"id":10,"title":"しまなみ海道サイクリング 道の利用と尾道渡船","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanamicycling/howto/index02.html"},{"id":11,"title":"来島海峡大橋の橋梁諸元","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanami/about/shimanami/p07.html"},{"id":12,"title":"原付道・自転車歩行者道の橋ごとの構造","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/customer_index/guide/zihodo/index.html"}]
+sources: [{"id":1,"title":"しまなみ海道 橋ナビ（各橋の海面からの高さ）","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanamicycling/bridge/"},{"id":2,"title":"しまなみ海道サイクリング 道の利用と尾道渡船","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanamicycling/howto/index02.html"},{"id":3,"title":"来島海峡大橋の橋梁諸元","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/shimanami/about/shimanami/p07.html"},{"id":4,"title":"原付道・自転車歩行者道の橋ごとの構造","publisher":"本州四国連絡高速道路株式会社","url":"https://www.jb-honshi.co.jp/customer_index/guide/zihodo/index.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-behind/"}
 ---
 ## 橋は見えているのに
@@ -21,7 +21,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 近道をつくれなかったのだろうか。
 
-実は、橋に登るには相当な高さが必要なのだ。因島大橋の自転車道は海面から約58メートル。来島海峡第二・第三大橋の道路は約78メートルの高さにある。海辺を走ってきた自転車は、そこまで自分の足で登らなければならない。 [9](#source-9)
+実は、橋に登るには相当な高さが必要なのだ。因島大橋の自転車道は海面から約58メートル。来島海峡第二・第三大橋の道路は約78メートルの高さにある。海辺を走ってきた自転車は、そこまで自分の足で登らなければならない。 [1](#source-1)
 
 ## この坂を必要としたのは、船だった
 
@@ -31,7 +31,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 ところが、答えは橋の下にある。瀬戸内海は、島と島の間の水道を大きな船が行き交う海だ。自動車や自転車が海峡を越えられるようにしても、その下を通る船を通せなくしては困る。
 
-来島海峡第二・第三大橋は、橋桁の下と高潮時の海面の間に、それぞれ約65メートルの空間を確保している。道路面の約78メートルとは、測っている場所が違う。 [11](#source-11)
+来島海峡第二・第三大橋は、橋桁の下と高潮時の海面の間に、それぞれ約65メートルの空間を確保している。道路面の約78メートルとは、測っている場所が違う。 [3](#source-3)
 
 橋は島と島をつなぐだけのものだと思っていた。けれど、その高さは、海を行き来する船のためにも必要だった。
 
@@ -41,7 +41,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 高さが必要なら、海岸から一気に坂をつくればよさそうなものだ。けれど、それでは自転車にはつらい。
 
-たとえば勾配が3％なら、30メートル登るだけで、水平距離が約1キロメートル必要になる。これは単純な計算で、実際の坂道は地形によってさらに曲がりくねる。 [10](#source-10)
+たとえば勾配が3％なら、30メートル登るだけで、水平距離が約1キロメートル必要になる。これは単純な計算で、実際の坂道は地形によってさらに曲がりくねる。 [2](#source-2)
 
 道が山側へ長く回り込むのは、登りを少しでも緩やかにするための工夫なのである。
 
@@ -58,7 +58,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 ようやく橋へ上がってみると、今度は橋ごとに自転車の通り道が違う。
 
-因島大橋では、自転車は自動車道の横ではなく、**その下の階**を走る。全長1,270メートルの吊橋は二層構造になっており、上は自動車、下は自転車や歩行者、原付などの通路だ。 [9](#source-9) [12](#source-12)
+因島大橋では、自転車は自動車道の横ではなく、**その下の階**を走る。全長1,270メートルの吊橋は二層構造になっており、上は自動車、下は自転車や歩行者、原付などの通路だ。 [1](#source-1) [4](#source-4)
 
 一方、多々羅大橋や来島海峡大橋では、自動車道に沿う側道から海を見渡せる。
 
@@ -74,7 +74,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/what-cyclists-leave-beh
 
 船が役立つのは、そんな帰り道だけではない。尾道の市街地と向島の間では、今も自転車を載せた渡船が行き交っている。
 
-新尾道大橋には自転車・歩行者道がなく、並行する尾道大橋も歩道が狭く交通量が多い。本四高速の案内でも、サイクリストには渡船の利用を勧めている。 [10](#source-10)
+新尾道大橋には自転車・歩行者道がなく、並行する尾道大橋も歩道が狭く交通量が多い。本四高速の案内でも、サイクリストには渡船の利用を勧めている。 [2](#source-2)
 
 橋があっても、船の方がありがたいときがある。あの日の私も、まさにそうだった。
 

@@ -8,7 +8,7 @@ keywords: ["塩田","製塩","伯方の塩","伯方島","自然塩存続運動",
 heroPhotoId: "photo-ako-salt-terrace"
 lead: "竹原の白壁を歩いても、塩田は見えない。赤穂には製塩工場があり、伯方島には「伯方の塩」の名が残る。坂出では海を埋め立てた工業地帯が水平線を変えた。同じ瀬戸内の塩の町なのに、いま目にする風景はこんなにも違う。塩田のあと、何が受け継がれ、何が新しく生まれたのだろう。"
 researchLinks: [{"label":"個別作品｜赤穂の製塩事業","href":"/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/"},{"label":"個別作品｜竹原の町並み","href":"/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/"},{"label":"個別作品｜坂出の番の州","href":"/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/"},{"label":"個別作品｜錦海の太陽光発電","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"}]
-sources: [{"id":4,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":5,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":6,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":7,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":8,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":9,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":10,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":11,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":13,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":14,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":15,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":16,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":17,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":18,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":19,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":20,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"}]
+sources: [{"id":1,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":2,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":3,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":4,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":5,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":6,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":7,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":8,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":9,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":10,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":11,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":12,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":13,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":14,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":15,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":16,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"}]
 migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 ---
 竹原の古い町並みで、白壁の商家を見上げる。ここが塩の町だったと言われても、海水を引き込んだ塩田の姿は思い浮かべにくい。塩田は見えないのに、塩の歴史がつくった家は残っている。
@@ -17,7 +17,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 ## 塩田のあとを歩くと、四つの風景に出会う
 
-瀬戸内海沿岸には、かつて塩田が帯のように広がっていた。雨の少ない気候、日差しと風、遠浅の海や潮の満ち引き。人々はその条件を利用し、堤を築き、海水を濃くして塩をつくった。海から得た塩は、船で各地の食卓へ運ばれた。 [4](#source-4) [8](#source-8)
+瀬戸内海沿岸には、かつて塩田が帯のように広がっていた。雨の少ない気候、日差しと風、遠浅の海や潮の満ち引き。人々はその条件を利用し、堤を築き、海水を濃くして塩をつくった。海から得た塩は、船で各地の食卓へ運ばれた。 [1](#source-1) [5](#source-5)
 
 ## 赤穂――塩田が消えても、塩づくりは続いた
 
@@ -27,9 +27,9 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 </figure>
 
 
-西浜では1959年の塩業整備に際して廃業ではなく経営改善の道が選ばれ、翌1960年には赤穂海水株式会社が設立された。海水を塩田で濃くする方法から、イオン交換膜を使う工場製塩へ。製法も設備も変わったが、塩づくりの事業は続いていった。 [6](#source-6)
+西浜では1959年の塩業整備に際して廃業ではなく経営改善の道が選ばれ、翌1960年には赤穂海水株式会社が設立された。海水を塩田で濃くする方法から、イオン交換膜を使う工場製塩へ。製法も設備も変わったが、塩づくりの事業は続いていった。 [3](#source-3)
 
-一方、使われなくなった塩田の土地は、工業用地や住宅地などに転用された。赤穂海浜公園では、昔の製塩施設を再現した「塩の国」が塩づくりの歴史を伝えている。 [13](#source-13) [15](#source-15) [16](#source-16)
+一方、使われなくなった塩田の土地は、工業用地や住宅地などに転用された。赤穂海浜公園では、昔の製塩施設を再現した「塩の国」が塩づくりの歴史を伝えている。 [9](#source-9) [11](#source-11) [12](#source-12)
 
 いま塩のつくり方を見せるのは公園の復元施設であり、実際の塩は膜と電気を使う工場でつくられる。塩田の土地を残すことと、製塩の仕事を続けることは、ここでは別の選択になった。
 
@@ -37,11 +37,11 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 しまなみ海道の伯方島も、かつては塩田の島だった。
 
-1971年、国の塩業近代化政策によって伯方島の塩田は全廃された。全国的に従来の塩田製塩からイオン交換膜方式への転換が進んでいた時代である。 [18](#source-18)
+1971年、国の塩業近代化政策によって伯方島の塩田は全廃された。全国的に従来の塩田製塩からイオン交換膜方式への転換が進んでいた時代である。 [14](#source-14)
 
-塩田の塩を残したい人々は署名を集め、1971年には国会に陳情した。塩田は守れなかったが、その運動を母体に1973年、伯方塩業が創業し、翌1974年に「伯方の塩」が発売された。製塩会社を生んだのは、塩田で働いていた事業者だけではなかった。 [18](#source-18) [19](#source-19)
+塩田の塩を残したい人々は署名を集め、1971年には国会に陳情した。塩田は守れなかったが、その運動を母体に1973年、伯方塩業が創業し、翌1974年に「伯方の塩」が発売された。製塩会社を生んだのは、塩田で働いていた事業者だけではなかった。 [14](#source-14) [15](#source-15)
 
-もう一つ、名前からは想像しにくい事実がある。創業時には国内の海水から直接つくることが認められず、輸入した天日塩を原料にする条件が付いていた。現在も海外の天日塩を原料に使っている。つまり「伯方の塩」という名は、原料のすべてが伯方島で採れたという意味ではない。島の塩田を復活させたいという願いを受け継いだ名前なのだ。 [19](#source-19) [20](#source-20)
+もう一つ、名前からは想像しにくい事実がある。創業時には国内の海水から直接つくることが認められず、輸入した天日塩を原料にする条件が付いていた。現在も海外の天日塩を原料に使っている。つまり「伯方の塩」という名は、原料のすべてが伯方島で採れたという意味ではない。島の塩田を復活させたいという願いを受け継いだ名前なのだ。 [15](#source-15) [16](#source-16)
 
 ## 竹原――塩の利益が、白壁の町になった
 
@@ -53,7 +53,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 竹原では、塩づくりの痕跡を探しても、最初に目に入るのは塩田ではない。白壁の商家、蔵、酒蔵が連なる町並みだ。
 
-かつて塩で財を成した商人たちは、廻船や酒造にも事業を広げ、家を建て、町に富を投じた。塩は売られて消えても、そこで得た利益は屋根や壁、別の商売として残った。 [5](#source-5) [10](#source-10)
+かつて塩で財を成した商人たちは、廻船や酒造にも事業を広げ、家を建て、町に富を投じた。塩は売られて消えても、そこで得た利益は屋根や壁、別の商売として残った。 [2](#source-2) [7](#source-7)
 
 この白壁は、塩田をやめたあとに記念として建てたものではない。塩を売っていた時代に商人が築き、その後も使われ、守られてきた家々だ。
 
@@ -61,9 +61,9 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 坂出の昔の写真には、海辺に塩田が広がる。いま同じ町に立つと、埠頭や工場、瀬戸大橋へ続く巨大な臨海景観が目に入る。
 
-番の州工業地帯は、昔の塩田をそのまま工場に変えた場所ではない。沖合の浅瀬を新たに埋め立てた土地で、造成は塩田の全面的な廃止よりも前から始まっていた。 [8](#source-8) [11](#source-11)
+番の州工業地帯は、昔の塩田をそのまま工場に変えた場所ではない。沖合の浅瀬を新たに埋め立てた土地で、造成は塩田の全面的な廃止よりも前から始まっていた。 [5](#source-5) [8](#source-8)
 
-一方、東運河地区のように旧塩田を使い直して埠頭を整備した場所もあり、松ヶ浦には新しい方式の製塩工場もある。 [9](#source-9) [14](#source-14)
+一方、東運河地区のように旧塩田を使い直して埠頭を整備した場所もあり、松ヶ浦には新しい方式の製塩工場もある。 [6](#source-6) [10](#source-10)
 
 旧塩田の跡を使った場所と、塩田の外に新しく埋め立てた番の州。坂出では、工業地帯の土地すべてを塩田の跡と呼ぶことはできない。
 
