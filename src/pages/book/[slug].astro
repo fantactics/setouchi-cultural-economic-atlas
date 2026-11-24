@@ -77,6 +77,9 @@ const article=markdownModule
   : enhancedArticle;
 const MarkdownContent=markdownModule?.Content || null;
 const seo=essaySearchMeta(article);
+// Do not repeat the article title in its subtitle field.
+const visibleSubtitle=String(article.subtitle||'').trim();
+const showSubtitle=visibleSubtitle && visibleSubtitle!==String(article.title||'').trim() && !String(article.title||'').includes(visibleSubtitle);
 const naturalTags=getNaturalConditionTags(article);
 const cultureTags=getCultureTags(article);
 const archivedResearchHref={
@@ -216,7 +219,7 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
     <header class="book-article-header">
       <div class="book-article-series">{article.part}</div>
       <h1>{article.title}</h1>
-      <p class="book-article-subtitle">{article.subtitle}</p>
+      {showSubtitle && <p class="book-article-subtitle">{visibleSubtitle}</p>}
       <div class="book-meta-row">
         <div>{cityLinks.map((item)=><a href={item.href}>{item.name}</a>)}</div>
         <div class="reader-nature-tags" aria-label="このエッセイを貫く自然条件">
