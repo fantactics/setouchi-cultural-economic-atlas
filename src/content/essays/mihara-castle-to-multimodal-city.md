@@ -2,7 +2,7 @@
 slug: "mihara-castle-to-multimodal-city"
 part: "町は、何度でもつくり直される"
 title: "城を削って、三原は鉄道を迎えた"
-subtitle: "海上交通の要衝だった三原城が、鉄道のために場所を譲った"
+subtitle: "かつて海に面した城の石垣は、いまは新幹線のホームの下に"
 cities: ["三原"]
 keywords: ["三原","三原城","沼田川","河口","狭い平地","海城","山陽鉄道","糸崎港","海岸埋立","新幹線"]
 heroPhotoId: "photo-mihara-castle-station"
