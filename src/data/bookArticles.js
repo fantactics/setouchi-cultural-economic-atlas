@@ -735,7 +735,7 @@ export const bookArticles = [
     slug:'shodoshima-somen-to-sesame-oil',
     part:'食は、土地を語る',
     title: "小豆島の素麺が、ごま油の工場を生んだ",
-    subtitle: "少雨の畑で育った小麦、冬の寒風に揺れる白い麺、そして土庄港の製油工場へ",
+    subtitle: "少雨の畑で育った小麦、冬の寒風に揺れる白い麺、その一本一本を包むごま油",
     cities:['小豆島','土庄','池田'],
     keywords:['小豆島','手延べ素麺','小麦','少雨','湧水','寒風','天日干し','ごま油','かどや製油','土庄港','製粉','讃岐うどん'],
     heroPhotoId: "photo-shodoshima-somen",
