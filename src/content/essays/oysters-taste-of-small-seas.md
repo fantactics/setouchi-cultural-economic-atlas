@@ -2,7 +2,7 @@
 slug: "oysters-taste-of-small-seas"
 part: "食は、土地を語る"
 title: "日生と広島、牡蠣の味を分けるもの"
-subtitle: "甘味・旨味の違いを、海の水と養殖の仕事からたどる"
+subtitle: "同じ瀬戸内海で育つ牡蠣なのに、なぜ味が違うのだろう"
 cities: ["日生","広島湾"]
 keywords: ["日生牡蠣","広島牡蠣","食味","甘味","旨味","グリコーゲン","遊離アミノ酸","塩分","海水交換","太田川","養殖","一年牡蠣","沖出し"]
 heroPhotoId: "photo-hinase-oysters"
