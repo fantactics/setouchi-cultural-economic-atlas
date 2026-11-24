@@ -48,6 +48,7 @@ import { getNaturalConditionTags } from '../../data/naturalEnvironmentTags.js';
 import { getCultureTags } from '../../data/cultureTraditionTags.js';
 import { essaySearchMeta } from '../../data/essaySeo.js';
 import { publishedEssays } from '../../data/publishedEssayList.js';
+import { withMarkdownMetadata } from '../../data/essayMarkdownMetadata.js';
 import '../../styles/gastronomy-gallery.css';
 import '../../styles/reader-navigation.css';
 
@@ -70,6 +71,9 @@ export function getStaticPaths(){
 }
 
 const { article:rawArticle, prev, next }=Astro.props;
+// Keep pager labels in sync with the Markdown-frontmatter titles shown on essay pages.
+const pagerPrev=prev ? withMarkdownMetadata(prev) : null;
+const pagerNext=next ? withMarkdownMetadata(next) : null;
 const enhancedArticle=applyEssayEditorialOverride(enhanceBookArticle(rawArticle));
 const markdownModule=markdownBySlug[enhancedArticle.slug] || null;
 const article=markdownModule
@@ -423,8 +427,8 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
     </section>}
 
     <nav class="book-pager">
-      {prev ? <a href={`/setouchi-cultural-economic-atlas/book/${prev.slug}/`}><small>← 前の記事</small><strong>{prev.title}</strong></a> : <span></span>}
-      {next ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${next.slug}/`}><small>次の記事 →</small><strong>{next.title}</strong></a> : <span></span>}
+      {pagerPrev ? <a href={`/setouchi-cultural-economic-atlas/book/${pagerPrev.slug}/`}><small>← 前の記事</small><strong>{pagerPrev.title}</strong></a> : <span></span>}
+      {pagerNext ? <a class="next" href={`/setouchi-cultural-economic-atlas/book/${pagerNext.slug}/`}><small>次の記事 →</small><strong>{pagerNext.title}</strong></a> : <span></span>}
     </nav>
 
   <style>
