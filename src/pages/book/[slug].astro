@@ -399,7 +399,7 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       </div>)}
       </nav>}
 
-      {!article.omitPhotoCredits && article.sources?.length>0 && <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>}
+      {!article.omitPhotoCredits && article.sources?.length>0 && <section class="book-sources"><div class="kicker">出典・参照資料</div><ol>{article.sources.map((source)=><li id={`source-${source.id}`} value={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.publisher}</span></li>)}</ol></section>}
     </div>
 
     {unifiedPhotoEssayPhotos.length>0 && <EssayPhotoGallery
