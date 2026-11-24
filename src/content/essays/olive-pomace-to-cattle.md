@@ -2,7 +2,7 @@
 slug: "olive-pomace-to-cattle"
 part: "捨てずに循環させる取り組み"
 title: "オリーブの搾りかすで、牛を育てる"
-subtitle: "海辺の果樹から、風車と牛肉へ――小豆島の百年余り"
+subtitle: ""
 cities: ["小豆島","土庄","高松","香川"]
 keywords: ["オリーブ","搾り粕","オリーブ牛","小豆島","オリーブ公園","日照","砂壌土","飼料","地域ブランド","畜産","はだか麦","小豊島","牛の暑熱対策","ため池","海上輸送"]
 heroPhotoId: "photo-shodoshima-olive-sea"
