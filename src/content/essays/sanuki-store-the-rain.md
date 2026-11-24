@@ -1,8 +1,8 @@
 ---
 slug: "sanuki-store-the-rain"
 part: "海と陸は、人がつくった"
-title: "まんのう池の線香時間"
-subtitle: "大きな池から見えてくる、水を分ける知恵と争いの歴史"
+title: "まんのう池の線香時計"
+subtitle: "雨の少ない讃岐で、線香の燃える時間を時計として水を配分した"
 cities: ["高松","丸亀","まんのう","三豊"]
 keywords: ["ため池","少雨","水利慣行","満濃池","香川用水","農業","讃岐平野","水管理"]
 heroPhotoId: "photo-mannou-reservoir"
