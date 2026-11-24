@@ -2,7 +2,7 @@
 slug: "sawara-spring-two-gates"
 part: "食は、土地を語る"
 title: "春、サワラが海を渡る"
-subtitle: "日生の祝いのすしから、二つの水道と産卵の海をたどる"
+subtitle: "日生の祝いずし「こうこずし」から、紀伊・豊後二つの水道を通る産卵の道へ"
 cities: ["瀬戸内海","大阪湾","播磨灘","備讃瀬戸","燧灘","岡山"]
 keywords: ["サワラ","鰆","回遊","春","産卵","紀伊水道","豊後水道","播磨灘","備讃瀬戸","燧灘","水温","流し網","食文化"]
 heroPhotoId: "photo-sawara-specimen-reference"
