@@ -2,7 +2,7 @@
 slug: "takehara-salt-capital-to-townscape"
 part: "富は、町に何を残したのか"
 title: "塩辛い土地が、竹原の白壁をつくった"
-subtitle: "田畑にならなかった干拓地から、塩田・川の付け替え・商人の町へ"
+subtitle: "作物が育たない干拓地を塩田に変え、川の流れまで付け替えた人々"
 cities: ["竹原"]
 keywords: ["竹原","塩田","入浜式塩田","賀茂川","本川","赤穂","干拓","製塩","酒造","廻船","吉井家","白壁","町並み保存地区","港町"]
 heroPhotoId: "photo-takehara-historic-district"
