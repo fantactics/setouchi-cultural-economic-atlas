@@ -251,7 +251,7 @@ export const bookArticles = [
     slug:'kojima-from-cotton-to-jeans',
     part:'海と陸は、人がつくった',
     title:"ジーンズの町は、綿花がなくても縫い続けた",
-    subtitle:"塩の残る干拓地の綿、足袋商人の塩田、アメリカのデニム――産業を着替えてきた町",
+    subtitle:"綿花も足袋も消えた町で、なぜ縫製技術だけが生き残ったのか",
     cities:['児島','下津井','倉敷','井原'],
     keywords:['干拓','綿','北前船','ニシン粕','足袋','学生服','ジーンズ','縫製','洗い加工','繊維'],
     heroPhotoId:'photo-shimotsui-geography',
@@ -3515,7 +3515,7 @@ export const bookArticles = [
     "slug": "oysters-taste-of-small-seas",
     "part": "食は、土地を語る",
     "title": "日生と広島、牡蠣の味を分けるもの",
-    "subtitle": "甘味・旨味の違いを、海の水と養殖の仕事からたどる",
+    "subtitle": "同じ瀬戸内海で育つ牡蠣なのに、なぜ味が違うのだろう",
     "cities": [
       "日生",
       "広島湾"
@@ -3985,7 +3985,7 @@ export const bookArticles = [
     "slug": "mikan-slope-and-varieties",
     "part": "食は、土地を語る",
     "title": "海へ向かうみかんの石垣",
-    "subtitle": "桑畑からみかん山へ――石垣が支える土、水、光",
+    "subtitle": "みかんのためにつくったと思っていた石垣は、もともと桑畑を支えていた",
     "cities": [
       "西予・狩浜",
       "八幡浜",
@@ -5072,7 +5072,7 @@ export const bookArticles = [
       "slug": "citrus-pomace-cascade",
       "part": "捨てずに循環させる取り組み",
       "title": "みかんを搾ったあと、枝を切ったあと",
-      "subtitle": "愛媛の果実と剪定枝に生まれた、いくつもの行き先",
+      "subtitle": "ジュースにならなかった皮や枝は、どこへ行くのだろう",
       "cities": [
         "愛媛",
         "松山",
