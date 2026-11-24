@@ -1,5 +1,5 @@
-// After building Astro, ensure Google-facing metadata follows approved SEO
-// focus titles where configured and the visible essay heading elsewhere.
+// After building Astro, ensure browser-tab and social titles match the visible
+// essay H1. Curated SEO focus retains descriptions, not competing titles.
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -36,8 +36,7 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  assert.ok(description.length>=10 && description.length<=250,`Unusable search description: ${slug} (${description.length} chars)`);
  assert.equal(ogDescription,description,`Mismatched og:description: ${slug}`);
  assert.ok(canonical.endsWith('/book/'+slug+'/'),`Incorrect canonical essay path: ${slug}: ${canonical}`);
- const expectedTitle=essaySeoFocus[slug]?.title || h1;
- assert.equal(sameSpacing(pageTitle),sameSpacing(`${expectedTitle}｜SETOUCHI ATLAS`),`Incorrect <title>: ${slug}`);
+ assert.equal(sameSpacing(pageTitle),sameSpacing(`${h1}｜SETOUCHI ATLAS`),`Browser title differs from article H1: ${slug}`);
  assert.equal(sameSpacing(og),sameSpacing(pageTitle),`Mismatched og:title: ${slug}`);
  assert.equal((html.match(/<h1\b/g)||[]).length,1,`Expected exactly one H1: ${slug}`);
  assert.ok(sameSpacing(twitter).startsWith(sameSpacing(h1)),`Mismatched twitter:title: ${slug}: ${twitter}`);
@@ -58,7 +57,9 @@ for(const [slug, focus] of Object.entries(essaySeoFocus)){
  const actualDescription=getMeta(html,'name','description');
  const canonicalTag=(html.match(/<link\b[^>]*>/g)||[]).find(tag=>/\brel="canonical"/.test(tag))||'';
  const canonical=decode(canonicalTag.match(/\bhref="([^"]+)"/)?.[1]||'');
- assert.equal(sameSpacing(actualTitle),sameSpacing(focus.title+'｜SETOUCHI ATLAS'),`Wrong SEO title for ${slug}`);
+ const actualHeading=decode(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'').trim();
+ assert.ok(actualHeading,`Missing article H1: ${slug}`);
+ assert.equal(sameSpacing(actualTitle),sameSpacing(actualHeading+'｜SETOUCHI ATLAS'),`Browser title differs from article H1: ${slug}`);
  assert.equal(sameSpacing(actualDescription),sameSpacing(focus.description),`Wrong SEO description for ${slug}`);
  assert.ok(canonical.endsWith('/book/'+slug+'/'),`Wrong canonical for curated essay ${slug}`);
  curatedChecked++;
