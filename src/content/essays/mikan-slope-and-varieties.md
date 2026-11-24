@@ -2,7 +2,7 @@
 slug: "mikan-slope-and-varieties"
 part: "食は、土地を語る"
 title: "海へ向かうみかんの石垣"
-subtitle: "桑畑からみかん山へ――石垣が支える土、水、光"
+subtitle: "みかんのためにつくったと思っていた石垣は、もともと桑畑を支えていた"
 cities: ["西予・狩浜","八幡浜","西宇和","宇和海"]
 keywords: ["宇和海","狩浜","西宇和","段畑","石垣","石灰岩","桑畑","養蚕","みかん","排水","三つの太陽","モノラック","柑橘","収穫期","重要文化的景観"]
 heroPhotoId: "photo-karihama-citrus-terraces"
