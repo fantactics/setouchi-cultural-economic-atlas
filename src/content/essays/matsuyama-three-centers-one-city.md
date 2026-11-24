@@ -2,7 +2,7 @@
 slug: "matsuyama-three-centers-one-city"
 part: "町は、何度でもつくり直される"
 title: "砂嘴の港から、汽船は高浜へ移った"
-subtitle: "三津浜の遠浅の海と、高浜の水深が変えた松山の玄関口"
+subtitle: "三津の渡しが残る遠浅の港と、鉄道が延びた高浜の深い海"
 cities: ["松山"]
 keywords: ["三津浜","高浜港","宮前川","砂嘴","遠浅","西風","汽船","伊予鉄道","港町","三津の渡し","道後温泉"]
 heroPhotoId: "photo-matsuyama-mitsuhama"
