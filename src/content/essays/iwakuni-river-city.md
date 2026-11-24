@@ -2,7 +2,7 @@
 slug: "iwakuni-river-city"
 part: "海と陸は、人がつくった"
 title: "流された橋の修復と維持のために、岩国は毎年米を徴収した"
-subtitle: "狭い山裾、二百メートルの暴れ川。五連の橋と橋出米が生まれた理由"
+subtitle: "城下町を二つに分けた錦川、その両岸を結ぶ五連の橋を守る仕組み"
 cities: ["岩国"]
 keywords: ["錦川","錦帯橋","城下町","横山","錦見","洪水","水運","文化的景観"]
 heroPhotoId: "photo-iwakuni-kintai"
