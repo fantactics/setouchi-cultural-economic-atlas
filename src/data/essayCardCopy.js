@@ -25,11 +25,11 @@ export const essayCardCopy = {
     "teaser": "山の銅を掘る仕事は、どうして海辺の工場へ姿を変えたのか。"
   },
   "shodoshima-open-island": {
-    "teaser": "醤油、そうめん、オリーブ。島の味は海を渡ってきたものから生まれた。",
+    "teaser": "黒い醤油蔵が並ぶ小豆島の町で、終戦直後、芋の葉柄を煮る仕事から佃煮産業が始まった。",
     "photoId": "photo-shodoshima-hishio-yamasan"
   },
   "faith-as-transport-map": {
-    "teaser": "海を渡って伝わった信仰をたどると、昔の航路が見えてくる。"
+    "teaser": "御手洗と下津井の神社には、大阪の豪商や遠方の船主たちの名前が残っている。"
   },
   "sanuki-store-the-rain": {
     "teaser": "讃岐平野に散らばる小さな池。雨を逃す短い川と、水を分ける線香の約束。"
@@ -54,7 +54,7 @@ export const essayCardCopy = {
     "teaser": "駅の下に城の本丸がある。三原の街を変えた交通の選択。"
   },
   "matsuyama-three-centers-one-city": {
-    "teaser": "港、駅、城下町。松山の中心は、なぜ一か所ではないのか。"
+    "teaser": "三津浜の遠浅の港から、高浜の深い海へ。汽船の時代に移った松山の玄関口。"
   },
   "hiketa-castle-port-town": {
     "teaser": "島だった城山の内側に港ができた。城の石垣から、醤油蔵の赤壁へ。"
@@ -63,11 +63,11 @@ export const essayCardCopy = {
     "teaser": "赤穂は塩田を売って、塩づくりを続けた。土地を手放す産業の選択。"
   },
   "takamatsu-sea-castle-to-gateway": {
-    "teaser": "海に開いた城下町から、四国の玄関口へ。高松の水辺を歩く。",
+    "teaser": "城の堀には海水が残り、その一部には駅のホームが迫る。埋立てが変えた高松の港。",
     "photoId": "photo-takamatsu-seawater-moat"
   },
   "tai-meshi-two-seas": {
-    "teaser": "同じ「鯛めし」でも一尾を炊くか、生でかけるか。坂出・鞆・明石、そして豊後水道へ食文化の分布をたどる。"
+    "teaser": "北条・今治では一尾を炊き、宇和島では刺身をのせる。同じ鯛めしが二つの姿になった。"
   },
   "shimotsui-tako-meshi": {
     "teaser": "港の干しダコは、余ったタコを保存する漁師の工夫だった。その味は、たこめしにも残る。",
@@ -98,13 +98,13 @@ export const essayCardCopy = {
     "teaser": "牛飼いは、なぜオリーブの搾りかすに目をつけたのか。島の二つの産業を結んだ発想と工夫。"
   },
   "ibuki-fat-sardines-revalued": {
-    "teaser": "伊吹島のイワシは、脂がのったとき別の行き先を見つけた。"
+    "teaser": "いりこに向かなかった脂の多いイワシ。干さずに釜揚げで急速冷凍する、新しい食べ方。"
   },
   "citrus-pomace-cascade": {
     "teaser": "ジュースの搾りかすも、剪定した枝も。愛媛のみかんには、収穫後も仕事が続く。"
   },
   "kinkai-salt-field-to-solar": {
-    "teaser": "かつて海だった錦海塩田。広い土地を太陽光に使い直す。"
+    "teaser": "塩田が終わっても排水ポンプは止められない。錦海の太陽光発電所が引き継いだ仕事。"
   },
   "sakaide-salt-fields-to-industry": {
     "teaser": "工場が立つ海辺は、昔の塩田か、新しく造った陸地か。",
