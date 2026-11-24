@@ -2,8 +2,8 @@
 slug: "kojima-island-infrastructure-per-capita"
 part: "町は、何度でもつくり直される"
 narrativeMode: "sketch"
-title: "島の飲用水はどこから来て、生活排水はどこに流すのか　- 大多府島・鴻島・宮島を比較する"
-subtitle: "大多府島・鴻島・宮島――海の下を渡る水と、島ごとに違う帰り道"
+title: "島へ届く水は海を渡る。使った水はどこへ行くのか"
+subtitle: "漁村の大多府島、別荘の鴻島、観光の宮島――三つの島で異なる水の行き先"
 cities: ["大多府島","鴻島","宮島"]
 keywords: ["島","鴻島","大多府島","宮島","別荘","海底送水管","水道","生活排水","合併処理浄化槽","漁業集落排水","公共下水道","汲み取り","し尿の海上輸送"]
 heroPhotoId: "photo-kojima-island-from-sea"
