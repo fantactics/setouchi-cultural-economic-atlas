@@ -2,7 +2,7 @@
 slug: "fish-waste-to-feed-and-citrus"
 part: "捨てずに循環させる取り組み"
 title: "港で残った魚が、みかん山へ向かう"
-subtitle: "八幡浜の魚肥をめぐる、海と斜面の意外なつながり"
+subtitle: "八幡浜のかまぼこ工場とみかん畑を結ぶ地域循環"
 cities: ["八幡浜","松山","西予","愛媛"]
 keywords: ["サーキュラーエコノミー","魚残渣","魚粉","魚肥","みかん","八幡浜","松山","飼料","肥料"]
 heroPhotoId: "photo-karihama-citrus-terraces"
