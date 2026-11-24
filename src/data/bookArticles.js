@@ -1,6 +1,4 @@
-import { withMarkdownMetadata } from './essayMarkdownMetadata.js';
-
-const rawBookArticles = [
+export const bookArticles = [
   {
     "slug": "oyster-shells-where-they-go",
     "part": "捨てずに循環させる取り組み",
@@ -6390,10 +6388,6 @@ bookArticles.push({
   ],
   "narrativeMode": "sketch"
 });
-
-// All directory, card, navigation and detail consumers share Markdown editorial labels.
-// Legacy JavaScript content remains the fallback when no Markdown exists.
-export const bookArticles = rawBookArticles.map(withMarkdownMetadata);
 
 export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
