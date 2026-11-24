@@ -6,7 +6,7 @@ subtitle: "東西から集まった船は、潮が変わると再び東西へ分
 cities: ["鞆の浦","福山"]
 keywords: ["鞆の浦","潮待ち","潮汐","港町","東西の潮流","潮時間","太陽時間","月の運行","一日二幕","船宿","保命酒"]
 heroPhoto: {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Tomonoura%20viewed%20from%20Taishiden.jpg?width=1800","alt":"医王寺太子殿から見下ろした鞆の浦。町と港、島々が一体に見える","title":"鞆の浦全景","caption":"医王寺太子殿から見た鞆の浦。東西から来た船が集まり、潮が変われば再び散っていく。その舞台となった港と町のまとまりが一望できる。","author":"Saigen Jiro","sourcePage":"https://commons.wikimedia.org/wiki/File:Tomonoura_viewed_from_Taishiden.jpg","license":"CC0 1.0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/","credit":"Saigen Jiro / CC0 1.0"}
-lead: "鞆の浦には、東へ向かう船も西へ向かう船も、潮に乗って出られない時間があった。瀬戸内海の東西から進んできた潮が、この沖で向き合うからだ。船は両側から集まり、入り江にとどまる。やがて潮が引いて東西へ分かれ始めると、船はそれぞれの目的地へ動き出す。しかも、その潮の時刻は毎日少しずつ遅れていく。朝に開いた幕が、数日後には昼や夕方に開くこともある。太陽の一日と、月が動かす海の一日。鞆の人々は二つの時計の間で暮らしていたのではないだろうか。"
+lead: "鞆の浦の港では、東へ行く船も西へ行く船も、潮が変わるのを待っていた。瀬戸内海の両側から伝わる潮が、この沖で出会うからだ。ところが、船が出られる時刻は毎日少しずつ動く。海に向かって開いた石段と、潮を待つ船。鞆の港の一日は、陸の時計だけでは決まらなかった。"
 researchLinks: [{"label":"潮待ち港の近代化と機能転換","href":"/setouchi-cultural-economic-atlas/chapters/waiting-ports-transition/"},{"label":"港湾結節機能と都市資産の転換","href":"/setouchi-cultural-economic-atlas/chapters/port-node-urban-assets/"},{"label":"地域ページ｜鞆の浦","href":"/setouchi-cultural-economic-atlas/places/tomonoura/"}]
 provisionalConclusion: "東西からの潮流が出会う鞆では、潮が集まる時間には東西両方向の船が順潮で出航しにくく、潮が分かれる時を待った。そこへ東西からの船と人がとどまり、港の商いと交流が生まれたと考えられる。さらに満潮・干潮の時刻は平均して翌日約50分遅れ、太陽による昼夜の時間とは別の周期で移っていく。鞆の仕事と暮らしが、太陽の運行と潮の運行という二つの時計の間でどのように動いたかが「一日二幕」という比喩の核心である。実際の潮流の反転時刻や寄港船の行動は風・地形・航海条件で変わる。"
 openQuestions: ["潮流が合流する時間帯と東西の出航記録をどこまで照合できるか","船宿・問屋・荷役の帳簿から、潮時に応じた仕事の繁閑を読み取れるか","潮時が昼から夜に移る際、船員と町の人々の働き方はどう変わったか","潮待ちで客が集中する時間帯に、料理や食べ物の売り方がどう対応したかを示す史料はあるか"]
