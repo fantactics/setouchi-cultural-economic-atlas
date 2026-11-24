@@ -2,7 +2,7 @@
 slug: "citrus-pomace-cascade"
 part: "捨てずに循環させる取り組み"
 title: "みかんを搾ったあと、枝を切ったあと"
-subtitle: "愛媛の果実と剪定枝に生まれた、いくつもの行き先"
+subtitle: "ジュースにならなかった皮や枝は、どこへ行くのだろう"
 cities: ["愛媛","松山","宇和海","佐田岬"]
 keywords: ["みかん","柑橘","搾汁粕","剪定枝","サイレージ","敷料","堆肥","バイオ炭","MaCSIE","循環"]
 heroPhotoId: "photo-karihama-citrus-terraces"
