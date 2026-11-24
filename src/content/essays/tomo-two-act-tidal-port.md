@@ -1,8 +1,8 @@
 ---
 slug: "tomo-two-act-tidal-port"
 part: "なぜ、船はここで止まったのか"
-title: "一日二幕の港――潮汐がつくった鞆の仕事と暮らし"
-subtitle: "東西から船が集まる海で、太陽と潮の二つの時計が時を刻む"
+title: "一日二幕の港、鞆の浦"
+subtitle: "東西から集まった船は、潮が変わると再び東西へ分かれていった"
 cities: ["鞆の浦","福山"]
 keywords: ["鞆の浦","潮待ち","潮汐","港町","東西の潮流","潮時間","太陽時間","月の運行","一日二幕","船宿","保命酒"]
 heroPhoto: {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Tomonoura%20viewed%20from%20Taishiden.jpg?width=1800","alt":"医王寺太子殿から見下ろした鞆の浦。町と港、島々が一体に見える","title":"鞆の浦全景","caption":"医王寺太子殿から見た鞆の浦。東西から来た船が集まり、潮が変われば再び散っていく。その舞台となった港と町のまとまりが一望できる。","author":"Saigen Jiro","sourcePage":"https://commons.wikimedia.org/wiki/File:Tomonoura_viewed_from_Taishiden.jpg","license":"CC0 1.0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/","credit":"Saigen Jiro / CC0 1.0"}
