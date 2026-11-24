@@ -1,8 +1,8 @@
 ---
 slug: "mitarai-economy-of-waiting"
 part: "なぜ、船はここで止まったのか"
-title: "船が待つあいだに生まれた町"
-subtitle: "新しい航路に生まれた天然港。波止を築き、船の時間を商いに変えた島の町"
+title: "船が待つあいだに生まれた町、御手洗"
+subtitle: "沖乗り航路を行く船が潮と風を待つために、石段を築き、船宿と茶屋が並んだ"
 cities: ["御手洗"]
 keywords: ["御手洗","潮待ち","風待ち","北前船","西廻り航路","船宿","茶屋","雁木","港町"]
 heroPhotoId: "photo-mitarai-panorama"
