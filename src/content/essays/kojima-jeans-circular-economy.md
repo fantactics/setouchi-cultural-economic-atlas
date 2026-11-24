@@ -2,7 +2,7 @@
 slug: "kojima-jeans-circular-economy"
 part: "産業は、紡がれる"
 title: "リベットを外す日"
-subtitle: "丈夫さの印だった小さな鋲を外す。児島の職人が次の一着のために選んだこと"
+subtitle: "児島の職人が、ジーンズを丈夫にする金属の鋲をあえて使わない理由"
 cities: ["児島","倉敷"]
 keywords: ["児島","ジーンズ","デニム","サーキュラーエコノミー","リベット","革パッチ","反毛","再生繊維","アップサイクル","循環設計"]
 heroPhotoId: "photo-kojima-jeans"
