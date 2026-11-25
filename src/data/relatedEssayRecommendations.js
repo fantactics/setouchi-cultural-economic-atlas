@@ -206,7 +206,7 @@ const editorialBridges = {
   'kada-sea-bream-one-line>kada-sea-bream-distribution-ecosystem':'一本の糸で釣った鯛は、港からどこへ行く？',
   'kada-sea-bream-distribution-ecosystem>kada-sea-bream-one-line':'港の仕事が守る鮮度は、海のどんな技から始まる？',
   'kitan-strait-tai-to-shirasu>niboshi-shirasu-two-food-cultures':'小さな魚は、釜と干し場でどんな味に変わる？',
-  'ako-after-salt-fields>four-salt-fields':'赤穂だけでは見えない、塩田が残した四つの違いは？',
+  'ako-after-salt-fields>four-salt-fields':'赤穂だけでは見えない、六つの土地の違いは？',
   'sakaide-salt-fields-to-industry>four-salt-fields':'塩田を失ったほかの町には、何が残った？',
   'shodoshima-open-island>shodoshima-somen-to-sesame-oil':'同じ島で、素麺がどうしてごま油工場を育てた？',
   'olive-pomace-to-cattle>shodoshima-open-island':'牛の飼料になるオリーブの島では、醤油の蔵から何が生まれた？',
