@@ -24,4 +24,4 @@ export const publishedEssays=[...new Map([
   setouchiSushiEssay,setouchiShrimpEssay,setouchiItinerantTradeBoatsEssay,
   setouchiShipMaterialsEssay,kojimaCircularEssay,
   ...kojimaIslandEssays,...quageoSetouchiEssays,...saltLandscapeNatureEssays
-].filter((article)=>article?.slug).map((article)=>[article.slug,withMarkdownMetadata(article)])).values()];
+].filter((article)=>article?.slug && article.slug!=='kada-sea-bream-distribution-ecosystem').map((article)=>[article.slug,withMarkdownMetadata(article)])).values()];
