@@ -226,28 +226,6 @@ export const bookArticles = [
     ]
   },
   {
-    slug: 'four-salt-fields',
-    part: "海と陸は、人がつくった",
-    title: "塩田のあとに残った四つの風景",
-    subtitle: "赤穂の製塩事業、伯方の塩、竹原の町家、坂出の臨海工業地――塩田が消えたあとの選択",
-    cities: ["赤穂","伯方島","竹原","坂出"],
-    keywords: ["塩田","製塩","伯方の塩","伯方島","自然塩存続運動","イオン交換膜","入浜式塩田","流下式塩田","商人資本","酒造","港湾","臨海工業","都市形成"],
-    heroPhotoId: "photo-ako-salt-terrace",
-    lead: "竹原の白壁を歩いても、塩田は見えない。赤穂には製塩工場があり、伯方島には「伯方の塩」の名が残る。坂出では海を埋め立てた工業地帯が水平線を変えた。同じ瀬戸内の塩の町なのに、いま目にする風景はこんなにも違う。塩田のあと、何が受け継がれ、何が新しく生まれたのだろう。",
-    sections: [
-      {heading: '塩田のあとを歩くと、四つの風景に出会う', paragraphs: [], photoIds: ['photo-sakaide-salt-1955-official']},
-      {heading: '赤穂――塩田が消えても、塩づくりは続いた', paragraphs: [], photoIds: ['photo-ako-shionokuni-official']},
-      {heading: '伯方――塩田を残せなかった人々が、塩の会社をつくった', paragraphs: [], photoIds: []},
-      {heading: '竹原――塩の利益が、白壁の町になった', paragraphs: [], photoIds: ['photo-takehara-town-official']},
-      {heading: '坂出――塩田跡と新しい埋立地を見分ける', paragraphs: [], photoIds: ['photo-sakaide-bannosu-aerial']}
-    ],
-    researchLinks: [{"label":"個別作品｜赤穂の製塩事業","href":"/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/"},{"label":"個別作品｜竹原の町並み","href":"/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/"},{"label":"個別作品｜坂出の番の州","href":"/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/"},{"label":"個別作品｜錦海の太陽光発電","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"}],
-    provisionalConclusion: '赤穂では製塩事業が技術を変えて続き、伯方では塩田の塩を求める消費者運動から会社が生まれた。竹原には製塩期に蓄えた富が町家として残り、坂出では旧塩田の転用と新しい埋立が並行して進んだ。何を残そうとしたか、いつ選んだかによって景色は異なる。',
-    openQuestions: ['赤穂と伯方の製塩技術・制度転換の違いを追う','竹原の塩業利益と町家建設の時期を追う','坂出の旧塩田と番の州の造成年代を地図で示す'],
-    sources: [{"id":4,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":5,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":6,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":7,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":8,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":9,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":10,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":11,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":13,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":14,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":15,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":16,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":17,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":18,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":19,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":20,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"}]
-
-  },
-  {
     slug:'kojima-from-cotton-to-jeans',
     part:'海と陸は、人がつくった',
     title:"ジーンズの町は、綿花がなくても縫い続けた",
@@ -1492,7 +1470,7 @@ export const bookArticles = [
       }
     ],
     researchLinks:[
-      {label:'比較編｜塩田が消えた四つの町',href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'}
+      {label:'特集｜塩田が消えたあとの七つの土地',href:'/setouchi-cultural-economic-atlas/collections/salt-afterlife/'}
     ],
     provisionalConclusion:'竹原の干拓地は塩気が強く農地に向かなかったため、1650年に赤穂から導入した技術で入浜式塩田に転用された。潮汐・日照・温暖寡雨と海運が製塩を支える一方、川の土砂堆積・湿地化は経営上の課題となり、18世紀に32年間の賀茂川瀬替え工事が行われた。既存商人資本と製塩利益が酒造・廻船・金融・町家・寺社へ投じられ、塩田の廃止後は平地が市街地に、町家が歴史的景観として残った。',
     openQuestions:['1650年の農地から塩田への転換が最も早く行われた場所を古地図に示せるか','賀茂川の瀬替え工事の工区・実施時期・水路の変更を歴史地図と照合できるか','旧塩田と現在の新市街地が重なる範囲をGISで検証できるか'],
@@ -2831,7 +2809,7 @@ export const bookArticles = [
     "researchLinks": [
       {
         "label": "比較編｜赤穂・竹原・坂出・三田尻",
-        "href": "/setouchi-cultural-economic-atlas/book/four-salt-fields/"
+        "href": "/setouchi-cultural-economic-atlas/collections/salt-afterlife/"
       },
     ],
     "provisionalConclusion": "赤穂西浜は1965年に塩田の大部分を住友セメントに売却し、代わりにイオン交換膜を用いる製塩設備を導入した。1967年には操業を開始し、1972年には大型工場へ転換。同年に東浜・西浜の塩田はすべてなくなったが、西浜の製塩事業は続いた。一方、東浜は廃止され、雇用や技能の継承は未確認。土地を手放したことが、産業の存続へとつながった逆説を描く。",
@@ -5370,7 +5348,7 @@ export const bookArticles = [
       }
     ],
     researchLinks:[
-      {label:"比較編｜四つの塩田都市の異なるその後",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"特集｜塩田が消えたあとの七つの土地",href:'/setouchi-cultural-economic-atlas/collections/salt-afterlife/'},
       {label:"研究ノート｜2038年以降の土地と設備の管理",href:'/setouchi-cultural-economic-atlas/chapters/kinkai-solar-after-2038-note/'}
     ],
     provisionalConclusion:"錦海塩田跡地は、海を締め切り、排水を続けることで生まれた土地である。塩づくりが終わり、産業廃棄物処分も終わっても、浸水を防ぐ管理の必要は残った。瀬戸内市は跡地を取得し、貸付と安全・安心施設の整備を組み合わせて太陽光発電所を誘致した。この作品の主題は、発電所がいつ終わるかではなく、人工の土地を維持しながら何に使い直したかという現在に至る選択である。",
@@ -5486,7 +5464,7 @@ export const bookArticles = [
       }
     ],
     researchLinks:[
-      {label:"比較編｜塩田が消えた四つの町",href:'/setouchi-cultural-economic-atlas/book/four-salt-fields/'},
+      {label:"特集｜塩田が消えたあとの七つの土地",href:'/setouchi-cultural-economic-atlas/collections/salt-afterlife/'},
       {label:"他地域の土地利用｜錦海の塩田跡",href:'/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/'}
     ],
     provisionalConclusion:"坂出の港をつくったのは、塩田廃止後の空き地利用だけではない。1960年代から海に向かって新しく埋め立てた番の州と、廃止した旧塩田を使い直す土地利用が並行した。工場のある場所が塩田跡なのか、かつての海なのか。この区別を知ると、港の風景は別の歴史を語り始める。",
@@ -6389,7 +6367,7 @@ bookArticles.push({
   "narrativeMode": "sketch"
 });
 
-export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","four-salt-fields","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","ports-that-needed-waiting","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","fish-waste-to-feed-and-citrus","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","citrus-pomace-cascade","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
