@@ -103,6 +103,17 @@ for (const [slug, heading] of revisedEssays) {
   assert.ok(!html.includes('/setouchi-cultural-economic-atlas/'), `Legacy project path survived in essay: ${slug}`);
   assert.ok(html.includes('class="markdown-essay-body"'), `Markdown essay body not rendered: ${slug}`);
 }
+// Remove the retired essay's compatibility URL from the public sitemap.
+// It still resolves for old bookmarks, but search engines should discover
+// the collection page, not this noindex forwarding page.
+const sitemapPagePath=path.join(dist,'sitemap-0.xml');
+const allSitemapPages=await readFile(sitemapPagePath,'utf8');
+const retiredEssayUrl=domain+'/book/four-salt-fields/';
+const publishedSitemapPages=allSitemapPages.replace(/<url>[\s\S]*?<\/url>/g,(entry)=>
+  entry.includes(retiredEssayUrl) ? '' : entry);
+assert.ok(!publishedSitemapPages.includes(retiredEssayUrl), 'Retired salt essay is still in the public sitemap');
+if(publishedSitemapPages!==allSitemapPages) await writeFile(sitemapPagePath,publishedSitemapPages,'utf8');
+
 // The retired comparison essay remains only as a noindex canonical redirect.
 // GitHub Pages can serve HTML redirects, but it cannot emit HTTP 301 headers.
 const oldSaltEssayHtml=await readFile(path.join(dist,'book','four-salt-fields','index.html'),'utf8');
