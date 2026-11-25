@@ -10,11 +10,11 @@ lead: "鞆の浦には海へ下りる石段があり、御手洗には古い船�
 sources: [{"id":1,"title":"歴史的港湾施設（雁木）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179045.html"},{"id":2,"title":"歴史的港湾施設（常夜燈）","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kowankasen/179037.html"},{"id":3,"title":"鞆の浦について","publisher":"福山市","url":"https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/85750.html"},{"id":4,"title":"御手洗伝統的建造物群保存地区","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/bunkazai/kunijyudenken-1.html"},{"id":5,"title":"北前船と御手洗","publisher":"呉市","url":"https://www.city.kure.lg.jp/site/kitamae1/"},{"id":6,"title":"多度津町の歴史・町勢","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/tadoritsukutadotsu/about_tadotsu/about_tadotsu.html"},{"id":7,"title":"北前船寄港地・多度津","publisher":"多度津町","url":"https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html"},{"id":8,"title":"尾道市の沿革","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/soshiki/2/2977.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/ports-that-needed-waiting/"}
 ---
-鞆の浦の常夜燈のそばから、石段が海へ下りている。満ちた潮は上の段を覆い、引けば下の段が現れる。海の高さが変わることを前提に、港を使う人々は足場を築いた。
+同じ瀬戸内の港でも、船が立ち寄る理由は一つではなかった。潮が変わるのを待つ船もあれば、参詣のために上陸する客もいる。荷を積み下ろす商人は、その先に別の取引をつくった。
 
-風や潮を待つ船の客で賑わった港がある。一方、参詣客を内陸へ送り出す港も、荷の集散から銀行や造船の町へ育った港もあった。船の技術が変わったあと、それぞれの町では何が仕事として残ったのだろう。
+帆船が汽船に変わり、陸に鉄道が通ったとき、船を待つ人を相手にした町と、港から人や荷を送り出す町では、失う仕事も残る仕事も違った。その違いを、四つの港の風景から確かめてみたい。
 
-## 潮が変わるまで、船は動けなかった
+## 鞆の浦――東西の潮が出航を左右した
 
 <figure class="atlas-inline-photo">
   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tomonoura%20Gangi.jpg?width=1400" alt="広島県福山市鞆の浦の雁木" loading="lazy" decoding="async" />
@@ -22,11 +22,9 @@ migration: {"status":"generated-copy","publicUrl":"/book/ports-that-needed-waiti
 </figure>
 
 
-鞆の浦は、瀬戸内海のほぼ中央、沼隈半島の先端にある。紀伊水道と豊後水道から入り込む潮は、中央付近で出合い、干満に応じて向きを変える。順潮を待つ帆船にとって、仙酔島などに囲まれた鞆の湾は、船を休ませる場所にもなった。
+鞆の浦の沖では、紀伊水道側と豊後水道側から伝わる潮の動きが出会う。東へ向かう船も西へ向かう船も、潮の具合を見て船出を選んだ。港の雁木は、待っている船から人や荷を揚げ下ろしするため、潮の高さに合わせて使われた。 [1](#source-1) [2](#source-2) [3](#source-3)
 
-港に集まる船が増えれば、食事や宿泊、荷役、取引、船の修理などの仕事が生まれる。鞆の港には、潮位の変化に合わせて船から荷を揚げ下ろしする雁木や、常夜燈などの施設も整えられた。 [1](#source-1) [2](#source-2) [3](#source-3)
-
-海へ伸びる雁木は、船が待った時間だけでなく、潮位が違うたびに荷を運んだ仕事を残している。
+ここに残ったのは、船を待たせた海と、海に合わせて働いた人々の足場だ。
 
 ## 御手洗では、待つ時間が町をつくった
 
