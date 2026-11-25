@@ -7,8 +7,7 @@ export const essayPhotoFieldReferences = {
     "label": "黄色い郵便ポストの実景を見る",
     "publisher": "尾道観光協会・おのみちや",
     "url": "https://www.ononavi.jp/onomichiya/search/detail.php?id=6201",
-    "heroNote": "冒頭の写真は生口島の風景です。レモン色の郵便ポストの実景は尾道観光協会の写真資料で確認できます。",
-    "note": "写真No.6201。撮影2022年11月18日。画像ファイルは未取得のため原ページへ案内します。"
+    "note": "写真No.6201。2022年11月18日撮影。記事冒頭に掲載した写真の出典。"
   },
   {
     "label": "レモンの苗木寄贈と収穫されたレモンを見る",

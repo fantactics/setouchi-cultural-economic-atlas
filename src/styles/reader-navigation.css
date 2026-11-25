@@ -616,3 +616,8 @@ body.page-type-essay .reader-photo-evidence{
   .reader-home-feature-grid .reader-home-feature,
   .reader-home .reader-essay-card{transition:none}
 }
+
+/* Preserve the portrait framing of the Setoda lemon post on cards and article. */
+img[src$="/setoda-lemon-post.webp"]{object-fit:contain!important;object-position:center;background:#f1eee8}
+body.page-type-essay .book-hero-photo:has(img[src$="/setoda-lemon-post.webp"]){max-width:540px;margin-left:auto;margin-right:auto}
+body.page-type-essay .book-hero-photo img[src$="/setoda-lemon-post.webp"]{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1000/1498;object-fit:contain!important}

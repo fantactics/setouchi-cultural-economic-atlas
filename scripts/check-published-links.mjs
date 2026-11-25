@@ -177,3 +177,11 @@ assert.ok(collectionHtml.includes('今治'), 'Salt collection is missing Imabari
 assert.ok(!collectionHtml.includes('/book/four-salt-fields/'), 'Retired comparison essay remains linked from collection');
 assert.ok(collectionHtml.includes('坂出の番の州は塩田跡ではなく、沖合を新たに埋め立てた土地'), 'Sakaide geographical caveat is missing');
 console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
+
+// The approved portrait must be the actual essay hero and discovery cover.
+const setodaPhoto='images/editorial/setoda-lemon-post.webp';
+assert.ok(existsSync(path.join(dist,setodaPhoto)), 'Setoda lemon post photograph missing from built site');
+const setodaEssay=assertPage('book/tatara-bridge-citrus-seasons');
+const setodaHero=setodaEssay.match(/<figure class="book-hero-photo"[^>]*>[\s\S]*?<\/figure>/)?.[0]||'';
+assert.ok(setodaHero.includes(setodaPhoto) && setodaHero.includes('No.6201'), 'Setoda article hero or photo credit missing');
+assert.ok(indexHtml.includes(setodaPhoto), 'Setoda discovery card must use the approved post photo');

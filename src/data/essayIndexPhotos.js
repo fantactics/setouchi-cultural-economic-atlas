@@ -2,6 +2,17 @@
 // Licenses and image-source URLs are retained for the credits on /book/.
 // These images do not replace article body images or claim to show other locations.
 export const essayIndexPhotoOverrides = {
+  'tatara-bridge-citrus-seasons': {
+  "imageUrl": "/setouchi-cultural-economic-atlas/images/editorial/setoda-lemon-post.webp",
+  "title": "瀬戸田のレモン色の郵便ポスト",
+  "alt": "生口島・瀬戸田の商店前に立つ、黄色く塗られた円筒形の郵便ポスト",
+  "caption": "しおまち商店街のレモン色の郵便ポスト。2022年11月18日撮影。",
+  "kind": "photo",
+  "author": "尾道観光協会",
+  "license": "おのみちや No.6201",
+  "licenseUrl": "https://www.ononavi.jp/onomichiya/usersguide/",
+  "sourcePage": "https://www.ononavi.jp/onomichiya/search/detail.php?id=6201"
+},
   "tai-meshi-two-seas": {
     "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Uwajima%20Taimeshi.jpg?width=1280",
     "alt": "愛媛県松山市で提供された宇和島鯛めし。記事で比較する二つの鯛めしのうち、生の鯛を用いる南予式",
