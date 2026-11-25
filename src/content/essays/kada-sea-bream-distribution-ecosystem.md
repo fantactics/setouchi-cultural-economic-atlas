@@ -12,24 +12,15 @@ openQuestions: ["加太の真鯛は実際にどの都市・市場・業態へど
 sources: [{"id":1,"title":"加太の鯛","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/tai"},{"id":2,"title":"魚が食卓に届くまで","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/nagare"},{"id":3,"title":"有限会社加太鮮魚","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/kadasengyo"},{"id":4,"title":"浜の活力再生プラン関連資料（加太）","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/071000/center/top_d/fil/kada.pdf"},{"id":5,"title":"中央卸売市場の役割","publisher":"和歌山市","url":"https://www.city.wakayama.wakayama.jp/kurashi/sangyo_koyo_roudou/1001116/1007759/1002101.html"},{"id":6,"title":"加太鮮魚からの直送・販売","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/cyokuso"},{"id":7,"title":"加太周辺の観光・食","publisher":"和歌山市","url":"https://www.city.wakayama.wakayama.jp/kankou/kankouspot/1027585/1036196.html"}]
 migration: {"status":"generated-copy","publicUrl":"/book/kada-sea-bream-distribution-ecosystem/"}
 editorialPhotoPlacements:
-  - afterHeading: "魚は、釣り上げた瞬間に商品になるわけではない"
-    afterParagraph: 3
+  - afterHeading: "釣り上げた真鯛は、まだ港にいる"
+    afterParagraph: 2
     photoIds: ["photo-kada-kitan-strait"]
-  - afterHeading: "生簀は、「時間を貯める倉庫」である"
-    afterParagraph: 3
+  - afterHeading: "生簀が調整する、海と食卓の時間"
+    afterParagraph: 2
     photoIds: ["photo-kada-tomogashima-aerial"]
-  - afterHeading: "港の市場で、魚に値段がつく"
-    afterParagraph: 3
-    photoIds: ["photo-kada-kitan-strait"]
-  - afterHeading: "鯛には、いくつもの行き先がある"
-    afterParagraph: 3
+  - afterHeading: "魚を都市へ送るか、人が加太へ来るか"
+    afterParagraph: 2
     photoIds: ["photo-kada-awashima"]
-  - afterHeading: "魚が動くか、人が動くか"
-    afterParagraph: 3
-    photoIds: ["photo-kada-awashima"]
-  - afterHeading: "港は、自然の時間を人間の時間へ翻訳する"
-    afterParagraph: 3
-    photoIds: ["photo-kada-kitan-strait"]
 ---
 ## 釣り上げた真鯛は、まだ港にいる
 
