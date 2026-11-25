@@ -14,7 +14,7 @@ editorialPhotoPlacements:
   - afterHeading: "塩田を造ったとき、水の出口も変わった"
     afterParagraph: 2
     photoIds: ["photo-ushimado-islands"]
-  - afterHeading: "発電所を造り、堤防とポンプも整える"
+  - afterHeading: "発電事業は、ポンプを支える仕組みにもなった"
     afterParagraph: 2
     photoIds: ["photo-kinkai-solar"]
 ---
