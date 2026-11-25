@@ -11,11 +11,12 @@ const collection='collections/salt-afterlife';
 const collectionEssays=[
   'ako-after-salt-fields',
   'iwagi-salt-pans-to-shrimp-ponds',
+  'imabari-why-shipbuilding',
   'takehara-salt-capital-to-townscape',
   'sakaide-salt-fields-to-industry',
   'kinkai-salt-field-to-solar'
 ];
-const requiredSlugs=[...new Set([...storyOrder,...collectionEssays,'four-salt-fields'])];
+const requiredSlugs=[...new Set([...storyOrder,...collectionEssays])];
 assert.equal(new Set(storyOrder).size,storyOrder.length,'Duplicate slug in published storyOrder');
 
 const built=(pathname)=>path.join(dist,pathname,'index.html');
@@ -25,6 +26,9 @@ const assertPage=(pathname)=>{
   return readFileSync(file,'utf8');
 };
 for(const slug of requiredSlugs) assertPage('book/'+slug);
+const retiredSaltHtml=assertPage('book/four-salt-fields');
+assert.ok(retiredSaltHtml.includes('noindex,follow') && retiredSaltHtml.includes('/collections/salt-afterlife/'), 'Retired salt essay must be a redirect to the collection');
+assert.ok(!retiredSaltHtml.includes('markdown-essay-body'), 'Retired salt essay still contains article body');
 const onomichiPage=assertPage('book/onomichi-capital-to-culture-and-ships');
 const schematic='images/editorial/onomichi-joshoji-section.svg';
 const joshojiPhoto='images/atlas-original/joshoji-crossing-onomichi.avif';
@@ -78,7 +82,7 @@ for(const [slug,fileHint] of [
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
-for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug),'book/four-salt-fields']){
+for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug)]){
   assert.ok(sitemapUrls.some(url=>url.includes('/'+pathname+'/')),`Missing sitemap entry: /${pathname}/`);
 }
 
@@ -157,6 +161,9 @@ assert.ok(homepage.includes('visual-home-feature-grid'),'Homepage photo feature 
 assert.equal((homepage.match(/class="visual-home-trail"/g)||[]).length,3,'Three reading-trail cards should be present');
 assert.equal((homepage.match(/class="visual-home-salt-card"/g)||[]).length,2,'Two salt comparison photo cards should be present');
 assert.ok(homepage.includes('data-atlas-search'),'Homepage keyword search must remain available');
-assert.ok(collectionHtml.includes('五つの土地、五つの問い'), 'The salt collection comparison is missing');
+assert.ok(collectionHtml.includes('七つの土地、七つの問い'), 'Seven-place salt collection is missing');
+assert.ok(collectionHtml.includes('伯方島'), 'Salt collection is missing Hakata Island');
+assert.ok(collectionHtml.includes('今治'), 'Salt collection is missing Imabari');
+assert.ok(!collectionHtml.includes('/book/four-salt-fields/'), 'Retired comparison essay remains linked from collection');
 assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
 console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
