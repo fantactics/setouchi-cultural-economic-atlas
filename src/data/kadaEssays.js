@@ -1,4 +1,4 @@
-export const kadaEssays = [
+const allKadaEssays = [
   {
     slug:'kada-sea-bream-one-line',
     part:'食は、土地を語る',
@@ -574,3 +574,6 @@ export const kadaEssays = [
     ]
   }
 ];
+
+// Keep the archived draft in source control, not in public discovery lists.
+export const kadaEssays = allKadaEssays.filter(essay=>essay.slug!=='kada-sea-bream-distribution-ecosystem');
