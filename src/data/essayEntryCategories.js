@@ -55,10 +55,6 @@ export const essayEntryBySlug = {
   'tatsuno-water-castle-and-soy-sauce': ['townscape','food'],
   'tatara-bridge-citrus-seasons': ['agriculture', 'tourism'],
   "awaji-onion-rice-field": ["agriculture", "food"],
-  "four-salt-fields": [
-    "industry",
-    "townscape"
-  ],
   "kojima-from-cotton-to-jeans": [
     "industry",
     "agriculture"
