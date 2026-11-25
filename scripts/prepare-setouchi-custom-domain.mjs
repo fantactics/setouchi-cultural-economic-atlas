@@ -93,7 +93,6 @@ const revisedEssays = [
   ['fish-waste-to-feed-and-citrus', '港で残った魚が、みかん山へ向かう'],
   ['citrus-pomace-cascade', 'みかんを搾ったあと、枝を切ったあと'],
   ['olive-pomace-to-cattle', 'オリーブの搾りかすで、牛を育てる'],
-  ['four-salt-fields', '塩田のあとに残った七つの風景'],
   ['ports-that-needed-waiting', '船が待たなくなったとき、港町には何が残ったのか']
 ];
 for (const [slug, heading] of revisedEssays) {
@@ -104,11 +103,21 @@ for (const [slug, heading] of revisedEssays) {
   assert.ok(!html.includes('/setouchi-cultural-economic-atlas/'), `Legacy project path survived in essay: ${slug}`);
   assert.ok(html.includes('class="markdown-essay-body"'), `Markdown essay body not rendered: ${slug}`);
 }
+// The retired comparison essay remains only as a noindex canonical redirect.
+// GitHub Pages can serve HTML redirects, but it cannot emit HTTP 301 headers.
+const oldSaltEssayHtml=await readFile(path.join(dist,'book','four-salt-fields','index.html'),'utf8');
+assert.ok(oldSaltEssayHtml.includes('noindex,follow'), 'Retired salt essay must not be indexed');
+assert.ok(oldSaltEssayHtml.includes('https://setouchi-atlas.pia2.org/collections/salt-afterlife/'), 'Retired salt essay must redirect to collection');
+assert.ok(!oldSaltEssayHtml.includes('class="markdown-essay-body"'), 'Retired salt essay still publishes article body');
 // Keep the first reader-facing comparison series accessible after rewriting URLs.
 const saltSeriesPath=path.join(dist,'collections','salt-afterlife','index.html');
 const saltSeriesHtml=await readFile(saltSeriesPath,'utf8');
 assert.ok(saltSeriesHtml.includes('塩田が消えたあと'), 'Salt-pan series disappeared from deployed artifact');
 assert.ok(saltSeriesHtml.includes('/book/iwagi-salt-pans-to-shrimp-ponds/'), 'Salt-pan series lost its Iwagi essay link');
+assert.ok(saltSeriesHtml.includes('/book/imabari-why-shipbuilding/'), 'Salt-pan series lost its Imabari essay link');
+assert.ok(saltSeriesHtml.includes('伯方島'), 'Salt-pan series lost its Hakata Island entry');
+assert.ok(saltSeriesHtml.includes('七つの土地'), 'Salt-pan collection is not updated to seven regions');
+assert.ok(!saltSeriesHtml.includes('/book/four-salt-fields/'), 'Collection links to retired comparison essay');
 assert.ok(!saltSeriesHtml.includes('/setouchi-cultural-economic-atlas/'), 'Old base path remains in salt-pan series');
 const featuredHomeHtml=await readFile(path.join(dist,'index.html'),'utf8');
 assert.ok(featuredHomeHtml.includes('/collections/salt-afterlife/'), 'Homepage lost comparison-series link');
