@@ -6,9 +6,6 @@ export const essayCardCopy = {
   "niboshi-shirasu-two-food-cultures": {
     "teaser": "しらすで知られる泉州は、かつて煮干しの浜だった。小魚の運び方が変えた食卓。"
   },
-  "four-salt-fields": {
-    "teaser": "赤穂の工場、伯方の塩、竹原の白壁、坂出の埋立地。塩田の時代は、それぞれ違う姿で残った。"
-  },
   "kojima-from-cotton-to-jeans": {
     "teaser": "ジーンズストリートから、足袋と学生服の町だった頃へさかのぼる。",
     "photoId": "photo-kojima-jeans"
