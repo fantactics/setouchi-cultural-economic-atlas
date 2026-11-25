@@ -1,14 +1,14 @@
 ---
 slug: "four-salt-fields"
 part: "海と陸は、人がつくった"
-title: "塩田のあとに残った六つの風景"
-subtitle: "赤穂の製塩工場、伯方の塩、竹原の白壁、坂出の埋立地、岩城島の養殖池、牛窓の排水――六つの土地のその後"
-cities: ["赤穂","伯方島","竹原","坂出","岩城島","牛窓"]
-keywords: ["塩田","製塩","伯方の塩","伯方島","自然塩存続運動","イオン交換膜","入浜式塩田","流下式塩田","商人資本","酒造","港湾","臨海工業","都市形成","岩城島","クルマエビ","養殖池","牛窓","錦海塩田","鹿忍","排水ポンプ","太陽光発電"]
+title: "塩田のあとに残った七つの風景"
+subtitle: "赤穂の製塩工場、伯方の塩、竹原の白壁、坂出の埋立地、岩城島の養殖池、牛窓の排水、今治の造船所"
+cities: ["赤穂","伯方島","竹原","坂出","岩城島","牛窓","今治","波止浜"]
+keywords: ["塩田","製塩","伯方の塩","伯方島","自然塩存続運動","イオン交換膜","入浜式塩田","流下式塩田","商人資本","酒造","港湾","臨海工業","都市形成","岩城島","クルマエビ","養殖池","牛窓","錦海塩田","鹿忍","排水ポンプ","太陽光発電","今治","波止浜","塩買船","造船所","波止浜船渠"]
 heroPhotoId: "photo-ako-salt-terrace"
-lead: "竹原の白壁を歩いても、塩田は見えない。赤穂には製塩工場があり、伯方島には「伯方の塩」の名が残る。坂出では沖合の海を埋め立て、岩城島では塩田の池にクルマエビを育てた。牛窓では太陽光パネルの下でポンプが動き、近くには水に沈んだロッジもある。同じ塩づくりの土地から、なぜこれほど違う風景が生まれたのだろう。"
-researchLinks: [{"label":"個別作品｜赤穂の製塩事業","href":"/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/"},{"label":"個別作品｜竹原の町並み","href":"/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/"},{"label":"個別作品｜坂出の番の州","href":"/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/"},{"label":"個別作品｜錦海の太陽光発電","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"},{"label":"個別作品｜岩城島のクルマエビ養殖池","href":"/setouchi-cultural-economic-atlas/book/iwagi-salt-pans-to-shrimp-ponds/"},{"label":"個別作品｜牛窓・鹿忍の水没ペンション村","href":"/setouchi-cultural-economic-atlas/book/kashino-sunken-pension-village/"}]
-sources: [{"id":1,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":2,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":3,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":4,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":5,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":6,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":7,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":8,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":9,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":10,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":11,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":12,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":13,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":14,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":15,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":16,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"},{"id":17,"title":"岩城島の塩田と養殖池への転用（愛媛県史・地誌Ⅱ）","publisher":"愛媛県生涯学習センター『えひめの記憶』","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:2/33/view/4812"},{"id":18,"title":"錦海塩田跡地について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3995.html"},{"id":19,"title":"錦海塩田跡地の活用について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3996.html"},{"id":20,"title":"水没した鹿忍の旧リゾートと排水ポンプ（2026年11月3日）","publisher":"FNNプライムオンライン","url":"https://www.fnn.jp/articles/-/1145282"}]
+lead: "竹原の白壁を歩いても、塩田は見えない。赤穂には製塩工場、伯方島には「伯方の塩」が残る。岩城島ではエビを養殖し、牛窓では排水ポンプが土地の行き先を左右した。坂出では沖の海を埋め立て、今治・波止浜では塩田の一部が造船所になった。同じ塩の町なのに、何が残り、何が新しく生まれたのだろう。"
+researchLinks: [{"label":"個別作品｜赤穂の製塩事業","href":"/setouchi-cultural-economic-atlas/book/ako-after-salt-fields/"},{"label":"個別作品｜竹原の町並み","href":"/setouchi-cultural-economic-atlas/book/takehara-salt-capital-to-townscape/"},{"label":"個別作品｜坂出の番の州","href":"/setouchi-cultural-economic-atlas/book/sakaide-salt-fields-to-industry/"},{"label":"個別作品｜錦海の太陽光発電","href":"/setouchi-cultural-economic-atlas/book/kinkai-salt-field-to-solar/"},{"label":"個別作品｜岩城島のクルマエビ養殖池","href":"/setouchi-cultural-economic-atlas/book/iwagi-salt-pans-to-shrimp-ponds/"},{"label":"個別作品｜牛窓・鹿忍の水没ペンション村","href":"/setouchi-cultural-economic-atlas/book/kashino-sunken-pension-village/"},{"label":"個別作品｜今治・波止浜の塩田と造船","href":"/setouchi-cultural-economic-atlas/book/imabari-why-shipbuilding/"}]
+sources: [{"id":1,"title":"坂出塩田の父「久米通賢」","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/6peaple-kumetuuken-syoukai.html"},{"id":2,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":3,"title":"旧赤穂西浜塩業組合関係史料について（近代製塩）","publisher":"赤穂市教育委員会","url":"https://www.city.ako.lg.jp/edu/soumu/documents/0603giansankou.pdf"},{"id":4,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":5,"title":"塩業のあゆみ／坂出市のあゆみ","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/engyounoayumi.html"},{"id":6,"title":"林田・阿河浜埠頭――坂出港の物流拠点・工業団地","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/pier-hayasida-agahama.html"},{"id":7,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":8,"title":"今昔写真集（昭和30年から）","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/site/toshokan-top/lib-eizou-syowa2.html"},{"id":9,"title":"赤穂市立海洋科学館・塩の国／赤穂かん水塩","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/sangyoshinko/shoukou/kansuien_bosyu.html"},{"id":10,"title":"坂出港の概要・各地区の姿","publisher":"坂出市","url":"https://www.city.sakaide.lg.jp/soshiki/kouwanka/profile.html"},{"id":11,"title":"赤穂市都市計画マスタープラン","publisher":"赤穂市","url":"https://www.city.ako.lg.jp/kensetsu/keikaku/documents/honpenn1.pdf"},{"id":12,"title":"赤穂海浜公園とは？","publisher":"兵庫県立赤穂海浜公園","url":"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html"},{"id":13,"title":"昔ながら「塩の国の塩」新発売","publisher":"赤穂民報","url":"https://www.ako-minpo.jp/smp/news_15166.html"},{"id":14,"title":"伯方塩業の沿革","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/company/cp_history/"},{"id":15,"title":"伯方の塩誕生物語","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/history/"},{"id":16,"title":"伯方の塩 原料に関するFAQ","publisher":"伯方塩業株式会社","url":"https://www.hakatanoshio.co.jp/salt/qa/"},{"id":17,"title":"岩城島の塩田と養殖池への転用（愛媛県史・地誌Ⅱ）","publisher":"愛媛県生涯学習センター『えひめの記憶』","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:2/33/view/4812"},{"id":18,"title":"錦海塩田跡地について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3995.html"},{"id":19,"title":"錦海塩田跡地の活用について","publisher":"瀬戸内市","url":"https://www.city.setouchi.lg.jp/soshiki/21/3996.html"},{"id":20,"title":"水没した鹿忍の旧リゾートと排水ポンプ（2026年11月3日）","publisher":"FNNプライムオンライン","url":"https://www.fnn.jp/articles/-/1145282"},{"id":21,"title":"今治の歴史 海事編","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/kaiji/rekisi/"},{"id":22,"title":"愛媛県史 地誌Ⅰ：波止浜塩田と造船所の立地","publisher":"愛媛県生涯学習センター『えひめの記憶』","url":"https://i-manabi.jp/system/regionals/regionals/ecode:2/31/view/4432"},{"id":23,"title":"波止浜の形成と変化：旧塩田のその後","publisher":"愛媛県生涯学習センター『えひめの記憶』","url":"https://www.i-manabi.jp/system/regionals/regionals/ecode:1/27/view/3793"}]
 migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 ---
 竹原の古い町並みで白壁の商家を見上げる。ここが塩の町だったと言われても、海水を引き込んだ塩田は見当たらない。塩田があった時代に築かれた家だけが、通りに残っている。
@@ -19,7 +19,7 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 瀬戸内海沿岸には、かつて塩田が帯のように広がっていた。少雨の気候、日差しと風、遠浅の海や潮の満ち引き。堤を築き、海水を濃くし、釜で煮詰める。塩をつくる仕事には広い土地が必要だった。 [1](#source-1) [5](#source-5)
 
-やがて塩田をやめたとき、残ったものは土地だけではなかった。製塩事業、商品、商家が残った町もある。海水を扱う池を別の仕事に使った島もある。さらに、製塩を終えても堤防の内側から水をくみ出し続けなければならない土地もあった。
+やがて塩田の仕事が変わると、残ったものは土地だけではなかった。製塩事業、商品、商家が続いた町もある。海水を扱う池を養殖に使った島もある。塩を運んだ船が造船の仕事を育てた港も、製塩を終えてなお水をくみ出し続ける土地もあった。
 
 ## 赤穂――塩田が消えても、塩づくりは続いた
 
@@ -83,8 +83,16 @@ migration: {"status":"generated-copy","publicUrl":"/book/four-salt-fields/"}
 
 錦海の太陽光パネルと鹿忍の水面は、どちらも塩田をやめたあとに生まれた景色だ。異なるのは発電と観光という用途だけではない。**誰が、いつまで水をくみ出し続けるか。** 低い土地には、その仕事も一緒に引き継がれる。 [18](#source-18) [19](#source-19) [20](#source-20)
 
-## 六つの土地に残されたもの
+## 今治・波止浜――塩が船を呼び、船が塩田を使った
 
-竹原の白壁は、塩田が働いていた時代に築かれた。赤穂では土地を手放して製塩の仕事を続け、伯方島では廃止された塩田への思いから新しい会社が生まれた。坂出では旧塩田の転用と並行して、沖合に別の陸地をつくった。岩城島では塩田の一部を養殖池に変え、牛窓では低い土地を守る排水の仕事が、発電所と水没したリゾート跡という対照的な風景を生んだ。
+来島海峡に近い波止浜湾は、潮や風を待つ船を迎える静かな入り江だった。1683年には湾奥に塩田が築かれ、塩を買い付ける船や、塩田へ資材を運ぶ船が行き交うようになる。船を修理し、つくる仕事も、この港で育った。塩田と造船は、片方が終わってからもう片方が始まったわけではない。 [21](#source-21) [22](#source-22)
 
-竹原の商家、赤穂の工場、伯方の塩の袋、坂出の埋立地、岩城島の池、牛窓の堤防。塩田が残したものを探すなら、海を見つめるだけでなく、**その土地を次に使った人と、水を管理し続けた人**にも目を向けることになる。
+1902年には近代的な造船所・波止浜船渠が設けられ、昭和戦時期にも塩田の一部を埋め立てて造船所が立地した。塩田の土地が船の仕事に使われる一方、製塩そのものも続いていた。塩田廃止後には湾奥の跡地が埋め立てられ、住宅地やゴルフ場などにもなった。波止浜の旧塩田が、すべて造船所に変わったわけではない。 [22](#source-22) [23](#source-23)
+
+坂出の番の州が旧塩田とは別の沖合を埋め立てた工業地なのに対し、波止浜には**塩田の一部を実際に造船所へ替えた歴史**がある。造船所のクレーンが並ぶ湾では、塩を売るために集まった船が、次の産業を育てた。その道筋は[今治の造船を扱う別のエッセイ](/setouchi-cultural-economic-atlas/book/imabari-why-shipbuilding/)でさらにたどることができる。 [21](#source-21) [22](#source-22)
+
+## 七つの土地に残されたもの
+
+竹原の白壁は、塩田が働いていた時代に築かれた。赤穂では製塩事業を続け、伯方島では塩田廃止後に新しい会社が生まれた。坂出では旧塩田の転用と並行して沖合に陸地をつくった。岩城島では塩田の一部を養殖池に変え、牛窓では排水管理が発電所と水没したリゾート跡という異なる風景につながった。今治・波止浜では塩の商いが船の仕事を呼び、その船を造る工場が塩田の一部を使った。
+
+竹原の商家、赤穂の工場、伯方の塩の袋、坂出の埋立地、岩城島の池、牛窓の堤防、波止浜の造船所。塩田の歴史が残したものは、一つの形には収まらない。
