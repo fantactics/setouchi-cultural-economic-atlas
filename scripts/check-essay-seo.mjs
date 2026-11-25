@@ -24,6 +24,15 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  const candidate=path.join(builtRoot,slug,'index.html');
  if(!existsSync(candidate)){skipped.push(slug);continue;}
  const html=readFileSync(candidate,'utf8');
+ // A retired Markdown essay may have a public compatibility redirect, not an article.
+ // Verify its noindex, canonical and refresh destination before excluding it from article checks.
+ if(slug==='ports-that-needed-waiting'){
+  const target='https://setouchi-atlas.pia2.org/collections/port-towns/';
+  assert.ok(getMeta(html,'name','robots').includes('noindex'), 'Retired port essay must not be indexed');
+  assert.ok(getMeta(html,'http-equiv','refresh').includes(target), 'Retired port essay redirect target is incorrect');
+  assert.ok((html.match(/<link\b[^>]*>/g)||[]).some(tag=>tag.includes('rel="canonical"') && tag.includes(target)), 'Retired port essay canonical target is incorrect');
+  skipped.push(slug);continue;
+ }
  const h1=decode(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'').trim();
  const pageTitle=getTag(html,'title');
  const og=getMeta(html,'property','og:title');
