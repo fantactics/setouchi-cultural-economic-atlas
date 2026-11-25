@@ -24,6 +24,8 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'omishima-mountains-and-sea-faith':['信仰・寺社','船と航海'],
+  'setouchi-sea-gods-and-power':['信仰・寺社','船と航海','港の商い'],
   'iwagi-salt-pans-to-shrimp-ponds':['塩づくり','漁撈・養殖'],
   'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['農の知恵','塩づくり'],
   'oyster-shells-where-they-go':['漁撈・養殖','再利用の工夫'],
