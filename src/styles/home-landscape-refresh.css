@@ -102,3 +102,22 @@
 @media(prefers-reduced-motion:reduce){
   .visual-home .visual-home-feature>img,.visual-home .visual-home-trail summary>img,.visual-home .visual-home-salt-card>img{transition:none}
 }
+/* Let landscape photographs stand on their own, without dark text overlays. */
+.visual-home .visual-home-trail summary{min-height:0;background:#fbfcf9;color:#233e3a}
+.visual-home .visual-home-trail summary>img{position:relative;inset:auto;aspect-ratio:1.5;height:auto}
+.visual-home .visual-home-trail summary::after{display:none}
+.visual-home .visual-home-trail-copy{position:relative;inset:auto;padding:17px 20px 15px;text-shadow:none;justify-content:flex-start}
+.visual-home .visual-home-trail-copy small{color:#a56b50}
+.visual-home .visual-home-trail-copy strong{font-size:clamp(1.3rem,2.1vw,1.75rem);line-height:1.4}
+.visual-home .visual-home-trail-copy>span{color:#5d746c;min-height:3.2em}
+.visual-home .visual-home-trail-copy em{color:#286b5d;border-top:1px solid #dfe7df;margin-top:12px}
+.visual-home .visual-home-salt-card::after,.visual-home .visual-home-feature::after{background:linear-gradient(180deg,transparent 42%,rgba(7,28,28,.76) 100%)}
+.visual-home .visual-home-photo-credits{margin-top:24px;color:#6c8078;font-size:.75rem}
+.visual-home .visual-home-photo-credits summary{cursor:pointer}
+.visual-home .visual-home-photo-credits li{margin:5px 0;line-height:1.6}
+.visual-home .visual-home-photo-credits a{color:inherit}
+@media(max-width:660px){
+  .visual-home .visual-home-trail summary>img{aspect-ratio:1.85}
+  .visual-home .visual-home-trail-copy{padding:13px 16px}
+  .visual-home .visual-home-trail-copy>span{min-height:0}
+}

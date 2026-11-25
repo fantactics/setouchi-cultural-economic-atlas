@@ -39,28 +39,78 @@ const essayPhoto=(article)=>{
 const featuredSlugs=['tomo-two-act-tidal-port','kojima-from-cotton-to-jeans','oysters-taste-of-small-seas'];
 const featuredArticles=featuredSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 
+// Homepage-only landscape selections, independent of the article covers.
+const homePhotos={
+  ...photoById,
+  'home-ikuchijima-orchard': {
+    imageUrl:'/setouchi-cultural-economic-atlas/images/atlas-original/ikuchijima/6cdf89cdf1.webp',
+    alt:'生口島の山裾に広がる柑橘畑。品種は未確認。',
+    title:'生口島の柑橘畑',
+    author:'ATLAS編集者'
+  }
+};
 const readingTrails=[
-  {label:'技術が、土地を越えていく',question:'自然に縛られた産業は、いつ土地から自由になる？',description:'綿作と児島の織物、海と今治の造船、そして尾道へ。産業の出発点と、技術の行き先を追う。',slugs:['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','onomichi-capital-to-culture-and-ships']},
-  {label:'港に残った、船の時間',question:'船が待つ港には、どんな暮らしが生まれた？',description:'潮と風を待った船、港で生まれた商い、海を渡った信仰。交通の時間から町を見る。',slugs:['tomo-two-act-tidal-port','mitarai-economy-of-waiting','faith-as-transport-map']},
-  {label:'食卓の裏側にある海',question:'牡蠣のおいしさと、食べたあとの殻はつながっている？',description:'海の条件が育てる味から、使い終えた殻の行方、そして瀬戸内の食文化へ。',slugs:['oysters-taste-of-small-seas','oyster-shells-where-they-go','setouchi-sushi-not-nigiri']}
-].map((trail)=>({...trail,articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean)}))
- .filter((trail)=>trail.articles.length===trail.slugs.length);
-
-const trailCoverSlugs=['imabari-why-shipbuilding','mitarai-economy-of-waiting','oysters-taste-of-small-seas'];
-const trailCards=readingTrails.map((trail,index)=>({
+  {
+    "label": "潮が動かす世界",
+    "question": "海面の下では、何が起きているのか。",
+    "slugs": [
+      "setouchi-250-submarine-caldrons",
+      "kurushima-tides-and-navigation",
+      "setouchi-shrimp-middle-layer"
+    ],
+    "photoId": "photo-naruto-whirlpool",
+    "position": "50% 50%"
+  },
+  {
+    "label": "土地と水に向き合う",
+    "question": "人は、与えられた土地をどう使ってきたのか。",
+    "slugs": [
+      "hiketa-castle-port-town",
+      "sanuki-store-the-rain",
+      "mikan-slope-and-varieties"
+    ],
+    "photoId": "photo-karihama-citrus-terraces",
+    "position": "50% 50%"
+  },
+  {
+    "label": "名産が生まれるまで",
+    "question": "なぜ、その土地ならではの味が生まれたのか。",
+    "slugs": [
+      "tatara-bridge-citrus-seasons",
+      "shodoshima-somen-to-sesame-oil",
+      "ibuki-fat-sardines-revalued"
+    ],
+    "photoId": "home-ikuchijima-orchard",
+    "position": "50% 50%"
+  }
+];
+const trailCards=readingTrails.map((trail)=>({
   ...trail,
-  coverPhoto:essayPhoto(allEssays.find((article)=>article.slug===trailCoverSlugs[index]))
+  articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean),
+  coverPhoto:homePhotos[trail.photoId]
 }));
+const featuredPhoto=(article)=>{
+  if(article.slug==='tomo-two-act-tidal-port') return article.heroPhoto || essayPhoto(article);
+  if(article.slug==='oysters-taste-of-small-seas') return homePhotos['photo-hiroshima-oyster-rafts'];
+  return essayPhoto(article);
+};
 const saltContrasts=[
-  {slug:'takehara-salt-capital-to-townscape',place:'竹原',caption:'塩の富が残した白壁'},
-  {slug:'kinkai-salt-field-to-solar',place:'錦海湾',caption:'塩田のあとに並んだパネル'}
-].map((item)=>{
-  const article=allEssays.find((article)=>article.slug===item.slug);
-  return {...item,article,photo:article && essayPhoto(article)};
-});
-if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(article)?.imageUrl) ||
+  {slug:'takehara-salt-capital-to-townscape',place:'竹原',caption:'塩の富が残した白壁',photoId:'photo-takehara-view'},
+  {slug:'kinkai-salt-field-to-solar',place:'錦海湾',caption:'海を仕切って生まれた土地',photoId:'photo-kinkai-solar'}
+].map((item)=>({
+  ...item,
+  article:allEssays.find((article)=>article.slug===item.slug),
+  photo:homePhotos[item.photoId]
+}));
+const homepagePhotos=[...new Map([
+  ...featuredArticles.map(featuredPhoto),
+  ...trailCards.map(trail=>trail.coverPhoto),
+  ...saltContrasts.map(item=>item.photo)
+].filter(Boolean).map(photo=>[photo.imageUrl,photo])).values()];
+if(featuredArticles.length!==3 || featuredArticles.some((article)=>!featuredPhoto(article)?.imageUrl) ||
   trailCards.length!==3 || trailCards.some((trail)=>!trail.coverPhoto?.imageUrl || trail.articles.length!==3) ||
-  saltContrasts.some((item)=>!item.photo?.imageUrl)) {
+  saltContrasts.some((item)=>!item.article || !item.photo?.imageUrl) ||
+  new Set([...featuredSlugs,...readingTrails.flatMap(trail=>trail.slugs)]).size!==12) {
   throw new Error('Homepage photo selection is incomplete; review before deployment');
 }
 ---
@@ -69,7 +119,7 @@ if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(a
     <header class="visual-home-intro">
       <p class="visual-home-eyebrow">LANDSCAPE = NATURE × CULTURE</p>
       <h1>その風景には、理由がある。</h1>
-      <p>島、港、食卓。景色の奥にある物語を、訪ねに行こう。</p>
+      <p>海、島、畑、町。景色の奥にある物語を、訪ねに行こう。</p>
     </header>
 
     <section class="visual-home-featured" aria-labelledby="visual-home-feature-title">
@@ -79,9 +129,7 @@ if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(a
       </div>
       <div class="visual-home-feature-grid">
         {featuredArticles.map((article,index)=>{
-          const photo=article.slug==='oysters-taste-of-small-seas'
-            ? photoById['photo-hinase-oysters'] || essayPhoto(article)
-            : essayPhoto(article);
+          const photo=featuredPhoto(article);
           return <a
             class:list={['visual-home-feature',index===0 && 'visual-home-feature--large']}
             href={'/setouchi-cultural-economic-atlas/book/'+article.slug+'/'}
@@ -113,11 +161,11 @@ if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(a
         {trailCards.map((trail,index)=>(
           <details class="visual-home-trail">
             <summary aria-label={trail.label+'の3篇を表示'}>
-              <img src={trail.coverPhoto.imageUrl} alt={trail.coverPhoto.alt || trail.label} loading="lazy" decoding="async" />
+              <img src={trail.coverPhoto.imageUrl} alt={trail.coverPhoto.alt || trail.label} style={`object-position:${trail.position}`} loading="lazy" decoding="async" />
               <span class="visual-home-trail-copy">
                 <small>TRAIL {String(index+1).padStart(2,'0')}</small>
-                <strong>{['産業と技術','港と船','海と食卓'][index]}</strong>
-                <span>{['技術は土地を越える','船を待った町','海の恵み、その先へ'][index]}</span>
+                <strong>{trail.label}</strong>
+                <span>{trail.question}</span>
                 <em>3篇を見る <span aria-hidden="true">＋</span></em>
               </span>
             </summary>
@@ -138,9 +186,9 @@ if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(a
         <div>
           <p class="visual-home-eyebrow">READ AS A SERIES</p>
           <h2 id="visual-home-salt-title">塩田の、その先。</h2>
-          <p>白壁の町にも、発電する海辺にも。塩の仕事の続きがある。</p>
+          <p>海を仕切って生まれた土地は、塩づくりが終わったあと、どう変わったのか。</p>
         </div>
-        <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">五つの土地を読み比べる <span aria-hidden="true">↗</span></a>
+        <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/">七つの土地を読み比べる <span aria-hidden="true">↗</span></a>
       </div>
       <div class="visual-home-salt-grid">
         {saltContrasts.map((item)=>(
@@ -168,6 +216,10 @@ if(featuredArticles.length!==3 || featuredArticles.some((article)=>!essayPhoto(a
     <section class="visual-home-search" aria-label="エッセイをキーワードで探す">
       <SiteSearch essaysOnly={true} />
     </section>
+    <details class="visual-home-photo-credits">
+      <summary>トップページの写真出典</summary>
+      <ul>{homepagePhotos.map(photo=><li>{photo.sourcePage ? <a href={photo.sourcePage} target="_blank" rel="noreferrer">{photo.title || photo.alt}</a> : <span>{photo.title || photo.alt}</span>} — {photo.author || '出典はエッセイ参照'} {photo.licenseUrl ? <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a> : photo.license}</li>)}</ul>
+    </details>
     <p class="visual-home-directory"><a href="/setouchi-cultural-economic-atlas/book/">すべてのエッセイを一覧で見る <span aria-hidden="true">↗</span></a></p>
   </main>
 </BaseLayout>

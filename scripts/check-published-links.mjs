@@ -185,3 +185,7 @@ const setodaEssay=assertPage('book/tatara-bridge-citrus-seasons');
 const setodaHero=setodaEssay.match(/<figure class="book-hero-photo"[^>]*>[\s\S]*?<\/figure>/)?.[0]||'';
 assert.ok(setodaHero.includes(setodaPhoto) && setodaHero.includes('No.6201'), 'Setoda article hero or photo credit missing');
 assert.ok(indexHtml.includes(setodaPhoto), 'Setoda discovery card must use the approved post photo');
+
+// Homepage trails represent nine distinct current essays, separate from the three featured works.
+for(const title of ["潮が動かす世界","土地と水に向き合う","名産が生まれるまで"]) assert.ok(homepage.includes(title),'Missing refreshed trail: '+title);
+for(const slug of ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","setouchi-shrimp-middle-layer","hiketa-castle-port-town","sanuki-store-the-rain","mikan-slope-and-varieties","tatara-bridge-citrus-seasons","shodoshima-somen-to-sesame-oil","ibuki-fat-sardines-revalued"]) assert.ok(homepage.includes('/book/'+slug+'/'),'Missing reading trail essay: '+slug);
