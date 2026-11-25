@@ -165,5 +165,5 @@ assert.ok(collectionHtml.includes('七つの土地、七つの問い'), 'Seven-p
 assert.ok(collectionHtml.includes('伯方島'), 'Salt collection is missing Hakata Island');
 assert.ok(collectionHtml.includes('今治'), 'Salt collection is missing Imabari');
 assert.ok(!collectionHtml.includes('/book/four-salt-fields/'), 'Retired comparison essay remains linked from collection');
-assert.ok(collectionHtml.includes('坂出の番の州は、旧塩田ではなく沖合の海を埋め立てて造られた土地'), 'Sakaide geographical caveat is missing');
+assert.ok(collectionHtml.includes('坂出の番の州は塩田跡ではなく、沖合を新たに埋め立てた土地'), 'Sakaide geographical caveat is missing');
 console.log(`Published route checks passed: ${requiredSlugs.length} required essays, ${important.length} discovery/essay/region pages, ${checked} editorial links, collection and sitemap.`);
