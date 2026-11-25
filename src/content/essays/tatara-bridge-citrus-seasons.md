@@ -7,11 +7,11 @@ cities: ["生口島","瀬戸田","尾道"]
 keywords: ["レモン","レモン谷","多々羅大橋","しまなみ海道","柑橘","少雨","温暖","斜面","農業景観","生協","産直","苗木","地域ブランド","しおまち商店街","郵便ポスト"]
 heroPhotoId: "photo-tatara-cycling-ikuchijima"
 heroPhoto: {"imageUrl":"/setouchi-cultural-economic-atlas/images/editorial/setoda-lemon-post.webp","title":"瀬戸田のレモン色の郵便ポスト","alt":"生口島・瀬戸田の商店前に立つ、黄色く塗られた円筒形の郵便ポスト","caption":"しおまち商店街のレモン色の郵便ポスト。2022年11月18日撮影。","kind":"photo","author":"尾道観光協会","license":"おのみちや No.6201","licenseUrl":"https://www.ononavi.jp/onomichiya/usersguide/","sourcePage":"https://www.ononavi.jp/onomichiya/search/detail.php?id=6201"}
-lead: "生口島の瀬戸田には、レモン色の郵便ポストがある。かつて輸入自由化で衰退した産地を支えたのは、島の外の消費者だった。果樹園と商店街、二つの風景の成り立ちをたどる。"
+lead: "生口島の瀬戸田には、レモン色の郵便ポストがある。かつて衰退した産地を支えたのは島の外の消費者だった。やがて町は、レモンを島全体の象徴に選ぶ。果樹園と商店街、二つの風景の成り立ちをたどる。"
 narrativeMode: "sketch"
-provisionalConclusion: "島外の消費者による国産レモン需要、産直取引と苗木寄贈が産地の再興と維持を後押しした。島内外の参加者による商店街の景観づくりは、農産物を町の象徴へと広げた。"
+provisionalConclusion: "島外の消費者による産直取引と苗木寄贈が産地の再興と維持を後押しした。尾道市のブランド構想、レモン祭、せとうちDMOの商店街再生事業、地域内外の企業と住民の協働によって、レモンは農産物から島の象徴へと広がった。"
 openQuestions: ["1977年の直接取引を始めた生協の名称と契約条件"]
-sources: [{"id":1,"title":"瀬戸田レモンの歴史と特別栽培","publisher":"JAひろしま","url":"https://jahiroshima.or.jp/tokusankakou/14720/"},{"id":2,"title":"日本一のレモン県！尾道市瀬戸田で見つけた逸品とは？","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/lab/topics/20230630/01/"},{"id":3,"title":"瀬戸田レモンの歴史","publisher":"井上農園","url":"https://inoue-nouen.jp/lemon.html"},{"id":4,"title":"第52回日本農業賞・せとだエコレモングループ","publisher":"農業協同組合新聞","url":"https://www.jacom.or.jp/articles/230201-64426"},{"id":5,"title":"苗木寄贈により、産地とともに持続可能な国産レモンの生産を目指して","publisher":"コープデリ連合会","url":"https://sustainability.coopdeli.coop/sustainability/2023/06/kizou-lemon.html"},{"id":6,"title":"商店街の郵便ポストが黄色に！！","publisher":"かめだ年保（ワークショップ参加記録）","url":"https://note.com/tsunaguwa/n/n712b4581d5db"},{"id":7,"title":"瀬戸田レモン傘プロジェクトのサービス開始について","publisher":"JR西日本","url":"https://www.jr-furusato.jp/newsevent/7776/"},{"id":8,"title":"しおまちとワークショップの活動記録","publisher":"かめだ年保","url":"https://note.com/tsunaguwa/n/ndbae4c11c844"},{"id":9,"title":"レモン色のポスト（写真 No.6201）","publisher":"尾道観光協会","url":"https://www.ononavi.jp/onomichiya/search/detail.php?id=6201"}]
+sources: [{"id":1,"title":"瀬戸田レモンの歴史と特別栽培","publisher":"JAひろしま","url":"https://jahiroshima.or.jp/tokusankakou/14720/"},{"id":2,"title":"日本一のレモン県！尾道市瀬戸田で見つけた逸品とは？","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/lab/topics/20230630/01/"},{"id":3,"title":"瀬戸田レモンの歴史","publisher":"井上農園","url":"https://inoue-nouen.jp/lemon.html"},{"id":4,"title":"第52回日本農業賞・せとだエコレモングループ","publisher":"農業協同組合新聞","url":"https://www.jacom.or.jp/articles/230201-64426"},{"id":5,"title":"苗木寄贈により、産地とともに持続可能な国産レモンの生産を目指して","publisher":"コープデリ連合会","url":"https://sustainability.coopdeli.coop/sustainability/2023/06/kizou-lemon.html"},{"id":6,"title":"商店街の郵便ポストが黄色に！！","publisher":"かめだ年保（ワークショップ参加記録）","url":"https://note.com/tsunaguwa/n/n712b4581d5db"},{"id":7,"title":"瀬戸田レモン傘プロジェクトのサービス開始について","publisher":"JR西日本","url":"https://www.jr-furusato.jp/newsevent/7776/"},{"id":8,"title":"しおまちとワークショップの活動記録","publisher":"かめだ年保","url":"https://note.com/tsunaguwa/n/ndbae4c11c844"},{"id":9,"title":"レモン色のポスト（写真 No.6201）","publisher":"尾道観光協会","url":"https://www.ononavi.jp/onomichiya/search/detail.php?id=6201"},{"id":10,"title":"生口島・尾道市未来創造計画 六次産業化プロジェクト","publisher":"ビンデザインオフィス","url":"https://www.b-forest.co.jp/works/ikuchijima.html"},{"id":11,"title":"瀬戸田ブランドシンボルマーク","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/soshiki/44/12200.html"},{"id":12,"title":"第1回せとだレモン祭","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/site/camera/12353.html"},{"id":13,"title":"広報おのみち2018年3月号・せとだレモン祭実行委員会（32頁）","publisher":"尾道市","url":"https://www.city.onomichi.hiroshima.jp/uploaded/attachment/10620.pdf"},{"id":14,"title":"しおまちとワークショップ2020","publisher":"せとうちDMO","url":"https://setouchitourism.or.jp/ja/info/shiomachi_2020/"},{"id":15,"title":"レモン等瀬戸田地域振興に関する協定","publisher":"JR西日本 ふるさとおこしプロジェクト","url":"https://www.jr-furusato.jp/newsevent/3568/"}]
 migration: {"status":"native-editorial","publicUrl":"/book/tatara-bridge-citrus-seasons/"}
 ---
 
@@ -66,15 +66,27 @@ migration: {"status":"native-editorial","publicUrl":"/book/tatara-bridge-citrus-
 
 消費者は、収穫されたレモンを買うだけではなかった。数年先に実をつける木を植えるところから、産地に関わっていた。
 
+## レモンを、島の名前と結びつける
+
+レモンの産地として復活した瀬戸田は、今度はレモンで島そのものを売り出そうとした。
+
+2016年に始まった尾道市の六次産業化プロジェクトでは、ワークショップで島の魅力を話し合った。さまざまな地域資源の中から、島を印象づけるものとして選ばれたのは、レモンと海だった。青い海と二つのレモンを組み合わせたシンボルマークがつくられ、島を表す言葉は「恋するれもんの島」となった。周辺の島々との違いを打ち出すことが、デザインの狙いでもあった。クッキーや果汁、手ぬぐいなどにもマークが使われた。 [10](#source-10) [11](#source-11)
+
+2017年3月には、初めて「せとだレモン祭」が開催された。日本有数の産地でありながら、それまでレモンを主役にした大きな祭りがなかったという。尾道観光協会、商工会、農協が実行委員会をつくり、農家や商店、学校にも参加を呼びかけた。レモンを使った料理が並び、丸かじりやレモンを担いで走る競技も行われた。翌年には島内の小・中・高校すべてが祭りに関わり、小学生と教職員は瀬戸田の観光PR大使に任命された。 [12](#source-12) [13](#source-13)
+
+さらに2019年、せとうちDMOを構成する瀬戸内ブランドコーポレーションが、尾道市や地域内外の事業者と商店街の再生に取り組み始めた。港から続く約600メートルのしおまち商店街では、空き店舗や空き家が課題になっていた。話し合いで掲げたまちの将来像にも、レモン、アート、人情の三つが盛り込まれ、翌年にはそれを実際の景観に表す取り組みへと進んだ。 [14](#source-14)
+
+島の外の企業も加わった。JR西日本とJA三原は、2016年に瀬戸田レモンを使ったチューハイを共同開発し、2020年には地域振興協定を締結した。農産物の販路を広げるだけでなく、瀬戸田の魅力を発信することも協定の目的だった。 [15](#source-15)
+
 ## レモン色になった商店街
 
 2021年3月、瀬戸田のしおまち商店街では、郵便ポストを黄色く塗るワークショップが開かれた。
 
-商店街の未来を考えるために集まった島内外の人々が、ポストやシャッターをレモン色に塗っていった。町のシンボルとなるレモンの木も植えられた。 [6](#source-6) [7](#source-7) [8](#source-8)
+商店街の未来を考えるために集まった島内外の人々が、ポストやシャッターをレモン色に塗っていった。瀬戸田港にはレモンの木が植えられた。船で島に着いた人にも、まずレモンの島であることが伝わるようにするためだった。 [6](#source-6) [7](#source-7) [8](#source-8)
 
 翌年には、商店街を訪れた人にレモン色の傘を無料で貸し出す取り組みが始まった。雨の日や日差しの強い日にも歩いてもらうための工夫だった。 [7](#source-7)
 
-果樹園に植えられていたレモンが、いつしか商店街の人々にとっても、町を表すものになっていた。
+果樹園を訪れなくても、港に降り立ち、商店街を歩くだけで、レモンの島だとわかる。黄色いポストは、そのために人の手でつくられた風景だった。
 
 瀬戸田の山裾には、島の外の消費者が植えることを後押ししたレモンの木がある。
 
