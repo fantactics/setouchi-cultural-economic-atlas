@@ -2,6 +2,27 @@
 // open licenses. Never hotlink their image assets; readers can view the originals
 // on the source pages. Covers remain limited to separately licensed images.
 export const essayPhotoFieldReferences = {
+  'tatara-bridge-citrus-seasons': [
+  {
+    "label": "黄色い郵便ポストの実景を見る",
+    "publisher": "尾道観光協会・おのみちや",
+    "url": "https://www.ononavi.jp/onomichiya/search/detail.php?id=6201",
+    "heroNote": "冒頭の写真は生口島の風景です。レモン色の郵便ポストの実景は尾道観光協会の写真資料で確認できます。",
+    "note": "写真No.6201。撮影2022年11月18日。画像ファイルは未取得のため原ページへ案内します。"
+  },
+  {
+    "label": "レモンの苗木寄贈と収穫されたレモンを見る",
+    "publisher": "コープデリ連合会",
+    "url": "https://sustainability.coopdeli.coop/sustainability/2023/06/kizou-lemon.html",
+    "note": "生産者と店頭のレモンの写真を掲載した活動報告。転載せず原ページにリンクしています。"
+  },
+  {
+    "label": "郵便ポストを黄色く塗ったワークショップの記録",
+    "publisher": "かめだ年保",
+    "url": "https://note.com/tsunaguwa/n/n712b4581d5db",
+    "note": "2021年3月の参加者による記録。写真は転載していません。"
+  }
+],
   'ibuki-fat-sardines-revalued': [
     {
       label:"伊吹島で商品化された釜揚げいりこを見る",

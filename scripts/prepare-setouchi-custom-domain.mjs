@@ -90,7 +90,7 @@ for (const html of htmlPaths) {
 // Guard the five editorially revised essays and the deliberately unpublished
 // Shido draft in the actual artifact that will be deployed to the custom domain.
 const revisedEssays = [
-  ['tatara-bridge-citrus-seasons', '生口島は、なぜレモンの島になったのか'],
+  ['tatara-bridge-citrus-seasons', '生口島では、なぜ郵便ポストまでレモン色なのか'],
   ['olive-pomace-to-cattle', 'オリーブの搾りかすで、牛を育てる'],
 ];
 for (const [slug, heading] of revisedEssays) {
