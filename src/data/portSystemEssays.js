@@ -440,7 +440,7 @@ export const portSystemEssays = [
       },
       {
         label:"比較｜港に残った四つの時間",
-        href:"/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/"
+        href:"/setouchi-cultural-economic-atlas/collections/port-towns/"
       },
       {
         label:"港の土木｜雁木が示す船と陸のつながり",

@@ -28,6 +28,11 @@ const assertPage=(pathname)=>{
 for(const slug of requiredSlugs) assertPage('book/'+slug);
 // Retain the research draft in source control but do not publish its route.
 assert.ok(!existsSync(built('book/kada-sea-bream-distribution-ecosystem')), 'Unverified Kada live-holding draft must remain unpublished');
+for(const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade']) assert.ok(!existsSync(built('book/'+slug)), 'Withdrawn essay still published: '+slug);
+const portCollection=assertPage('collections/port-towns');
+assert.ok(portCollection.includes('多度津') && portCollection.includes('/places/tadotsu/'), 'Port collection needs Tadotsu');
+const oldPort=assertPage('book/ports-that-needed-waiting');
+assert.ok(oldPort.includes('noindex,follow') && oldPort.includes('/collections/port-towns/'), 'Port essay must forward to collection');
 const retiredSaltHtml=assertPage('book/four-salt-fields');
 assert.ok(retiredSaltHtml.includes('noindex,follow') && retiredSaltHtml.includes('/collections/salt-afterlife/'), 'Retired salt essay must be a redirect to the collection');
 assert.ok(!retiredSaltHtml.includes('markdown-essay-body'), 'Retired salt essay still contains article body');
@@ -85,7 +90,8 @@ const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
 assert.ok(!sitemapUrls.some(url=>url.includes('/book/kada-sea-bream-distribution-ecosystem/')), 'Unverified Kada draft must not be indexed');
-for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug)]){
+for(const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade','ports-that-needed-waiting']) assert.ok(!sitemapUrls.some(url=>url.includes('/book/'+slug+'/')), 'Withdrawn essay indexed: '+slug);
+for(const pathname of ['collections/port-towns',collection,...collectionEssays.map(slug=>'book/'+slug)]){
   assert.ok(sitemapUrls.some(url=>url.includes('/'+pathname+'/')),`Missing sitemap entry: /${pathname}/`);
 }
 
@@ -103,6 +109,7 @@ const important=[
   'book/nature/index.html',
   'book/culture/index.html',
   collection+'/index.html',
+  'collections/port-towns/index.html',
   ...htmlChildren('book'),
   ...htmlChildren('places')
 ];

@@ -90,10 +90,8 @@ for (const html of htmlPaths) {
 // Guard the five editorially revised essays and the deliberately unpublished
 // Shido draft in the actual artifact that will be deployed to the custom domain.
 const revisedEssays = [
-  ['fish-waste-to-feed-and-citrus', '港で残った魚が、みかん山へ向かう'],
-  ['citrus-pomace-cascade', 'みかんを搾ったあと、枝を切ったあと'],
+  ['tatara-bridge-citrus-seasons', '橋を渡ると、みかんの名前が増えていく'],
   ['olive-pomace-to-cattle', 'オリーブの搾りかすで、牛を育てる'],
-  ['ports-that-needed-waiting', '船が待たなくなったとき、港町には何が残ったのか']
 ];
 for (const [slug, heading] of revisedEssays) {
   const page = path.join(dist, 'book', slug, 'index.html');
@@ -133,6 +131,15 @@ assert.ok(!saltSeriesHtml.includes('/setouchi-cultural-economic-atlas/'), 'Old b
 const featuredHomeHtml=await readFile(path.join(dist,'index.html'),'utf8');
 assert.ok(featuredHomeHtml.includes('/collections/salt-afterlife/'), 'Homepage lost comparison-series link');
 assert.ok(featuredHomeHtml.includes('初めての3篇'), 'Homepage introduction is no longer editorially curated');
+
+for (const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade']) {
+  assert.ok(!(await stat(path.join(dist,'book',slug,'index.html')).then(()=>true).catch(()=>false)), 'Withdrawn essay still published: '+slug);
+}
+const portRedirect=await readFile(path.join(dist,'book','ports-that-needed-waiting','index.html'),'utf8');
+assert.ok(portRedirect.includes('noindex,follow') && portRedirect.includes('/collections/port-towns/'), 'Old port essay must forward to its collection');
+assert.ok(!publishedSitemapPages.includes('/book/ports-that-needed-waiting/'), 'Old port essay must not be indexed');
+const portCollection=await readFile(path.join(dist,'collections','port-towns','index.html'),'utf8');
+assert.ok(portCollection.includes('多度津') && portCollection.includes('/book/tomo-two-act-tidal-port/'), 'Port collection is incomplete');
 
 const withheld = path.join(dist, 'book', 'tadano-shido-industrial-ecosystem', 'index.html');
 assert.ok(!(await stat(withheld).then(() => true).catch(() => false)), 'Shido draft must not be published');

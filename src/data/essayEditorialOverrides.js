@@ -11,7 +11,7 @@ const essayOverrides = {
       '町並みの存続に、経済的な建替え圧力の弱さと保存の取り組みはそれぞれどう作用したのか。'
     ],
     researchLinks:[
-      {label:'比較｜鞆・御手洗・多度津・尾道で「待つ港」を読む',href:'/setouchi-cultural-economic-atlas/book/ports-that-needed-waiting/'},
+      {label:'比較｜鞆・御手洗・多度津・尾道で「待つ港」を読む',href:'/setouchi-cultural-economic-atlas/collections/port-towns/'},
       {label:'地乗り・沖乗り｜航法が選び直した港',href:'/setouchi-cultural-economic-atlas/book/jinori-okinori-navigation-system/'}
     ]
   },

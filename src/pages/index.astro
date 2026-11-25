@@ -41,7 +41,7 @@ const featuredArticles=featuredSlugs.map((slug)=>allEssays.find((article)=>artic
 
 const readingTrails=[
   {label:'技術が、土地を越えていく',question:'自然に縛られた産業は、いつ土地から自由になる？',description:'綿作と児島の織物、海と今治の造船、そして尾道へ。産業の出発点と、技術の行き先を追う。',slugs:['kojima-from-cotton-to-jeans','imabari-why-shipbuilding','onomichi-capital-to-culture-and-ships']},
-  {label:'港に残った、船の時間',question:'船が待つ港には、どんな暮らしが生まれた？',description:'潮と風を待った船、港で生まれた商い、海を渡った信仰。交通の時間から町を見る。',slugs:['ports-that-needed-waiting','mitarai-economy-of-waiting','faith-as-transport-map']},
+  {label:'港に残った、船の時間',question:'船が待つ港には、どんな暮らしが生まれた？',description:'潮と風を待った船、港で生まれた商い、海を渡った信仰。交通の時間から町を見る。',slugs:['tomo-two-act-tidal-port','mitarai-economy-of-waiting','faith-as-transport-map']},
   {label:'食卓の裏側にある海',question:'牡蠣のおいしさと、食べたあとの殻はつながっている？',description:'海の条件が育てる味から、使い終えた殻の行方、そして瀬戸内の食文化へ。',slugs:['oysters-taste-of-small-seas','oyster-shells-where-they-go','setouchi-sushi-not-nigiri']}
 ].map((trail)=>({...trail,articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean)}))
  .filter((trail)=>trail.articles.length===trail.slugs.length);
