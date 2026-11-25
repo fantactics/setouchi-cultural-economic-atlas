@@ -26,6 +26,8 @@ const assertPage=(pathname)=>{
   return readFileSync(file,'utf8');
 };
 for(const slug of requiredSlugs) assertPage('book/'+slug);
+// Retain the research draft in source control but do not publish its route.
+assert.ok(!existsSync(built('book/kada-sea-bream-distribution-ecosystem')), 'Unverified Kada live-holding draft must remain unpublished');
 const retiredSaltHtml=assertPage('book/four-salt-fields');
 assert.ok(retiredSaltHtml.includes('noindex,follow') && retiredSaltHtml.includes('/collections/salt-afterlife/'), 'Retired salt essay must be a redirect to the collection');
 assert.ok(!retiredSaltHtml.includes('markdown-essay-body'), 'Retired salt essay still contains article body');
@@ -82,6 +84,7 @@ for(const [slug,fileHint] of [
 const collectionHtml=assertPage(collection);
 const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
+assert.ok(!sitemapUrls.some(url=>url.includes('/book/kada-sea-bream-distribution-ecosystem/')), 'Unverified Kada draft must not be indexed');
 for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug)]){
   assert.ok(sitemapUrls.some(url=>url.includes('/'+pathname+'/')),`Missing sitemap entry: /${pathname}/`);
 }
