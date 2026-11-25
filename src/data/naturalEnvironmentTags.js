@@ -65,7 +65,6 @@ export const naturalConditionAnchors = {
   'tatara-bridge-citrus-seasons':['少雨','日照','斜面'],
   'awaji-onion-rice-field':['少雨','日照'],
   'sanuki-store-the-rain':['少雨','急流','雨陰'],
-  'four-salt-fields':['日照','干潟','潮汐'],
   'kojima-from-cotton-to-jeans':['干潟','少雨'],
   'ports-that-needed-waiting':['潮汐','季節風'],
   'imabari-why-shipbuilding':['急流','入り江'],
