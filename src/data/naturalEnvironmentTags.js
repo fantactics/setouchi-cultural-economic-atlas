@@ -57,6 +57,8 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'omishima-mountains-and-sea-faith':['多島海','岬','潮流'],
+  'setouchi-sea-gods-and-power':['多島海'],
   'iwagi-salt-pans-to-shrimp-ponds':['塩分','潮汐','日照'],
   'ushimado-nagahama-kinkai-two-reclaimed-landscapes':['塩分','干潟','土壌'],
   'chichibugahama-sky-in-tide':['潮汐','遠浅','日照'],
