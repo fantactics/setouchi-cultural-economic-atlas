@@ -93,7 +93,7 @@ const revisedEssays = [
   ['fish-waste-to-feed-and-citrus', '港で残った魚が、みかん山へ向かう'],
   ['citrus-pomace-cascade', 'みかんを搾ったあと、枝を切ったあと'],
   ['olive-pomace-to-cattle', 'オリーブの搾りかすで、牛を育てる'],
-  ['four-salt-fields', '塩田のあとに残った四つの風景'],
+  ['four-salt-fields', '塩田のあとに残った七つの風景'],
   ['ports-that-needed-waiting', '船が待たなくなったとき、港町には何が残ったのか']
 ];
 for (const [slug, heading] of revisedEssays) {
