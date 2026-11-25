@@ -7,7 +7,7 @@ cities: ["加太"]
 keywords: ["加太","真鯛","紀淡海峡","一本釣り","急潮","活魚","漁業技能","ガストロノミー"]
 heroPhotoId: "photo-kada-harbor-2009-a"
 lead: "加太の港の向こうに、潮の速い紀淡海峡と友ヶ島がある。その海で真鯛を釣る漁師は、竿を使わず、糸を人差し指に掛けることがある。片手で魚の反応を探り、もう片手で船を動かす。なぜ竿ではなく指なのか。一本の糸の先に、潮を読む加太の漁師の技が見えてくる。"
-researchLinks: [{"label":"加太の真鯛が港で過ごす時間","href":"/setouchi-cultural-economic-atlas/book/kada-sea-bream-distribution-ecosystem/"},{"label":"紀淡海峡を越えると、鯛がしらすになる","href":"/setouchi-cultural-economic-atlas/book/kitan-strait-tai-to-shirasu/"}]
+researchLinks: [{"label":"紀淡海峡を越えると、鯛がしらすになる","href":"/setouchi-cultural-economic-atlas/book/kitan-strait-tai-to-shirasu/"}]
 provisionalConclusion: "加太の真鯛の地域価値は、急潮という自然条件だけから生まれるのではない。潮を読む判断、一本釣りの技能、釣り上げた後の処理、活魚流通が重なることで、動き続ける海の資源が「加太の真鯛」へ変換される。天然資源と地域資源のあいだには、人間の技能がある。"
 openQuestions: ["加太の一本釣りで用いる仕掛け・疑似餌は季節や潮によってどう変わるか","漁師の潮読みの暗黙知を航海・潮流データと対応づけることはできるか","一本釣り・活魚出荷が価格形成や鮮度評価に与える効果を定量化できるか"]
 sources: [{"id":1,"title":"和 vol.54 和歌山 海の恵み――加太・一本釣りの真鯛","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/000200/nagomi/w54/04_05/index.html"},{"id":2,"title":"和歌山県加太のマダイ","publisher":"和歌山県","url":"https://www.pref.wakayama.lg.jp/prefg/130100/shokuzai-kaisou/kada_madai.html"},{"id":3,"title":"真鯛――加太の真鯛","publisher":"和歌山市","url":"https://www.city.wakayama.wakayama.jp/kurashi/sangyo_koyo_roudou/nougyou/1067323.html"},{"id":4,"title":"加太の真鯛","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/tai"},{"id":5,"title":"加太漁協の漁業と資源管理","publisher":"加太漁業協同組合","url":"https://www.jf-kada.com/jigyo"}]
@@ -63,7 +63,7 @@ editorialPhotoPlacements:
 
 釣り上げた真鯛は、船の上で長く放っておかない。和歌山県の取材では、魚をすぐデッキ下の生簀へ入れる様子が紹介されている。一匹ずつ扱うのは、魚の体を傷つけにくく、生かしたまま港へ運ぶためでもある。 [1](#source-1) [2](#source-2)
 
-加太漁協では、港へ戻った真鯛をさらに生簀で「活け込み」し、魚の負担を抑えながら販売すると説明する。糸を手繰る漁師の仕事は、魚を傷めず港へ運ぶところまで続いている。その先の生簀、仲買、市場の仕事は[別のエッセイ](/setouchi-cultural-economic-atlas/book/kada-sea-bream-distribution-ecosystem/)でたどった。 [4](#source-4) [5](#source-5)
+加太漁協では、港へ戻った真鯛をさらに生簀で「活け込み」し、魚の負担を抑えながら販売すると説明する。糸を手繰る漁師の仕事は、魚を傷めず港へ運ぶところまで続いている。その先には、生簀で魚を休ませ、仲買人が売り先を選ぶ仕事もある。 [4](#source-4) [5](#source-5)
 
 
 
