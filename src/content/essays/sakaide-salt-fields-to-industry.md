@@ -22,7 +22,7 @@ editorialPhotoPlacements:
   - afterHeading: "古い塩田の跡にも、新しい町ができた"
     afterParagraph: 2
     photoIds: ["photo-sakaide-industry-1960s-official"]
-  - afterHeading: "陸続きになった島から、港を見る"
+  - afterHeading: "沙弥島から、陸になった海を見る"
     afterParagraph: 2
     photoIds: ["photo-sakaide-bannosu-aerial"]
 ---
