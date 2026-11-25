@@ -1,0 +1,22 @@
+---
+// GitHub Pages cannot issue a server-side HTTP 301. Keep a noindex,
+// canonicalized compatibility page for previously shared essay URLs.
+const destination='https://setouchi-atlas.pia2.org/collections/salt-afterlife/';
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={destination} />
+    <title>塩田の特集へ移動しました | SETOUCHI ATLAS</title>
+    <script is:inline>
+      window.location.replace('https://setouchi-atlas.pia2.org/collections/salt-afterlife/');
+    </script>
+  </head>
+  <body>
+    <p>塩田の比較エッセイは、七つの土地を案内する特集ページへ統合しました。</p>
+    <p><a href={destination}>「塩田が消えたあと、土地には何が残ったか」を読む</a></p>
+  </body>
+</html>
