@@ -181,7 +181,6 @@ export const kadaEssays = [
       }
     ],
     researchLinks:[
-      {label:'加太の真鯛が港で過ごす時間',href:'/setouchi-cultural-economic-atlas/book/kada-sea-bream-distribution-ecosystem/'},
       {label:'紀淡海峡を越えると、鯛がしらすになる',href:'/setouchi-cultural-economic-atlas/book/kitan-strait-tai-to-shirasu/'}
     ],
     provisionalConclusion:'加太の真鯛の地域価値は、急潮という自然条件だけから生まれるのではない。潮を読む判断、一本釣りの技能、釣り上げた後の処理、活魚流通が重なることで、動き続ける海の資源が「加太の真鯛」へ変換される。天然資源と地域資源のあいだには、人間の技能がある。',
