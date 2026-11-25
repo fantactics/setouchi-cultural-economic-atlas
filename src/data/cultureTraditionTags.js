@@ -41,7 +41,6 @@ export const cultureTagAnchors={
   'kojima-jeans-circular-economy':['織物・衣服','再利用の工夫'],
   'kojima-from-cotton-to-jeans':['織物・衣服','工業・ものづくり'],
   'sanuki-store-the-rain':['水の管理','農の知恵'],
-  'four-salt-fields':['塩づくり','土地の改変'],
   'takehara-salt-capital-to-townscape':['塩づくり','町並み・建築'],
   'sakaide-salt-fields-to-industry':['塩づくり','工業・ものづくり'],
   'tomo-two-act-tidal-port':['港の商い','船と航海'],
