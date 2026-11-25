@@ -6367,7 +6367,231 @@ bookArticles.push({
   "narrativeMode": "sketch"
 });
 
-export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push(
+{
+  "slug": "omishima-mountains-and-sea-faith",
+  "part": "港と船",
+  "title": "海の神は、なぜ山にいるのか",
+  "subtitle": "大三島・大山祇神社",
+  "cities": [
+    "大三島",
+    "今治"
+  ],
+  "keywords": [
+    "大山祇神社",
+    "大山積大神",
+    "鷲ヶ頭山",
+    "山立て",
+    "山当て",
+    "航海",
+    "信仰",
+    "和多志大神",
+    "百済",
+    "竹幕洞",
+    "多島海",
+    "岬"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Omishima_Island%2C_Ikunoshima_Island_and_Okunoshima_Island_from_ship_of_Omishima_Ferry.jpg?width=1400",
+    "title": "大三島フェリーから望む島々",
+    "alt": "船上から見た大三島、生野島、大久野島の山並み",
+    "caption": "2018年4月29日撮影。海上から眺める大三島、生野島、大久野島。",
+    "kind": "photo",
+    "author": "そらみみ",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Omishima_Island%2C_Ikunoshima_Island_and_Okunoshima_Island_from_ship_of_Omishima_Ferry.jpg"
+  },
+  "lead": "瀬戸内海の大三島には、山の神を祀りながら航海の守護神としても崇敬されてきた神社がある。海から島々の山を眺めると、陸からは見えにくい信仰の背景が浮かび上がる。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "山が海上で位置を知るための目印になるという実用的価値は、山岳神への航海守護の祈りを理解する手掛かりとなる。百済の竹幕洞祭祀遺跡は海を介した祭祀交流を示すが、大山祇神社の起源との直接の関係は未確認。",
+  "openQuestions": [
+    "鷲ヶ頭山が山立てに使われた個別史料",
+    "和多志大神と百済の具体的祭祀の関係"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "大山祇神社について",
+      "publisher": "大山祇神社",
+      "url": "https://oomishimagu.jp/about/"
+    },
+    {
+      "id": 2,
+      "title": "大山津見神",
+      "publisher": "國學院大學 古典文化学事業",
+      "url": "https://kojiki.kokugakuin.ac.jp/shinmei/oyamatsuminokami/"
+    },
+    {
+      "id": 3,
+      "title": "三島信仰",
+      "publisher": "愛媛県史 民俗 上",
+      "url": "https://www.i-manabi.jp/system/regionals/regionals/ecode:2/49/view/6543"
+    },
+    {
+      "id": 4,
+      "title": "漁業・航海における山アテ・山タテの文献",
+      "publisher": "国立国会図書館 レファレンス協同データベース",
+      "url": "https://crd.ndl.go.jp/reference/entry/index.php?id=1000153891&page=ref_view"
+    },
+    {
+      "id": 5,
+      "title": "考古学からみた海を介した交流三題（2021年）",
+      "publisher": "大竹弘之",
+      "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002925477"
+    },
+    {
+      "id": 6,
+      "title": "石製模造品 斧・櫛・鎌・鏡",
+      "publisher": "京都国立博物館",
+      "url": "https://knmdb.kyohaku.go.jp/18978.html"
+    },
+    {
+      "id": 7,
+      "title": "島の写真（CC BY-SA 4.0）",
+      "publisher": "Wikimedia Commons / そらみみ",
+      "url": "https://commons.wikimedia.org/wiki/File:Omishima_Island,_Ikunoshima_Island_and_Okunoshima_Island_from_ship_of_Omishima_Ferry.jpg"
+    }
+  ],
+  "researchLinks": [
+    {
+      "label": "連作｜海を制する者は、海の神を祀った",
+      "href": "/setouchi-cultural-economic-atlas/book/setouchi-sea-gods-and-power/"
+    }
+  ],
+  "sections": []
+},
+{
+  "slug": "setouchi-sea-gods-and-power",
+  "part": "港と船",
+  "title": "海を制する者は、海の神を祀った",
+  "subtitle": "大三島・宮島・淡路島",
+  "cities": [
+    "大三島",
+    "今治",
+    "宮島",
+    "淡路島",
+    "神戸"
+  ],
+  "keywords": [
+    "大山祇神社",
+    "厳島神社",
+    "伊弉諾神宮",
+    "源義経",
+    "平清盛",
+    "平家納経",
+    "赤絲威鎧",
+    "一宮",
+    "海人",
+    "航海",
+    "信仰",
+    "日宋貿易",
+    "多島海",
+    "三島家文書"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Itsukushima_Island%2C_Mt_Misen%2C_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg?width=1400",
+    "title": "海から望む宮島",
+    "alt": "海上から見た宮島の弥山と厳島神社の鳥居、航行するフェリー",
+    "caption": "2023年5月2日撮影。弥山の麓に大鳥居が見える。",
+    "kind": "photo",
+    "author": "Naokijp",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Itsukushima_Island%2C_Mt_Misen%2C_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg"
+  },
+  "lead": "大三島には源義経が奉納したと伝わる鎧があり、宮島には平清盛一門の経巻がある。瀬戸内の多島海に生まれた航海信仰と、交易や軍事を担った人々の関係をたどる。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "海上交通が交易・外交・軍事を支える瀬戸内海では、その安全を守る神への崇敬は政治権力と密接に関係した。両社が源平それぞれに専属したという意味ではない。",
+  "openQuestions": [
+    "個々の武具の奉納時期と奉納者",
+    "伊予・安芸の一宮成立と海上交通の具体的関係"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "大山祇神社の文化財・源義経奉納と伝わる赤絲威鎧",
+      "publisher": "文化庁 文化財関係資料",
+      "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/hakusho_nenjihokokusho/archive/pdf/93972301_04.pdf"
+    },
+    {
+      "id": 2,
+      "title": "平家納経",
+      "publisher": "文化庁 国指定文化財等データベース",
+      "url": "https://kunishitei.bunka.go.jp/heritage/detail/201/109"
+    },
+    {
+      "id": 3,
+      "title": "平家納経の経箱",
+      "publisher": "国土交通省",
+      "url": "https://www.mlit.go.jp/tagengo-db/R1-00555.html"
+    },
+    {
+      "id": 4,
+      "title": "国生みの島・淡路―古代国家を支えた海人の営み",
+      "publisher": "淡路島日本遺産",
+      "url": "https://kuniumi-awaji.jp/story.html"
+    },
+    {
+      "id": 5,
+      "title": "伊耶那岐神",
+      "publisher": "國學院大學 古典文化学事業",
+      "url": "https://kojiki.kokugakuin.ac.jp/shinmei/izanakinokami/"
+    },
+    {
+      "id": 6,
+      "title": "御由緒",
+      "publisher": "厳島神社",
+      "url": "https://www.itsukushimajinja.jp/jp/history.html"
+    },
+    {
+      "id": 7,
+      "title": "平清盛と神戸",
+      "publisher": "神戸市",
+      "url": "https://www.city.kobe.lg.jp/a09222/kosodate/lifelong/toshokan/furusato/kiyomori_kobe/index.html"
+    },
+    {
+      "id": 8,
+      "title": "大山祇神社三島家文書",
+      "publisher": "愛媛県",
+      "url": "https://www.pref.ehime.jp/ehimenotakara/291.html"
+    },
+    {
+      "id": 9,
+      "title": "大山祇神社について",
+      "publisher": "大山祇神社",
+      "url": "https://oomishimagu.jp/about/"
+    },
+    {
+      "id": 10,
+      "title": "よくあるご質問",
+      "publisher": "吉備津神社",
+      "url": "https://www.kibitujinja.com/faq/"
+    },
+    {
+      "id": 11,
+      "title": "大三島地域の文化財",
+      "publisher": "今治市",
+      "url": "https://www.city.imabari.ehime.jp/bunka/bunkazai/bunkazai/omisima.html"
+    },
+    {
+      "id": 12,
+      "title": "宮島の写真（CC BY-SA 4.0）",
+      "publisher": "Wikimedia Commons / Naokijp",
+      "url": "https://commons.wikimedia.org/wiki/File:Itsukushima_Island,_Mt_Misen,_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg"
+    }
+  ],
+  "researchLinks": [
+    {
+      "label": "連作｜海の神は、なぜ山にいるのか",
+      "href": "/setouchi-cultural-economic-atlas/book/omishima-mountains-and-sea-faith/"
+    }
+  ],
+  "sections": []
+}
+);
+
+export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
