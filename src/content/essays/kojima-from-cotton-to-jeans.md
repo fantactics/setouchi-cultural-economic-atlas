@@ -18,7 +18,7 @@ editorialPhotoPlacements:
   - afterHeading: "山の水と参詣道が、織物の仕事を育てた"
     afterParagraph: 3
     photoIds: ["photo-shimotsui-townscape"]
-  - afterHeading: "学生服が減ると、別の服を縫った"
+  - afterHeading: "学生服をつくりながら、ジーンズにも挑んだ"
     afterParagraph: 3
     photoIds: ["photo-kojima-jeans"]
   - afterHeading: "ジーンズを仕上げる「洗い」まで、仕事になる"
