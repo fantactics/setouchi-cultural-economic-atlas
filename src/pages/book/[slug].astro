@@ -92,14 +92,14 @@ const archivedResearchHref={
 }[article.slug] || null;
 const isTravelogue=article.narrativeMode==='travelogue';
 const isNarrativeEssay=isTravelogue || article.narrativeMode==='sketch';
-const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties','four-salt-fields']).has(article.slug);
+const usesNarrativeEnding=new Set(['mihara-castle-to-multimodal-city','kojima-jeans-circular-economy','setouchi-ship-materials', 'setouchi-sushi-not-nigiri','niihama-after-copper','shimonoseki-resource-made-by-market','faith-as-transport-map','matsuyama-three-centers-one-city','mitarai-economy-of-waiting','onomichi-capital-to-culture-and-ships','takehara-salt-capital-to-townscape','sakaide-salt-fields-to-industry','ako-after-salt-fields','sanuki-store-the-rain','iwakuni-river-city','mikan-slope-and-varieties']).has(article.slug);
 // Each essay returns readers to the series with a different question in mind.
 const saltSeriesLens={
-  'four-salt-fields':'四つの町に残ったものは、製塩の技術、名前、白壁、そして新しい海岸線でした。',
   'ako-after-salt-fields':'赤穂で残ったのは、塩田そのものではなく、製塩という仕事でした。',
   'iwagi-salt-pans-to-shrimp-ponds':'岩城島では、塩をつくった浅い土地が、海水で生き物を育てる池になりました。',
   'takehara-salt-capital-to-townscape':'竹原では、消えた塩田の富が、いまも白壁の家々に残っています。',
   'sakaide-salt-fields-to-industry':'坂出では、旧塩田跡と、沖合を新たに埋め立てた土地を見分けることが大切です。',
+  'imabari-why-shipbuilding':'波止浜では塩の輸送が船の仕事を育て、塩田の一部が造船所用地にもなりました。',
   'kinkai-salt-field-to-solar':'錦海では、塩をつくる仕事が終わったあとも、水を排出する仕事が続いています。'
 };
 const saltSeriesSlugs=new Set(Object.keys(saltSeriesLens));
@@ -409,8 +409,8 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
     />}
 
     {saltSeriesSlugs.has(article.slug) && <aside class="salt-series-readmore" aria-label="塩田の風景を読み比べる">
-      <div><span>連作で読む · 五つの土地の比較</span><h2>塩田が消えたあと、土地には何が残ったか。</h2><p class="salt-series-lens">{saltSeriesLens[article.slug]}</p><p>では、ほかの土地には何が残ったのでしょう。比較図に戻ると、この風景の違う見方が見つかるかもしれません。</p></div>
-      <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/#salt-compare-title">比較図に戻って読み比べる →</a>
+      <div><span>特集で読む · 七つの土地の案内</span><h2>塩田が消えたあと、土地には何が残ったか。</h2><p class="salt-series-lens">{saltSeriesLens[article.slug]}</p><p>ほかの土地の歴史も、特集の案内からたどれます。</p></div>
+      <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/#salt-compare-title">七つの土地を見比べる →</a>
     </aside>}
 
     {relatedEssays.length>0 && <section class="reader-related-essays" aria-labelledby="reader-related-title">
