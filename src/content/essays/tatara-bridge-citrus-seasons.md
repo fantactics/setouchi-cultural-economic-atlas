@@ -2,7 +2,7 @@
 slug: "tatara-bridge-citrus-seasons"
 part: "農業景観"
 title: "生口島では、なぜ郵便ポストまでレモン色なのか"
-subtitle: ""
+subtitle: "島外の消費者が支えた産地の復活と、レモンの島づくり"
 cities: ["生口島","瀬戸田","尾道"]
 keywords: ["レモン","レモン谷","多々羅大橋","しまなみ海道","柑橘","少雨","温暖","斜面","農業景観","生協","産直","苗木","地域ブランド","しおまち商店街","郵便ポスト"]
 heroPhotoId: "photo-tatara-cycling-ikuchijima"
