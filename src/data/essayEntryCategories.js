@@ -44,6 +44,8 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'omishima-mountains-and-sea-faith': ['sea','ports'],
+  'setouchi-sea-gods-and-power': ['ports','sea'],
   'setouchi-250-submarine-caldrons': ['sea'],
   'kurushima-tides-and-navigation': ['sea','ports'],
   'kashino-sunken-pension-village': ['tourism','sea'],
