@@ -108,6 +108,7 @@ const htmlChildren=(directory)=>existsSync(path.join(dist,directory))
     .map((entry)=>directory+'/'+entry.name+'/index.html')
   : [];
 const important=[
+  'places/index.html',
   'index.html',
   'book/index.html',
   'book/nature/index.html',
@@ -165,6 +166,13 @@ for(const legacyPage of ['methodology','editorial-methodology','research-workflo
   assert.ok(retired.includes('noindex') && retired.includes('setouchi-atlas.pia2.org/chapters/'), `Retired public page should redirect to research index: ${legacyPage}`);
   assert.ok(!sitemapUrls.some(url=>url.includes('/'+legacyPage+'/')), `Retired research/editorial page still in sitemap: ${legacyPage}`);
 }
+const regionIndex=assertPage('places');
+for(const id of ["awaji","tatsuno","kojima","kojima-bay","hiroshima","hinase-islands","naoshima","ikuchijima","omishima","iwagijima","hakatajima","miyajima","suo-oshima","ibukijima","mutsukijima","manno","mitoyo","futami","karihama","uwajima"]){
+  assert.ok(regionIndex.includes('/places/'+id+'/'),'New region missing from directory: '+id);
+  const page=assertPage('places/'+id);
+  assert.ok(page.includes('region-reading-essays') && page.includes('/book/'),'Regional essay navigation missing: '+id);
+}
+assert.ok(regionIndex.includes('44 PLACES') || regionIndex.includes('45 PLACES') || /\\d+ PLACES/.test(regionIndex),'Region directory count missing');
 const homepage=readFileSync(path.join(dist,'index.html'),'utf8');
 for(const fragment of ['初めての3篇','3つの読書の旅','塩田の、その先。']){
   assert.ok(homepage.includes(fragment),`Missing homepage editorial section: ${fragment}`);

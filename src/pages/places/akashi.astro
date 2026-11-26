@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RegionReadingPage from '../../components/RegionReadingPage.astro';
 import SimpleRegionalProfile from '../../components/SimpleRegionalProfile.astro';
 import { additionalPlaces } from '../../data/additionalPlaces.js';
-const place=additionalPlaces.find((p)=>p.id==='akashi');
+import { regionById } from '../../data/regionDirectory.js';
+const place=regionById.akashi;
+const legacy=additionalPlaces.find(p=>p.id==='akashi');
 ---
 <BaseLayout title={`${place.name} | SETOUCHI ATLAS`} description={place.subtitle}>
-  <SimpleRegionalProfile place={place} />
+  <RegionReadingPage place={place}><SimpleRegionalProfile slot="research" place={legacy} /></RegionReadingPage>
 </BaseLayout>

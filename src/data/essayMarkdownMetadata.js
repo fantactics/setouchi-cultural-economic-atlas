@@ -8,7 +8,7 @@ const frontmatterBySlug = Object.fromEntries(
     mod.frontmatter || {}
   ])
 );
-const editableFields = ['title', 'subtitle', 'lead', 'part', 'cities', 'keywords'];
+const editableFields = ['title', 'subtitle', 'lead', 'part', 'cities', 'keywords', 'primaryPlaces'];
 
 export function withMarkdownMetadata(article) {
   if (!article?.slug) return article;
