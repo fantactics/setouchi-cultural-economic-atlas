@@ -27,7 +27,7 @@ for(const file of readdirSync(essayRoot).filter(f=>f.endsWith('.md'))){
  // A retired Markdown essay may have a public compatibility redirect, not an article.
  // Verify its noindex, canonical and refresh destination before excluding it from article checks.
  if(slug==='ports-that-needed-waiting'){
-  const target='https://setouchi-atlas.pia2.org/collections/port-towns/';
+  const target='https://setouchi-atlas.pia2.org/book/';
   assert.ok(getMeta(html,'name','robots').includes('noindex'), 'Retired port essay must not be indexed');
   assert.ok(getMeta(html,'http-equiv','refresh').includes(target), 'Retired port essay redirect target is incorrect');
   assert.ok((html.match(/<link\b[^>]*>/g)||[]).some(tag=>tag.includes('rel="canonical"') && tag.includes(target)), 'Retired port essay canonical target is incorrect');

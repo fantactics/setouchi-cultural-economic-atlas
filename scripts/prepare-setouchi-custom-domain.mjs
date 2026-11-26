@@ -135,11 +135,13 @@ assert.ok(featuredHomeHtml.includes('初めての3篇'), 'Homepage introduction 
 for (const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade']) {
   assert.ok(!(await stat(path.join(dist,'book',slug,'index.html')).then(()=>true).catch(()=>false)), 'Withdrawn essay still published: '+slug);
 }
-const portRedirect=await readFile(path.join(dist,'book','ports-that-needed-waiting','index.html'),'utf8');
-assert.ok(portRedirect.includes('noindex,follow') && portRedirect.includes('/collections/port-towns/'), 'Old port essay must forward to its collection');
-assert.ok(!publishedSitemapPages.includes('/book/ports-that-needed-waiting/'), 'Old port essay must not be indexed');
-const portCollection=await readFile(path.join(dist,'collections','port-towns','index.html'),'utf8');
-assert.ok(portCollection.includes('多度津') && portCollection.includes('/book/tomo-two-act-tidal-port/'), 'Port collection is incomplete');
+for(const route of ['book/ports-that-needed-waiting','collections/port-towns']){
+  const retired=await readFile(path.join(dist,route,'index.html'),'utf8');
+  assert.ok(retired.includes('noindex,follow') && retired.includes(domain+'/book/'), 'Retired port page must forward to essay index: '+route);
+  assert.ok(!publishedSitemapPages.includes('/'+route+'/'), 'Retired port page must not be indexed: '+route);
+}
+const essayIndex=await readFile(path.join(dist,'book','index.html'),'utf8');
+assert.ok(!essayIndex.includes('/collections/port-towns/') && !featuredHomeHtml.includes('/collections/port-towns/'), 'Retired port feature still promoted');
 
 const withheld = path.join(dist, 'book', 'tadano-shido-industrial-ecosystem', 'index.html');
 assert.ok(!(await stat(withheld).then(() => true).catch(() => false)), 'Shido draft must not be published');

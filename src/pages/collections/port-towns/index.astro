@@ -1,23 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { publishedEssays } from '../../../data/publishedEssayList.js';
-const base='/setouchi-cultural-economic-atlas/';
-const places=[
- {name:'鞆の浦',focus:'潮の高さに合わせた石段',text:'潮を待った船が使う雁木や常夜燈。港の施設から、潮と船の関係を読む。',slug:'tomo-two-act-tidal-port',place:'tomonoura'},
- {name:'御手洗',focus:'船が待つあいだの町',text:'船宿や商家、乙女座。船が停泊する時間に生まれた町の仕事を読む。',slug:'mitarai-economy-of-waiting',place:'mitarai'},
- {name:'多度津',focus:'海から琴平へ',text:'金刀比羅宮への参詣客を迎えた港。1889年に丸亀・多度津・琴平を結ぶ讃岐鉄道が開業した。港から内陸への道に注目したい。',place:'tadotsu'},
- {name:'尾道',focus:'水道沿いに重なる商いと産業',text:'細い水道の岸に集まった商家と寺院、対岸の造船所。海辺の商都がたどった歴史を読む。',slug:'onomichi-capital-to-culture-and-ships',place:'onomichi'}
-];
-const articles=new Map(publishedEssays.map(a=>[a.slug,a]));
+// Keep previously shared URLs working without publishing the withdrawn feature.
+const destination='https://setouchi-atlas.pia2.org/book/';
 ---
-<BaseLayout title="船が立ち寄った四つの港町 | SETOUCHI ATLAS" description="鞆の浦、御手洗、多度津、尾道。瀬戸内の港町の風景を、個別エッセイと地域ページから読み比べる特集。">
-  <main class="port-collection">
-    <p><a href={base+'book/'}>← エッセイ一覧へ</a></p>
-    <header><small>COLLECTION / PORT TOWNS</small><h1>船が立ち寄った四つの港町</h1><p>鞆の浦、御手洗、多度津、尾道。同じ瀬戸内の港町を歩いても、目に入る景色は違う。それぞれの町を知るエッセイと地域資料を集めました。</p></header>
-    <div class="port-grid">{places.map(p=><section><h2>{p.name}</h2><h3>{p.focus}</h3><p>{p.text}</p>{p.slug && articles.has(p.slug) && <a href={base+'book/'+p.slug+'/'}>{articles.get(p.slug).title} →</a>}<a href={base+'places/'+p.place+'/'}>{p.name}の地域ページ →</a>{!p.slug && <p class="port-note">関連資料：<a href="https://www.town.tadotsu.kagawa.jp/kanko_bunka_event/rekishi_bunka/1315.html">北前船寄港地・多度津</a>、<a href="https://www.town.tadotsu.kagawa.jp/tadoritsukutadotsu/about_tadotsu/about_tadotsu.html">多度津町の歴史・町勢</a></p>}</section>)}</div>
-    <h2>港をめぐる船の道を読む</h2><p><a href={base+'book/jinori-okinori-navigation-system/'}>地乗りと沖乗り</a>　／　<a href={base+'book/gangi-tide-port-functions/'}>雁木と潮位</a></p>
-  </main>
-</BaseLayout>
-<style>
-.port-collection{max-width:960px;margin:0 auto;padding:36px 22px 64px;line-height:1.9}.port-collection header{margin:28px 0 32px}.port-collection h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.4}.port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:28px 0 40px}.port-grid section{border:1px solid #a8bdb1;border-radius:12px;padding:22px}.port-grid h2{margin:0 0 10px}.port-grid h3{font-size:1rem}.port-grid a{display:block;margin-top:12px}.port-note{font-size:.85rem}.port-note a{display:inline}
-</style>
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" /><meta name="robots" content="noindex,follow" /><meta http-equiv="refresh" content={`0;url=${destination}`} /><link rel="canonical" href={destination} /><title>エッセイ一覧へ | SETOUCHI ATLAS</title><script is:inline>window.location.replace('https://setouchi-atlas.pia2.org/book/');</script></head><body><p>港町の特集は掲載を終了しました。</p><p><a href={destination}>エッセイ一覧へ</a></p></body></html>

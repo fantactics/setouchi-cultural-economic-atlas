@@ -29,10 +29,13 @@ for(const slug of requiredSlugs) assertPage('book/'+slug);
 // Retain the research draft in source control but do not publish its route.
 assert.ok(!existsSync(built('book/kada-sea-bream-distribution-ecosystem')), 'Unverified Kada live-holding draft must remain unpublished');
 for(const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade']) assert.ok(!existsSync(built('book/'+slug)), 'Withdrawn essay still published: '+slug);
-const portCollection=assertPage('collections/port-towns');
-assert.ok(portCollection.includes('多度津') && portCollection.includes('/places/tadotsu/'), 'Port collection needs Tadotsu');
-const oldPort=assertPage('book/ports-that-needed-waiting');
-assert.ok(oldPort.includes('noindex,follow') && oldPort.includes('/collections/port-towns/'), 'Port essay must forward to collection');
+for(const route of ['collections/port-towns','book/ports-that-needed-waiting']){
+  const retired=assertPage(route);
+  assert.ok(retired.includes('noindex,follow') && retired.includes('https://setouchi-atlas.pia2.org/book/'), 'Retired port page must forward to essay index: '+route);
+}
+const publicEssayIndex=assertPage('book');
+assert.ok(!publicEssayIndex.includes('/collections/port-towns/') && !publicEssayIndex.includes('特集 · PORT TOWNS'), 'Retired port feature still promoted');
+assert.ok(publicEssayIndex.includes('/collections/salt-afterlife/'), 'Salt feature must remain discoverable');
 const retiredSaltHtml=assertPage('book/four-salt-fields');
 assert.ok(retiredSaltHtml.includes('noindex,follow') && retiredSaltHtml.includes('/collections/salt-afterlife/'), 'Retired salt essay must be a redirect to the collection');
 assert.ok(!retiredSaltHtml.includes('markdown-essay-body'), 'Retired salt essay still contains article body');
@@ -91,7 +94,8 @@ const sitemap=readFileSync(path.join(dist,'sitemap-0.xml'),'utf8');
 const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(m=>m[1]);
 assert.ok(!sitemapUrls.some(url=>url.includes('/book/kada-sea-bream-distribution-ecosystem/')), 'Unverified Kada draft must not be indexed');
 for(const slug of ['fish-waste-to-feed-and-citrus','citrus-pomace-cascade','ports-that-needed-waiting']) assert.ok(!sitemapUrls.some(url=>url.includes('/book/'+slug+'/')), 'Withdrawn essay indexed: '+slug);
-for(const pathname of ['collections/port-towns',collection,...collectionEssays.map(slug=>'book/'+slug)]){
+assert.ok(!sitemapUrls.some(url=>url.includes('/collections/port-towns/')), 'Retired port collection still indexed');
+for(const pathname of [collection,...collectionEssays.map(slug=>'book/'+slug)]){
   assert.ok(sitemapUrls.some(url=>url.includes('/'+pathname+'/')),`Missing sitemap entry: /${pathname}/`);
 }
 
