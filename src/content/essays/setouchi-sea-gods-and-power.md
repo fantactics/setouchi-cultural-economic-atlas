@@ -9,8 +9,8 @@ heroPhoto: {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Itsu
 lead: "大三島には源義経が奉納したと伝わる鎧があり、宮島には平清盛一門の経巻がある。瀬戸内の多島海に生まれた航海信仰と、交易や軍事を担った人々の関係をたどる。"
 narrativeMode: "sketch"
 provisionalConclusion: "海上交通が交易・外交・軍事を支える瀬戸内海では、その安全を守る神への崇敬は政治権力と密接に関係した。両社が源平それぞれに専属したという意味ではない。"
-openQuestions: ["個々の武具の奉納時期と奉納者","伊予・安芸の一宮成立と海上交通の具体的関係"]
-sources: [{"id":1,"title":"大山祇神社の文化財・源義経奉納と伝わる赤絲威鎧","publisher":"文化庁 文化財関係資料","url":"https://www.bunka.go.jp/tokei_hakusho_shuppan/hakusho_nenjihokokusho/archive/pdf/93972301_04.pdf"},{"id":2,"title":"平家納経","publisher":"文化庁 国指定文化財等データベース","url":"https://kunishitei.bunka.go.jp/heritage/detail/201/109"},{"id":3,"title":"平家納経の経箱","publisher":"国土交通省","url":"https://www.mlit.go.jp/tagengo-db/R1-00555.html"},{"id":4,"title":"国生みの島・淡路―古代国家を支えた海人の営み","publisher":"淡路島日本遺産","url":"https://kuniumi-awaji.jp/story.html"},{"id":5,"title":"伊耶那岐神","publisher":"國學院大學 古典文化学事業","url":"https://kojiki.kokugakuin.ac.jp/shinmei/izanakinokami/"},{"id":6,"title":"御由緒","publisher":"厳島神社","url":"https://www.itsukushimajinja.jp/jp/history.html"},{"id":7,"title":"平清盛と神戸","publisher":"神戸市","url":"https://www.city.kobe.lg.jp/a09222/kosodate/lifelong/toshokan/furusato/kiyomori_kobe/index.html"},{"id":8,"title":"大山祇神社三島家文書","publisher":"愛媛県","url":"https://www.pref.ehime.jp/ehimenotakara/291.html"},{"id":9,"title":"大山祇神社について","publisher":"大山祇神社","url":"https://oomishimagu.jp/about/"},{"id":10,"title":"よくあるご質問","publisher":"吉備津神社","url":"https://www.kibitujinja.com/faq/"},{"id":11,"title":"大三島地域の文化財","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/bunka/bunkazai/bunkazai/omisima.html"},{"id":12,"title":"宮島の写真（CC BY-SA 4.0）","publisher":"Wikimedia Commons / Naokijp","url":"https://commons.wikimedia.org/wiki/File:Itsukushima_Island,_Mt_Misen,_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg"}]
+openQuestions: ["個々の武具の奉納時期と奉納者","伊予・安芸の一宮成立と海上交通の具体的関係","備前・備中・備後の吉備津信仰と古代の海上交通・政治権力との関係"]
+sources: [{"id":1,"title":"大山祇神社の文化財・源義経奉納と伝わる赤絲威鎧","publisher":"文化庁 文化財関係資料","url":"https://www.bunka.go.jp/tokei_hakusho_shuppan/hakusho_nenjihokokusho/archive/pdf/93972301_04.pdf"},{"id":2,"title":"平家納経","publisher":"文化庁 国指定文化財等データベース","url":"https://kunishitei.bunka.go.jp/heritage/detail/201/109"},{"id":3,"title":"平家納経の経箱","publisher":"国土交通省","url":"https://www.mlit.go.jp/tagengo-db/R1-00555.html"},{"id":4,"title":"国生みの島・淡路―古代国家を支えた海人の営み","publisher":"淡路島日本遺産","url":"https://kuniumi-awaji.jp/story.html"},{"id":5,"title":"伊耶那岐神","publisher":"國學院大學 古典文化学事業","url":"https://kojiki.kokugakuin.ac.jp/shinmei/izanakinokami/"},{"id":6,"title":"御由緒","publisher":"厳島神社","url":"https://www.itsukushimajinja.jp/jp/history.html"},{"id":7,"title":"平清盛と神戸","publisher":"神戸市","url":"https://www.city.kobe.lg.jp/a09222/kosodate/lifelong/toshokan/furusato/kiyomori_kobe/index.html"},{"id":8,"title":"大山祇神社三島家文書","publisher":"愛媛県","url":"https://www.pref.ehime.jp/ehimenotakara/291.html"},{"id":9,"title":"大山祇神社について","publisher":"大山祇神社","url":"https://oomishimagu.jp/about/"},{"id":10,"title":"よくあるご質問","publisher":"吉備津神社","url":"https://www.kibitujinja.com/faq/"},{"id":11,"title":"大三島地域の文化財","publisher":"今治市","url":"https://www.city.imabari.ehime.jp/bunka/bunkazai/bunkazai/omisima.html"},{"id":12,"title":"宮島の写真（CC BY-SA 4.0）","publisher":"Wikimedia Commons / Naokijp","url":"https://commons.wikimedia.org/wiki/File:Itsukushima_Island,_Mt_Misen,_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg"},{"id":13,"title":"伊弉諾神宮","publisher":"兵庫県立歴史博物館","url":"https://rekihaku.pref.hyogo.lg.jp/digital_museum/trip/road_awaji/izanagijingu/"}]
 researchLinks: [{"label":"連作｜海の神は、なぜ山にいるのか","href":"/setouchi-cultural-economic-atlas/book/omishima-mountains-and-sea-faith/"}]
 migration: {"status":"native-editorial","publicUrl":"/book/setouchi-sea-gods-and-power/"}
 ---
@@ -31,11 +31,15 @@ migration: {"status":"native-editorial","publicUrl":"/book/setouchi-sea-gods-and
 
 源氏と平氏。天下を争った二つの武家の記憶が、瀬戸内海に浮かぶ二つの島に残されている。
 
-そして、この二つの神社は、いずれも古くから航海の守護神として信仰を集めてきた。
+そして、この二つの神社は、いずれも古くから航海の守護神として信仰を集めてきた。大山祇神社は伊予国の一宮、厳島神社は安芸国の一宮である。 [6](#source-6) [9](#source-9)
+
+瀬戸内海の東の入口にも、一国を代表する神社がある。明石海峡と鳴門海峡に挟まれ、瀬戸内海と畿内を結ぶ海上交通の要衝であった淡路島。その島に鎮座する伊弉諾神宮は、淡路国の一宮である。 [4](#source-4) [13](#source-13)
+
+大三島と宮島に残る源平の宝物に加え、淡路島の古代の信仰にも目を向けると、海を渡る人々が政治や軍事において果たした役割を、源平の時代よりもさらにさかのぼって考えることができる。
 
 ## 船を動かすことができる人々
 
-瀬戸内海の東端にある淡路島には、古代の海人（あま）たちの活動の痕跡が残されている。
+淡路島には、古代の海人（あま）たちの活動の痕跡が残されている。
 
 海人というと、魚を捕り、海藻や貝を採る人々を想像する。しかし、古代の海人が担っていた仕事は、それだけではなかった。
 
@@ -45,7 +49,7 @@ migration: {"status":"native-editorial","publicUrl":"/book/setouchi-sea-gods-and
 
 大勢の兵士を集めることができても、彼らを対岸まで運ぶことができなければ、海を越えて戦うことはできない。
 
-淡路国の一宮である伊弉諾神宮は、日本列島を生んだとされる伊弉諾尊を祀っている。
+伊弉諾神宮は、日本列島を生んだとされる伊弉諾尊を祀っている。
 
 伊弉諾神はもともと瀬戸内海東部の海人たちが祀った神で、後に中央の神話に取り込まれたとする学説もある。 [5](#source-5)
 
@@ -93,19 +97,11 @@ migration: {"status":"native-editorial","publicUrl":"/book/setouchi-sea-gods-and
 
 宝物館に並ぶ武具は、武士個人の信仰の証であると同時に、瀬戸内海の政治と神社の関係を物語るものでもある。
 
-## 一国を代表する海の神
+## 島にある、一国を代表する神社
 
-大山祇神社は伊予国の一宮、厳島神社は安芸国の一宮である。 [6](#source-6) [9](#source-9)
+伊予、安芸、淡路の三つの一宮は、いずれも瀬戸内海の島に鎮座している。伊予と安芸では航海の守護神が一国を代表する神となり、淡路の国生みの神にも海人の信仰との関わりを指摘する学説がある。
 
-いずれも、その国を代表する神社として位置づけられてきた。
-
-一方、同じ瀬戸内海沿岸でも、備前・備中・備後の代表的な一宮には、大吉備津彦命が祀られている。
-
-吉備の国を平定し、治めたとされる神である。 [10](#source-10)
-
-瀬戸内海沿岸の国々が、すべて航海神を一宮としていたわけではない。
-
-それだけに、伊予と安芸の一宮が、ともに海上交通の守護神を祀り、しかも国府のある地域ではなく島に鎮座していることは興味深い。
+一方、備前・備中・備後の代表的な一宮に祀られる吉備津彦命と海上交通との関係は、今後の研究課題としたい。 [10](#source-10)
 
 国を代表する神社の位置には、陸上の交通や行政上の中心地とは異なる地理があったことを思わせる。
 
