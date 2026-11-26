@@ -256,6 +256,7 @@ export const essayEntryBySlug = {
     "industry",
     "urban"
   ],
+  "miyajima-sewage-and-sacred-landscape": ["sea","urban"],
   "kojima-island-infrastructure-per-capita": [
     "sea",
     "urban"
