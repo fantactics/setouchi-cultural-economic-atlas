@@ -9,7 +9,7 @@ cultureTags: ["養浜", "景観保全"]
 imageUrl: "https://i0.wp.com/quageo.kyotrad.com/wp-content/uploads/2023/08/%E7%99%BD%E8%89%AF%E6%B5%9C.jpg?resize=760%2C570&ssl=1"
 alt: "白良浜の砂浜と海に沈む夕日、手前に護岸の構造物が見える"
 photoCredit: "写真：クアトロのジオ紀行"
-sources: [{"label":"日本歴史地名大系｜白良浜の古来の名勝・催馬楽と紀伊続風土記","url":"https://kotobank.jp/word/%E7%99%BD%E8%89%AF%E6%B5%9C-1988558"},{"label":"和歌山県広報 2022年5月｜歌枕としての白良浜","url":"https://www.pref.wakayama.lg.jp/prefg/000100/d00210212_d/fil/04-05.pdf"},{"label":"産業技術総合研究所 地質標本館｜白良浜の石英砂","url":"https://www.gsj.jp/Muse/sand/D-2697.html"},{"label":"和歌山県議会2024年6月｜白砂起源、砂投入量と流失","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00217978.html"},{"label":"白浜町議会2022年12月｜事業費と輸入砂の規模","url":"https://www.town.shirahama.wakayama.jp/material/files/group/51/1215teireikai.pdf"},{"label":"和歌山県議会2018年6月｜海岸防災と景観への懸念","url":"https://www.pref.wakayama.lg.jp/gijiroku/p041773.html"},{"label":"和歌山県議会2019年6月｜砂定着の限界と護岸整備","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00203254.html"},{"label":"砂浜観察サポート図鑑｜鳴き砂や移入生物の研究","url":"https://sunahama-web.jp/column/detail_11.html"},{"label":"原研究ノート｜白良浜（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=1558"}]
+sources: [{"label":"日本歴史地名大系｜白良浜の古来の名勝・催馬楽と紀伊続風土記","url":"https://kotobank.jp/word/%E7%99%BD%E8%89%AF%E6%B5%9C-1988558"},{"label":"和歌山県広報 2022年5月｜歌枕としての白良浜","url":"https://www.pref.wakayama.lg.jp/prefg/000100/d00210212_d/fil/04-05.pdf"},{"label":"産業技術総合研究所 地質標本館｜白良浜の石英砂","url":"https://www.gsj.jp/Muse/sand/D-2697.html"},{"label":"和歌山県議会2024年6月｜白砂起源、砂投入量と流失","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00217978.html"},{"label":"白浜町議会2022年12月｜養浜事業、防砂ネット（1982年開始）と砂の維持管理","url":"https://www.town.shirahama.wakayama.jp/material/files/group/51/1215teireikai.pdf"},{"label":"和歌山県議会2018年6月｜海岸防災と景観への懸念","url":"https://www.pref.wakayama.lg.jp/gijiroku/p041773.html"},{"label":"和歌山県議会2019年6月｜砂定着の限界と護岸整備","url":"https://www.pref.wakayama.lg.jp/gijiroku/d00203254.html"},{"label":"砂浜観察サポート図鑑｜鳴き砂や移入生物の研究","url":"https://sunahama-web.jp/column/detail_11.html"},{"label":"原研究ノート｜白良浜（クアトロのジオ紀行）","url":"https://quageo.kyotrad.com/?p=1558"},{"label":"和歌山放送ニュース2025年11月27日｜防砂ネットの設置間隔と砂の堆積","url":"https://news.wbs.co.jp/212373"},{"label":"和歌山放送ニュース2026年11月26日｜白良浜の冬支度と防砂ネット","url":"https://news.wbs.co.jp/222060"},{"label":"ABCニュース2026年11月26日｜防砂ネットの高さ・設置枚数","url":"https://www.asahi.co.jp/webnews/pages/abc_63800.html"}]
 ---
 
 ## 雪のような白い砂は、昔から名物だった
@@ -51,6 +51,14 @@ sources: [{"label":"日本歴史地名大系｜白良浜の古来の名勝・催
 補った砂も、やはり波で運ばれる。流出を減らすため、突堤や離岸堤、海中の潜堤が設けられ、背後には階段状の護岸が整備された。砂浜は観光客のためだけでなく、打ち寄せる波の力を弱め、町を守る役割も担っている。
 
 それでも砂を足し続ければよいわけではなかった。県は砂が十分に定着しないと判断し、2019年には砂浜をさらに広げる案から、既存護岸のかさ上げへと方針を切り替えた。白い砂を守ること、波から町を守ること、海辺の眺めを守ること。その三つが、いつも同じ方法でかなうわけではない。
+
+## 冬が来る前に、砂浜に網を張る
+
+白良浜の砂を運ぶのは、波だけではない。冬の季節風は細かな白砂を巻き上げ、背後の道路や温泉街にまで運んでいく。
+
+白浜町では1982年から、毎年11月ごろに防砂ネットを張っている。砂浜に木の杭を打ち込み、高さ約1メートル、長さ20〜30メートルの漁網を15〜20メートル間隔で設置する。網は砂粒よりもずっと目が粗いが、風の勢いを弱めることで砂を浜にとどめる。春に網を取り外す頃には、その周囲に砂が積もっている。
+
+海岸を管理する和歌山県も、秋から冬に吹き寄せられた砂を、夏の台風シーズンを前にならしている。遠い国から砂を運ぶ大がかりな工事のあとにも、毎年、砂を守り、浜を整える仕事が続いている。
 
 夕日が差す浜をもう一度見る。白く光る粒の中には、紀伊半島の岩から生まれたものも、海を越えてきたものもある。それを波が分け隔てなく洗っている。
 
