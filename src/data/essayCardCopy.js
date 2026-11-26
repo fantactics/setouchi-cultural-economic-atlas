@@ -1,7 +1,8 @@
 // Short reader-facing blurbs for cards. Keep article subtitles and source data unchanged.
 // A photoId here only changes discovery cards, never the article hero or credits.
 export const essayCardCopy = {
-  'kojima-island-infrastructure-per-capita': {teaser:'住む島、別荘の島、観光の島。海底送水管と三つの下水処理を比べる。'},
+  'miyajima-sewage-and-sacred-landscape': {teaser:'厳島神社の海を守るために、神社を手本にした下水処理場が建てられた。'},
+  'kojima-island-infrastructure-per-capita': {teaser:'人口47人の漁村と50人の別荘の島。なぜ排水処理の方式が違うのか。'},
   'what-cyclists-leave-behind': {teaser:'橋の手前の長い登り坂。その理由は、下を通る船にあった。'},
   "niboshi-shirasu-two-food-cultures": {
     "teaser": "しらすで知られる泉州は、かつて煮干しの浜だった。小魚の運び方が変えた食卓。"
