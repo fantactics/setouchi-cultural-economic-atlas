@@ -6592,7 +6592,183 @@ bookArticles.push(
 }
 );
 
-export const storyOrder = ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push({
+  "slug": "sanukite-stone-soundscape",
+  "part": "海と島",
+  "title": "火山が残した石は、なぜ音楽を奏でるのか",
+  "subtitle": "讃岐のサヌカイト――石器、石琴、そして夜明けの音風景",
+  "cities": [
+    "坂出",
+    "丸亀",
+    "宇多津",
+    "五色台",
+    "高松"
+  ],
+  "primaryPlaces": [
+    "sakaide",
+    "takamatsu",
+    {
+      "id": "marugame",
+      "name": "丸亀・宇多津",
+      "prefecture": "香川県",
+      "group": "shikoku",
+      "lat": 34.3017,
+      "lon": 133.8225,
+      "aliases": [
+        "丸亀",
+        "宇多津",
+        "青ノ山"
+      ],
+      "subtitle": "青ノ山で録音された、石の響きと夏の夜明け。",
+      "photoEssay": "sanukite-stone-soundscape"
+    }
+  ],
+  "keywords": [
+    "サヌカイト",
+    "讃岐岩",
+    "カンカン石",
+    "火山",
+    "地質",
+    "石器",
+    "金山",
+    "青ノ山",
+    "五色台",
+    "石琴",
+    "磬",
+    "土取利行",
+    "前田仁",
+    "ツトム・ヤマシタ",
+    "サウンドスケープ",
+    "音風景",
+    "防災行政無線"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/%E9%9D%92%E3%83%8E%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%E3%81%8B%E3%82%89%E3%81%AE%E5%A4%9C%E6%99%AF(%E7%80%AC%E6%88%B8%E5%A4%A7%E6%A9%8B%E6%96%B9%E9%9D%A2).jpg?width=1400",
+    "title": "青ノ山展望台からの夜景",
+    "alt": "青ノ山から眺める瀬戸大橋方面の夜景",
+    "caption": "2025年10月11日の夕刻に青ノ山展望台から撮影。1986年の演奏時の写真ではない。",
+    "kind": "photo",
+    "author": "海翔だよー",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E3%83%8E%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%E3%81%8B%E3%82%89%E3%81%AE%E5%A4%9C%E6%99%AF(%E7%80%AC%E6%88%B8%E5%A4%A7%E6%A9%8B%E6%96%B9%E9%9D%A2).jpg"
+  },
+  "lead": "夏の青ノ山で、虫や鳥の声とともに録音された石の音。約1300万年前の火山活動が残したサヌカイトは、先史時代には石器に、現代には楽器に姿を変えた。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "火山岩の鋭い割れ口と緻密な構造は、石器製作と楽器製作に異なる価値をもたらした。現代の演奏と定時放送は土地の音風景をつくり直している。",
+  "openQuestions": [
+    "古い時代の鐘・合図・庭石の具体的な使用事例",
+    "石の形状と振動減衰・音色の関係"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "サヌカイト――古代石の自然律（録音・解説）",
+      "publisher": "日本伝統文化振興財団",
+      "url": "https://s.jtcf.jp/item.php?id=VZCG-685"
+    },
+    {
+      "id": 2,
+      "title": "サヌカイト（岩石）",
+      "publisher": "香川大学博物館",
+      "url": "https://www.kagawa-u.ac.jp/museum/collection/permanent/24/"
+    },
+    {
+      "id": 3,
+      "title": "サヌカイト（カンカン石）",
+      "publisher": "坂出市",
+      "url": "https://www.city.sakaide.lg.jp/soshiki/bunkashinkou/sanukaito.html"
+    },
+    {
+      "id": 4,
+      "title": "第10回企画展 サヌカイトは誰が運んだか",
+      "publisher": "香川大学博物館",
+      "url": "https://www.kagawa-u.ac.jp/museum/event/kikaku/30605/"
+    },
+    {
+      "id": 5,
+      "title": "サヌカイト原産地香川県金山の調査と広域流通の検討",
+      "publisher": "丹羽佑一・香川大学",
+      "url": "https://www.kagawa-u.ac.jp/setouchi/h2021houkoku09niwa.pdf"
+    },
+    {
+      "id": 6,
+      "title": "香川県文化財保存活用大綱（2020年）",
+      "publisher": "香川県・香川県教育委員会",
+      "url": "https://www.pref.kagawa.lg.jp/documents/19900/taikohp.pdf"
+    },
+    {
+      "id": 7,
+      "title": "前田仁先生とサヌカイト楽器",
+      "publisher": "長谷川修一／SANUKITE",
+      "url": "https://www.sanukite.com/sanukite/syuichi-hasegawa.html"
+    },
+    {
+      "id": 8,
+      "title": "香川県産岩石の基本特性からみたサヌカイトの特徴",
+      "publisher": "長谷川修一",
+      "url": "https://www.sanukite.com/sanukite/about-sanukite/"
+    },
+    {
+      "id": 9,
+      "title": "音が生まれる町・坂出で音の宝石サヌカイトを体感する（演奏紹介）",
+      "publisher": "坂出市観光情報サイト",
+      "url": "https://sakaide-kankou.com/specials/2646/"
+    },
+    {
+      "id": 10,
+      "title": "さかいでブランド認定商品",
+      "publisher": "坂出市",
+      "url": "https://www.city.sakaide.lg.jp/soshiki/sangyoukankou/sakaidebrand-goods.html"
+    },
+    {
+      "id": 11,
+      "title": "森の演奏会？！",
+      "publisher": "五色台ビジターセンター",
+      "url": "https://goshikivc.jp/7737/"
+    },
+    {
+      "id": 12,
+      "title": "広報さかいで2022年7月号：防災行政無線による定時放送の音楽を変更します",
+      "publisher": "坂出市",
+      "url": "https://www.city.sakaide.lg.jp/uploaded/attachment/29650.pdf"
+    },
+    {
+      "id": 13,
+      "title": "サヌカイトの保全とサヌカイト楽器の伝承",
+      "publisher": "香川大学",
+      "url": "https://www.kagawa-u.ac.jp/files/6316/9260/3581/828.pdf"
+    },
+    {
+      "id": 14,
+      "title": "青ノ山展望台からの夜景（CC BY 4.0）",
+      "publisher": "Wikimedia Commons／海翔だよー",
+      "url": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E3%83%8E%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%E3%81%8B%E3%82%89%E3%81%AE%E5%A4%9C%E6%99%AF(%E7%80%AC%E6%88%B8%E5%A4%A7%E6%A9%8B%E6%96%B9%E9%9D%A2).jpg"
+    },
+    {
+      "id": 15,
+      "title": "二上山産サヌカイト（CC BY 3.0）",
+      "publisher": "Wikimedia Commons／吉田有岐",
+      "url": "https://commons.wikimedia.org/wiki/File:Sanukite.JPG"
+    },
+    {
+      "id": 16,
+      "title": "サヌカイトについて",
+      "publisher": "国立国会図書館 レファレンス協同データベース",
+      "url": "https://crd.ndl.go.jp/reference/detail?page=ref_view&id=1000056752"
+    },
+    {
+      "id": 17,
+      "title": "第2回・1997年の音の匠 前田仁",
+      "publisher": "日本オーディオ協会",
+      "url": "https://www.jas-audio.or.jp/events/post18963"
+    }
+  ],
+  "sections": [],
+  "researchLinks": []
+});
+
+export const storyOrder = ["sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));

@@ -2,6 +2,7 @@
 // Licenses and image-source URLs are retained for the credits on /book/.
 // These images do not replace article body images or claim to show other locations.
 export const essayIndexPhotoOverrides = {
+  'miyajima-sewage-and-sacred-landscape': {"imageUrl":"https://commons.wikimedia.org/wiki/Special:FilePath/Itsukushima_Island%2C_Mt_Misen%2C_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg?width=1400","title":"海から望む宮島","alt":"海上から見た宮島と厳島神社の鳥居","caption":"厳島神社の景観。下水処理施設そのものを写した写真ではない。","kind":"photo","author":"Naokijp","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","sourcePage":"https://commons.wikimedia.org/wiki/File:Itsukushima_Island%2C_Mt_Misen%2C_Torii_of_Itsukushima_Shrine_and_Ferry_for_Miyajima_Route_001.jpg"},
   'tatara-bridge-citrus-seasons': {
   "imageUrl": "/setouchi-cultural-economic-atlas/images/editorial/setoda-lemon-post.webp",
   "title": "瀬戸田のレモン色の郵便ポスト",

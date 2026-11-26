@@ -3,6 +3,8 @@
  * 記事の核心に関係する語だけを付ける。記事に書かれていない文化を推測しない。
  */
 export const cultureTagRules=[
+  {tag:'音風景',pattern:/音風景|サウンドスケープ/},
+  {tag:'音楽・楽器',pattern:/石琴|楽器|音楽|演奏/},
   {tag:'食文化',pattern:/料理|食卓|食べ方|食文化|郷土食|寿司|鮓|鯛めし|タコ飯|たこめし|かき揚げ|しらす|煮干し|ひじき|そうめん|素麺/},
   {tag:'漁撈・養殖',pattern:/漁師|漁業|漁法|漁獲|養殖|筏|漁場|漁村|底びき|一本釣り|網漁/},
   {tag:'農の知恵',pattern:/農家|農業|栽培|畑|棚田|ため池|灌漑|用水|果樹|収穫|みかん|玉ねぎ/},
@@ -24,6 +26,7 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'sanukite-stone-soundscape':['音風景','音楽・楽器','工業・ものづくり'],
   'omishima-mountains-and-sea-faith':['信仰・寺社','船と航海'],
   'setouchi-sea-gods-and-power':['信仰・寺社','船と航海','港の商い'],
   'iwagi-salt-pans-to-shrimp-ponds':['塩づくり','漁撈・養殖'],

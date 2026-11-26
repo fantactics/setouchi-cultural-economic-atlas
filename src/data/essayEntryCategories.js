@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'sanukite-stone-soundscape': ['industry','sea'],
   'omishima-mountains-and-sea-faith': ['sea','ports'],
   'setouchi-sea-gods-and-power': ['ports','sea'],
   'setouchi-250-submarine-caldrons': ['sea'],

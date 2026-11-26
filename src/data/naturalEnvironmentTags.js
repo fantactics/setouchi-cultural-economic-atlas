@@ -13,6 +13,7 @@
  * For ambiguous or merely incidental mentions, omit tags rather than guess.
  */
 export const naturalConditionRules = [
+  {tag:'火山', pattern:/火山活動|火山岩|溶岩|噴火/},
   {tag:'軟水', pattern:/軟水|鉄分.*少な.*水|ミネラル.*少な.*水/},
   {tag:'少雨', pattern:/少雨|雨量が少な|雨が少な|降水量が少な|降水量は少な|水不足が続|乾燥した気候/},
   {tag:'雨陰', pattern:/雨陰|山地が雨雲を|山が雨を遮|雨雲を遮|湿った風を遮|山で雨を降らせ/},
@@ -57,6 +58,7 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'sanukite-stone-soundscape':['火山','地質'],
   'omishima-mountains-and-sea-faith':['多島海','岬','潮流'],
   'setouchi-sea-gods-and-power':['多島海'],
   'iwagi-salt-pans-to-shrimp-ponds':['塩分','潮汐','日照'],
