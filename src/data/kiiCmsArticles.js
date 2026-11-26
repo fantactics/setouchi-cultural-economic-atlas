@@ -7,7 +7,7 @@ export const kiiMarkdownBySlug = Object.fromEntries(
   Object.values(modules).map((entry) => [entry.frontmatter.slug, entry])
 );
 
-export const kiiArticles = legacyKiiArticles.map((article) => {
+const allKiiArticles = legacyKiiArticles.map((article) => {
   const markdown = kiiMarkdownBySlug[article.slug];
   if (!markdown) throw Error('KII Markdown not found: ' + article.slug);
   return {
@@ -20,3 +20,6 @@ export const kiiArticles = legacyKiiArticles.map((article) => {
 if (Object.keys(kiiMarkdownBySlug).length !== legacyKiiArticles.length) {
   throw Error('KII CMS article count disagrees with KII article catalogue');
 }
+
+// Drafts remain editable in Pages CMS but never enter public routes or discovery.
+export const kiiArticles = allKiiArticles.filter(article => article.draft !== true);

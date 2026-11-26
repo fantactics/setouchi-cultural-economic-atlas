@@ -74,6 +74,10 @@ content:
       fields: [title, region]
       search: [title, teaser, region]
     fields:
+      - name: draft
+        label: 非公開（下書き）
+        type: boolean
+        default: false
       - name: slug
         label: 記事ID（URL用・編集不可）
         type: string

@@ -1,4 +1,5 @@
 ---
+draft: true
 slug: "hashiguiiwa-rocks-sunrise-and-legends"
 title: "橋杭岩は、なぜ橋にならなかったのか"
 teaser: "朝日を待つ海に、橋の杭のような岩が並ぶ。地下のマグマの跡に、人は弘法大師の物語を重ねた。"

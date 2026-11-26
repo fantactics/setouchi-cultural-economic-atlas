@@ -33,6 +33,7 @@ for(const name of files){
     const line=fm.split(/\r?\n/).find(line=>line.startsWith(key+':'));
     return line?.slice(key.length+1).trim().replace(/^["']|["']$/g,'');
   };
+  if(keys.includes('draft') && !['true','false'].includes(readScalar('draft'))) throw Error('Invalid KII draft status: '+slug);
   if(readScalar('slug')!==slug) throw Error('KII slug mismatch: '+slug);
   for(const key of ['title','teaser','region','category','imageUrl','alt','photoCredit']){
     if(!readScalar(key)) throw Error('Empty KII '+key+': '+slug);

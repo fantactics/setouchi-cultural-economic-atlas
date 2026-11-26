@@ -53,7 +53,7 @@ jobs:
           grep -q '水郡善之祐' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
           grep -q '歴史景観' dist-kii/book/index.html
           grep -q 'totsukawa-mountain-villages-and-tenchugumi' dist-kii/regions/index.html
-          grep -q 'MAP / 10 PLACES' dist-kii/regions/index.html
+          grep -Eq 'MAP / [0-9]+ PLACES' dist-kii/regions/index.html
           grep -q '十津川の勤王の志士たちを躊躇させた、山村の米と塩の流通事情' dist-kii/nature/index.html
           ! grep -q '出典・参照資料' dist-kii/book/totsukawa-mountain-villages-and-tenchugumi/index.html
 

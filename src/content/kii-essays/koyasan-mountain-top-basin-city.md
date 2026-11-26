@@ -1,4 +1,5 @@
 ---
+draft: true
 slug: "koyasan-mountain-top-basin-city"
 title: "高野山は、山の頂上ではなかった"
 teaser: "霧が流れる山の向こうに、寺も店も宿もある町が現れる。高野山の聖地を支えたのは、山上に広がる平らな土地と、そこへ続く道だった。"
