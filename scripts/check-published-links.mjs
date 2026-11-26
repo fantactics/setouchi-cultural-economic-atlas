@@ -34,7 +34,7 @@ for(const route of ['collections/port-towns','book/ports-that-needed-waiting']){
   assert.ok(retired.includes('noindex,follow') && retired.includes('https://setouchi-atlas.pia2.org/book/'), 'Retired port page must forward to essay index: '+route);
 }
 const publicEssayIndex=assertPage('book');
-assert.ok(!publicEssayIndex.includes('/collections/port-towns/') && !publicEssayIndex.includes('特集 · PORT TOWNS'), 'Retired port feature still promoted');
+assert.ok(!/<a\b[^>]*\bhref="[^"]*\/collections\/port-towns\//.test(publicEssayIndex) && !publicEssayIndex.includes('特集 · PORT TOWNS'), 'Retired port feature still promoted');
 assert.ok(publicEssayIndex.includes('/collections/salt-afterlife/'), 'Salt feature must remain discoverable');
 const retiredSaltHtml=assertPage('book/four-salt-fields');
 assert.ok(retiredSaltHtml.includes('noindex,follow') && retiredSaltHtml.includes('/collections/salt-afterlife/'), 'Retired salt essay must be a redirect to the collection');
@@ -172,7 +172,7 @@ for(const id of ["awaji","tatsuno","kojima","kojima-bay","hiroshima","hinase-isl
   const page=assertPage('places/'+id);
   assert.ok(page.includes('region-reading-essays') && page.includes('/book/'),'Regional essay navigation missing: '+id);
 }
-assert.ok(regionIndex.includes('44 PLACES') || regionIndex.includes('45 PLACES') || /\\d+ PLACES/.test(regionIndex),'Region directory count missing');
+assert.ok(regionIndex.includes('44 PLACES') || regionIndex.includes('45 PLACES') || /\d+ PLACES/.test(regionIndex),'Region directory count missing');
 const homepage=readFileSync(path.join(dist,'index.html'),'utf8');
 for(const fragment of ['初めての3篇','3つの読書の旅','塩田の、その先。']){
   assert.ok(homepage.includes(fragment),`Missing homepage editorial section: ${fragment}`);

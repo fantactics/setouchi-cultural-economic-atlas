@@ -21,7 +21,7 @@ const aliases={
   '加太':['kada'],'鳴門':['naruto'],'明石':['akashi']
 };
 const essayCities=[...kadaEssays,setouchiItinerantTradeBoatsEssay,setouchiShipMaterialsEssay].flatMap((article)=>article.cities);
-const allCities=[...new Set([...allPlaces.map((p)=>p.name),...bookCities,...essayCities])].sort((a,b)=>a.localeCompare(b,'ja'));
+const allCities=[...new Set([...regionalPlaces.map(p=>p.name),...publishedEssays.flatMap(a=>a.cities||[])])].sort((a,b)=>a.localeCompare(b,'ja'));
 const placeById=Object.fromEntries(allPlaces.map((p)=>[p.id,p]));
 const placeFor=(city)=>{
   const id=regionIdForName(city);

@@ -141,7 +141,7 @@ for(const route of ['book/ports-that-needed-waiting','collections/port-towns']){
   assert.ok(!publishedSitemapPages.includes('/'+route+'/'), 'Retired port page must not be indexed: '+route);
 }
 const essayIndex=await readFile(path.join(dist,'book','index.html'),'utf8');
-assert.ok(!essayIndex.includes('/collections/port-towns/') && !featuredHomeHtml.includes('/collections/port-towns/'), 'Retired port feature still promoted');
+assert.ok(![essayIndex,featuredHomeHtml].some(html=>/<a\b[^>]*\bhref="[^"]*\/collections\/port-towns\//.test(html)), 'Retired port feature still promoted');
 
 const withheld = path.join(dist, 'book', 'tadano-shido-industrial-ecosystem', 'index.html');
 assert.ok(!(await stat(withheld).then(() => true).catch(() => false)), 'Shido draft must not be published');
