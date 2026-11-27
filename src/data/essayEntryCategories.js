@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'busshozan-onsen-buried-volcano': ['tourism','townscape','urban'],
   'dogo-onsen-earthquakes-and-yukito': ['townscape','tourism'],
   'sanukite-stone-soundscape': ['industry','sea'],
   'omishima-mountains-and-sea-faith': ['sea','ports'],

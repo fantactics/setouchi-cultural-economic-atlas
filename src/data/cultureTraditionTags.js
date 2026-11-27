@@ -28,6 +28,7 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'busshozan-onsen-buried-volcano':['入浴文化','町並み・建築','観光・余暇'],
   'dogo-onsen-earthquakes-and-yukito':['信仰・寺社','祭礼','入浴文化'],
   'sanukite-stone-soundscape':['音風景','音楽・楽器','工業・ものづくり'],
   'omishima-mountains-and-sea-faith':['信仰・寺社','船と航海'],

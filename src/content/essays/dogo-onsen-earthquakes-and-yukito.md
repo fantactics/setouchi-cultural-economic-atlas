@@ -76,3 +76,5 @@ migration: {"status":"native-editorial","publicUrl":"/book/dogo-onsen-earthquake
 地下の岩盤のわずかな変形によって、何度も失われた温泉。
 
 今日も湯が湧いていることを、道後の人々は三百年以上にわたって祝ってきた。
+
+[関連編｜仏生山――1400万年前の火山と、21世紀の温泉街づくり](/setouchi-cultural-economic-atlas/book/busshozan-onsen-buried-volcano/)

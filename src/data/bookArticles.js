@@ -6889,7 +6889,138 @@ bookArticles.push({
   "researchLinks": []
 });
 
-export const storyOrder = ["dogo-onsen-earthquakes-and-yukito","sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push({
+  "slug": "busshozan-onsen-buried-volcano",
+  "part": "町は、何度でもつくり直される",
+  "title": "仏生山――1400万年前の火山と、21世紀の温泉街づくり",
+  "subtitle": "水不足を救えなかった地底の水が、町に温泉をつくった",
+  "cities": [
+    "仏生山",
+    "高松"
+  ],
+  "primaryPlaces": [
+    "takamatsu",
+    {
+      "id": "busshozan",
+      "name": "仏生山",
+      "prefecture": "香川県",
+      "group": "shikoku",
+      "lat": 34.276,
+      "lon": 134.044,
+      "aliases": [
+        "仏生山温泉"
+      ],
+      "subtitle": "平野の地下に眠る火山の跡と、新しい温泉のある門前町。",
+      "photoEssay": "busshozan-onsen-buried-volcano"
+    }
+  ],
+  "keywords": [
+    "仏生山温泉",
+    "高松クレーター",
+    "コールドロン",
+    "火山",
+    "地下水",
+    "温泉",
+    "渇水",
+    "法然寺",
+    "岡昇平",
+    "まちぐるみ旅館",
+    "リノベーション",
+    "門前町"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Busshozan_Honenji_01.JPG?width=1400",
+    "title": "仏生山・法然寺の総門",
+    "alt": "仏生山の門前町の由来となった法然寺の総門",
+    "caption": "高松松平家の菩提寺、法然寺の総門。2010年9月4日撮影。温泉施設の写真ではない。",
+    "kind": "photo",
+    "author": "Reggaeman",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Busshozan_Honenji_01.JPG"
+  },
+  "lead": "古い門前町に2005年、一軒の温泉が生まれた。開業のきっかけは、高松平野の地下に見つかった巨大な陥没構造と、渇水対策への期待だった。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "高松クレーターの発見は渇水対策への期待を生んだが、大量の揚水は難しいと評価された。一方、民間の温泉開発を促し、温泉を核とする分散型の宿泊・町づくりにつながった。",
+  "openQuestions": [
+    "仏生山温泉固有の地下水起源と熱源"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "高松クレーター論争の検証（2010）",
+      "publisher": "長谷川修一・応用地質 50巻6号",
+      "url": "https://www.jstage.jst.go.jp/article/jjseg/50/6/50_336/_article/-char/ja/"
+    },
+    {
+      "id": 2,
+      "title": "高松クレーター",
+      "publisher": "土木紀行",
+      "url": "https://doboku7.sakura.ne.jp/kikou/dobokukikou69.pdf"
+    },
+    {
+      "id": 3,
+      "title": "高松クレーターの成因と地下水の評価（講演資料）",
+      "publisher": "長谷川修一・日本応用地質学会中国四国支部",
+      "url": "https://www.jseg.or.jp/chushikoku/wp-jseg/wp-content/uploads/2023/02/news_20210528_hasegawa.pdf"
+    },
+    {
+      "id": 4,
+      "title": "高松クレーター（コールドロン）の湯？ 仏生山温泉",
+      "publisher": "別府温泉地球博物館",
+      "url": "https://www.beppumuseum.jp/m_osusume/053.html"
+    },
+    {
+      "id": 5,
+      "title": "温泉掘削工事実績",
+      "publisher": "掘削施工会社",
+      "url": "https://www.kbsys.co.jp/page_foldar/Jitseki_spa.html"
+    },
+    {
+      "id": 6,
+      "title": "仏生山まちぐるみ旅館のはじまりについて（2012年）",
+      "publisher": "コロカル・岡昇平／山崎亮対談",
+      "url": "https://colocal.jp/kagawa/20120705_8494.html"
+    },
+    {
+      "id": 7,
+      "title": "温泉の運営から考えるまちの幸福論",
+      "publisher": "Qonversations・岡昇平インタビュー",
+      "url": "https://qonversations.net/interview/786/"
+    },
+    {
+      "id": 8,
+      "title": "仏生山温泉",
+      "publisher": "設計事務所岡昇平",
+      "url": "https://ooso.busshozan.com/%E8%A4%87%E8%A3%BD-%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E9%9B%9B%E5%BD%A2"
+    },
+    {
+      "id": 9,
+      "title": "仏生山砂蒸し温泉の泉質と源泉名",
+      "publisher": "温泉の旅",
+      "url": "https://chinetsu.net/broom/kagawa/busshozanf.htm"
+    },
+    {
+      "id": 10,
+      "title": "法然寺総門の写真（CC BY-SA 3.0）",
+      "publisher": "Wikimedia Commons / Reggaeman",
+      "url": "https://commons.wikimedia.org/wiki/File:Busshozan_Honenji_01.JPG"
+    }
+  ],
+  "sections": [],
+  "researchLinks": [
+    {
+      "label": "道後温泉｜地震で湯が止まった町は、湯の復活を祭りにした",
+      "href": "/setouchi-cultural-economic-atlas/book/dogo-onsen-earthquakes-and-yukito/"
+    },
+    {
+      "label": "讃岐の火山活動｜火山が残した石は、なぜ音楽を奏でるのか",
+      "href": "/setouchi-cultural-economic-atlas/book/sanukite-stone-soundscape/"
+    }
+  ]
+});
+
+export const storyOrder = ["busshozan-onsen-buried-volcano","dogo-onsen-earthquakes-and-yukito","sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));
