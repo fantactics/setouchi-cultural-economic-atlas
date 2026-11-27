@@ -44,6 +44,7 @@ export const essayEntryCategories = [
 ];
 
 export const essayEntryBySlug = {
+  'nada-fushimi-watermill-rice-polishing': ['food','industry','urban'],
   'busshozan-onsen-buried-volcano': ['tourism','townscape','urban'],
   'dogo-onsen-earthquakes-and-yukito': ['townscape','tourism'],
   'sanukite-stone-soundscape': ['industry','sea'],

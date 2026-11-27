@@ -28,6 +28,7 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'nada-fushimi-watermill-rice-polishing':['醸造・発酵','工業・ものづくり','水の管理'],
   'busshozan-onsen-buried-volcano':['入浴文化','町並み・建築','観光・余暇'],
   'dogo-onsen-earthquakes-and-yukito':['信仰・寺社','祭礼','入浴文化'],
   'sanukite-stone-soundscape':['音風景','音楽・楽器','工業・ものづくり'],

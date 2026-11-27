@@ -7020,7 +7020,139 @@ bookArticles.push({
   ]
 });
 
-export const storyOrder = ["busshozan-onsen-buried-volcano","dogo-onsen-earthquakes-and-yukito","sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push({
+  "slug": "nada-fushimi-watermill-rice-polishing",
+  "part": "町は、何度でもつくり直される",
+  "title": "六甲山が米を磨いた灘、琵琶湖の水が米を磨いた伏見",
+  "subtitle": "二つの酒どころを育てた、自然の急流と人工の水路",
+  "cities": [
+    "灘",
+    "神戸",
+    "西宮",
+    "伏見",
+    "京都"
+  ],
+  "primaryPlaces": [
+    {
+      "id": "nada",
+      "name": "灘",
+      "prefecture": "兵庫県",
+      "group": "mainland",
+      "lat": 34.715,
+      "lon": 135.268,
+      "aliases": [
+        "神戸",
+        "西宮",
+        "灘五郷"
+      ],
+      "subtitle": "六甲山の急流を精米の動力にした酒どころ。",
+      "photoEssay": "nada-fushimi-watermill-rice-polishing"
+    }
+  ],
+  "keywords": [
+    "六甲山",
+    "灘五郷",
+    "伏見",
+    "琵琶湖疏水",
+    "鴨川運河",
+    "水車精米",
+    "断層",
+    "隆起",
+    "急流",
+    "酒造",
+    "住吉川"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sumiyoshi_river_from_Shin-tantaka_bridge_2018_a.jpg?width=1400",
+    "title": "住吉川",
+    "alt": "神戸市東灘区の住吉川を新反高橋から上流方向に望む",
+    "caption": "新反高橋から北を望む住吉川。2018年9月23日撮影。",
+    "kind": "photo",
+    "author": "桂鷺淵",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_river_from_Shin-tantaka_bridge_2018_a.jpg"
+  },
+  "lead": "急勾配の住吉川と、酒蔵のそばをゆっくり流れる伏見の濠川。水は酒の原料であるだけでなく、かつて酒米を磨く動力でもあった。二つの酒どころを支えた水の違いをたどる。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "灘では六甲山地の隆起がもたらした急流が水車精米を支え、伏見では近代の人工水路が水力利用を広げた。電力によって精米動力の地理的制約が弱まっても酒造業の集積は残っている。",
+  "openQuestions": [
+    "江戸時代の伏見の水車精米の実態",
+    "1911年の四つの精米所の酒造用・食用米の内訳"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "六甲・淡路島断層帯",
+      "publisher": "地震調査研究推進本部",
+      "url": "https://www.jishin.go.jp/regional_seismicity/rs_katsudanso/rs_kat_rokko_awajishima/"
+    },
+    {
+      "id": 2,
+      "title": "瀬戸内海国立公園（六甲地域）の概況",
+      "publisher": "環境省",
+      "url": "https://www.env.go.jp/park/content/000085295.pdf"
+    },
+    {
+      "id": 3,
+      "title": "水車精米",
+      "publisher": "灘酒研究会・灘の酒用語集",
+      "url": "https://www.nada-ken.com/main/jp/index_su/555.html"
+    },
+    {
+      "id": 4,
+      "title": "日本酒図書館 第7巻 日本酒の歴史（後）",
+      "publisher": "菊正宗酒造",
+      "url": "https://www.kikumasamune.co.jp/toshokan/07/07_04.html"
+    },
+    {
+      "id": 5,
+      "title": "灘目の水車",
+      "publisher": "神戸市東灘区",
+      "url": "https://www.city.kobe.lg.jp/b07715/kuyakusho/higashinadaku/shoukai/townmap/bunka/gm_09.html"
+    },
+    {
+      "id": 6,
+      "title": "灘の酒造用具",
+      "publisher": "文化庁・日本遺産ポータルサイト",
+      "url": "https://japan-heritage.bunka.go.jp/ja/culturalproperties/result/5210/"
+    },
+    {
+      "id": 7,
+      "title": "琵琶湖疏水と産業の展開",
+      "publisher": "京都市・文化的景観調査報告書",
+      "url": "https://kyoto-bunkaisan.city.kyoto.lg.jp/report/pdf/tyousa/01/okazaki_05.pdf"
+    },
+    {
+      "id": 8,
+      "title": "伏見の近代産業への飛躍",
+      "publisher": "京都市伏見区",
+      "url": "https://www.city.kyoto.lg.jp/fushimi/page/0000013327.html"
+    },
+    {
+      "id": 9,
+      "title": "灘百選・史跡／遺構②（水車新田）",
+      "publisher": "神戸市灘区",
+      "url": "https://www.city.kobe.lg.jp/c63604/kuyakusho/nadaku/shokai/miryoku/hyakusen/hyakusennokaiiseki2.html"
+    },
+    {
+      "id": 10,
+      "title": "住吉川の写真（CC BY-SA 4.0）",
+      "publisher": "Wikimedia Commons／桂鷺淵",
+      "url": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_river_from_Shin-tantaka_bridge_2018_a.jpg"
+    },
+    {
+      "id": 11,
+      "title": "伏見の月桂冠の写真（CC BY 2.5）",
+      "publisher": "Wikimedia Commons／663highland",
+      "url": "https://commons.wikimedia.org/wiki/File:Gekkeikan_Sake_Brewing01st3200.jpg"
+    }
+  ],
+  "sections": [],
+  "researchLinks": []
+});
+
+export const storyOrder = ["nada-fushimi-watermill-rice-polishing","busshozan-onsen-buried-volcano","dogo-onsen-earthquakes-and-yukito","sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));

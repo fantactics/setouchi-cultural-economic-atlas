@@ -13,6 +13,7 @@
  * For ambiguous or merely incidental mentions, omit tags rather than guess.
  */
 export const naturalConditionRules = [
+  {tag:'隆起',pattern:/山地.{0,10}隆起|隆起した山|地盤の隆起|隆起運動/},
   {tag:'地下水',pattern:/地下水|裂罅水|岩盤の割れ目を流れ/},
   {tag:'温泉',pattern:/非火山性温泉|温泉の湧出|温泉水|温泉が湧|温泉が止/},
   {tag:'断層',pattern:/断層|破砕帯/},
@@ -62,6 +63,7 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'nada-fushimi-watermill-rice-polishing':['断層','隆起','急流'],
   'busshozan-onsen-buried-volcano':['火山','温泉','地下水'],
   'dogo-onsen-earthquakes-and-yukito':['温泉','断層','地殻変動'],
   'sanukite-stone-soundscape':['火山','地質'],
