@@ -199,5 +199,8 @@ assert.ok(setodaHero.includes(setodaPhoto) && setodaHero.includes('No.6201'), 'S
 assert.ok(indexHtml.includes(setodaPhoto), 'Setoda discovery card must use the approved post photo');
 
 // Homepage trails represent nine distinct current essays, separate from the three featured works.
-for(const title of ["潮が動かす世界","土地と水に向き合う","名産が生まれるまで"]) assert.ok(homepage.includes(title),'Missing refreshed trail: '+title);
-for(const slug of ["setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","setouchi-shrimp-middle-layer","hiketa-castle-port-town","sanuki-store-the-rain","mikan-slope-and-varieties","tatara-bridge-citrus-seasons","shodoshima-somen-to-sesame-oil","ibuki-fat-sardines-revalued"]) assert.ok(homepage.includes('/book/'+slug+'/'),'Missing reading trail essay: '+slug);
+for(const title of ["地下に隠れた風景","海を渡る知恵と祈り","水が育てた食の風景"]) assert.ok(homepage.includes(title),'Missing refreshed trail: '+title);
+for(const slug of ["sanukite-stone-soundscape","busshozan-onsen-buried-volcano","dogo-onsen-earthquakes-and-yukito","kurushima-tides-and-navigation","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sanuki-store-the-rain","oysters-taste-of-small-seas","shodoshima-somen-to-sesame-oil"]) assert.ok(homepage.includes('/book/'+slug+'/'),'Missing reading trail essay: '+slug);
+
+// Verify the current representative essays, in addition to the reading trails.
+for(const slug of ["setouchi-250-submarine-caldrons","nada-fushimi-watermill-rice-polishing","tatara-bridge-citrus-seasons"]) assert.ok(homepage.includes('/book/'+slug+'/'),'Missing representative homepage essay: '+slug);

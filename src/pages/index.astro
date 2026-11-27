@@ -36,7 +36,7 @@ const essayPhoto=(article)=>{
   return ids.map((id)=>photoById[id]).find((photo)=>photo?.imageUrl) || null;
 };
 // The homepage's three representative essays are deliberately fixed by editorial choice.
-const featuredSlugs=['tomo-two-act-tidal-port','kojima-from-cotton-to-jeans','oysters-taste-of-small-seas'];
+const featuredSlugs=["setouchi-250-submarine-caldrons","nada-fushimi-watermill-rice-polishing","tatara-bridge-citrus-seasons"];
 const featuredArticles=featuredSlugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean);
 
 // Homepage-only landscape selections, independent of the article covers.
@@ -51,47 +51,47 @@ const homePhotos={
 };
 const readingTrails=[
   {
-    "label": "潮が動かす世界",
-    "question": "海面の下では、何が起きているのか。",
+    "label": "地下に隠れた風景",
+    "question": "火山や断層は、どんな文化を残したのか。",
     "slugs": [
-      "setouchi-250-submarine-caldrons",
+      "sanukite-stone-soundscape",
+      "busshozan-onsen-buried-volcano",
+      "dogo-onsen-earthquakes-and-yukito"
+    ],
+    "photoEssay": "sanukite-stone-soundscape",
+    "position": "50% 50%"
+  },
+  {
+    "label": "海を渡る知恵と祈り",
+    "question": "島々の山と潮を、人はどう読み解いたのか。",
+    "slugs": [
       "kurushima-tides-and-navigation",
-      "setouchi-shrimp-middle-layer"
+      "omishima-mountains-and-sea-faith",
+      "setouchi-sea-gods-and-power"
     ],
-    "photoId": "photo-naruto-whirlpool",
+    "photoEssay": "omishima-mountains-and-sea-faith",
     "position": "50% 50%"
   },
   {
-    "label": "土地と水に向き合う",
-    "question": "人は、与えられた土地をどう使ってきたのか。",
+    "label": "水が育てた食の風景",
+    "question": "土地ごとの水の事情は、食をどう変えたのか。",
     "slugs": [
-      "hiketa-castle-port-town",
       "sanuki-store-the-rain",
-      "mikan-slope-and-varieties"
+      "oysters-taste-of-small-seas",
+      "shodoshima-somen-to-sesame-oil"
     ],
-    "photoId": "photo-karihama-citrus-terraces",
-    "position": "50% 50%"
-  },
-  {
-    "label": "名産が生まれるまで",
-    "question": "なぜ、その土地ならではの味が生まれたのか。",
-    "slugs": [
-      "tatara-bridge-citrus-seasons",
-      "shodoshima-somen-to-sesame-oil",
-      "ibuki-fat-sardines-revalued"
-    ],
-    "photoId": "home-ikuchijima-orchard",
+    "photoId": "photo-hiroshima-oyster-rafts",
     "position": "50% 50%"
   }
 ];
 const trailCards=readingTrails.map((trail)=>({
   ...trail,
   articles:trail.slugs.map((slug)=>allEssays.find((article)=>article.slug===slug)).filter(Boolean),
-  coverPhoto:homePhotos[trail.photoId]
+  coverPhoto:trail.photoEssay ? essayPhoto(allEssays.find(article=>article.slug===trail.photoEssay)) : homePhotos[trail.photoId]
 }));
 const featuredPhoto=(article)=>{
-  if(article.slug==='tomo-two-act-tidal-port') return article.heroPhoto || essayPhoto(article);
-  if(article.slug==='oysters-taste-of-small-seas') return homePhotos['photo-hiroshima-oyster-rafts'];
+  if(article.slug==='setouchi-250-submarine-caldrons') return homePhotos['photo-naruto-whirlpool'];
+  if(article.slug==='tatara-bridge-citrus-seasons') return homePhotos['home-ikuchijima-orchard'];
   return essayPhoto(article);
 };
 const saltContrasts=[
