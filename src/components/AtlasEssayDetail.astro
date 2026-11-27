@@ -1,12 +1,13 @@
 ---
 /** Site-agnostic essay body: data belongs to the invoking region. */
-const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true, MarkdownContent = null, natureHref = null, cultureHref = null } = Astro.props;
+const { article, listingHref, listingLabel = 'エッセイ一覧へ', showCredits = true, showSources = true, MarkdownContent = null, natureHref = null, cultureHref = null, essayMeta = {} } = Astro.props;
 ---
 <article class="atlas-shared-essay">
   <header>
     <a class="atlas-essay-back" href={listingHref}>← {listingLabel}</a>
     {article.region && <p class="atlas-essay-region"><span aria-hidden="true">✳</span> {article.category ? article.category + ' / ' : ''}{article.region}</p>}
     <h1>{article.title}</h1>
+    {(essayMeta.datePublished || essayMeta.dateModified) && <p><small>{essayMeta.datePublished && <>公開：<time datetime={essayMeta.datePublished}>{essayMeta.datePublished}</time> </>}{essayMeta.dateModified && <>更新：<time datetime={essayMeta.dateModified}>{essayMeta.dateModified}</time></>}</small></p>}
     {article.teaser && <p class="atlas-essay-lead">{article.teaser}</p>}
     {article.imageUrl && <figure><img src={article.imageUrl} alt={article.alt || article.title} />{showCredits && article.photoCredit && <figcaption>{article.photoCredit}</figcaption>}</figure>}
     {article.tags?.length > 0 && <div class="atlas-essay-tag-group">

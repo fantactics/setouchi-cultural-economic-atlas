@@ -1,4 +1,5 @@
 ---
+import { articleMetadata } from '../../../data/articleMetadata.js';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import AtlasEssayDetail from '../../../components/AtlasEssayDetail.astro';
 import { atlasSites } from '../../../config/atlasSites.js';
@@ -9,8 +10,9 @@ export function getStaticPaths() {
 }
 const { article } = Astro.props;
 const site = atlasSites.kii;
+const essayMeta=articleMetadata({article,regions:[article.region],naturalTags:article.tags,cultureTags:article.cultureTags,sources:article.sources});
 const MarkdownContent = kiiMarkdownBySlug[article.slug]?.Content;
 ---
-<BaseLayout siteKey="kii" title={article.title} description={article.teaser || site.description} image={article.imageUrl || null} imageAlt={article.alt || article.title}>
-  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" MarkdownContent={MarkdownContent} showCredits={false} showSources={true} natureHref={site.basePath + 'nature/'} cultureHref={site.basePath + 'culture/'} />
+<BaseLayout siteKey="kii" title={article.title} description={article.teaser || site.description} image={article.imageUrl || null} imageAlt={article.alt || article.title} essayMeta={essayMeta}>
+  <AtlasEssayDetail article={article} listingHref={site.basePath + '#essays'} listingLabel="紀伊半島のエッセイ" MarkdownContent={MarkdownContent} showCredits={false} showSources={true} essayMeta={essayMeta} natureHref={site.basePath + 'nature/'} cultureHref={site.basePath + 'culture/'} />
 </BaseLayout>

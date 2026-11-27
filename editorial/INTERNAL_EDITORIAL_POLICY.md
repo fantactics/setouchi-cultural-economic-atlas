@@ -76,3 +76,11 @@
 - 過去の議論や個別の試行結果は `docs/`・`editorial/CLUSTER_REVIEW.md` に保存し、**古いメモを現行の命令文書として使わない**。文書間に矛盾があれば上位層を優先する。
 
 KII ATLASには `KII_EDITORIAL_GUIDE.md` という固有の補足があります。共通理念は共有しますが、KIIの公開システムや写真・出典の固有ルールをSETOUCHIへ機械的に移しません。
+
+
+## SEO・AIO共通メタデータ（SETOUCHI / KII）
+
+- 記事ページは共通の `src/data/articleMetadata.js` から Article JSON-LD を生成する。媒体名を publisher とし、本文の地域・自然条件・文化タグ・公開された参考文献を再利用する。媒体名を個人著者とみなさず、未確認の著者名や経歴は追記しない。
+- 新規公開時は実際の初回公開日を確認して `datePublished`（YYYY-MM-DD）を設定する。実質的な改稿時には `dateModified` を更新する。過去の公開日が不明な原稿は空欄とし、ビルド日やGitコミット日を初回公開日として一律に設定しない。日付を指定した場合は本文ヘッダーにも表示する。
+- 公開用の独自ドメインURLへの変換後に `scripts/check-aio-artifact.mjs` で canonical、OG URL、Article JSON-LD、サイトマップ、robots.txt を照合する。KIIは独立パッケージの検査と実サイトへの配信を区別する。
+- 検索クローラーの現行許可を維持する。AI学習用クローラーを制限する場合は検索用途と分けて個別に判断する。AI検索に特別なマークアップは必須ではないため、本文の品質と出典の確認を優先する。

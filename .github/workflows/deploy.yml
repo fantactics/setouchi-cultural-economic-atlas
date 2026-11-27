@@ -44,6 +44,8 @@ jobs:
         run: node scripts/check-kii-cms-articles.mjs
       - name: Package standalone KII preview
         run: node scripts/package-kii.mjs
+      - name: Verify KII production metadata and crawl settings
+        run: node scripts/check-aio-artifact.mjs kii
       - name: Upload KII preview bundle
         uses: actions/upload-artifact@v4
         with:
@@ -74,6 +76,8 @@ jobs:
           key: atlas-photo-cache-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Prepare SETOUCHI custom domain and backward-compatible links
         run: node scripts/prepare-setouchi-custom-domain.mjs
+      - name: Verify SETOUCHI production metadata and crawl settings
+        run: node scripts/check-aio-artifact.mjs setouchi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

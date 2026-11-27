@@ -51,6 +51,12 @@ content:
       - name: lead
         label: 導入文
         type: text
+      - name: datePublished
+        label: 初回公開日（確認できる場合のみ YYYY-MM-DD）
+        type: string
+      - name: dateModified
+        label: 実際の改稿日（YYYY-MM-DD）
+        type: string
       - name: body
         label: エッセイ本文（視覚編集）
         type: rich-text
@@ -107,6 +113,12 @@ content:
       - name: teaser
         label: リード文（一覧にも反映）
         type: text
+      - name: datePublished
+        label: 初回公開日（確認できる場合のみ YYYY-MM-DD）
+        type: string
+      - name: dateModified
+        label: 実際の改稿日（YYYY-MM-DD）
+        type: string
       - name: body
         label: エッセイ本文（視覚編集）
         type: rich-text

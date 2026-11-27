@@ -1,4 +1,5 @@
 ---
+import { articleMetadata } from '../../data/articleMetadata.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import EssayProseSections from '../../components/EssayProseSections.astro';
@@ -87,6 +88,7 @@ const visibleSubtitle=String(article.subtitle||'').trim();
 const showSubtitle=visibleSubtitle && visibleSubtitle!==String(article.title||'').trim() && !String(article.title||'').includes(visibleSubtitle);
 const naturalTags=getNaturalConditionTags(article);
 const cultureTags=getCultureTags(article);
+const essayMeta=articleMetadata({article,regions:article.cities,naturalTags,cultureTags,sources:article.omitPhotoCredits?[]:article.sources});
 const archivedResearchHref={
   'ai-era-regional-planning-learning-velocity':'/setouchi-cultural-economic-atlas/chapters/ai-regional-planning-adaptive-note/',
   'miura-matsuyama-small-boiler-revolution':'/setouchi-cultural-economic-atlas/chapters/miura-matsuyama-boiler-note/'
@@ -213,7 +215,7 @@ const foodPhotos=gastronomyPhotos.filter((photo)=>{
 // The gallery component deduplicates and displays at most four images.
 const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodPhotos];
 ---
-<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description} image={hero?.imageUrl} imageAlt={hero?.alt || article.title}>
+<BaseLayout title={article.title} seoTitle={seo.title} description={seo.description} image={hero?.imageUrl || null} imageAlt={hero?.alt || article.title} essayMeta={essayMeta}>
   <article class="book-article">
     {archivedResearchHref && <section class="book-open-questions">
       <div class="kicker">資料保存版</div>
@@ -225,6 +227,7 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       <div class="book-article-series">{article.part}</div>
       <h1>{article.title}</h1>
       {showSubtitle && <p class="book-article-subtitle">{visibleSubtitle}</p>}
+      {(essayMeta.datePublished || essayMeta.dateModified) && <p class="book-article-dates"><small>{essayMeta.datePublished && <>公開：<time datetime={essayMeta.datePublished}>{essayMeta.datePublished}</time> </>}{essayMeta.dateModified && <>更新：<time datetime={essayMeta.dateModified}>{essayMeta.dateModified}</time></>}</small></p>}
       <div class="book-meta-row">
         <div>{cityLinks.map((item)=><a href={item.href}>{item.name}</a>)}</div>
         <div class="reader-nature-tags" aria-label="このエッセイを貫く自然条件">
