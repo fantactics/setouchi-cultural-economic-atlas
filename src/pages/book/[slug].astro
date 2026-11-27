@@ -1,6 +1,7 @@
 ---
 import { articleMetadata } from '../../data/articleMetadata.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { natureTopicsForEssay } from '../../data/natureTopics.js';
 import EssayGoogleMap from '../../components/EssayGoogleMap.astro';
 import EssayProseSections from '../../components/EssayProseSections.astro';
 import KadaAerialComparison from '../../components/KadaAerialComparison.astro';
@@ -87,6 +88,7 @@ const seo=essaySearchMeta(article);
 const visibleSubtitle=String(article.subtitle||'').trim();
 const showSubtitle=visibleSubtitle && visibleSubtitle!==String(article.title||'').trim() && !String(article.title||'').includes(visibleSubtitle);
 const naturalTags=getNaturalConditionTags(article);
+const overviewTopics=natureTopicsForEssay(article.slug);
 const cultureTags=getCultureTags(article);
 const essayMeta=articleMetadata({article,regions:article.cities,naturalTags,cultureTags,sources:article.omitPhotoCredits?[]:article.sources});
 const archivedResearchHref={
@@ -417,6 +419,7 @@ const unifiedPhotoEssayPhotos=[...supplementaryPhotos,...appendixPhotos,...foodP
       <a href="/setouchi-cultural-economic-atlas/collections/salt-afterlife/#salt-compare-title">七つの土地を見比べる →</a>
     </aside>}
 
+    {overviewTopics.length>0 && <aside class="reader-related-essays" aria-label="自然条件の総論"><div class="kicker">自然条件から読み比べる</div><ul>{overviewTopics.map(topic=><li><a href={`/setouchi-cultural-economic-atlas/book/nature/${topic.id}/`}>{topic.title} →</a></li>)}</ul></aside>}
     {relatedEssays.length>0 && <section class="reader-related-essays" aria-labelledby="reader-related-title">
       <div class="reader-related-head">
         <div><span>READ NEXT</span><h2 id="reader-related-title">この風景から、次の問いへ。</h2><p>一篇を読み終えたところから、別の土地の発見が始まります。</p></div>

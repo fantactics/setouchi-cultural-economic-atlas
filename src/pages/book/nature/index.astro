@@ -5,6 +5,8 @@ import { enhanceBookArticle } from '../../../data/articleEnhancements.js';
 import { applyEssayEditorialOverride } from '../../../data/essayEditorialOverrides.js';
 import { naturalConditionTagIndex } from '../../../data/naturalEnvironmentTags.js';
 import { photoEvidence } from '../../../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../../../data/additionalPlacePhotos.js';
+import { natureTopics } from '../../../data/natureTopics.js';
 
 // Keep this discovery page in sync with the canonical published essay index.
 const essays=publishedEssays.map((a)=>applyEssayEditorialOverride(enhanceBookArticle(a)));
@@ -15,7 +17,7 @@ const categoryDefinitions=[
   {id:'weather',title:'雨・風・気候',description:'雨の少なさや風向き、日差しが、暮らしと仕事をどう変えた？',tags:['少雨','雨陰','日照','季節風','西風','潮風','台風']},
   {id:'tides',title:'潮・海の動き',description:'潮の満ち引きや海流が、港や食卓に何をもたらした？',tags:['潮汐','潮流','急流','波浪','黒潮','海水交換','水温']},
   {id:'coast',title:'島・海岸のかたち',description:'島、岬、浅瀬、入り江。そのかたちに人はどう応えた？',tags:['多島海','海峡','岬','入り江','リアス海岸','干潟','遠浅','砂州','砂嘴','砂底','砂礫底','岩礁']},
-  {id:'earth',title:'山・川・大地',description:'斜面や川、地層や土が、町と産業の形をどう決めた？',tags:['斜面','河口','洪水','地質','鉱床','土壌','津波','軟水']},
+  {id:'earth',title:'山・川・大地',description:'斜面や川、地層や土が、町と産業の形をどう決めた？',tags:['斜面','河口','洪水','地質','鉱床','土壌','津波','軟水','火山','断層','隆起','地殻変動','温泉','地下水']},
   {id:'ecology',title:'海の豊かさを育む条件',description:'塩分や栄養、藻場など、目に見えにくい自然の働きに注目。',tags:['塩分','栄養塩','植物プランクトン','アマモ場']}
 ];
 const assignedTags=new Set(categoryDefinitions.flatMap((group)=>group.tags));
@@ -26,17 +28,12 @@ const categories=[...categoryDefinitions,...(unassigned.length ? [{id:'other',ti
     groups:category.tags.map((tag)=>natureGroups.find((entry)=>entry.tag===tag)).filter(Boolean)
   }))
   .filter((category)=>category.groups.length>0);
-const photoById=Object.fromEntries(photoEvidence.map((photo)=>[photo.id,photo]));
-const featureDefs=[
-  {tag:'少雨',photoId:'photo-mannou-reservoir',question:'雨が少ないのに、池はいっぱい。',eyebrow:'RAIN & WATER'},
-  {tag:'潮汐',photoId:'photo-tomonoura-gangi',question:'潮の高さで、港の景色が変わる。',eyebrow:'TIDES & PORTS'},
-  {tag:'斜面',photoId:'photo-karihama-citrus-terraces',question:'海へ落ちる坂が、畑になった。',eyebrow:'HILLS & FIELDS'}
-];
-const natureFeatures=featureDefs.map((item)=>{
-  const group=natureGroups.find((entry)=>entry.tag===item.tag);
-  const photo=photoById[item.photoId];
-  return group && photo ? {...item,photo,count:group.essays.length} : null;
-}).filter(Boolean);
+const photoById=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(photo=>[photo.id,photo]));
+const natureFeatures=natureTopics.map(topic=>{
+  const photo=topic.photoEssay ? essays.find(article=>article.slug===topic.photoEssay)?.heroPhoto : photoById[topic.photoId];
+  if(!photo?.imageUrl) throw Error('Missing nature topic cover: '+topic.id);
+  return {...topic,photo};
+});
 ---
 <BaseLayout title="自然条件から探す | SETOUCHI ATLAS" description="雨が少ないのに池が多い？ 潮が満ちると港が変わる？ 風景に隠れた自然のヒントから、瀬戸内の物語へ。">
   <main class="nature-index">
@@ -47,12 +44,12 @@ const natureFeatures=featureDefs.map((item)=>{
       <p>雨が少ないのに、池がいっぱい。潮が満ちれば、港の景色が変わる。海へ落ちる斜面には、段々畑。<br />いつもの風景の裏にある、自然のヒントを探してみよう。</p>
     </header>
     <section class="nature-featured" aria-labelledby="nature-featured-title">
-      <div class="nature-section-title"><span>START HERE <span aria-hidden="true">✦</span></span><h2 id="nature-featured-title">まずは、この3つ。</h2></div>
+      <div class="nature-section-title"><span>START HERE <span aria-hidden="true">✦</span></span><h2 id="nature-featured-title">自然と文化を、読み比べる。</h2></div>
       <div class="nature-feature-grid">
-        {natureFeatures.map(({tag,question,eyebrow,photo,count})=>
-          <a class="nature-feature-card" href={`#nature-${encodeURIComponent(tag)}`}>
+        {natureFeatures.map(({id,title,question,eyebrow,photo})=>
+          <a class="nature-feature-card" href={`/setouchi-cultural-economic-atlas/book/nature/${id}/`}>
             <div class="nature-feature-image"><img src={photo.imageUrl} alt={photo.alt || photo.title} loading="eager" /></div>
-            <div class="nature-feature-copy"><small>{eyebrow}</small><h3>{question}</h3><span><b>{tag}</b> の物語 {count}篇 <span aria-hidden="true">↗</span></span></div>
+            <div class="nature-feature-copy"><small>{eyebrow}</small><h3>{title}</h3><p>{question}</p><span>総論・比較を読む <span aria-hidden="true">↗</span></span></div>
           </a>
         )}
       </div>
@@ -134,6 +131,7 @@ const natureFeatures=featureDefs.map((item)=>{
   .nature-feature-copy{padding:16px 19px 19px;display:flex;flex:1;flex-direction:column;gap:8px}
   .nature-feature-copy>small{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:#c0784f}
   .nature-feature-copy h3{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:clamp(1.08rem,1.55vw,1.4rem);line-height:1.47;margin:0;font-weight:800}
+  .nature-feature-copy>p{font-size:.87rem;line-height:1.65;color:#667970;margin:0 0 6px}
   .nature-feature-copy>span{margin-top:auto;font-size:.78rem;font-weight:650;color:#427b69}
   .nature-feature-copy>span b{font-weight:800}
   .nature-overview{padding:29px clamp(18px,3vw,32px) 33px;background:linear-gradient(125deg,#fff7eb,#fffcf5 60%,#eff7ef);border:1px solid #f0e5d7;border-radius:24px;margin:0 0 34px}

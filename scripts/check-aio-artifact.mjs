@@ -25,7 +25,7 @@ for(const key of process.argv.slice(2).length?process.argv.slice(2):Object.keys(
   assert.match(robots,/User-agent:\s*\*\s*\nAllow:\s*\//i);
   assert.ok(robots.includes('Sitemap: '+origin+'/sitemap.xml'), key+' wrong robots sitemap');
   const home=read(root,'index.html');
-  assert.equal(canonical(home),origin+'/');
+  assert.equal(new URL(canonical(home)).href,origin+'/');
   const index=read(root,'sitemap.xml');
   const pageUrls=index.includes('<sitemapindex')?locs(index).flatMap(url=>{
     assert.ok(url.startsWith(origin+'/'));

@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { natureTopics } from '../../../data/natureTopics.js';
+import { publishedEssays } from '../../../data/publishedEssayList.js';
+import { photoEvidence } from '../../../data/photoEvidence.js';
+import { additionalPlacePhotos } from '../../../data/additionalPlacePhotos.js';
+const markdownModules=import.meta.glob('../../../content/essays/*.md',{eager:true});
+const frontmatter=Object.fromEntries(Object.entries(markdownModules).map(([file,module])=>[file.split('/').pop().replace(/\.md$/,''),module.frontmatter]));
+export function getStaticPaths(){return natureTopics.map(topic=>({params:{topic:topic.id},props:{topic}}));}
+const {topic}=Astro.props;
+const base='/setouchi-cultural-economic-atlas/book/';
+const bySlug=new Map(publishedEssays.map(article=>[article.slug,article]));
+const photos=Object.fromEntries([...photoEvidence,...Object.values(additionalPlacePhotos).flat()].map(photo=>[photo.id,photo]));
+const cover=topic.photoEssay?bySlug.get(topic.photoEssay)?.heroPhoto:photos[topic.photoId];
+if(!cover?.imageUrl)throw Error('Missing topic photo: '+topic.id);
+const cases=topic.cases.map(entry=>{
+ const article=bySlug.get(entry.slug);
+ if(!article)throw Error('Unpublished essay in nature topic: '+entry.slug);
+ const sources=frontmatter[entry.slug]?.sources || article.sources || [];
+ const refs=entry.refs.map(id=>{
+   const source=sources.find(s=>Number(s.id)===id);
+   if(!source?.url || !source.title)throw Error('Missing source '+id+' for '+entry.slug);
+   return source;
+ });
+ return {...entry,article,refs,href:base+entry.slug+'/'};
+});
+const others=natureTopics.filter(t=>t.id!==topic.id);
+---
+<BaseLayout title={topic.title} description={topic.lead} image={cover.imageUrl} imageAlt={cover.alt || cover.title}>
+  <article class="nature-topic">
+    <nav class="topic-nav" aria-label="パンくず"><a href={base+'nature/'}>← 自然条件から</a><span>／ 総論</span></nav>
+    <header class="topic-header">
+      <p class="topic-kicker">NATURE × CULTURE · {topic.eyebrow}</p>
+      <h1>{topic.title}</h1>
+      <p class="topic-question">{topic.question}</p>
+      <p class="topic-lead">{topic.lead}</p>
+    </header>
+    <figure class="topic-cover">
+      <img src={cover.imageUrl} alt={cover.alt || cover.title} decoding="async"/>
+      <figcaption>{topic.photoNote} {cover.sourcePage&&<>写真：<a href={cover.sourcePage}>{cover.author||'出典'}</a> {cover.licenseUrl?<a href={cover.licenseUrl}>{cover.license}</a>:cover.license}</>}</figcaption>
+    </figure>
+    <div class="topic-prose">
+      {topic.sections.map(section=><section><h2>{section.heading}</h2>{section.paragraphs.map(p=><p>{p}</p>)}</section>)}
+    </div>
+    <section class="topic-comparison" aria-labelledby="topic-comparison-title">
+      <h2 id="topic-comparison-title">{topic.comparisonTitle}</h2>
+      <p>個別のエッセイで扱った事例を、自然条件と人の営みの関係から読み比べます。</p>
+      <div class="topic-table-wrap"><table><thead><tr><th scope="col">土地・事例</th><th scope="col">自然条件</th><th scope="col">人の営み・着眼点</th></tr></thead><tbody>
+        {cases.map(item=><tr><th scope="row"><a href={item.href}>{item.place}</a></th><td>{item.condition}</td><td>{item.response}</td></tr>)}
+      </tbody></table></div>
+      <div class="topic-case-list">
+        {cases.map((item,index)=><section id={'case-'+(index+1)}><h3>{item.place}：{item.response}</h3><p>{item.note}</p><a href={item.href}>{item.article.title} →</a></section>)}
+      </div>
+    </section>
+    <section class="topic-sources" aria-labelledby="topic-sources-title">
+      <h2 id="topic-sources-title">参考文献</h2>
+      <p>各エッセイの参考文献から、この総論の比較に関わる資料を抜粋しています。詳しい出典と記述の根拠は個別エッセイで確認できます。</p>
+      {cases.map(item=><div><h3>{item.place}</h3><ol>{item.refs.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a>{source.publisher&&<span> — {source.publisher}</span>}</li>)}</ol></div>)}
+    </section>
+    <nav class="topic-footer" aria-label="ほかの自然条件を読む"><h2>ほかの総論を読む</h2>{others.map(t=><a href={base+'nature/'+t.id+'/'}>{t.title} →</a>)}<a href={base+'nature/'}>自然条件の索引に戻る →</a></nav>
+  </article>
+</BaseLayout>
+<style>
+ .nature-topic{max-width:1040px;margin:auto;padding:clamp(24px,4vw,55px) 22px 80px;color:#304c43}
+ .topic-nav{font-size:.85rem;color:#69796e;margin-bottom:30px}.topic-nav a,.nature-topic a{color:#317460;text-underline-offset:3px}
+ .topic-header,.topic-prose,.topic-sources,.topic-footer{max-width:770px;margin:0 auto}
+ .topic-kicker{font-size:.74rem;letter-spacing:.1em;font-weight:800;color:#a76e48;margin:0 0 10px}
+ .topic-header h1{font-family:system-ui,sans-serif;font-size:clamp(1.9rem,4vw,3rem);line-height:1.4;letter-spacing:-.035em;margin:0 0 12px}
+ .topic-question{font-size:1.08rem;font-weight:700;color:#55776b;margin:0 0 14px}.topic-lead,.topic-prose p{font-size:1.02rem;line-height:2;color:#435d50}
+ .topic-cover{margin:28px 0 38px}.topic-cover img{width:100%;height:auto;max-height:480px;object-fit:cover;display:block;border-radius:15px}.topic-cover figcaption{font-size:.77rem;color:#65776b;line-height:1.7;margin:8px 0}
+ .topic-prose section{margin:0 0 32px}.nature-topic h2{font-size:clamp(1.2rem,2.2vw,1.65rem);line-height:1.5;margin:0 0 12px}
+ .topic-comparison{border-top:1px solid #dce6dd;margin:42px 0 35px;padding-top:25px}.topic-comparison>p,.topic-sources>p{font-size:.9rem;line-height:1.8;color:#66786e}
+ .topic-table-wrap{overflow-x:auto;margin:20px 0}.topic-table-wrap table{width:100%;border-collapse:collapse;font-size:.91rem;line-height:1.65}.topic-table-wrap th,.topic-table-wrap td{padding:12px;text-align:left;border-bottom:1px solid #dae5dd;vertical-align:top}.topic-table-wrap thead{background:#eef4ed}.topic-table-wrap tbody th{font-weight:750}
+ .topic-case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.topic-case-list section{padding:16px 18px;border:1px solid #dfe7df;border-radius:12px;background:#fffefa}.topic-case-list h3{font-size:1rem;margin:0 0 9px}.topic-case-list p{font-size:.9rem;line-height:1.8;color:#526c5f;margin:0 0 10px}.topic-case-list a{font-size:.85rem;font-weight:700;line-height:1.6}
+ .topic-sources{padding-top:25px;border-top:1px solid #dce6dd}.topic-sources h3{font-size:.94rem;margin:18px 0 5px}.topic-sources ol{padding-left:1.5rem;margin:0}.topic-sources li{font-size:.85rem;line-height:1.8;overflow-wrap:anywhere}.topic-sources span{color:#728075}
+ .topic-footer{margin-top:35px;padding-top:20px;border-top:1px solid #dce6dd;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+ @media(max-width:650px){.nature-topic{padding:25px 16px 60px}.topic-case-list{grid-template-columns:1fr}.topic-table-wrap th,.topic-table-wrap td{padding:9px 7px;font-size:.82rem}}
+</style>

@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { storyOrder } from '../src/data/bookArticles.js';
+import { natureTopics } from '../src/data/natureTopics.js';
 
 const dist=path.resolve('dist');
 const legacy='/setouchi-cultural-economic-atlas/';
@@ -204,3 +205,18 @@ for(const slug of ["sanukite-stone-soundscape","busshozan-onsen-buried-volcano",
 
 // Verify the current representative essays, in addition to the reading trails.
 for(const slug of ["setouchi-250-submarine-caldrons","nada-fushimi-watermill-rice-polishing","tatara-bridge-citrus-seasons"]) assert.ok(homepage.includes('/book/'+slug+'/'),'Missing representative homepage essay: '+slug);
+
+ 
+// Nature overviews must be discoverable in both directions and included in the sitemap.
+const natureIndex=assertPage('book/nature');
+for(const topic of natureTopics){
+  const route='book/nature/'+topic.id;
+  const html=assertPage(route);
+  assert.ok(natureIndex.includes('/'+route+'/'), 'Nature overview missing from index: '+topic.id);
+  assert.ok(sitemapUrls.some(url=>url.endsWith('/'+route+'/')), 'Nature overview missing from sitemap: '+topic.id);
+  assert.ok(html.includes(topic.title) && html.includes('参考文献') && html.includes('<table'), 'Incomplete nature overview: '+topic.id);
+  for(const item of topic.cases){
+    assert.ok(html.includes('/book/'+item.slug+'/'), 'Overview missing essay: '+item.slug);
+    assert.ok(assertPage('book/'+item.slug).includes('/'+route+'/'), 'Essay missing overview backlink: '+item.slug);
+  }
+}

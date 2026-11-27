@@ -54,7 +54,7 @@ const researchSynthesis = synthesisLayers.length
     }), {points:[],essays:[]})
   : null;
 const isHome = pathname === baseUrl || pathname === baseUrl.slice(0,-1);
-const isEssayDetail = pathname.startsWith(`${baseUrl}book/`) && /^book\/[^/]+\/?$/.test(pathname.slice(baseUrl.length));
+const isEssayDetail = pathname.startsWith(`${baseUrl}book/`) && /^book\/[^/]+\/?$/.test(pathname.slice(baseUrl.length)) && !/^book\/(nature|culture)\/?$/.test(pathname.slice(baseUrl.length));
 // Essay browser-tab titles follow the same source as the visible H1.
 // Search-intent wording belongs in the description, not a competing title.
 const pageTitle = isEssayDetail
@@ -93,7 +93,7 @@ const contextualEssayLinks = pathname.endsWith('/chapters/island-use-intensity/'
 
 const siteOrigin = Astro.site?.origin || Astro.url.origin;
 const siteRoot = new URL(baseUrl, siteOrigin).href;
-const canonicalUrl = new URL(pathname, siteOrigin).href;
+const canonicalUrl = isHome ? siteRoot : new URL(pathname, siteOrigin).href;
 const sitemapUrl = new URL(`${baseUrl}sitemap.xml`, siteOrigin).href;
 const resolvedImage = image == null ? null : image.startsWith('http://') || image.startsWith('https://')
   ? image
