@@ -6768,7 +6768,128 @@ bookArticles.push({
   "researchLinks": []
 });
 
-export const storyOrder = ["sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
+bookArticles.push({
+  "slug": "dogo-onsen-earthquakes-and-yukito",
+  "part": "町は、何度でもつくり直される",
+  "title": "地震で湯が止まった町は、湯の復活を祭りにした",
+  "subtitle": "道後温泉――地下の断層と南海地震が育んだ湯祈祷の風習",
+  "cities": [
+    "松山",
+    "道後温泉"
+  ],
+  "primaryPlaces": [
+    "matsuyama",
+    {
+      "id": "dogo",
+      "name": "道後温泉",
+      "prefecture": "愛媛県",
+      "group": "shikoku",
+      "lat": 33.852,
+      "lon": 132.786,
+      "aliases": [
+        "道後"
+      ],
+      "subtitle": "断層から湧く湯と、温泉の復活を祝う祭り。",
+      "photoEssay": "dogo-onsen-earthquakes-and-yukito"
+    }
+  ],
+  "keywords": [
+    "道後温泉",
+    "非火山性温泉",
+    "断層",
+    "花崗岩",
+    "地殻変動",
+    "南海地震",
+    "湯神社",
+    "湯祈祷",
+    "祭礼",
+    "禊",
+    "温泉まつり"
+  ],
+  "heroPhoto": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Dogo_Yu-Jinja%28Shrine%29_Matsuyama_City.JPG?width=1400",
+    "title": "道後温泉を見守る湯神社",
+    "alt": "冠山に鎮座する道後の湯神社",
+    "caption": "道後温泉本館のそば、冠山の湯神社。2008年9月12日撮影。湯祈祷当日の写真ではない。",
+    "kind": "photo",
+    "author": "Jyo81",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Dogo_Yu-Jinja(Shrine)_Matsuyama_City.JPG"
+  },
+  "lead": "毎年三月十九日、道後の旅館やホテルの人々は朝一番の温泉を青竹に汲み、湯神社へ運ぶ。南海地震で何度も湯が止まった町に、地下の変化を物語る祭りが残っている。",
+  "narrativeMode": "sketch",
+  "provisionalConclusion": "非火山性温泉の上昇経路となる断層・岩盤の割れ目と、地震による地下水圧の変化を背景に、湧出再開を願う祈りが道後の祭礼として継承されてきた。",
+  "openQuestions": [
+    "道後温泉固有の熱源・水の起源"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "湯祈祷祭",
+      "publisher": "湯神社",
+      "url": "https://yu-jinja.official.jp/yuisho/yugitosai.htm"
+    },
+    {
+      "id": 2,
+      "title": "湯祈祷と道後温泉祭り",
+      "publisher": "愛媛県・えひめの記憶",
+      "url": "https://www.i-manabi.jp/system/regionals/regionals/ecode:1/9/view/1636"
+    },
+    {
+      "id": 3,
+      "title": "道後温泉",
+      "publisher": "日本大百科全書（ニッポニカ）",
+      "url": "https://kotobank.jp/word/道後温泉-103523"
+    },
+    {
+      "id": 4,
+      "title": "地震と道後温泉（2014）",
+      "publisher": "高橋治郎・愛媛大学教育学部紀要",
+      "url": "https://www.ed.ehime-u.ac.jp/~kiyou/2014/pdf/10.pdf"
+    },
+    {
+      "id": 5,
+      "title": "地震による地下水の変化",
+      "publisher": "日本原子力研究開発機構・東濃地科学センター",
+      "url": "https://www.jaea.go.jp/04/tono/antei/faq/jisin_040.html"
+    },
+    {
+      "id": 6,
+      "title": "道後温泉における地震後の水位上昇について（2017）",
+      "publisher": "小泉尚嗣・木下千裕",
+      "url": "https://doi.org/10.4294/zisin.2016-21"
+    },
+    {
+      "id": 7,
+      "title": "道後温泉まつり",
+      "publisher": "松山市",
+      "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/matsurievent/onsenmatsuri.html"
+    },
+    {
+      "id": 8,
+      "title": "道後温泉の源泉",
+      "publisher": "松山市",
+      "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/kankomeisho/dogoonsen/gensen.html"
+    },
+    {
+      "id": 9,
+      "title": "湯神社の写真（CC BY 3.0）",
+      "publisher": "Wikimedia Commons / Jyo81",
+      "url": "https://commons.wikimedia.org/wiki/File:Dogo_Yu-Jinja(Shrine)_Matsuyama_City.JPG"
+    },
+    {
+      "id": 10,
+      "title": "道後温泉と温泉祭りの聞き書き",
+      "publisher": "愛媛県・えひめの記憶",
+      "url": "https://www.i-manabi.jp/system/regionals/regionals/ecode:1/15/view/2442"
+    }
+  ],
+  "sections": [],
+  "researchLinks": []
+});
+
+export const storyOrder = ["dogo-onsen-earthquakes-and-yukito","sanukite-stone-soundscape","setouchi-250-submarine-caldrons","kurushima-tides-and-navigation","sanuki-store-the-rain","tatara-bridge-citrus-seasons","awaji-onion-rice-field","kinkai-salt-field-to-solar","kashino-sunken-pension-village","sakaide-salt-fields-to-industry","kojima-from-cotton-to-jeans","iwakuni-river-city","onomichi-capital-to-culture-and-ships","mitarai-economy-of-waiting","hiketa-castle-port-town","faith-as-transport-map","omishima-mountains-and-sea-faith","setouchi-sea-gods-and-power","sawara-spring-two-gates","oysters-taste-of-small-seas","hijiki-tidal-time","mikan-slope-and-varieties","oyster-shells-after-the-meal","oyster-shells-where-they-go","olive-pomace-to-cattle","ibuki-fat-sardines-revalued","tai-meshi-two-seas","shimotsui-tako-meshi","shimonoseki-resource-made-by-market","shodoshima-open-island","shodoshima-somen-to-sesame-oil","imabari-why-shipbuilding","niihama-after-copper","ako-after-salt-fields","takehara-salt-capital-to-townscape","yanai-trade-profit-to-whitewalls","mihara-castle-to-multimodal-city","matsuyama-three-centers-one-city","takamatsu-sea-castle-to-gateway","naoshima-water-across-sea"];
 export const orderedBookArticles = storyOrder.map((slug)=>bookArticles.find((article)=>article.slug===slug)).filter(Boolean);
 
 export const bookArticleBySlug = Object.fromEntries(bookArticles.map((article)=>[article.slug,article]));

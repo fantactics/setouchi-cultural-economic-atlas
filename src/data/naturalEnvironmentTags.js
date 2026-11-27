@@ -13,6 +13,9 @@
  * For ambiguous or merely incidental mentions, omit tags rather than guess.
  */
 export const naturalConditionRules = [
+  {tag:'温泉',pattern:/非火山性温泉|温泉の湧出|温泉水|温泉が湧|温泉が止/},
+  {tag:'断層',pattern:/断層|破砕帯/},
+  {tag:'地殻変動',pattern:/地殻変動|地殻の変形|岩盤が.{0,10}膨張|地震による隆起|南海地震/},
   {tag:'火山', pattern:/火山活動|火山岩|溶岩|噴火/},
   {tag:'軟水', pattern:/軟水|鉄分.*少な.*水|ミネラル.*少な.*水/},
   {tag:'少雨', pattern:/少雨|雨量が少な|雨が少な|降水量が少な|降水量は少な|水不足が続|乾燥した気候/},
@@ -58,6 +61,7 @@ export const naturalConditionVocabulary=naturalConditionRules.map(({tag})=>tag);
 // These are checked when the essay is revised; automatic matching supplies
 // additional tags for new and updated essays.
 export const naturalConditionAnchors = {
+  'dogo-onsen-earthquakes-and-yukito':['温泉','断層','地殻変動'],
   'sanukite-stone-soundscape':['火山','地質'],
   'omishima-mountains-and-sea-faith':['多島海','岬','潮流'],
   'setouchi-sea-gods-and-power':['多島海'],

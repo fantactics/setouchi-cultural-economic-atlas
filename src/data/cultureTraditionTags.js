@@ -3,6 +3,8 @@
  * 記事の核心に関係する語だけを付ける。記事に書かれていない文化を推測しない。
  */
 export const cultureTagRules=[
+  {tag:'祭礼',pattern:/祭礼|神輿|湯祈祷|献湯祭|祭り/},
+  {tag:'入浴文化',pattern:/外湯|共同浴場|湯治|入浴文化|温泉街|温泉祭り/},
   {tag:'音風景',pattern:/音風景|サウンドスケープ/},
   {tag:'音楽・楽器',pattern:/石琴|楽器|音楽|演奏/},
   {tag:'食文化',pattern:/料理|食卓|食べ方|食文化|郷土食|寿司|鮓|鯛めし|タコ飯|たこめし|かき揚げ|しらす|煮干し|ひじき|そうめん|素麺/},
@@ -26,6 +28,7 @@ export const cultureTagRules=[
 ];
 
 export const cultureTagAnchors={
+  'dogo-onsen-earthquakes-and-yukito':['信仰・寺社','祭礼','入浴文化'],
   'sanukite-stone-soundscape':['音風景','音楽・楽器','工業・ものづくり'],
   'omishima-mountains-and-sea-faith':['信仰・寺社','船と航海'],
   'setouchi-sea-gods-and-power':['信仰・寺社','船と航海','港の商い'],
