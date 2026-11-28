@@ -32,6 +32,7 @@ const {
   structuredData = null,
   seoTitle = null,
   essayMeta = null,
+  readerGuide = false,
   researchMeta = null
 } = Astro.props;
 const atlasSite = atlasSites[siteKey];
@@ -60,12 +61,12 @@ const isEssayDetail = pathname.startsWith(`${baseUrl}book/`) && /^book\/[^/]+\/?
 const pageTitle = isEssayDetail
   ? `${title}｜${atlasSite.name}`
   : seoTitle || (isHome ? siteTitle : title.includes(atlasSite.name) ? title.replaceAll(atlasSite.name,siteTitle) : `${title} | ${siteTitle}`);
-const isResearchDetail = /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
+const isResearchDetail = !readerGuide && /^\/setouchi-cultural-economic-atlas\/chapters\/[^/]+\/?$/.test(pathname);
 
 const dataPrefixes = [
   'climate','wind-tide','transect','land-use','transport','industry','gastronomy-matrix','photos','compare'
 ].map((segment)=>`${baseUrl}${segment}`);
-const pageType = pathname.startsWith(`${baseUrl}places`)
+const pageType = readerGuide ? 'default' : pathname.startsWith(`${baseUrl}places`)
   ? 'region'
   : pathname.startsWith(`${baseUrl}book`)
     ? 'essay'
@@ -188,7 +189,7 @@ const jsonLd = structuredData || enrichArticleSchema(defaultStructuredData, essa
     <main>
       <slot />
       {isResearchDetail && <ResearchNoteOverview pathname={pathname} title={title} description={description} meta={researchMeta} />}
-      {!isEssayDetail && researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
+      {!readerGuide && !isEssayDetail && researchSynthesis && <EssayResearchSynthesis synthesis={researchSynthesis} />}
       {contextualEssayLinks.length>0 && (
         <section class="section">
           <div class="program-section-head">

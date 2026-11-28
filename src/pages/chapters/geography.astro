@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { publishedEssays } from '../../data/publishedEssayList.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import { natureTopics } from '../../data/natureTopics.js';
+const base='/setouchi-cultural-economic-atlas/';
+const title='瀬戸内海の地理・地形と自然の特徴';
+const description='瀬戸内海の多島海、灘と海峡、沿岸の平野、地質、温暖少雨の気候を解説。地理的な特徴が港町・農業・食文化・産業にどう関わるのか、地域のエッセイを通じて紹介します。';
+const groups=[
+  {
+    "id": "sea",
+    "title": "広い灘と狭い海峡が交互に現れる",
+    "text": "播磨灘、備後灘、燧灘、伊予灘といった広い海域の間を、明石海峡、備讃瀬戸、来島海峡などの狭い水道がつないでいます。潮の満ち引きに伴う流れは、狭い水路では速くなることがあります。海底の深さや形、流れの向きも場所によって違います。船が潮を待つ港もあれば、潮の向きによって通る水路を変える海峡もあります。",
+    "refs": [
+      1,
+      2
+    ],
+    "topic": "tides",
+    "items": [
+      [
+        "setouchi-250-submarine-caldrons",
+        "速い潮と渦潮の発生を、海底の地形から読み解く。"
+      ],
+      [
+        "tomo-two-act-tidal-port",
+        "東西から伝わる潮を待つ船が、鞆の浦の商いを育てた。"
+      ],
+      [
+        "kurushima-tides-and-navigation",
+        "来島海峡では潮の向きに応じて通航経路が変わる。"
+      ]
+    ]
+  },
+  {
+    "id": "islands",
+    "title": "島々の山並みと、海を渡る道",
+    "text": "瀬戸内の多島海には、海面上昇に伴って低い土地が水没し、高所が島として残った地形が広く見られます。海を隔てた島々は航海の目印にもなり、船の往来は島や港を結びました。現代には橋が島々をつなぎますが、船が通る海峡では橋の高さにも配慮が必要です。",
+    "refs": [
+      2,
+      3
+    ],
+    "items": [
+      [
+        "omishima-mountains-and-sea-faith",
+        "大三島の山の神が航海の守護神としても崇敬されてきた背景。"
+      ],
+      [
+        "what-cyclists-leave-behind",
+        "しまなみ海道の橋と、その下を通る船の関係。"
+      ]
+    ]
+  },
+  {
+    "id": "coast",
+    "title": "山が迫る海岸、川が広げた平野",
+    "text": "瀬戸内沿岸には、山裾と海の間に町が伸びる尾道のような場所も、河川が土砂を運び平野や三角州を発達させた場所もあります。遠浅の海や干潟では干拓によって農地や塩田が造られました。土地が低いまま利用される場合は、海を締め切った後も排水を続ける必要があります。",
+    "refs": [
+      1,
+      2,
+      3
+    ],
+    "items": [
+      [
+        "onomichi-capital-to-culture-and-ships",
+        "山と海に挟まれた町に寺院、道路、鉄道が重なる景観。"
+      ],
+      [
+        "hiketa-castle-port-town",
+        "砂州が発達した引田の港と町の成り立ち。"
+      ],
+      [
+        "kojima-from-cotton-to-jeans",
+        "干拓地の綿作から繊維産業へと続く児島の歴史。"
+      ],
+      [
+        "kinkai-salt-field-to-solar",
+        "塩田が太陽光発電所に変わっても、排水の仕事が残る理由。"
+      ]
+    ]
+  },
+  {
+    "id": "rock",
+    "title": "花崗岩、火山岩、断層がつくる大地",
+    "text": "瀬戸内には花崗岩が広く分布し、風化によって生じた砂が白い砂浜の材料になる場所があります。一方、讃岐や小豆島には古い火山活動に由来する岩石や地形が残っています。断層運動に伴う山地の隆起や岩盤の割れ目も、河川の勾配や地下水の流れに関わります。石の物性、水の通り道、高低差という異なる地質の働きが、暮らしに結びついてきました。",
+    "refs": [
+      2,
+      3
+    ],
+    "topic": "geology",
+    "items": [
+      [
+        "sanukite-stone-soundscape",
+        "讃岐の火山岩が石器や楽器の材料になった理由。"
+      ],
+      [
+        "dogo-onsen-earthquakes-and-yukito",
+        "道後温泉の地下構造と地震、湯の復活を願う祭り。"
+      ],
+      [
+        "nada-fushimi-watermill-rice-polishing",
+        "六甲山の急流を精米に使った灘と、人工水路を整えた伏見を比較する。"
+      ]
+    ]
+  },
+  {
+    "id": "climate",
+    "title": "雨の少ない土地と、水を確保する工夫",
+    "text": "瀬戸内側の多くの地域は、中国山地や四国山地などの影響で降水量が比較的少なくなります。ただし、水の利用可能量は雨の量だけで決まりません。集水域の広さ、河川の長さ、地下水、貯水施設や島外からの供給にも左右されます。冬の晴天や風は乾燥工程に生かされ、海に面した斜面には柑橘畑が広がる場所もあります。",
+    "refs": [
+      2,
+      4,
+      5
+    ],
+    "topic": "water",
+    "items": [
+      [
+        "sanuki-store-the-rain",
+        "ため池と、線香で配水時間を測った讃岐の水利慣行。"
+      ],
+      [
+        "naoshima-water-across-sea",
+        "直島の水道水が海底を通って県境を越える仕組み。"
+      ],
+      [
+        "tatara-bridge-citrus-seasons",
+        "生口島でレモンの栽培と地域ブランドが育った経緯。"
+      ],
+      [
+        "shodoshima-somen-to-sesame-oil",
+        "冬の晴れ間を生かす手延べ素麺と、ごま油の産業。"
+      ]
+    ]
+  }
+];
+const sources=[
+  {
+    "name": "瀬戸内海の概況",
+    "publisher": "環境省 せとうちネット",
+    "url": "https://www.env.go.jp/water/heisa/heisa_net/setouchiNet/seto/g2/g2cat01/"
+  },
+  {
+    "name": "瀬戸内海国立公園の特徴",
+    "publisher": "環境省",
+    "url": "https://www.env.go.jp/nature/nationalparks/list/setonaikai/feature/"
+  },
+  {
+    "name": "瀬戸内海の地形と地質",
+    "publisher": "観光庁 地域観光資源の多言語解説文データベース",
+    "url": "https://www.mlit.go.jp/tagengo-db/R6-00240.html"
+  },
+  {
+    "name": "四国の天候",
+    "publisher": "気象庁",
+    "url": "https://www.data.jma.go.jp/cpd/j_climate/shikoku/climate_shikoku_sub1.html"
+  },
+  {
+    "name": "岡山県の気象特性",
+    "publisher": "岡山地方気象台",
+    "url": "https://www.data.jma.go.jp/okayama/shosai/kisyoukaisetsu/kisyoukaisetsu.html"
+  }
+];
+const bySlug=new Map(publishedEssays.map(a=>[a.slug,a]));
+const sections=groups.map(group=>({...group,stories:group.items.map(([slug,note])=>{
+  const article=bySlug.get(slug);
+  if(!article)throw Error('Geography guide links to unpublished essay: '+slug);
+  return {slug,title:article.title,note};
+}),overview:natureTopics.find(topic=>topic.id===group.topic)}));
+const hero=photoEvidence.find(p=>p.id==='photo-imabari-kurushima');
+if(!hero?.imageUrl)throw Error('Geography guide cover missing');
+---
+<BaseLayout readerGuide={true} title={title} description={description} image={hero.imageUrl} imageAlt={hero.alt}>
+  <article class="geography-guide">
+    <nav class="geo-breadcrumb" aria-label="パンくず"><a href={base}>トップ</a><span>／ 瀬戸内海の地理</span></nav>
+    <header class="geo-header">
+      <p class="geo-kicker">SETOUCHI GEOGRAPHY · 瀬戸内を知る</p>
+      <h1>{title}</h1>
+      <p class="geo-lead">一つの海なのに、なぜこれほど違う風景が生まれたのか。</p>
+      <p>瀬戸内海は本州・四国・九州に囲まれた日本最大の内海です。穏やかな多島海の印象とは裏腹に、潮の速い海峡、広い灘、山が迫る港町、川がつくった平野が短い距離で入れ替わります。ここでは瀬戸内の地理を五つの視点から紹介し、その土地ならではの風景をエッセイでたどります。</p>
+    </header>
+    <figure class="geo-hero">
+      <img src={hero.imageUrl} alt={hero.alt} decoding="async"/>
+      <figcaption>来島海峡と来島海峡大橋。島々と水道が入り組む瀬戸内の風景。 写真：<a href={hero.sourcePage}>{hero.author}</a> ／ <a href={hero.licenseUrl}>{hero.license}</a></figcaption>
+    </figure>
+    <section class="geo-facts" aria-labelledby="geo-facts-heading">
+      <h2 id="geo-facts-heading">瀬戸内海の基本データ</h2>
+      <dl>
+        <div><dt>東西の長さ</dt><dd>約450 km</dd></div>
+        <div><dt>南北の幅</dt><dd>約15〜55 km</dd></div>
+        <div><dt>海域面積</dt><dd>23,203 km²</dd></div>
+        <div><dt>平均水深</dt><dd>38 m</dd></div>
+        <div><dt>島の数</dt><dd>700余り</dd></div>
+        <div><dt>海岸線の長さ</dt><dd>約7,230 km</dd></div>
+      </dl>
+      <p>環境省「瀬戸内海の概況」による集計。東は紀伊水道、西は豊後水道と関門海峡を介して外海につながります。数値は同資料の海域区分に基づきます。 <a href="#geo-source-1">[1]</a></p>
+    </section>
+    <nav class="geo-jump" aria-label="地理の五つの視点">
+      {sections.map((section,i)=><a href={'#'+section.id}><small>{String(i+1).padStart(2,'0')}</small>{section.title} ↓</a>)}
+    </nav>
+    {sections.map((section,i)=><section class="geo-section" id={section.id}>
+      <p class="geo-kicker">{String(i+1).padStart(2,'0')} · GEOGRAPHY</p>
+      <h2>{section.title}</h2>
+      <p class="geo-copy">{section.text} {section.refs.map(n=><a class="geo-ref" href={'#geo-source-'+n}>[{n}] </a>)}</p>
+      <div class="geo-stories">
+        <h3>この風景を、エッセイで読む</h3>
+        <ul>{section.stories.map(story=><li><a href={base+'book/'+story.slug+'/'}><strong>{story.title} →</strong><span>{story.note}</span></a></li>)}</ul>
+        {section.overview&&<a class="geo-overview" href={base+'book/nature/'+section.overview.id+'/'}>総論：{section.overview.title} →</a>}
+      </div>
+    </section>)}
+    <section class="geo-references">
+      <h2>参考文献</h2>
+      <ol>{sources.map((source,i)=><li id={'geo-source-'+(i+1)}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a> — {source.publisher}</li>)}</ol>
+      <p>地域ごとの歴史や自然条件についての詳しい出典は、各エッセイに掲載しています。</p>
+    </section>
+    <nav class="geo-next" aria-label="瀬戸内の風景をもっと読む">
+      <h2>次の風景を探す</h2>
+      <a href={base+'places/'}>地名から探す →</a>
+      <a href={base+'book/nature/'}>自然条件から探す →</a>
+      <a href={base+'book/'}>エッセイ一覧 →</a>
+      <a href={base+'chapters/'}>調査と研究ノート →</a>
+    </nav>
+  </article>
+</BaseLayout>
+<style>
+ .geography-guide{max-width:1020px;margin:auto;padding:clamp(26px,5vw,55px) 22px 80px;color:#304c43;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+ .geography-guide a{color:#317460;text-underline-offset:3px}.geo-breadcrumb{font-size:.84rem;margin-bottom:28px;color:#76877e}.geo-header,.geo-section,.geo-references,.geo-next{max-width:790px;margin-left:auto;margin-right:auto}
+ .geo-kicker{font-size:.73rem;letter-spacing:.12em;font-weight:800;color:#a76e48;margin:0 0 10px}.geo-header h1{font-size:clamp(1.95rem,4.5vw,3.1rem);line-height:1.4;letter-spacing:-.04em;margin:0 0 18px}.geo-header p:not(.geo-kicker),.geo-copy{font-size:1.02rem;line-height:2;color:#4e665a}.geo-header .geo-lead{font-weight:750;font-size:1.16rem;color:#315b4f}
+ .geo-hero{margin:30px 0}.geo-hero img{display:block;width:100%;max-height:460px;object-fit:cover;border-radius:16px}.geo-hero figcaption{font-size:.77rem;color:#667a6d;line-height:1.7;margin-top:8px}
+ .geo-facts{padding:22px clamp(15px,3vw,30px);background:#f3f6ef;border:1px solid #dce7db;border-radius:16px}.geography-guide h2{font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.55;margin:0 0 14px}.geo-facts dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:18px 0}.geo-facts dl div{border-bottom:1px solid #d6e1d7;padding-bottom:10px}.geo-facts dt{font-size:.79rem;color:#687e70}.geo-facts dd{font-weight:750;font-size:clamp(1.05rem,2.2vw,1.55rem);margin:5px 0;color:#325f50}.geo-facts p,.geo-references p{font-size:.83rem;line-height:1.8;color:#6b7e72}
+ .geo-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:24px 0 42px}.geo-jump a{display:flex;gap:9px;align-items:center;border:1px solid #dce6dd;border-radius:10px;padding:12px;text-decoration:none;font-size:.88rem;font-weight:700}.geo-jump small{color:#aa795a}
+ .geo-section{scroll-margin-top:90px;margin-bottom:42px;padding-bottom:32px;border-bottom:1px solid #dfe8e0}.geo-section .geo-copy{margin:0 0 18px}.geo-ref{font-size:.77rem;white-space:nowrap}
+ .geo-stories{padding:17px 19px;border:1px solid #dee7dd;border-radius:13px;background:#fffefa}.geo-stories h3{font-size:.85rem;color:#977653;margin:0 0 9px}.geo-stories ul{list-style:none;margin:0;padding:0}.geo-stories li+li{border-top:1px solid #edf0e9}.geo-stories li a{display:flex;flex-direction:column;gap:4px;padding:12px 0;text-decoration:none}.geo-stories li strong{font-size:1rem;line-height:1.6}.geo-stories li span{font-size:.84rem;color:#61766a;line-height:1.7}.geo-stories li a:hover strong{text-decoration:underline}.geo-overview{display:block;font-size:.88rem;font-weight:700;margin-top:11px}
+ .geo-references ol{padding-left:1.5em;font-size:.86rem;line-height:1.9;overflow-wrap:anywhere}.geo-next{margin-top:35px;display:flex;flex-wrap:wrap;gap:12px 20px;border-top:1px solid #dce6dd;padding-top:24px}.geo-next h2{width:100%}.geo-next a{font-weight:700;font-size:.9rem}
+ @media(max-width:620px){.geography-guide{padding:23px 16px 60px}.geo-facts dl,.geo-jump{grid-template-columns:repeat(2,minmax(0,1fr))}.geo-jump a{font-size:.8rem;padding:10px}.geo-stories{padding:13px 15px}}
+</style>

@@ -220,3 +220,15 @@ for(const topic of natureTopics){
     assert.ok(assertPage('book/'+item.slug).includes('/'+route+'/'), 'Essay missing overview backlink: '+item.slug);
   }
 }
+
+ 
+// The existing geography URL is a reader-facing guide, not a research memo.
+const geoGuide=assertPage('chapters/geography');
+assert.ok(geoGuide.includes('瀬戸内海の地理・地形と自然の特徴') && geoGuide.includes('瀬戸内海の基本データ'));
+assert.ok(!geoGuide.includes('この研究ノートの設計'), 'Research design boilerplate leaked into geography guide');
+assert.ok(sitemapUrls.some(url=>url.endsWith('/chapters/geography/')), 'Geography guide lost its indexed URL');
+for(const slug of ["setouchi-250-submarine-caldrons","tomo-two-act-tidal-port","kurushima-tides-and-navigation","omishima-mountains-and-sea-faith","what-cyclists-leave-behind","onomichi-capital-to-culture-and-ships","hiketa-castle-port-town","kojima-from-cotton-to-jeans","kinkai-salt-field-to-solar","sanukite-stone-soundscape","dogo-onsen-earthquakes-and-yukito","nada-fushimi-watermill-rice-polishing","sanuki-store-the-rain","naoshima-water-across-sea","tatara-bridge-citrus-seasons","shodoshima-somen-to-sesame-oil"]) {
+  assertPage('book/'+slug);
+  assert.ok(geoGuide.includes('/book/'+slug+'/'), 'Geography guide missing essay: '+slug);
+}
+for(const topic of ['tides','geology','water']) assert.ok(geoGuide.includes('/book/nature/'+topic+'/'), 'Geography guide missing synthesis link: '+topic);
