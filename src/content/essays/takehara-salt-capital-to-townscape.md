@@ -10,7 +10,7 @@ lead: "竹原の古い町並みには、瓦屋根と格子、白い漆喰壁が�
 researchLinks: [{"label":"比較編｜塩田が消えた四つの町","href":"/setouchi-cultural-economic-atlas/book/four-salt-fields/"}]
 provisionalConclusion: "竹原の干拓地は塩気が強く農地に向かなかったため、1650年に赤穂から導入した技術で入浜式塩田に転用された。潮汐・日照・温暖寡雨と海運が製塩を支える一方、川の土砂堆積・湿地化は経営上の課題となり、18世紀に32年間の賀茂川瀬替え工事が行われた。既存商人資本と製塩利益が酒造・廻船・金融・町家・寺社へ投じられ、塩田の廃止後は平地が市街地に、町家が歴史的景観として残った。"
 openQuestions: ["1650年の農地から塩田への転換が最も早く行われた場所を古地図に示せるか","賀茂川の瀬替え工事の工区・実施時期・水路の変更を歴史地図と照合できるか","旧塩田と現在の新市街地が重なる範囲をGISで検証できるか"]
-sources: [{"id":1,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":2,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":3,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":4,"title":"二級河川本川水系河川整備計画（歴史的な流路・塩田開発）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/uploaded/attachment/552990.pdf"},{"id":5,"title":"広島県と塩・竹原塩田の開発と吉井家","publisher":"塩と暮らしを結ぶ運動","url":"https://www.shiotokurashi.com/kokontozai/hiroshima"},{"id":6,"title":"竹原市の環境（令和4年度版：自然条件と沿革）","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/10/4nendo.pdf"},{"id":7,"title":"国指定文化財等データベース 竹原市竹原地区","publisher":"文化庁","url":"https://kunishitei.bunka.go.jp/heritage/detail/103/26"}]
+sources: [{"id":1,"title":"竹原市竹原地区伝統的建造物群保存地区","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/kanko_bunka_sports/rekishi_bunkazai/bunkazai/5/2934.html"},{"id":2,"title":"竹原市歴史的風致維持向上計画について","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/soshikikarasagasu/bunkashogaigakushuka/gyomuannai/9/1548.html"},{"id":3,"title":"竹原市都市計画マスタープラン 第3章","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/14/03dai3syou.pdf"},{"id":4,"title":"二級河川本川水系河川整備計画（歴史的な流路・塩田開発）","publisher":"広島県","url":"https://www.pref.hiroshima.lg.jp/uploaded/attachment/552990.pdf"},{"id":5,"title":"広島県と塩・竹原塩田の開発と吉井家","publisher":"塩と暮らしを結ぶ運動","url":"https://www.shiotokurashi.com/kokontozai/hiroshima"},{"id":6,"title":"竹原市の環境（令和4年度版：自然条件と沿革）","publisher":"竹原市","url":"https://www.city.takehara.lg.jp/material/files/group/10/4nendo.pdf"},{"id":7,"title":"国指定文化財等データベース 竹原市竹原地区","publisher":"文化庁","url":"https://kunishitei.bunka.go.jp/heritage/detail/103/26"},{"id":8,"title":"風土と歴史","publisher":"竹鶴酒造株式会社","url":"https://www.taketsuru-shuzou.co.jp/history"},{"id":9,"title":"創業者 竹鶴政孝","publisher":"ニッカウヰスキー","url":"https://www.nikka.com/story/founder/"},{"id":10,"title":"マッサンのふるさと","publisher":"竹原市観光協会","url":"https://www.takeharakankou.jp/beginner/massan-hometown/"}]
 migration: {"status":"generated-copy","publicUrl":"/book/takehara-salt-capital-to-townscape/"}
 editorialPhotoPlacements:
   - afterHeading: "白壁の町の、見えない海"
@@ -68,6 +68,18 @@ editorialPhotoPlacements:
 富を蓄えた家々は、店を営むだけでなく、大きな町家や蔵、寺社にもお金を使った。屋根瓦、格子、白く塗り込めた壁の一つひとつに、かつての塩田や船の商いが姿を変えて残っている。 [1](#source-1) [2](#source-2)
 
 
+
+## 竹原の酒蔵から、北海道のウイスキーへ
+
+竹原の町並み保存地区を歩いていると、NHKの連続テレビ小説『マッサン』のモデルとなった竹鶴政孝の生家があった。酒蔵の一部は「小笹屋酒の資料館」として公開されていた。 [10](#source-10)
+
+竹鶴家も、もともとは製塩業を営んでいた家である。1733年に酒造業を始め、1894年には、その造り酒屋の三男として政孝が生まれた。 [8](#source-8) [9](#source-9)
+
+酒造りに関心を持った政孝は、大阪で醸造学を学び、酒造会社に就職する。1918年にはスコットランドへ渡り、ウイスキーの製造技術を学んだ。帰国後は国産ウイスキーの製造に携わり、1934年には北海道の余市で、後のニッカウヰスキーとなる会社を興した。 [9](#source-9)
+
+竹原の製塩業が育てた商家の一つが酒造業を営み、その酒蔵で育った青年が、日本に新しい酒造業を切り開いた。
+
+竹原の塩田は、白壁の町並みを残しただけではなかった。日本のウイスキー産業の遠い原点の一つにもなっていたのである。
 
 ## 塩田が消えても、町は白紙に戻らなかった
 
