@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { publishedEssays } from '../../data/publishedEssayList.js';
+import { photoEvidence } from '../../data/photoEvidence.js';
+import { natureTopics } from '../../data/natureTopics.js';
+const base='/setouchi-cultural-economic-atlas/';
+const title='瀬戸内式気候とは？ 温暖少雨の理由と暮らし・産業';
+const description='瀬戸内式気候の特徴と雨が少ない理由を、気象庁の降水量平年値で比較。ため池、島の水道、柑橘栽培、素麺など、気候と暮らしの関係をエッセイで紹介します。';
+const groups=[
+  {
+    "id": "rain-shadow",
+    "title": "なぜ瀬戸内は雨が少ないのか",
+    "text": "夏には太平洋から湿った空気が流れ込み、四国山地の南斜面などで雨が降ります。山を越えた瀬戸内側では降水量が少なくなります。冬には日本海側からの季節風が中国山地に遮られます。ただし、瀬戸内の全域が同じ気候ではありません。西部と中央部、沿岸と山間部では降水量や気温が異なり、梅雨や台風の時期には大雨も降ります。",
+    "refs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "items": [
+      [
+        "sanuki-store-the-rain",
+        "讃岐の少雨と短い河川が、ため池の風景を生んだ。"
+      ]
+    ]
+  },
+  {
+    "id": "water-storage",
+    "title": "降った雨を、必要な季節まで残す",
+    "text": "讃岐では少雨に加え、川が短く集水域も小さいため、水田を潤す水を安定して得ることが難しい土地でした。ため池を築くことで雨水を蓄え、必要な時期に使えるようにしました。香川用水の通水後も、ため池は配水を調整する施設として働いています。水を確保する施設だけでなく、誰がどれだけ使うのかを決める仕組みも必要でした。",
+    "refs": [
+      5,
+      6
+    ],
+    "items": [
+      [
+        "sanuki-store-the-rain",
+        "満濃池と線香水。水を引く時間を測ってきた人々の工夫。"
+      ]
+    ]
+  },
+  {
+    "id": "island-water",
+    "title": "海に囲まれた島に、水を運ぶ",
+    "text": "小さな島では流域が限られ、雨を受け止める面積も小さくなります。直島では島内の水源に加えて、1969年に岡山県玉野市から海底送水管で水を受ける仕組みが整いました。工業や観光が発展する島の風景を支えているのは、島の外にも広がる水道網です。",
+    "refs": [
+      7
+    ],
+    "items": [
+      [
+        "naoshima-water-across-sea",
+        "ダムがある直島で、なぜ海底送水管が必要になったのか。"
+      ],
+      [
+        "busshozan-onsen-buried-volcano",
+        "渇水を救う水源として期待された地下水が、温泉開発につながった。"
+      ]
+    ]
+  },
+  {
+    "id": "orchards",
+    "title": "温暖な海辺と斜面を生かした柑橘栽培",
+    "text": "レモンは低温に弱く、比較的暖かい瀬戸内沿岸や島々は栽培に適した場所の一つです。とはいえ、温暖なだけでは果樹園は成立しません。斜面の方位、排水、必要な水の確保、品種選択、流通や販路も関係します。海を望む柑橘畑は、土地の条件を人が栽培技術と経営によって生かしてきた風景です。",
+    "refs": [
+      8
+    ],
+    "items": [
+      [
+        "tatara-bridge-citrus-seasons",
+        "生口島のレモンが、消費者との関係や地域のブランドへつながった歴史。"
+      ],
+      [
+        "mikan-slope-and-varieties",
+        "海辺の斜面と柑橘の品種がつくる農業景観。"
+      ]
+    ]
+  },
+  {
+    "id": "food",
+    "title": "雨の少なさと冬の晴れ間を、食の仕事に生かす",
+    "text": "香川では水田の裏作などで小麦が栽培され、うどんや素麺の食文化が育ちました。小豆島の素麺づくりでは冬の晴れ間や風が乾燥に役立ちます。一方で、麺を練るには水が必要であり、製法や原料調達、加工技術も欠かせません。雨が少ないことは水の確保を難しくしますが、乾燥を必要とする工程では利用できる条件でもあります。",
+    "refs": [
+      9
+    ],
+    "items": [
+      [
+        "shodoshima-somen-to-sesame-oil",
+        "冬の素麺づくりから、ごま油の産業が育った経緯。"
+      ],
+      [
+        "shodoshima-open-island",
+        "醤油などの加工業を支えた小豆島の海と交易。"
+      ]
+    ]
+  }
+];
+const sources=[
+  {
+    "name": "四国の天候―太平洋側の多雨と瀬戸内側の少雨",
+    "publisher": "気象庁",
+    "url": "https://www.data.jma.go.jp/cpd/j_climate/shikoku/climate_shikoku_sub1.html"
+  },
+  {
+    "name": "岡山の平年値（1991–2020年）",
+    "publisher": "気象庁",
+    "url": "https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47768&prec_no=66"
+  },
+  {
+    "name": "高松の平年値（1991–2020年）",
+    "publisher": "気象庁",
+    "url": "https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?block_no=47891&prec_no=72"
+  },
+  {
+    "name": "四国の年降水量の長期的な変化",
+    "publisher": "高松地方気象台",
+    "url": "https://www.jma-net.go.jp/takamatsu/3_bousai/shizengenshou/kikou/change_shikoku/rain/change_shikoku_r.html"
+  },
+  {
+    "name": "地勢と気候",
+    "publisher": "香川県",
+    "url": "https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_01.html"
+  },
+  {
+    "name": "ため池の役割",
+    "publisher": "香川県",
+    "url": "https://www.pref.kagawa.lg.jp/tochikai/about_tameike/role.html"
+  },
+  {
+    "name": "直島町水道ビジョン（2019年）",
+    "publisher": "直島町",
+    "url": "https://www.town.naoshima.lg.jp/torikumi/suido/item/nsb.pdf"
+  },
+  {
+    "name": "レモン栽培の拡大",
+    "publisher": "広島県・ひろしま気候変動適応センター",
+    "url": "https://www.pref.hiroshima.lg.jp/site/tekiou/adaptation-hiroshima-lemon2.html"
+  },
+  {
+    "name": "うちの郷土料理 四国地方 香川県",
+    "publisher": "農林水産省",
+    "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/area_stories/kagawa.html"
+  }
+];
+const rainfall=[{name:'岡山',mm:1143.1,area:'瀬戸内側'},{name:'高松',mm:1150.1,area:'瀬戸内側'},{name:'松山',mm:1404.6,area:'瀬戸内側'},{name:'高知',mm:2666.4,area:'太平洋側（比較）'}];
+const bySlug=new Map(publishedEssays.map(a=>[a.slug,a]));
+const sections=groups.map(group=>({...group,stories:group.items.map(([slug,note])=>{
+  const article=bySlug.get(slug);
+  if(!article)throw Error('Climate guide links to unpublished essay: '+slug);
+  return {slug,title:article.title,note};
+}),overview:natureTopics.find(topic=>topic.id===group.topic)}));
+const hero=photoEvidence.find(p=>p.id==='photo-mannou-reservoir');
+if(!hero?.imageUrl)throw Error('Climate guide cover missing');
+---
+<BaseLayout readerGuide={true} title={title} description={description} image={hero.imageUrl} imageAlt={hero.alt}>
+  <article class="geography-guide">
+    <nav class="geo-breadcrumb" aria-label="パンくず"><a href={base}>トップ</a><span>／ 瀬戸内式気候</span></nav>
+    <header class="geo-header">
+      <p class="geo-kicker">SETOUCHI CLIMATE · 瀬戸内を知る</p>
+      <h1>{title}</h1>
+      <p class="geo-lead">雨が少ないことは、暮らしにとって不利なだけなのか。</p>
+      <p>瀬戸内式気候は、年間を通して比較的雨が少なく、日照に恵まれ、沿岸部では冬の寒さも比較的穏やかな気候です。中国山地と四国山地などに挟まれた地形が、この特徴に関係しています。水を蓄えるため池、海を越える水道、柑橘畑や冬の素麺づくり。雨の少なさを補う仕事と、雨の少なさを生かす仕事の両方が、この地方にはあります。</p>
+    </header>
+    <figure class="geo-hero">
+      <img src={hero.imageUrl} alt={hero.alt} decoding="async"/>
+      <figcaption>満濃池。雨の少ない讃岐で農業用水を蓄えてきたため池。 写真：<a href={hero.sourcePage}>{hero.author}</a> ／ <a href={hero.licenseUrl}>{hero.license}</a></figcaption>
+    </figure>
+    <section class="geo-facts" aria-labelledby="geo-facts-heading">
+      <h2 id="geo-facts-heading">瀬戸内と太平洋側の年間降水量を比べる</h2>
+      <p>気象庁の平年値（1991〜2020年）。単位：mm</p>
+      <div class="climate-bars">{rainfall.map(row=><div class="climate-bar-row"><div><strong>{row.name}</strong><small>{row.area}</small><b>{row.mm.toLocaleString('ja-JP',{minimumFractionDigits:1})} mm</b></div><div class="climate-track"><span class:list={['climate-bar',row.name==='高知'&&'pacific']} style={`width:${row.mm/3000*100}%`}></span></div></div>)}</div>
+      <p>高松の年間降水量は高知の半分以下です。松山と高松の間にも差があります。いずれも観測地点の値で、地方全体の平均ではありません。 <a href="#geo-source-2">[2]</a> <a href="#geo-source-3">[3]</a> <a href="#geo-source-4">[4]</a></p>
+      <p>さらに詳しく：<a href={base+'climate/'}>瀬戸内各地の気候比較 →</a></p>
+    </section>
+    <nav class="geo-jump" aria-label="気候と暮らしの五つの視点">
+      {sections.map((section,i)=><a href={'#'+section.id}><small>{String(i+1).padStart(2,'0')}</small>{section.title} ↓</a>)}
+    </nav>
+    {sections.map((section,i)=><section class="geo-section" id={section.id}>
+      <p class="geo-kicker">{String(i+1).padStart(2,'0')} · CLIMATE</p>
+      <h2>{section.title}</h2>
+      <p class="geo-copy">{section.text} {section.refs.map(n=><a class="geo-ref" href={'#geo-source-'+n}>[{n}] </a>)}</p>
+      <div class="geo-stories">
+        <h3>この風景を、エッセイで読む</h3>
+        <ul>{section.stories.map(story=><li><a href={base+'book/'+story.slug+'/'}><strong>{story.title} →</strong><span>{story.note}</span></a></li>)}</ul>
+        {section.overview&&<a class="geo-overview" href={base+'book/nature/'+section.overview.id+'/'}>総論：{section.overview.title} →</a>}
+      </div>
+    </section>)}
+    <section class="geo-references">
+      <h2>参考文献</h2>
+      <ol>{sources.map((source,i)=><li id={'geo-source-'+(i+1)}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a> — {source.publisher}</li>)}</ol>
+      <p>地域ごとの歴史や自然条件についての詳しい出典は、各エッセイに掲載しています。</p>
+    </section>
+    <nav class="geo-next" aria-label="瀬戸内の風景をもっと読む">
+      <h2>次の風景を探す</h2>
+      <a href={base+'chapters/geography/'}>瀬戸内海の地理・地形 →</a>
+      <a href={base+'book/nature/water/'}>総論：瀬戸内の少雨と水の管理 →</a>
+      <a href={base+'places/'}>地名から探す →</a>
+      <a href={base+'book/nature/'}>自然条件から探す →</a>
+      <a href={base+'book/'}>エッセイ一覧 →</a>
+      <a href={base+'chapters/'}>調査と研究ノート →</a>
+    </nav>
+  </article>
+</BaseLayout>
+<style>
+ .geography-guide{max-width:1020px;margin:auto;padding:clamp(26px,5vw,55px) 22px 80px;color:#304c43;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+ .geography-guide a{color:#317460;text-underline-offset:3px}.geo-breadcrumb{font-size:.84rem;margin-bottom:28px;color:#76877e}.geo-header,.geo-section,.geo-references,.geo-next{max-width:790px;margin-left:auto;margin-right:auto}
+ .geo-kicker{font-size:.73rem;letter-spacing:.12em;font-weight:800;color:#a76e48;margin:0 0 10px}.geo-header h1{font-size:clamp(1.95rem,4.5vw,3.1rem);line-height:1.4;letter-spacing:-.04em;margin:0 0 18px}.geo-header p:not(.geo-kicker),.geo-copy{font-size:1.02rem;line-height:2;color:#4e665a}.geo-header .geo-lead{font-weight:750;font-size:1.16rem;color:#315b4f}
+ .geo-hero{margin:30px 0}.geo-hero img{display:block;width:100%;max-height:460px;object-fit:cover;border-radius:16px}.geo-hero figcaption{font-size:.77rem;color:#667a6d;line-height:1.7;margin-top:8px}
+ .geo-facts{padding:22px clamp(15px,3vw,30px);background:#f3f6ef;border:1px solid #dce7db;border-radius:16px}.geography-guide h2{font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.55;margin:0 0 14px}.geo-facts dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:18px 0}.geo-facts dl div{border-bottom:1px solid #d6e1d7;padding-bottom:10px}.geo-facts dt{font-size:.79rem;color:#687e70}.geo-facts dd{font-weight:750;font-size:clamp(1.05rem,2.2vw,1.55rem);margin:5px 0;color:#325f50}.geo-facts p,.geo-references p{font-size:.83rem;line-height:1.8;color:#6b7e72}
+ .geo-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:24px 0 42px}.geo-jump a{display:flex;gap:9px;align-items:center;border:1px solid #dce6dd;border-radius:10px;padding:12px;text-decoration:none;font-size:.88rem;font-weight:700}.geo-jump small{color:#aa795a}
+ .geo-section{scroll-margin-top:90px;margin-bottom:42px;padding-bottom:32px;border-bottom:1px solid #dfe8e0}.geo-section .geo-copy{margin:0 0 18px}.geo-ref{font-size:.77rem;white-space:nowrap}
+ .geo-stories{padding:17px 19px;border:1px solid #dee7dd;border-radius:13px;background:#fffefa}.geo-stories h3{font-size:.85rem;color:#977653;margin:0 0 9px}.geo-stories ul{list-style:none;margin:0;padding:0}.geo-stories li+li{border-top:1px solid #edf0e9}.geo-stories li a{display:flex;flex-direction:column;gap:4px;padding:12px 0;text-decoration:none}.geo-stories li strong{font-size:1rem;line-height:1.6}.geo-stories li span{font-size:.84rem;color:#61766a;line-height:1.7}.geo-stories li a:hover strong{text-decoration:underline}.geo-overview{display:block;font-size:.88rem;font-weight:700;margin-top:11px}
+ .geo-references ol{padding-left:1.5em;font-size:.86rem;line-height:1.9;overflow-wrap:anywhere}.geo-next{margin-top:35px;display:flex;flex-wrap:wrap;gap:12px 20px;border-top:1px solid #dce6dd;padding-top:24px}.geo-next h2{width:100%}.geo-next a{font-weight:700;font-size:.9rem}
+ @media(max-width:620px){.geography-guide{padding:23px 16px 60px}.geo-facts dl,.geo-jump{grid-template-columns:repeat(2,minmax(0,1fr))}.geo-jump a{font-size:.8rem;padding:10px}.geo-stories{padding:13px 15px}}
+ .climate-bars{display:grid;gap:15px;margin:20px 0}.climate-bar-row>div:first-child{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:.91rem}.climate-bar-row small{color:#687e70;font-size:.75rem}.climate-bar-row b{margin-left:auto;font-variant-numeric:tabular-nums}.climate-track{height:15px;background:#e2eae2;border-radius:3px;margin-top:6px}.climate-bar{display:block;height:100%;background:#548f86;border-radius:3px}.climate-bar.pacific{background:#6d90b2}
+</style>

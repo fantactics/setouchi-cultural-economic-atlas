@@ -232,3 +232,11 @@ for(const slug of ["setouchi-250-submarine-caldrons","tomo-two-act-tidal-port","
   assert.ok(geoGuide.includes('/book/'+slug+'/'), 'Geography guide missing essay: '+slug);
 }
 for(const topic of ['tides','geology','water']) assert.ok(geoGuide.includes('/book/nature/'+topic+'/'), 'Geography guide missing synthesis link: '+topic);
+
+// Existing climate URL now leads to a reader guide.
+const climateGuide=assertPage('chapters/climate-water');
+assert.ok(climateGuide.includes('瀬戸内式気候とは？') && climateGuide.includes('年間降水量を比べる'));
+assert.ok(!climateGuide.includes('この研究ノートの設計'));
+assert.ok(sitemapUrls.some(url=>url.endsWith('/chapters/climate-water/')));
+for(const slug of ["sanuki-store-the-rain","naoshima-water-across-sea","busshozan-onsen-buried-volcano","tatara-bridge-citrus-seasons","mikan-slope-and-varieties","shodoshima-somen-to-sesame-oil","shodoshima-open-island"]){assertPage('book/'+slug);assert.ok(climateGuide.includes('/book/'+slug+'/'),'Climate guide missing essay: '+slug);}
+assert.ok(geoGuide.includes('/chapters/climate-water/') && climateGuide.includes('/chapters/geography/'));

@@ -5,7 +5,7 @@ import { transportResearchChapters } from '../../data/transportResearchChapters.
 import { reasoningEssays } from '../../data/reasoningEssays.js';
 
 export function getStaticPaths() {
-  return [...researchChapters,...transportResearchChapters].filter(chapter=>chapter.slug!=='geography').map((chapter)=>({
+  return [...researchChapters,...transportResearchChapters].filter(chapter=>!['geography','climate-water'].includes(chapter.slug)).map((chapter)=>({
     params:{slug:chapter.slug},
     props:{chapter}
   }));
