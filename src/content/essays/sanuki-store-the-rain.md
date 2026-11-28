@@ -10,16 +10,26 @@ lead: "山々に囲まれた、まんのう池の広い水面。讃岐の人々�
 researchLinks: [{"label":"道具の写真｜線香水の木箱と拍子木・太鼓","href":"https://www.pref.kagawa.lg.jp/tochikai/shiryoukan/document.html"},{"label":"地域の景観｜ため池の役割と讃岐の田園","href":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/role.html"}]
 provisionalConclusion: "冬に中国山地、夏に四国山地が湿った風を遮るため讃岐平野は雨陰となりやすく、しかも讃岐山脈から海へ短く急勾配で流れる河川が、雨を貯めるため池網の必要を生んだ。2026年現在12,187か所で、約半数が小池。水ブニは田ごとに異なる権利であり、線香水は時間を管理する配水技術であった。香川用水通水後もため池は調整池として残り、景観の背景に見えない配水・水利の約束が重なる。"
 openQuestions: ["線香水の具体的な用水区・時代・当番制度を配水台帳や道具の所蔵情報で確認できるか","田ごとの水ブニが地主・耕作者・上流下流によってどの程度不均等だったか","香川用水以降の配水方法・水利組合の運営が地域ごとにどう変わったか","ため池管理者の高齢化と防災重点池の維持負担をどのように捉えるか"]
-sources: [{"id":1,"title":"水資源対策の歴史","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_03.html"},{"id":2,"title":"主要ため池の紹介","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/main_intro.html"},{"id":3,"title":"ため池の役割","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/role.html"},{"id":4,"title":"満濃池","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html"},{"id":5,"title":"ため池王国「さぬき」","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/nosonseibi/green/takarabako/6.html"},{"id":6,"title":"香川用水事業の歴史","publisher":"水資源機構 香川用水管理所","url":"https://www.water.go.jp/yoshino/kagawa/rekisi.html"},{"id":7,"title":"ため池データ","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/deta.html"},{"id":8,"title":"知らなかった！昔の人々の知恵・線香水の道具","publisher":"農林水産省 中国四国農政局","url":"https://www.maff.go.jp/chushi/kids/kagawa/rekisi.html"},{"id":9,"title":"香川用水土器川沿岸農業水利事業・水利慣行の変遷","publisher":"一般社団法人 農業農村整備情報総合センター「水土の礎」","url":"https://suido-ishizue.jp/kokuei/chushikoku/Prefectures/3702/3702.html"},{"id":10,"title":"地勢と気候――少雨と急流の川","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_01.html"},{"id":11,"title":"香川用水資料館の所蔵資料・線香水","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/shiryoukan/document.html"},{"id":12,"title":"農業（線香水と水ブニの用水権）","publisher":"香川県立図書館","url":"https://www.library.pref.kagawa.lg.jp/know/local/local_0005-23"},{"id":13,"title":"四国の天候（太平洋側の多雨と瀬戸内側の少雨）","publisher":"気象庁","url":"https://www.data.jma.go.jp/cpd/j_climate/shikoku/climate_shikoku_sub1.html"},{"id":14,"title":"香川県と土砂災害：地形・地質・気候","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/kasensabo/sabo/outline.html"},{"id":15,"title":"溜池をめぐる社会","publisher":"水土の礎","url":"https://suido-ishizue.jp/daichi/part2/04/08.html"},{"id":16,"title":"ため池文化《香川》融通の智恵","publisher":"ミツカン 水の文化センター","url":"https://www.mizu.gr.jp/kikanshi/no01/01.html"},{"id":17,"title":"昭和30年の水利紛争","publisher":"四国災害アーカイブス","url":"https://www.shikoku-saigai.com/archives/8422"}]
+sources: [{"id":1,"title":"水資源対策の歴史","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_03.html"},{"id":2,"title":"主要ため池の紹介","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/main_intro.html"},{"id":3,"title":"ため池の役割","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/role.html"},{"id":4,"title":"満濃池","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/introduction/mannouike.html"},{"id":5,"title":"ため池王国「さぬき」","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/nosonseibi/green/takarabako/6.html"},{"id":6,"title":"香川用水事業の歴史","publisher":"水資源機構 香川用水管理所","url":"https://www.water.go.jp/yoshino/kagawa/rekisi.html"},{"id":7,"title":"ため池データ","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/about_tameike/deta.html"},{"id":8,"title":"知らなかった！昔の人々の知恵・線香水の道具","publisher":"農林水産省 中国四国農政局","url":"https://www.maff.go.jp/chushi/kids/kagawa/rekisi.html"},{"id":9,"title":"香川用水土器川沿岸農業水利事業・水利慣行の変遷","publisher":"一般社団法人 農業農村整備情報総合センター「水土の礎」","url":"https://suido-ishizue.jp/kokuei/chushikoku/Prefectures/3702/3702.html"},{"id":10,"title":"地勢と気候――少雨と急流の川","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/mizusigen/mizu/kagawa_m/kagawa_01.html"},{"id":11,"title":"香川用水資料館の所蔵資料・線香水","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/tochikai/shiryoukan/document.html"},{"id":12,"title":"農業（線香水と水ブニの用水権）","publisher":"香川県立図書館","url":"https://www.library.pref.kagawa.lg.jp/know/local/local_0005-23"},{"id":13,"title":"四国の天候（太平洋側の多雨と瀬戸内側の少雨）","publisher":"気象庁","url":"https://www.data.jma.go.jp/cpd/j_climate/shikoku/climate_shikoku_sub1.html"},{"id":14,"title":"香川県と土砂災害：地形・地質・気候","publisher":"香川県","url":"https://www.pref.kagawa.lg.jp/kasensabo/sabo/outline.html"},{"id":15,"title":"溜池をめぐる社会","publisher":"水土の礎","url":"https://suido-ishizue.jp/daichi/part2/04/08.html"},{"id":16,"title":"ため池文化《香川》融通の智恵","publisher":"ミツカン 水の文化センター","url":"https://www.mizu.gr.jp/kikanshi/no01/01.html"},{"id":17,"title":"昭和30年の水利紛争","publisher":"四国災害アーカイブス","url":"https://www.shikoku-saigai.com/archives/8422"},{"id":18,"title":"ため池「満濃池」は水の時間をコントロールした","publisher":"クアトロのジオ紀行（著者の訪問記）","url":"https://quageo.kyotrad.com/?p=2691"}]
 migration: {"status":"generated-copy","publicUrl":"/book/sanuki-store-the-rain/"}
 
 ---
 
-## 山の中の大きな湖
+## 治水の人、弘法大師
 
-香川県まんのう町の満濃池。堤に立つと、山々に囲まれた広大な水面が見える。自然の湖のようだが、人が築いた池である。これほど大きな池を、なぜ必要としたのだろう。
+香川県まんのう町の満濃池を訪ねた。山々に囲まれた広大な水面は自然の湖のようだが、人が築いた池である。
 
-池の歴史は古く、空海が修築に携わったという伝承でも知られる。決壊と再建、堤のかさ上げを重ね、何世代もの人々がこの風景をつくり直してきた。 [2](#source-2) [4](#source-4)
+池を見下ろす小高い丘に神野寺があり、弘法大師の銅像が立っていた。
+
+弘法大師像は旅先のさまざまな場所で目にする。しかし、ここでは宗教家というよりも、治水技術者の象徴のように見えた。
+
+821年、空海は朝廷から築池別当に任命され、決壊した満濃池の修築にあたった。以来、池は決壊と再建、堤のかさ上げを重ね、何世代もの人々によって維持されてきた。 [2](#source-2) [4](#source-4)
+
+ため池をつくるということは、降った雨をすぐに海へ流さず、水が必要になる季節までとどめておくことでもある。
+
+人々は水の流れる時間を変えた。
+
+そして讃岐では、蓄えた水を田へ流す時間までも、細かく管理するようになった。そのために使われたのが、一本の線香だった。
 
 ## 雨は少なく、川は短い
 
