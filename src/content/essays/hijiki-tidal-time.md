@@ -1,8 +1,8 @@
 ---
 slug: "hijiki-tidal-time"
 part: "食は、土地を語る"
-title: "冬の夜、潮が引くとひじきの畑が現れる"
-subtitle: "周防大島の南・沖家室島。岩場の高さと潮の満ち引きが育てた産地"
+title: "潮が引いたら刈り、潮が満ちたら運ぶ"
+subtitle: "沖家室島――潮の満ち引きを使い分けるひじき漁"
 cities: ["周防大島","沖家室島"]
 keywords: ["ひじき","潮間帯","磯","干満","採集","海藻","沖家室島","藻場","ガストロノミー"]
 heroPhotoId: "photo-hijiki-species"
